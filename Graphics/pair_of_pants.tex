@@ -1,0 +1,117 @@
+\def\BddMin{.2}
+\def\BddMaj{.4}
+\def\HorLen{2}
+\def\PMCVert{1}
+\def\PantsVert{2}
+\def\PantsPlunge{.5}
+\newcommand{\BddSurf}[6][0]{
+% #1 rotation (the optional argument)
+% #2 is the center, e.g., C1 or 0:1
+% #3 is the major semiaxis
+% #4 is the minor semiaxis
+% #5 is the style of the upper half
+% #6 is the style of the lower half
+\draw[#5,rotate=#1] ([shift=(0:{#3} and {#4})]#2) arc (0:180:{#3} and {#4});
+\draw[#6,rotate=#1] ([shift=(180:{#3} and {#4})]#2) arc (180:360:{#3} and {#4});
+%
+}
+
+\begin{tikzpicture}[scale=1.5]
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\coordinate (C1) at (0,0);
+\coordinate (CC) at ($(C1) + (\HorLen,0)$);
+\coordinate (CV) at ($(C1) + (.5*\HorLen,\PMCVert)$);
+
+\coordinate (C2) at ($(CC) + (.5*\HorLen,-\PantsVert)$);
+\coordinate (CP) at ($(CC) + (.5*\HorLen,-\PantsPlunge)$);
+\coordinate (C3) at ($(CC) + (\HorLen,0)$);
+ 
+\BddSurf{C2}{\BddMaj}{\BddMin}{dotted}{}
+\BddSurf{C3}{\BddMaj}{\BddMin}{}{}
+\BddSurf{CC}{\BddMaj}{\BddMin}{}{}
+
+\draw ([shift={(-\BddMaj,0)}]CC) to[out=-90,in=90] ([shift={(-\BddMaj,0)}]C2);
+\draw ([shift={(\BddMaj,0)}]C2) to[out=90,in=-90] ([shift={(\BddMaj,0)}]C3);
+
+\draw ([shift={(\BddMaj,0)}]CC) to[out=-90,in=180] (CP);
+\draw (CP) to[out=0,in=-90] ([shift={(-\BddMaj,0)}]C3);
+
+\draw[thick,red]
+ ([shift=(-40:{\BddMaj} and {\BddMin})]CC) to[out=-85,in=180]
+([shift={(0,.-.25*\PantsPlunge)}]CP) to[out=0,in=-90] ([shift=(-140:{\BddMaj} and {\BddMin})]C3);
+
+\draw ([shift=(245:{\BddMaj} and {\BddMin})]C2) to[out=90,in=-80] ([shift=(240:{\BddMaj} and {\BddMin})]CC);
+
+\node[point,style={fill=white}] at ([shift=(245:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(240:{\BddMaj} and {\BddMin})]CC) {};
+\node[point,style={fill=white}] at ([shift=(-140:{\BddMaj} and {\BddMin})]C3) {};
+\node[point,style={fill=white}] at ([shift=(-40:{\BddMaj} and {\BddMin})]CC) {};
+
+\draw[dashed] ([shift=(110:{\BddMaj} and {\BddMin})]C2) to[out=90, in=-85] ([shift=(90:{\BddMaj} and {\BddMin})]CC);
+
+\draw ([shift=(-60:{\BddMaj} and {\BddMin})]C2) to[out=90, in=-110] ([shift=(-40:{\BddMaj} and {\BddMin})]C3);
+
+\draw[dashed] ([shift=(70:{\BddMaj} and {\BddMin})]C2) to[out=90, in=-90] ([shift=(80:{\BddMaj} and {\BddMin})]C3);
+
+\node[label={[yshift=-.85cm] $\color{red}\mathrm{T}$}] at (CP) {};
+
+
+\node[point,style={fill=white}] at ([shift=(80:{\BddMaj} and {\BddMin})]C3) {};
+\node[point,style={fill=white}] at ([shift=(70:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(-40:{\BddMaj} and {\BddMin})]C3) {};
+\node[point,style={fill=white}] at ([shift=(-60:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(90:{\BddMaj} and {\BddMin})]CC) {};
+\node[point,style={fill=white}] at ([shift=(110:{\BddMaj} and {\BddMin})]C2) {};
+
+\end{tikzpicture}
+\quad\quad
+\begin{tikzpicture}[scale=1.5]
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\coordinate (C1) at (0,0);
+\coordinate (CC) at ($(C1) + (\HorLen,0)$);
+\coordinate (C2) at ($(CC) + (.5*\HorLen,\PantsVert)$);
+\coordinate (CP) at ($(CC) + (.5*\HorLen,\PantsPlunge)$);
+\coordinate (C3) at ($(CC) + (\HorLen,0)$);
+ 
+\BddSurf{C2}{\BddMaj}{\BddMin}{}{}
+\BddSurf{C3}{\BddMaj}{\BddMin}{}{}
+\BddSurf{CC}{\BddMaj}{\BddMin}{}{}
+
+%Contour
+\draw ([shift={(-\BddMaj,0)}]CC) to[out=90,in=-90] ([shift={(-\BddMaj,0)}]C2);
+\draw ([shift={(\BddMaj,0)}]C2) to[out=-90,in=90] ([shift={(\BddMaj,0)}]C3);
+
+\draw ([shift={(\BddMaj,0)}]CC) to[out=90,in=-180] (CP);
+\draw (CP) to[out=0,in=90] ([shift={(-\BddMaj,0)}]C3);
+
+%\draw[thick]([shift=(-40:{\BddMaj} and {\BddMin})]CC) to[out=85,in=-180]([shift={(0,.-.25*\PantsPlunge)}]CP) to[out=0,in=90] ([shift=(-140:{\BddMaj} and {\BddMin})]C3);
+
+% Lines
+
+\draw ([shift=(260:{\BddMaj} and {\BddMin})]C2) to[out=-90,in=90] ([shift=(280:{\BddMaj} and {\BddMin})]CC);
+
+\draw ([shift=(210:{\BddMaj} and {\BddMin})]C2) to[out=-90, in=90] ([shift=(210:{\BddMaj} and {\BddMin})]CC);
+
+\draw ([shift=(-30:{\BddMaj} and {\BddMin})]C2) to[out=-90, in=90] ([shift=(-50:{\BddMaj} and {\BddMin})]C3);
+
+\draw[dashed] ([shift=(90:{\BddMaj} and {\BddMin})]C2) to[out=-90, in=90] ([shift=(140:{\BddMaj} and {\BddMin})]C3);
+
+\node[point,style={fill=white}] at ([shift=(280:{\BddMaj} and {\BddMin})]CC) {};
+\node[point,style={fill=white}] at ([shift=(210:{\BddMaj} and {\BddMin})]CC) {};
+
+\node[point,style={fill=white}] at ([shift=(-30:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(90:{\BddMaj} and {\BddMin})]C2)  {};
+\node[point,style={fill=white}] at ([shift=(140:{\BddMaj} and {\BddMin})]C3) {};
+\node[point,style={fill=white}] at ([shift=(-50:{\BddMaj} and {\BddMin})]C3) {};
+\node[point,style={fill=white}] at ([shift=(210:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(260:{\BddMaj} and {\BddMin})]C2) {};
+
+\draw[red,thick,dashed] ([shift=(120:{\BddMaj} and {\BddMin})]C2) to[out=-90, in=120] (CP);
+\draw[red,thick] ([shift=(-60:{\BddMaj} and {\BddMin})]C2) to[out=-90, in=60] (CP);
+
+\node[point,style={fill=white}] at ([shift=(-60:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(120:{\BddMaj} and {\BddMin})]C2) {};
+
+\node[label={[yshift=-.7cm] $\color{red}\mathrm{T}$}] at (CP) {};
+%\node[label={[yshift=-.7cm] $\scriptstyle \mathrm{T}$}] at (CP) {};
+\end{tikzpicture}

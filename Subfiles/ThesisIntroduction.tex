@@ -17,7 +17,7 @@ with the compact-open topology and natural structures on it. Each loop~$\gamma$ 
 \end{center}
 In this thesis, we consider $\H^{\Sph{1}}\!(\Loop M)$ with coefficients in $\R$ only.
 
-If $M=\Sigma$ is an oriented surface, we consider immersed loops with transverse double points and define the following product and coproduct by Figure~\ref{Fig}.
+If $M=\Sigma$ is an oriented surface, we consider immersed loops with transverse double points and define a bracket and cobracket by Figure~\ref{Fig:ConstrLoop}.
 %\footnote{If one wishes, and is allowed to, one can cut holes inside of the loops and make some non-contractible.}
 \begin{figure}[t]
 \begin{equation*}
@@ -26,7 +26,7 @@ If $M=\Sigma$ is an oriented surface, we consider immersed loops with transverse
 \parbox[c]{2.85cm}{
 \begin{tikzpicture}
 	\def\rad{.8cm}
-	\draw[green,thick,decoration={markings, mark=at position 0.25 with {\arrow{>}}},postaction={decorate}] ([shift=(0:\rad)]0,0) arc (0:360:\rad);  
+	\draw[green,dashed,thick,decoration={markings, mark=at position 0.25 with {\arrow{>}}},postaction={decorate}] ([shift=(0:\rad)]0,0) arc (0:360:\rad);  
 	%\draw[green,thick,dotted] ([shift=(280:\rad)]0,0) arc (280:360:\rad);
 	\draw[red,thick,decoration={markings, mark=at position 0.25 with {\arrow{>}}},postaction={decorate}] (1.5*\rad,0) circle (\rad);
 	\end{tikzpicture}}
@@ -64,7 +64,7 @@ If $M=\Sigma$ is an oriented surface, we consider immersed loops with transverse
 &=\parbox[c]{1.64cm}{
 \begin{tikzpicture}
 \def\rad{.8cm}
-\draw[green,thick,decoration={markings, mark=at position 0.25 with {\arrow{>}}},
+\draw[green,thick,dashed,decoration={markings, mark=at position 0.25 with {\arrow{>}}},
         postaction={decorate}] (0,0) circle (\rad);
 \end{tikzpicture}}\otimes
 \parbox[c]{1.64cm}{
@@ -82,13 +82,13 @@ If $M=\Sigma$ is an oriented surface, we consider immersed loops with transverse
 \parbox[c]{1.64cm}{
 \begin{tikzpicture}
 \def\rad{.8cm}
-\draw[green,thick,decoration={markings, mark=at position 0.25 with {\arrow{>}}},
+\draw[green,dashed,thick,decoration={markings, mark=at position 0.25 with {\arrow{>}}},
         postaction={decorate}] (0,0) circle (\rad);
 \end{tikzpicture}}
 \end{aligned}
 \end{equation*}
+\caption[Bracket and cobracket in equivariant string topology.]{Bracket and cobracket in equivariant string topology. Imagine some genus so that the operations are homotopically non-trivial.}
 \label{Fig:ConstrLoop}
-\caption{Bracket and cobracket in equivariant string topology. Imagine some genus so that the operations are homotopically non-trivial.}
 \end{figure}
 In words:\ToDo[noline,caption={How is it with loop parametrization}]{How is it precisely with the speeds?}
 \begin{description}[leftmargin=*]
@@ -101,7 +101,7 @@ In \cite{Sullivan1999}, it was demonstrated that the construction of~$\StringOp_
 
 The main theorem of \cite{Chas2004} asserts that $\StringOp_2$ and $\StringCoOp_2$ induce the structure of an \emph{involutive bi-Lie algebra} (abbreviated $\IBL$) of degree $2-n$ on the equivariant homology $H^{\Sph{1}}\!(\Loop M,M)$ relative to constant loops $M\xhookrightarrow{}\Loop M$. Modding out constant loops is necessary for $\StringCoOp_2$ to be well defined because of the phenomenon of \emph{``vanishing of small loops''} illustrated in~\cite{Cieliebak2007}:  Let $\sigma\in C_1(\Loop M)$ be a $1$-chain supported at $[0,1]$ which for $t=0$ agrees with the loop in the argument of $\StringCoOp_2$ in \ref{Fig:ConstrLoop}, for $t\in (0,1)$ the left knot $L$ contracts to the mid-point $p$ (thus the name) and for $t=1$ only the right knot $R$ remains. It is then easy to see that 
 $$ 0 \neq \Bdd \StringCoOp_2(\sigma) - \StringCoOp_2(\Bdd \sigma) = p\otimes R - L \otimes p \in C(M)\otimes C(\Loop M) + C(\Loop M)\otimes C(M). $$
-In fact, there might be another problem with the restriction of $\StringOp_2$ to $H^{\Sph{1}}\!(\Loop M,M)$ as constant loops might not form an ideal (this is easy to see for $M=\T^2$). Our current understanding of this issue is that there should be an $\IBL$-structure either on $\H^{\Sph{1}}\!(\Loop M)$, if the Euler characteristics $\chi(M)$ vanishes, or on the homology $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$ relative to one point, if $\chi(M) \neq 0$. However, the extension of $\StringCoOp_2$ requires choices (of a nowhere vanishing vector field, see \cite{Basu2011}), and it is not clear to which extent the $\IBL$-structure depends on it. Some of these problems are (coincidentaly) addressed in the work in progress~\cite{Cieliebak2018}, where Poincar\'e duality on the Rabinowitz-Floer homology of the unit cotangent bundle is introduced and related to the (non-equivariant) string topology. We will write $\RedEquivHom(\Loop M)$ as an avatar for either $\H^{\Sph{1}}\!(\Loop M)$ or $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$.
+In fact, there might be another problem with the restriction of $\StringOp_2$ to $H^{\Sph{1}}\!(\Loop M,M)$ as constant loops might not form an ideal (this is easy to see for $M=\T^2$). Our current understanding of this issue is that there should be an $\IBL$-structure either on $\H^{\Sph{1}}\!(\Loop M)$, if the Euler characteristics $\chi(M)$ vanishes, or on the homology $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$ relative to one point, if $\chi(M) \neq 0$. However, the extension of $\StringCoOp_2$ requires choices (of a nowhere vanishing vector field, see \cite{Basu2011}), and it is not clear to which extent the $\IBL$-structure depends on it. Some of these problems are (coincidentaly) addressed in the work in progress~\cite{Cieliebak2018}, where Poincar\'e duality on the Rabinowitz-Floer homology of the unit cotangent bundle is introduced and related to the (non-equivariant) string topology. We will use $\RedEquivHom(\Loop M)$ as an avatar for either $\H^{\Sph{1}}\!(\Loop M)$ or $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$.
 
 It is expected that the $\IBL$-structure on $\RedEquivHom(\Loop M)$ is induced from a much richer (and in some context natural) algebraic structure on the chain level whose homotopy type is an invariant of $M$. In fact, there is the notion of a \emph{strong homotopy involutive bi-Lie algebra} (abbreviated $\IBLInfty$) which was developed in~\cite{Cieliebak2015}. It consists of operations $(\OPQ_{klg})$ for $k$, $l \ge 1$ and $g\ge 0$, where $\OPQ_{110}$ is a boundary operator, $\OPQ_{210}$ a bracket and $\OPQ_{120}$ a cobracket, which satisfy the $\IBL$-relations up to a coherent system of higher homotopies~$(\OPQ_{klg})$. Consider the string space 
 $$ \StringSpace M \coloneqq (\EG\Sph{1}\times \Loop M)/\Sph{1} $$
@@ -141,7 +141,7 @@ where $(\BCyc_k \DR)^{d*}$ denotes the linear dual to the degree $d$ component o
 $$I^*: (C(\StringSpace M),\Bdd) \rightarrow (\CDBCyc\DR,\Hd^*) $$
 (in fact, $ \CDBCyc \DR$ is the graded dual of $\BCyc \DR$).
 
-We introduce the following \emph{physical interpretation.} The following discussion is imprecise!
+We introduce the following \emph{physical interpretation.} Beware, the discussion is imprecise!
 %and reflects the author's wild imagination in the night before submitting the thesis. For more serious mathematics, please, see the rest 250+ pages.
 We think of
 \begin{itemize}
@@ -153,23 +153,39 @@ where $\R((\hbar))$ is the ring of Laurent series in Planck's constant $\hbar$, 
 \end{itemize}
 If $\sigma:\Sph{1}\rightarrow M$ is a string, the observable $I^*(\sigma)$ ``localizes'' on field strings which approximate $\sigma$; for instance, it holds $I^*(\omega) = \int_{\sigma} \omega$, and so $I^*(\omega)$ ``localizes'' at fundamental forms of $\sigma(\Sph{1})$. We imagine that we decorate $\sigma$ with a field string $\omega_1 \dotsc \omega_k$ as in Figure~\ref{Fig:GeomStr} and get a number $I(\sigma)(\omega_1\dotsc\omega_k)$. The isomorphism \eqref{Eq:IsomKai} guarantees that the observable~$I(\sigma)$ determines $\sigma$ up to a boundary.
 \begin{figure}[t]
-\centering
- \includegraphics[trim=1.2cm 24cm 14cm .3cm]{\GraphicsFolder/kruh.pdf}
- \label{Fig:GeomStr}
+ \centering
+ \def\rad{2}
+ \def\len{.4}
+ \def\smalllen{.1}
+ \def\num{6} 
+ \begin{tikzpicture}
+ \tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+   \coordinate (C) at (0,0);
+   \draw([shift=(0:\rad)]C) arc (0:360:\rad);
+   \foreach \x in {1,...,\num} {
+   	\node at ([shift=(\x*360/\num-360/\num:\rad+\len)]C) {$\omega_\x$};
+   	%\draw ([shift=(\x*360/\num:\rad-\smalllen)]C) -- ([shift=(\x*360/\num:\rad+\smalllen)]C);
+   	\node[point,style={fill=white}] at ([shift=(\x*360/\num-360/\num:\rad)]C) {};
+    }
+ \end{tikzpicture}
+ %\includegraphics[trim=1.2cm 24cm 14cm .3cm]{\GraphicsFolder/kruh.pdf}
  \caption{Inserting fields on strings.}
+ \label{Fig:GeomStr}
 \end{figure}
 We will be dealing with \emph{two ``dynamical'' theories:} one is the theory of fields $\omega\in \DR$ and one of field strings $\omega_1 \dotsb \omega_k \in \BCyc \DR$.
 
-The field theory is at hand. We know that $(\DR,\Dd,\wedge,\langle\cdot,\cdot\rangle)$, where $\langle\omega_1,\omega_2\rangle = \int_M \omega_1 \wedge \omega_2$ for $\omega_1$, $\omega_2\in \DR$, is a \emph{symmetric dg-Frobenius algebra}. It is well-known that finite-dimensional Frobenius algebras $V$ are equivalent to $2$-dimensional topological quantum field theories (TQFT). Finite-dimensionality is a sufficient (and necessary) condition so that the trivial cylinder corresponding to the identity satisfies $\Id = \sum \langle \cdot,e^i\rangle e_i$. For now, we will ignore this issue and imagine $\DR$ under $V$, although we will soon transfer to $\HDR$, where everything works just fine.
+The field theory is at hand. We know that $(\DR,\Dd,\wedge,\langle\cdot,\cdot\rangle)$, where $\langle\omega_1,\omega_2\rangle = \int_M \omega_1 \wedge \omega_2$ for $\omega_1$, $\omega_2\in \DR$, is a \emph{symmetric dg-Frobenius algebra}. It is well-known that finite-dimensional Frobenius algebras $V$ are equivalent to $2$-dimensional topological quantum field theories (TQFT). Finite-dimensionality is a sufficient (and necessary) condition so that the trivial cylinder corresponding to the identity satisfies $\Id = \sum \langle \cdot,e^i\rangle e_i$. For now, we will ignore this issue and imagine $V=\DR$, although we will soon transfer to $\HDR$, where everything works just fine.
 %One can also take the non-degenerate quotient of the small subalgebra of $\DR$ with respect to the canonical Hodge decomposition associated to a Riemannian metric on $M$. We denote it by $\VansQuotient(\VansSmall(\DR))$ and define in Chapter~\ref{Chap:5}. If our conjectures are correct, the results of our construction should be homotopy equivalent.
-We will represent interactions of fields via Feynman graphs drawn on surfaces; i.e., the trivial cylinder for fields, i.e., the free propagation, will be a line and the pair of pants, i.e., the interaction via the intersection $\wedge$, will be a point with $3$ segments emanating from it (we mod out cyclic symmetry).
+We will represent interactions of fields via Feynman graphs drawn on surfaces --- the trivial cylinder for fields, i.e., the free propagation, will be a line and the pair of pants, i.e., the interaction via the intersection $\wedge$, will be a point with $3$ segments emanating from it (we do not distinguish input and outputs by cyclic symmetry).
 
 Let us now consider field strings. Figure \ref{Fig:OpCoOpDiag} defines the operations $$ \OPQ_{210}: \hat{\Ext}_2 \DBCyc V \rightarrow \hat{\Ext}_1\DBCyc V \quad\text{and}\quad \OPQ_{120}: \hat{\Ext}_1\DBCyc V \rightarrow \hat{\Ext}_2\DBCyc V, $$
 where $\Ext(\DBCyc V)$ is the exterior algebra canonically isomorphic to $\Sym(\DBCyc V [1])$. We read the diagram from the top to the bottom but imagine fields $\omega$ being fed into $\psi$'s from the bottom to the top. We think of these digrams as of \emph{string interaction diagrams} for strings freely moving in a topological space $M$, connecting and disconnecting.
-\begin{figure}[t]\label{Fig:OpCoOpDiag}
+\begin{figure}[t]
 \centering
- \includegraphics[trim=2cm 24cm 10cm .3cm]{\GraphicsFolder/op.pdf}
- \caption{Operations $\OPQ_{210}$ and $\OPQ_{120}$.}
+ %\includegraphics[trim=2cm 24cm 10cm .3cm]{\GraphicsFolder/op.pdf}
+ \input{\GraphicsFolder/pair_of_pants.tex}
+ \caption[Operations $\OPQ_{210}$ and $\OPQ_{120}$.]{Operations $\OPQ_{210}$ and $\OPQ_{120}$. Fields propagate from the bottom to the top and an additional dualization, equivalently contraction with the identity propagator, is required when two outputs are connected; hence the red color.}
+ \label{Fig:OpCoOpDiag}
 \end{figure}
 %$I^*(\sigma)$ localizes which 
 %The output string will be localized at any field string which arose by propagating the focalized string fields along the diagram. I.e. on those which are obtained by propagating those on which the input strings are non-zero along the diagram.
@@ -177,7 +193,7 @@ where $\Ext(\DBCyc V)$ is the exterior algebra canonically isomorphic to $\Sym(\
 %From the point of view of the TQFT, these propagators are trivial cylinders, and hence nothing is happening. 
 This suggests that $\OPQ_{210}$ and $\OPQ_{120}$ are related to $\StringOp_2$ and $\StringCoOp_2$, respectively. Formulas for~$\OPQ_{210}$ and~$\OPQ_{120}$ for a finite dimensional symmetric dg-Frobenius algebra $V$ were written down in \cite{Cieliebak2015} and it was proven that they indeed constitute an $\IBL$-algebra on~$\DBCyc V$ (note that this is not a TQFT!). \ToDo[noline,caption={Which degree shift}]{Need to sort out which degree shift for bislgebra one needs! How is it with $2-n$.}As for the formulas, one simply decorates the world-lines of fields with the identity propagator $T = \sum_i e^i \otimes e_i$ and evaluates. As a mathematical remark, we will show that $\OPQ_{210}$ is obtained from the Gerstenhaber bracket on Hochschild cochains via cyclization by $\langle\cdot,\cdot\rangle$ and that $\OPQ_{120}$  is a factorization of an extension of the canonical Schwarz's $\BV$-operator on $\Fun(V[1])$ (odd degree shift of a finite-dimensional symmetric dg-Frobenius algebra is an odd symplectic vector space) to cyclic invariants with respect to the cyclic shuffle product.
 
-Since $\DBCyc V [1]$ is naturally not an odd symplectic vector space, there is no Schwarz's $\BV$-operator on $\Fun(\DBCyc V [1])$. However, the following canonical operator
+Since $\DBCyc V [1]$ is not naturally an odd symplectic vector space, there is no Schwarz's $\BV$-operator on $\Fun(\DBCyc V [1])$. However, the following canonical operator
 $$ \BVOp_{\mathrm{s}} \coloneqq  \hat{\OPQ}_{120} + \hbar \hat{\OPQ}_{210}: \Fun(\DBCyc V [1]) \rightarrow \Fun(\DBCyc V [1]), $$
 where $\hat{\cdot}$ denote canonical extension to (co)derivatives, is a $\BV$-operator with respect to the function multiplication; we call it the \emph{string $\BV$-operator.} Recall that in physics, a $\BV$-operator $\BVOp$ on $\Fun(U)$, where $U$ is the space of fields,  is related to the measure in the path integral $\int_U \mu$. An action $S\in \Fun(U)$ satisfying the \emph{quantum master equation} (QME)
 $$ \BVOp S + \frac{1}{2}\{S,S\} = 0 $$
@@ -187,11 +203,109 @@ $$
 Note that $S_{\mathrm{free}}$ and $S_{\mathrm{int}}$ are linear functions on $\BCyc V[1]$ which vanish everywhere but field strings of lengths $2$ and $3$, respectively. It turns out that $S_{\mathrm{free}}$ and $S\coloneqq S_{\mathrm{free}} + S_{\mathrm{int}}$ satisfy the QME for $\BVOp_{s}$. The twisted $\BV$-operators look like
 $$ \BVOp^{S_{\mathrm{free}}}_{s} = \hat{\OPQ}_{110} + \BVOp_{\mathrm{s}} \quad \text{and}\quad \BVOp^{S}_{s} = \hat{\OPQ}_{110} + \reallywidehat{\OPQ_{210}(S_{\mathrm{int}},\cdot)} + \BVOp_{\mathrm{s}}. $$
 Figure~\ref{Fig:NewTerm} depicts the new terms $\OPQ_{110}$ and $\OPQ_{210}(S_{\mathrm{int}},\cdot)$ in $\BVOp^\Action_s$.
-\begin{figure}
+\begin{figure}[t]
  \centering
- \includegraphics[trim=1cm 24.5cm 12.6cm .4cm]{\GraphicsFolder/diff.pdf}
- \label{Fig:NewTerm}
+ \def\caphght{.6}
+\def\BddMin{.2}
+\def\BddMaj{.4}
+\def\HorLen{2}
+\def\PMCVert{1}
+\def\PantsVert{2}
+\def\PantsPlunge{.5}
+\newcommand{\BddSurf}[6][0]{
+% #1 rotation (the optional argument)
+% #2 is the center, e.g., C1 or 0:1
+% #3 is the major semiaxis
+% #4 is the minor semiaxis
+% #5 is the style of the upper half
+% #6 is the style of the lower half
+\draw[#5,rotate=#1] ([shift=(0:{#3} and {#4})]#2) arc (0:180:{#3} and {#4});
+\draw[#6,rotate=#1] ([shift=(180:{#3} and {#4})]#2) arc (180:360:{#3} and {#4});
+%
+}
+\vcenterline{
+\begin{tikzpicture}[scale=1.5]
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\node at (0,.9) {};
+\coordinate (CT) at (0,0);
+\coordinate (CB) at (0,-\PantsVert);
+\draw ([shift={(-\BddMaj,0)}]CB) -- ([shift={(-\BddMaj,0)}]CT);
+\draw ([shift={(\BddMaj,0)}]CB) -- ([shift={(\BddMaj,0)}]CT);
+\BddSurf{CB}{\BddMaj}{\BddMin}{dotted}{}
+\BddSurf{CT}{\BddMaj}{\BddMin}{}{}
+\node[point,style={fill=white}] (NT1) at ([shift=(-40:{\BddMaj} and {\BddMin})]CT) {};
+\node[point,style={fill=white}] (NT2) at ([shift=(-100:{\BddMaj} and {\BddMin})]CT) {};
+\node[point,style={fill=white}] (NT3) at ([shift=(140:{\BddMaj} and {\BddMin})]CT) {};
+\node[point,style={fill=white}] (NT4) at ([shift=(70:{\BddMaj} and {\BddMin})]CT) {};
+\node[point,style={fill=white}] (NB1) at ([shift=(-40:{\BddMaj} and {\BddMin})]CB) {};
+\node[point,style={fill=white}] (NB2) at ([shift=(-100:{\BddMaj} and {\BddMin})]CB) {};
+\node[point,style={fill=white}] (NB3) at ([shift=(140:{\BddMaj} and {\BddMin})]CB) {};
+\node[point,style={fill=white}] (NB4) at ([shift=(70:{\BddMaj} and {\BddMin})]CB) {};
+\draw (NT1) -- (NB1);
+\draw (NT2) -- (NB2);
+\draw[dashed] (NT3) -- (NB3);
+\draw[dashed] (NT4) -- (NB4);
+\node[fill=white] at ($.5*(NT2)+.5*(NB2)$) {$\color{green}\Dd$};
+\end{tikzpicture}}
+\qquad + \qquad\vcenterline{
+\begin{tikzpicture}[scale=1.5]
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\coordinate (C1) at (0,0); % left most
+\coordinate (CC) at ($(C1) + (\HorLen,0)$); % the connection
+\coordinate (CV) at ($(C1) + (.5*\HorLen,\PMCVert)$); % the vertical one
+
+\coordinate (C2) at ($(CC) + (.5*\HorLen,-\PantsVert)$); % the right bottom one
+\coordinate (CP) at ($(CC) + (.5*\HorLen,-\PantsPlunge)$); % the middle of propagator
+\coordinate (C3) at ($(CC) + (\HorLen,0)$); % the right one
+
+\coordinate (CT) at ($(CC) + (0,\caphght)$);
+\draw ($(CC) + (-\BddMaj,0)$) to[out=90,in=180] (CT);
+\draw (CT) to[out=0,in=90] ($(CC)+(\BddMaj,0)$);
+
+\BddSurf{C2}{\BddMaj}{\BddMin}{dotted}{}
+\BddSurf{C3}{\BddMaj}{\BddMin}{}{}
+\BddSurf{CC}{\BddMaj}{\BddMin}{dotted}{dotted}
+
+\draw ([shift={(-\BddMaj,0)}]CC) to[out=-90,in=90] ([shift={(-\BddMaj,0)}]C2);
+\draw ([shift={(\BddMaj,0)}]C2) to[out=90,in=-90] ([shift={(\BddMaj,0)}]C3);
+
+\draw ([shift={(\BddMaj,0)}]CC) to[out=-90,in=180] (CP);
+\draw (CP) to[out=0,in=-90] ([shift={(-\BddMaj,0)}]C3);
+
+\draw[thick,red] (CT) to[out=-50,in=90] ([shift=(-40:{\BddMaj} and {\BddMin})]CC) to[out=-85,in=180] ([shift={(0,.-.25*\PantsPlunge)}]CP) to[out=0,in=-90] ([shift=(-140:{\BddMaj} and {\BddMin})]C3);
+% The identity line
+
+%START: Inputs from C2
+\draw ([shift=(245:{\BddMaj} and {\BddMin})]C2) to[out=90,in=-80] ([shift=(240:{\BddMaj} and {\BddMin})]CC) to[out=90,in=-120] (CT);
+
+\draw[dashed] ([shift=(110:{\BddMaj} and {\BddMin})]C2) to[out=90, in=-85] ([shift=(90:{\BddMaj} and {\BddMin})]CC) to[out=90,in=-90] (CT);
+
+
+\draw ([shift=(-60:{\BddMaj} and {\BddMin})]C2) to[out=90, in=-110] ([shift=(-40:{\BddMaj} and {\BddMin})]C3);
+
+\draw[dashed] ([shift=(70:{\BddMaj} and {\BddMin})]C2) to[out=90, in=-90] ([shift=(80:{\BddMaj} and {\BddMin})]C3);
+%END: Inputs from C2
+
+
+%\node[label={[yshift=.1cm] $\psi$}] at (C3) {};
+\node[label={[yshift=-.8cm] $\color{red}\mathrm{T}$}] at (CP) {};
+
+\node[point,style={fill=white}] at ([shift=(80:{\BddMaj} and {\BddMin})]C3) {};
+
+\node[point,style={fill=white}] at ([shift=(-40:{\BddMaj} and {\BddMin})]C3) {};
+
+\node[point,style={fill=white}] at ([shift=(-140:{\BddMaj} and {\BddMin})]C3) {};
+\node[point,style={fill=white}] at ([shift=(245:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(110:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(-60:{\BddMaj} and {\BddMin})]C2) {};
+\node[point,style={fill=white}] at ([shift=(70:{\BddMaj} and {\BddMin})]C2) {};
+
+\node[point,label={[above]$\color{green}\wedge$}] at (CT) {};
+
+\end{tikzpicture}}
+ %\includegraphics[trim=1cm 24.5cm 12.6cm .4cm]{\GraphicsFolder/diff.pdf}
  \caption{Adding $\Dd$ and $\wedge$ via $\Action$.}
+ \label{Fig:NewTerm}
 \end{figure}
 The corresponding $\dIBL$-algebra reads
 $$ \Bigl(\DBCyc V,\OPQ_{110}^\MC\coloneqq \OPQ_{110} + \OPQ_{210}(S_{\mathrm{int}},\cdot),\OPQ_{210},\OPQ_{120}\Bigr), $$
@@ -212,17 +326,16 @@ with $\HTP_{110} = \iota^*$ for $\iota: \HDR\simeq \Harm \xhookrightarrow{} \DR$
 \centering
 $$\underbrace{\vcenterline{\begin{tikzpicture}[scale=1,
 every label/.append style={font=\scriptsize},
-point/.style={circle,fill=blue!40, inner sep=2pt},
-root/.style={circle,fill=red!40, inner sep=2pt},
-leaf/.style={circle,fill=green!40!black, inner sep=2pt}
+point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt},
+leaf/.style = {draw, circle, fill=white, minimum size=2pt,inner sep=0pt},
 ]
 \def\vertdist{.8}
 \def\hordist{.6}
-\node[root] (R) at (0,0) {};
-\node[point, label={[right,yshift=-1mm] $\wedge$}] (RU) at ($(R) + (0,\vertdist)$) {};
-\node[point, label={[right] $\wedge$}] (RUL) at ($(RU) + (-2*\hordist,\vertdist)$) {};
-\node[point, label={[right] $\wedge$}] (RUR) at ($(RU) + (2*\hordist,\vertdist)$) {};
-\node[point, label={[right] $\wedge$}] (RULL) at ($(RUL) + (-1*\hordist,1*\vertdist)$) {};
+\node[leaf] (R) at (0,0) {};
+\node[point, label={[right,yshift=-1mm] $\color{green}\wedge$}] (RU) at ($(R) + (0,\vertdist)$) {};
+\node[point, label={[right] $\color{green}\wedge$}] (RUL) at ($(RU) + (-2*\hordist,\vertdist)$) {};
+\node[point, label={[right] $\color{green}\wedge$}] (RUR) at ($(RU) + (2*\hordist,\vertdist)$) {};
+\node[point, label={[right] $\color{green}\wedge$}] (RULL) at ($(RUL) + (-1*\hordist,1*\vertdist)$) {};
 \coordinate (RULR) at ($(RUL) + (\hordist,\vertdist)$);
 \coordinate (RURR) at ($(RUR) + (\hordist,\vertdist)$);
 \node[leaf, label={[right] $h_1$}] (RULLL) at ($(RULL) + (-1*\hordist,1*\vertdist)$){};
@@ -232,13 +345,13 @@ leaf/.style={circle,fill=green!40!black, inner sep=2pt}
 \node[] (RURRL) at ($(RURR) + (-1*\hordist,1*\vertdist)$) {\ \,\dots};
 \node (RURL) at ($(RUR) + (-\hordist,\vertdist)$) {\dots};
 \draw (R) edge (RU); 
-\draw[thick] (RU) -- (RUL) node[below,midway,shift={(-1.5mm,1mm)}] {$\Htp$}; 
-\draw[thick] (RUL) -- (RULL) node[below,midway,shift={(-2mm,2mm)}] {$\Htp$}; 
+\draw[thick,blue] (RU) -- (RUL) node[below,midway,shift={(-2mm,1mm)}] {$\Htp$}; 
+\draw[thick,blue] (RUL) -- (RULL) node[below,midway,shift={(-2mm,1.5mm)}] {$\Htp$}; 
 \draw (RULL) edge (RULLL);
 \draw (RULL) edge (RULLR);
 \draw (RUL) edge (RULRR);
-\draw[thick] (RU) -- (RUR) node[below,midway,shift={(2mm,2mm)}] {$\Htp$};
-\draw[thick] (RUR) edge (RURL);
+\draw[thick,blue] (RU) -- (RUR) node[below,midway,shift={(2mm,1mm)}] {$\Htp$};
+\draw[thick,blue] (RUR) edge (RURL);
 \draw (RUR) edge (RURRR);
 \end{tikzpicture}}}_{\begin{multlined} \wedge \circ (\Htp \otimes \Htp)\circ (\wedge \otimes \wedge)\circ (\Htp \otimes \Id \otimes \dotsb  \otimes \Id)\\
  \circ (\wedge \otimes \Id \otimes \dotsb \otimes \Id)(h_1, h_2, h_3, \dots, h_k).
@@ -246,7 +359,7 @@ leaf/.style={circle,fill=green!40!black, inner sep=2pt}
 \caption{Kontsevich-Soibelman evaluation of a decorated tree.}
 \label{Fig:KSTree}
 \end{figure}
-Note that in order to evaluate trees, we do not need the Schwartz kernel $\Prpg$ (and hence any pairing). The homotopy $\Htp$ is enough because the graph is directed and we can distinguish inputs and outputs. On the other hand, evaluation of the $1$-loop Feynman graph in Figure~\ref{Fig:OneLoopDiag} contributing to $\OPQ_{120}^\PMC$ requires $\Prpg$. 
+Note that in order to evaluate trees, we do not need the Schwartz kernel $\Prpg$ and hence any pairing. The homotopy $\Htp$ is enough because the graph is directed and we can distinguish inputs and outputs. On the other hand, evaluation of the $1$-loop Feynman graph in Figure~\ref{Fig:OneLoopDiag} contributing to $\OPQ_{120}^\PMC$, for instance, requires $\Prpg$, and hence $\langle\cdot,\cdot\rangle$. From Sullivan's minimal model theory it is well-known that the homotopy type of the homotopy transfered $\AInfty$-structure $(\HDR,(m_k))$ is a topological invariant which encodes the rational homotopy theory of a simply-connected manifold $M$. Our construction can be seen as being associated to the Poincar\'e $\DGA$ $(\DR,\Dd,\wedge, \langle\cdot,\cdot\rangle)$, i.e, a $\DGA$ whose homology is a Poincar\'e duality algebra. It is not clear to the author what kind of invariant is the weak homotopy type of the Poincar\'e $\DGA$ and what kind of invariant is the homotopy type of the twisted $\IBLInfty$-algebra on $\CDBCyc \HDR$. However, if $M$ is formal in the sense of $\DGA$'s, then $M$ is formal in the sense of Poincar\'e $\DGA$'s, and we conjecture that it is formal also in the sense of $\IBLInfty$-algebras; i.e., the twisted $\IBLInfty$-algebra on $\CDBCyc \HDR$ is homotopy equivalent to the canonical $\IBL$-algebra.
 \begin{figure}[t]
 \centering
 \def\BddMin{.2}
@@ -294,10 +407,10 @@ Note that in order to evaluate trees, we do not need the Schwartz kernel $\Prpg$
 % Upper contour
 
 
-\BddSurf[90]{CV}{\BddMaj}{\BddMin}{dashed,thick}{thick}
+\BddSurf[90]{CV}{\BddMaj}{\BddMin}{dashed,thick,blue}{thick,blue}
 % The joint
 
-\draw[thick] ([shift=(45:{\BddMin} and {\BddMaj})]CV) to[out=0,in=95] ([shift=(-40:{\BddMaj} and {\BddMin})]CC) to[out=-85,in=180] ([shift={(0,.-.25*\PantsPlunge)}]CP) to[out=0,in=-90] ([shift=(-140:{\BddMaj} and {\BddMin})]C3);
+\draw[red,thick] ([shift=(45:{\BddMin} and {\BddMaj})]CV) to[out=0,in=95] ([shift=(-40:{\BddMaj} and {\BddMin})]CC) to[out=-85,in=180] ([shift={(0,.-.25*\PantsPlunge)}]CP) to[out=0,in=-90] ([shift=(-140:{\BddMaj} and {\BddMin})]C3);
 % The identity line
 
 
@@ -319,7 +432,7 @@ Note that in order to evaluate trees, we do not need the Schwartz kernel $\Prpg$
 \draw[dashed] ([shift=(70:{\BddMaj} and {\BddMin})]C2) to[out=90, in=-90] ([shift=(80:{\BddMaj} and {\BddMin})]C3);
 %END: Inputs from C2
 
-\node[point] at ([shift=(-140:{\BddMaj} and {\BddMin})]C3) {};
+\node[point,style={fill=white}] at ([shift=(-140:{\BddMaj} and {\BddMin})]C3) {};
 \node[point] at ([shift=(190:{\BddMin} and {\BddMaj})]CV) {};
 
 \node[point] at ([shift=(45:{\BddMin} and {\BddMaj})]CV) {};
@@ -328,10 +441,10 @@ Note that in order to evaluate trees, we do not need the Schwartz kernel $\Prpg$
 \node[point] at ([shift=(-20:{\BddMin} and {\BddMaj})]CV) {};
 \node[point] at ([shift=(145:{\BddMin} and {\BddMaj})]CV) {};
 
-\node[label={[yshift=.1cm] $\psi$}] at (C3) {};
+\node[label={[yshift=.2cm] $\psi$}] at (C3) {};
 %\node[label={[yshift=-.9cm] $\omega_1$}] at (C1) {};
 %\node[label={[yshift=-.9cm] $\omega_2$}] at (C2) {};
-\node[label={[yshift=-.7cm] $\scriptstyle \mathrm{T}$}] at (CP) {};
+\node[label={[yshift=-.8cm] $\color{red}\mathrm{T}$}] at (CP) {};
 \node at ([shift={(0,-\BddMin)}]CV) {};
 
 % External labels at the first boundary component
@@ -347,13 +460,13 @@ Note that in order to evaluate trees, we do not need the Schwartz kernel $\Prpg$
 
 
 % Internal labels of vertices
-\node[label={[above,yshift=-.01cm] $\scriptstyle x_1$}] at ([shift=(145:{\BddMin} and {\BddMaj})]CV) {};
+\node[label={[above,yshift=.03cm] $\scriptstyle x_1$}] at ([shift=(145:{\BddMin} and {\BddMaj})]CV) {};
 \node[label={[above,yshift=-.05cm,xshift=.1cm] $\scriptstyle x_2$}] at ([shift=(45:{\BddMin} and {\BddMaj})]CV) {};
-\node[label={[right,xshift=-.07cm,yshift=-.18cm] $\scriptstyle x_3$}] at ([shift=(20:{\BddMin} and {\BddMaj})]CV) {};
-\node[label={[right,yshift=-.2cm,xshift=-.1cm] $\scriptstyle x_4$}] at ([shift=(-20:{\BddMin} and {\BddMaj})]CV) {};
-\node[label={[below,yshift=-.22cm] $\scriptstyle x_5$}] at ([shift=(-50:{\BddMin} and {\BddMaj})]CV) {};
-\node[label={[left,yshift=-.2cm,xshift=.1cm] $\scriptstyle x_6$}] at ([shift=(190:{\BddMin} and {\BddMaj})]CV) {};
-\node[font=\footnotesize] (ZZ) at ([shift={(0,-5ex)}]CV) {$\Prpg$};
+\node[label={[right,xshift=-.04cm,yshift=-.18cm] $\scriptstyle x_3$}] at ([shift=(20:{\BddMin} and {\BddMaj})]CV) {};
+\node[label={[right,yshift=-.25cm,xshift=-.05cm] $\scriptstyle x_4$}] at ([shift=(-20:{\BddMin} and {\BddMaj})]CV) {};
+\node[label={[below,yshift=-.27cm] $\scriptstyle x_5$}] at ([shift=(-50:{\BddMin} and {\BddMaj})]CV) {};
+\node[label={[left,yshift=-.24cm,xshift=.05cm] $\scriptstyle x_6$}] at ([shift=(190:{\BddMin} and {\BddMaj})]CV) {};
+\node[font=\footnotesize] (ZZ) at ([shift={(0,-4.5ex)}]CV) {$\color{blue}\Prpg$};
 \end{tikzpicture}
 $$\begin{aligned}
 =&\sum_{a,b}\sum_{c=1}^4 \pm  \mathrm{T}^{ab} \psi(e_a  h_{2,c+2}  h_{2,c+3})  \Bigl(\int_{x_1 x_2 x_3 x_4 x_5 x_6} \Prpg(x_1,x_2)\Prpg(x_2,x_3)\Prpg(x_3,x_4)\\
@@ -365,14 +478,15 @@ $$
 \label{Fig:OneLoopDiag}
 \end{figure}
 
+Finally, note that from the theory of Koszul (pr)operads it is well-known that $\IBL$ is Koszul dual to $\Frob$, i.e., $\IBL^! = \Frob$ and $\Frob^! = \IBL$, where $\Frob$ is the properad of Frobenius bialgebras.
+%(the coproduct is obtained from the product by dualization).
+Therefore, it holds $\IBLInfty = \Omega(\Frob^*)$, where $\Omega$ denotes the cobar construction and ${}^*$ the linear dual coproperad; this precisely reflects our situation of having a Frobenius structure on $\HDR$ (the coproduct is obtained from the product via dualization) and $\IBLInfty$-structure on $\CDBCyc \HDR = \reallywidehat{\BCyc\HDR^*}$, where $\hat{\cdot}$ denotes a suitable completion, since $\BCyc$ is a cyclic version of the cobar construction.
 
-Finally, note that from the theory of Koszul (pr)operads it is well-known that $\IBL$ is Koszul dual to $\Frob$, i.e., $\IBL^! = \Frob$ and $\Frob^! = \IBL$ (the coproduct is obtained from the product by dualization). Therefore, it holds $\IBLInfty = \Omega(\Frob^*)$, where $\Omega$ denotes the cobar construction and ${}^*$ is the linear dual; this precisely reflects our situation of having a Frobenius structure on $\HDR$ and $\IBLInfty$-structure on $\CDBCyc \HDR = \reallywidehat{\BCyc\HDR^*}$, since $\BCyc$ is a cyclic version of cobar construction.
+\section{Relevant work of others}
 
-\section{Other relevant work}
+In \cite{Cohen2001}, there is a homotopy theoretical realization of string topology operations $\StringOp_2$ and $\StringCoOp_2$. This is another approach to their rigorous definition.
 
-In \cite{Cohen2001}, there is a homotopy theoretical realization of string topology operations.
-
-In \cite{Cieliebak2007}, they sketch a proof that symplectic field theory of the unit cotangent bundle and equivariant string topology are $\IBLInfty$-quasi isomorphic via a map induced by evaluations at boundaries of the holomorphic curves. The string operations then correspond to codimension $1$ boundary structue of the moduli spaces. In fact, precise formulation of this correspondence was perhaps the main reason for the authors to develop the $\IBLInfty$-chain model of string topology.
+In \cite{Cieliebak2007}, they sketch a proof that symplectic field theory of the unit cotangent bundle of $M$ and equivariant string topology of $M$ are $\IBLInfty$-quasi-isomorphic via a map induced from evaluations at boundaries of holomorphic curves. String topology operations then arise naturally from the codimension $1$ boundary structure of the moduli space of holomorphic curves with certain boundary conditions. In fact, a precise formulation of this correspondence was perhaps the main reason for Cieliebak \& Latschev to think about the $\IBLInfty$-chain model of string topology.\ToDo[caption={Precise formulation of SFT},noline]{How is it precisely, what kind of boundary conditions and punctures?}
 
 An $\IBLInfty$-structure on the singular equivariant chain complex was proposed by \cite{Sullivan2005}. It is constructed using ``diffusion intersection product'' which realizes the intersection on the chain level. In fact, there is much more string operations coming from stacks of Sullivan diagrams than just the bracket and cobracket.
 
@@ -380,7 +494,7 @@ There is a recent construction of chain level non-equivariant string topology on
 
 There is an algebraic chain model for non-equivariant string topology in \cite{Chen2012}. An algebraic chain model is also constructed in \cite{Irie2014}. 
 
-K.~Fukaya in his work on Lagrangian submanifolds uses chain level string topology.
+Chain level string topology is required, e.g., in Fukaya's work on Lagrangian submanifolds.\ToDo[caption={What paper?},noline]{In what paper is this?}
 
 %(modulo problems with modding out constant loops and with degree shifts) In fact, there is a richer structure 
 %They defined the loop product $\LoopPr$ and the unary operator $\BVOp$ on~$\H(\Loop M)$.  In fact, $\StringOp_2$ and $\StringCoOp_2$ descend from $\LoopPr$ and $\LoopCoPr$, respectively, using the maps $\Mark$, $\Erase$ maps. The following phenomenons occur for a general $n$ and families of loops:
@@ -396,11 +510,11 @@ K.~Fukaya in his work on Lagrangian submanifolds uses chain level string topolog
 %
 %\end{Proposition}
 
-\section{Summary of results}
+\section{Summary of my results}
 
 \begin{enumerate}[label=\arabic*)]
 
-\item A large part of the work was about setting up a formalism and deducing signs for the definition of the formal-pushforward Maurer-Cartan element, aka Chern-Simons Maurer-Cartan element, and the $\IBLInfty$-chain model. Another large part was about understanding what is happening and discovering and formulating the structure and possible claims.
+\item The biggest part of the work was about setting up a formalism and deducing signs for a definition of the formal-pushforward Maurer-Cartan element, aka Chern-Simons Maurer-Cartan element, and the $\IBLInfty$-chain model in de Rham setting. Another big part was about understanding what is happening and discovering and formulating the structure and possible claims.
 
 \item We compute the $\IBLInfty$-chain model for $\Sph{n}$ with $n\neq 2$ by finding an explicit Hodge propagator and computing Feynman integrals. In fact, for $n\ge 3$, all integrals which are relevant for the $\IBLInfty$-theory vanish.
  
