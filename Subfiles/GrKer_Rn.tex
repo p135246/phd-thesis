@@ -1,0 +1,177 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\begin{document}
+\section{Standard Hodge propagator for Euclidean space}\label{Sec:HeatRN}
+We will use Propositions~\ref{Prop:StdCodifInt} and~\ref{Prop:HeatKerFormulas} to prove in two ways that $\StdPrpg$ for $\R^n$ extends smoothly to the blow-up. We will start with the following well known formulas.
+\begin{Proposition}[Green form and heat kernel for $\R^n$]\label{Prop:GreenKernelRn}
+The Green form for $\R^n$, which can be equivalently characterized as the unique solution $\GKer\in \DR^n(\R^n\times\R^n\backslash\Diag)$ of
+\begin{equation}\label{Eq:GrRn}
+\Laplace_y \GKer(x,y) = \delta(x-y)(\Diff{x}^1-\Diff{y}^1)\dotsb(\Diff{x}^n-\Diff{y}^n),
+\end{equation}
+where $\delta(x-y)$ is the Dirac delta function, satisfies
+$$ \GKer(x,y) = \begin{cases}
+\displaystyle\frac{1}{(n-2) \Vol(\Sph{n-1})} \frac{1}{\Abs{x-y}^{n-2}}(\Diff{x}^1 - \Diff{y}^1) \dotsb (\Diff{x}^n - \Diff{y}^n) & \text{for }n\ge 3, \\[1em]
+-\dfrac{1}{2\pi}\ln \Abs{x-y}(\Diff{x}^1 - \Diff{y}^1)(\Diff{x}^2 - \Diff{y}^2)& \text{for }n=2.
+\end{cases} $$
+The heat kernel for $\R^n$, i.e., the solution of $\Laplace_y \QKer_t(x,y) = -\frac{\partial}{\partial t}\QKer_t(x,y)$,  is given by
+\begin{equation}\label{Eq:EuclidHeatKer}
+\QKer_t(x,y) = (4\pi t)^{-\frac{n}{2}}\exp\Bigl(-\frac{\Abs{x-y}^2}{4t}\Bigr) (\Diff{x}^1 - \Diff{y}^1)\ldots (\Diff{x}^n-\Diff{y}^n).
+\end{equation}
+\end{Proposition}
+\begin{proof}
+See \cite{BGV}
+\end{proof}
+
+\begin{Proposition}[Standard Hodge propagator for $\R^n$]\label{Prop:StdHodgePropRn}
+The standard Hodge propagator for $\R^n$ with $n\ge 2$ satisfies
+$$\StdPrpg(x,y) = \frac{(-1)^{n+1}}{\Vol(\Sph{n-1})} \sum_{i=1}^n (-1)^{i-1} \frac{x^i-y^i}{\Abs{x-y}^n}(\Diff{x}^1 - \Diff{y}^1)\dotsb\reallywidehat{(\Diff{x}^i - \Diff{y}^i)}\dotsb(\Diff{x}^n-\Diff{y}^n) $$
+and extends smoothly to $\Bl_\Diag(\R^n\times \R^n)$. 
+\end{Proposition}
+\begin{proof}[Proof using the Green form]
+Consider the formulas from Proposition~\ref{Prop:GreenKernelRn}. Recall the formula for the codifferential
+\begin{equation}\label{Eq:CodiffRn}
+\CoDd f(x)\Diff{x}^I = - \sum_{i\in I} \varepsilon(i,I) \frac{\partial f(x)}{\partial x^i} \Diff{x}^{I\backslash\{i\}}.
+\end{equation}
+For $n\ge 3$, we compute
+\begin{align*}
+&(\Id\otimes\CoDd_y)\GKer(x,y) \\
+&\quad=\frac{1}{(n-2)\Vol(\Sph{n-1})} \sum_I (-1)^{n\Abs{I}} (\Id \otimes \CoDd_y)\Bigl(\frac{1}{\Abs{x-y}^{n-2}}(\Star\Diff{x}^I)\wedge\Diff{y}^I\Bigr) \\
+&\quad=\frac{1}{\Vol(\Sph{n-1})} \sum_{I} (-1)^{n\Abs{I} + \Abs{I} + n+1} \sum_{i\in I}\frac{x^i-y^i}{\Abs{x-y}^n}\varepsilon(i,I)(\Star\Diff{x}^{I})\wedge\Diff{y}^{I\backslash\{i\}}\\
+&\quad=\frac{1}{\Vol(\Sph{n-1})} \sum_{I} (-1)^{n\Abs{I} + \Abs{I} + n+1} \sum_{i\in I}\frac{x^i-y^i}{\Abs{x-y}^n}\varepsilon(i,I)\varepsilon(I,I^c) \Diff{x}^{I^c}\wedge\Diff{y}^{I\backslash\{i\}}\\
+&\quad=\begin{multlined}[t]\frac{1}{\Vol(\Sph{n-1})} \sum_{i=1}^n \frac{x^i-y^i}{\Abs{x-y}^n} \sum_{\substack{J\subset \{1,\dotsc,\hat{i},\dotsc,n\}}}(-1)^{n\Abs{J} + \Abs{J}}\varepsilon(i,J)\varepsilon(J\cup\{i\},J^c\backslash\{i\})\\ \Diff{x}^{J^c\backslash\{i\}} \wedge \Diff{y}^{J}\end{multlined}\\
+&\quad=\frac{1}{\Vol(\Sph{n-1})} \sum_{i=1}^n (-1)^{i-1} \frac{x^i-y^i}{\Abs{x-y}^n}(\Diff{x}^1 - \Diff{y}^1)\dotsb\reallywidehat{(\Diff{x}^i - \Diff{y}^i)}\dotsb(\Diff{x}^n-\Diff{y}^n).
+\end{align*}
+In the last step, we used that
+$$ \varepsilon(i,J)\varepsilon(J\cup\{i\},J^c\backslash\{i\}) = (-1)^{i-1}\varepsilon(J,J^c\backslash\{i\}) $$
+and
+\begin{align*}
+&\Diff{x}^{J^c\backslash\{i\}} \wedge \Diff{y}^{J}\\
+& = (-1)^{\Abs{J}} \varepsilon(J^c\backslash\{i\},J)[(\Diff{x}^1-\Diff{y}^1)\dotsb\reallywidehat{(\Diff{x}^i-\Diff{y}^i)}\dotsb (\Diff{x}^n-\Diff{y}^n)]_{J^{c}\backslash\{i\}, J}\\
+& = (-1)^{n \Abs{J} + \Abs{J}}[(\Diff{x}^1-\Diff{y}^1)\dotsb\reallywidehat{(\Diff{x}^i-\Diff{y}^i)}\dotsb (\Diff{x}^n-\Diff{y}^n)]_{J^{c}\backslash\{i\}, J},
+\end{align*}
+where $[\cdot]_{I_1,I_2}$ denotes the part of the product which picks the first variable at positions $I_1$ and the second at positions $I_2$. The computation for $n=2$ gives the same result, and the formula for $\StdPrpg$ is justified by Proposition~\ref{Prop:StdCodifInt}.
+%\begin{align*}
+%(\Diff{x}^1 - \Diff{y}^1) \dotsb (\Diff{x}^n - \Diff{y}^n) &=\sum_{k=0}^n(-1)^{n-k} \sum_{\substack{I\subset \{1,\dotsc,n\}\\\Abs{I}=k}} \varepsilon(I I^c \mapsto[n])\Diff{x}^{I} \wedge \Diff{y}^{I^c} \\
+%&=\sum_{k=0}^n(-1)^{n-k}\sum_{\substack{I \subset \{1,\dotsb,n\}\\\Abs{I}=k}} \Diff{x}^I \wedge (\Star \Diff{y}^I)
+%\end{align*}
+
+We will now study whether $\StdPrpg$ extends smoothly to the blow-up. Consider the polar coordinates in one variable
+\begin{align*}
+\phi: [0,\infty) \times \Sph{n} \times \R^n  &\longrightarrow \R^n \times \R^n \\
+(r,\omega,u) &\longmapsto (u+r\omega, u).
+\end{align*}
+There is a unique smooth map $\tilde{\phi}$ which fits in the blow-up diagram
+$$\begin{tikzcd}
+ & \Bl_\Diag(\R^n\times \R^n)\arrow{d}{\pi}\\{}
+ [0,\infty)\times\Sph{n}\times\R^n\arrow{r}{\phi}\arrow{ru}{\tilde{\phi}}& \R^n\times \R^n,
+\end{tikzcd}$$
+and it is a diffeomorphism of manifolds with boundary. We denote by
+$$ \phi_0 \coloneqq \Restr{\phi}{(0,\infty) \times \Sph{n}\times\R^n} : (0,\infty)\times\Sph{n}\times\R^n\longrightarrow \R^n \times \R^n\backslash\Diag $$
+the restriction of $\phi$ to the interior. The commutative diagram
+$$\begin{tikzcd}{}
+[0,\infty)\times\Sph{n}\times\R^n\arrow{r}{\tilde{\phi}}& \Bl_\Diag(\R^n\times\R^n) \\
+(0,\infty)\times\Sph{n}\times\R^n\arrow{r}{\phi_0}\arrow[hook]{u} & \R^n\times\R^n\backslash\Diag \arrow[hook]{u}{\tilde{\iota}}
+\end{tikzcd}$$
+shows that we can equivalently study whether the form 
+$$ \StdPrpgPol\coloneqq \phi_0^* \StdPrpg $$
+admits a smooth extension $\widetilde{\StdPrpgPol}$ to $[0,\infty)\times\Sph{n-1}\times\R^n$. We have
+\begin{align*}
+\StdPrpgPol(r,\omega,u) &= \phi_0^*\bigl(\CoDd_y \GKer)(r,\omega,u) \\
+& = \begin{multlined}[t] 
+\frac{(-1)^{n+1}}{r^{n-1}\Vol(\Sph{n-1})}\sum_{i=1}^n (-1)^{i-1} \omega^i (r\Diff{\omega}^1 + \omega^1 \Diff{r}) \dotsb \reallywidehat{(r\Diff{\omega}^i + \omega^i \Diff{r})} \dotsb \\ (r\Diff{\omega}^n + \omega^n \Diff{r})
+\end{multlined}\\
+ & = \begin{aligned}[t]
+ \frac{(-1)^{n+1}}{r^{n-1}\Vol(\Sph{n-1})} \Bigl(r^{n-1}&\sum_{1\le i \le n}(-1)^{i-1}\omega^i\Diff{\omega}^1\dotsb\widehat{\Diff{\omega}^i}\dotsb\Diff{\omega}^n    \\
+  - r^{n-2}&\sum_{1\le i < j \le n}(-1)^{i+j} \omega^i \omega^j \Diff{r}\Diff{\omega}^1 \dotsb \widehat{\Diff{\omega}^i} \dotsb \widehat{\Diff{\omega}^j} \dotsb\Diff{\omega}^n \\
+  + r^{n-2}&\sum_{1 \le j < i \le n}(-1)^{i+j} \omega^j\omega^i \Diff{r} \Diff{\omega}^1 \dotsb \widehat{\Diff{\omega}^j} \dotsb \widehat{\Diff{\omega}^i} \dotsb\Diff{\omega}^n\Bigr)
+  \end{aligned} \\
+ & = (-1)^{n+1}\frac{\Vol_{\Sph{n-1}}(\omega)}{\Vol(\Sph{n-1})},
+\end{align*} 
+where the last two sums canceled. The result extends smoothly beyond $r=0$ because it does not depend on $r$ at all.
+\end{proof}
+\begin{proof}[Proof using the heat kernel]
+Consider the polar coordinates with respect to the diagonal
+$$ \begin{aligned}
+   \varphi: [0,\infty)\times \Sph{n-1} \times \R^n &\longrightarrow \R^n \times \R^n \backslash \Diag \\ 
+ (r,\omega,u) &\longmapsto (x,y) = (u+r\omega, u-r\omega).
+   \end{aligned} $$
+There is a unique smooth map $\tilde{\varphi}$ which fits in the blow-up diagram
+$$\begin{tikzcd}
+ & \Bl_\Diag(\R^n\times \R^n)\arrow{d}{\pi}\\{}
+ [0,\infty)\times\Sph{n}\times\R^n\arrow{r}{\varphi}\arrow{ru}{\tilde{\varphi}}& \R^n\times \R^n,
+\end{tikzcd}$$
+and it is a diffeomorphism of manifolds with boundary. The heat kernel \eqref{Eq:EuclidHeatKer} transforms under $\varphi$ as
+\begin{align*}
+\QKerPol_t(r,\omega,u) &\coloneqq (\varphi^* \QKer_t)(r,\omega,u) \\
+ & = (4 \pi t)^{-\frac{n}{2}} \exp(-\frac{r^2}{t}) 2^n r^{n-1} \Diff{r} \Vol(\omega) \\
+ &= (\pi t)^{-\frac{n}{2}} \exp(-\frac{r^2}{t}) r^{n-1} \Diff{r} \Vol(\omega).
+\end{align*}
+It follows from Proposition~\ref{Prop:HeatKerFormulas} that for $(r,\omega,u)\in (0,\infty) \times \Sph{n-1}\times \R^n$ we have
+\begin{equation}\label{Eq:StdPrpgPol}
+\StdPrpgPol(r,\omega,u) = (-1)^{n+1}\frac{1}{2}\lim_{t\to 0} \int_t^\infty \CoDdPol \QKerPol_\tau(r,\omega,u) \Diff{\tau},
+\end{equation}
+where $\CoDdPol$ is the codifferential on $\R^n\times \R^n$ computed with respect to the pullback of the product Riemannian metric. If $g: \R^n \otimes \R^n\rightarrow \R$ is an inner product, then the pullback Riemannian metric satisfies
+\begin{equation}\label{Eq:PullbackMetric}
+g^{\mathrm{pol}}\coloneqq \varphi^*(g\oplus g)(r,\omega,u) = 2\begin{pmatrix}
+g(\omega,\omega) & 0 & 0 \\
+0 & r^2 g & 0 \\
+0 & 0 & g
+\end{pmatrix};
+\end{equation}
+it is degenerate at the boundary $r=0$. Next, it is easy to check that the conformal transformation $g\mapsto\lambda g$ on vectors induces the conformal transformation $g\mapsto\frac{1}{\lambda^k}g$ on $k$-forms. Thus, if $\Norm{\cdot}^\mathrm{pol}$ denotes the point-wise norm with respect to $g^{\mathrm{pol}}$ for the standard Euclidean metric, then
+$$ \Norm{\Diff{r}}^{\mathrm{pol}} = 2^{-\frac{1}{2}},\quad\Norm{\Vol(u)}^{\mathrm{pol}} = 2^{-\frac{n}{2}},\quad\Norm{\Vol(\omega)}^{\mathrm{pol}} = 2^{-\frac{n-1}{2}} r^{-(n-1)}, $$
+and hence
+$$ \VolPol(r,\omega,u) = 2^{n}r^{n-1}\Diff{r}\Vol(\omega)\Vol(u). $$
+In order to get the Hodge star $\StarPol$, we compute
+\begin{align*}
+\Diff{r}\Vol(\omega)\wedge \StarPol \bigl(\Diff{r}\Vol(\omega)\bigr) & \overset{!}{=} {\Norm{\Diff{r}\Vol(\omega)}^{\mathrm{pol}}}^2 \Vol^{\mathrm{pol}}(r,\omega,u) \\
+&=r^{-(n-1)} \Diff{r}\Vol(\omega)\Vol(u), \\
+\Diff{r}\Vol(u) \wedge \StarPol(\Diff{r}\Vol(u)) &\overset{!}{=} {\Norm{\Diff{r} \Vol(u)}^{\mathrm{pol}}}^2\Vol^{\mathrm{pol}}(r,\omega,u) \\ 
+&=\frac{1}{2} r^{n-1} \Diff{r} \Vol(\omega) \Vol(u).
+\end{align*}
+Using the product structure \eqref{Eq:PullbackMetric}, it follows that
+\begin{align*}
+\StarPol\bigl(\Diff{r}\Vol(\omega)\bigr)&=r^{-(n-1)} \Vol(u)\quad\text{and}\\
+\StarPol(\Diff{r}\Vol(u))&= \frac{1}{2} r^{n-1} \Vol(\omega).
+\end{align*}
+Recalling the definition of the codifferential $\CoDd \alpha = (-1)^{n(k-1)+1} \Star\Dd\Star \alpha$, we compute
+\begin{align*}
+(\StarPol \Dd \StarPol)\bigl(\QKerPol_t(r,\omega,u)\bigr) &=  \StarPol \Dd \Bigl( (\pi t)^{-\frac{n}{2}} \exp(-\frac{r^2}{t}) \Vol(u) \Bigr)  \\ 
+& = \StarPol\Bigl(\frac{-2r}{t}(\pi t)^{-\frac{n}{2}}\exp(-\frac{r^2}{t}) \Diff{r} \Vol(u)\Bigr)\\
+&= -\frac{1}{t}(\pi t)^{-\frac{n}{2}} \exp(-\frac{r^2}{t}) r^n \Vol(\omega),
+\end{align*}
+and because the product dimension is even, we obtain
+$$ \CoDdPol \QKerPol_t(r,\omega,u) = \frac{1}{t}(\pi t)^{-\frac{n}{2}} \exp(-\frac{r^2}{t}) r^n \Vol(\omega). $$
+In order to integrate this according to \eqref{Eq:StdPrpgPol}, we will make use of the $\Gamma$-function $\Gamma(z) = \int_0^\infty x^{z-1} e^{-x} \Diff{x}$. Then, we have
+\begin{align*}
+(-1)^{n+1}\StdPrpgPol(r,\omega,u)&=\frac{1}{2}\lim_{t\to 0} \int_t^\infty \CoDdPol \QKerPol_\tau(r,\omega,u)\Diff{\tau}\\
+&=\frac{1}{2}\pi^{-\frac{n}{2}}r^n \Bigl(\lim_{t\to 0}\int_{t}^\infty \tau^{-\frac{n}{2} - 1} \exp(-\frac{r^2}{\tau})\Diff{\tau}\Bigr)\Vol(\omega)\\
+&=\frac{1}{2}\pi^{-\frac{n}{2}}r^n \Bigl(\lim_{t\to 0}\int_{\frac{r^2}{t}}^0 \Bigl(\frac{r^2}{z}\Bigr)^{-\frac{n}{2} - 1}\exp(-z)\bigl(-z^{-2}r^2\Diff{z}\bigr)\Bigr)\Vol(\omega)\\
+&= \frac{1}{2}\pi^{-\frac{n}{2}}\Bigl(\lim_{t\to 0} \int_0^{\frac{r^2}{t}} z^{\frac{n}{2}-1} \exp(-z) \Diff{z}\Bigr)\Vol(\omega) \\
+&= \frac{\Gamma(\frac{n}{2})}{2\pi^{\frac{n}{2}}}\Vol(\omega) \\
+& = \frac{\Vol(\omega)}{\Vol(\Sph{n-1})},
+\end{align*}
+which recovers the formula in the proof of Proposition~\ref{Prop:StdHodgePropRn}.
+\end{proof}
+
+\begin{Example}[The case $n=1$]\label{Ex:SDFSDF}
+It is easy to check directly that
+$$ \Prpg(x,y) \coloneqq \theta(x-y), $$
+where $\theta$ is the Heavyside step function, is the Schwartz form of a Hodge homotopy $\Htp$. Indeed, for any smooth $f: \R\rightarrow\R$ with compact support, we have 
+$$ \Htp(f \Diff{x})(y) = \int_x \Prpg(x,y)f(x)\Diff{x} = \int_{y}^{\infty} f(x)\Diff{x}, $$
+and hence $\Dd\circ\Htp = -\Id$. It is also easy to check that the following is the Laplace Green form:
+$$ \GKer(x,y) = - \frac{1}{2}\Abs{x-y}(\Diff{x}-\Diff{y}). $$
+Indeed, using $\Sgn(x) = 2\theta(x) - 1$, we get
+$$ \frac{\partial^2}{\partial y^2} \frac{1}{2}\Abs{x-y} = \frac{\partial}{\partial y}\frac{1}{2}\Sgn(y-x) = \delta(y-x) = \delta(x-y), $$
+which shows \eqref{Eq:GrRn}. We carefully compute
+\begin{align*}
+(\Id\otimes \CoDd_y)\GKer(x,y) & = \CoDd_y \Bigl(\frac{1}{2}\Abs{x-y}\Diff{y}\Bigr) = -\frac{1}{2} \frac{\partial}{\partial y}\Abs{x-y} = -\frac{1}{2}(2\theta(y-x)-1) \\ &= - \theta(y-x) + \frac{1}{2} = \theta(x-y) - \frac{1}{2}
+\end{align*}
+and apply Proposition~\ref{Prop:StdCodifInt} to get
+$$ \StdPrpg(x,y) = \theta(x-y) - \frac{1}{2}. $$
+In particular, we see that the sign agrees with the direct computation of the Hodge propagator above. Smoothness on the blow-up is for $n=1$ equivalent to smoothness on the closures of connected components of $\R\times\R\backslash\Diag$; this is readily satisfied. 
+\end{Example}
+%NOTICE THAT ALREADY $\GKer$ EXTENDS SMOOTHLY TO THE BLOW-UP. BUT ACCORDING TO EXAMPLE BLAH BLAH WE CAN NOT USE IT TO PROVE IT BECAUSE OF THE POLARZIED OPERATORS. MAYBE YES BECAUSE OF ITS SIMPLE FORM?
+\end{document}

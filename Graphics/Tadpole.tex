@@ -1,0 +1,24 @@
+%auto-ignore
+\begin{tikzpicture}
+ \tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+ \tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+ 
+ \def\lenI{2.5cm}
+ \def\lenII{1cm}
+ \def\lenext{0.6cm}
+ 
+ \coordinate[point,label={180:$x_1$}] (x1) at (0,0) {};
+ \coordinate[point,label={0:$x_2$}] (x2) at (\lenI,0);
+ \path (x1) coordinate[point,label={0:$x_3$}] (x3) at +(60:\lenI);
+ 
+ \draw (x1) -- (x2);
+ \draw (x2) -- (x3);
+ \draw (x3) -- (x1);
+ 
+ 
+ \draw (x3) -- +(90:\lenext) node[point,style={fill=white},label={180:$\NVol$}] {};
+ \draw (x1) -- +(35:\lenext) node[point,style={fill=white},label={35:$\NOne$}] {};
+ \draw (x2) -- +(145:\lenext) node[point,style={fill=white},label={145:$\NOne$}] {};
+ 
+ 
+\end{tikzpicture}

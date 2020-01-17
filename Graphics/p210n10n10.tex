@@ -1,0 +1,47 @@
+%auto-ignore
+\begin{tikzpicture}
+  % Sphere
+  \coordinate (P1) at (0,0);
+  \coordinate (P2) at (-0.5*\dif,\hght);
+  \coordinate (P3) at (0.5*\dif,\hght);
+  \coordinate (P4) at ($(P2)+(0,\dist)$);
+  \coordinate (P8) at ($(P3)+(0,\dist)$);
+  \coordinate (P9) at ($(P8)+(0,\hght)$);
+
+%Pair of pants
+  
+  \draw (P1) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P1) arc (180:0:{\rad} and {\ecc});
+  
+   \draw (P3) arc (180:360:{\rad} and {\ecc});
+  \draw (P3) arc (180:0:{\rad} and {\ecc});
+  
+  \draw (P2) arc (180:360:{\rad} and {\ecc});
+  \draw (P2) arc (180:0:{\rad} and {\ecc});
+  
+ \draw (P2) to[out=270,in=90] (P1);
+ \draw ($(P3)+(2*\rad,0)$) to[out=270,in=90] ($(P1)+(2*\rad,0)$);
+ \draw ($(P2)+(2*\rad,0)$) to[out=270,in=270] (P3); 
+ 
+% Maurer Cartan
+
+ \draw (P4) arc (180:360:{\rad} and {\ecc});
+ \draw[dashed] (P4) arc (180:0:{\rad} and {\ecc});
+ 
+ \draw (P4) to[out=90,in=180] ($(P4)+(\rad,\hght)$) to[out=0,in=90] ($(P4)+(2*\rad,0)$);
+
+% Labels 
+ 
+ \node at ($(P1)+(\rad,0.5*\hght)$) {$\OPQ_{210}$};
+ \node at ($(P4)+(\rad,0.5*\hght)$) {$\PMC_{10}$};
+ \node at ($(P8)+(\rad,0.5*\hght)$) {$\PMC_{10}$};
+ 
+% Cylinders 
+ 
+ 
+ \draw (P8) arc (180:360:{\rad} and {\ecc});
+ \draw[dashed] (P8) arc (180:0:{\rad} and {\ecc});
+ 
+ \draw (P8) to[out=90,in=180] ($(P8)+(\rad,\hght)$) to[out=0,in=90] ($(P8)+(2*\rad,0)$);
+  
+\end{tikzpicture}

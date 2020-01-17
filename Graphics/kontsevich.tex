@@ -1,0 +1,33 @@
+\begin{tikzpicture}[scale=.8,
+every label/.append style={font=\scriptsize},
+point/.style={circle,fill=blue!40, inner sep=2pt},
+root/.style={circle,fill=red!40, inner sep=2pt},
+leaf/.style={circle,fill=green!40!black, inner sep=2pt}
+]
+\def\vertdist{.8}
+\def\hordist{.6}
+\node[root, label={[right] $\pi_\Harm$}] (R) at (0,0) {};
+
+\node[point, label={[right,yshift=-1mm] $m_2$}] (RU) at ($(R) + (0,\vertdist)$) {};
+\node[point, label={[right] $m_2$}] (RUL) at ($(RU) + (-2*\hordist,\vertdist)$) {};
+\node[point, label={[right] $m_2$}] (RUR) at ($(RU) + (2*\hordist,\vertdist)$) {};
+\node[point, label={[right] $m_2$}] (RULL) at ($(RUL) + (-1*\hordist,1*\vertdist)$) {};
+\coordinate (RULR) at ($(RUL) + (\hordist,\vertdist)$);
+\coordinate (RURR) at ($(RUR) + (\hordist,\vertdist)$);
+\node[leaf, label={[right] $h_1$}] (RULLL) at ($(RULL) + (-1*\hordist,1*\vertdist)$){};
+\node[leaf, label={[right] $h_2$}] (RULLR) at ($(RULL) + (1*\hordist,1*\vertdist)$) {};
+\node[leaf, label={[right] $h_3$}] (RULRR) at ($(RULR) + (1*\hordist,1*\vertdist)$) {};
+\node[leaf, label={[right] $h_k$}] (RURRR) at ($(RURR) + (1*\hordist,1*\vertdist)$) {};
+\node[] (RURRL) at ($(RURR) + (-1*\hordist,1*\vertdist)$) {\ \,\dots};
+\node (RURL) at ($(RUR) + (-\hordist,\vertdist)$) {\dots};
+
+\draw (R) edge (RU); 
+\draw[thick] (RU) -- (RUL) node[below,midway,shift={(-1.5mm,1mm)}] {$\GOp$}; 
+\draw[thick] (RUL) -- (RULL) node[below,midway,shift={(-2mm,2mm)}] {$\GOp$}; 
+\draw (RULL) edge (RULLL);
+\draw (RULL) edge (RULLR);
+\draw (RUL) edge (RULRR);
+\draw[thick] (RU) -- (RUR) node[below,midway,shift={(2mm,2mm)}] {$\GOp$};
+\draw[thick] (RUR) edge (RURL);
+\draw (RUR) edge (RURRR);
+\end{tikzpicture}

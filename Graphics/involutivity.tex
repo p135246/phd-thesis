@@ -1,0 +1,37 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\coordinate (P1) at (0,0);
+\coordinate (P2) at (-0.5*\dif,-\hght);
+\coordinate (P3) at (0.5*\dif,-\hght);
+
+\coordinate (P4) at ($(P2)+(0,-\dist)$);
+\coordinate (P5) at ($(P3)+(0,-\dist)$);
+\coordinate (P6) at ($(P4)+(0.5*\dif,-\hght)$);
+
+\draw (P1) to[out=-90,in=90] (P2);
+\draw ($(P1)+(2*\rad,0)$) to[out=-90,in=90] ($(P3)+(2*\rad,0)$);
+\draw ($(P2)+(2*\rad,0)$) to[out=90,in=90] (P3);
+
+\draw ($(P4)+(2*\rad,0)$) to[out=-90,in=-90] (P5);
+\draw (P4) to[out=-90,in=90] (P6);
+\draw ($(P5)+(2*\rad,0)$) to[out=-90,in=90] ($(P6)+(2*\rad,0)$);
+
+ 
+\draw (P1) arc (180:360:{\rad} and {\ecc});
+\draw (P1) arc (180:0:{\rad} and {\ecc});
+\draw (P2) arc (180:360:{\rad} and {\ecc});
+\draw[dashed] (P2) arc (180:0:{\rad} and {\ecc});
+\draw (P3) arc (180:360:{\rad} and {\ecc});
+\draw[dashed] (P3) arc (180:0:{\rad} and {\ecc});
+\draw (P4) arc (180:360:{\rad} and {\ecc});
+\draw (P4) arc (180:0:{\rad} and {\ecc}); 
+\draw (P5) arc (180:360:{\rad} and {\ecc});
+\draw (P5) arc (180:0:{\rad} and {\ecc}); 
+\draw (P6) arc (180:360:{\rad} and {\ecc});
+\draw[dashed] (P6) arc (180:0:{\rad} and {\ecc}); 
+
+\node at ($(P1)+(\rad,-0.5*\hght)$) {$\OPQ_{120}^\PMC$};
+\node at ($(P6)+(\rad,0.5*\hght)$) {$\OPQ_{210}^\PMC$};
+
+\end{tikzpicture}

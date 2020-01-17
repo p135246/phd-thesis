@@ -1,0 +1,13 @@
+%auto-ignore
+\providecommand{\MainFolder}{.}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+
+\begin{document}
+\label{Section:Computation}
+In Section~\ref{Sec:GreenSphere}, we solve the differential equation for the Hodge propagator~$\Prpg$ for~$\Sph{n}$ (Proposition~\ref{Prop:GKerSph}) using the Relative Poincar\'e Lemma (Lemma~\ref{Lem:ChainHtpy}). In the rest of the section, we will be showing that $\Prpg$ is admissible (Proposition~\ref{Proposition:GreenKernel}); the most work is to show that $\Prpg$ extends smoothly to the blow-up (Proposition~\ref{Prop:GKerBdd}). Another Hodge propagator for~$\Sph{1}$ can be obtained in an alternative simple way by writing $\Sph{1} = \R / \Z$, and there are nice geometric formulas for $\Prpg$ for $\Sph{2}$ (Example~\ref{Example:Circle}).
+
+In Section \ref{Section:MCSphere}, we use $\Prpg$ from Section~\ref{Sec:GreenSphere} to compute the Chern-Simons Maurer-Cartan element $\PMC$ for $\Sph{n}$ (Proposition~\ref{Proposition:MCSphere}). We first prove that the condition~$(V_{\NOne})$ from Proposition~\ref{Prop:PMCEqualsMC} is satisfied (Lemma~\ref{Lemma:ABVanishing}) and then perform combinatorics with degrees to show vanishing of some more integrals (Proposition~\ref{Prop:TotalVanishing}). In fact, all the integrals vanish for $\Sph{n}$ with $n\ge 3$, and the only non-vanishing integrals for $\Sph{1}$ are the $O_k$-graphs with even $k$. We compute these integrals explicitly together with all signs and combinatorial coefficients required to obtain $\PMC_{20}$ (Lemmas~\ref{Lemma:IntegralFor1}, \ref{Lemma:Independence}, \ref{Lemma:SignForMCOnCircle} and  \ref{Lemma:CombinatorialCoefficientForMCOnCircle}). There might be some non-vanishing integrals associated to reduced graphs for $\Sph{2}$ as well as some non-vanishing integrals associated to graphs without external vertices for $\Sph{3}$; however, the simplest examples vanish (Remarks~\ref{Rem:GraphsTwoSphere} and~\ref{Rem:GraphsThreeSphere}).  
+
+In the remaining Sections~\ref{Section:HomSphere} and~\ref{Section:CPn1}, we compute $\IBL(\HIBL^\PMC(\CycC(\Harm(M))))$ and the higher operations~$\OPQ_{1lg}^\PMC$ on $\HIBL^\PMC$ for $M = \Sph{n}$, $\CP^n$. As soon as we argue that $\PMC_{10} = \MC_{10}$ due to geometric formality, the computation of $\HIBL^\MC(\CycC(\Harm(\Sph{n})))$ and $\HIBL^\MC(\CycC(\Harm(\CP^n)))$ is an easy exercise in cyclic homology. The operations for $\Sph{2m}$ and $\CP^n$ vanish for degree reasons (Remark~\ref{Rem:DegRes}). Therefore, the integrals from Section \ref{Section:MCSphere} help only in the case of $\Sph{2m-1}$. We compare our results to Chas-Sullivan string topology from~\cite{Basu2011} and confirm Conjecture~\ref{Conj:StringTopology} for~$\Sph{n}$ with~$n\ge 2$ and for~$\CP^n$.
+\end{document}

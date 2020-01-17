@@ -1,0 +1,20 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\def\rad{1cm}
+\def\angdist{120}
+\def\posa{90}
+\def\extlen{1.3cm}
+
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+
+
+\coordinate[point] (C1) at (0,0) {};
+\path (C1) node[point,style={fill=white}] (C11)  at +(\posa:\extlen) {};
+\path (C1) node[point,style={fill=white}] (C12)  at +(\posa+\angdist:\extlen) {};
+\path (C1) node[point,style={fill=white}] (C13)  at +(\posa+2*\angdist:\extlen) {};
+\draw (C1) -- (C11);
+\draw (C1) -- (C12);
+\draw (C1) -- (C13);
+
+\end{tikzpicture}

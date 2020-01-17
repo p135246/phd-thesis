@@ -1,0 +1,62 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\def\rad{10cm}
+\def\angdist{30}
+\def\posa{75}
+\def\extlen{0.7cm}
+\def\delta{5}
+\def\startpos{0.2}
+\def\endpos{0.8}
+\def\labeldelta{0.003}
+\def\labelrad{0.15}
+
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt, inner sep=0pt}}
+\tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{-<-/.style={decoration={markings,mark=at position #1 with {\arrow{<}}},postaction={decorate}}}
+% C1
+
+\draw [<-] (0,0) to[bend left] coordinate [pos=\startpos-\labeldelta] coordinate [pos=\startpos-0.01, below] (v11d) coordinate [pos=\startpos, below] (v11) coordinate [pos=\startpos+\labeldelta] coordinate [pos=\endpos-0.01, below] (v12d) coordinate [pos=\endpos, below] (v12) (3,0);
+
+\node[point] at (v11) {};
+\node[point] at (v12) {};
+
+\path (v11) node at +(50:2*\labelrad){\scriptsize{1}};
+\path (v11) node at +(140:2*\labelrad){\scriptsize{2}};
+\path (v11) node at +(240:2*\labelrad){\scriptsize{3}};
+
+\path (v12) node at +(10:2*\labelrad){\scriptsize{1}};
+\path (v12) node at +(200:2*\labelrad){\scriptsize{2}};
+\path (v12) node at +(280:2*\labelrad){\scriptsize{3}};
+
+\draw [<-] (5,0) to[bend left] coordinate [pos=\startpos-0.01, below] (v21d) coordinate [pos=\startpos, below] (v21) coordinate [pos=\endpos-0.01, below] (v22d) coordinate [pos=\endpos, below] (v22) (8,0);
+\draw [-{>[scale=1.5]}] (3.5,0.5) -- (4.5,0.5);
+
+\node[point] at (v21) {};
+\node[point] at (v22) {};
+
+\path (v11d) -- (v11) -- ([turn]90:\extlen) coordinate[point,style={fill=white}] (v11l);
+\path (v12d) -- (v12) -- ([turn]-90:\extlen) coordinate[point,style={fill=white}] (v12l);
+
+\draw (v11) node [inner sep=0pt,label={[yshift=1pt,xshift=-2pt]-80:$\Vert_1$}] {}  node [inner sep=0pt] {} -- (v11l) node [label={[xshift=-3pt]0:$l_1$}] {};
+\draw (v12) node [inner sep=0pt,label={[xshift=-3pt,yshift=1pt]90:$\Vert_2$}] {} node [inner sep=0pt] {} node [inner sep=0pt] {} node [inner sep=0pt] {} -- (v12l)  node [label={[xshift=-3pt,yshift=-1pt]0:$l_2$}] {};
+
+\path (v21d) -- (v21) -- ([turn]-90:\extlen) coordinate[point,style={fill=white}] (v21l);
+\path (v22d) -- (v22) -- ([turn]90:\extlen) coordinate[point,style={fill=white}] (v22l);
+
+
+\path (v21) node at +(50:2*\labelrad){\scriptsize{1}};
+\path (v21) node at +(170:2*\labelrad){\scriptsize{2}};
+\path (v21) node at +(260:2*\labelrad){\scriptsize{3}};
+
+\path (v22) node at +(100:2*\labelrad){\scriptsize{1}};
+\path (v22) node at +(200:2*\labelrad){\scriptsize{2}};
+\path (v22) node at +(300:2*\labelrad){\scriptsize{3}};
+
+\draw (v21) node [inner sep=0pt,label={[yshift=-6pt,xshift=1pt]0:$\Vert_1$}] {} node [inner sep=0pt] {}  node [inner sep=0pt] {}  node [inner sep=0pt] {} -- (v21l) node [label={[xshift=-3pt]0:$l_2$}] {};
+
+
+\draw (v22) node [inner sep=0pt,label={[yshift=3pt,xshift=1pt]0:$\Vert_2$}] {} node [inner sep=0pt] {}  node [inner sep=0pt] {}  node [inner sep=0pt] {} -- (v22l) node [label={[xshift=-3pt]0:$l_1$}] {};;
+
+
+\end{tikzpicture}

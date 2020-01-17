@@ -1,0 +1,19 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+
+\def\dist{4}
+\def\startangle{90}
+\def\leglength{1.2}
+
+\node[point,label={125:$x_1$}] (A) at (0,0) {};
+
+\path[draw] (A) -- +(\startangle:\leglength) node[at end,right]{$\NVol$};
+\path (A) -- +(\startangle:\leglength) node[point,style={fill=white}] {};
+\path[draw] (A) -- +(\startangle+120:\leglength) node[at end, above, yshift=2pt]{$\NOne$};
+\path (A) -- +(\startangle+120:\leglength) node[point,style={fill=white}] {};
+\path[draw] (A) -- +(\startangle+240:\leglength) node[at end, above, yshift=2pt]{$\NOne$};
+\path (A) -- +(\startangle+240:\leglength) node[point,style={fill=white}] {};
+
+\end{tikzpicture}

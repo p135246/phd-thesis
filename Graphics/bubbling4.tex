@@ -1,0 +1,21 @@
+%auto-ignore
+\begin{tikzpicture}
+% First Object
+  \coordinate (P1) at (0,0);
+  \coordinate (P2) at ($(7*\rad,0)$);  
+  \coordinate (PG1) at ($(.8*\rad+\gencanc,0)$);
+  \coordinate (PG2) at ($(3.2*\rad+\gencanc,0)$);
+   
+  \draw (P1) to[out=90,in=180] ($(P1)+(3*\rad,\rad)$) to[out=0,in=90] ($(P1)+(6*\rad,0)$) to[out=-90,in=0] ($(P1)+(3*\rad,-\rad)$) to[out=180,in=-90] (P1);
+  
+ \draw (PG1) to[out=-\genecc,in=180+\genecc] coordinate[pos=\gencanc] (PG11) coordinate[pos=1-\gencanc] (PG12) ($(PG1) + (2*\genrad,0)$) ;
+ \draw (PG11) to[out=\genecc,in=180-\genecc] (PG12);
+
+ \draw (PG2) to[out=-\genecc,in=180+\genecc] coordinate[pos=\gencanc] (PG21) coordinate[pos=1-\gencanc] (PG22) ($(PG2) + (2*\genrad,0)$) ;
+ \draw (PG21) to[out=\genecc,in=180-\genecc] (PG22);
+
+  \draw (P2) to[out=90,in=180] ($(P2)+(\rad,\rad)$) to[out=0,in=90] ($(P2)+(2*\rad,0)$) to[out=-90,in=0] ($(P2)+(\rad,-\rad)$) to[out=180,in=-90] (P2);
+
+%  \coordinate (PG1) at ($(P51)+(1.6*\rad,0.5*\hght)$);
+% \coordinate (PG2) at ($(P53)+(2*\rad,0.5*\hght)$);
+\end{tikzpicture}

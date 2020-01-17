@@ -1,0 +1,208 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+\begin{document}
+\section{Twisted IBL-infinity-structure for spheres
+%The $\IBL$-structure on the homology of $\OPQ_{110}^\PMC$.
+}
+\label{Section:HomSphere}
+Let $e_0$, $e_1$ be the basis of $\Harm(\Sph{n})[1]$ defined by
+\begin{equation*} \label{Eq:BasisOfHarm}
+ e_0 \coloneqq \NOne \coloneqq \SuspU 1, \quad e_1\coloneqq\NVol \coloneqq \frac{1}{V}\SuspU\Vol.
+\end{equation*}
+The degrees satisfy
+$$ \Abs{\NOne} = -1, \quad \Abs{\NVol} = n-1. $$
+The matrix of the pairing $\Pair$ with respect to the basis $e_0$, $e_1$ reads
+$$ \Pair=\begin{pmatrix}
+ 0 & 1 \\
+ (-1)^{n} & 0
+\end{pmatrix}. $$
+The dual basis $e^0$, $e^1$ to $e_0$, $e_1$ with respect to $\Pair$ is thus
+$$ e^0= \NVol,\quad e^1 = (-1)^{n} \NOne. $$
+It follows that the matrix $(T^{ij})$ from~\eqref{Eq:PropagatorT} satisfies
+\begin{equation*} 
+%\label{Eq:KerIdMatrix}
+ (T^{ij}) = - \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}.
+\end{equation*}
+%This data will be used below to write down the canonical operations $\OPQ_{210}$, $\OPQ_{120}$ (see Def.~\ref{Def:CanonicaldIBL}).
+
+We clearly have
+$$ \CRedDBCyc \Harm(\Sph{1}) = \Bigl\{ \sum_{k=1}^\infty c_k \NVol^{k*} \BigMid c_k \in \R \Bigr\}, $$
+where $\NVol^{k*}$ is the dual to the cyclic word $\NVol^k = \NVol \dots \NVol$ of length $k$. Observe that the cyclic symmetry gives
+\begin{equation*}
+\NVol^i = (-1)^{(n-1)(i-1)} \NVol^i\quad\text{for all }i\ge 1.
+\end{equation*}
+Therefore, $\NVol^{i*} = 0$ holds if both $n$ and $i$ are even.
+
+For $n\ge 2$, the vector space $\Harm(\Sph{n})$ is connected and simply-connected, and Proposition~\ref{Prop:SimplCon} implies that there are no long reduced cyclic cochains (i.e., we have only finite sums of $\NVol^{k*}$'s). 
+
+
+The product $\mu_2: \Harm[1]^{\otimes 2} \rightarrow \Harm[1]$ from \eqref{Eq:HarmProd} has the following matrix with respect to the basis $\NOne$, $\NVol$:
+\begin{equation*} 
+%\label{Eq:BinaryOperatorSphere}
+ \mu_2 = \begin{pmatrix} \NOne &  \NVol \\ (-1)^n \NVol & 0 \end{pmatrix}.
+\end{equation*}
+Because $\mu_2(\NVol, \NVol) = 0$, we get
+\begin{equation*}
+%\label{Eq:RedHIBLSn}
+\HIBL^\MC(\RedCycC(\Harm(\Sph{n})))[1] = \begin{cases}
+                        \langle \Susp \NVol^{i*} \mid i \ge 1 \rangle & \text{for }n\ge 3\text{ odd}, \\
+                        \langle  \Susp \NVol^{2i-1*} \mid i\ge 1 \rangle & \text{for }n\text{ even},\\
+ \bigl\{ \Susp\sum_{k=1}^\infty c_k \NVol^{k*} \mid c_k\in \R \bigr\} & \text{for }n=1. 
+\end{cases}
+\end{equation*}
+Because we are in the strictly unital and strictly augmented case, we obtain
+\begin{equation} \label{Eq:HIBLSn}
+\HIBL^\MC(\CycC)[1] = \begin{cases}
+\langle \Susp \NVol^{i*}, \Susp \NOne^{2j-1*} \mid i, j \ge 1\rangle & \text{for }n\ge 3 \text{ odd}, \\
+\langle \Susp \NVol^{2 i-1*}, \Susp \NOne^{2j-1*} \mid i, j \ge 1\rangle &\text{for }n\text{ even}, \\
+ \bigl\langle \Susp\sum_{k=1}^\infty c_k \NVol^{k*}, \Susp \NOne^{2j-1*}\mid c_k\in \R, j \ge 1\bigr\rangle & \text{for }n=1. 
+\end{cases}
+\end{equation}
+%Note that the canonical Maurer-Cartan element $\MC$ satisfies
+%$$ (-1)^n \MC_{10}(\Susp \NOne \NVol \NOne) = \MC_{10}(\Susp\NVol\NOne\NOne) = \MC_{10}(\Susp\NOne\NOne\NVol) = (-1)^{n-2}. $$
+The canonical $\IBL$-operations can be written as
+\begin{align*}
+\OPQ_{210}(\Susp^2 \psi_1 \otimes \psi_2)(\Susp \omega) &= \begin{multlined}[t]-\sum \varepsilon(\omega\mapsto \omega^1 \omega^2)[(-1)^{(n-1)\Abs{\omega^1}} \psi_1(e_0 \omega^1) \\ \psi_2(e_1 \omega^2) + (-1)^{\Abs{\omega_1}}\psi_1(e_1 \omega^1) \psi_2(e_0 \omega^2)], \end{multlined} \\
+\OPQ_{120}(\Susp \psi)(\Susp^2 \omega_1\otimes \omega_2) & = \begin{multlined}[t] - \frac{1}{2} \sum \varepsilon(\omega_1\mapsto \omega_{1}^{1}) \varepsilon(\omega_2\mapsto \omega_{2}^{1}) [(-1)^{(n-1)\Abs{\omega_{1}^{1}}} \\ \psi(e_0 \omega_{1}^{1} e_1 \omega_{2}^{1})  + (-1)^{\Abs{\omega_{1}^{1}}}\psi(e_1 \omega_{1}^{1} e_0 \omega_{2}^{1})] \end{multlined}
+\end{align*}
+for all $\psi$, $\psi_1$, $\psi_2 \in \CDBCyc\Harm$ and generating words $\omega$, $\omega_1$, $\omega_2\in \BCyc\Harm$. For all $k$, $k_1$, $k_2 \ge 1$, we have
+$$ \OPQ_{210}((\Susp \NVol^{k_1*}) \cdot (\Susp \NVol^{k_2*})) = 0\quad\text{and}\quad \OPQ_{120}(\Susp \NVol^{k*}) = 0$$
+because both $\OPQ_{210}$ and $\OPQ_{120}$ feed $\NOne$ into their inputs. For the \emph{canonically twisted reduced $\IBL$-algebra}, this implies the following:
+$$ \IBL\bigl(\HIBL^\MC(\RedCycC)\bigr) = \bigl(\HIBL^\MC(\RedCycC), \OPQ_{210} \equiv 0, \OPQ_{120} \equiv 0 \bigr)\quad \text{for all }n\in \N.  $$
+By Proposition~\ref{Prop:Ones}, the only possibly non-zero relation  of $\IBL(\HIBL^\MC(\CycC))$ is   
+$$\begin{aligned}
+& \OPQ_{210}(\Susp \NOne^* \otimes \Susp \NVol^{k*}) \\[\jot]
+&\qquad = (-1)^{n-2} \Susp (\NVol^{k*} \circ \iota_\NVol) \\ 
+&\qquad = (-1)^{n-2}\bigl(\sum_{i=1}^{k-1} (-1)^{i \Abs{\NVol}}\bigr)\Susp\NVol^{k-1 *}
+= \begin{cases}
+   -(k-1) \Susp \NVol^{k-1*} & \text{for }n\text{ odd},\\
+    0 & \text{for }n\text{ even}.
+  \end{cases}\end{aligned}$$
+The reason for $0$ for even $n$ is that either $k$ is odd, in which case $\sum_{i=1}^{k-1} (-1)^i = 0$, or $k$ is even, in which case $\NVol^{k*} = 0$. Therefore, for the \emph{canonically twisted $\IBL$-algebra}, we have
+\begin{equation*}
+%\label{Eq:CanonTwistIBL}
+\IBL\bigl(\HIBL^\MC(\CycC)\bigr) = \bigl(\HIBL^\MC(\CycC), \OPQ_{210}, \OPQ_{120} \equiv 0 \bigr)\quad \text{for all }n\in \N,
+\end{equation*}
+where $\HIBL^\MC(\CycC)$ is given by \eqref{Eq:HIBLSn} and $\OPQ_{210}$ satisfies the following:
+\begin{description}[font=\normalfont\itshape]
+\item[($n$ even):] $\OPQ_{210} \equiv 0$.
+\item[($n\ge 3$ odd):] The non-trivial relations are
+$$ \OPQ_{210}(\Susp \NOne^* \otimes \Susp \NVol^{k*}) = \OPQ_{210}(\Susp \NVol^{k*} \otimes \Susp \NOne^*) = -(k-1) \NVol^{k-1*}\quad\text{for }k\ge 2.  $$
+\item[($n=1$):]  The non-trivial relations are
+$$ \OPQ_{210}\Bigl(\Susp \NOne^* \otimes \Susp\sum_{k=1}^\infty c_k \NVol^{k*}\Bigr) = - \Susp \sum_{k=1}^\infty k c_{k+1} \NVol^{k*} \quad\text{for }c_k\in \R. $$
+\end{description}
+Recall that the twist by $\MC$ does not produce any higher operation $\OPQ_{1lg}^\MC$.
+
+We will now consider $\dIBL^\PMC(\CycC(\Harm(\Sph{n})))$. Recall that $\OPQ_{110}^\PMC = \OPQ_{210}\circ_1 \PMC_{10}$, $\OPQ_{210}^\PMC = \OPQ_{210}$ and $\OPQ_{120}^\PMC = \OPQ_{120} + \OPQ_{210}\circ_1 \PMC_{20}$. By Proposition~\ref{Proposition:MCSphere}, we have $\PMC_{10} = \MC_{10}$ for all $n\in \N$ and $\PMC_{20} = 0$ for all $n\ge 2$. It follows that $\OPQ_{110}^\PMC = \OPQ_{110}^\MC$ for all $n\in \N$ and that the only non-trivial twist may occur in $\OPQ_{120}^\PMC$ for $\Sph{1}$. Using~\eqref{Eq:Twistn2}, we get for all $\psi\in \CDBCyc \Harm(\Sph{n})$ and generating words $\omega_1$, $\omega_2 \in \BCyc \Harm(\Sph{n})$ the following:
+\begin{equation}
+\begin{aligned}
+& (\OPQ_{210}\circ_1 \PMC_{20})(\Susp \psi)(\Susp \omega_1 \otimes \Susp \omega_2) \label{Eq:CoprodTwist}\\
+& \quad = \begin{multlined}[t] (-1)^{n-2}\Bigl[ \sum \varepsilon(\omega_1 \mapsto \omega_1^1 \omega_1^2)\psi(\NOne \omega_1^1)\PMC_{20}(\Susp \NVol \omega_1^2 \otimes \Susp \omega_2) \\ {}+ (-1)^{(n-3+\Abs{\omega_1})(n-3+\Abs{\omega_2})} \sum \varepsilon(\omega_2 \mapsto \omega_2^1 \omega_2^2) \psi(\NOne \omega_2^1)  \\ \PMC_{20}(\Susp \NVol \omega_2^2 \otimes \Susp \omega_1)\Bigr].  \end{multlined}\end{aligned}
+\end{equation}
+
+In this paragraph, we suppose that $n=1$ and compute $\OPQ_{120}^\PMC$. Clearly, $(\OPQ_{210}\circ_1\PMC_{20})(\Susp \NVol^{k*}) = 0$ for all $k\ge 1$ since~$\NOne$ is fed into $\NVol^{k*}$. A non-zero evaluation of $(\OPQ_{210}\circ_1\PMC_{20})(\Susp\NOne^{k*})$ for some $k\ge 1$ odd is possible only on $\Susp \NOne^{k-1}\NVol^{k_1}\otimes \Susp\NVol^{k_2}$ for $k_1$, $k_2\ge 0$ (up to a transposition of arguments and their cyclic permutation). If $k>1$, only the first summand of~\eqref{Eq:CoprodTwist} contributes, and we get
+%
+\begin{equation*}
+\begin{aligned}
+&(\OPQ_{210}\circ_1\PMC_{20})(\Susp\NOne^{k*})(\Susp \NOne^{k-1}\NVol^{k_1}\otimes \Susp\NVol^{k_2})  \\
+& \qquad= \begin{multlined}[t] (-1)^{n-2} \sum \varepsilon(\NOne^{k-1}\NVol^{k_{1}} \mapsto \omega_1 \omega_2) \NOne^{k*}(\NOne \omega_1) \PMC_{20}(\Susp \NVol \omega_2\otimes \Susp \NVol^{k_2}) \end{multlined} \\ & \qquad = (-1)^{n-2} \NOne^{k*}(\NOne\NOne^{k-1}) \PMC_{20}(\Susp \NVol\NVol^{k_{1}}\otimes \Susp \NVol^{k_2})  \\ & \qquad = - \PMC_{20}(\Susp \NVol^{k_{1}+1}\otimes \Susp\NVol^{k_2}).
+\end{aligned}
+\end{equation*}
+%
+According to Proposition~\ref{Proposition:MCSphere}, this is non-zero if and only if $k_{1}+k_2$ is odd. It follows that 
+$$ \OPQ_{120}^\PMC \neq \OPQ_{120}^\MC = \OPQ_{120}\quad\text{on the chain level for }\Sph{1}. $$
+However, the chains $\Susp \NOne^{k-1}\NVol^{k_1}\otimes \Susp \NVol^{k_2}$ for $k>1$ do not survive to the homology (c.f., \eqref{Eq:HIBLSn}). The only possibility is thus $k=1$. In this case, both summands of~\eqref{Eq:CoprodTwist} contribute, and  using~\eqref{Eq:MC20}, we get for all $k_1$, $k_2 \ge 1$ the following:
+%
+\allowdisplaybreaks
+\begin{align*}
+&(\OPQ_{210}\circ_1\PMC_{20})(\Susp\NOne^*)(\Susp\NVol^{k_1} \otimes \Susp\NVol^{k_2}) \\ &\qquad = \begin{multlined}[t](-1)^{n-2}\Bigl[\sum \varepsilon(\NVol^{k_1} \mapsto \NVol^0 \NVol^{k_1}) \NOne^*(\NOne) \PMC_{20}(\Susp\NVol^{k_1+1}\otimes \Susp \NVol^{k_2}) \\ {}+ (-1)^{(n-3 + k_1(n-1))(n-3 + k_2(n-1))} \sum \varepsilon(\NVol^{k_2} \mapsto \NVol^0 \NVol^{k_2})  \NOne^*(\NOne)\\ \PMC_{20}(\Susp \NVol^{k_2 + 1} \otimes\Susp\NVol^{k_1})\Bigr] \end{multlined}
+\\&\qquad = -  k_1 \PMC_{20}(\Susp\NVol^{k_1+1}\otimes\Susp\NVol^{k_2}) -  k_2 \PMC_{20}(\Susp\NVol^{k_2+1}\otimes\Susp\NVol^{k_1}) \\ 
+&\qquad = \begin{multlined}[t] -\frac{1}{2}(k_1+k_2+1)!I(k_1+k_2+1)\Bigl[(-1)^{k_1} k_1 (k_1+1) \binom{k_1+k_2}{k_1+1} \\ {}+ (-1)^{k_2} k_2  (k_2+1) \binom{k_1+k_2}{k_2+1}\Bigr] \end{multlined} \\ 
+&\qquad =  -\frac{1}{2}(k_1+k_2+1)! k_1 k_2 \binom{k_1+k_2}{k_1} \underbrace{I(k_1 + k_2 + 1) [(-1)^{k_1} + (-1)^{k_2}]}_{=:(*)}.
+\end{align*}
+%
+Denoting $k\coloneqq k_1 + k_2 + 1$, we have that $(-1)^{k_1} + (-1)^{k_2} = 0$ for $k$ even and $I(k) = 0$ for $k$ odd. Therefore, $(*) = 0$ for any $k_1$, $k_2\ge 1$.
+This implies that 
+$$ \OPQ_{120}^\PMC = \OPQ_{120}^\MC = \OPQ_{120}\quad\text{on the homology for }\Sph{1}. $$
+We conclude that the \emph{twisted $\IBL$-algebra} satisfies
+$$ \IBL\bigl(\HIBL^\PMC(\CycC(\Harm(\Sph{n})))\bigr) = \IBL\bigl(\HIBL^\MC(\CycC(\Harm(\Sph{n})))\bigr) \quad\text{for all }n\in \N. $$
+
+As for the \emph{higher twisted operations}, combining Propositions~\ref{Prop:dIBL} and~\ref{Proposition:MCSphere}, we see that for~$\Sph{n}$ with $n\in \N\backslash\{2\}$ all higher operations~$\OPQ_{1lg}^\PMC$ vanish already on the chain level. For $n=2$, we have that $\OPQ_{1l0}^\PMC = 0$ for all $l\ge 3$ and $\OPQ_{111}^\PMC = 0$ on the chain level. However, we did not prove that all higher operations vanish on the chain level. As for the operations induced on the homology, the graded vector space~$\HIBL^\PMC(\CycC(\Harm(\Sph{2})))$ is concentrated in even degrees and $\OPQ_{1lg}^\PMC$ are odd (see Definition~\ref{Def:IBLInfty}). Therefore, all higher operations vanish also on $\HIBL^\PMC(\CycC(\Harm(\Sph{2})))$.
+
+
+The string topology $\StringH(\Sph{n})$ and the string operations $\StringOp_2$ and $\StringCoOp_2$ were computed in \cite{Basu2011} for all $n\in \N$.
+%For $n\ge 2$, they used the method of minimal models to get $\StringCoH^*(\Sph{n}; \Q)$. For $n$ odd, $\StringOp_2$ 
+%\eqref{Eq:Gysin} They obtained $\StringH_*(\Sph{1}; \Z)$ by topological considerations.
+We review their results and basic ideas below:
+
+We will consider \emph{even spheres} first. The minimal model for the Borel construction $\LoopBorel \Sph{2m}$ for $m\in \N$ is denoted by $\Lambda^{\Sph{1}}(2,m)$ --- it is the free graded commutative dga (=:cdga) over~$\R$ generated by homogenous vectors $x_1$, $y_1$, $x_2$, $y_2$, $u$ of degrees
+$$ \Abs{x_1} = 2m,\quad \Abs{y_1} = 2m - 1, \quad\Abs{x_2} = 4m-1,\quad \Abs{y_2} = 2(2m - 1),\quad\Abs{u} = 2, $$
+whose differential $\Dd$ satisfies
+$$ \Dd y_1 = 0, \quad \Dd x_1 = y_1 u, \quad \Dd y_2 = - 2 x_1 y_1, \quad\Dd x_2 = x_1^2 + y_2 u. $$
+The minimal model for the loop space $\Loop \Sph{2m}$ is the dga $\Lambda(2,m)$ which is obtained from $\Lambda^{\Sph{1}}(2,m)$ by setting $u = 0$. A computation (see \cite[Theorem 3.6]{Basu2011}) gives the following for all $m\in \N$:
+\begin{equation}\label{Eq:EvenSphereString}
+\begin{aligned}
+\H^*(\Loop \Sph{2m}; \R) &\simeq \H(\Lambda(2,m), \Dd) =\langle y_2^i x_1 - 2 i y_1 x_2 y_2^{i-1}, y_1 y_2^j, 1 \mid i, j\in \N_0 \rangle,  \\
+\StringCoH^*(\Loop \Sph{2m}; \R) &\simeq \H(\Lambda^{\Sph{1}}(2,m),\Dd) = \langle y_1 y_2^i, u^j \mid i, j\in \N_0\rangle,
+\end{aligned}
+\end{equation}
+where $y_2^0 \coloneqq u^0 \coloneqq 1$ is the unit in $\Lambda^{\mathrlap{\Sph{1}}\hphantom{S}}(2,m)$ and $\langle \cdot \rangle$ denotes the linear span over~$\R$. Clearly, the cohomology groups are degree-wise finite-dimensional, and hence, using the universal coefficient theorem, they are isomorphic to the corresponding homology groups. We can thus identify $\H(\Loop \Sph{2m}; \R)$ and $\StringH(\Loop\Sph{2m}; \R)$ with the vector spaces on the right hand side of \eqref{Eq:EvenSphereString}. We have $\StringH_{2k}= \langle u^k \rangle$ for all $k\in \N_0$, and hence the multiplication with $u$ induces an isomorphism $\StringH_{2k} \simeq \StringH_{2k+2}$. This corresponds to the cap product with the Euler class in \eqref{Eq:Gysin}, and exactness of the sequence implies $\Mark(\StringH_{2k}) = \Erase(\StringH_{2k}) = 0$. Using this and degree considerations, we get $\StringOp_2=\StringCoOp_2 = 0$.
+
+
+We will now consider \emph{odd spheres} with $n\ge 3$. The minimal model for $\LoopBorel \Sph{2m+1}$ 
+for $m\in \N$ is denoted simply by $\Lambda(x,y,u)$ --- it is the free cdga on homogenous vectors $x$, $y$, $u$ of degrees
+$$ \Abs{x} = 2m+1, \quad \Abs{y} = 2m,\quad \Abs{u} = 2, $$
+such that
+$$ \Dd x = y u, \quad \Dd y = \Dd u = 0. $$
+We get immediately
+$$\begin{aligned}
+\H^*(\Loop \Sph{2m+1}; \R) & \simeq \langle x^i, y^j \mid i, j \in \N_0 \rangle,  \\
+\StringCoH^*(\Loop \Sph{2m+1}; \R) &\simeq \langle y^i, u^j \mid i,j \in \N_0 \rangle, \end{aligned}$$
+and we can again identify $\H$ and $\StringH$ with the vector spaces on the right hand side. Clearly, $\StringH_{2k-1} = 0$ for all $k\in \N$, and hence $\StringOp_2 = \StringCoOp_2 = 0$ for degree reasons (the operations are odd).
+
+We will now consider \emph{the circle} $\Sph{1}$. For every $i\in \Z$, let $\alpha_i : \Sph{1} \rightarrow \Sph{1}$ and $\theta_i : \Sph{1} \rightarrow \Loop \Sph{1}$ be the maps defined by
+$$ \alpha_i(z) \coloneqq z^i\quad\text{and}\quad\theta_i(w) \coloneqq w \alpha_i \quad \text{for all }w,z\in \Sph{1}\subset \C. $$
+By examining the equivariant homology of connected components of $\Loop \Sph{1}$ containing~$\alpha_i$ separately as in \cite[Section 2.1.4]{Basu2011}, we get 
+$$\begin{aligned}
+\H(\Loop \Sph{1}; \R) &=\langle \alpha_i, \theta_j \mid i,j\in \Z\rangle, \\
+\StringH(\Loop \Sph{1}; \R) &= \langle u^i, \theta_0 u^j, \alpha_k \mid i, j \in \N_0, k\in \Z\backslash\{0\} \rangle,
+\end{aligned}$$
+where $u$ corresponds to the Euler class and
+$$ \Abs{u} = 2, \quad \Abs{\theta_i} =1, \quad \Abs{\alpha_i} = 0 $$
+are the degrees in the singular chain complex. On \cite[p. 21]{Basu2011} they show that the string cobracket $\StringCoOp_2$ is $0$ and that all non-trivial relations for the string bracket $\StringOp_2: \StringH(\Loop \Sph{1})[2]^{\otimes 2}\rightarrow \StringH(\Loop \Sph{1})[2]$ are the following:
+\begin{equation*}
+%\label{Eq:NontrivRelString}
+\StringOp_2( \Susp \alpha_{k}, \Susp \alpha_{-k}) = k^2 \Susp\theta_0 \quad\forall k \in \N.
+\end{equation*}
+
+We will now compare the reduced $\IBL$-structures motivated by Conjecture~\ref{Conj:StringTopology}. The point-reduced versions $\RedStringH(\Loop \Sph{n})$ for $n\ge 2$ are obtained from $\StringH(\Loop \Sph{n})$ by deleting $u^i$. We have the following isomorphisms of graded vector spaces:
+$$ \begin{aligned}
+  \HIBL^{\PMC}(\RedCycC(\Harm(\Sph{n})))[1] &\longrightarrow  \RedStringH(\Loop \Sph{n})[3-n] && \\ 
+       \Susp \NVol^i &\longmapsto \Susp y^i  &&\text{for }n> 1\text{ odd}, \\  
+    \Susp \NVol^{2i+1} &\longmapsto \Susp y_1 y_2^i  &&\text{for }n\text{ even}.
+  \end{aligned}$$
+Because all operations are trivial, it induces the isomorphism
+$$ \IBL\bigl(\HIBL^{\PMC}(\RedCycC(\Harm(\Sph{n})))\bigr) \simeq \IBL\bigl(\RedStringH(\Loop \Sph{n})[2-n]\bigr) \quad\text{for }n\ge 2. $$
+For $n = 1$, the reduced homology is seemingly different.
+
+\begin{Remark}[Triviality for degree reasons]\label{Rem:DegRes}\Modify[caption={DONE Too dense text}]{Add paragraphs here --- too dense. Ans also add $\Sph{1}$!!}
+%Generators of the reduced cyclic cohomology for $\Sph{2m-1}$ with $m\ge 2$ are $\Susp \NVol^{i*}$ of degrees $2n-4$, $3n-5$, $4n-6$, $\dots$, whereas the generators for $\Sph{2m}$ are $\Susp \NVol^{2i-1 *}$ of degrees $2n-4$, $4n-6$, $6n-8$, $\dots$ for $i=1$, $2$, $3$, $\dots$. We see that in both cases, the reduced homology concentrates in even degrees, and hence any $\IBLInfty$-structure on the reduced homology must be trivial for degree reasons.Prop:Ones
+%$-2(n-3)(g-1) + n -4$
+%
+%The non-reduced \eqref{Prop:Ones}
+%$\OPQ_{1lg}^\PMC(\Susp\NOne^*) = - \PMC_{lg} \circ \iota_\NVol$
+%The non-reduced cyclic cohomology contains in addition $\Susp \NOne^{2i-1*}$ of degrees $n-4$, $n-6$, $n-8$, $\dots$ and the non-reduced string topology contains $\Susp u^i$ of degrees $n-1$, $n+1$, $n+3$, $\dots$ for $i=1$, $2$, $3$, $\dots$. 
+The graded vector spaces 
+$$ \StringH(\Loop \Sph{2m-1})[3-n]\quad\text{and}\quad\HIBL^\PMC(\CycC(\Harm(\Sph{2m})))[1] $$
+are concentrated in even degrees, and so any $\IBLInfty$-structure must be trivial for degree reasons. On the other hand, the graded vector spaces 
+$$ \StringH(\Loop \Sph{2m})\quad\text{and}\quad\HIBL^\PMC(\CycC (\Harm(\Sph{2m-1})))[1] $$
+have both even and odd degrees, and hence an additional argument is needed to prove vanishing of the $\IBL$-structure. This is not the case of the reduced homology, which is again concentrated in even degree.\qedhere
+%Therefore, the integrals computed in Section~\ref{Section:MCSphere} were useful at least for $\Sph{2m-1}$.
+
+\Add[caption={DONE Non-trivial degree}]{Add here the computation of which relations on homology are not implied automatically by degree reasons.}
+\end{Remark}
+\end{document}

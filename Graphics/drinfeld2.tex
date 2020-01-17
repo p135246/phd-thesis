@@ -1,0 +1,57 @@
+%auto-ignore
+\begin{tikzpicture}
+
+ \coordinate (P1) at (0,0);
+ \coordinate (P2) at ($(P1)+(0.5*\dif,\hght)$);
+ \coordinate (P3) at ($(P1) + (\dif,0)$);
+ \coordinate (P4) at ($(P3) + (0,-\dist)$);
+ \coordinate (P5) at ($(P4) + (0.5*\dif,-\hght)$);
+ \coordinate (P6) at ($(P4) + (\dif,0)$);
+ 
+ \draw (P1) to[out=90,in=-90] (P2);
+ \draw ($(P1)+(2*\rad,0)$) to[out=90,in=90] (P3);
+ \draw ($(P2)+(2*\rad,0)$) to[out=-90,in=90] ($(P3)+(2*\rad,0)$); 
+ \draw (P4) to[out=-90,in=90] (P5);
+ \draw ($(P4)+(2*\rad,0)$) to[out=-90,in=-90] (P6);
+ \draw ($(P5)+(2*\rad,0)$) to[out=90,in=-90] ($(P6)+(2*\rad,0)$);
+ 
+ 
+  \draw (P1) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P1) arc (180:0:{\rad} and {\ecc});
+  \draw (P3) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P3) arc (180:0:{\rad} and {\ecc});
+  \draw (P5) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P5) arc (180:0:{\rad} and {\ecc});
+ 
+ 
+  \draw (P2) arc (180:360:{\rad} and {\ecc});
+  \draw (P2) arc (180:0:{\rad} and {\ecc});
+  \draw (P4) arc (180:360:{\rad} and {\ecc});
+  \draw (P4) arc (180:0:{\rad} and {\ecc});
+  \draw (P6) arc (180:360:{\rad} and {\ecc});
+  \draw (P6) arc (180:0:{\rad} and {\ecc});
+  
+    \node at ($(P2)+(\rad,-0.5*\hght)$) {$\OPQ_{120}^\PMC$};
+ \node at ($(P5)+(\rad,0.5*\hght)$) {$\OPQ_{210}^\PMC$};
+ 
+ \coordinate (P7) at ($(P1)+(0,-\dist)$);
+ \coordinate (P8) at ($(P7)+(0,-\hght)$);
+ \coordinate (P9) at ($(P6)+(0,\dist)$);
+ \coordinate (P10) at ($(P9)+(0,\hght)$);
+ 
+ \draw (P7)--(P8);
+ \draw ($(P7)+(2*\rad,0)$)--($(P8)+(2*\rad,0)$);
+ \draw (P9)--(P10);
+ \draw ($(P9)+(2*\rad,0)$)--($(P10)+(2*\rad,0)$);
+ 
+ 
+\draw (P8) arc (180:360:{\rad} and {\ecc});
+\draw[dashed] (P8) arc (180:0:{\rad} and {\ecc});
+\draw (P9) arc (180:360:{\rad} and {\ecc});
+\draw[dashed] (P9) arc (180:0:{\rad} and {\ecc});
+\draw (P7) arc (180:360:{\rad} and {\ecc});
+\draw (P7) arc (180:0:{\rad} and {\ecc});
+\draw (P10) arc (180:360:{\rad} and {\ecc});
+\draw (P10) arc (180:0:{\rad} and {\ecc}); 
+ 
+\end{tikzpicture}

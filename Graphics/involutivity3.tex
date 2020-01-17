@@ -1,0 +1,31 @@
+%auto-ignore
+\begin{tikzpicture}
+\coordinate (P3) at (0,0);
+\coordinate (P2) at ($(P3)+(0,-\hght)$);
+\coordinate (P1) at ($(P2)+(0,-\dist)$);
+\coordinate (P4) at ($(P1)+(0,-\hght)$);
+
+\draw (P2) arc (180:360:{\rad} and {\ecc});
+\draw[dashed] (P2) arc (180:0:{\rad} and {\ecc});
+\draw (P4) arc (180:360:{\rad} and {\ecc});
+\draw[dashed] (P4) arc (180:0:{\rad} and {\ecc});
+\draw (P1) arc (180:360:{\rad} and {\ecc});
+\draw (P1) arc (180:0:{\rad} and {\ecc});
+\draw (P3) arc (180:360:{\rad} and {\ecc});
+\draw (P3) arc (180:0:{\rad} and {\ecc}); 
+
+\draw (P1)--(P2);
+\draw (P3)--(P4);
+
+\draw ($(P1)+(2*\rad,0)$)--($(P2)+(2*\rad,0)$);
+\draw ($(P3)+(2*\rad,0)$)--($(P4)+(2*\rad,0)$);
+
+  
+\node at ($(P1)+(\rad,-0.5*\hght)$) {$\OPQ_{110}^\PMC$};
+\node at ($(P3)+(\rad,-0.37*\hght)$) {$\OPQ_{111}^\PMC$};
+
+
+\coordinate (PG1) at ($(P3)+(\rad-\genrad,-0.72*\hght)$);
+ \draw (PG1) to[out=-\genecc,in=180+\genecc] coordinate[pos=\gencanc] (PG11) coordinate[pos=1-\gencanc] (PG12) ($(PG1) + (2*\genrad,0)$) ;
+ \draw (PG11) to[out=\genecc,in=180-\genecc] (PG12);
+\end{tikzpicture}

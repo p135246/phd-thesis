@@ -1,0 +1,27 @@
+%auto-ignore
+\begin{tikzpicture}
+% First Object
+  \coordinate (P1) at (0,0);
+  \coordinate (P2) at ($(P1) + (\dif,0)$);
+  \coordinate (P3) at ($(P2) + (0,\dist)$);
+  \coordinate (P4) at ($(P3) + (\dif,0)$);
+  
+  \draw (P1) arc (180:360:{\rad} and {\ecc});
+  \draw (P1) arc (180:0:{\rad} and {\ecc});
+  
+  \draw (P2) arc (180:360:{\rad} and {\ecc});
+  \draw (P2) arc (180:0:{\rad} and {\ecc});
+  
+  \draw (P3) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P3) arc (180:0:{\rad} and {\ecc});
+  
+  \draw (P4) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P4) arc (180:0:{\rad} and {\ecc});
+
+  \draw ($(P1)+(2*\rad,0)$) to[out=-90,in=-90] (P2);
+  \draw ($(P3)+(2*\rad,0)$) to[out=90,in=90] (P4);  
+  \draw (P1) to[out=-90,in=180] ($.5*(P1) + .5*(P2) + (\rad,-.9*\hght)$) to[out=0,in=-90] ($(P2)+(2*\rad,0)$);
+  
+  \draw (P3) to[out=90,in=180] ($.5*(P3) + .5*(P4) + (\rad,.9*\hght)$) to[out=0,in=90] ($(P4)+(2*\rad,0)$);
+  
+\end{tikzpicture}

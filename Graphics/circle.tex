@@ -1,0 +1,94 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\def\rad{3cm}
+\def\angdist{40}
+\def\posa{90}
+\def\posb{270}
+\def\delta{15}
+\def\orientrad{0.5cm}
+\def\orientang{270}
+\def\extlen{1.2cm}
+\def\halflabeldelta{5}
+\def\halflabeldeltarad{0.15cm}
+\def\verthalflabeldeltarad{0.45cm}
+\def\verthalflabeldelta{3}
+
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+
+
+% Boundary labels
+\node (C) at (2,1) {1};
+\node (D) at (6,3.5) {2};
+
+% Edges
+\draw[->-=0.5] ([shift=(\posa-2*\angdist:\rad)]C) arc (\posa-2*\angdist:\posa-\angdist:\rad) node[midway,right=2pt,yshift=2pt]{$\GKer_{1}$};
+\draw[->-=0.5] ([shift=(\posa-\angdist:\rad)]C) arc (\posa-\angdist:\posa:\rad) node[midway,above,xshift=3pt]{$\GKer_k$};
+\draw[->-=0.5] ([shift=(\posa:\rad)]C) arc (\posa:\posa+\angdist:\rad) node[midway,above=2pt,xshift=-3pt]{$\GKer_{k-1}$};
+\draw[->-=0.5] ([shift=(\posb:\rad)]C) arc (\posb:\posb+\angdist:\rad) node[midway,below=3pt,xshift=8pt]{$\GKer_{k-s_1}$};
+
+%Additional delta to edges
+\draw([shift=(\posb-\delta:\rad)]C) arc (\posb-\delta:\posb:\rad);
+\draw([shift=(\posb+\angdist:\rad)]C) arc (\posb+\angdist:\posb+\angdist+\delta:\rad);
+\draw([shift=(\posa+\angdist:\rad)]C) arc (\posa+\angdist:\posa+\angdist+\delta:\rad);
+\draw([shift=(\posa-2*\angdist-\delta:\rad)]C) arc (\posa-2*\angdist-\delta:\posa-2*\angdist:\rad);
+
+%Boundary orientation
+\draw[->] ([shift=(\orientang:\orientrad)]C) arc (\orientang:0:\orientrad);
+\draw[->] ([shift=(0:\orientrad)]D) arc (0:\orientang:\orientrad);
+
+% Dashed lines
+\draw[dashed]([shift=(\posa+\angdist+\delta:\rad)]C) arc (\posa+\angdist+\delta:\posb-\delta:\rad);
+\draw[dashed]([shift=(\posb+\angdist+\delta:\rad)]C) arc (\posb+\angdist+\delta:360+\posa-2*\angdist-\delta:\rad);
+
+% Internal vertices
+\path (C) node[point,label={90:$x_1$}] (x1)  at +(\posa:\rad){};
+\path (C) node[point,label={[label distance=-3pt]160:$x_2$}] (x2)  at +(\posa+\angdist:\rad){};
+\path (C) node[point,label={[label distance=]0:$x_k$}] (xk)  at +(\posa-\angdist:\rad){};
+\path (C) node[point,label={[label distance=-1pt]-15:$x_{k-1}$}] (xkk) at +(\posa-2*\angdist:\rad){};
+
+\path (C) node[point,label={[label distance=]-90:$x_{s_1}$}] (xa) at +(\posb:\rad){};
+\path (C) node[point,label={[label distance=2pt]360:$x_{s_1+1}$}] (xaa) at +(\posb+\angdist:\rad){};
+
+% External legs
+\path (C) -- (x1) -- ([turn]180:\extlen) coordinate (vx1) {};
+\path (C) -- (x2) -- ([turn]180:\extlen) coordinate (vx2) {};
+\path (C) -- (xk) -- ([turn]0:\extlen) coordinate (vxk) {};
+\path (C) -- (xkk) -- ([turn]0:\extlen) coordinate (vxkk) {};
+\path (C) -- (xa) -- ([turn]180:\extlen) coordinate (vxa) {};
+\path (C) -- (xaa) -- ([turn]0:\extlen) coordinate (vxaa) {};
+
+\path[draw] (x1)--(vx1);
+
+
+\draw (x1) -- (vx1) node[point,style={fill=white},label={0:$\NVol_{s_1}$}] {};
+\draw (x2) -- (vx2) node[point,style={fill=white},label={0:$\NVol_{s_1-1}$}] {};
+\draw (xk) -- (vxk) node[point,style={fill=white},label={0:$\NVol_{k}$}] {};
+\draw (xkk) -- (vxkk) node[point,style={fill=white},label={0:$\NVol_{k-1}$}] {};
+\draw (xa) -- (vxa) node[point,style={fill=white},label={0:$\NVol_{1}$}] {};
+\draw (xaa) -- (vxaa) node[point,style={fill=white},label={0:$\NVol_{s_1+1}$}] {};
+
+% Halfedge labeling 
+
+\path (C) +(\posa+\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 2}};
+\path (C) +(\posa-\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 1}};
+\path (C) +(\posa+\angdist+\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 2}};
+\path (C) +(\posa+\angdist-\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 1}};
+\path (C) +(\posa-\angdist+\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 3}};
+\path (C) +(\posa-\angdist-\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 1}};
+\path (C) +(\posa-2*\angdist+\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 3}};
+\path (C) +(\posa-2*\angdist-\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 1}};
+\path (C) +(\posb+\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 2}};
+\path (C) +(\posb-\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 1}};
+\path (C) +(\posb+\angdist+\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 3}};
+\path (C) +(\posb+\angdist-\halflabeldelta:\rad-\halflabeldeltarad) node {{\scriptsize 1}};
+
+\path (C) +(\posa-\verthalflabeldelta:\rad-\verthalflabeldeltarad) node {{\scriptsize 3}};
+\path (C) +(\posa+\angdist-\verthalflabeldelta:\rad-\verthalflabeldeltarad) node {{\scriptsize 3}};
+\path (C) +(\posa-\angdist+\verthalflabeldelta:\rad+.7*\verthalflabeldeltarad) node {{\scriptsize 2}};
+\path (C) +(\posa-2*\angdist+\verthalflabeldelta:\rad+.7*\verthalflabeldeltarad) node {{\scriptsize 2}};
+
+\path (C) +(\posb+\angdist-\verthalflabeldelta:\rad+.7*\verthalflabeldeltarad) node {{\scriptsize 2}};
+\path (C) +(\posb-\verthalflabeldelta:\rad-\verthalflabeldeltarad) node {{\scriptsize 3}};
+\end{tikzpicture}

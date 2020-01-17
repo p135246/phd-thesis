@@ -1,0 +1,24 @@
+%auto-ignore
+\begin{tikzpicture}
+  \coordinate (P8) at (0,0);
+  \coordinate (P9) at ($(P8)+(0,\hghtO)$);
+  
+  \coordinate (P10) at ($(P8)+(0,\hght)$);
+  \coordinate (P11) at ($(P10)+(0,\dist)$);
+  \draw[dashed] (P11) arc (180:0:{\radO} and {\eccO});
+  \draw (P10) arc (180:0:{\radO} and {\eccO});
+
+  \draw (P10) arc (180:360:{\radO} and {\eccO});
+  \draw (P11) arc (180:360:{\radO} and {\eccO});
+
+  \draw (P9) arc (180:360:{\radO} and {\eccO});
+  \draw (P9) arc (180:0:{\radO} and {\eccO});  
+  \draw (P8) arc (180:360:{\radO} and {\eccO});
+  \draw[dashed] (P8) arc (180:0:{\radO} and {\eccO});
+  \draw (P8) -- (P10);
+  \draw (P9) -- (P11);
+  \draw ($(P8)+(2*\radO,0)$) -- ($(P10)+(2*\radO,0)$);
+  \draw ($(P9)+(2*\radO,0)$) -- ($(P11)+(2*\radO,0)$);
+  
+  \node at ($(P8)+(\radO,0.21*\hghtO-.7*\dist)$) {$\OPQ_{110}$};
+\end{tikzpicture}

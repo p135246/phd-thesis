@@ -1,0 +1,19 @@
+\usepackage[textsize=tiny,backgroundcolor=white,linecolor=black,obeyFinal,colorinlistoftodos]{todonotes} % TODO package
+%\usepackage[disable]{todonotes}
+\def\ToDoBackgroundColorCorrect{red}
+\def\ToDoBackgroundColorModify{blue}
+\def\ToDoBackgroundColorToDo{green}
+\def\ToDoBackgroundColorReminder{orange}
+\def\ToDoBackgroundColorRemove{black}
+\def\ToDoBackgroundColorAdd{yellow}
+
+\newcommand{\Correct}[2][]{\todo[bordercolor=black,backgroundcolor=\ToDoBackgroundColorCorrect!20,prepend,#1]{#2}}
+\newcommand{\Modify}[2][]{\todo[bordercolor=black,backgroundcolor=\ToDoBackgroundColorModify!20,prepend,#1]{#2}}
+\newcommand{\ToDo}[2][]{\todo[bordercolor=black,backgroundcolor=\ToDoBackgroundColorToDo!20,prepend,#1]{#2}}
+\newcommand{\Reminder}[2][]{\todo[bordercolor=black,backgroundcolor=\ToDoBackgroundColorReminder!20,prepend,#1]{#2}}
+\newcommand{\Remove}[2][]{\todo[bordercolor=black,backgroundcolor=\ToDoBackgroundColorRemove!20,prepend,#1]{#2}}
+\newcommand{\Add}[2][]{\todo[bordercolor=black,backgroundcolor=\ToDoBackgroundColorAdd!20,prepend,#1]{#2}}
+\newcommand{\Extra}[2][]{\todo[bordercolor=black, backgroundcolor=white,inline,prepend,#1]{#2}}
+
+\newcommand{\ToDoList}{\listoftodos\Extra[caption={1.)git},inline]{Do not forget to regularly commit to git!}\Extra[caption={2.)todonotes},inline]{You can use \textcolor{\ToDoBackgroundColorCorrect}{Correct}, \textcolor{\ToDoBackgroundColorModify}{Modify}, \textcolor{\ToDoBackgroundColorRemove}{Remove}, \textcolor{\ToDoBackgroundColorAdd}{Add}, \textcolor{\ToDoBackgroundColorReminder}{Reminder}, \textcolor{\ToDoBackgroundColorToDo}{ToDo}.}}
+% Can use e.g. caption={Hello} as an optinoal argument, which then will be used instead in the list of todos and will be prepended to the actual todo. Here red!20 means 20% red and 80% white. One can also write red!20!blue meaning 20% red and 80% blue.

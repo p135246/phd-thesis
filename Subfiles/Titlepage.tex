@@ -1,0 +1,64 @@
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\begin{document}
+
+\title{IBL-Infinity Model of String Topology from Perturbative Chern-Simons Theory}
+\author{Pavel H\'ajek}
+
+\newlength\SmallSkip
+\newlength\BigSkip
+\newlength\BBigSkip % From name to datum
+\setlength{\SmallSkip}{0.3cm}
+\setlength{\BigSkip}{1cm}
+\setlength{\BBigSkip}{2cm}
+
+\makeatletter % To access \@title, \@author
+\renewcommand*{\maketitle}{
+\begin{titlepage}
+    
+    \centering
+    {\Huge\bfseries\@title}
+    \vskip\BigSkip
+\begin{otherlanguage}{ngerman}
+	{\Large
+   	{\LARGE\bfseries Dissertation}
+	\vskip\BigSkip
+	zur Erlangung des akademischen Grades
+	\vskip\SmallSkip
+    Dr. rer. nat.
+	\vskip\BigSkip
+    eingerichtet an der
+    \vskip\SmallSkip
+    Mathematisch-Naturwissenschaftlich-Technischen Fakult\"at
+    \vskip\SmallSkip
+	der Universit\"at Augsburg
+	\vskip\BigSkip
+	von
+	\vskip\SmallSkip
+	{\bfseries\LARGE\@author} 
+	\vskip\BBigSkip
+	Augsburg, \monthname\ \the\year 
+	\vskip\BigSkip
+	\includegraphics[scale=0.3]{\GraphicsFolder/Uni_Aug_Logo_Basis_pos_B}
+	\clearpage
+    \thispagestyle{empty}
+	\null\vfill	
+	\begin{flushleft}
+  	\begin{tabular}{ll}
+   		1.~Gutachter:  & Prof.~Dr.~Kai Cieliebak, Universit\"at Augsburg \\
+    	2.~Gutachter: & Prof.~Dr.~Janko Latschev, Universit\"at Hamburg 
+    \end{tabular}
+    
+\vspace{1cm}    
+\begin{tabular}{ll}
+Tag der mündlichen Prüfung: &
+\end{tabular}    	%	   & Unknown 2
+
+    \end{flushleft}
+    }\end{otherlanguage}
+\end{titlepage}
+}
+\maketitle  
+\makeatother        
+\end{document}

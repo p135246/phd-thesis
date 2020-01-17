@@ -1,0 +1,88 @@
+\usepackage{leftidx}
+
+
+\usepackage{datetime}
+
+\usepackage{xcolor}
+
+\usepackage{tabularx}
+
+%\usepackage{layouts} % Print layouts
+% \listdiagram, \currentlist, \pagediagram, \currentpage, \pagedesign, \paragraphdesign, \currentparagraph, \headingdiagram{ }, \footnotediagram, \setlayoutscale{0.8}, \currenttoc, \tocdesign
+
+\usepackage{scalerel} % Scale and stretch symbols
+%	\scalerel[*][max_width]{object}{reference}
+%	\stretchrel[*][narrowest_aspect]{object}{reference}
+%	\scaleto[max_width]{object}{height}
+%	\stretchto[narrowest_aspect]{object}{height}
+
+
+\usepackage{stackengine} % Stacking symbols vertically
+%\stackengine{\Sstackgap or \Lstackgap or \stackgap or stacklength}
+%			 {anchor}
+%			 {item}
+%			 {O or U}
+%			 {\stackalignment or l or c or r}
+%			 {\quietstack or T or F}
+%			 {\useanchorwidth or T or F}
+%			 {\stacktype or S or L}
+
+\usepackage{calc} % Arithmetics with lengths and counters
+
+\usepackage[titletoc]{appendix} % Provides appendices environment used instead of \appendix command
+% 	titletoc Adds a name (e.g., ‘Appendix’) before each appendix listed in the
+%	ToC. The name is given by the value of \appendixname
+%	\def\appendixname{Appendix}
+%	\begin{appendices}
+%	\subfile{\SubfilesFolder/AppendixA}
+%	\end{appendices}
+
+% AMS packages
+\usepackage{amsmath,amsthm,amssymb,amscd,mathtools}
+\usepackage{thmtools}
+\usepackage{mathtools}
+
+% Physics
+\usepackage{physics}
+
+%% Typesetting related
+\usepackage[inline]{enumitem} %Customize enumerate, itemize, description
+% label = \alph, \Alph, \arabic, \roman, \Roman
+% \leftmargin + \itemindent = \labelindent + \labelwidth + \labelsep
+% \leftmargin The distance from the left margin of the text to the text in an item
+% \itemindent The distance from the \leftmargin to the left margin of the first line of an item.
+% itemindent=*   automatically calculates itemindent so that the label does not go out of the page
+
+\usepackage{setspace} % Adds the option singlespacing, onehalfspacing, doublespacing
+%\usepackage{float} % Provides \figure[H] option
+\usepackage{graphicx} % Better includegraphics options
+\usepackage{blindtext} % Produces blind text with \blindtext
+%\usepackage{dsfont} % Identity
+\usepackage{bbm} % Identity font, \Id
+
+% Tikz related  
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\usetikzlibrary{intersections,calc,patterns,decorations.pathreplacing,arrows,decorations.shapes,decorations.markings,math,arrows.meta}
+
+%% Clickable Links - Causes auxhook Warning when used with subfile!!
+%\usepackage{hyperref}
+
+\usepackage{marginnote} % \marginnote{}
+
+% List of contents
+% \usepackage{tocloft} % Table of contents, list of figures
+% Conditional command to disable tocloft for scrbook
+%\newif\ifTocloft
+%\DeclareOption{Tocloft}{\Toclofttrue}
+%\DeclareOption{noTocloft}{\Tocloftfalse}
+%\ExecuteOptions{Tocloft} 
+%\ProcessOptions\relax
+%\ifTocloft
+%    \RequirePackage{tocloft}
+%\fi
+
+% subfigures
+\usepackage{subcaption} % Different captions in subfigures

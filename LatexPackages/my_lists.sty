@@ -1,0 +1,22 @@
+\newlist{RemarkList}{enumerate}{5}
+\setlist[RemarkList]{
+	leftmargin=0em,
+	itemindent=*,
+	label=(\roman*),
+listparindent=\parindent % Preserve parindent inside of the list
+}
+
+\newlist{EqnList}{enumerate}{5}
+\setlist[EqnList]{label=\Roman*.,listparindent=\parindent}
+
+\newlist{PlainList}{enumerate}{5}
+\setlist[PlainList]{label=(\arabic*),listparindent=\parindent}
+
+\newlist{ExampleList}{enumerate}{5}
+\setlist[ExampleList]{leftmargin=0em,itemindent=*,label=(\alph*),listparindent=\parindent}
+
+\newlist{ClaimList}{enumerate}{5}
+\setlist[ClaimList]{label=(\alph*),listparindent=\parindent}
+
+\newlist{ProofList}{enumerate}{5}
+\setlist[ProofList]{leftmargin=0em,itemindent=*,label=(\alph*),listparindent=\parindent}

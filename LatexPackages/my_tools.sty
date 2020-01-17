@@ -1,0 +1,117 @@
+\newcommand{\Deff}{\mathrel{\vcenter{\offinterlineskip\hbox{.}\vskip-.80ex\hbox{.}}}\joinrel \hskip 1pt =} %Using definition in aign environment
+% Thorsten
+
+\makeatletter
+\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+\newcommand*\widebar[1]{%
+  \begingroup
+  \def\mathaccent##1##2{%
+    \rel@kern{0.8}%
+    \overline{\rel@kern{-0.8}\macc@nucleus\rel@kern{0.2}}%
+    \rel@kern{-0.2}%
+  }%
+  \macc@depth\@ne
+  \let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+  \mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+  \macc@set@skewchar\relax
+  \let\mathaccentV\macc@nested@a
+  \macc@nested@a\relax111{#1}%
+  \endgroup
+}
+\makeatother
+
+
+\newif\ifDraft% if true print the whole document
+%
+%\usepackage{environ}
+%\NewEnviron{Details}{\ifDraft\begingroup\color{blue}\BODY\endgroup\fi}% print only when \Completetrue
+
+\newcommand{\Details}[1]{\ifDraft\begingroup\color{blue}#1\endgroup\fi}
+
+\makeatletter
+\newcommand{\subalign}[2][c]{%
+  \if#1c\vcenter\else\vtop\fi{%
+    \Let@ \restore@math@cr \default@tag
+    \baselineskip\fontdimen10 \scriptfont\tw@
+    \advance\baselineskip\fontdimen12 \scriptfont\tw@
+    \lineskip\thr@@\fontdimen8 \scriptfont\thr@@
+    \lineskiplimit\lineskip
+    \ialign{\hfil$\m@th\scriptstyle##$&$\m@th\scriptstyle{}##$\crcr
+      #2\crcr
+    }%
+  }
+}
+\makeatother
+
+
+\def\Libertinename{Linux Libertine}
+% Biblatex logo
+
+\def\Biblatexname{\textsc{Bib}\LaTeX}
+% Biblatex logo
+
+\def\Komaname{KOMA-Script}
+% KOMA logo
+
+\def\Tikzname{Ti\emph{k}Z}
+% TikZ logo
+
+\def\Komaname{KOMA-Script}
+% KOMA logo
+
+%\definecolor{Mathematica}{HTML}{ed192d}
+%\font\minionit=MinionPro-It-osf-t1
+%\font\minionup=MinionPro-Regular-osf-t1
+\newcommand\Mathematicaname{Wolfram~\textit{Mathematica}\textsuperscript{\textregistered}10.4}%Mathematica logo
+
+\newcommand\undermat[2]{%
+  \makebox[0pt][l]{$\smash{\underbrace{\ \phantom{%
+    \begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}}
+
+\newcommand{\Mid}{\ |\ }
+\newcommand{\bigMid}{\ \bigl|\ }
+\newcommand{\BigMid}{\ \Bigl|\ }
+
+\newcommand{\ditto}{\raisebox{-0.5ex}{\textquotedbl}}
+
+\stackMath
+
+\newcommand\reallywidehat[1]{%
+\savestack{\tmpbox}{\stretchto{%
+  \scaleto{%
+    \scalerel*[\widthof{\ensuremath{#1}}]{\kern-.6pt\bigwedge\kern-.6pt}%
+    {\rule[-\textheight/2]{1ex}{\textheight}}%WIDTH-LIMITED BIG WEDGE
+  }{\textheight}% 
+}{0.5ex}}%
+\stackon[1pt]{#1}{\tmpbox}%
+}
+
+\newcommand{\QQQ}{\Red{???}}
+
+\newcommand{\Red}[1]{{\color{red}#1}}
+
+\newcommand{\Yellow}[1]{{\color{yellow}#1}}
+
+\newcommand{\Blue}[1]{{\color{blue}#1}}
+
+\newcommand{\SplitEq}[1][0cm]{\hfill\strut\\[#1]\strut\hfill} %Similar effect as multline for inline math 
+
+\newcommand{\StrikeOut}[2][black]{\makebox[0pt][l]{\color{#1}{\rule[.5ex]{#2}{.5pt}}}}
+
+\newlength{\RemainingLen}
+
+\newcommand{\Underline}[1]{%
+	\setlength{\RemainingLen}{\textwidth-\widthof{#1}
+	}
+
+\noindent\underline{#1\hspace*{\RemainingLen}}}
+
+\newcommand{\RedNote}[1]{\Red{#1}}
+
+\newcommand{\BlueNote}[1]{\Blue{#1}}
+
+\newcommand{\Error}[1]{\marginnote{\Red{\footnotesize #1}}}
+
+\newcommand{\vcenterline}[1]{\begingroup
+	\setbox0=\hbox{#1}
+	\parbox{\wd0}{\box0}\endgroup} % Centers an element in line vertically

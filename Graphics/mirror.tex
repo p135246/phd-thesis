@@ -1,0 +1,101 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\def\rad{1cm}
+\def\angdist{60}
+\def\posa{90}
+\def\extlen{0.5cm}
+\def\delta{20}
+
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{-<-/.style={decoration={markings,mark=at position #1 with {\arrow{<}}},postaction={decorate}}}
+% C1
+
+\coordinate (C1) at (0,0) {};
+\coordinate (C2) at (4*\rad,0) {};
+\coordinate (C3) at (8*\rad,0) {};
+
+\path (C1) node[point,label={270:1}] (C11)  at +(\posa:\rad) {};
+\path (C1) node[point,label={[label distance=-3pt]30:2}] (C12)  at +(\posa-\angdist:\rad) {};
+\path (C1) node[point,label={[label distance=-3pt]290:k}] (C1k)  at +(\posa+\angdist:\rad) {};
+
+\draw ([shift=(\posa:\rad)]C1) arc (\posa:\posa+\angdist:\rad);
+\draw[-<-=0.5] ([shift=(\posa-\angdist:\rad)]C1) arc (\posa-\angdist:\posa:\rad);
+
+\draw ([shift=(\posa+\angdist:\rad)]C1) arc (\posa+\angdist:\posa+\angdist+\delta:\rad);
+\draw ([shift=(\posa-\angdist-\delta:\rad)]C1) arc (\posa-\angdist-\delta:\posa-\angdist:\rad);
+
+\draw[dashed]([shift=(\posa+\angdist+\delta:\rad)]C1) arc (\posa+\angdist+\delta:360+\posa-\angdist-\delta:\rad);
+
+
+
+% C2
+
+\path (C2) node[point,label={[label distance=-1pt]90:$\bar{1}$}] (C21)  at +(\posa:\rad) {};
+\path (C2) node[point,label={[label distance=-3pt]30:$\bar{k}$}] (C2k)  at +(\posa-\angdist:\rad) {};
+\path (C2) node[point,label={[label distance=-3pt]290:$\bar{2}$}] (C22)  at +(\posa+\angdist:\rad) {};
+
+\draw[->-=0.5]  ([shift=(\posa:\rad)]C2) arc (\posa:\posa+\angdist:\rad);
+\draw ([shift=(\posa-\angdist:\rad)]C2) arc (\posa-\angdist:\posa:\rad);
+
+\draw ([shift=(\posa+\angdist:\rad)]C2) arc (\posa+\angdist:\posa+\angdist+\delta:\rad);
+\draw ([shift=(\posa-\angdist-\delta:\rad)]C2) arc (\posa-\angdist-\delta:\posa-\angdist:\rad);
+
+\draw[dashed]([shift=(\posa+\angdist+\delta:\rad)]C2) arc (\posa+\angdist+\delta:360+\posa-\angdist-\delta:\rad);
+
+% C3
+
+\path (C3) node[point,label={[label distance=0pt]90:$\bar{k}$}] (C3k)  at +(\posa:\rad) {};
+\path (C3) node[point,label={[label distance=-3pt]120:$\bar{1}$}] (C31)  at +(\posa+\angdist:\rad) {};
+\path (C3) node[point,label={[label distance=-3pt]60:$\bar{2}$}] (C32)  at +(\posa+2*\angdist:\rad) {};
+
+\draw[->-=0.5] ([shift=(\posa+\angdist:\rad)]C3) arc (\posa+\angdist:\posa+2*\angdist:\rad);
+\draw ([shift=(\posa:\rad)]C3) arc (\posa:\posa+\angdist:\rad);
+
+\draw ([shift=(\posa+2*\angdist:\rad)]C3) arc (\posa+2*\angdist:\posa+2*\angdist+\delta:\rad);
+\draw ([shift=(\posa-\delta:\rad)]C3) arc (\posa-\delta:\posa:\rad);
+
+\draw[dashed]([shift=(\posa+2*\angdist+\delta:\rad)]C3) arc (\posa+2*\angdist+\delta:360+\posa-\delta:\rad);
+
+% Arrows
+
+\draw[-{>[scale=1.0]}] ($(C1)+(1.5*\rad,0)$) -- ($(C1)+(2.5*\rad,0)$) node[midway,above=2pt]{Inv};
+\draw[-{>[scale=1.0]}] ($(C2)+(1.5*\rad,0)$) -- ($(C2)+(2.5*\rad,0)$) node[midway,above]{(-1)};
+
+% External legs
+
+\path (C1) -- (C11) -- ([turn]0:\extlen) coordinate (C11x){};
+\path[draw] (C11)--(C11x);
+\path (C1) -- (C12) -- ([turn]180:\extlen) coordinate (C12x){};
+\path[draw] (C12)--(C12x);
+\path (C1) -- (C1k) -- ([turn]0:\extlen) coordinate (C1kx){};
+\path[draw] (C1k)--(C1kx);
+
+\path (C2) -- (C21) -- ([turn]180:\extlen) coordinate (C21x){};
+\path[draw] (C21)--(C21x);
+\path (C2) -- (C22) -- ([turn]0:\extlen) coordinate (C22x){};
+\path[draw] (C22)--(C22x);
+\path (C2) -- (C2k) -- ([turn]180:\extlen) coordinate (C2kx){};
+\path[draw] (C2k)--(C2kx);
+
+\path (C3) -- (C31) -- ([turn]180:\extlen) coordinate (C31x){};
+\path[draw] (C31)--(C31x);
+\path (C3) -- (C32) -- ([turn]0:\extlen) coordinate (C32x){};
+\path[draw] (C32)--(C32x);
+\path (C3) -- (C3k) -- ([turn]180:\extlen) coordinate (C3kx){};
+\path[draw] (C3k)--(C3kx);
+
+
+\node[point,style={fill=white}] at (C11x) {};
+\node[point,style={fill=white}] at (C12x) {};
+\node[point,style={fill=white}] at (C1kx) {};
+
+\node[point,style={fill=white}] at (C21x) {};
+\node[point,style={fill=white}] at (C22x) {};
+\node[point,style={fill=white}] at (C2kx) {};
+
+\node[point,style={fill=white}] at (C31x) {};
+\node[point,style={fill=white}] at (C32x) {};
+\node[point,style={fill=white}] at (C3kx) {};
+\end{tikzpicture}

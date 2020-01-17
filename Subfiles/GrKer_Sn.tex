@@ -1,0 +1,149 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\newcommand{\Soln}{\mathcal{S}}
+\newcommand{\InvSoln}{\Soln_{\mathrm{rot}}}
+\newcommand{\InvDR}{\DR_{\mathrm{rot}}}
+\newcommand{\InvR}{\R_{\mathrm{rot}}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\ArtPrpg}{\mathrm{P}_{\mathrm{art}}}
+
+\begin{document}
+
+\section{Standard Hodge propagator for 1- and 2-sphere}\label{Sec:GrSpgh}
+
+In this section, we denote the Hodge propagator for $\Sph{n}$ constructed in Part~I by $\ArtPrpg$. We would like to use $\ArtPrpg$ to study the standard Hodge propagator $\StdPrpg$ for $\Sph{n}$.
+
+For $\Sph{1}$, we can compute $\KKer_t$ and hence $\StdPrpg$ explicitly. 
+
+\begin{Example}[$\StdPrpg$ for $\Sph{1}$]\label{Ex:SADQQ}
+We write $\Sph{1} = \R/2\pi\Z$ and use the coordinate $x\in [0,2\pi)$. Because $\Sph{1}$ is flat, we have
+$$ \Laplace = - \frac{\partial^2}{\partial x^2}. $$
+Solving the eigenvalue problem $\Laplace \omega = \lambda \omega$ for $\omega\in \DR(\Sph{1})$ and $\lambda\in \R$, we get $\lambda\in \{0, n^2 \mid n\in\N\}$ and the corresponding eigenvectors
+\begin{align*}
+\Bigl\{\frac{1}{\sqrt{2 \pi}}, \frac{1}{\sqrt{\pi}} \cos(nx), \frac{1}{\sqrt{\pi}} \cos(nx) \Diff{x}, \frac{1}{\sqrt{\pi}} \sin(nx), \frac{1}{\sqrt{\pi}} \sin(nx) \Diff{x} \mid n\in \N\Bigr\},
+\end{align*}
+which we normalized in the $L^2$-norm. Plugging in \eqref{Eq:HK}, we get
+\begin{align*}
+\KKer_t(x_1,x_2) & = \frac{1}{2\pi} + \frac{1}{\pi}\sum_{n=1}^\infty e^{-n^2 t}\bigl(\cos(nx_1) \cos(nx_2) + \sin(nx_1)\sin(nx_2) \bigr) (\Diff{x_1}-\Diff{x_2}) \\
+& = \frac{1}{2\pi} + \frac{1}{\pi}\sum_{n=1}^\infty e^{-n^2 t}\cos(nx_1 - nx_2)(\Diff{x_1}-\Diff{x_2}).
+\end{align*}
+Applying the product codifferential, we get
+\begin{align*}
+\CoDd \KKer_t(x_1,x_2) &= \frac{1}{\pi}\sum_{n=1}^\infty e^{-n^2 t}\Bigl[- \frac{\partial}{\partial x_1}\cos(nx_1-nx_2)+\frac{\partial}{\partial x_2}\cos(nx_1-nx_2)\Bigr] \\
+& = \frac{2}{\pi} \sum_{n=1}^\infty e^{-n^2 t} n \sin(n x_1 - n x_2). 
+\end{align*}
+Finally, the integration gives
+\begin{align*}
+\StdPrpg(x_1,x_2) &= \frac{1}{2}\int_0^\infty \CoDd\KKer_t(x_1,x_2) \Diff{t} \\
+&=\frac{1}{\pi}\sum_{n=1}^\infty \Bigl(\int_0^\infty e^{-n^2 t} \Diff{t}\Bigr)n\sin(nx_1 - nx_2) \\
+&= \frac{1}{\pi}\sum_{n=1}^\infty\frac{\sin\bigl(n(x_1-x_2)\bigr)}{n} \\
+& = \frac{1}{2\pi} \begin{cases}
+\pi - (x_1 - x_2) & x_1 > x_2, \\
+-\pi - (x_1-x_2) & x_1< x_2.
+\end{cases} \\
+& = \frac{1}{2\pi}\bigl(\alpha(x_1,x_2) - \pi\bigr).
+\end{align*}
+This is precisely $\ArtPrpg$ from Part~I.
+%In particular, the standard Hodge propagator extends smoothly to the blow-up.
+% See \cite{https://math.stackexchange.com/questions/566856/is-sum-n-1-infty-frac-sinnxn-continuous} for the computation of the sum.
+\end{Example}
+
+For $n\ge 2$, an explicit formula for any of $\StdPrpg$, $\LapGKer$ or $\KKer_t$ seems to be unknown. For $\Sph{2}$, the formula for $\StdPrpg$ on functions was derived by A.~Hermann.
+
+
+Our idea to study $\StdPrpg$ via $\ArtPrpg$ is to examine the uniqueness of Hodge propagators. Consider the Schwartz form $\HKer(x,y) = \frac{1}{V}(\Vol(x) + (-1)^n\Vol(y))$ of the harmonic projection for $\Sph{n}$. Let $C_2(\Sph{n})\coloneqq\Sph{n}\times\Sph{n}\backslash\Diag$ denote the configuration space, and let
+\begin{equation}\label{Eq:DifEq}
+\Soln_n\coloneqq\{\GKer\in\DR^{n-1}(C_2(\Sph{n}))\mid\Dd\GKer=(-1)^n\HKer\}
+\end{equation}
+be the space of primitives to $(-1)^n\HKer$. We know that $\StdPrpg\in \Soln_n$. The following holds.
+
+\begin{Proposition}[The space of primitives to $\HKer$ for $\Sph{n}$]\label{Prop:SpaceOfSolnSn}
+Let
+$$ V_n\coloneqq \begin{cases}
+\DR^{n-2}(C_2(\Sph{n}))/\Dd \DR^{n-3}(C_2(\Sph{n})) & \text{for } n\ge 3, \\
+\DR^{0}(C_2(\Sph{n}))/\R & \text{for }n=2,
+\end{cases}$$
+where $\R\subset\DR^0(C_2(\Sph{n}))$ denotes the constants. The action $\rho: V_n \times \Soln_n \rightarrow \Soln_n$, $(\lambda,\GKer)\mapsto \GKer + \Dd\lambda$ of the additive group $V_n$ on $\Soln_n$ defines the structure of an affine space on $\Soln_n$ for $n\ge 2$. If we require $SO(n+1)$ or $(-1)^n\tau^*$-invariance, then the same holds with $\DR$ replaced by the correspondingly invariant forms.
+\end{Proposition}
+\begin{proof}
+We have to check that the action $\rho$ is free and transitive. For $\GKer_1$, $\GKer_2\in \Soln_n$, the difference $\eta \coloneqq \GKer_1 - \GKer_2$ is a closed $(n-1)$-form; it is exact because $C_2(\Sph{n})$ is homotopy equivalent to $\Sph{n}$. A primitive $\lambda_1$ is an $n-2$ form. If $\lambda_2$ is another primitive, then $\lambda_1 - \lambda_2$ is closed, and hence it is a constant for $n=2$ and an exact form for $n \ge 3$. Therefore,~$\Soln_n$ is an affine space over $V_n$. As for the invariance, we can average a primitive of an invariant form over $SO(n+1)$ or take $\frac{1}{2}(\Id + (-1)^n \tau^*)$.
+\end{proof}
+
+Note that $\Soln_1 \simeq \R$ by adding the constant and that all functions on $C_2(\Sph{1})$ are coexact. Therefore, $\StdPrpg$ for $\Sph{1}$ can not be characterized as a unique coexact solution of the differential equation for the Hodge propagator.
+
+\begin{Proposition}[Coexactness of artificial Hodge propagator]\label{Prop:ArtProsCoexact}
+The Hodge propagator $\ArtPrpg\in\DR^{n-1}(\Sph{n}\times\Sph{n}\backslash\Diag)$ constructed in Part~I is coexact for every $n\in \N$.
+\end{Proposition}
+\begin{proof}
+First of all, we rewrite
+\begin{align*}
+\omega_k(x,y) &= \frac{1}{k!(n-1-k)!}\sum_{\sigma\in \Perm_{n+1}} x^{\sigma_1} y^{\sigma_1} \Diff{x}^{\sigma_3} \dotsb\Diff{x}^{\sigma_{2+k}} \Diff{y}^{\sigma_{3+k}}\dotsb \Diff{y}^{\sigma_{n+1}} \\
+& = (-1)^k \sum_{\substack{I\subset \{1,\dotsc,n+1\} \\ \Abs{I} = k + 1}} \iota_x(\Diff{x}^I) \wedge \underbrace{\iota_y \Star^{\R^{n+1}}}_{\Star^{\Sph{n}}}(\Diff{y}^I).
+\end{align*}
+Recall the formulas $\CoDd \alpha = (-1)^{d(k-1)+1}\Star \Dd \Star \alpha$ and $\Star \Star \alpha= (-1)^{k(n-k)}\alpha$ for $\alpha\in \DR^k(M)$, where $d=\dim(M)$. For all $(x,y)\in \Sph{n}\times\Sph{n}\backslash\Diag$, we compute 
+\begin{align*}
+ \CoDd_y \GKer(x,y) &= \CoDd_y\Bigl(\sum_{k=0}^{n-1} (-1)^k g_k(x\cdot y) \sum_{\substack{I\subset\{1,\dotsc,n+1\}\\\Abs{I}=k+1}} (\iota_x \Diff{x}^I)\wedge \Star^{\Sph{n}}(\Diff{y}^I) \Bigr) \\
+ & =\sum_{k=0}^{n-1}\sum_{\substack{I\subset\{1,\dotsc,n+1\}\\\Abs{I}=k+1}} (\iota_x \Diff{x}^I)\wedge\CoDd_y\bigl(g_k(x\cdot y) \Star^{\Sph{n}}(\Diff{y}^I)\bigr) \\
+ & \underset{\mathclap{\qquad\ \; \qquad\subalign{& \Big\uparrow\rule{0pt}{5.5ex} \\ \CoDd_y &= (-1)^{n(n-k)+1}\Star^{\Sph{n}}\Dd \Star^{\Sph{n}}\\
+\Star^{\Sph{n}} \Star^{\Sph{n}} &= (-1)^{(k+1)(n-k-1)} \Id\\
+\text{tot.~sign} &= (-1)^k}}}{=} \sum_{k=0}^{n-1} (-1)^k \sum_{\substack{I\subset\{1,\dotsc,n+1\}\\\Abs{I}=k+1}} (\iota_x \Diff{x}^I) \wedge \Star^{\Sph{n}} \Dd_y\bigl(g_k(x\cdot y) \Diff{y}^I\bigr) \\
+& = \sum_{k=0}^{n-1}(-1)^k g_k'(x\cdot y) \sum_{\substack{I \subset \{1,\dotsc,n+1\}\\\Abs{I}=k+1\\}}\underbrace{\begin{multlined}[t] \sum_{i\in I} \sum_{j\in \{1,\dotsc,n+1\}\backslash I} \varepsilon(i,I)\varepsilon(j,I) x^i x^j \\ \Diff{x}^{I\backslash\{i\}}\wedge\Star^{\Sph{n}}(\Diff{y}^{I\cup \{j\}}) \end{multlined}}_{=0} \\
+& = 0.
+\end{align*}
+The cancellation occurs because the summand $(I, i, j)$ contains the same terms as the summand $(I'=I\backslash\{i\}\cup j, j, i)$, and the signs satisfy
+$$ \varepsilon(j,I')\varepsilon(i,I') = - \varepsilon(i,I)\varepsilon(j,I). $$
+We have
+$$ \H_{n-1}(\DR(\Sph{n}\times\Sph{n}\backslash\Diag),\CoDd) \simeq \HDR^{n+1}(\Sph{n}\times\Sph{n}\backslash\Diag) = 0, $$
+and hence any coclosed $(n-1)$-form is coexact.
+\end{proof}
+
+\begin{Proposition}[Smooth extension to the blow-up for $\Sph{2}$]\label{Prop:StdS2}
+The standard Hodge propagator for $\Sph{2}$ extends smoothly to the blow-up.
+\end{Proposition}
+\begin{proof}
+Let $\GKer_1$, $\GKer_2 \in \Soln_2$ be two $\SO(3)$-symmetric solutions. Proposition~\ref{Prop:SpaceOfSolnSn} asserts that there is a smooth $\SO(3)$-symmetric function $\alpha: C_2(\Sph{2})\rightarrow \R$ such that $\GKer_1 - \GKer_2 = \Dd \lambda$. Because $\SO(3)$ acts on $\Sph{2}$ transitively, there is a smooth function $f: [-1,1)\rightarrow \R$ such that
+$$ \lambda(x,y) = f(x\cdot y)\quad\text{for all }(x,y)\in C_2(\Sph{2}). $$
+Note that one can let $f$ explode at $1$ and obtain Hodge propagators which do not extend smoothly to the blow-up. Let us assume, in addition, that $\GKer_1 - \GKer_2$ is coexact. We obtain 
+$$ 0 = \CoDd(\GKer_1 - \GKer_2) = \CoDd \Dd\lambda = \Laplace \lambda. $$
+Therefore, $\lambda$ is a harmonic function on $C_2(\Sph{2})$. Denoting $B(x,y) \coloneqq x\cdot y$, we can write $\lambda = f\circ B$,  which implies
+$$ \Laplace(f \circ B) = f'' \Norm{\Grad B}^2 + f' \Laplace B. $$
+The computation of $\Norm{\Grad B}$ and $\Laplace B$ is straightforward and we will do it for any $n\in \N$. If $\tilde{f}: \Sph{n} \rightarrow \R$ is a smooth function and $f: \R^{n+1} \rightarrow \R$ is defined by 
+$$ f(x)\coloneqq \tilde{f}\Bigl(\frac{x}{\Abs{x}}\Bigr)\quad\text{for all }x\in \R^{n+1}\backslash\{0\}, $$
+then
+$$ \Laplace^{\Sph{n}} \tilde{f} = \Restr{\bigl(\Laplace^{\R^{n+1}}f\bigr)}{\Sph{n}}\quad\text{and}\quad \Grad^{\Sph{n}} \tilde{f} = \Restr{\bigl(\Grad^{\R^{n+1}}f\bigr)}{\Sph{n}}. $$
+We compute 
+\begin{align*}
+\Laplace_x^{\R^{n+1}} \Bigl( \frac{x}{\Abs{x}}\cdot y \Bigr) &= \sum_{i=1}^{n+1} - \frac{\partial}{\partial x^i}\Bigl(\frac{y^i}{\Abs{x}} - \frac{x^i}{\Abs{x}^3}x\cdot y\Bigr) \\
+ &= \sum_{i=1}^{n+1} \frac{x^i y^i}{\Abs{x}^3} - 3 \frac{x^i x^i}{\Abs{x}^5} x \cdot y + \frac{x\cdot y}{\Abs{x}^3} + \frac{x^i y^i}{\Abs{x}^3} \\
+ & = 0,\\
+\Grad^{\R^{n+1}}_x\Bigl(\frac{x}{\Abs{x}}\cdot y\Bigr) & = \sum_{i=1}^{n+1} \Bigl(\frac{y^i}{\Abs{x}} - \frac{x^i}{\Abs{x}^3}x\cdot y \Bigr)\frac{\partial}{\partial x^i}\quad\text{and}\\
+\Norm{\Grad (x\cdot y)}^2 &= \Bigl\|\sum_{i=1}^{n+1}(y^i - (x\cdot y) x^i) \frac{\partial}{\partial x^i} + \sum_{i=1}^{n+1}(x^i - (x\cdot y) y^i) \frac{\partial}{\partial y^i}\Bigr\|^2 \\
+& = \sum_{i=1}^{n+1} (y^i - (x\cdot y) x^i)^2 + (x^i - (x\cdot y)y^i)^2 \\
+& = 1 - 2(x\cdot y)^2 + (x\cdot y)^2 + 1 - 2(x\cdot y)^2 + (x\cdot y)^2 \\
+& = 2(1- (x\cdot y)^2).
+\end{align*}
+Therefore, $\Laplace B = 0$, $\Norm{\Grad B(x_1,x_2)}^2=2(1-(x_1\cdot x_2)^2)$, and we arrive to the equation
+$$ 2(1-u^2) f''(u) = 0\quad \text{for all }u\in[-1,1) $$
+and a smooth function $f: [-1,1) \rightarrow \R$. The only solution is a linear function, and it must hold
+$$ \lambda(x_1,x_2) = A(x_1 \cdot x_2) + B \quad\text{for some }A, B\in \R. $$
+Now, $B$ comes from a smooth function on $\Sph{n}\times \Sph{n}$, and hence $\lambda$ extends smoothly to the blow-up.
+\end{proof}
+
+If we determine the constants $A$ and $B$ in the proof of Proposition~\ref{Prop:StdS2}, then we get a formula for $\HtpStd$ for $\Sph{2}$ with $\ArtPrpg$.
+
+%For higher spheres we will have $\ArtPrpg - \StdPrpg \in \Im \CoDd \cap \Im\Dd$ and the primitives will be symmetric on the actions.
+%
+%\Add[caption={Add about Hodge propagator for $\Sph{n}$}]{
+%\begin{itemize}
+%\item Is a coexact solution of $\Dd \GKer = H$ which smoothly extends to the blow-up unique?
+%\item Can I check for $\Sph{2}$ that $\Im\GOp\subset\Im\CoDd$ or can I prove otherwise for the artificial green kernel. Can I find constants $A$, $B$?
+%\item Can I say something about uniqueness on $\Sph{3}$?
+%\item What additional condition should specify $\StdPrpg$ as the unique solution.
+%\item GARBAGE: But we know uniqueness of the coexact operator. But coexact operator is not implied by coexact kernel because we can not switch integral and codifferential!!
+%
+%It does not hold that every solution of the equation $\Dd \GKer = \HKer$ defines a Green operator!. But those who extend smoothly to the blow-up yes.
+%\end{itemize}}
+
+\end{document}

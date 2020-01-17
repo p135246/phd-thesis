@@ -1,0 +1,28 @@
+%auto-ignore
+\begin{tikzpicture}
+\clip (-3.5,-1) rectangle (3.6,3.5); 
+  \tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+  \tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+  \tikzset{-<-/.style={decoration={markings,mark=at position #1 with {\arrow{<}}},postaction={decorate}}}
+  \def\rad{3cm}
+  \def\pos{40}
+
+  % Sphere
+  \node [point,label={[yshift=-4pt]0:0}] (C) at (0,0) {};
+  \draw (C) circle (\rad);
+  \draw (-\rad,0) arc (180:360:3 and 0.6);
+  \draw[loosely dotted] (\rad,0) arc (0:180:3 and 0.6);
+  
+  
+  
+  \path (C) node[point,label={0:$e_n$}] (en)  at +(0:\rad) {};
+  \path (C) node[point,label={90:$e_{n+1}$}] (en1)  at +(90:\rad) {};
+  \path (C) node[point,label={\pos:$\zeta(r)$}] (x) at +(\pos:\rad) {};
+  
+  \draw[decoration={markings, mark=at position 0.5 with {\arrow{>}}},postaction={decorate}] ([shift=(\pos:0.4*\rad)]C) arc (\pos:90:0.4*\rad);
+
+  \draw[densely dashed] (C) -- (x);
+  \draw[densely dashed] (C) -- (en1);
+  
+  \draw let \p{A}=(x) in [decorate,decoration={brace,amplitude=5pt}] (0,\y{A}) -- (x) node [midway,yshift=9pt]{r};
+\end{tikzpicture}

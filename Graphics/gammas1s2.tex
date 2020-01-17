@@ -1,0 +1,37 @@
+%auto-ignore
+\begin{tikzpicture}
+\tikzset{int/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\tikzset{ext/.style = {draw, circle, fill=white, minimum size=2pt,inner sep=0pt}}
+\tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}}} 
+\def\CircRad{1.4}
+\def\CircPos{45}
+\def\CIAng{0}
+\def\CIIIAng{90}
+\def\CIVAng{180}
+\def\CVIAng{290}
+\def\AngDif{40}
+\def\AngDifTwo{70}
+\def\ExtLen{1.4}
+\def\ArcAngDeltaI{15}
+\def\ArcAngDeltaII{50}
+\coordinate[int] (C) at (0,0);
+\coordinate (R) at ($(C) + (\CircPos:\CircRad)$);
+\coordinate[ext,label={[above right]$\scriptstyle c_1$}] (C1) at ($(C) + (\CIAng:\ExtLen)$);
+%\coordinate[ext,label={[above right]$\scriptstyle c_1+1$}] (C2) at ($(C) + (\CIAng+\AngDif:\ExtLen)$);
+\coordinate[ext,label={[above right]$\scriptstyle c_1+s_1-1$}] (C3) at ($(C) + (\CIIIAng:\ExtLen)$);
+\coordinate[ext,label={[left]$\scriptstyle c_2$}] (C4) at ($(C) + (\CIVAng:\ExtLen)$);
+%\coordinate[ext,label={[left]$\scriptstyle c_2+1$}] (C5) at ($(C) + (\CIVAng+\AngDif:\ExtLen)$);
+\coordinate[ext,label={[right]$\scriptstyle c_2 + s_2 -1$}] (C6) at ($(C) + (\CVIAng:\ExtLen)$);
+
+\draw ($([shift=(0:\CircRad)]R)$) arc (0:360:\CircRad) node[pos=0.5,label={[left]$\scriptstyle s_1 + 2$}] {} node[pos=0.75,label={[below,yshift=-1mm]$\scriptstyle 1$}] {};
+
+\draw[->-={0.5},dotted] ($([shift=(\CIAng+\ArcAngDeltaI:\ExtLen)]C)$) arc (\CIAng+\ArcAngDeltaI:\CIIIAng-\ArcAngDeltaI:\ExtLen);
+\draw[->-={0.5},dotted] ($([shift=(\CIVAng+\ArcAngDeltaI:\ExtLen)]C)$) arc (\CIVAng+\ArcAngDeltaI:\CVIAng-\ArcAngDeltaI:\ExtLen);
+
+\draw (C) -- (C1) node[pos=0.3,above] {$\scriptstyle 2$};
+%\draw (C) -- (C2) node[pos=0.3,left] {$\scriptstyle 3$};
+\draw (C) -- (C3) node[pos=0.5,right] {$\scriptstyle s_1+1$};
+\draw (C) -- (C4) node[pos=0.5,above] {$\scriptstyle s_1+3$};
+%\draw (C) -- (C5) node[pos=0.5,above left] {$\scriptstyle s_1+3$};
+\draw (C) -- (C6) node[pos=0.5,below left] {$\scriptstyle s_1 + s_2 + 2$};
+\end{tikzpicture}

@@ -1,0 +1,123 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\begin{document}
+
+\section{Consequences for IBL-infinity theory}\label{Section:FuncIBL}
+
+Consider the construction $\dIBL^\MC(\CycC(\cdot))$ on cyclic $\DGA$'s ($=$\,differential Poincar\'e duality algebras) from Section~\ref{Sec:Alg3} in Part~I. We first need the following technical result.
+
+\begin{Conjecture}[Functoriality of $\dIBL^\MC$-construction up to homotopy]\label{Conj:Functorialityo}
+Consider differential Poincar\'e duality algebras $(V_1,\Dd_1,\wedge_1,\langle\cdot,\cdot\rangle_1)$ and $(V_2,\Dd_2,\wedge_2,\langle\cdot,\cdot\rangle_2)$, and let $f: V_2 \rightarrow V_1$ be a pairing-preserving $\DGA$-quasi-isomorphism. Then there is an $\IBLInfty$-quasi-isomorphism $\GTP: \dIBL(\CycC(V_1)) \rightarrow \dIBL(\CycC(V_2))$ with $\GTP_{110} = f^*$.
+\end{Conjecture}
+
+\begin{proof}[Idea of proof]
+Lemma~\ref{Lem:PomLemma} implies that $f$ is injective, and it follows from \cite[Theorem~11.3]{Cieliebak2015} that there is an $\IBLInfty$-quasi-isomorphism $\HTP: \dIBL(\CycC(V_1)) \rightarrow \dIBL(\CycC(V_2))$ with $\HTP_{110} = f^*$. Because $f$ preserves $\wedge$, the map $f^*$ is a quasi-isomorphism also with respect to the Hochschild differential $\OPQ_{110}^\MC$. We hope to use the obstruction theory from \cite[Section~3]{Cieliebak2015} to find $\GTP$ or prove that $\HTP_*\MC^{V_1}$ and~$\MC^{V_2}$, where $\MC^{V_i}$ are the canonical Maurer-Cartan elements for $\dIBL(\CycC(V_i))$ for $i=1$, $2$, are gauge equivalent Maurer-Cartan elements. The Homological Perturbation Lemma mentioned in Section~\ref{Sec:HPL} might give an alternative proof in the $\BV$-formalism.
+%Note that if $V_2\subset V_1$ is an ideal, then $\pi: V_1 = V_2\oplus V_2^\perp \rightarrow V_2$ is a pairing preserving $\DGA$-quasi-isomorphism which satisfies $\pi^* \OPQ^{V_2}_{210} = \OPQ_{210}^{V_1}(\pi^*\otimes\pi^*)$ and $(\pi^*\otimes \pi^*)\OPQ^{V_2}_{120} = \OPQ_{210}^{V_1}\pi^*$, and hence $\Pi_{110}\coloneqq \pi^*$, $\Pi_{klg}\coloneqq 0$ for $(k,l,g)\neq (1,1,0)$ IS NEVER AN IDEAL OTHERWISE DEGEN
+\end{proof}
+
+For any $\PDGA$ $(V,\dd,\wedge,\Or^\H)$ with $\H^0(V)=\R$ and $\H^1(V)=0$, we can pick its (small) Poincar\'e duality model $\Model(V)$ and associate to it the $\dIBL$-algebra $\dIBL^\MC(\CycC(\Model(V)))$. This extends the domain of $\dIBL^\MC(\CycC(\cdot))$ to $\PDGA$'s; however, removing choices requires us to relax the codomain to $\IBLInfty$-homotopy equivalence classes.
+
+\begin{Conjecture}[Extension of $\dIBL^\MC$ to $\PDGA$'s]\label{Conj:ExteofDFS}
+For any $\PDGA$ $(V,\Dd,\wedge,\Or^\H)$ with $\H^0(V)=\R$ and $\H^1(V)=0$, the $\IBLInfty$-homotopy class of $\dIBL^\MC(\CycC(\Model(V)))$ does not depend on the Poincar\'e duality model $\Model(V)$ of $V$.
+\end{Conjecture}
+\begin{proof}
+Let $\Model_1(V)$ and $\Model_2(V)$ be two Poincar\'e duality models of $V$. By Proposition~\ref{Prop:LambrechtUnique}, more generally Conjecture~\ref{Conj:PDGALST}, there is a differential Poincar\'e duality algebra~$V_3$ and $\PDGA$-quasi-isomorphisms $f_1: \Model_1(V)\rightarrow V_3$ and $f_2: \Model_2(V)\rightarrow V_3$. They are injective and pairing preserving by previous results. Conjecture~\ref{Conj:Functorialityo} gives $\IBLInfty$-quasi-isomorphisms $\HTP_1: \dIBL^\MC(\CycC(\Model_1(V))) \rightarrow \dIBL^\MC(\CycC(V_3))$ and $\HTP_2: \dIBL^\MC(\CycC(\Model_2(V))) \rightarrow \dIBL^\MC(\CycC(V_3))$ extending $f_1^*$ and $f_2^*$, respectively. Application of \cite[Theorem 1.2]{Cieliebak2015} (existence of $\IBLInfty$-homotopy inverses for $\IBLInfty$-quasi-isomorphisms) finishes the proof.
+\end{proof}
+
+If we had the notion of a minimal Poincar\'e duality model $\Model_0(V)$, e.g., the small Poincar\'e duality model provided that Corollary~\ref{Cor:SmalPoinc} holds, we could associate to a weak homotopy equivalence class of a $\PDGA$ $(V,\Dd,\wedge,\Or^\H)$ a canonical $\dIBL$-algebra $\dIBL^\MC(\CycC(\Model_0(V)))$ up to an $\IBLInfty$-isomorphism.\footnote{In order to think about functors, we would first have to find a canonical construction of an $\IBLInfty$-morphism induced by a $\PDGA$-morphism of cyclic $\DGA$'s. The construction of \cite[Section~11]{Cieliebak2015} applies only to quasi-isomorphisms, and even if we pick the standard Hodge propagator $\StdPrpg$, it still depends on the choice of the Hodge decomposition. Therefore, the best we can hope for is an assignment of $\PDGA$-morphisms to $\IBLInfty$-homotopy classes of $\IBLInfty$-morphisms.}
+
+\begin{Definition}[$\IBLInfty$-formality]\label{Def:IBLFormality}
+We say that a differential Poincar\'e duality algebra $(V,\Dd,\wedge,\langle\cdot,\cdot\rangle)$ is \emph{$\IBLInfty$-formal} if $\dIBL^\MC(\CycC(V))$ and $\dIBL^\MC(\CycC(\H(V)))$ are $\IBLInfty$-homotopy equivalent.
+\end{Definition}
+
+
+\begin{Conjecture}[$\DGA$-formality implies $\IBLInfty$-formality]\label{Con:DGAIBLForm}
+Let $(V,\Dd,\wedge)$ be a $\PDGA$ with $\H^0(V)=\R$ and $\H^1(V)=0$ which is formal as a $\DGA$. Then any its Poincar\'e duality model $\Model(V)$ is $\IBLInfty$-formal.
+\end{Conjecture}
+\begin{proof}
+By Proposition~\ref{Prop:PoincModelOfFormal}, $\DGA$-formality is equivalent to $\PDGA$-formality. Therefore,~$\H(V)$ is a Poincar\'e duality model of $V$. The rest follows from Conjecture~\ref{Conj:ExteofDFS}.
+\end{proof}
+
+Note that due to the existence of homotopy inverses of quasi-isomorphisms in the $\IBLInfty$-category, being $\IBLInfty$-homotopy equivalent is equivalent to being weakly equivalent as $\IBLInfty$-algebras (existence of a~direct quasi-isomorphism), and this is equivalent to being weakly $\IBLInfty$-homotopy equivalent (existence of zig-zag of quasi-isomorphisms).
+
+\begin{Remark}[$\IBLInfty$-formality of $V$ and $\CycC(V)$]\label{Rem:Intfor}
+Let $\Operad$ be a dg-operad. If $V$ is an $\Operad$-algebra, then $\H(V)$ is an $\Operad$-algebra with zero differential. We say that $V$ is $\Operad$-formal if $V$ and $\H(V)$ are weakly homotopy equivalent as $\Operad$-algebras; i.e., if there is a zig-zag of $\Operad$-quasi-isomorphisms between $V$ and $\H(V)$.
+
+Consider $\DGA$ and $\AInfty$. If a $\DGA$ $V$ is formal, then it is also $\AInfty$-formal because $\DGA$ is a subcategory of $\AInfty$.\footnote{Note that $\AInfty$, similarly as $\IBLInfty$, admits homotopy inverses of quasi-isomorphisms, and hence $\AInfty$-formality is equivalent to the existence of a direct $\AInfty$-quasi-isomorphism $V \rightarrow \H(V)$.} The converse is also true by the rectification procedure (see~\cite{MSE2719961}). Therefore, $\DGA$-formality and $\AInfty$-formality of a $\DGA$ $V$ are equivalent. This should be true for any suitable (pro)perad~$\Operad$ and its quasi-free resolution~$\Operad_\infty$.
+
+In the spirit above, we can speak about $\dIBL$-, resp.~$\IBLInfty$-formality of the $\dIBL$-algebra $\dIBL^\MC(\CycC(V))$ on $\CycC(V)$, which is about the existence of zig-zags of $\dIBL$-, resp.~$\IBLInfty$-quasi-isomorphisms between $\CycC(V)$ and $\H(\CycC(V))\coloneqq\H(\CycC(V),\OPQ_{110}^\MC)$. These notions are most likely equivalent as in the case of $\DGA$- and $\AInfty$-formality.
+
+On the other hand, $\IBLInfty$-formality of a differential Poincar\'e duality algebra $V$ from Definition~\ref{Def:IBLFormality} is a different notion because $V$ is not an $\IBLInfty$-algebra.
+
+We conclude that the following three types of ``formalities'' might be interesting: 
+\begin{enumerate}[label=\arabic*)]
+ \item $\DGA$-formality of a $\PDGA$ $V$, 
+ \item $\IBLInfty$-formality of a $\PDGA$ $V$ (resp.~of its Poincar\'e duality model),
+ \item $\IBLInfty$-formality of $\CycC(V)$ as the $\dIBL$-algebra $\dIBL^\MC(\CycC(V))$.
+\end{enumerate}
+Except for the fact that (1) may imply (2), we do not have any other guesses. Notions (1)--(3) should also be interpreted geometrically in the context of the String Topology Conjecture.
+\end{Remark}
+
+%In the same way, one can 
+%\begin{Remark}[$\Operad$-formality]
+%We have $\AInfty$-formality for $\nnuCDGA$. Again, weak homotopies of $\AInfty$-algebras is the same as the actual $\AInfty$-homotopies.
+%We can also define It is well-known that $\DGA$-formality is equivalent to $\AInfty$-formality which is equivalent to the existence of a direct $\AInfty$-quasi-isomorphism which is equivalent to $\AInfty$-homotopy equivalent.
+%\end{Remark}
+
+Let $M$ be a connected oriented closed $n$-manifold with $\HDR^1(M)=0$. We know that $\DR(M)$ is of Hodge type and that a Riemannian metric on $M$ induces a canonical Hodge decomposition $\DR(M) = \Harm \oplus \Im\Dd \oplus \Im\CoDd$, where $\Harm$ is the subspace of harmonic forms and~$\CoDd$ the codifferential. So, in this case, we have a canonical small Poincar\'e duality model 
+$$ \Model(\DR(M)) = \VansQuotient(\VansSmall(\DR(M))). $$
+Due to $\HDR^1(M)=0$, it is of finite type and hence finite-dimensional. Therefore, $\dIBL^\MC(\CycC(\Model(\DR(M))))$ is well-defined. Recall that $(\DR,\Dd,\wedge,\int)$ is not of finite type and $\dIBL^\MC(\CycC(\cdot))$ is not well-defined;
+%\footnote{Is there perhaps a way to construct $\dIBL^\MC(\CycC(\cdot))$ on differential Poincar\'e duality algebras which are not of finite type but are of Hodge type like $\DR(M)$?}
+that was the reason to define the Chern-Simons, aka formal pushforward, Maurer-Cartan element $\PMC$ for $\dIBL(\CycC(\HDR(M)))$ directly as a summation over Feynman integrals. The idea was that $\dIBL^\PMC(\CycC(\HDR(M)))$ is ``homotopy equivalent'' to ``$\dIBL^\MC(\CycC(\DR(M)))$''.
+
+We conjecture the following:
+
+\begin{Conjecture}[$\dIBL^\MC(\CycC(\cdot))$ on small model of $\DR(M)$]\label{Conj:SmallSimplCon}
+Let $M$ be a connected oriented closed Riemannian $n$-manifold with $\HDR^1(M) = 0$, and let $\PMC$ be the formal pushforward Maurer-Cartan element for an admissible Hodge propagator $\Prpg$. Then the $\IBLInfty$-algebras 
+$$\dIBL^\PMC(\CycC(\HDR(M)))\quad\text{and}\quad\dIBL^\MC(\CycC(\VansQuotient(\VansSmall(\DR(M))))) $$
+are $\IBLInfty$-homotopy equivalent.
+\end{Conjecture}
+\begin{proof}[Comment on proof]
+The proof shall require going into integrals and analytical results from \cite{Cieliebak2018}. It might be reasonable to try to show that $\HTP_* \MC$ and $\PMC$ are gauge equivalent Maurer-Cartan elements for $\dIBL(\CycC(\HDR(M)))$.
+\end{proof}
+
+
+\begin{Corollary}[Formality conjecture]\label{Cor:FormCorollary}
+In the situation of Conjecture~\ref{Conj:SmallSimplCon}, suppose that $M$ is formal. Then $\dIBL^\PMC(\CycC(\HDR(M)))$ is $\IBLInfty$-homotopy equivalent to $\dIBL^\MC(\CycC(\HDR(M)))$.
+\end{Corollary}
+
+Together with the String Topology Conjecture~\ref{Conj:StringTopology} this gives a canonical chain model for the equivariant Chas-Sullivan string topology for formal $M$ with $\HDR^1(M)=0$.
+
+%We see that by considering Poincar\'e duality models, we completely bypass the restriction to Fr\'echet $\dIBL$-algebras on cyclic cochains with smooth Schwarz kernel. 
+%
+%
+%\begin{Lemma}\label{Lem:DR}
+%Let $f: V_1 \rightarrow V_2$ and $g: V_2 \rightarrow V_1$ be  chain maps of cochain complexes $(V_1,\Dd_1)$ and $(V_2,\Dd_2)$ over $\R$ such that $f$ is a quasi-isomorphism and $f\circ g = \Id$. Then $g \circ f$ is homotopic to $\Id$.
+%\end{Lemma}
+%\begin{proof}
+%We have the decomposition
+%\begin{equation}\label{Eq:DecompNM}
+%V_1 = g(V_2) \oplus \Ker(f),
+%\end{equation}
+%where both $g(V_2)$ and $\Ker(f)$ are subcomplexes. Because $f$ is a quasi-isomorphism, a standard argument with the long exact sequence in homology associated to the short exact sequence $0\rightarrow \Ker f \rightarrow V_1 \rightarrow V_2 \rightarrow 0$ implies that $\Ker f$ is an acyclic subcomplex. Therefore, there exists a contraction $h: \Ker(f) \rightarrow \Ker(f)$. Recall that if we write $\Ker f = \Ker\Dd \oplus C$, then the contraction is given by $$ h(z,c):= \bigl(0,\bigl(\Restr{\Dd}{C}\bigr)^{-1}(z))\quad\text{for all }z\in \Ker \Dd, c \in C.  $$
+%We extend~$h$ to a linear map $H: V_1 \rightarrow V_1$ by $\Restr{H}{g(V_2)}:= 0$. Using that \eqref{Eq:DecompNM} is a decomposition into subcomplexes, we compute
+%$$ \Dd\circ H + H\circ \Dd = \pi_{\Ker(f)} = \Id - \pi_{g(V_2)} = \Id - g\circ f. $$
+%This proves the lemma.
+%\end{proof} 
+%\begin{Proposition}\label{Prop:BeerProblem}
+%Let $f: V_1 \rightarrow V_2$ be a surjective quasi-isomorphism of cochain complexes $(V_1,\Dd_1)$ and $(V_2,\Dd_2)$ over $\R$. Then $f$ is a deformation retraction, i.e., there is a chain map $g: V_2 \rightarrow V_1$ and a degree $-1$ linear map $h: V_1 \rightarrow V_2$ such that $f\circ g = \Id$ and $\Id - g\circ f = \Dd\circ h + h\circ \Dd$.
+%\end{Proposition}
+%\begin{proof}
+%We have the short exact sequence of cochain complexes
+%\begin{equation}\label{Eq:SESInt}
+%\begin{tikzcd}
+%0 \arrow{r} & \Ker f \arrow[hook]{r}{\iota} & V_1 \arrow[two heads]{r}{f} & V_2 \arrow{r} & 0.
+%\end{tikzcd}
+%\end{equation}
+%Since $\Ker f$ is acyclic, Lemma~\ref{Lem:Pom} gives a chain map $\pi: V_2 \rightarrow \Ker f$ with $\pi\circ \iota = \Id$. We then have $V_1 = \Ker f \oplus \Ker \pi$, and we can define 
+%$$ g:= \bigl(\Restr{f}{\Ker \pi}\bigr)^{-1} : V_2 \rightarrow V_1. $$
+%It is easy to check that $g$ is a chain map and that $f \circ g = \Id$. The proof is finished by Lemma~\ref{Lem:DR}.
+%\end{proof}
+\end{document}

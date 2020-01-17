@@ -1,0 +1,395 @@
+% ****
+% INFO
+% ****
+
+% This document is written using KOMA-Script
+
+\documentclass[11pt,
+a4paper,
+oneside, % One sided document. Change to twoside for print version
+openright, % Chapters begin on the right
+cleardoublepage=plain, % Add page number on empty pages when cleardoublepage is executed
+%numbers=noenddot, % No dot after the section number
+%listof=totoc % Insert list of figures to toc
+final
+%draft % draft version shows black boxes at hnox overflow
+]{scrbook}
+
+\renewcommand{\baselinestretch}{1.2} % IS IT OK?
+
+% *****************
+% TABLE OF CONTENTS
+% *****************
+
+% ********
+% SUBFILES
+% ********
+
+\usepackage{subfiles}
+
+\providecommand{\MainFolder}{.} % The directory of the main file Text.tex
+\providecommand{\MyPackagesFolder}{\MainFolder/LatexPackages} % The directory with LateX packages
+\providecommand{\SubfilesFolder}{\MainFolder/Subfiles} % The directory with subfiles
+\providecommand{\GraphicsFolder}{\MainFolder/Graphics} % The directory with graphics
+
+\providecommand{\BibliographyFile}{\MainFolder/Bibliography/bibliography.bib} % The bibliography file
+
+
+% *****
+% FONTS
+% *****
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Babel options
+
+\usepackage[ngerman,english]{babel}
+\usepackage{csquotes} % To correct babel error about quotes
+
+% Selection of fonts (uncomment precisely one): 
+
+%\usepackage{newpxtext,newpxmath} %Palatino
+%\usepackage{libertine} %Libertine
+%\usepackage[libertine]{newtxmath}
+%\usepackage[utopia]{mathdesign} %Utopia
+%\usepackage{fouriernc} %New Century Schoolbook
+%\usepackage{kpfonts} %KPFonts
+%\usepackage[garamond]{mathdesign}
+%\usepackage[charter]{mathdesign}
+\usepackage{lmodern} % Latin Modern
+%\usepackage{charter}
+%\usepackage[utopia]{mathdesign}
+%\usepackage{gfsartemisia-euler}
+%\setkomafont{disposition}{\normalfont}
+% Use the same font for headings as in the normal text
+
+
+
+% ************
+% BIBLIOGRAPHY
+% ************
+
+\usepackage[
+style=alphabetic, %
+%citestyle=authoryear, %
+giveninits=true, % Do not display full given names but just initials 
+backend=biber % Using newer biber instead of older bibtex
+]{biblatex}
+
+\addbibresource{\BibliographyFile}
+
+\DeclareSourcemap{
+ \maps[datatype=bibtex]{ % A collection of maps applied to every entry of a bibtex data input
+ \map{\step[fieldsource=doi,final] % Map applies only to entries with doi defined (this is the meaning of the construction with final)
+      \step[fieldset=isbn,null]}   % In this case, do not display ISBN
+ \map{\step[fieldsource=arxivId,final] % Map applies only to fields with arxivId defined
+      \step[fieldset=url,null]}        % In this case, do not display URL
+ \map[overwrite=true]{ % Allow changes of existing fields
+      \step[fieldsource=arxivId] % Load fieldsource from arxivId (but continue evaluating even if arxivId is note defined)
+      \step[fieldset=eprint, origfieldval] % Change eprint to the value of arxivId if defined. Keep its value otherwise.
+      \step[fieldsource=eprint, match={/}, final] % Continue only if the field eprint now contains /
+      \step[fieldset=primaryClass, null]} % In this case, do not display the primaryClass
+ }}
+% Some postprocessing of the .bib file using sourcemaps.
+% Works only when using Biber!
+% See paragraph 4.5.2 in biblatex manual for Dynamic modification of data
+
+\DefineBibliographyExtras{english}{\let\finalandcomma=\empty} % Removes the Oxford comma in the list of authors.
+
+\usepackage{microtype} 
+% Microtype package - Subliminal refinements towards typographical perfection.
+% Should improve the typography when pdftex is used.
+% In our document, it removes hbox overflow in bibliography.
+
+
+% ********
+% PACKAGES
+% ********
+
+\usepackage{hyperref}
+%	Rather listed separatly because it causes problems. 
+
+\usepackage{setspace}
+%	Line spacing
+
+\usepackage{\MyPackagesFolder/my_math_external_packages}
+%	List of common external packages
+
+\usepackage{\MyPackagesFolder/my_tools}
+%	Some useful commands
+%	Red, Blue, ...
+%	Requires stackengine because of reallywidehat
+
+\usepackage{\MyPackagesFolder/my_math_1}
+%	Various mathematical abbreviations
+
+\usepackage{\MyPackagesFolder/my_lists}
+%	ClaimList, ProofList, RemarkList, ExampleList, PlainList, EqnList, ...
+%	Requires \usepackage{enumitem}
+
+\usepackage{\MyPackagesFolder/my_amsthm}
+%	Theorem, Definition, Remark, ... 
+%	Requires \usepackage{amsthm}
+
+\usepackage{\MyPackagesFolder/my_todo}
+
+
+% **********
+% STYLING OF CHAPTER TITLE
+% **********
+
+%\KOMAoption{chapterprefix}{true}
+%\renewcommand*\raggedchapter{\centering}
+%\RedeclareSectionCommand[beforeskip=0pt,afterskip=8\baselineskip]{chapter}
+%\setkomafont{chapterprefix}{\normalsize\mdseries}
+%
+%\renewcommand*{\chapterformat}{%
+%  \chapappifchapterprefix{\nobreakspace}\thechapter\autodot%
+%  \IfUsePrefixLine{%
+%    \par\nobreak\vspace{-\parskip}\vspace{-.6\baselineskip}%
+%    \rule{0.9\textwidth}{.5pt}%
+%  }{\enskip}%
+%}
+%
+%\renewcommand\chapterlineswithprefixformat[3]{%
+%  \MakeUppercase{#2#3}
+%}
+
+
+
+% *******
+% GLOSSARY---ENTRIES
+% *******
+
+%\usepackage{glossaries}
+%%\usepackage{glossaries-extra}
+%%\usepackage{glossary-longragged}
+%%\usepackage{glossary-longbooktabs}
+%%\usepackage{glossaries-extra-stylemods}
+%\makeglossaries
+%\newglossaryentry{DGA}
+%{
+%	name={DGA},
+%	description={differential graded associative algebra},
+%	symbol={}
+%}
+%\newglossaryentry{IBL}
+%{
+%	name={IBL-algebra},
+%	description={Involutive Lie bialgebra},
+%	symbol={$\IBL$}
+%}
+%\newglossaryentry{dIBL}
+%{
+%	name={dIBL-algebra},
+%	description={Differential involutive Lie bialgebra},
+%	symbol={$\dIBL$}
+%}
+%\newglossaryentry{IBLInf}
+%{
+%	name={IBL-infinity algebra},
+%	description={Homotopy involutive Lie bialgebra},
+%	symbol={$\IBLInfty$}
+%}
+%\newglossaryentry{TwIBLInf}
+%{
+%	name={Twisted IBL-infinity algebra},
+%	description={An $\IBL$-, $\dIBL$- or $\IBLInfty$-algebra twisted with a Maurer-Cartan element $\MC$},
+%	symbol={$\IBL^\MC$, $\dIBL^\MC$, $\IBLInfty^\MC$}
+%}
+%\newglossaryentry{CanMC}
+%{
+%	name={Canonical Maurer-Cartan element},
+%	description={The canonical Maurer-Cartan element for $\dIBL(\CycC(V))$ obtained from the Chern-Simons term},
+%	symbol={$\MC$}
+%}
+%\newglossaryentry{PushMC}
+%{
+%	name={Pushforward Maurer-Cartan element},
+%	description={The Maurer-Cartan element $\PMC = \HTP_*\MC$ obtained from the canonical Maurer-Cartan element $\MC$ as a pushforward along a homotopy equivalence $\HTP$},
+%	symbol={$\PMC$}
+%}
+%\newglossaryentry{GrPair}
+%{
+%	name={Graph pairing},
+%	description={The graph pairing associated to a graph $\Gamma$ and propagator $\GKer$. },
+%	symbol={$\langle \cdot, \cdot \rangle_\Gamma^\GKer$}
+%}
+%\glsaddall
+
+
+% *******
+% GARBAGE
+% ******
+% Document Specific Commands
+%\renewcommand{\RedNote}[1]{}
+%\renewcommand{\BlueNote}[1]{}
+% Document Settings
+%\renewcommand{\familydefault}{\sfdefault}
+%\usepackage{scrhack} % Removes a warning about outdated listings for hyperref
+%\usepackage[automark,headsepline=1pt]{scrlayer-scrpage}
+%\deftripstyle{name}[olw ][ilw ]
+%{headleft}{headmid }{headright}
+%{footleft}{footmid }{footright}
+
+
+%\Drafttrue % Displays sections with details. REMOVE IN THE FINAL VERSION.
+
+\pgfplotsset{compat=1.6} % Get rid of the TiKz version warning
+
+\begin{document}
+
+\ToDoList
+
+%\raggedbottom % Removes vspace overfull warning. Standard is \flushbottom which aligns every page to the bottom (i.e. the end of text is exactly at the same height). However, then parskip is modified automatically to get this behaviour, and hence there are different parskips. It also causes the vspace overfull watning if there is too little flexibility in the page (i.e. too little parskips, vertical spaces, display math) which can be stretched. The raggedbottom option forces the same parskip, i.e. no stretching, so it may happen that two consecutive pages end at different heights. Check this at the very latest before print!!
+
+%***********
+\frontmatter
+%***********
+
+\subfile{\SubfilesFolder/Titlepage} % The title page
+
+\onehalfspacing
+
+\subfile{\SubfilesFolder/Abstract} % Abstract
+
+\subfile{\SubfilesFolder/Acknowledgement} % Acknowledgements
+%
+%\subfile{\SubfilesFolder/Structure.tex}
+
+
+
+% *****************
+% TABLE OF CONTENTS---STYLING AND PRINT
+% ******************
+\newcommand\partentrynumberformat[1]{\partname\ #1}
+\RedeclareSectionCommand[
+  tocentrynumberformat=\partentrynumberformat,
+  tocnumwidth=4em
+]{part}
+\renewcommand*{\contentsname}{Contents}
+\KOMAoptions{toc=chapterentrydotfill}
+\tableofcontents
+% ***************
+% LIST OF FIGURES---STYLING AND PRINT
+% ****************
+\listoffigures
+
+
+% ********
+% GLOSSARY---STYLING AND PRINT
+% ********
+
+%\newglossarystyle{dotglos}{%
+%    \setglossarystyle{listdotted}%
+%    \renewcommand*{\glossentry}[2]{%
+%        \item[\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}]
+%        \ifglshassymbol{##1}{(\glossentrysymbol{##1})\quad}{}%
+%        \emph{\glossentrydesc{##1}}%
+%        \unskip\leaders\hbox to 2.9mm{\hss.}\hfill##2}%
+%    \renewcommand*{\glsgroupskip}{}%
+%}
+%\setglossarystyle{dotglos}
+%\printglossary
+%**********
+\mainmatter
+%**********
+%\Correct[inline,caption={DONE Fitlration index}]{Standardize the position of the filtration index!}
+%\Correct[inline,caption={DONE(only in PI and PIII) Add Part reference}]{Add Part I to the references to other parts.}
+%\Correct[inline,caption={DONE Completed tensor product}]{Replace completed tensor product with COtimes because of the correct spacing of binary operator.}
+%\Add[inline,caption={Completed tensor product}]{Add a remark that Koszul convention does not matter for $\odot$ because tensor products of more morphisms appear only in morphisms which have even degree. Polemize once more that this pairing is important in order to make Chapter 10 work, ie, the cyclic bar complex. One might change the definitions of canonical operations and the evaluation of ribbon graphs and redo do the proofs in those section. However, the author failed. But maybe just because of his newbie. Now it seems more plausible. }
+%\Modify[inline,caption={DONE Replace overline with widebar}]{}
+%\Correct[inline,caption={DONE The correct definition equality :=}]{Replace := with $\coloneqq$}
+%\Modify[inline,caption={DONE Chern-Simons Maurer-Cartan element}]{Change formal pushforward Maurer-Cartan element to Chern-Simons Maurer-Cartan element}
+%\Correct[inline,caption={DONE Filtration by weights}]{The filtration on the dual cyclic bar complex is the dual to the filtration by weights on the bar complex.}
+%\Correct[inline,caption={DONE $\circ_{h_1,\dotsc,h_r}$ not defined for bialgebra}]{In fact, $\OPQ_{klg}$ and the operations $\circ_{h_1,\dotsc,h_r}$ can not be defined on an arbitrary bialgebra. We still need the filtration by weights. It might be possible to extend this to weight-graded bialgebras (operations are continuous with respect to the grading and weights). Also resolve the notion of "continuous extension" and what is, in fact, continuous. Filtration preserving versus non-negative filtration degree. Maybe call all guys with finite-filtration degree continuous.}
+%\Correct[inline,caption={DONE Hodge htpy}]{Change Green operator to Hodge homotopy. Also GOp to HOp or something like that. Add admissible to symmetric Hodge propagator which extends smoothly to the blow-up. Add special is it satisfies the additional properties.}
+%\Add[inline,caption={Melrose Blowup}]{I was told by Oliver that we do Melrose blowups.}
+%\Add[inline,caption={Name of MaurerCarta}]{We should call $\int$ Chern-Simons Maurer-Cartan element and $\PMC$ effective Chern-Simons element. We previously used also formal pushforward Maurer-Cartan element. However, in fact, $\int$ is not a Maurer-Cartan element of the Fr\'echet algebra.
+%}
+%\Correct[inline,caption={Questions}]{Make questions with ending QED Sign}
+
+%
+\chapter{Introduction}
+
+\subfile{\SubfilesFolder/ThesisIntroduction.tex}
+
+\part{IBL-infinity chain model}
+%
+\chapter{Summary and results}
+
+\subfile{\SubfilesFolder/Introduction.tex}
+
+\chapter{Algebraic structures}
+
+\subfile{\SubfilesFolder/AlgStr_Intro.tex}
+\subfile{\SubfilesFolder/AlgStr_BasicAlg.tex}
+\subfile{\SubfilesFolder/AlgStr_IBL.tex}
+\subfile{\SubfilesFolder/AlgStr_Cyc.tex}
+\subfile{\SubfilesFolder/AlgStr_dIBL.tex}
+
+\chapter{Chern-Simons Maurer-Cartan element and string topology}
+
+\subfile{\SubfilesFolder/String_Intro.tex}
+\subfile{\SubfilesFolder/String_dR.tex}
+\subfile{\SubfilesFolder/String_Green.tex}
+\subfile{\SubfilesFolder/String_PMC.tex}
+\subfile{\SubfilesFolder/String_Vanish.tex}
+\subfile{\SubfilesFolder/String_Conj.tex}
+
+
+\chapter{Explicit computations}
+\subfile{\SubfilesFolder/Comp_Intro.tex}
+\subfile{\SubfilesFolder/Comp_SnG.tex}
+\subfile{\SubfilesFolder/Comp_SnPMC.tex}
+\subfile{\SubfilesFolder/Comp_SnIBL.tex}
+\subfile{\SubfilesFolder/Comp_CPnIBL.tex}
+
+\part{Follow-up topics}
+
+\chapter{IBL-infinity formality and Poincar\'e duality models}\label{Chap:5}
+
+\subfile{\SubfilesFolder/Form_Intro.tex}
+\subfile{\SubfilesFolder/Form_Or.tex}
+\subfile{\SubfilesFolder/Form_PDGA.tex}
+\subfile{\SubfilesFolder/Form_Func.tex}
+%
+\chapter{Standard Hodge propagator}
+
+\subfile{\SubfilesFolder/GrKer_Intro.tex}
+\subfile{\SubfilesFolder/GrKer_Def.tex}
+\subfile{\SubfilesFolder/GrKer_Gen.tex}
+\subfile{\SubfilesFolder/GrKer_GrHeat.tex}
+\subfile{\SubfilesFolder/GrKer_Rn.tex}
+\subfile{\SubfilesFolder/GrKer_Sn.tex}
+%%%
+%%%
+%\chapter{String topology conjecture for non-simply connected spaces}
+%
+%%
+\chapter{BV-formalism for IBL-infinity theory on cyclic cochains}
+
+\subfile{\SubfilesFolder/BV_Intro.tex}
+\subfile{\SubfilesFolder/BV_Sumary.tex}
+\subfile{\SubfilesFolder/BV_BV.tex}
+\subfile{\SubfilesFolder/BV_HPL.tex}
+%
+
+%%%*********
+\part{Appendices}
+%\addtocontents{toc}{\protect\vspace{12pt}}%
+\appendix
+\subfile{\SubfilesFolder/App_Eval.tex}
+\subfile{\SubfilesFolder/App_Ainfty.tex}
+\subfile{\SubfilesFolder/App_EqDefPrCoPr.tex}
+\subfile{\SubfilesFolder/App_Filtr.tex}
+
+
+\backmatter
+
+\addtocontents{toc}{\protect\vspace{12pt}}%
+\addcontentsline{toc}{part}{Bibliography}
+\printbibliography
+
+\end{document}

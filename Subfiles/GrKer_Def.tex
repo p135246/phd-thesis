@@ -1,0 +1,118 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+\newcommand{\TestF}{\mathcal{D}}
+\begin{document}
+\section{Schwartz form and smooth extension to blow-up}\label{Sec:SchwFrom}
+
+For a smooth vector bundle $\pi: E\rightarrow M$, let $\TestF(E)$ be the space of ``test sections of $E$'', and let $\TestF'(E^*)$ be the space of distributions.  Let $\langle\cdot,\cdot\rangle: \TestF'(E^*)\otimes\TestF(E)\rightarrow \R$ be the natural pairing. See \cite{Albin2012} for detailed definitions.
+\begin{Proposition}[Schwartz kernel theorem, see {\cite[Theorem~12]{Albin2012}}]\label{Prop:SchwKer}
+Let $E_1$ and $E_2$ be smooth vector bundles over smooth manifolds $M_1$ and $M_2$, respectively. Then there is a one-to-one correspondence between continuous operators $\TOp: \TestF(E_1)\rightarrow\TestF'(E_2)$ and elements $\KKer_\TOp\in\TestF'(E_1\boxtimes E_2^*)$ which is given by the equation
+$$ \langle \TOp s_1, \psi_2 \rangle = \langle \KKer_\TOp, s_1 \boxtimes \psi_2 \rangle\quad\text{for all }s_1\in \TestF(E_1)\text{ and }\psi_2\in \TestF(E_2^*). $$
+The distributional section $\KKer_{\TOp}$ is called the \emph{Schwartz kernel} of $\TOp$. 
+\end{Proposition}
+
+An $L^1_{\text{loc}}$-integrable function $k: M\times M \rightarrow \Hom(E_1,E_2)=E_1^*\boxtimes E_2$ on an oriented Riemannian manifold $M$ defines the distribution $\KKer\in \TestF'(E_1\boxtimes E_2^*)$ by
+$$ \langle\KKer,s_1\boxtimes \psi_2\rangle = \int_{x_1, x_2} \langle k(x_1,x_2)s_1(x_1),\psi_2(x_2)\rangle \Vol(x_1)\Vol(x_2) $$
+%$$ \langle T s_1, \psi_2 \rangle = \int_{x_1} \langle t(s_1)(x_1),\psi_2(x_1)\rangle\Vol(x_1) $$
+In the case of exterior bundles, we introduce an equivalent notion of a Schwartz form. This name was proposed by Dr.~A.~Hermann in a discussion in Potsdam.
+
+\begin{Proposition}[Schwartz kernel and Schwartz form]\label{Prop:SchwForm}
+In the setting of Proposition~\ref{Prop:SchwKer}, suppose that $M_1 = M_2 = M$ is a smooth oriented Riemannian manifold and $E_1 = E_2 = \Lambda T^* M$. We consider the isomorphism of vector bundles $\Psi:\Lambda T^*M\boxtimes(\Lambda T^*M)^*\rightarrow\Lambda T^*(M\times M)$ which is for every $x_1$, $x_2\in M$ given by
+\begin{align*}
+ \Psi: \Lambda T^*_{x_1}M\otimes\bigl(\Lambda T_{x_2}^*M\bigr)^* &\longrightarrow \Lambda T^*_{(x_1,x_2)}(M\times M) \\
+ \omega_1\otimes\xi_2&\longmapsto\omega_1\wedge\sharp\xi_2.
+\end{align*}
+Here, $\sharp: \Lambda T^*M \rightarrow \bigl(\Lambda T^*M \bigr)^* $ denotes the musical isomorphism with respect to the natural pointwise inner product on $\Lambda T^*M$. We obtain the isomorphism
+\begin{align*}
+\Psi_*:\DR'(M\times M)&\longrightarrow\TestF'(E_1^*\boxtimes E_2)\\
+\DR_\TOp&\longmapsto\KKer_\TOp,
+\end{align*}
+where $\DR'$ denotes the space of de Rham currents.
+
+If $\TOp$ is homogenous of degree~$\Abs{\TOp}$, then the degree of $\DR_\TOp$ satisfies 
+$$ \Deg(\DR_\TOp) = \dim(M) + \Abs{\TOp}. $$
+
+If $\KKer_T$ is represented by an $L^1_{\mathrm{loc}}$-integrable section of $\Hom(E_1,E_2)\simeq E_1^*\boxtimes E_2$, then $\DR_T$ is represented by an $L^1_{\mathrm{loc}}$-integrable form, and the other way round. In this case, for all $\omega_1 \in \DR(M)$, $\omega_2\in \DR_c(M)$, we have
+\begin{equation}\label{Eq:SchwarzKerForm}
+\begin{aligned}
+\int_{x_2} \bigl((\TOp \omega_1)(x_2)\bigr)\bigl[\omega_2(x_2)\bigr] &= \int_{x_1, x_2} \KKer_T(x_1,x_2)[\omega_1(x_1)]\wedge \Vol(x_1)\wedge \omega_2(x_2)\\
+&= \int_{x_1, x_2} \DR_T(x_1,x_2)\wedge\omega_1(x_1)\wedge\omega_2(x_2).
+\end{aligned}
+\end{equation}
+\end{Proposition}
+\begin{proof}
+Straightforward computations similar to Example~\ref{Ex:IdFE} below.
+\end{proof}
+
+\begin{Definition}[Schwartz form]\label{Def:SDFDF}
+The current $\DR_\TOp\in \DR'(M\times M)$ from Proposition~\ref{Prop:SchwForm} is called the \emph{Schwartz form} of $\TOp$.
+\end{Definition}
+
+We will consider pseudo-differential operators $\TOp:\DR(M)\rightarrow\DR(M)$ on a Riemannian manifold $M$; this class of operators generalizes differential operators and contains generalized inverses of elliptic operators (see \cite{Albin2012} and \cite{Hormander} for thorough treatments).
+
+\begin{Proposition}[Schwartz form of pseudo-differential operators] \label{Prop:ASD}
+Let $\TOp: \DR(M) \rightarrow \DR(M)$ be a pseudo-differential operator on a smooth oriented Riemannian manifold $M$. Then the Schwartz form $\DR_{\TOp}$ restricts to a smooth form on $M\times M\backslash\Diag$.
+\end{Proposition}
+\begin{proof}
+Use methods of \cite{Hormander}.
+\end{proof}
+ 
+\begin{Example}[Schwartz form of $\Id$]\label{Ex:IdFE}The Schwartz form of the identity $\Id: \DR(\R^n)\rightarrow \DR(\R^n)$ reads
+\begin{equation}\label{Eq:SchwartzFormOfId}
+\DR_{\Id}(x,y) = \delta(x-y)(\Diff{x}^1 - \Diff{y}^1)\dotsb(\Diff{x}^n-\Diff{y}^n),
+\end{equation}
+where $\delta$ denotes the Dirac delta function on $\R^n$ centered at $0$. In order to prove this, we start by rewriting
+\begin{align*}
+(\Diff{x}^1 - \Diff{y}^1) \dotsb (\Diff{x}^n - \Diff{y}^n) &=\sum_{I}(-1)^{\Abs{I}} \varepsilon(I^c I \mapsto[n])\Diff{x}^{I^c} \wedge \Diff{y}^I \\
+&=\sum_{I} (-1)^{n \Abs{I}} (\Star \Diff{x}^I) \wedge \Diff{y}^I.
+\end{align*}
+Here, the sum is over all multiindices $I\subset \{1,\dotsc,n\}$, and we use that $\Star(\Diff{x}^I) = \varepsilon(I, I^c) \Diff{x}^{I^c}$, where $\varepsilon(I,I^c)$ denotes the sign to order $I I^c$ to $\{1,\dotsc,n\}$. Now, for any $\omega\in \DR_c(\R^n)$, which we write as $\omega(x) = \sum_K \omega_K(x)\Diff{x}^K$, we compute using $\Diff{x}^K\wedge\Star(\Diff{x}^I)=(\Diff{x}^K,\Diff{x}^I)\Vol(x) = \delta^{KI}\Vol(x)$ the following:
+\begin{align*}
+&\int_x \delta(x-y)  (\Diff{x}^1-\Diff{y}^1)\dotsb(\Diff{x}^n-\Diff{y}^n) \omega(x)  \\
+&\qquad=\sum_{I,K} \int_x \delta(x-y)(-1)^{n\Abs{I}}  \omega_K(x)(\Star \Diff{x}^I)\Diff{y}^I\Diff{x}^K \\
+&\qquad=\sum_{I,K}\int_x \delta(x-y) (-1)^{n\Abs{I} + n\Abs{K}} \delta(x-y)  \omega_K(x) \Diff{x}^K \Star(\Diff{x}^I) \Diff{y}^I \\
+&\qquad=\sum_{I} \int_x \delta(x-y) \omega_I(x)\Vol(x) \Diff{y}^I \\
+&\qquad=\omega(y).
+\end{align*}
+This shows \eqref{Eq:SchwarzKerForm}, and \eqref{Eq:SchwartzFormOfId} follows. Notice that
+$$ \Restr{\DR_\Id}{\R^n\times \R^n\backslash \Diag} = 0, $$
+and thus the smooth part of $\DR_\Id$ does not recover the data of the operator $\Id$.
+\end{Example}
+
+%\begin{Definition}[Laplace Green kernel and standard Hodge propagator]\label{Def:GKerHPr}
+%Let $M$ be a closed oriented Riemannian manifold, $\DR(M)=\Dd\DR(M)\oplus\CoDd\DR(M)\oplus\Harm(M)$ the Hodge decomposition, $\pi: \DR(M) \rightarrow \Harm(M)$ the harmonic projection and $\Laplace= \Dd\circ\CoDd + \CoDd\circ\Dd$ the Hodge de Rham Laplacian. We define the \emph{Laplace Green operator}  $\GOp: \DR(M)\rightarrow \DR(M)$ by
+%$$ .$$
+%We denote its Schwartz form by $\GKer$ and call it the \emph{Laplace Green kernel.}  We define the \emph{standard Hodge homotopy} by
+%$$ \StdHtp \coloneqq - \CoDd \circ \GOp : \DR^\bullet(M) \longrightarrow \DR^{\bullet - 1}(M). $$
+%It satisfies $\Dd\circ\StdHtp + \StdHtp\circ\Dd = - \Id$. We denote the Schwartz form of $\StdHtp$ by $\StdPrpg$ and call it the \emph{standard Hodge propagator.}
+%\end{Definition}
+
+We consider the Green operator $\GOp$ for the Laplacian $\Laplace$ (see \cite{Warner1983}) and the standard Hodge propagator $\HtpStd$. They are both pseudo-differential operators, and it holds $\HtpStd = \pm \CoDd \GOp$. We will study their Schwartz forms $\GKer$ and $\PrpgStd$, which are called the Green kernel and the standard Hodge propagator, respectively.
+
+\begin{Proposition}[Basic facts about $\GKer$ and $\StdPrpg$]\label{Prop:BasicFactsGP}
+The Green kernel $\GKer$ represents an $L^2$-integrable form.
+The standard Hodge propagator $\StdPrpg$ represent an $L^1$-integrable form.
+\end{Proposition}
+\begin{proof}
+The fact that $\GKer$ is $L^2$ is an exercise in \cite{Warner1983}. The fact that~$\StdPrpg$ defines an $L^1$-integrable form on $M\times M$ for a compact manifold $M$ was proved in \cite{Harris2004} using the heat kernel approximation (see the next section).
+\end{proof}
+
+A consequence of Proposition~\ref{Prop:BasicFactsGP} is that the Schwartz forms $\GKer$ and $\StdPrpg$ are determined by their smooth restrictions to $M\times M\backslash \Diag$. This follows from \eqref{Eq:SchwarzKerForm} because the integral does not depend on sets of zero measure. Therefore, we will write $\GKer$, $\StdPrpg \in \DR^{n-1}(M\times M\backslash\Diag)$.
+
+\begin{Definition}[Smooth extension to the blow-up]\label{Def:Esdas}
+Let $M$ be a smooth manifold, and let $\pi: \Bl_\Diag(M\times M)\rightarrow M\times M$ be the Melrose blow-up of $M\times M$ at the diagonal $\Diag$ (this is another name for the spherical blow-up in Part~I). Consider the blow-up diagram
+$$\begin{tikzcd}
+ & \Bl_\Diag(M\times M)\arrow[two heads]{d}{\pi} \\
+ M\times M\backslash \Diag \arrow[hook]{r}{\iota}\arrow[hook]{ru}{\tilde{\iota}} & M\times M,
+\end{tikzcd}$$
+where $\iota$ is the inclusion and $\tilde{\iota}$ its unique smooth lift --- the embedding of the interior. We say that a smooth form $\omega\in\DR(M\times M\backslash\Diag)$ \emph{extends smoothly to the blow-up} if there is a smooth form $\tilde{\omega}\in \DR(\Bl_\Diag(M\times M))$ such that 
+$$ \tilde{\iota}^*\tilde{\omega}=\omega. $$
+\end{Definition}
+
+Note that the extension, if it exists, is necessarily unique.
+
+\begin{Question}[Smooth extension of standard propagator]
+Do $\GKer$ and $\StdPrpg$ extend smoothly to the blow-up?
+\end{Question}
+\end{document}

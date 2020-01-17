@@ -1,0 +1,330 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\tikzset{decorate sep/.style 2 args=
+{decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}} 
+
+\tikzset{decorate sepp/.style 2 args=
+{decorate,decoration={shape backgrounds,shape=-,shape size=#1,shape sep=#2}}} 
+
+%\def\dist{0.25} %distance between two surfaces
+%  \def\rad{0.5} % radius of bdd
+%  \def\ecc{0.1} % eccentricity of bdd
+%  \def\hght{1} % height of surfaces
+%  \def\dif{1.5} % distance of two circles
+%  \def\radO{\rad} % radius of bdd
+%  \def\eccO{\ecc} % eccentricity of bdd
+%  \def\hghtO{2*\hght+\dist} % height of surfaces
+%  \def\difO{\dif} % distance of two circles
+%  \def\gencanc{0.05} % legth of extra line in genus
+%  \def\genecc{20} % eccentricity of genus
+%  \def\genrad{0.45} % radius of genus
+
+
+ \def\ecc{0.1} % eccentricity of bdd
+    \def\gencanc{0.05} % legth of extra line in genus
+  \def\genecc{20} % eccentricity of genus
+  \def\distI{0.25}
+  \def\radI{0.5}
+  \def\radIII{0.2}
+  \def\eccI{0.1}  
+  \def\gencancI{0.05} % legth of extra line in genus
+  \def\geneccI{20} % eccentricity of genus
+  \def\genradI{0.45} % radius of genus
+  \def\mezI{0.4} %Mezera mezi sousednimi nozkami s elipsou
+  \def\mezII{3.8} % Mezera mezi dvema MC
+  \def\mezIII{0.3} % Mezera na MC mala
+  \def\mezIV{0.8} % Mezera mezi cylindry
+  \def\mezV{0.1} % canc pro tri teck
+  \def\triI{0.2mm}
+  \def\triII{0.6mm}
+  \def\vysI{1} % Vyska cylindru a velke operace
+  \def\vysII{0.2} % Dolni vyska MC
+  \def\vysIII{1} % Horni vyska MC
+  \def\distIII{3*\radI} % Distance of MC genus
+% Big piece 
+% ===============
+  \coordinate (B1) at (0,0);
+  \coordinate (B2) at ($(B1) + (2*\radI,0)$);
+  \coordinate (B3) at ($(B2) + (\mezI,0)$);
+  \coordinate (B4) at ($(B3) + (2*\radI,0)$); 
+  \coordinate (B5) at ($(B4) + (\mezII,0)$); 
+  \coordinate (B6) at ($(B5) + (2*\radI,0)$);
+  \coordinate (B7) at ($(B6) + (\mezI,0)$);
+  \coordinate (B8) at ($(B7) + (2*\radI,0)$);
+
+  \coordinate (B9) at ($(B1)+(0,-\vysI)$);
+  \coordinate (B10) at ($(B9)+(2*\radI,0)$);
+  \coordinate (B11) at ($(B10)+(2*\mezI+\mezII + 4*\radI,0)$);
+  \coordinate (B12) at ($(B11)+(2*\radI,0)$);
+  
+%  \coordinate (BE1) at ($(B10)+(\mezV,0)$);
+%  \coordinate (BE2) at ($(B11)+(-\mezV-2*\radI,0)$);
+%  
+%  \coordinate (BE3) at ($(B2)+(\mezV,0)$);
+%  \coordinate (BE4) at ($(B3)+(-\mezV,0)$);  
+%  \coordinate (BE5) at ($(B6)+(\mezV,0)$);
+%  \coordinate (BE6) at ($(B7)+(-\mezV,0)$);
+%  \draw (B2) to[out=-90, in=-90] (BE3);
+% \draw (BE4) to[out=-90, in=-90] (B3);
+% \draw (B6) to[out=-90, in=-90] (BE5);
+% \draw (BE6) to[out=-90, in=-90] (B7);         
+%   \coordinate (BE7) at ($(B4)+(\mezV,0)$);
+%   \draw (B4) to[out=-90, in=-90] (BE7);
+%    \coordinate (BE8) at ($(B5)+(-\mezV,0)$);
+%   \draw (BE8) to[out=-90, in=-90] (B5);
+%%   \draw (BE1) arc (180:360:{\radI} and {\ecc});
+%%  \draw[dashed] (BE1) arc (180:0:{\radI} and {\ecc});  
+%% \draw (BE2) arc (180:360:{\radI} and {\ecc});
+%%  \draw[dashed] (BE2) arc (180:0:{\radI} and {\ecc});    
+%
+%  \draw (B10) to[out=90, in=90] (BE1);  
+%  \draw ($(BE2)+(2*\radI,0)$) to[out=90, in=90] (B11);
+  
+    \draw (B1) arc (180:360:{\radI} and {\ecc});
+  \draw(B1) arc (180:0:{\radI} and {\ecc});
+  
+  \draw (B3) arc (180:360:{\radI} and {\ecc});
+  \draw (B3) arc (180:0:{\radI} and {\ecc});  
+  
+  \draw (B5) arc (180:360:{\radI} and {\ecc});
+  \draw (B5) arc (180:0:{\radI} and {\ecc});    
+  
+  \draw (B7) arc (180:360:{\radI} and {\ecc});
+  \draw (B7) arc (180:0:{\radI} and {\ecc});    
+  
+  \draw (B9) arc (180:360:{\radI} and {\ecc});
+  \draw[dashed] (B9) arc (180:0:{\radI} and {\ecc});
+  
+  \draw (B11) arc (180:360:{\radI} and {\ecc});
+  \draw[dashed] (B11) arc (180:0:{\radI} and {\ecc});
+
+  
+ 
+
+
+  \draw (B1)--(B9);
+  \draw (B8)--(B12);
+
+
+  \coordinate (BG1) at ($(B5)+(-1.5*\radI,-0.5*\vysI)$);
+  \draw (BG1) to[out=-\geneccI,in=180+\geneccI] coordinate[pos=\gencancI] (BG11) coordinate[pos=1-\gencancI] (BG12) ($(BG1) + (2*\genradI,0)$) ;
+\draw (BG11) to[out=\genecc,in=180-\genecc] (BG12);  
+
+\coordinate (BG2) at ($(BG1) + (\distIII,0)$);
+  \draw (BG2) to[out=-\geneccI,in=180+\geneccI] coordinate[pos=\gencancI] (BG21) coordinate[pos=1-\gencancI] (BG22) ($(BG2) + (2*\genradI,0)$) ;
+\draw (BG21) to[out=\genecc,in=180-\genecc] (BG22);  
+
+\draw[decorate sep={\triI}{\triII},fill] ($(BG12)+(\mezV+\gencancI,0)$) to ($(BG21)+(-\mezV-\gencancI,0)$);
+
+
+
+\draw[decorate sep={\triI}{\triII},fill] ($(B2)+(\mezV,0)$) to ($(B3)+(-\mezV,0)$);
+\draw[decorate sep={\triI}{\triII},fill] ($(B6)+(\mezV,0)$) to ($(B7)+(-\mezV,0)$);
+%
+%\draw[decorate sep={\triI}{\triII},fill] ($(B10)+(\mezV,0)$) to ($(B4)+(0,-\vysI)$);
+%
+
+\coordinate (BX1) at ($(B10)+(\mezI,0)$);
+\draw (BX1) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (BX1) arc (180:0:{\radI} and {\ecc});
+
+\coordinate (BX2) at ($(B11)+(-\mezI-2*\radI,0)$);
+\draw (BX2) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (BX2) arc (180:0:{\radI} and {\ecc});
+
+\draw[decorate sep={\triI}{\triII},fill] ($(B10)+(\mezV,0)$) to ($(BX1)+(-\mezV,0)$);
+\draw[decorate sep={\triI}{\triII},fill] ($(BX2)+(2*\radI+\mezV,0)$) to ($(B11)+(-\mezV,0)$);
+
+\def\shift{0.3*\mezIII}
+
+\draw ($(BX1)+(2*\radI,0)$) to[out=90, in=180] ($(BX1)+(2*\radI+0.5*\mezIII,\shift)$);
+
+\draw ($(B4)$) to[out=-90, in=180] ($(B4)+(0.5*\mezIII,-\shift)$);
+
+\draw ($(B5)$) to[out=-90, in=0] ($(B5)+(-0.5*\mezIII,-\shift)$);
+
+\draw ($(BX2)$) to[out=90, in=0] ($(BX2)+(-0.5*\mezIII,\shift)$);
+
+\draw[densely dotted] ($(B4)+(0.5*\mezIII,-\shift)$)--($(B5)+(-0.5*\mezIII,-\shift)$);
+
+\draw[densely dotted] ($(BX1)+(2*\radI+0.5*\mezIII,\shift)$)--($(BX2)+(-0.5*\mezIII,\shift)$);
+% Cylinders
+%==================
+
+\coordinate (C01) at ($(B4)+(\mezIII,0)$);
+\coordinate (C02) at ($(C01)+(2*\radI,0)$);
+\coordinate (C03) at ($(C02)+(\mezI,0)$);
+\coordinate (C04) at ($(C03)+(2*\radI,0)$);
+\coordinate (C05) at ($(C01)+(0,-\vysI)$);
+\coordinate (C06) at ($(C02)+(0,-\vysI)$);
+\coordinate (C07) at ($(C03)+(0,-\vysI)$);
+\coordinate (C08) at ($(C04)+(0,-\vysI)$);
+
+\draw (C01) arc (180:360:{\radI} and {\ecc});
+\draw (C01) arc (180:0:{\radI} and {\ecc});
+\draw (C03) arc (180:360:{\radI} and {\ecc});
+\draw (C03) arc (180:0:{\radI} and {\ecc});
+\draw (C05) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (C05) arc (180:0:{\radI} and {\ecc});
+\draw (C07) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (C07) arc (180:0:{\radI} and {\ecc});
+
+\draw (C01)--(C05);
+\draw (C02)--(C06);
+\draw (C03)--(C07);
+\draw (C04)--(C08);
+
+\coordinate (C1) at ($(B8)+(\mezIII,0)$);
+\coordinate (C2) at ($(C1)+(2*\radI,0)$);
+\coordinate (C3) at ($(C2)+(\mezI,0)$);
+\coordinate (C4) at ($(C3)+(2*\radI,0)$);
+\coordinate (C5) at ($(C1)+(0,-\vysI)$);
+\coordinate (C6) at ($(C2)+(0,-\vysI)$);
+\coordinate (C7) at ($(C3)+(0,-\vysI)$);
+\coordinate (C8) at ($(C4)+(0,-\vysI)$);
+
+\draw (C1) arc (180:360:{\radI} and {\ecc});
+\draw (C1) arc (180:0:{\radI} and {\ecc});
+\draw (C3) arc (180:360:{\radI} and {\ecc});
+\draw (C3) arc (180:0:{\radI} and {\ecc});
+\draw (C5) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (C5) arc (180:0:{\radI} and {\ecc});
+\draw (C7) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (C7) arc (180:0:{\radI} and {\ecc});
+
+\draw (C1)--(C5);
+\draw (C2)--(C6);
+\draw (C3)--(C7);
+\draw (C4)--(C8);
+
+\draw[decorate sep={\triI}{\triII},fill] ($(C2)+(\mezV,-0.5*\vysI)$) to ($(C3)+(-\mezV,-0.5*\vysI)$);
+\draw[decorate sep={\triI}{\triII},fill] ($(C02)+(\mezV,-0.5*\vysI)$) to ($(C03)+(-\mezV,-0.5*\vysI)$);
+
+%\draw[decorate sep={\triI}{\triII},fill] ($(C08)+(\mezIII,0)$) to ($(B11)+(-\mezV,0)$);
+%\draw[decorate sep={\triI}{\triII},fill] ($(C04)+(\mezIII,0)$) to ($(B5)+(-\mezV,0)$);
+
+%\draw[dashed] ($(C04)+(2*\mezV,0)$) to ($(B5)+(-2*\mezV,0)$);
+%\draw[dashed] ($(C08)+(2*\mezV,0)$) to ($(B11)+(-2*\mezV,0)$);
+%\draw[dashed] ($(B10)+(2*\mezV,0)$) to ($(C05)+(-2*\mezV,0)$);
+%
+%\draw[dashed] ($(C06)+(\mezV,0)$) to ($(C07)+(-\mezV,0)$);
+%\draw[dashed] ($(C02)+(\mezV,0)$) to ($(C03)+(-\mezV,0)$);
+%\draw[dashed] ($(B4)+(\mezV,0)$) to ($(C01)+(-\mezV,0)$);
+
+% Maurer I
+% ===============
+\coordinate (M1) at ($(B1)+(0,\distI)$);
+\coordinate (M2) at ($(M1)+(2*\radI,0)$);
+\coordinate (M3) at ($(M2)+(\mezI,0)$);
+\coordinate (M4) at ($(M3)+(2*\radI,0)$);
+\coordinate (M5) at ($(M4)+(\mezIII,0)$);
+\coordinate (M6) at ($(M5)+(2*\radI,0)$);
+\coordinate (M7) at ($(M6)+(\mezI,0)$);
+\coordinate (M8) at ($(M7)+(2*\radI,0)$);
+
+
+\draw (M1) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (M1) arc (180:0:{\radI} and {\ecc});
+\draw (M3) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (M3) arc (180:0:{\radI} and {\ecc});
+\draw (M5) arc (180:360:{\radI} and {\ecc});
+  \draw[dashed] (M5) arc (180:0:{\radI} and {\ecc});
+\draw (M7) arc (180:360:{\radI} and {\ecc});
+  \draw[dashed] (M7) arc (180:0:{\radI} and {\ecc});
+
+%\coordinate (MD1) at ($(M2)+(\mezV,0)$);
+%\draw (M2) to[out=90,in=90] (MD1);
+%\coordinate (MD2) at ($(M3)+(-\mezV,0)$);
+%\draw (MD2) to[out=90,in=90] (M3);   
+%\coordinate (MD3) at ($(M6)+(\mezV,0)$);
+%\draw (MD3) to[out=90,in=90] (M6);
+%\coordinate (MD4) at ($(M7)+(-\mezV,0)$);
+%\draw (MD4) to[out=90,in=90] (M7);
+
+\draw[decorate sep={\triI}{\triII},fill] ($(M2)+(\mezV,0)$) to ($(M3)+(-\mezV,0)$);
+\draw[decorate sep={\triI}{\triII},fill] ($(M6)+(\mezV,0)$) to ($(M7)+(-\mezV,0)$);
+
+
+\draw (M4) to[out=90, in=90] (M5);
+
+\coordinate (MT1) at ($(M2)+(\radI,\vysIII)$);
+\coordinate (MT2) at ($(M7)+(-\radI,\vysIII)$);
+\draw (M1) to[out=90,in=180] (MT1);
+\draw (MT2) to[out=0,in=90] (M8);
+\draw (MT1)--(MT2);
+
+\coordinate (MG1) at ($(M1)+(2*\radI,0.5*\vysI)$);
+  \draw (MG1) to[out=-\geneccI,in=180+\geneccI] coordinate[pos=\gencancI] (MG11) coordinate[pos=1-\gencancI] (MG12) ($(MG1) + (2*\genradI,0)$) ;
+\draw (MG11) to[out=\genecc,in=180-\genecc] (MG12);
+
+\coordinate (MG2) at ($(MG1)+(\distIII,0)$);
+  \draw (MG2) to[out=-\geneccI,in=180+\geneccI] coordinate[pos=\gencancI] (MG21) coordinate[pos=1-\gencancI] (MG22) ($(MG2) + (2*\genradI,0)$) ;
+\draw (MG21) to[out=\genecc,in=180-\genecc] (MG22);   
+
+\draw[decorate sep={\triI}{\triII},fill] ($(MG12)+(\mezV+\gencancI,0)$) to ($(MG21)+(-\mezV-\gencancI,0)$);
+
+% Maurer II
+% =============
+
+\coordinate (M21) at ($(B5)+(0,\distI)$);
+\coordinate (M22) at ($(M21)+(2*\radI,0)$);
+\coordinate (M23) at ($(M22)+(\mezI,0)$);
+\coordinate (M24) at ($(M23)+(2*\radI,0)$);
+\coordinate (M25) at ($(M24)+(\mezIII,0)$);
+\coordinate (M26) at ($(M25)+(2*\radI,0)$);
+\coordinate (M27) at ($(M26)+(\mezI,0)$);
+\coordinate (M28) at ($(M27)+(2*\radI,0)$);
+
+
+\draw (M21) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (M21) arc (180:0:{\radI} and {\ecc});
+\draw (M23) arc (180:360:{\radI} and {\ecc});
+\draw[dashed] (M23) arc (180:0:{\radI} and {\ecc});
+\draw (M25) arc (180:360:{\radI} and {\ecc});
+  \draw[dashed] (M25) arc (180:0:{\radI} and {\ecc});
+\draw (M27) arc (180:360:{\radI} and {\ecc});
+  \draw[dashed] (M27) arc (180:0:{\radI} and {\ecc});
+
+%\coordinate (M2D1) at ($(M22)+(\mezV,0)$);
+%\draw (M22) to[out=90,in=90] (M2D1);
+%\coordinate (M2D2) at ($(M23)+(-\mezV,0)$);
+%\draw (M2D2) to[out=90,in=90] (M23);   
+%\coordinate (M2D3) at ($(M26)+(\mezV,0)$);
+%\draw (M2D3) to[out=90,in=90] (M26);
+%\coordinate (M2D4) at ($(M27)+(-\mezV,0)$);
+%\draw (M2D4) to[out=90,in=90] (M27);
+
+
+\draw[decorate sep={\triI}{\triII},fill] ($(M22)+(\mezV,0)$) to ($(M23)+(-\mezV,0)$);
+\draw[decorate sep={\triI}{\triII},fill] ($(M26)+(\mezV,0)$) to ($(M27)+(-\mezV,0)$);
+
+\draw (M24) to[out=90, in=90] (M25);
+
+\coordinate (M2T1) at ($(M22)+(0,\vysIII)$);
+\coordinate (M2T2) at ($(M27)+(0,\vysIII)$);
+\draw (M21) to[out=90,in=180] (M2T1);
+\draw (M2T2) to[out=0,in=90] (M28);
+\draw (M2T1)--(M2T2);
+
+\coordinate (M2G1) at ($(M21)+(2*\radI,0.5*\vysI)$);
+  \draw (M2G1) to[out=-\geneccI,in=180+\geneccI] coordinate[pos=\gencancI] (M2G11) coordinate[pos=1-\gencancI] (M2G12) ($(M2G1) + (2*\genradI,0)$) ;
+\draw (M2G11) to[out=\genecc,in=180-\genecc] (M2G12);
+
+\coordinate (M2G2) at ($(M2G1)+(\distIII,0)$);
+  \draw (M2G2) to[out=-\geneccI,in=180+\geneccI] coordinate[pos=\gencancI] (M2G21) coordinate[pos=1-\gencancI] (M2G22) ($(M2G2) + (2*\genradI,0)$) ;
+\draw (M2G21) to[out=\genecc,in=180-\genecc] (M2G22);   
+
+\draw[decorate sep={\triI}{\triII},fill] ($(M2G12)+(\mezV+\gencancI,0)$) to ($(M2G21)+(-\mezV-\gencancI,0)$);
+
+
+\draw[decorate sep={\triI}{\triII},fill] ($(M8)+(\mezV,0.5*\vysI)$) to ($(M21)+(-\mezV,0.5*\vysI)$);
+
+% LABELS
+
+ 
+\node at ($(M2G22)+(1.5*\radI,0)$) {$\mathfrak{n}_{l_r g_r}$};
+\node at ($(MG22)+(1.5*\radI,0)$) {$\mathfrak{n}_{l_1 g_1}$};
+\node at ($(B2)+(1*\radI,-0.5*\vysI)$) {$\mathfrak{q}_{k'l' g'}$};
+
+\end{tikzpicture}

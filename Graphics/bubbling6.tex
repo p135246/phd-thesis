@@ -1,0 +1,202 @@
+%auto-ignore
+\begin{tikzpicture}
+%%% First Object
+%  \coordinate (P1) at (0,0);
+%  \coordinate (P2) at ($(P1) + (2*\dif,0)$);
+%  \coordinate (P3) at ($(P2) + (2*\dif,0)$);
+%
+%
+%  
+%  \coordinate (P7) at ($(P1)+(0,-\hght)$);
+%  \\
+%
+%  
+%  \draw (P1) arc (180:360:{\rad} and {\ecc});
+%  \draw (P1) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P2) arc (180:360:{\rad} and {\ecc});
+%  \draw (P2) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P3) arc (180:360:{\rad} and {\ecc});
+%  \draw (P3) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P4) arc (180:360:{\rad} and {\ecc});
+%  \draw (P4) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P5) arc (180:360:{\rad} and {\ecc});
+%  \draw (P5) arc (180:0:{\rad} and {\ecc});
+%  
+%
+%  
+%  \draw (P7) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P7) arc (180:0:{\rad} and {\ecc});
+%
+%  \draw (P8) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P8) arc (180:0:{\rad} and {\ecc});
+% 
+%  %\draw ($(P1)+(2*\rad,0)$) to[out=-90,in=-90] (P2);
+%  %\draw ($(P3)+(2*\rad,0)$) to[out=-90,in=-90] (P4);
+%  \draw ($(P4)+(2*\rad,0)$) to[out=-90,in=-90] (P5);
+%  
+%  \draw (P1)--(P7);
+%  \draw ($(P8)+(2*\rad,0)$) to[out=35,in=-130] ($(P6)+(2*\rad,0)$);
+%  
+%  \tikzset{decorate sep/.style 2 args={decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}} 
+% 
+% \draw[decorate sep={0.3mm}{2mm},fill] ($(P7)+(2*\rad+\dif,0)$) -- ($(P8)+(-\dif,0)$);
+%
+% \draw[decorate sep={0.3mm}{2mm},fill] ($(P2)+(2*\rad+\dif,0)$) -- ($(P3)+(-\dif,0)$);
+% 
+%  \draw[decorate sep={0.3mm}{2mm},fill] ($(P5)+(2*\rad+\dif,0)$) -- ($(P6)+(-\dif,0)$);
+%  
+%   \draw ($(P1)+(2*\rad,0)$) to[out=-90,in=-90] ($(P1)+(2*\rad+\dist,0)$);
+%   \draw ($(P2)+(-\dist,0)$) to[out=-90,in=-90] ($(P2)$);
+%   \draw ($(P2)+(2*\rad,0)$) to[out=-90,in=-90] ($(P2)+(2*\rad+\dist,0)$);
+%   \draw ($(P3)+(-\dist,0)$) to[out=-90,in=-90] ($(P3)$);
+%   \draw ($(P3)+(2*\rad,0)$) to[out=-90,in=-90] ($(P3)+(2*\rad+\dist,0)$);
+%   \draw ($(P4)+(-\dist,0)$) to[out=-90,in=-90] ($(P4)$);
+%   \draw ($(P7)+(2*\rad,0)$) to[out=90,in=90] ($(P7)+(2*\rad+\dist,0)$);
+%   \draw ($(P8)+(-\dist,0)$) to[out=90,in=90] ($(P8)$);
+%   
+%% Second body
+%
+%  \coordinate (P9) at ($(P1) + (0,\dist)$);
+%  \coordinate (P10) at ($(P2) + (0,\dist)$);
+%  \coordinate (P11) at ($(P1) + (0,\dist+\hght)$);
+%  \coordinate (P12) at ($(P2) + (0,\dist+\hght)$);
+%  
+%  \draw (P9) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P9) arc (180:0:{\rad} and {\ecc});  
+%  \draw (P10) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P10) arc (180:0:{\rad} and {\ecc});
+%  \draw (P11) arc (180:360:{\rad} and {\ecc});
+%  \draw (P11) arc (180:0:{\rad} and {\ecc});
+%  \draw (P12) arc (180:360:{\rad} and {\ecc});
+%  \draw (P12) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P9) -- (P11);
+%  \draw ($(P10)+(2*\rad,0)$) -- ($(P12)+(2*\rad,0)$);
+%
+%% Third Body
+%
+%  \coordinate (P13) at ($(P3) + (0,\dist)$);
+%  \coordinate (P14) at ($(P4)+(0,\dist)$); 
+%  \coordinate (P15) at ($(P3) + (0,\dist+\hght)$);
+%  \coordinate (P16) at ($(P4) + (0,\dist+\hght)$);
+%
+%  
+%  \draw (P13) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P13) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P14) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P14) arc (180:0:{\rad} and {\ecc}); 
+%  \draw (P15) arc (180:360:{\rad} and {\ecc});
+%  \draw (P15) arc (180:0:{\rad} and {\ecc});
+%  \draw (P16) arc (180:360:{\rad} and {\ecc});
+%  \draw (P16) arc (180:0:{\rad} and {\ecc});
+%
+%  \draw (P13) -- (P15);
+%  \draw ($(P14)+(2*\rad,0)$) -- ($(P16)+(2*\rad,0)$);
+%  
+% Caps   
+  
+  \coordinate (P1) at (0,0);
+  \coordinate (P2) at ($(P1)+(0,-\dist)$);
+  \coordinate (P3) at ($(P1)+(2*\dif,0)$);
+  \coordinate (P4) at ($(P3)+(0,-\dist)$);
+  \coordinate (P5) at ($(P3)+(\dif,0)$);
+  \coordinate (P6) at ($(P5)+(0,\hght)$);  
+  
+  \draw (P1) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P1) arc (180:0:{\rad} and {\ecc});
+  \draw (P2) arc (180:360:{\rad} and {\ecc});
+  \draw (P2) arc (180:0:{\rad} and {\ecc});  
+  \draw (P3) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P3) arc (180:0:{\rad} and {\ecc});
+  \draw (P4) arc (180:360:{\rad} and {\ecc});
+  \draw (P4) arc (180:0:{\rad} and {\ecc});  
+
+  \draw (P2) to[out=-90,in=180] ($(P2)+(\rad,-.8*\hght)$) to[out=0,in=-90] ($(P2)+(2*\rad,0)$);
+  
+  \draw (P4) to[out=-90,in=180] ($(P4)+(\rad,-.8*\hght)$) to[out=0,in=-90] ($(P4)+(2*\rad,0)$);
+ 
+  \draw ($(P1)$) to[out=60,in=-150] ($(P6)$);
+  
+  \draw ($(P1)+(2*\rad,0)$) to[out=90,in=90] ($(P1)+(2*\rad+\dist,0)$);
+  
+  \draw ($(P3)+(-\dist,0)$) to[out=90,in=90] ($(P3)$);
+  \draw ($(P3)+(2*\rad,0)$) to[out=90,in=90] ($(P5)$); 
+
+  \tikzset{decorate sep/.style 2 args={decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}} 
+ 
+ \draw[decorate sep={0.3mm}{2mm},fill] ($(P1)+(2*\rad+\dif,0)$) -- ($(P3)+(-\dif,0)$);  
+  
+  
+  
+% 
+%  \coordinate (C1) at ($(P1)+(2*\rad,-\hght)$);
+%  \coordinate (C2) at ($(P4)+(0,-\hght)$); 
+% 
+%  \draw (P1) to[out=-90,in=180] (C1);
+%  \draw (C1) to[out=0,in=180] (C2);
+%  \draw (C2) to[out=0,in=-90] ($(P4)+(2*\rad,0)$);
+%  
+%  \tikzset{decorate sep/.style 2 args={decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2}}} 
+% 
+% \draw[decorate sep={0.3mm}{2mm},fill] ($(P2)+(2*\rad+\dif,0)$) -- ($(P3)+(-\dif,0)$);
+%  
+%
+%% Second Object
+%
+%  \coordinate (P5) at ($(P4)+(0,\dist)$);
+%  \coordinate (P6) at ($(P5) + (\dif,0)$);
+%  \coordinate (P7) at ($(P6) + (2*\dif,0)$);
+%  \coordinate (P8) at ($(P7) + (\dif,0)$);
+%  
+%  \draw (P5) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P5) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P6) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P6) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P7) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P7) arc (180:0:{\rad} and {\ecc});
+%  
+%  \draw (P8) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P8) arc (180:0:{\rad} and {\ecc});
+%
+% \draw ($(P5)+(2*\rad,0)$) to[out=90,in=90] (P6);
+% \draw ($(P7)+(2*\rad,0)$) to[out=90,in=90] (P8);
+% 
+% \coordinate (C3) at ($(P5)+(2*\rad,\hght)$);
+%  \coordinate (C4) at ($(P8)+(0,\hght)$); 
+% 
+%  \draw (P5) to[out=90,in=180] (C3);
+%  \draw (C3) to[out=0,in=180] (C4);
+%  \draw (C4) to[out=0,in=90] ($(P8)+(2*\rad,0)$);
+%  
+%  \draw[decorate sep={0.3mm}{2mm},fill] ($(P6)+(2*\rad+\dif,0)$) -- ($(P7)+(-\dif,0)$);
+%
+%% Caps
+%
+%  \coordinate (P9) at ($(P2)+(0,\dist)$);
+%  \draw (P9) to[out=90,in=180] ($(P9)+(\rad,.8*\hght)$) to[out=0,in=90] ($(P9)+(2*\rad,0)$);
+%  \draw (P9) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P9) arc (180:0:{\rad} and {\ecc});
+%  
+%  \coordinate (P10) at ($(P3)+(0,\dist)$);
+%  \draw (P10) to[out=90,in=180] ($(P10)+(\rad,.8*\hght)$) to[out=0,in=90] ($(P10)+(2*\rad,0)$);
+%  \draw (P10) arc (180:360:{\rad} and {\ecc});
+%  \draw[dashed] (P10) arc (180:0:{\rad} and {\ecc});
+%
+%  \coordinate (P11) at ($(P6)+(0,-\dist)$);
+%  \draw (P11) to[out=-90,in=180] ($(P11)+(\rad,-.8*\hght)$) to[out=0,in=-90] ($(P11)+(2*\rad,0)$);
+%  \draw (P11) arc (180:360:{\rad} and {\ecc});
+%  \draw (P11) arc (180:0:{\rad} and {\ecc});
+%
+%  \coordinate (P12) at ($(P7)+(0,-\dist)$);
+%  \draw (P12) to[out=-90,in=180] ($(P12)+(\rad,-.8*\hght)$) to[out=0,in=-90] ($(P12)+(2*\rad,0)$);
+%  \draw (P12) arc (180:360:{\rad} and {\ecc});
+%  \draw (P12) arc (180:0:{\rad} and {\ecc});
+% 
+\end{tikzpicture}

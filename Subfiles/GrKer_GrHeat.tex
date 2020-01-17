@@ -1,0 +1,116 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\begin{document}
+\section{Approximation using heat form}\label{Sec:Hwe}
+
+Given an oriented Riemannian manifold $(M,g)$, consider the \emph{heat form}
+\begin{equation}\label{Eq:HK}
+\KKer_t(x,y) = \sum (-1)^{kn}e^{-\lambda_i t} (\star e_i)(x) \wedge e_i(y),
+\end{equation}
+where $(e_i)$ are eigenvectors of $\Delta$ and $\lambda_i$ the corresponding eigenvalues. It is equivalently a solution of the equation $\Laplace \KKer_t(x,y) = - \frac{\partial}{\partial t}\KKer_t(x,y)$ with certain boundary condition.
+%
+\begin{Proposition}[Properties of the heat kernel]\label{Prop:Heasd}
+Let $M$ be an oriented Riemannian manifold. The heat form $\KKer_t(x,y)$ is smooth on $M\times M \times (0,\infty)$ and satisfies
+$$ \Dd \KKer_t = 0, \quad \tau^*\KKer_t = (-1)^n\KKer_t\quad\text{and}\quad \frac{1}{2}\Delta \KKer_t = \Diag_x \KKer_t = - \frac{\partial }{\partial t} \KKer_t. $$
+\end{Proposition}
+\begin{proof}
+Straightforward computation.
+\end{proof}
+%
+%\begin{proof}
+%Well-known.
+%%\begin{description}
+%%\item[E)]
+%%It suffices to prove it for $e^{-d(x,y)^2/t}$ by heat expansion.  Quantitively, i.e.\ making no distinction between $x_i$'s, we have
+%%$$ \partial^l e^{-r^2/t} = p_l(x,t) e^{-r^2/t}, $$
+%%where $p_l = (\frac{x}{t} + \partial_x)p_{l-1}$ with $p_0 = 1$, where 
+%%$$ \Abs{\underbrace{\frac{\partial }{\partial x_i} d^2(x,y)}_{\sim x}} \le C d(x,y), $$
+%%and hence in the estimate we can replace $x$ by $r$. For $t\in (0,1)$ it holds $\frac{1}{t^a} \le \frac{1}{t^b}$ iff $a\le b$. In every term we have only
+%%$$ \frac{r^a}{t^b} e^{-\frac{r^2}{t}} = \frac{1}{t^{b-\frac{a}{2}}}(\frac{r^2}{t})^{\frac{a}{2}} e^{-\frac{r^2}{t}} = \frac{1}{t^{b-\frac{a}{2}}}  \underbrace{\bigl[ 2^{\frac{a}{2}}\bigl(\frac{r^2}{2t}\bigr)^{\frac{a}{2}} e^{-\frac{r^2}{2t}} \bigr]}_{=:g_a(x), y= \frac{r^2}{2t}} e^{-\frac{r^2}{2t}} $$
+%%for $a\le b$. But $g_a(y), y\ge 0$ is a bounded function. We have $p_l$ polynoms in $\frac{r}{t}$. By the recursive formulas we get that the terms $\frac{1}{t^{l/2}}$, resp. $\frac{r}{t^{(l+1)/2}}$ for $l$ even resp. $l$ odd have biggest $b-a/2$ equal to $l/2$. Indeed, both operations $x/t \cdot$ and $\partial_x$ increase $a-b/2$ by maximally $1/2$. We start with $a = 0$, $b=0$ for $l=0$ and we proceed by induction that the maximum of $a-b/2$ is $l/2$ in $p_l$. \qedhere
+%%\end{description}
+%\end{proof}
+%
+%We define
+%$$ \begin{aligned} 
+%\GKer_t & = \int_t^\infty \bigl(\KKer_t - \HKer\bigr) \\ 
+%\Prpg_t & = \int_t^\infty \CoDd\KKer_t 
+%\end{aligned} $$
+%and denote $\GKer = \GKer_0$, $\Prpg = \Prpg_0$.
+%
+%\begin{Lemma}[Integrals dependent on parameter] \label{Lem:IntPar}
+%Let $I$, $J\subset \R$ be intervals and $f(a,u) : I \times J \rightarrow \R$. Suppose that:
+%\begin{enumerate}
+% \item $I$ is open
+% \item For all $a\in I$ is $f(a,\cdot)$ measurable in $J$.
+% \item For almost all $u\in J$ is $f(\cdot,u)$ differentiable in $I$
+% \item There is a $g\in L^1(J)$ such that $\Abs{\frac{\partial}{\partial a} f(a,u)} \le g(u)$ for almost all $u\in J$ and all $a\in I$
+% \item There is an $a_0\in I$ such that $f(a_0,\cdot) \in L^1(J)$  
+%\end{enumerate}
+%Then $F(a) \coloneqq \int_J f(a,u) \Diff{u}$ is finite and 
+%$$ F'(a) = \int_J \frac{\partial }{\partial a} f(a,u) \Diff{u} $$
+%\end{Lemma}
+\begin{Proposition}[Approximation using heat form]\label{Prop:HeatKerFormulas}
+Let $M$ be an oriented Riemannian manifold and $\KKer_t(x,y)$ the heat form. For all $(t,x,y)\in \bigl([0,\infty)\times M \times M\bigr)\backslash \{0\}\times \Diag =: D(\KKer)$, we define
+\begin{equation}\label{Eq:HeatKerApprox}
+\begin{aligned} 
+\GKer_t(x,y) &\coloneqq \int_t^\infty \KKer_\tau(x,y)\Diff{\tau}\quad\text{and}\\
+\Prpg_t(x,y) &\coloneqq (-1)^{n+1}\int_t^\infty (\Id\COtimes\CoDd_y) \KKer_\tau(x,y)\Diff{\tau}.
+\end{aligned}
+\end{equation}
+Then:
+\begin{ClaimList}
+\item The forms $\GKer_t$ and $\Prpg_t$ are smooth on $D(\KKer)$, the point-wise limits $\GKer'$ and $\Prpg'$ exist, and it holds $\GKer_t \darrow[t]\GKer'$ and $\Prpg_t\darrow[t]\Prpg'$ in $C^\infty_{\text{loc}}(M\times M\backslash\Diag)$.
+\item On $D(\KKer)$, the following relations hold:
+\begin{align*}
+\Dd \GKer_t &= 0 & \Prpg_t &= (-1)^{n+1}\frac{1}{2} \CoDd\GKer_t \\
+\Laplace \GKer_t &= \KKer_t - \HKer & \Dd \Prpg_t &= (-1)^n(\HKer - \KKer_t) \\
+\tau^*\GKer_t &=(-1)^n\GKer_t  & \tau^* \Prpg_t &= (-1)^n \Prpg_t.
+\end{align*}
+It follows that $\GKer' = \GKer$ is the (Laplace) Green form and $\Prpg' = \StdPrpg$ the standard Hodge propagator. 
+\end{ClaimList}
+\end{Proposition}
+
+\begin{proof}
+The formal computation is clear. An honest proof uses the standard heat kernel estimates.
+%The relations follow from
+%$$ \Dd \KKer_t = 0\quad\text{and}\quad (\CoDd_x\COtimes\Id)\KKer_t = (\Id\COtimes\CoDd_y) = \frac{1}{2}\CoDd\KKer_t. $$
+%Use properties of the heat kernel,... Also see Harris, Heine,.. We have that $\CoDd = \CoDd_x \COtimes \Id + \Id \COtimes \CoDd_y$, it holds $(\CoDd_x \COtimes \Id)\tau^* = \Id \COtimes \CoDd_y$.
+\end{proof}
+
+\begin{Proposition}[$\StdPrpg$ is codifferential of $\GKer$]\label{Prop:StdCodifInt}
+Let $M$ be an oriented Riemannian manifold, and let $\GKer\in \DR^n(M\times M\backslash\Diag)$ be the Green form. Then the standard Hodge propagator $\StdPrpg$ satisfies
+$$ \StdPrpg(x,y)= (-1)^{n+1}(\Id\otimes \CoDd_y)\GKer(x,y), $$
+where $\Id\otimes \CoDd_y: \DR^\bullet(M\times M) \rightarrow \DR^{\bullet-1}(M \times M)$ is the differential operator defined in local coordinates by commuting $\CoDd$ over the first factor with the Koszul sign and applying it to the second factor.
+\end{Proposition}
+\begin{proof}
+As for the signs, $(-1)^n$ comes from $\TOp \GOp \omega(y) = (-1)^{nT}\int_x(\Id \otimes \TOp_y)\GKer(x,y)\omega(x)$ with $T=\CoDd$ and $-1$ from $\StdHtp = - \CoDd\GOp$. The rest can be proven using the heat kernel approximation and standard heat kernel estimates. There is an other method using the asymptotic expansion of $\GKer$, which was shown to the author by Prof.~Christian~Bär.
+\end{proof}
+%We have the following.
+%
+%\begin{Proposition}[Asymptotic expansion of $\KKer_t$ and $\GKer$]
+%\end{Proposition}
+%
+%\begin{itemize}
+% \item Asymptotic expansion of 
+% \item 
+%\end{itemize}
+
+%
+%Does $\GKer$ extend to the blow-up? 
+%
+%Can I use this to show that $\CoDd \GKer$ does too extend to blow-up?
+
+%
+%\begin{Remark}[Operators not extending to blow-up]
+%Under the change $x=u+r\omega$, $y=u-r\omega$ and $\tilde{f}(r,\omega,u) = f(x,y)$, we compute the following
+%\begin{align*}
+%\frac{\partial \tilde{f}}{\partial x^i} & = \frac{1}{2} \omega_i \frac{\partial \tilde{f}}{\partial r} + \frac{1}{2r}\sum_{j=1}^{n+1}(\delta_{ij} - \omega_i\omega_j)\frac{\partial\tilde{f}}{\partial \omega^j} + \frac{1}{2}\frac{\partial\tilde{f}}{\partial u^i} \\
+%\frac{\partial \tilde{f}}{\partial y^i} & = -\frac{1}{2} \omega_i \frac{\partial \tilde{f}}{\partial r} - \frac{1}{2r}\sum_{j=1}^{n+1}(\delta_{ij} - \omega_i\omega_j)\frac{\partial\tilde{f}}{\partial \omega^j} + \frac{1}{2}\frac{\partial\tilde{f}}{\partial u^i} 
+%\end{align*}
+%Because of the middle $\frac{1}{r}$ these do not always descend. We also compute
+%\end{Remark}
+
+\end{document}

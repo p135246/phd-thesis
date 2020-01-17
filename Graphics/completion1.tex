@@ -1,0 +1,26 @@
+%auto-ignore
+\begin{tikzpicture}
+%
+    \def\lI{.8cm}
+    \def\lII{0.2cm}
+    \def\lIII{1.2cm}
+    
+    \coordinate (C) at (0,0);
+    \coordinate (P1) at ($(C)+(-\lII,\lIII)$);
+    \coordinate (P2) at ($(C)+(\lIII,\lIII)$);
+    \coordinate (P4) at ($(C)+(\lIII+\lI,\lIII)$);
+    \coordinate (P3) at (P4);
+    \coordinate (P5) at ($(C)+(\lIII+\lI,\lIII+\lI)$);
+    \coordinate (P6) at ($(C)+(-\lII,\lIII+\lI)$);
+    \pattern[pattern=north east lines] (P1)--(P2)--(P3)--(P4)--(P5)--(P6)--cycle;
+    \coordinate (L1) at ($(C)+(0,\lIII)$);
+    \coordinate (Y1) at ($(C)+(0,\lI+\lIII)$);
+    \coordinate (Y2) at ($(C)+(0,-\lII)$);
+    \coordinate (X1) at ($(C)+(\lI+\lIII,0)$);
+    \coordinate (X2) at ($(C)+(-\lII,0)$);
+    \node[circle,fill=white,inner sep=4pt] (L1) at ($(X1)+(0,-1.8ex)$) {$\lambda_2$};
+    \node[circle,fill=white,inner sep=4pt] (L2) at ($(Y1)+(-.8em,0)$) {$\lambda_1$};
+    \draw[->] (X2)--(X1);
+    \draw[->] (Y2)--(Y1);
+%
+\end{tikzpicture}%

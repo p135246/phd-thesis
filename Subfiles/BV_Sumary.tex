@@ -1,0 +1,38 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+\begin{document}
+\section{Summary of IBL-infinity theory for cyclic DGA}\label{BV:Summary}
+Let $(V,\Pair,m_1,m_2)$ be a cyclic $\DGA$ of degree $n$ of finite type. We have:
+\begin{itemize}
+    \item Cyclic cochains $\CycC(V) = \CDBCyc V[2-n]$,
+    \item Canonical dIBL-algebra $\OPQ_{110}$, $\OPQ_{210}$, $\OPQ_{120}$ on $\CycC(V)$ denoted by $\dIBL(\CycC(V))$,
+    \item Canonical Maurer-Cartan element $\MC = (\MC_{10})$,
+    \item Twisted dIBL-algebra $\OPQ_{110}^\MC$, $\OPQ_{210}$, $\OPQ_{120}$ on $\CycC(V)$ denoted by $\dIBL^\MC(\CycC(V))$.
+\end{itemize}
+Recall from Appendix~\ref{Section:AppEqDefPrCoPr} that, up to signs and permutation of variables, $\OPQ_{210}$ is the cyclization ${}^+$ of the Gerstenhaber bracket $[\cdot,\cdot]$ and $\OPQ_{120}$ fits in $\BVOp_{\CycMRM} = \ProdCyc\circ \cdot$ where $\BVOp_{\CycMRM}$ is an extension of the Schwarz's $\BV$-operator on polynomial functions on $V$ to $\CycC(V)$ and~$\ProdCyc$ is the cyclic shuffle coproduct. 
+
+Let $(V',\Pair',m_1',m_2')$ be another cyclic $\DGA$ of degree $n$ of finite type, and let 
+\begin{equation}\label{Eq:DefRetr}
+\begin{tikzcd}[column sep=large]
+(V,m_1)\arrow[loop left]{l}{\Htp}\arrow[shift left]{r}{\pi}&\arrow[shift left]{l}{\iota} (V',m_1')
+\end{tikzcd}
+\end{equation}
+be a deformation retraction. We have the following:
+\begin{itemize}
+    \item $\IBLInfty$-morphism $\HTP: \dIBL(\CycC(V))\rightarrow \dIBL(\CycC(V'))$ with components $\HTP_{klg}: \hat{\Ext}_k \CycC(V) \rightarrow \hat{\Ext}_l \CycC(V')$ such that 
+ $$ \HTP_{110}=\iota^*: (\CycC(V),\hat{\OPQ}_{110})\longrightarrow(\CycC(V'),\hat{\OPQ}'_{110}) $$
+ is a quasi-isomorphism. The number $\HTP_{klg}(\Susp^k \psi_1\otimes\dotsb\otimes\psi_k)(\Susp^{l}\omega_1\otimes\dotsb\otimes\omega_l)$
+for $\psi_1$,~$\dotsc$, $\psi_k \in \CDBCyc V$ and $\omega_1 = \omega_{11}\dotsb\omega_{1 s_1}$,~$\dotsc$, $\omega_l = \omega_{l1}\dotsb\omega_{ls_l}\in \BCyc V'$, where $\Susp$ is the formal symbol of degree $n-3$, is computed via summation over ribbon graphs with interior vertices decorated with $\psi_1$, $\dotsc$, $\psi_k$, interior edges decorated with the propagator --- the Schwartz kernel $\Prpg$ of $\Htp$ --- and exterior vertices decorated with~$\omega_{ij}$ at the $i$-th boundary component and with $j$ respecting the orientation. We will refer to such graphs shortly as \emph{Feynman graphs.}
+    \item Pushforward Maurer-Cartan element $\PMC \coloneq\HTP_* \MC$ with components $\PMC_{lg} \in \hat{\Ext}_l\CycC(V)$. The number $\PMC_{lg}(\Susp^l\omega_1\otimes \dotsc \otimes \omega_l)$ is computed via summation over Feynman graphs as above with trivalent internal vertices $\MC_{10}$.
+    \item Twisted $\IBLInfty$-morphism $\HTP^\MC: \dIBL^\MC(\CycC(V)) \rightarrow \dIBL^\PMC(\CycC(V'))$ with components $\HTP^\MC_{klg}: \hat{\Ext}_k \CycC(V) \rightarrow \hat{\Ext}_l \CycC(V')$ such that
+ $$\begin{multlined}[t]\HTP_{110}^\MC: (\CycC(V),\hat{\OPQ}_{110}^\MC)\longrightarrow(\CycC(V'),{\hat{\OPQ}'^\PMC}_{110}) \\ =\iota^* + \HTP_{210}\circ_1 \MC_{10} + \frac{1}{2!} \HTP_{310} \circ_{1,1}(\MC_{10}, \MC_{10}) + \dotsb\end{multlined} $$
+is a quasi-isomorphism. The number $\HTP_{klg}(\Susp^k \psi_1\otimes\dotsb\otimes\psi_k)(\Susp^{l}\omega_1\otimes\dotsb\otimes\omega_l)$ is computed via summation over Feynmann graphs as above with interior vertices $\psi_1$, $\dotsc$, $\psi_k$ and $\MC_{10}$.
+\end{itemize}
+Recall that an $\IBLInfty$-quasi-isomorphism is automatically an $\IBLInfty$-homotopy equivalence, which has been proven in \cite[Theorem~1.2]{Cieliebak2015} via obstruction theory. Obstruction theory also gives the existence of a minimal model of any $\IBLInfty$-algebra, which is the content of~\cite[Theorem~1.3]{Cieliebak2015}. What is not proven yet but what we suspect is true is the following:
+\begin{enumerate}[label=(\arabic*)]
+ \item For a different choice of the deformation retraction \eqref{Eq:DefRetr}, the corresponding $\IBLInfty$-morphisms $\HTP$ and $\HTP'$ are $\IBLInfty$-homotopic.
+ \item If $\iota$ is in addition a morphism of Poincar\'e $\DGA$'s (perhaps simply-connected), then $\dIBL^\MC(\CycC(V))$ and $\dIBL^{\MC'}(\CycC(V'))$ are $\IBLInfty$-homotopy equivalent (perhaps even the Maurer-Cartan elements $\MC'$ and $\HTP_{*}\MC$ are gauge equivalent).
+%Therefore, in~\eqref{Eq:DefRetr}, if, e.g., $V'$ is a subalgebra and $\iota$ is an inclusion, then $\dIBL^\MC(\CycC(V))$ and $\dIBL^{\MC'}(\CycC(V'))$ are $\IBLInfty$-homotopic.
+\end{enumerate}
+\end{document}

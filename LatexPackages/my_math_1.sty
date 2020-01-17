@@ -1,0 +1,1053 @@
+\newcommand{\RedBCyc}{\B^{\mathrm{cyc},\mathrm{red}}}
+
+\makeatletter
+%\newcommand{\xleftrightarrow}[2][]{\ext@arrow 3359\leftrightarrowfill@{#1}{#2}}
+\newcommand{\xdashrightarrow}[2][]{\ext@arrow 0359\rightarrowfill@@{#1}{#2}}
+\newcommand{\xdashleftarrow}[2][]{\ext@arrow 3095\leftarrowfill@@{#1}{#2}}
+\newcommand{\xdashleftrightarrow}[2][]{\ext@arrow 3359\leftrightarrowfill@@{#1}{#2}}
+\def\rightarrowfill@@{\arrowfill@@\relax\relbar\rightarrow}
+\def\leftarrowfill@@{\arrowfill@@\leftarrow\relbar\relax}
+\def\leftrightarrowfill@@{\arrowfill@@\leftarrow\relbar\rightarrow}
+\def\arrowfill@@#1#2#3#4{%
+  $\m@th\thickmuskip0mu\medmuskip\thickmuskip\thinmuskip\thickmuskip
+   \relax#4#1
+   \xleaders\hbox{$#4#2$}\hfill
+   #3$%
+}
+\makeatother
+% the following defines llangle and rrangle
+% START
+%\makeatletter
+%\DeclareFontFamily{OMX}{MnSymbolE}{}
+%\DeclareSymbolFont{MnLargeSymbols}{OMX}{MnSymbolE}{m}{n}
+%\SetSymbolFont{MnLargeSymbols}{bold}{OMX}{MnSymbolE}{b}{n}
+%\DeclareFontShape{OMX}{MnSymbolE}{m}{n}{
+%    <-6>  MnSymbolE5
+%   <6-7>  MnSymbolE6
+%   <7-8>  MnSymbolE7
+%   <8-9>  MnSymbolE8
+%   <9-10> MnSymbolE9
+%  <10-12> MnSymbolE10
+%  <12->   MnSymbolE12
+%}{}
+%\DeclareFontShape{OMX}{MnSymbolE}{b}{n}{
+%    <-6>  MnSymbolE-Bold5
+%   <6-7>  MnSymbolE-Bold6
+%   <7-8>  MnSymbolE-Bold7
+%   <8-9>  MnSymbolE-Bold8
+%   <9-10> MnSymbolE-Bold9
+%  <10-12> MnSymbolE-Bold10
+%  <12->   MnSymbolE-Bold12
+%}{}
+%
+%\let\llangle\@undefined
+%\let\rrangle\@undefined
+%\DeclareMathDelimiter{\llangle}{\mathopen}%
+%                     {MnLargeSymbols}{'164}{MnLargeSymbols}{'164}
+%\DeclareMathDelimiter{\rrangle}{\mathclose}%
+%                     {MnLargeSymbols}{'171}{MnLargeSymbols}{'171}
+%\makeatother
+% END
+\newcommand{\Model}{\mathcal{M}}
+\newcommand{\Operad}{\mathcal{O}}
+\newcommand{\Trees}{\mathcal{T}}
+\newcommand{\BRST}{\mathrm{BRST}}
+\newcommand{\DSp}{\mathrm{D}}
+\newcommand{\DSpRed}{\bar{\mathrm{D}}}
+\newcommand{\DDSp}{\mathrm{D}^{\GD}}
+\newcommand{\DSpCyc}{\mathrm{D}_{\mathrm{cyc}}}
+\newcommand{\DSpCycRed}{\bar{\mathrm{D}}_{\mathrm{cyc}}}
+\newcommand{\DDSpCyc}{\mathrm{D}_{\mathrm{cyc}}^{\GD}}
+\newcommand{\OpPre}{*}
+\newcommand{\DSpPlus}{\mathrm{D}^+}
+\newcommand{\DSpPlusRed}{\bar{\mathrm{D}}^+}
+\newcommand{\DSpPlusCycRed}{\bar{\mathrm{D}}^+_{\mathrm{cyc}}}
+\newcommand{\DSpPlusSymRed}{\bar{\mathrm{D}}^+_{\mathrm{sym}}}
+\newcommand{\DSpPlusCyc}{\mathrm{D}^+_{\mathrm{cyc}}}
+\newcommand{\DSpPlusSym}{\DSp_{\mathrm{sym}}^+}
+
+\newcommand{\SymProj}{\pi_{\mathrm{sym}}}
+\newcommand{\CycProj}{\pi_{\mathrm{cyc}}}
+%\renewcommand{\Proj}{\pi}
+
+\newcommand{\SymCoProj}{\mathrm{p}_{\mathrm{sym}}}
+\newcommand{\CycCoProj}{\mathrm{p}_{\mathrm{cyc}}}
+
+\newcommand{\SymInc}{\iota_{\mathrm{sym}}}
+\newcommand{\CycInc}{\iota_{\mathrm{cyc}}}
+\newcommand{\Inc}{\iota}
+
+\newcommand{\CycMRM}{\mathrm{cyc}}
+\newcommand{\SymMRM}{\mathrm{sym}}
+
+\newcommand{\ProdSh}{\mu^{\mathrm{sh}}}
+\newcommand{\ProdCyc}{\mu_{\mathrm{cyc}}}
+\newcommand{\ProdSym}{\mu_{\mathrm{sym}}}
+
+\newcommand{\CoProdCyc}{\zeta_{\mathrm{cyc}}}
+\newcommand{\CoProdSym}{\zeta_{\mathrm{sym}}}
+\newcommand{\CoProdHoch}{\zeta_{\mathrm{H}}}
+
+\newcommand{\BVOpSym}{\BVOp_{\mathrm{sym}}}
+\newcommand{\BVOpCyc}{\BVOp_{\mathrm{cyc}}}
+\newcommand{\BVOpHoch}{\BVOp_{\mathrm{H}}}
+\newcommand{\DerCyc}{\mathrm{D}^{\CycMRM}}
+\newcommand{\DerSym}{\mathrm{D}^{\SymMRM}}
+\newcommand{\ProdConcat}{\mu_{\mathrm{con}}}
+
+
+\newcommand{\Action}{S}
+\newcommand{\FreeAction}{S_{\mathrm{free}}}
+\newcommand{\IntAction}{S_{\mathrm{int}}}
+\newcommand{\CycB}{B}
+\newcommand{\WGD}{*_{\mathrm{wg}}}
+\newcommand{\LD}{*_{\mathrm{lin}}}
+\newcommand{\GD}{*_{\mathrm{g}}}
+\newcommand{\DiamComp}{\mathbin{\ooalign{$\hidewidth\diamond\hidewidth$\cr$\phantom{+}$}}}
+\newcommand{\SquareComp}{\mathbin{\ooalign{$\hidewidth\square\hidewidth$\cr$\phantom{+}$}}}
+
+\newcommand{\StarProdOne}{\mathrm{e}}
+\newcommand{\MVProd}{\mu}
+\newcommand{\MVCoProd}{\delta}
+\newcommand{\MVUnit}{\eta}
+\newcommand{\MVAug}{\varepsilon}
+\newcommand{\MVMorF}{\HTP}
+\newcommand{\MVMorG}{\GTP}
+
+\newcommand{\WeightMRM}{\mathrm{w}}
+
+\DeclareMathOperator{\DegRev}{r}
+
+\def\MuCanc{3pt}
+\def\MuWidth{0.5pt}
+\def\MuYSep{0pt}
+\def\MuXSep{0pt}
+\def\MuVert{2pt}
+\def\NOneWidth{0.5pt}
+\def\NOneYSep{0pt}
+\def\NOneXSep{0pt}
+\def\NOneVert{2pt}
+\def\NOneXPenalty{1pt}
+
+\newcommand\MuII[1]{%
+    \begin{tikzpicture}[baseline=(a.base)]
+      \node[inner xsep=\MuXSep,inner ysep=\MuYSep] (a) {$#1$};
+      \draw[line width= \MuWidth] ($(a.north west)+(0,\MuVert)$) -- ($(a.north east)+(0,\MuVert)$);
+      \draw[line width= \MuWidth] ($(a.north west)+(0,\MuVert)$) -- ($(a.north west)+(0,\MuVert-\MuCanc)$);
+   \draw[line width= \MuWidth] ($(a.north east)+(0,\MuVert)$) -- ($(a.north east)+(0,\MuVert-\MuCanc)$);
+    \end{tikzpicture}
+    }
+\newcommand\MuIIO[1]{%
+    \begin{tikzpicture}[baseline=(a.base)]
+      \node[inner xsep=\MuXSep,inner ysep=\MuYSep] (a) {$#1$};
+      \draw[line width= \MuWidth] ($(a.north west)+(0,\MuVert)$) -- ($(a.north east)+(0,\MuVert)$);
+      \draw[line width= \MuWidth] ($(a.north west)+(0,\MuVert)$) -- ($(a.north west)+(0,\MuVert-\MuCanc)$);
+    \end{tikzpicture}
+    }
+\newcommand\OMuIIO[2][]{%
+    \begin{tikzpicture}[baseline=(a.base)]
+      \node[inner xsep=\MuXSep,inner ysep=\MuYSep] (a) {$#2$};
+      \ifx\relax#1\relax
+	  \draw[line width= \MuWidth] ($(a.north west)+(0,\MuVert)$) -- ($(a.north east)+(0,\MuVert)$);
+	  \else
+      \draw[line width= \MuWidth] ($(a.north west)+(0,\MuVert)$) --node[above] {\scriptsize#1} ($(a.north east)+(0,\MuVert)$);
+      \fi
+    \end{tikzpicture}
+    }
+\newcommand\MuI[1]{%
+    \begin{tikzpicture}[baseline=(a.base)]
+      \node[inner xsep=\MuXSep,inner ysep=\MuYSep] (a) {$#1$};
+      \draw[line width= \MuWidth] ($(a.south west)+(0,-\MuVert)$) -- ($(a.south east)+(0,-\MuVert)$);
+      \draw[line width= \MuWidth] ($(a.south west)+(0,-\MuVert)$) -- ($(a.south west)+(0,-\MuVert+\MuCanc)$);
+      \draw[line width= \MuWidth] ($(a.south east)+(0,-\MuVert)$) -- ($(a.south east)+(0,-\MuVert+\MuCanc)$);
+    \end{tikzpicture}
+    }
+    
+\newcommand\MuIO[1]{%
+    \begin{tikzpicture}[baseline=(a.base)]
+      \node[inner xsep=\MuXSep,inner ysep=\MuYSep] (a) {$#1$};
+      \draw[line width= \MuWidth] ($(a.south west)+(0,-\MuVert)$) -- ($(a.south east)+(0,-\MuVert)$);
+      \draw[line width= \MuWidth] ($(a.south west)+(0,-\MuVert)$) -- ($(a.south west)+(0,-\MuVert+\MuCanc)$);
+    \end{tikzpicture}
+    }
+
+\newcommand\OMuIO[2][]{%
+    \begin{tikzpicture}[baseline=(a.base)]
+      \node[inner xsep=\MuXSep,inner ysep=\MuYSep] (a) {$#2$};
+      \ifx\relax#1\relax
+	  \draw[line width= \MuWidth] ($(a.south west)+(0,-\MuVert)$) -- ($(a.south east)+(0,-\MuVert)$);
+	  \else
+      \draw[line width= \MuWidth] ($(a.south west)+(0,-\MuVert)$) --node[below] {\scriptsize#1} ($(a.south east)+(0,-\MuVert)$);
+      \fi
+    \end{tikzpicture}
+    }
+    
+    \newcommand\NOneI{%
+    \begin{tikzpicture}[baseline=(a.base)]
+      \node[inner xsep=\NOneXSep,inner ysep=\NOneYSep] (a) {$\NOne$};
+      \draw[line width= \NOneWidth] ($(a.south west)+(\NOneXPenalty,-\NOneVert)$) -- ($(a.south east)+(-\NOneXPenalty,-\NOneVert)$);
+    \end{tikzpicture}
+    }
+    \newcommand\NOneII{%
+    \begin{tikzpicture}[baseline=(a.base)]
+      \node[inner xsep=\NOneXSep,inner ysep=\NOneYSep] (a) {$\NOne$};
+      \draw[line width= \NOneWidth] ($(a.north west)+(\NOneXPenalty,\NOneVert)$) -- ($(a.north east)+(-\NOneXPenalty,\NOneVert)$);
+    \end{tikzpicture}
+    }
+
+
+
+\newcommand{\Alg}{\mathcal{A}}
+\newcommand{\FormU}{\mathrm{u}}
+\newcommand{\NCd}{\bar{\mathrm{B}}}
+\newcommand{\Cd}{\mathrm{B}}
+\newcommand{\HC}{D} % Hochschild complex
+\newcommand{\HNC}{\bar{D}} % Normalized Hoschschild complex
+\newcommand{\RedMRM}{\mathrm{red}} % Reduced
+\newcommand{\InsOneOp}{\iota} % Insertion of NOne
+\newcommand{\CountOp}{N} % Counting Operator
+\newcommand{\CycPermOp}{t} % Cyclic Permutation
+\def\LodCycBi{CC} % Loday Cyclic bicomplex
+\def\DblBul{\bullet\bullet} % Double bullet
+\def\NormProj{\bar{p}}
+\def\NormIncl{\bar{\iota}}
+
+\newcommand{\CanMRM}{{\mathrm{can}}}
+%\newcommand{\SSPage}{\mathrm{E}}
+%\newcommand{\SSDiff}{\mathrm{d}}
+\newcommand{\VertMRM}{{\mathrm{v}}}
+\newcommand{\HorMRM}{{\mathrm{h}}}
+\newcommand{\SSPage}{\mathrm{E}}
+\newcommand{\SSDiff}{\mathrm{d}}
+\newcommand{\Tot}{\mathrm{Tot}}
+\newcommand{\TotI}{{\Tot_{\mathrm{I}}}}
+\newcommand{\TotII}{{\Tot_{\mathrm{II}}}}
+\newcommand{\ConCycBi}{BC}
+\newcommand{\NConCycBi}{\widebar{BC}}
+\newcommand{\RDB}{\mathrm{RDB}}
+\newcommand{\CoKer}{coker}
+\DeclareMathOperator{\colim}{colim}
+
+
+\DeclareMathOperator{\im}{im}
+%\DeclareMathOperator{\COtimes}{\hat{\otimes}}
+\DeclareMathOperator*{\mediumotimes}{\text{\raisebox{0.25ex}{\scalebox{0.8}{$\bigotimes$}}}}
+\DeclareMathOperator*{\smallotimes}{\text{\raisebox{0.25ex}{\scalebox{0.8}{$\otimes$}}}}
+
+\newcommand{\CycPerm}{\Perm^{\mathrm{cyc}}}
+
+\newcommand{\Filtr}{\mathcal{F}}
+\newcommand{\WGComplExt}{\breve{\Ext}}
+\newcommand{\ComplExt}{\hat{\Ext}}
+\newcommand{\ComplPr}{\mu}
+\newcommand{\ComplCoPr}{\Delta}
+\newcommand{\ComplTen}{\COtimes}
+\newcommand{\ComplB}{\hat{\mathrm{B}}}
+\newcommand{\Lin}{\mathrm{Lin}}
+
+
+\newcommand{\DGA}{\mathrm{DGA}}
+\newcommand{\uDGA}{\mathrm{DGA}_1}
+\newcommand{\nnuCDGA}{\CDGA_{1}^{\ge 0}}
+\newcommand{\onnuCDGA}{\CDGA_{1,\ge 0}^+}
+\newcommand{\CDGA}{\mathrm{CDGA}}
+\newcommand{\uCDGA}{\CDGA_{1}}
+\newcommand{\PDGA}{\mathrm{PDGA}}
+\newcommand{\PCDGA}{\mathrm{PCDGA}}
+\newcommand{\Or}{\mathrm{o}}
+\newcommand{\BigOPQ}{\mathfrak{Q}}
+\newcommand{\BigOPP}{\mathfrak{P}}
+\newcommand{\BigHTP}{\mathfrak{F}}
+\newcommand{\RKLG}{\mathrm{R}}
+\newcommand{\HomCat}{\mathrm{ho}}
+
+
+\newcommand{\LambrechtsExtension}{\mathrm{E}}
+\newcommand{\VansQuotient}{\mathcal{Q}}
+\newcommand{\VansSmall}{\mathcal{S}}
+
+
+\stackMath
+\newcommand\frightarrow{\scalebox{1}[.4]{$\rightarrow$}}
+\newcommand\darrow[1][]{\mathrel{\stackon[1pt]{\stackanchor[1pt]{\frightarrow}{\frightarrow}}{\scriptstyle#1}}}
+
+\newcommand{\Connect}{\nabla}
+\newcommand{\Metr}{g}
+\newcommand{\Ric}{\mathrm{Ric}}
+\newcommand{\Sect}{\Gamma}
+\newcommand{\Dirac}{\mathrm{D}}
+\newcommand{\LapGOp}{\TOp}
+\newcommand{\LapGKer}{\mathrm{G}}
+\newcommand{\Domain}{\mathcal{D}}
+\newcommand{\Prpg}{\mathrm{P}}
+\newcommand{\StdPrpg}{\mathrm{P}_{\mathrm{std}}}
+\newcommand{\PrpgStd}{\StdPrpg}
+\newcommand{\StdPrpgPol}{\mathrm{P}_{\mathrm{pol}}}
+\newcommand{\StdHtp}{\mathcal{P}_{\mathrm{std}}}
+\newcommand{\HtpStd}{\StdHtp}
+\newcommand{\Htp}{\mathcal{P}}
+\newcommand{\QKerPol}{\QKer^{\mathrm{pol}}}
+\newcommand{\CoDdPol}{\mathrm{d}^{*\mathrm{pol}}}
+\newcommand{\VolPol}{\Vol^{\mathrm{pol}}}
+\newcommand{\StarPol}{\Star^{\mathrm{pol}}}
+
+\newcommand{\TOp}{T}
+% =============
+% Ribbon graphs
+% =============
+
+\renewcommand{\Vert}{\mathrm{v}}
+\newcommand{\Edge}{\mathrm{e}}
+\newcommand{\Boundary}{\mathrm{b}}
+
+\DeclareMathOperator{\coker}{\mathrm{coker}}
+
+\newcommand{\NRedHIBL}{\HIBL^{\PMC,\mathrm{red}}}
+\newcommand{\MRedHIBL}{\HIBL^{\MC,\mathrm{red}}}
+
+\newcommand{\StdBasis}{\mathrm{e}}
+\newcommand{\Hd}{\mathrm{b}} % Hochschild differential
+\newcommand{\SuspU}{\theta}
+\newcommand{\SuspA}{\mathrm{a}}
+
+% ===============
+% Cyclic homology
+% ===============
+
+\newcommand{\CycH}{\H^{\lambda}}
+\newcommand{\CycCoH}{\H_{\lambda}}
+\newcommand{\RedCycH}{\H^{\lambda,\mathrm{red}}}
+\newcommand{\RedCycCoH}{\H_{\lambda,\mathrm{red}}}
+\newcommand{\ClasCycH}{\H^{\lambda,\mathrm{cl}}}
+\newcommand{\ClasCycCoH}{\H_{\lambda,\mathrm{cl}}}
+\newcommand{\RedClasCycH}{\H^{\lambda,\mathrm{cl},\mathrm{red}}}
+\newcommand{\RedClasCycCoH}{\H_{\lambda,\mathrm{cl},\mathrm{red}}}
+
+
+% ===============
+% String topology
+% ===============
+
+
+\newcommand{\Loop}{\mathrm{L}} % Loop space
+
+\newcommand{\BasedLoop}{\Omega} % Based loop space
+
+\newcommand{\Ev}{\mathrm{ev}} % Evaluation
+
+\newcommand{\Mark}{\mathcal{M}} % Mark map
+
+\newcommand{\Erase}{\mathcal{E}} % Erase map
+
+
+
+
+\newcommand{\StringH}{\H^{\Sph{1}}}
+
+\newcommand{\StringCoH}{\H_{\Sph{1}}}
+
+\newcommand{\RedStringH}{\H^{\Sph{1}, \mathrm{red}}}
+
+\newcommand{\RedStringCoH}{\H_{\Sph{1}, \mathrm{red}}}
+
+\newcommand{\ConstRedStringH}{\bar{\H}^{\Sph{1}}}
+
+
+
+\newcommand{\GeomStringH}{\mathcal{H}}
+
+\newcommand{\RedGeomStringH}{\GeomStringH_{\mathrm{red}}}
+
+\newcommand{\ConstRedGeomStringH}{\bar{\GeomStringH}}
+
+
+
+\newcommand{\RedH}{\H^{\mathrm{red}}}
+
+\newcommand{\ConstRedH}{\bar{\H}}
+
+\newcommand{\GeomH}{\mathbb{H}}
+
+\newcommand{\RedGeomH}{\GeomH_{\mathrm{red}}}
+
+\newcommand{\ConstRedGeomH}{\bar{\GeomH}}
+
+
+%\newcommand{\StringSpaceConst}{\StringSpace^{\mathrm{c}}}
+
+
+
+\newcommand{\LoopPr}{\bullet} % Loop product on loop homology
+
+\newcommand{\LoopCoPr}{\tau} % Loop coproduct on reduced loop homlogy
+
+\newcommand{\StringOp}{\mathbbm{m}} % String bracket
+
+\newcommand{\StringCoOp}{\mathbbm{c}} % String cobracket
+
+
+
+% Universal bundle
+
+\DeclareMathOperator{\BG}{B} % Classifying space
+
+\DeclareMathOperator{\EG}{E} 
+
+
+
+\newcommand{\CycCInfty}{C_\infty}
+\newcommand{\SKern}{\mathfrak{k}}
+\newcommand{\ShortdIBL}{\dIBL^0}
+\newcommand{\ShortIBLInfty}{\IBLInfty^0}
+\newcommand{\IBLInftyFr}{\IBLInfty^{\mathrm{Fr}}}
+\newcommand{\IBLInftyFrShort}{\IBLInfty^{\mathrm{Fr,0}}}
+\newcommand{\dIBLFrShort}{\dIBL^{\mathrm{Fr},0}}
+\newcommand{\dIBLFr}{\dIBL_{\mathrm{Fr}}}
+\newcommand{\TKer}{\mathrm{T}}
+\newcommand{\PKer}{P}
+\DeclareMathOperator{\Lef}{L}
+\newcommand{\TRRG}{\RRG^{(3)}}
+\newcommand{\TRG}{\RG^{(3)}}
+\newcommand{\RRG}{\widebar{\mathrm{RG}}}
+\newcommand{\RG}{\mathrm{RG}}
+
+
+\newcommand{\ShortCycC}{C_0} % The non-reduced space of cyclic cochains
+\newcommand{\CycC}{C} % The reduced space of cyclic cochains 
+\newcommand{\nCyc}{C} % The non-reduced space of cyclic cochains
+
+\newcommand{\RedCycC}{C_{\mathrm{red}}} % The reduced space of reduced cyclic cochains
+\newcommand{\nRedCycC}{C_{\mathrm{red}}} % The non-reduced space of reduced cyclic cochains
+
+\newcommand{\Ten}{\mathrm{T}}
+\newcommand{\RedTen}{\bar{\mathrm{T}}}
+\newcommand{\Sym}{\mathrm{S}}
+\newcommand{\RedSym}{\bar{\mathrm{S}}}
+\newcommand{\Ext}{\mathrm{E}}
+\newcommand{\RTen}{\bar{\mathrm{T}}}
+\newcommand{\RSym}{\bar{\mathrm{S}}}
+\newcommand{\RExt}{\bar{\mathrm{E}}}
+\newcommand{\CRExt}{\hat{\bar{\mathrm{E}}}}
+
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\HIBL}{\mathbb{H}}
+\newcommand{\RedHIBL}{\mathbb{H}_{\mathrm{red}}}
+
+\newcommand{\Le}{\nu}
+\newcommand{\Be}{e}
+
+\def\S{\text{\footnotesize R}}
+\def\Ss{\text{r}}
+\def\W{\text{\footnotesize W}}
+\def\IPair{\mathcal{I}}
+\def\Pair{\Pi}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclareMathOperator{\Tor}{Tor}
+\def\Kaehler{\mathrm{K}}
+\def\CP{\mathbb{C}\mathrm{P}}
+\def\NK{\mathrm{k}}
+\newcommand{\CDBCyc}{\hat{\mathrm{B}}_{\mathrm{cyc}}^*}
+\newcommand{\nCDBCyc}{\hat{\mathrm{B}}_{\mathrm{cyc}}^*}
+\newcommand{\StringSpace}{\Loop_{\Sph{1}}}
+\newcommand{\LoopBorel}{\Loop_{\Sph{1}}}
+\newcommand{\CDB}{\hat{\mathrm{B}}^*}
+\newcommand{\nCDB}{\hat{\mathrm{B}}^*}
+\newcommand{\CRedDBCyc}{\hat{\mathrm{B}}^*_{\mathrm{cyc},\mathrm{red}}}
+\newcommand{\nCRedDBCyc}{\hat{\mathrm{B}}_{\mathrm{cyc},\mathrm{red}}}
+\newcommand{\RedDBCyc}{\mathrm{B}_{\mathrm{cyc},\mathrm{red}}^*}
+\newcommand{\nRedDBCyc}{\mathrm{B}^{\mathrm{red}*}_{\mathrm{cyc}}}
+\newcommand{\CRDB}{\hat{\mathrm{B}}^*}
+\newcommand{\nCRDB}{\hat{\mathrm{B}}^*}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\DdCE}{\Dd_{\mathrm{CE}}} % Chevaley-Eilenberg differential
+
+\newcommand{\DBCycRed}{\RedDBCyc}
+
+\newcommand{\GrpId}{\mathrm{e}}
+
+
+
+\newcommand{\MCT}{\mathfrak{MC}}
+\newcommand{\PMC}{\mathfrak{n}}
+\newcommand{\HTP}{\mathfrak{f}}
+\newcommand{\GTP}{\mathfrak{g}}
+\newcommand{\HHTP}{\mathfrak{h}}
+\newcommand{\OPP}{\mathfrak{p}}
+\newcommand{\OPQ}{\mathfrak{q}}
+\newcommand{\OPU}{\mathfrak{u}}
+
+\newcommand{\Tensor}{}
+\newcommand{\NOne}{\oldstylenums{1}}
+\newcommand{\NVol}{\mathrm{v}}
+\newcommand{\Prop}{\mathcal{P}}
+\newcommand{\HomDRKer}{\Hom_{\mathrm{DRKer}}}
+\newcommand{\GrHom}{\Hom^{\mathrm{Gr}}}
+\newcommand{\DRp}{\Omega}
+\newcommand{\CycFunKer}{\mathrm{Fun}_{\mathrm{ker}}^{\mathrm{cyc}}}
+\newcommand{\FunKer}{\mathrm{Fun}_{\mathrm{ker}}}
+\newcommand{\CycFun}{\mathcal{F}_{\mathrm{cyc}}}
+\newcommand{\FunCyc}{\CycFun}
+\newcommand{\CycHomKer}{\Cyc\Hom_\mathrm{Ker}}
+\newcommand{\HomLinKer}{\Hom_{\mathrm{LinKer}}}
+\newcommand{\CycHomLinKer}{\Hom_{\mathrm{LinKer}}^{\mathrm{Cyc}}}
+\newcommand{\COtimes}{\mathbin{\ooalign{$\hidewidth\hat{\otimes}\hidewidth$\cr$\phantom{+}$}}}
+\newcommand{\Kern}{\mathcal{K}}
+\newcommand{\SymHom}{\Sym\Hom}
+\newcommand{\RGamma}{\mathrm{R}\Gamma}
+\newcommand{\SymAsym}{\mathrm{(A)Sym}}
+\newcommand{\CycHom}{\Hom_{\mathrm{cyc}}}
+\newcommand{\CycLin}{\mathcal{F}_{\mathrm{cyc}}}
+%\newcommand{\Lin}{\mathcal{F}}
+\newcommand{\HomGr}{\Hom^{\mathrm{Gr}}}
+\newcommand{\HomGrKer}{\Hom^{\mathrm{Gr}}_{\mathrm{Ker}}}
+\newcommand{\HomKer}{\Hom_{\mathrm{Ker}}}
+
+\newcommand{\Cyc}{\mathrm{Cyc}}
+%\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\ASym}{\mathrm{Asym}}
+
+\newcommand{\B}{\mathrm{B}}
+\newcommand{\DB}{\mathrm{B}^*}
+\newcommand{\nB}{\mathrm{B}}
+\newcommand{\nDB}{\mathrm{B}^*}
+
+\newcommand{\DBCyc}{\mathrm{B}_{\mathrm{cyc}}^*}
+\newcommand{\BDCyc}{\mathrm{B}_{\mathrm{cyc}}^*}
+\newcommand{\BCyc}{\mathrm{B}^{\mathrm{cyc}}}
+\newcommand{\nDBCyc}{\mathrm{B}_{\mathrm{cyc}}^*}
+\newcommand{\nBDCyc}{\mathrm{B}_{\mathrm{cyc}}^*}
+\newcommand{\nBCyc}{\mathrm{B}^{\mathrm{cyc}}}
+
+\DeclareMathOperator*{\midotimes}{\text{\raisebox{0.25ex}{\scalebox{0.6}{$\bigotimes$}}}}
+
+\newcommand{\PairL}{\langle}
+\newcommand{\PairR}{\rangle}
+\newcommand{\Succ}{\mathcal{N}}
+\DeclareMathOperator{\Gr}{\mathrm{gr}}
+\newcommand{\DGr}{\mathrm{dGR}}
+
+%==============================
+% LIE GROUPS
+%==============================
+
+\newcommand{\Ad}{\mathrm{Ad}}
+\newcommand{\Spin}{\mathrm{Spin}}
+\newcommand{\SpinC}{\Spin^{\C}}
+\newcommand{\Cl}{\mathrm{Cl}}
+\newcommand{\ClC}{\mathrm{Cl}^{\C}}
+\newcommand{\Mat}{\mathrm{M}}
+
+
+%==============================
+% RIBBON GRAPHS
+%==============================
+
+%\newcommand{\RG}{\mathrm{RG}}
+%\newcommand{\TRG}{\RG^{3}}
+
+%==============================
+% TRIVALENT FEYNAMNN GRAPHS FOR SPHERE 
+%==============================
+
+\newcommand{\VInt}{V_{\mathrm{int}}}
+\newcommand{\VExtVol}{V_{\mathrm{ext}}^{\Vol}}
+\newcommand{\VExtOne}{V_{\mathrm{ext}}^{1}}
+\newcommand{\EInt}{E_{\mathrm{int}}}
+\newcommand{\VExt}{V_{\mathrm{ext}}}
+\newcommand{\VTot}{V}
+\newcommand{\ETot}{E}
+\newcommand{\Bd}{\mathrm{Bd}}
+\newcommand{\Gen}{g}
+
+%==============================
+% GREEN'S KERNEL AND OPERATOR 
+%==============================
+
+\newcommand{\KKer}{\mathrm{K}}
+\DeclareMathOperator{\KOp}{\mathcal{K}}
+\DeclareMathOperator{\UOp}{\mathcal{U}}
+\DeclareMathOperator{\QOp}{\mathcal{Q}}
+\newcommand{\QKer}{Q}
+\newcommand{\UKer}{U}
+\newcommand{\GKer}{G}
+\newcommand{\GKerStd}{G_{\mathrm{std}}}
+\DeclareMathOperator{\GOp}{\mathcal{G}}
+\DeclareMathOperator{\GOpStd}{\mathcal{G}_{\mathrm{std}}}
+
+%==============================
+% HARMONIC PROJECTIONS
+%==============================
+
+\newcommand{\HKer}{\mathrm{H}}
+\DeclareMathOperator{\HPr}{\pi_{\mathcal{H}}}
+
+%==============================
+% FIBERWISE INTEGRATION
+%==============================
+
+\newcommand{\FInt}[1]{\int^{#1}}
+
+%==============================
+% SPECIAL FORMATED SYMBOLS
+%==============================
+
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Prm}{\mathrm{P}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Mrm}{\mathrm{M}}
+\newcommand{\Xfrak}{\mathfrak{X}}
+
+% Projection
+\let\Pr\undefined
+\DeclareMathOperator{\Pr}{\mathrm{pr}}
+
+% Diagonal
+\newcommand{\Diag}{\Delta}
+\newcommand{\AntiDiag}{{\widebar{\mathrm{D}}}}
+
+%==============================
+% ALGEBRA
+%==============================
+
+% Rank
+
+\newcommand{\Rank}{\mathrm{Rank}}
+
+% Maurer-Cartan
+\newcommand{\MC}{\mathfrak{m}}
+
+
+% Set of derivatives and coderivatives
+\newcommand{\Der}{\mathrm{Der}}
+\newcommand{\CoDer}{\mathrm{CoDer}}
+
+
+% Left and right derivatives
+\newcommand{\cev}[1]{\reflectbox{\ensuremath{\vec{\reflectbox{\ensuremath{#1}}}}}}
+\newcommand{\Pd}{\partial}
+\newcommand{\LPd}{\vec{\Pd}}
+\newcommand{\RPd}{\cev{\Pd}}
+
+
+
+% Permutations
+\newcommand{\Perm}{\mathbb{S}}
+
+% Extension
+\newcommand{\Extension}[1]{\widehat{#1}}
+%\newcommand{\Ext}[1]{\Extension{#1}}
+
+% Bialgebra
+\DeclareMathOperator{\Prod}{\mu}
+\DeclareMathOperator{\CoProd}{\delta}
+\DeclareMathOperator{\RedCoProd}{\widebar{\Delta}}
+\newcommand{\RedDelta}{\RedCoProd}
+% Trace
+\DeclareMathOperator{\Spur}{Spur}
+
+% Formal Power Series Ring
+\newcommand{\PowerSeries}[2]{#1[[#2]]}
+
+% Group Action
+\newcommand{\Stab}[1]{\mathrm{Stab}(#1)}
+\newcommand{\Orb}[1]{\mathrm{Orb}(#1)}
+
+% Operations on vector spaces
+\newcommand{\Dual}[1]{#1^*}
+\newcommand{\Vect}[1]{\mathbb{#1}}
+\let\Ker\relax
+\let\Im\relax
+\DeclareMathOperator{\Ker}{ker}
+\DeclareMathOperator{\Im}{im}
+
+% Operations on graded vector spaces
+\newcommand{\Susp}{\mathrm{s}}
+\newcommand{\DeSusp}{\widebar{\mathrm{s}}}
+\DeclareMathOperator{\Deg}{deg}
+
+% Arrows
+\newcommand{\QuasiIsomArrow}{\rightsquigarrow}
+\newcommand{\IsomArrow}{\xrightarrow{\sim}}
+
+% Free Objects
+\newcommand{\Span}{\mathrm{span}}
+\newcommand{\TenCoAlg}[2][]{\ifx\\#1\\
+	T^c(#2)
+  \else
+	T^c_{#1}(#2)	
+  \fi}
+\newcommand{\RedTenCoAlg}[2][]{\ifx\\#1\\
+	\widebar{T}^c #2
+  \else
+	\widebar{T}^c_{#1} #2	
+  \fi}
+\newcommand{\TenAlg}[1][]{\ifx\\#1\\
+	T
+  \else
+	T_{#1}	
+  \fi}
+\newcommand{\RedTenAlg}[2][]{\ifx\\#1\\
+	\widebar{T} #2
+  \else
+	\widebar{T}_{#1} #2	
+  \fi}
+\newcommand{\SymAlg}[2][]{\ifx\\#1\\
+	\mathrm{Sym} #2
+  \else
+	\mathrm{Sym}_{#1} #2
+  \fi}
+\newcommand{\RedSymAlg}[2][]{\ifx\\#1\\
+	\widebar{S} #2
+  \else
+	\widebar{S}_{#1} #2	
+  \fi}
+  \newcommand{\CycAlg}[1][]{\ifx\\#1\\
+	\mathrm{Cyc}
+  \else
+	\mathrm{Cyc}_{#1}
+  \fi}
+\newcommand{\RedCycAlg}[2][]{\ifx\\#1\\
+	\widebar{\mathrm{Cyc}} #2
+  \else
+	\widebar{\mathrm{Cyc}}_{#1} #2	
+  \fi}
+\newcommand{\SymCoAlg}[2][]{\ifx\\#1\\
+	S^c #2
+  \else
+	S_{#1}^c #2
+  \fi}
+\newcommand{\RedSymCoAlg}[2][]{\ifx\\#1\\
+	\widebar{S}^c #2
+  \else
+	\widebar{S}^c_{#1} #2	
+  \fi}
+\newcommand{\ExtAlg}[2][]{\ifx\\#1\\
+	\Lambda #2
+  \else
+	\Lambda_{#1} #2	
+  \fi}
+\newcommand{\RedExtAlg}[2][]{\ifx\\#1\\
+	\widebar{\Lambda} #2
+  \else
+	\widebar{\Lambda}_#1 #2	
+  \fi}
+\newcommand{\CycBar}[2][]{\ifx\\#1\\
+	\mathrm{B}_{cyc} #2
+  \else
+	\mathrm{B}_{#1} #2
+  \fi}
+\newcommand{\DualCycBar}[2][]{\ifx\\#1\\
+	\mathrm{B}^{*}_{cyc} #2
+  \else
+	\mathrm{B}_{#1}^{*} #2
+  \fi}
+\newcommand{\CompDualCycBar}[2][]{\ifx\\#1\\
+	\widehat{\mathrm{B}}^{*}_{cyc} #2
+  \else
+	\widehat{\mathrm{B}}_{#1}^{*} #2
+  \fi}
+
+% Bilinear Operations
+\newcommand{\Pairing}[2]{\langle #1,#2 \rangle}
+\newcommand{\InnerProd}[2]{\left( #1,#2 \right)}
+\newcommand{\ProdL}{(}
+\newcommand{\ProdR}{)}
+
+\newcommand{\PoissBr}[2]{\left\{#1,#2\right\}}
+\newcommand{\Matching}[1]{\langle\!\langle #1\rangle\!\rangle}
+
+% Matrices
+%\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Sgn}{sgn}
+\DeclareMathOperator{\Det}{det}
+\DeclareMathOperator{\Ber}{Ber}
+
+% Completion 
+\newcommand{\Completion}[1]{\widehat{#1}}
+
+% Bar and Cobar Constructions
+\providecommand{\Bar}[1]{B#1}
+\providecommand{\CoBar}[1]{\Omega#1}
+\newcommand{\Tw}{\mathrm{Tw}} %Twisting morphisms
+
+% Algebras
+\newcommand{\Ass}{\mathrm{Ass}}
+\newcommand{\Comm}{\mathrm{Com}}
+\newcommand{\Lie}{\mathrm{Lie}}
+\newcommand{\BL}{\mathrm{BL}}
+\newcommand{\IBL}{\mathrm{IBL}}
+\newcommand{\RedIBL}{\mathrm{IBL}_{\mathrm{red}}}
+\newcommand{\BV}{\mathrm{BV}}
+\DeclareMathOperator{\BVOp}{\Delta}
+\newcommand{\Frob}{\mathrm{Frob}}
+\newcommand{\Hopf}{\mathrm{Hopf}}
+\newcommand{\MV}{\mathrm{MV}}
+\newcommand{\LieName}[1]{\mathfrak{#1}}
+\newcommand{\LieAlg}[1]{\mathfrak{#1}}
+\newcommand{\LieGrp}[1]{#1}
+
+% Homotopy Algebras
+\newcommand{\AInfty}{\mathrm{A}_\infty}
+\newcommand{\dA}{\mathrm{dA}}
+\newcommand{\LInfty}{\mathrm{L}_\infty}
+\newcommand{\CoLInfty}{\mathrm{coL}_\infty}
+\newcommand{\IBLInfty}{\mathrm{IBL}_\infty}
+\newcommand{\dIBL}{\mathrm{dIBL}}
+\newcommand{\ReddIBL}{\mathrm{dIBL}_{\mathrm{red}}}
+\newcommand{\dBV}{\mathrm{dBV}}
+\newcommand{\BVInfty}{\mathrm{BV}_\infty}
+\newcommand{\FrobInfty}{\mathrm{Frob}_\infty}
+\newcommand{\MVInfty}{\mathrm{MV}_\infty}
+
+% Fields and Rings
+\DeclareMathAlphabet{\mathbbold}{U}{bbold}{m}{n}    
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\H}{\mathrm{H}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\T}{\mathbb{T}}
+
+% Operations on Complex Numbers
+\newcommand{\IU}{{i\mkern1mu}}
+\newcommand\Conj[1]{\bar{#1}}
+\newcommand\Abs[1]{|#1|}
+\newcommand\AAbs[1]{\bigl|#1\bigr|}
+\newcommand\AAAbs[1]{\Bigl|#1\Bigr|}
+\newcommand\AAAAbs[1]{\Biggl|#1\Biggr|}
+\let\Re\relax
+\let\Im\relax
+\DeclareMathOperator{\Re}{Re}
+\DeclareMathOperator{\Im}{im}
+
+
+%==============================
+% ANALYSIS
+%==============================
+
+% Support
+\DeclareMathOperator{\Supp}{supp}
+
+% Functions
+\newcommand{\Fun}{\mathcal{F}}
+
+% Analysis in more variable
+\newcommand{\Hess}[1]{\operatorname{Hess\,#1}}
+\newcommand{\Grad}{\nabla}
+\newcommand{\Jac}[2][]{\ifx\\#1\\
+	\operatorname{D#2}
+\else
+	\operatorname{D_{#1}#2}
+\fi}
+
+% Special Functions
+\DeclareMathOperator{\ArcTanh}{arctanh}
+\DeclareMathOperator{\ArcSinh}{arcsinh}
+
+% Restriction
+\newcommand\Restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% Normed and metric spaces
+\newcommand{\Norm}[1]{\| #1 \|}
+\newcommand{\Dist}[2]{\mathrm{d}(#1,#2)}
+\newcommand{\Clos}[1]{\bar{#1}}
+\newcommand{\Inter}[1]{#1^{0}}
+
+% Fourier transform
+\newcommand{\FT}[1]{\mathcal{F}}
+
+
+%==============================
+% CATEGORIES
+%==============================
+
+% Names of Categories
+\newcommand{\CatName}[1]{\mathrm{#1}}
+
+% Objects
+\DeclareMathOperator{\Obj}{Obj}
+
+% Morphisms
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Iso}{Iso}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Hom}{\mathrm{Hom}}
+
+% Identity Morphism
+\newcommand{\Id}{\mathbbm{1}}
+
+% Inverse Morphism
+\newcommand{\Inv}[1]{{#1^{\raisebox{.2ex}{$\scriptscriptstyle-1$}}}}
+
+% Functors
+\newcommand{\FuncName}[1]{\mathcal{#1}}
+\newcommand{\RightAdj}{\vdash}
+\newcommand{\LeftAdj}{\dashv}
+\newcommand{\DefLeftAdj}{A functor $\FuncName{F}: \CatName{C}\to\CatName{D}$ is left adjoint to $\FuncName{G}: \CatName{D}\to\CatName{C}$, written $\FuncName{F}\LeftAdj\FuncName{G}$, if there is a bijection $\Homom_{\CatName{C}}(\FuncName{G}D,C)\simeq \Homom_{\CatName{D}}(D,\FuncName{F}C)$ natural in $C\in\Obj\CatName{C}$ and $D\in\Obj\CatName{D}$.}
+
+% Free Object
+\DeclareMathOperator{\Free}{\FuncName{F}}
+\newcommand{\DefFreeObj}{A free functor $\Free$ is a left adjoint to a forgetful functor $\FuncName{F}: \CatName{C} \to \CatName{D}$.}
+
+% Enriched Categories
+\newcommand{\IntHomom}[2]{\mathrm{hom}(#1,#2)}
+
+% Vector Spaces
+\newcommand{\CatVec}{\CatName{Vec}}
+\newcommand{\CatGrVec}{\CatName{gVec}}
+
+% Associative Algebras
+\newcommand{\CatAssAlg}{\CatName{Ass-Alg}}
+\newcommand{\CatUAssAlg}{\CatName{uAss-Alg}}
+\newcommand{\CatUGrAssAlg}{\CatName{guAss-Alg}}
+\newcommand{\CatGrAssAlg}{\CatName{gAss-Alg}}
+
+% Associative Coalgebras
+\newcommand{\CatAssCoalg}{\CatName{Ass-Coalg}}
+\newcommand{\CatUAssCoalg}{\CatName{UAss-Coalg}}
+\newcommand{\CatGrAssCoalg}{\CatName{GAss-Coalg}}
+\newcommand{\CatUGrAssCoalg}{\CatName{UGrAss-Coalg}}
+
+% Commutative Algebras
+\newcommand{\CatCommAlg}{\CatName{Comm-Alg}}
+\newcommand{\CatUCommAlg}{\CatName{UComm-Alg}}
+\newcommand{\CatGrCommAlg}{\catname{GrComm-Alg}}
+\newcommand{\CatUGrCommAlg}{\CatName{UGrComm-Alg}}
+
+% Commutative Coalgebras
+\newcommand{\CatCommCoalg}{\CatName{Comm-Coalg}}
+\newcommand{\CatUCommCoalg}{\CatName{UComm-Coalg}}
+\newcommand{\CatGrComAlg}{\CatName{GrComm-Coalg}}
+\newcommand{\CatUGrCommCoalg}{\CatName{guComm-CoAlg}}
+
+\newcommand{\CatDGMod}{\mathrm{dgMod}}
+\newcommand{\CatDGVec}{\mathrm{dgVec}}
+%==============================
+% LOGIC
+%==============================
+
+\newcommand{\Implies}{\Longrightarrow}
+\newcommand{\Equiv}{\Longleftrightarrow}
+
+
+%==============================
+% MANIFOLDS
+%==============================
+
+% Blow ups
+
+\newcommand{\Bl}{\mathrm{Bl}}
+
+% Linking number
+
+\newcommand{\Link}{\mathrm{Link}}
+
+% Intersection number 
+
+\newcommand{\Int}{\mathrm{Int}}
+
+% Graph
+
+\newcommand{\Graph}{\mathrm{gr}}
+
+%Transverse intersection
+
+\newcommand{\Ti}{\mathrel{\text{\tpitchfork}}}
+\makeatletter
+\newcommand{\tpitchfork}{%
+  \vbox{
+    \baselineskip\z@skip
+    \lineskip-.52ex
+    \lineskiplimit\maxdimen
+    \m@th
+    \ialign{##\crcr\hidewidth\smash{$-$}\hidewidth\crcr$\pitchfork$\crcr}
+  }%
+}
+\makeatother
+
+
+
+% Sphere
+\newcommand{\Sph}[1]{\mathbb{S}^{#1}}
+
+% Dimension
+\DeclareMathOperator{\Dim}{Dim}
+
+% Smooth Functions
+\newcommand{\Smooth}[2][\infty]{C^#1(#2)}
+
+% DeRham Theory 
+\newcommand{\Diff}[1]{\operatorname{d#1}}	% \Diff{x}\wedge\Diff{y}
+\newcommand{\Dd}{\mathrm{d}}				% \Dd (x +y)
+\newcommand{\DR}{\Omega}
+\newcommand{\HDR}{\mathrm{H}_{\mathrm{dR}}}
+
+% Singular Homology
+
+\newcommand{\SingCplx}[1][]{\ifx\\#1\\   
+	C^{\mathrm{sing}}_*
+\else
+	C^{\mathrm{sing}}_{#1}
+\fi}
+\newcommand{\SingHom}[1][]{\ifx\\#1\\   
+	H^{\mathrm{sing}}_*
+\else
+	H^{\mathrm{sing}}_{#1}
+\fi}
+
+% Hodge Theory
+\newcommand{\CoDiff}[1]{\operatorname{\delta#1}}
+\newcommand{\CoDd}{\mathrm{d}^*}
+\DeclareMathOperator{\Laplace}{\Delta}
+\newcommand{\Harm}{\mathcal{H}}
+\newcommand{\Green}{\mathcal{G}}
+\newcommand{\Greens}{\mathcal{G}}
+
+\newcommand{\Star}{\ast}
+
+% Canonical Bundles
+\newcommand{\TanBdle}[1]{T#1}
+\newcommand{\CotanBdle}[1]{T^*#1}
+\newcommand{\OddCotanBdle}[1]{T^*[-1]#1}
+\newcommand{\OddTanBdle}[1]{T[1]#1}
+
+% Critical Set
+\DeclareMathOperator{\Crit}{Crit}
+
+% Regular Set
+\DeclareMathOperator{\Reg}{Reg}
+
+% Volume form
+\newcommand{\Vol}{\mathrm{Vol}}
+\DeclareMathOperator{\Div}{Div}
+
+
+
+%==============================
+% PHYSICS
+%==============================
+
+
+% Feynmann Diagrams
+\DeclareMathOperator{\Graphs}{Gr}
+\DeclareMathOperator{\Pairings}{Pairings}
+
+\newcommand{\Expectation}[1]{\langle #1 \rangle}
+
+
+%==============================
+% TOPOLOGY
+%==============================
+
+\newcommand{\Incl}{\iota}
+\newcommand{\Proj}{\pi}
+\newcommand{\Bdd}{\partial}
+
+\providecommand{\Sph}{\mathbb{S}}
+

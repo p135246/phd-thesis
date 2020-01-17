@@ -1,0 +1,147 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+\begin{document}
+
+\section{BV-formulation for dIBL-algebra on cyclic cochains}\label{Sec:BVAction}
+
+In the setting of Section~\ref{BV:Summary}, we define 
+$$ \CycB(V) := \BCyc V [3-n]\quad\text{and}\quad \Fun(\CycB(V)) := \hat{\Ext} \CycC(V) ((\hbar)) = \Ext \CycC(V) \COtimes \K((\hbar)). $$
+We call $\Fun(\CycB(V))$ the \emph{space of functions on $\CycB(V)$}. This makes sense because $\CycC(V) \subset (\BCyc V [2-n])^{\GD}$, $\Ext \CycC(V) = \Sym(\CycC(V)[1])$ and the symmetric algebra of the dual can be viewed as polynomial functions. In contrast to \cite{Doubek2018}, we do not have any canonical odd symplectic\Correct[noline,caption={Graded symplectic form}]{Define and use graded symplectic form and $dg$-symplectic vector space.} form on $B(V)$, and hence there is no Schwarz's $\BV$-operator on $\Fun(B(V))$. However, we have the following $\BV$-operators from~\cite{Cieliebak2015}:
+\begin{align*}
+ \BVOp_0 & \coloneqq \hat{\OPQ}_{120} + \hbar \hat{\OPQ}_{210}, \\
+ \BVOp &\coloneqq \hat{\OPQ}_{110} + \BVOp_0, \\
+ \BVOp^\MC & \coloneqq \reallywidehat{\OPQ_{210}\circ_1 \MC_{10}} + \BVOp.
+\end{align*}
+The first $\BV$-operator is canonical for an odd symplectic vector space $(V,\Pair)$ and we call it the \emph{string $\BV$-operator}. The second $\BV$-operator is canonical for a cyclic cochain complex $(V,\Pair,m_1)$ and the third for a cyclic $\DGA$ $(V,\Pair,m_1,m_2)$ (in both cases, $(V,\Pair)$ is an odd symplectic vector space).
+
+For $\BVOp$, we consider the associated Gerstenhaber bracket $\{\cdot,\cdot\}: \Fun(\CycB(V))^{\otimes 2} \rightarrow \Fun(\CycB(V))$, which is for all $\Psi_1$, $\Psi_2\in \Fun(\CycB(V))$ given by
+$$ \{\Psi_1, \Psi_2\} := (-1)^{\Abs{\Psi_1}}\bigl(\BVOp(\Psi_1 \Psi_2)- \BVOp(\Psi_1)\Psi_2 - (-1)^{\Abs{\Psi_1}}\Psi_1\BVOp(\Psi_2)\bigr). $$
+It is easy to see that
+$$ \{\Psi_1,\Psi_2\} = (-1)^{1 + (\Abs{\Psi_1} + 1)(\Abs{\Psi_2}+1)}\{\Psi_2,\Psi_1\}. $$
+If $\{\cdot,\cdot\}_0$ and $\{\cdot,\cdot\}^\MC$ are the Gerstenhaber brackets for $\BVOp_0$ and $\BVOp^\MC$, respectively, then it holds
+$$ \{\cdot,\cdot\}_0 = \{\cdot,\cdot\}^\MC = \{\cdot,\cdot\} $$
+because $\BVOp$, $\BVOp_0$ and $\BVOp^\MC$ differ only by differential operators of order $\le 1$.
+ 
+Consider the cyclizations $m^+_1$, $m^+_2: \BCyc V \rightarrow \R$ defined for all $v_1$, $v_2$, $v_3 \in V[1]$ by
+$$ m_1^+(v_1,v_2)\coloneqq \Pair(m_1(v_1),v_2)\quad\text{and}\quad m^+_2(v_1,v_2,v_3)\coloneqq \Pair(m_2(v_1,v_2),v_3). $$
+They have degree $3-n$ as maps, thus degree $n-3$ as elements of $\DBCyc V$ with the cohomological grading, and thus $\Susp m^+_1$, $\Susp m^+_2\in \Fun(\CycB(V))$ have degree $2(n-3)$. They are ``linear functions'' in the sense that $\Susp m^+_1$, $\Susp m^+_2 \in \hat{\Ext}_1\CycC(V)$. We define the \emph{total action}
+%\footnote{The sign $(-1)^{n-2}$ is added because of \eqref{Eq:TerribleComputationProblem}.}
+\begin{equation}\label{Eq:Action}
+ \Action \coloneqq \underbrace{(-1)^{n-2}(\Susp m_1^+)\hbar^{-1}}_{\displaystyle\eqqcolon \FreeAction} + \underbrace{(-1)^{n-2}(\Susp m_2^+)\hbar^{-1}}_{\displaystyle \eqqcolon \IntAction}\in \Fun(\CycB(V))
+\end{equation}
+and call $\FreeAction$ the \emph{free action} and $\IntAction$ the \emph{interaction.} The total action is linear and has degree $0$. As a function, we can write 
+$$ S(\Susp b) = (-1)^{n-2}m_1^+(b) \hbar^{-1} + (-1)^{n-2} m_2^+(b) \hbar^{-1}\quad\text{for }b\in \BCyc V.$$
+Recall that $\MC_{10} = (-1)^{n-2}\Susp m_2^+$ is the canonical Maurer-Cartan element.
+
+\begin{Proposition}[$\BV$-action for canonical Maurer-Cartan element]\label{Prop:BVActForCanMC}
+Let $(V,\Pair,m_1,m_2)$ be a cyclic $\DGA$ of degree $n$ of finite type, and let $\BVOp_0 = \hat{\OPQ}_{120} + \hbar \hat{\OPQ}_{210}$ be the string $\BV$-operator on $\Fun(\CycB(V))$. The total action $S\in \Fun(\CycB(V))$ from \eqref{Eq:Action} satisfies the \emph{quantum master equation} 
+\begin{equation}\label{Eq:QME}
+ \BVOp_0 S + \frac{1}{2}\{S,S\}_0 = 0,
+\end{equation}
+and it holds
+\begin{equation}\label{Eq:Twist}
+ \BVOp^\MC(f)= \BVOp_0(f) + \{S,f\}_0\quad\text{for all }f\in \Fun(\CycC(V)),
+\end{equation}
+where $\BVOp^\MC = \hat{\OPQ}_{110}^\MC + \hat{\OPQ}_{120} + \hbar \hat{\OPQ}_{210}$ is the $\BV$-operator associated to the twisted $\dIBL$-algebra $\dIBL^\MC(\CycC(V))$.
+\end{Proposition}
+
+\begin{proof}
+Let $f\in \Fun(\CycB(V))$, and consider the left multiplication $L_f: \Fun(\CycB(V)) \rightarrow \Fun(\CycB(V))$ given by  $g\mapsto fg$. 
+Using formulas from Appendix~\ref{App:IBLMV}, we compute
+\begin{align*}
+\hat{\OPQ}_{210} \circ L_f &= \hat{\OPQ}_{210}(f\odot \Id) \\
+&= \OPQ_{210}\circ_{0,2}(f,\Id) + \OPQ_{210}\circ_{1,1}(f,\Id) + \OPQ_{210}\circ_{2,0}(f,\Id) \\
+&=(-1)^{\Abs{f}} L_f \circ \hat{\OPQ}_{210} + \reallywidehat{\OPQ_{210}\circ_1 f} + L_{\hat{\OPQ}_{210}(f)},
+\end{align*}
+where we view $f$ as a linear map $\Fun(\CycB(V)) \rightarrow \Fun(\CycB(V))$ which maps the constant $1$ to $f$ and vanishes on the reduced part. Therefore, it holds
+\begin{align*}
+ \{f,\cdot\}_0 & = \hbar\bigl(\hat{\OPQ}_{210} \circ L_f - L_{\hat{\OPQ}_{210}(f)} - (-1)^{\Abs{f}} L_f \circ \hat{\OPQ}_{210}\bigr)  \\
+ & =  \hbar\reallywidehat{\OPQ_{210}\circ_1 f}.
+\end{align*}
+We compute 
+\begin{align}\label{Eq:TerribleComputationProblem}
+&\bigl(\OPQ_{210}\circ_1 (\Susp m_1^+)\bigr)(\Susp\psi)(\omega) \nonumber\\ 
+&\qquad= \OPQ_{210}(\Susp m_1^+, \Susp \psi)(\omega) \nonumber\\
+&\qquad= (-1)^{\Abs{\Susp}} \OPQ_{210}(\Susp^2 m_1^+, \psi) \nonumber\\
+&\qquad \underset{\mathclap{\substack{\uparrow\rule{0pt}{1.5ex} \\ T^{ij} = (-1)^{\Abs{s} + \Abs{e_i}\Abs{e_j}} T^{ji} \\
+T^{ji} = (-1)^{\Abs{e_j}}\Pair(e^j,e^i) \\
+\Pair(e^j,e^i)\neq 0\ \Implies\ \Abs{e_j} + \Abs{e_i} = \Abs{s} + 1}}}{=}
+(-1)^{\Abs{\Susp}} \sum \varepsilon(\omega\to\omega^1\omega^2)(-1)^{\Abs{e_j}\Abs{\omega^1}}T^{ij} m_1^+(e_i \omega^1)\psi(e_j\omega^2)\nonumber\\
+&\qquad \underset{\mathclap{\substack{\uparrow\rule{0pt}{1.5ex} \\ \sum_i \Pair(v,e^i)e_i = v\\ 
+m_1^+(e^j \omega^1) = (-1)^{\Abs{e^j}\Abs{\omega^1}}m_1^+(\omega^1 e^j) \\
+}}}{=} \sum \varepsilon(\omega\to\omega^1\omega^2)(-1)^{\Abs{e_j}(\Abs{\Susp}+1 + \Abs{\omega^1}) + \Abs{e^j}\Abs{\omega^1}} \Pair(m_1(\omega^1),e^j)\psi(e_j\omega^2) \nonumber\\
+&\qquad\underset{\mathclap{\substack{\uparrow\rule{0pt}{1.5ex} \\ \hspace{1cm}\Pair(m_1(\omega^1),e^j)\neq 0\ \Implies\ 1 + \Abs{\omega^1} + \Abs{e^j} = \Abs{\Susp} + 1 \\ 
+\Abs{e^j} + \Abs{e_j} = \Abs{\Susp} + 1
+}}}{=} (-1)^{\Abs{\Susp} + 1} \sum \varepsilon(\omega^1 \omega^2) \psi(m_1(\omega^1)\omega^2) \nonumber\\
+&\qquad = (-1)^{\Abs{\Susp} + 1} \sum_{i=1}^k (-1)^{\Abs{\omega_1} + \dotsb + \Abs{\omega_{i-1}}} \psi(\omega_1 \dotsb m_1(\omega_i) \dotsb \omega_k) \nonumber\\
+&\qquad = (-1)^{\Abs{\Susp} + 1}\OPQ_{110}(\Susp \psi)(\Susp \omega).
+\end{align}
+Therefore, we have 
+\begin{equation}\label{Eq:FreeActionBracket}
+ \{\FreeAction,\cdot\}_0 = \hat{\OPQ}_{110}.
+\end{equation}
+Since $m_1 \circ m_1 = 0$ and since $m_1^+$ is cyclically symmetric, it holds
+\begin{equation*}
+\{\FreeAction,\FreeAction\}_0 = (-1)^{n-2}\hbar^{-1}\OPQ_{110}(\Susp m_1^+) = 0.
+\end{equation*}
+Because $m_1^+ \in \DBCyc V$ has weight $2$, i.e., it vanishes on words of length $3$ and more, $\OPQ_{120}$ decreases the weight by $2$, and $\DBCyc V$ is reduced, i.e., its weight-$0$ part is $0$, we have
+\begin{equation*}
+\BVOp_0 \FreeAction = (-1)^{n-2}\OPQ_{120}(\Susp m_1^+) = 0.
+\end{equation*}
+We now compute
+\begin{equation}\label{Eq:SSBracket}\begin{aligned}
+\{\Action,\Action\}_0 &= \{\FreeAction,\FreeAction\}_0 + 2 \{\FreeAction,\IntAction\}_0 + \{\IntAction,\IntAction\}_0 \\
+& = 2 \{\FreeAction,\IntAction\}_0 + \{\IntAction,\IntAction\}_0  \\
+& = 2\hbar^{-1}\Bigl(\OPQ_{110}(\MC_{10}) + \frac{1}{2}\OPQ_{210}(\MC_{10},\MC_{10})\Bigr)
+\end{aligned}\end{equation}
+and
+\begin{equation}\label{Eq:SBVOp}
+ \BVOp_0 \Action = \hbar^{-1}\OPQ_{120}(\MC_{10}).
+\end{equation}
+The right-hand side of \eqref{Eq:SSBracket} vanishes due to \cite[Proposition~12.3]{Cieliebak2015}, and the right-hand side of \eqref{Eq:SBVOp} vanishes by the discussion preceding \cite[Proposition 12.5]{Cieliebak2015} (for degree reasons). Therefore, $\Action$ satisfies the quantum master equation \eqref{Eq:QME}. The twisting equation~\eqref{Eq:Twist} is also clear.
+\end{proof}
+
+The inclusion of $\hbar^{-1}$ into $S$ is the convention from \cite{Cieliebak2015}. After the transformation $\BVOp_0 \to \BVOp_0' = \BVOp_0$, $\Action\to\Action' = \hbar \Action$, we get the well-known equations
+\begin{equation*}
+ \hbar \BVOp_0' \Action' + \frac{1}{2} \{\Action',\Action'\}_0' = 0\quad\text{and}\quad \hbar {\BVOp'}^\MC= \hbar \BVOp_0' + \{\Action',\cdot\}_0'.
+\end{equation*} 
+
+
+
+\begin{Proposition}[$\BV$-action for general Maurer-Cartan element]\label{Prop:BVActForAnyMCElement}
+Let $(V,\Pair,m_1,m_2)$ be a cyclic $\DGA$ of degree $n$ of finite type, and let $\BVOp_0 = \hat{\OPQ}_{120} + \hbar \hat{\OPQ}_{210}$ be the string $\BV$-operator on $\Fun(\CycB(V))$. Let $\MC_{lg}\in \hat{\Ext}_l \CycC(V)$ for all $l$, $g\ge 0$ satisfy the degree and filtration degree conditions of a Maurer-Cartan element for an $\IBLInfty$-algebra of bidegree $(n-3,2)$.%(see Definition~\ref{} for the original and Proposition~\ref{} for the filtered $\MV$-version).
+Then $\MC = (\MC_{lg})$ satisfies the Maurer-Cartan equation for $\dIBL(\CycC(V))$ if and only if the total action
+\begin{equation}\label{Eq:MyAction}
+ \Action := \FreeAction + \sum_{l,g\ge 0} \MC_{lg} \hbar^{g-1}  \in \Fun(\CycB(V))
+\end{equation}
+satisfies the quantum master equation \eqref{Eq:QME}. The $\BVInfty$-operator $\BVOp^\MC$ of the twisted $\IBLInfty$-algebra $\dIBL^\MC(\CycC(V))$ is given by \eqref{Eq:Twist}. The elements $\MC_{0g}$ appear neither in \eqref{Eq:QME} nor in~\eqref{Eq:Twist}.
+\end{Proposition}
+\begin{proof}
+Using $\BVOp_0 \FreeAction = \{\FreeAction,\FreeAction\}_0 = 0$, we compute
+\begin{align*}
+\BVOp_0 \Action + \frac{1}{2}\{\Action,\Action\}_0 &= \BVOp_0 \IntAction + \{\FreeAction,\IntAction\}_0 + \frac{1}{2}\{\IntAction,\IntAction\}_0 \\
+& = \begin{multlined}[t]\sum_{l,g\ge 0}\bigl(\hat{\OPQ}_{120}(\MC_{lg})\hbar^{g-1} + \hat{\OPQ}_{210}(\MC_{lg})\hbar^g + \hat{\OPQ}_{110}(\MC_{lg})\hbar^{g-1}\bigr) \\ 
+{}+ \frac{1}{2} \sum_{l_1,l_2,g_1,g_2\ge 0} \reallywidehat{\OPQ_{210}\circ_1\MC_{l_1 g_1}}(\MC_{l_2 g_2})\hbar^{g_1 + g_2 - 1}\end{multlined}\\
+& = \begin{multlined}[t]\sum_{l,g\ge 0} (\iota_l \pi_l)\Bigl(\OPQ_{120}\circ_1 \MC_{l-1, g} + \OPQ_{210}\circ_2\MC_{l+1,g-1} + \OPQ_{110}\circ_1\MC_{lg} \\ 
+{}+ \frac{1}{2} \sum_{\substack{l_1,l_2,g_1,g_2\ge 0 \\ 
+l_1 + l_2 - 1 = l\\
+g_1 + g_2 = g}} \OPQ_{210}\circ_{1,1}(\MC_{l_1 g_1},\MC_{l_2 g_2})\Bigr)\hbar^{g-1}.\end{multlined}
+\end{align*} 
+Comparing to Proposition~\ref{Prop:dIBL} in Part~I, we see that the $(l,g)$-components for $l\ge 1$, $g\ge 0$ give precisely the Maurer-Cartan equation in $\dIBL(\CycC(V))$. We compute
+\begin{align*}
+\BVOp_0 + \{S,\cdot\}_0 &= \hat{\OPQ}_{120} + \hbar\hat{\OPQ}_{210} + \hat{\OPQ}_{110} + \sum_{l,g\ge 0}\reallywidehat{\OPQ_{210}\circ_1 \MC_{lg}} \hbar^g \\
+&=\begin{aligned}[t]
+&(\hat{\OPQ}_{110} + \reallywidehat{\OPQ_{210}\circ_1 \MC_{10}}) + (\hat{\OPQ}_{120} + \reallywidehat{\OPQ_{210}\circ_1 \MC_{20}}) + (\reallywidehat{\OPQ_{210}\circ_1 \MC_{30}}) + \dotsb \\
+&{}+\bigl[(\hat{\OPQ}_{210}) + (\reallywidehat{\OPQ_{210}\circ_1 \MC_{11}}) + (\reallywidehat{\OPQ_{210}\circ_1 \MC_{21}})+\dotsb\bigr]\hbar\\
+&{}+\sum_{l\ge 0, g\ge 2} (\reallywidehat{\OPQ_{210}\circ_1 \MC_{lg}})\hbar^g
+\end{aligned} \\
+&=\begin{aligned}[t]&(\hat{\OPQ}_{110}^\MC) + (\hat{\OPQ}_{120}^\MC) + (\hat{\OPQ}_{130}^\MC) + \dotsb \\
+&{}+\bigl[(\hat{\OPQ}_{210}^\MC) + (\hat{\OPQ}_{111}^\MC) + (\hat{\OPQ}_{121}^\MC) + \dotsb\bigr]\hbar \\
+&{}+\sum_{\substack{l\ge 0, g\ge 2}}(\hat{\OPQ}_{1lg}^\MC) \hbar^g
+\end{aligned}
+\end{align*}
+and see that this is indeed the $\BVInfty$-operator $\BVOp^\MC$ of $\dIBL^\MC(\CycC(V))$.
+\end{proof}
+ 
+\end{document}

@@ -1,0 +1,49 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+
+\def\dist{4}
+\def\startangle{90}
+\def\leglength{1.2}
+\def\dashpart{0.5}
+
+% The centers
+\node[point,label={[xshift=-0.5cm,yshift=0.25cm]125:$A_{\alpha_1,\alpha_2}(y)$},label={-90:x}] (A) at (0,0) {};
+\node[point,label={[xshift=-0.5cm,yshift=0.25cm]125:$B_\alpha(y_1,y_2)$},label={-90:x}] (B) at ($(A)+(\dist,0)$) {};
+\node[point,label={[xshift=-0.5cm,yshift=0.25cm]125:$C(y_1,y_2,y_3)$},label={-90:x}] (C) at ($(A)+(2*\dist,0)$) {};
+
+% Legs at the centers
+\path (A) -- +(\startangle:\dashpart*\leglength) coordinate (A11) -- +(\startangle:\leglength) coordinate (A12);
+\path (A) -- +(\startangle+120:\dashpart*\leglength) coordinate (A21) -- +(\startangle+120:\leglength) coordinate (A22);
+\path (A) -- +(\startangle+240:\dashpart*\leglength) coordinate (A31) -- +(\startangle+240:\leglength) coordinate (A32);
+
+\draw (A) -- (A12) node[point,style={fill=white},label={0:$\alpha_1$}] {};
+\draw (A) -- (A22) node[point,style={fill=white},label={$\alpha_2$}] {};
+\draw (A) -- (A31); \draw[dashed] (A31) -- (A32) node[at end,above]{y};
+
+
+
+\path (B) -- +(\startangle:\dashpart*\leglength) coordinate (B11) -- +(\startangle:\leglength) coordinate (B12);
+\path (B) -- +(\startangle+120:\dashpart*\leglength) coordinate (B21) -- +(\startangle+120:\leglength) coordinate (B22);
+\path (B) -- +(\startangle+240:\dashpart*\leglength) coordinate (B31) -- +(\startangle+240:\leglength) coordinate (B32);
+
+\draw (B) -- (B12) node[point,style={fill=white},label={0:$\alpha$}] {};
+\draw (B) -- (B21); \draw[dashed] (B21) -- (B22) node[at end,above]{$y_1$};
+\draw (B) -- (B31); \draw[dashed] (B31) -- (B32) node[at end,above]{$y_2$};
+
+
+\path (C) -- +(\startangle:\dashpart*\leglength) coordinate (C11) -- +(\startangle:\leglength) coordinate (C12);
+\path (C) -- +(\startangle+120:\dashpart*\leglength) coordinate (C21) -- +(\startangle+120:\leglength) coordinate (C22);
+\path (C) -- +(\startangle+240:\dashpart*\leglength) coordinate (C31) -- +(\startangle+240:\leglength) coordinate (C32);
+
+\draw (C) -- (C11); \draw[dashed] (C11) -- (C12) node[at end,above,right]{$y_1$};
+\draw (C) -- (C21); \draw[dashed] (C21) -- (C22) node[at end,above]{$y_2$};
+\draw (C) -- (C31); \draw[dashed] (C31) -- (C32) node[at end,above] {$y_3$};
+
+
+%\path[draw] (C) -- +(\startangle:\leglength) node[at end,above,right]{int};
+%\path[draw] (C) -- +(\startangle+120:\leglength) node[at end,above,yshift=2pt]{int};
+%\path[draw] (C) -- +(\startangle+240:\leglength) node[at end,above,yshift=2pt]{int};
+
+\end{tikzpicture}

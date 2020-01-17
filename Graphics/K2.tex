@@ -1,0 +1,9 @@
+%auto-ignore
+\begin{tikzpicture}
+\tikzset{point/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\node[point,label={180:$x_1$}] (x1) at (0,0) {};
+\node[point,label={0:$x_2$}] (x2) at (3,0) {};
+\draw[bend left=70] (x1) to (x2);
+\draw[bend right=70] (x1) to (x2);
+\draw (x1) -- (x2);
+\end{tikzpicture}

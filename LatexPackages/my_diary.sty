@@ -1,0 +1,58 @@
+\newenvironment{NDL}[2][\strut]
+{\addcontentsline{toc}{subsection}{\ifx\strut#1#2\else#2 - #1\fi}\par\noindent{\large \bfseries #1 \hfill  #2}\hrule
+\begin{refsection}
+\begin{DiaryList}}
+{\printbibliography[heading=subbibliography]
+\end{DiaryList}
+\end{refsection}}
+
+
+\newenvironment{NewDay}[2][\strut]
+{\noindent \hrulefill \\
+{\large \bfseries #1 \hfill  #2}\\[0.3cm]
+\begin{refsection}}
+{\printbibliography[heading=subbibliography]
+\end{refsection}}
+
+\newlist{DiaryList}{enumerate}{2}
+\setlist[DiaryList]{leftmargin=0cm,itemindent=*,label=\arabic*)}
+
+\newenvironment{Block}[2][0.05cm]
+{{\itshape\bfseries #2}\vspace{-0.3cm}\\\strut\hrulefill\\[#1]}
+{\hfill\ensuremath{\blacksquare}}
+
+\newenvironment{TODO}
+{\begin{DiaryList}}
+{\end{DiaryList}}
+
+
+\newenvironment{Do}
+{\noindent{\bfseries \large Activities}
+\begin{DiaryList}}
+{\end{DiaryList}}
+
+\newenvironment{Read}
+{\noindent{\bfseries \large Reading}
+\begin{DiaryList}}
+{\end{DiaryList}}
+
+\newenvironment{Questions}
+{\noindent{\bfseries \large Questions}
+\begin{DiaryList}}
+{\end{DiaryList}}
+
+
+\newenvironment{Think}
+{\noindent{\bfseries \large Ideas}
+\begin{DiaryList}}
+{\end{DiaryList}}
+
+\newenvironment{Discuss}
+{\noindent{\bfseries \large Discussions}
+\begin{DiaryList}}
+{\end{DiaryList}}
+
+\newenvironment{Work}
+{\noindent{\bfseries \large Work}
+\begin{DiaryList}}
+{\end{DiaryList}}

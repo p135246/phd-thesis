@@ -1,0 +1,176 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+
+\begin{document}
+\section{Results about vanishing of Chern-Simons Maurer-Cartan element}
+\label{Sec:Vanishing}
+
+\Modify[inline]{Do I really need that $\pi_\Harm \Htp = 0$? What is precisely the defininition?}
+
+In the situation of Definition~\ref{Def:PushforwardMCdeRham}, let $\Gamma \in \TRRG_{klg}$ be a reduced trivalent ribbon graph, $L=(L_1,L_2,L_3)$ its labeling, $x_i$ the integration variable associated to the $i$-th internal vertex, $\Prpg(x_i,x_j)$ an admissible Hodge propagator on the oriented internal edge between $x_i$ and~$x_j$, and $\alpha_{ij}\in \Harm(M)[1]$ the harmonic form on the $j$-th external vertex on the $i$-th boundary component. Recall that we denote by $\omega_i = \Susp \alpha_{i1}\dotsc\alpha_{is_i}$ the $i$-th input of $\PMC_{lg}$ and by $D$ the total form-degree of all inputs. 
+
+By saying ``\emph{a graph vanishes}'' we mean that $I(\sigma_L) = 0$ in the given context.
+
+
+\begin{Proposition}[Vanishing of graphs with $\NOne$] \label{Prop:PMCEqualsMC}
+In the setting of Definition~\ref{Def:PushforwardMCdeRham}, suppose that the following condition is satisfied: 
+\begin{description}
+\item[($V_{\NOne}$)] Every graph $\Gamma \in \TRRG_{klg}$, $\Gamma \neq Y$ which has $\NOne = \SuspU 1\in \Harm(M)[1]$ at an external vertex vanishes. 
+\end{description}
+Then $\PMC$ is strictly reduced, and the following holds depending on the dimension $n$:
+\begin{enumerate}[label=(\alph*)]
+ \item For $n>3$: All graphs which are not trees or circular vanish. Therefore, $\PMC_{lg} = 0$ for all $(l,g)\neq (1,0)$, $(2,0)$, and it follows that all higher operations~$\OPQ_{1lg}^\PMC$ vanish on the chain level.
+  \item For $n=3$: A tree vanishes unless all $\eta_{1}$,~$\dotsc$, $\eta_{s}$ are one-forms. Therefore, $\PMC_{10}(\Susp \alpha_1 \dots \alpha_s) \neq 0$ implies $\deg(\eta_i)=1$ for all $i$.
+ \item For $n<3$: All trees except for $Y$ vanish. Therefore, we have $\PMC_{10} = \MC_{10}$, and consequently $\OPQ_{110}^\PMC = \OPQ_{110}^\MC$.
+\end{enumerate}
+Moreover, we have 
+\begin{enumerate}[resume,label=(\alph*)]
+ \item A circular graph vanishes unless all $\eta_{11}$, $\dotsc$, $\eta_{2s_2}$ are one-forms. Therefore, $\PMC_{20}(\Susp^2 \alpha_{11}\dots \alpha_{1s_1} \otimes \alpha_{21}\dots \alpha_{2s_2})\neq 0$ implies $\deg(\eta_{ij})=1$ for all $i$, $j$.
+\end{enumerate}
+In addition to $(V_{\NOne})$, suppose that $\HDR^1(M) = 0$. Then:
+\begin{enumerate}[resume,label=(\alph*)]
+ \item All circular graphs vanish. Therefore, we have $\PMC_{20} = 0$, and consequently $\OPQ_{120}^\PMC = \OPQ_{120}$.
+\item For $n\le 6$: All trees except for $Y$ vanish. Therefore, we have $\PMC_{10} = \MC_{10}$, and consequently $\OPQ_{110}^\PMC = \OPQ_{110}^\MC$. 
+\end{enumerate} 
+\end{Proposition}
+
+\begin{proof}
+The proof is just combinatorics with $D$. Suppose that a trivalent ribbon graph $\Gamma\neq Y$ does not vanish on the input $\omega_1$, $\dotsc$, $\omega_l$. Because all external vertices of $\Gamma$ are adjacent to an $A$-vertex or a $B$-vertex, the assumption $(V_{\NOne})$ implies $D\ge s$, where $s$ is the total number of external vertices. A combination of~\eqref{Eq:TotDeg} and~\eqref{Eq:TrivalentFormula} yields
+$$ nk - (n-1)e = D \ge s = 3k - 2e\quad\Equiv\quad(n-3)k \ge (n-3)e. $$
+\begin{ProofList}[label=(\alph*)]
+\item For $n>3$, we get $k \ge e$, which implies that $\Gamma$ is either a tree or a circular graph.
+\item If $\Gamma$ is a tree, then $s = k + 2$ and $e = k-1$. From~\eqref{Eq:TotDeg} we get
+\begin{equation} \label{Eq:TreeEq}
+D = nk - (n-1)(k-1) = k+n-1.  
+\end{equation}
+Now $D$ is the sum of $s=k+2$ form-degrees $\deg(\eta_{ij})>0$, and hence~\eqref{Eq:TreeEq} for $n=3$ implies that $\deg(\eta_{ij}) = 1$ for all $i$, $j$.
+\item For $n<3$, we get $e \ge k$, which implies that $\Gamma$ is not a tree.
+\item If $\Gamma$ is a circular graph, then $e=k=s$, and we get using~\eqref{Eq:TotDeg} that
+$$ D = nk - (n-1)k = k. $$
+Here $D$ is the sum of $s=k$ form-degrees $\deg(\eta_{ij})>0$, and hence $\deg(\eta_{ij})=1$ for all $i$, $j$.
+\end{ProofList}
+We will now assume, in addition, that $\Harm^1(M) \simeq \HDR^1(M) = 0$.\Add[caption={DONE Add in addition}]{This is now assumed in addition to (1)!}
+\begin{ProofList}[resume, label=(\alph*)]
+\item We must have $D\ge 2 s$, which is in contradiction with $D = s$ for a circular graph. Therefore, $\PMC_{20} = 0$.
+\item Finally, for a tree $\Gamma \neq Y$, we have
+\begin{equation*}
+ k+n-1 = D \ge 2 s = 2(k + 2)\quad\Equiv\quad  n-5 \ge k. \end{equation*}
+This finishes the proof of the proposition.\qedhere
+\end{ProofList}
+\end{proof}
+
+%Notice that if Conjecture~\ref{Conj:GStd} for $\PrpgStd$ holds, then we can take $\PrpgStd$ as the Hodge propagator and the next proposition implies that Proposition~\ref{Prop:PMCEqualsMC} holds.
+
+\begin{Proposition}[Special Hodge propagator]\label{Prop:COne}
+In the setting of Definition~\ref{Def:PushforwardMCdeRham}, suppose that the Hodge propagator $\Prpg$ is special. Then the condition ($V_{\NOne}$), and hence Proposition~\ref{Prop:PMCEqualsMC} holds.
+\end{Proposition}
+\begin{proof}
+It is easy to see that $A_{\alpha_1,\alpha_2} = \Htp(\eta_1 \wedge \eta_2)$ for all $\alpha_1$, $ \alpha_2\in \Harm(M)[1]$, and that $-B_{\NOne}$ is the Schwartz kernel of $\Htp \circ \Htp$. Therefore, (P4) and (P5) imply $A_{\alpha_1,\NOne}=0$ and $B_{\NOne} = 0$, respectively.
+
+As for the integral $I(\sigma_L)$,  one has to apply the Fubini theorem in order to integrate out single vertices $A_{\alpha_1, \NOne}$ and $B_{\NOne}$. This step relies on $L^1$-integrability of the integrand which follows from \cite{Cieliebak2018} (the integrand comes from a smooth form on a compact manifold with corners).
+\end{proof}
+%Another implication of Proposition~\ref{Prop:PMCEqualsMC} is that $\PMC$ becomes strictly reduced, and hence we can define the reduced twisted $\IBLInfty$-algebra $\dIBL^\PMC(\RedCycC(\Harm))$.
+\begin{Proposition}[Vanishing of $A$-vertices]\label{Prop:Avertexvanish}
+In the setting of Definition~\ref{Def:PushforwardMCdeRham}, suppose that the following condition is satisfied:
+\begin{description}
+\item[($V_A$)] Every graph with an $A$-vertex vanishes.
+\end{description}
+Then we have $\PMC_{10} = \MC_{10}$, and the only contribution to $\PMC_{20}(\Susp^2 \alpha_{11}\dots \alpha_{1s_1} \otimes \alpha_{21}\dots \alpha_{2s_2})$ comes from $O_k$-graphs with $k = s_1 + s_2 = D$.
+\end{Proposition}
+
+\begin{proof}
+The only trees and circular graphs which are not excluded by the assumption are the $Y$-graph and $O_k$-graphs, respectively (the external branches contract). The condition on form-degrees is obtained as in the proof of Proposition~\ref{Prop:PMCEqualsMC}.
+
+To argue that $I(\sigma_L)=0$, we again need $L^1$-integrability as in the proof of Proposition \ref{Prop:COne}.
+\end{proof}
+
+\begin{Remark}[Integrability for trees]
+Given a tree, we can start at a leaf and write $I(\sigma_L)$ as an iterative integral of contributions $A_{\alpha_1,\alpha_2}$ for $\alpha_1$, $\alpha_2 \in \DR(M)$. These are smooth forms, and hence integrability is guaranteed. Therefore, the result $\PMC_{10} = \MC_{10}$ is independent of the convergence results from~\cite{Cieliebak2018}.
+\end{Remark}
+
+\begin{Proposition}[$1$-connected geometrically formal manifolds] \label{Prop:GeomForm}
+Let $M$ be a geometrically formal $n$-manifold and $\Prpg$ a special Hodge propagator (it exists by Proposition~\ref{Prop:ExistenceG}). If $\HDR^1(M) = 0$, then the following holds:
+\begin{description}
+\item[$(n\neq 2)$]  All $Y \neq \Gamma \in \RRG_{klg}$ with $k$, $l\ge 1$, $g\ge 0$ vanish, and hence $\PMC = \MC$.
+\item[$(n=2)$] All $Y\neq \Gamma \in \RRG_{kl0}$ with $k$, $l\ge 1$ vanish, and hence $\PMC_{l0} = \MC_{l0}$ for all~$l\ge 1$.
+\end{description}
+\end{Proposition}
+\begin{proof}
+Given $\eta_1$, $\eta_2 \in \Harm$, geometric formality implies $\eta_1 \wedge \eta_2 \in \Harm$, and hence $A_{\alpha_1,\alpha_2} = \Htp(\eta_1\wedge\eta_2) = 0$. We see that $(V_{\NOne})$ and $(V_{A})$ are satisfied, and hence the implications of Propositions~\ref{Prop:PMCEqualsMC} and~\ref{Prop:Avertexvanish} hold. The claim for $n>3$ follows.
+
+As for $n=3$, Poincar\'e duality implies $\HDR^2(M;\R)=0$. \Correct[caption={DONE Wrong reference}]{Here is not Eq:GenusFormula but the relationf of A B C vertices to graph variables}Therefore, the total form-degree $D$ satisfies $D= n B$, where $B$ is the number of $B$-vertices. We see using \eqref{Eq:ChangeOfVariables} that \eqref{Eq:TotDeg} is equivalent to
+\begin{equation}\label{Eq:VerticesEq}
+B+\frac{1}{2}(3-n) C = D = nB\quad\Equiv\quad (n-1)B = \frac{1}{2}(3-n) C.
+\end{equation}
+It follows that $B=0$, and hence all reduced graphs vanish.
+
+As for $n=2$, we get from \eqref{Eq:VerticesEq} and \eqref{Eq:GenusFormulaa} that $B\ge l$ is equivalent to $g\ge 1$.
+\qedhere
+\end{proof}
+
+
+
+
+%Notice that in order to show $\MC_{10} = \PMC_{10}$, i.e., that all trees vanish, we do not need the convergence results from \cite{Cieliebak2018} because we can write $I(\sigma_L)$ as an iteration of integral $\int_x \FKFubini-Tonelli  because 
+
+\begin{Remark}[$\AInfty$-homotopy transfer]  \label{Rem:RemMu}
+In~\cite{Cieliebak2018}, it will be shown that the $\AInfty$-algebra $\Harm(M)_\PMC = (\Harm(M),(\mu_k))$ induced by $\PMC_{10}$ agrees with the $\AInfty$-algebra obtained by the $\AInfty$-homotopy transfer
+$$\begin{tikzcd}
+\biggl(\ \begin{gathered}\DR(M) \\ m_1,\  m_2\end{gathered}\ \biggr)\arrow[rightsquigarrow]{r} & 
+\biggl(\ \begin{gathered}
+\Harm(M) \\
+\mu_1\equiv 0,\ \mu_2 = \pi_\Harm m_2 (\iota_\Harm, \iota_\Harm),\ \mu_3,\ \dotsc
+\end{gathered}\ \biggr)
+\end{tikzcd}$$
+ using the homotopy retract (see~\cite{Vallette2012})
+$$\begin{tikzcd}[column sep=large]
+(\DR(M),m_1)  \arrow[loop left]{l}{\Htp}  \arrow[shift left]{r}{\pi_\Harm}  & \arrow[shift left]{l}{\iota_\Harm} (\Harm(M),m_1 \equiv 0).
+\end{tikzcd}$$
+The operation $\mu_k$ of the transferred $\AInfty$-structure is computed as a sum over planar trees with a root and $k$ leaves decorated by $\iota_\Harm$ at the leaves, $\pi_\Harm$ at the root and~$\Htp$ at the internal edges (see \cite{Akaho2007}). The result of \cite{Cieliebak2018} is plausible because the part of $\PMC_{10}$ contributing to $\mu_k$ is a sum over trivalent ribbon trees with $k+1$ leaves.
+
+In~\cite{Cieliebak2018}, they will also show that $\iota_1\coloneqq \iota_\Harm: \Harm \rightarrow \DR$ extends to an $\AInfty$-quasi-isomorphism $(\iota_k)_{k\ge 1}$ from $(\Harm,(\mu_k))$ to $(\DR,m_1,m_2)$. The induced chain map on the dual cyclic bar complexes is then the map $\HTP_{110}^\MC$ coming from the $\IBLInfty$-theory in the Introduction.
+\end{Remark}
+
+%The following proposition is an immediate consequence of \eqref{Rem:RemMu}.
+
+\begin{Proposition}[Twisted boundary operator for formal manifolds]\label{Prop:Formal}
+In the setting of Definition~\ref{Def:PushforwardMCdeRham}, suppose that $M$ is formal in the sense of rational homotopy theory. Then there is a quasi-isomorphism
+$$\begin{tikzcd}
+\HHTP_{110}: (\CDBCyc \HDR(M)[3-n], \OPQ_{110}^\MC)\arrow{r}{} & (\CDBCyc \Harm(M)[3-n],\OPQ_{110}^\PMC). \end{tikzcd}$$
+\end{Proposition}
+
+\begin{proof}
+Formality of $M$ is equivalent to the existence of a zig-zag of quasi-isomorphisms of dga's (see \cite{Vallette2012}) 
+$$\begin{tikzcd}[column sep=normal] (\H_{\mathrm{dR}}(M),m_1\equiv 0, m_2) \arrow[rightsquigarrow]{r} &\bullet\quad\dotsb\quad\bullet &\arrow[rightsquigarrow]{l} (\DR(M),m_1,m_2). \end{tikzcd}$$
+Because a dga-quasi-isomorphism has a homotopy inverse in the category of $\AInfty$-algebras, we get a direct $\AInfty$-quasi-isomorphism 
+$$\begin{tikzcd}
+(g_k):\quad (\DR(M),m_1,m_2) \arrow[rightsquigarrow]{r} & (\H_{\mathrm{dR}}(M),m_1\equiv 0, m_2).
+\end{tikzcd}$$
+Precomposing with $(\iota_k)$ from Remark~\ref{Rem:RemMu}, we get the $\AInfty$-isomorphism 
+$$\begin{tikzcd}
+(h_k):\quad (\Harm(M),(\mu_k)) \arrow[rightsquigarrow]{r} & (\HDR(M),m_1\equiv 0,m_2). \end{tikzcd}$$
+This induces the quasi-isomorphism $\HHTP_{110}$ of the corresponding cyclic cochain complexes.
+\end{proof}
+
+\begin{Remark}[On formality]\phantomsection
+%\begin{RemarkList} \item 
+Geometrically formal manifolds include $\Sph{n}$, $\C P^n$ and Lie groups (see~\cite{Kotschick2000}). Any geometrically formal manifold is formal. Every simply-connected manifold of dimension at most $6$ is formal (see \cite{Miller1979}).
+%\item Proposition~\ref{Prop:GeomForm} for geometrically formal $M$ strengthens Proposition~\ref{Prop:Formal} in the sense that we can take $h = \pi_{\Harm}^*$ (the componentwise precomposition with $\pi_\Harm$) as the quasi-isomorphism.\qedhere
+%\end{RemarkList} 
+\end{Remark}
+%
+%In the light of the above propositions, we expect that the following holds (we will try to give a proof in \cite{MyPhD}).
+%
+%\begin{Conjecture}[Canonicity of the $\IBL$-structure for formal manifolds]\label{Conj:Formality}In the setting of Definition~\ref{Def:PushforwardMCdeRham},
+%the following implication holds:
+%$$ M\text{ formal}\ \&\ \HDR^1(M)=0 \quad\Implies\quad \IBL(\HIBL^\PMC(\CycC(\Harm)))\simeq \IBL(\HIBL^\MC(\CycC(\HDR))). $$ 
+%\end{Conjecture}
+%The only interesting questions for formal $M$ with $\HDR^1(M)=0$ are according to Proposition~\ref{Prop:PMCEqualsMC} the following:
+%\begin{enumerate}[label=(Q\arabic*)]
+%\item Does there exist a simply connected $3$-manifold with a non-trivial higher $\IBLInfty$-operation $\OPQ_{1lg}^\PMC$ on the homology?
+%\item Does $\Sph{2}$ posses any? NO NO NO DEGREE REASONS.
+%\end{enumerate}
+%In Section \ref{Section:Computation}, we attempt to compute $\dIBL^\PMC(\Sph{2})$ directly and arrive to the partial result that $\OPQ^\PMC_{1l0}=0$ for $l\ge 1$ and $\OPQ_{111}^\PMC=0$.
+\end{document}

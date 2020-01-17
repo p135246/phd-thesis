@@ -1,0 +1,346 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\begin{document}
+
+\section{Dual cyclic bar complex and cyclic cohomology
+%for the \texorpdfstring{$\IBLInfty$-theory}{IBL-infinity-theory}
+}
+\label{Sec:Alg2}
+\Correct[caption={DONE Notation for cyclic Hochschild}]{Notation for cyclic Hochschild}
+\Correct[caption={DONE Reduced is defined wrt. normalized!},inline]{Reduced is defined as coker or ker in normalized and not in the full complex! It is OK because we have the cyclic symmetry!}
+\Modify[caption={DONE Convention for duals},inline]{The convention for cochain complexes will be as follows. Chain complex will be denoted by $C$ and cochain complex by $C^*$. The components will be denoted by $C_q$ and $C^q$. }
+%\begin{Notation}[Chain and cochain complexes]
+%If $C$ is a chain complex, we will often denote by $C^*$ the 
+%because $*$.
+%$\H(C)$ and by $\H^*(C)=\H(C^*)$ the cohomology of the dual. In fact, 
+%\end{Notation}
+\begin{Definition}[Bar complexes] \label{Def:BarComplex}
+Let $V$ be a graded vector space. The \emph{bar- and dual bar-complex of $V$} are the weight-graded vector spaces defined by 
+$$ \B V\coloneqq \RTen(V[1])\quad\text{and}\quad\DB V \coloneqq (\B V)^{\WGD}, $$
+respectively, where $\bar{T}V \coloneqq \bigoplus_{k=1}^\infty V^{\otimes k}$ is the weight-reduced tensor algebra. For every $k\in \N$, let $t_k \in \Perm_k$ be the cyclic permutation $t_k : (1,\dotsc,k) \mapsto (2,\dotsc,k,1)$,
+so that for all $v_1$, $\dotsc$, $v_k \in V[1]$ we have
+\begin{equation*}
+%\label{Eq:tk}
+t_k(v_1 \otimes \dotsb \otimes v_k) = (-1)^{\Abs{v_k}(\Abs{v_1} + \dotsb + \Abs{v_{k-1}})} v_k \otimes v_1 \otimes \dotsb \otimes v_{k-1}.
+\end{equation*}
+%We also let $t_0: V[1]^{\otimes 0} \rightarrow V[1]^{\otimes 0}$ be the identity $\R[1] \rightarrow \R[1]$ and set
+We set
+$$ t\coloneqq \sum_{k=1}^\infty t_k : \B V \longrightarrow \B V. $$
+The \emph{cyclic bar-complex} is defined by 
+$$ \BCyc V \coloneqq \B V / \Im(1-t). $$
+%It can be written as 
+%$$ \BCyc V = \bigoplus_{\substack{k\in \N \\ d\in \Z}} (\BCyc V)^d_k $$ 
+%with 
+%$$ (\BCyc V)^d_k \coloneqq (\B V)_k^d/\Im(1-t_k), $$
+%and hence it is a weight-graded vector space.
+We denote the image of $v_1 \otimes \dotsb \otimes v_k \in \B V$ under the canonical projection $\pi: \B V \rightarrow \BCyc V$ by $v_1\dots v_k$. If $v_i\in V[1]$ are homogenous, then $v_1\dots v_k$ is called a \emph{generating word}; we have
+\begin{equation*}
+v_1 \dots v_k = (-1)^{\Abs{v_k}(\Abs{v_1}+\dotsb + \Abs{v_{k-1}})} v_k v_1 \dots v_{k-1}.
+\end{equation*}
+We define the section $\iota: \BCyc V \rightarrow \B V$ of $\pi$ by
+$$ \iota(v_1\dots v_k) \coloneqq \frac{1}{k} \sum_{i=0}^{k-1} \underbrace{t_k^i}_{\mathrlap{\displaystyle \eqqcolon t_k \circ \dotsb \circ t_k\ i\text{-times}}}(v_1\otimes\dotsb \otimes v_k) $$
+and use it to identify $\BCyc V$ with the subspace $\Im \iota = \Ker(1-t) \subset \B V$ consisting of cyclic symmetric tensors.
+
+We define the \emph{dual cyclic bar-complex} by 
+$$ \DBCyc V \coloneqq \{ \psi\in \DB V \mid \psi \circ t = \psi \}. $$
+%and identify it with $(\BCyc V)^{\WGD}$ by defining 
+%\begin{equation} \label{Eq:PairingCyc}
+%\psi(v_1\dots v_k) \coloneqq \psi(v_1\otimes \dotsb \otimes v_k)
+%\end{equation}
+%for all $\psi \in \DBCyc V$ and generating words $v_1\dots v_k\in \BCyc V$. 
+\end{Definition}
+
+\begin{Remark}[Non-weight-reduced bar complex]\label{Rem:NWG}
+In fact, our $\DBCyc V$ is weight-reduced. The non-weight-reduced version would be $\DBCyc V \oplus \R$ with $\R$ of degree~$0$. This might play a role in the theory of  weak $\AInfty$-algebras ($\coloneqq$\,operation $\mu_0$ added; c.f., Definition~\ref{Def:CyclicAinfty}), and it might also be possible to consider $\IBLInfty$-algebras on non-weight-reduced cyclic cochains (c.f., Section~\ref{Sec:Alg3}).
+%However, this is outside of the scope of our text.
+\end{Remark}
+
+Notice that $\psi \in \DB V$ is homogenous of degree $\Abs{\psi}\in \Z$ if and only if for all homogenous $v_1$,~$\dotsc$, $v_k \in V[1]$ the following implication holds:
+\begin{equation*}
+\Abs{v_1} + \dotsb + \Abs{v_k} \neq \Abs{\psi}\quad\Implies\quad \psi(v_1\otimes \dotsb \otimes v_k) = 0.
+\end{equation*}
+This is the cohomological grading convention.
+
+\begin{Notation}[Degree shifts of bar complexes] \label{Def:Notation}
+Let $A\in \Z$. In the following, we write $\DBCyc V$, but the convention applies to all complexes from Definition\,\ref{Def:BarComplex}. We denote by $\Susp_A$ and $\SuspU$ the formal symbols of degrees 
+$$ \Abs{\Susp_A} = -A \quad \text{and}\quad\Abs{\SuspU} = -1, $$
+respectively. The degree shift $V \mapsto V[1]$ will be realized as  multiplication with~$\SuspU$ and the degree shift $\DBCyc V\mapsto \DBCyc V[A]$ as multiplication with~$\Susp_A$. In addition, the following notation will be used consistently:
+\begin{itemize}
+ \item $\tilde{v}\in V \longleftrightarrow v = \SuspU \tilde{v} \in V[1]$
+ 
+  To clarify this, given $\tilde{v} \in V$, then~$v$ automatically means $v = \SuspU \tilde{v} \in V[1]$, and the other way round. Recall that the degree of $\tilde{v}\in V$ is denoted by~$\Deg(\tilde{v})$ or simply by $\tilde{v}$ in the exponent, e.g., $(-1)^{\tilde{v}}$.
+ \item  $\psi\in\DBCyc V\longleftrightarrow \Psi = \Susp_A \psi\in \DBCyc V[A]$.
+ \item A generating word of $\BCyc V$ of weight $k$ will be denoted by the symbol $w$ and written as $w= v_1 \dots v_k$, where $v_i = \SuspU \tilde{v}_i \in V[1]$. A generating word of $\Ext_k \BCyc V$ is an element $w_1 \dotsb w_k \in \Ext_k \BCyc V$ such that each~$w_i$ is a generating word of $\BCyc V$.
+ \item $w\in \BCyc V\longleftrightarrow \text{\footnotesize W} = \Susp_A w \in \BCyc V[A]$.
+\end{itemize}
+We abbreviate
+$$ \DBCyc V[A]\coloneqq (\DBCyc V)[A]. $$
+%,\quad \Ext \DBCyc V[A]\coloneqq \Ext(\DBCyc V[A]). 
+In contrast to this, we would write $\DBCyc(V[A])$ for the dual cyclic bar-complex of~$V[A]$. We also identify $(\DBCyc V[A])[1] = \DBCyc V[A+1]$ in $\Ext \DBCyc V[A]$.
+\end{Notation}
+
+%and $(\Ext\DBCyc V)[A]$ for the degree shift of~$\Ext\DBCyc V$ by~$A$.
+\begin{Definition}[Pairing of tensor powers of bar complexes]\label{Def:Pairings}
+For every $A\in \Z$ and  $k\in \N$, we define the pairing as follows:
+\begin{equation} \label{Eq:Pairing}
+\begin{aligned}
+(\DB V[A])^{\otimes k} \otimes (\B V[A])^{\otimes k} & \longrightarrow \R \\ 
+(\Psi_1 \otimes \dotsb \otimes \Psi_k, \W_1 \otimes \dotsb \otimes \W_k) & \longmapsto \underbrace{\psi_1(w_1) \dots \psi(w_k)}_{\mathllap{\textstyle{(\Psi_1 \otimes \dotsb \otimes \Psi_k)(\W_1\otimes \dotsb\otimes \W_k)\coloneqq}}}.
+\end{aligned}
+\end{equation}
+This means that we evaluate elements from the left-hand side on the elements from the right-hand side in this way without any signs (see the discussion in Remark~\ref{Rem:BadConvention}). We extend the pairing by $0$ if the number of $\Psi_i$'s and the number of $\W_i$'s differ.
+\end{Definition}
+
+\begin{Remark}[Dual bar complex and dual of the bar complex] \label{Rem:Identifications}
+Because the pairing~\eqref{Eq:Pairing} is non-degenerate, we can embed the space on the left into the the linear dual of the space on the right.
+%; this is used in the proof of Lemma \eqref{Lemma:GraphPairing}.
+From Definition~\ref{Def:BarComplex} we have $\DBCyc V \subset \DB V$, and $\BCyc V$ is identified with $\Im \iota \subset \B V$. Therefore, we can restrict \eqref{Eq:Pairing} to obtain the pairing of $\DBCyc V$ and $\BCyc V$. It is easy to see that for any $\psi\in \DBCyc V$ and any generating word $v_1\dots v_k \in \BCyc V$, we have
+\begin{equation*}
+%\label{Eq:BCycIdent} 
+\psi(v_1\dots v_k) = \psi(v_1 \otimes \dotsb \otimes v_k).
+\end{equation*}
+The subspace of $(\BCyc V)^{\LD}$ corresponding to $\DBCyc V$ is then precisely $(\BCyc V)^{\WGD}$.
+
+More generally, for every $k\in \N$, the spaces $\Ext_k \DBCyc V$ and $\Ext_k \BCyc V$ are embedded into $(\DBCyc V[1])^{\otimes k}$ and $(\BCyc V[1])^{\otimes k}$, respectively, using $\iota$ and $\pi$ from Definition~\ref{Def:SymAlgebra}. Therefore, the restriction of~\eqref{Eq:Pairing} gives the pairing of $\Ext_k \DBCyc V$ and $\Ext_k \BCyc V$. It is easy to see that for any generating word $w_1\dotsb w_k \in \Ext_k \BCyc V$ and any $\psi_1\dotsb \psi_k\in \Ext_k \DBCyc V$, we have
+$$ (\psi_1\dotsb \psi_k)(w_1\dotsb w_k) = \frac{1}{k!}\sum_{\sigma\in \Perm_k} \varepsilon(\sigma,w) \psi_1(w_{\sigma_1^{-1}})\dotsc \psi_k(w_{\sigma_k^{-1}}). $$
+The subspace of $(\Ext_k \BCyc V)^{\LD}$ corresponding to $\Ext_k \DBCyc V$  lies in $(\Ext_k \BCyc V)^{\WGD}$; it is equal to $(\Ext_k \BCyc V)^{\WGD}$, provided that $V$ is finite-dimensional.\footnote{The problem is that if $\dim(V) = \infty$, then $(V\otimes V)^* \neq V^* \otimes V^*$.}
+\end{Remark}
+
+The weight-graded vector spaces $\B V$ and $\BCyc V$ are canonically filtered by the filtration by weights \eqref{Eq:FiltrWeights}. Their weight-graded duals $\DB V$ and $\DBCyc V$ are filtered by the dual filtrations and the exterior powers $\Ext_k \DB V$ and $\Ext_k \DBCyc V$ by the induced filtration from Definition~\ref{Def:Filtrations}. 
+
+\begin{Proposition}[Completed dual cyclic bar complex] \label{Prop:Compl}
+Let $V$ be a graded vector space and $A\in \Z$. The filtration of $\DBCyc V$ dual to the weight-filtration of $\BCyc V$ is $\Z$-gapped, Hausdorff,  decreasing and bounded from above. Moreover, the following holds:
+$$ \dim(V)<\infty\quad\Implies\quad (WG1)\ \&\ (WG2)\text{ are satisfied.} $$
+The same holds for the induced filtration of $\Ext_k \DBCyc V[A]$.
+
+In the sense of Remark~\ref{Rem:Identifications}, we have\Correct[caption={E},noline]{Here should be $A$ instead of $A+1$}
+$$ \nCDBCyc V \simeq (\BCyc V)^{\GD}\quad\text{and}\quad \hat{\Ext}_k \DBCyc V[A] \subset (\Ext_k \BCyc V[A+1])^{\GD}, $$
+where ``='' holds if $V$ is finite-dimensional.
+
+The \emph{filtration degree} of $\Psi\in \hat{\Ext}_m \DBCyc V[A]$ satisfies
+$$ \Norm{\Psi} = \min\{k\in \N_0 \mid \exists \W\in (\Ext_m \BCyc V[A])_k: \Psi(\!\W)\neq 0 \}.$$
+\end{Proposition}
+
+\begin{proof}
+The proof is clear.
+\end{proof}
+
+\begin{Def}[Cyclic $\AInfty$-algebra] \label{Def:CyclicAinfty}
+A graded vector space $V$ together with a pairing\Correct[noline,caption={Degree of pairing}]{This should be standardized with the degree of Poincare duality algebra, canonical dIBL algebra, .... The degree should be probably minus the degree of the pairing on $V$ (not $V[1]$)} 
+$$ \Pair: V[1]\otimes V[1] \rightarrow \R $$
+of degree $d\in \Z$ and a collection of homogenous linear maps 
+$$\mu_k: V[1]^{\otimes k} \rightarrow V[1]\quad\text{for }k\ge 1$$
+is called a \emph{cyclic $\AInfty$-algebra of degree~$d$} if the following conditions are satisfied:
+\begin{PlainList}
+ \item The pairing $\Pair$ is non-degenerate and graded antisymmetric; i.e., we have
+  $$ \Pair(v_1,v_2) = (-1)^{1+\Abs{v_1}\Abs{v_2}} \Pair(v_2,v_1) \quad\text{for all }v_1, v_2 \in V[1]. $$
+ \item The degrees satisfy $\Abs{\mu_k}=1$ for all $k\ge 1$.
+ \item The \emph{$\AInfty$-relations} are satisfied: for all $k\ge 1$, we have
+\begin{equation} \label{Eq:AInftyDef}
+ \sum_{\substack{k_1, k_2 \ge 1 \\ k_1+k_2 = k+1}} \sum_{p=1}^{k_1} \mu_{k_1} \circ_1^p \mu_{k_2} = 0,
+ \end{equation}
+where for all $p=1$, $\dotsc$, $k$ and $v_1$, $\dotsc$, $v_{k}\in V[1]$ we define
+$$(\mu_{k_1} \circ_1^p \mu_{k_2})(v_1, \dotsc, v_{k}) \coloneqq \begin{multlined}[t] (-1)^{\Abs{v_1} + \dotsb + \Abs{v_{p-1}}} \mu_{k_1}(v_1, \dotsc, v_{p-1},\\ \mu_{k_2}(v_p,\dotsc,v_{p+k_2-1}),v_{p+k_2}\dotsc,v_{k}). \end{multlined}$$
+
+ \item The operations $\mu_k^+: V[1]^{\otimes k+1} \rightarrow \R$ defined by 
+ $$ \mu_k^+\coloneqq \Pair\circ (\mu_k \otimes \Id) $$
+ for all $k\ge 1$ are cyclic symmetric; i.e., we have
+ $$ \mu_k^+ \circ t_{k+1} = \mu_k^+. $$
+\end{PlainList}
+We denote by $\tilde{\Pair}: V\otimes V \rightarrow \R$ and $\tilde{\mu}_k: V^{\otimes k} \rightarrow \R$ the operations before the degree shift; i.e., for all $k\ge 1$ and $\tilde{v}_1$, $\dotsc$, $\tilde{v}_k \in V$ with $v_i = \SuspU \tilde{v}_i$, we have
+$$\begin{aligned}
+\tilde{\Pair}(\tilde{v}_1, \tilde{v}_2) &\coloneqq (-1)^{\tilde{v}_1} \Pair(v_1, v_2)\quad\text{and} \\[\jot]
+\tilde{\mu}_k(\tilde{v}_1, \dotsc, \tilde{v}_k) &\coloneqq \varepsilon(\SuspU,\tilde{v}) \mu_k(v_1,\dotsc, v_k).
+\end{aligned} $$
+We define $\tilde{\mu}_k^+: V^{\otimes k+1}\rightarrow \R$ similarly.
+
+If $\mu_k \equiv 0$ for all $k\ge 2$, then $(V,\Pair, \mu_1)$ is called a \emph{cyclic cochain complex}. If $\mu_k \equiv 0$ for all $k\ge 3$, then $(V,\Pair,\mu_1,\mu_2)$ is called a \emph{cyclic dga}. We use the same terminology but omit ``cyclic'' if there is no pairing $\Pair$ and 1) and 4) are thus irrelevant.
+\end{Def}
+
+\begin{Remark}[A difference in sign conventions]\label{Rem:mukplus}
+Our definition of $\mu_k^+$ differs from the definition of $\mathrm{m}_k^+$ in~\cite[Definition 12.1]{Cieliebak2015} by a sign. To compensate this, we have to add this artificial sign in the definitions of Maurer-Cartan elements later; e.g., in Definition~\ref{Def:CanonMC} or in the formula~\eqref{Eq:PushforwardMC}.
+\end{Remark}
+\Correct[caption={DONE Change sub to sup},noline]{Change $\Hd^k$ to $\Hd_k$ and so on. Why are the indices upstairs?}
+\begin{Definition}[Cyclic (co)homology of $\AInfty$-algebras]\label{Def:CycHom}
+Let $\mathcal{A}=(V,(\mu_k))$ be an $\AInfty$-algebra. For every $k\ge 1$, we consider the maps $\Hd'_k$, $R_k: V[1]^{\otimes k} \rightarrow \B V$ given by 
+\begin{equation}\label{Eq:bRH} \begin{aligned}\Hd'_k & \coloneqq \sum_{j=1}^k \sum_{i=0}^{k-j} t^i_{k-j+1}\circ(\mu_j \otimes \Id^{k-j})\circ t_k^{-i}\quad\text{and}\\
+R_k &\coloneqq \sum_{j=2}^k \sum_{i=1}^{j-1} (\mu_j\otimes \Id^{k-j})\circ t_k^{i}, \end{aligned}
+\end{equation}
+respectively, and define the following maps $\B V \rightarrow \B V$:
+\begin{equation*}
+\Hd'\coloneqq \sum_{k=1}^{\infty} \Hd'_k, \quad R\coloneqq \sum_{k=2}^\infty R_k\quad\text{and}\quad \Hd\coloneqq \Hd' + R.
+%\label{Eq:b} 
+\end{equation*}
+We denote by $\Hd^*: \CDB V = (\B V)^{\GD} \rightarrow \CDB V$ the dual map to $\Hd: \B V \rightarrow \B V$.  The following holds:\footnote{The facts \eqref{Eq:HH} are generally known in some form (see \cite{Mescher2016} or \cite{Lazarev2003}).}
+\begin{equation} \label{Eq:HH}
+\Abs{\Hd} = 1\ (\Abs{\Hd^*}=-1), \quad \Hd\circ \Hd = 0 \quad\text{and}\quad \Hd(1-t) = (1-t)\Hd'.
+\end{equation} 
+From the last equation we see that $\Hd$ restricts to $\BCyc V = \B V / \Im(1-t)$.
+%For all $q\in \Z$, we define the vector spaces
+%$$ \begin{aligned}
+%D_q(V) &\coloneqq (\B V)^{-q-1}, & D^q(V) &\coloneqq (\CDB V)^{-q-1}, \\
+%D^\lambda_q(V) &\coloneqq (\BCyc V)^{-q-1}, & D_\lambda^q(V) &\coloneqq (\CDBCyc V)^{-q-1}
+%\end{aligned} $$
+%and the corresponding graded vector spaces  
+We define the following graded vector spaces:
+$$\begin{aligned}
+D(V) &\coloneqq r(\B V)[1], & D^*(V) &\coloneqq r(\CDB V)[1], \\ D^\lambda(V) &\coloneqq r(\BCyc V)[1], & D_\lambda^*(V) &\coloneqq r(\CDBCyc V)[1]. \end{aligned}$$
+For instance, we have
+$$ D_\lambda^q(V) = r(\CDBCyc V)^{q+1} = (\CDBCyc V)^{-q-1}\quad \text{for all } q\in \Z.$$
+Then $(D(V),\Hd)$ and $(D^\lambda(V),\Hd)$ are chain complexes and $(D^*(V),\Hd^*)$ and $(D_\lambda^*(V),\Hd^*)$ the dual cochain complexes, respectively. We define the following (co)homologies:
+$$ \begin{aligned}
+\H\H(\mathcal{A};\R)& \coloneqq \H(D(V), \Hd), & \H\H^*(\mathcal{A};\R) &\coloneqq \H(D^*(V),\Hd^*),\\  
+\H^\lambda(\mathcal{A};\R)& \coloneqq \H(D^\lambda(V), \Hd), & \H^*_\lambda(\mathcal{A};\R), &\coloneqq \H(D^*_\lambda(V),\Hd^*).
+\end{aligned} $$
+We call $\H\H$ the \emph{Hochschild homology} and $\H^\lambda$ the \emph{cyclic homology} of the $\AInfty$-algebra $\mathcal{A}$. We call $\H\H^*$ the \emph{Hochschild cohomology} and $\H_\lambda^*$ the \emph{cyclic cohomology} of~$\mathcal{A}$.
+\end{Definition}
+
+For a dga $\mathcal{A} = (V,\mu_1,\mu_2)$, we have for all $v_1$, $\dotsc$, $v_k\in V[1]$ the formula
+\begin{align*}
+ \Hd(v_1 \dots v_k) &= \sum_{i=1}^k (-1)^{\Abs{v_1} + \dotsb + \Abs{v_{i-1}}} v_1 \dots \mu_1(v_i) \dots v_k  \\ 
+   &+ \sum_{i=1}^{k-1} (-1)^{\Abs{v_1} + \dotsb + \Abs{v_{i-1}}} v_1 \dots \mu_2(v_i,v_{i+1}) \dots v_k \\
+   &+ (-1)^{\Abs{v_k}(\Abs{v_1} + \dotsb + \Abs{v_{k-1}})} \mu_2(v_k,v_1)v_2\dots v_{k-1}.
+\end{align*}
+
+
+\begin{Definition}[Strict units and strict augmentations]\label{Def:AugUnit}
+Let $\mathcal{A}= (V, (\mu_k))$ be an $\AInfty$-algebra. A non-zero homogenous element $\NOne \in V[1]$ with $\Abs{\NOne} = -1$ is called a \emph{strict unit} for $\mathcal{A}$ if the following holds:
+$$\begin{aligned} \mu_2(\NOne, v) = (-1)^{\Abs{v} + 1}\mu_2(v,\NOne) &= v\qquad\forall v\in V[1], \\[\jot]
+\mu_k(v_1, \dotsc, v_{i-1}, \NOne, v_{i+1}, \dotsc, v_k) &= 0\qquad\forall\ k\neq 2,\ 1\le i \le k,\ v_j \in V[1]. \end{aligned}$$
+The pair $(\mathcal{A},\NOne)$ is called a \emph{strictly unital  $\AInfty$-algebra.}
+
+A strictly unital $\AInfty$-algebra $(\mathcal{A},\NOne)$ is called \emph{strictly augmented} if it is equipped with a linear map $\varepsilon: V[1] \rightarrow \R[1]$ which satisfies
+$$ \varepsilon(\NOne_V) = \NOne_\R, \quad \varepsilon \circ \mu_1 = 0\quad\text{and}\quad \varepsilon \circ \mu_2 = \mu_2\circ(\varepsilon \otimes \varepsilon), $$
+where $\NOne_\R$ is the strict unit for~$\R$ endowed with the standard multiplication. The map $\varepsilon$ is called a \emph{strict augmentation.}.
+
+If the \emph{homological dga} $\H(\mathcal{A})\coloneqq (\H(V,\tilde{\mu}_1), \mu_1 \equiv 0, \mu_2)$ of $\mathcal{A}$ is strictly unital and strictly augmented, then~$\mathcal{A}$ is called \emph{homologically unital} and \emph{homologically augmented}, respectively. A strictly unital and strictly augmented cochain complex $(V,\mu_1,\NOne,\varepsilon)$ is called just augmented. 
+\end{Definition}
+
+We denote by $u: \R[1] \rightarrow V[1]$ the injective linear map defined by $u(\NOne_\R)\coloneqq \NOne_V$, and by $u^*: \DBCyc V \rightarrow \DBCyc \R$ and $\varepsilon^*: \DBCyc \R \rightarrow \DBCyc V$ the precompositions with $u^{\otimes k}$ and $\varepsilon^{\otimes k}$ in every weight-$k$ component, respectively. 
+
+\begin{Remark}[On units and augmentations]\phantomsection\label{Rem:AugUnit}
+\begin{RemarkList}
+\item A strict unit $\NOne_V$ for $\mathcal{A}$ induces an $\AInfty$-morphism $(u_k): \R \rightarrow V$ given by $u_1(\NOne_\R)\coloneqq \NOne_V$ and $u_k \equiv 0$ for all $k\ge 2$. A (general) augmentation of $(\mathcal{A},\NOne_V)$ is by definition any $\AInfty$-morphism $(\varepsilon_k): V \rightarrow \R$ such that $(\varepsilon_k) \circ (u_k) = \Id$ as $\AInfty$-morphisms (see~\cite{Keller1999}). Strict augmentations are precisely the maps $\varepsilon_1$ coming from augmentations $(\varepsilon_k)$ with $\varepsilon_k \equiv 0$ for all~$k\ge 2$.
+
+\item As for $(V,\mu_1,\NOne,\varepsilon)$, we need the chain map $\varepsilon$ to provide the splitting of the short exact sequence of chain complexes
+$$\begin{tikzcd}
+0 \arrow{r} & \R[1] \arrow[hook]{r}{u} & \arrow[bend left=50]{l}{\varepsilon} V[1] \arrow[two heads]{r} & \coker(u) \arrow{r} & 0,
+\end{tikzcd}$$
+so that we get $\H(V) \simeq \H_{\RedMRM}(V)\oplus \R$, where $\H_{\RedMRM}(V)\coloneqq \H(\coker(u))$. If $(V,\mu_1)$ is non-negatively graded and we are given an injective chain map $u: \R[1] \rightarrow V[1]$ ($\eqqcolon$\,the classical augmentation), then one can show that such $\varepsilon$ always exists. \qedhere
+\end{RemarkList}
+\end{Remark}
+
+\begin{Definition}[Reduced dual cyclic bar complex]\label{Def:ReducedDual}
+Let $(\mathcal{A}, \NOne)$ be a strictly unital $\AInfty$-algebra. Consider the injection $\iota_{\NOne}: \B V \rightarrow \B V$, $v_1 \otimes \dotsb \otimes v_k \mapsto \NOne \otimes v_1 \otimes \dotsb \otimes v_k$. We define the \emph{reduced dual cyclic bar-complex} by
+$$ \RedDBCyc V \coloneqq \{\psi \in \DBCyc V \mid \psi\circ \iota_{\NOne} = 0\}. $$
+Under the assumption of strict unitality, $\Hd^*$ preserves $\RedDBCyc V$, and hence we can consider the reduced cyclic cochain complex\Correct[caption={DONE Missing red},noline]{Correct missing red in the definition of $D_r$} 
+$$ D_{\lambda,\RedMRM}^*(V) \coloneqq r(\CRedDBCyc V)[1]$$
+and define the \emph{reduced cyclic cohomology of $\mathcal{A}$} by
+$$ \H_{\lambda, \RedMRM}^*(\mathcal{A};\R)\coloneqq \H(D_{\lambda, \RedMRM}^*(V), \Hd^*). $$ 
+\end{Definition}
+
+
+\begin{Proposition}[Reduction to the reduced cyclic cohomology]\label{Prop:Reduced}
+Let $\mathcal{A}= (V,(\mu_k))$ be an $\AInfty$-algebra with a strict unit $\NOne$ and a strict augmentation $\varepsilon$. Then the inclusions $\RedDBCyc V$, $\varepsilon^*(\DBCyc \R) \subset \DBCyc V$ induce the decomposition
+$$\begin{aligned}
+\H_\lambda^*(\mathcal{A};\R) &\simeq \H_{\lambda, \RedMRM}^*(\mathcal{A};\R) \oplus \H_\lambda^*(\R;\R).
+\end{aligned} $$
+Here we have
+\begin{equation*}
+%\label{Eq:Field}
+ \H_\lambda^{q}(\R; \R) = \begin{cases} \langle \NOne^{q+1*} \rangle & \text{for }q\ge 0 \text{ even}, \\
+0 & \text{for }q> 0 \text{ odd and }q<0, \\
+\end{cases}
+\end{equation*}
+where $\NOne^{i*}: \R[1]^{\otimes i} \rightarrow \R$ is defined by $\NOne^{i*}(\NOne^{i}) \coloneqq 1$.
+\end{Proposition}
+\begin{proof}[Sketch of the proof]
+The maps $\varepsilon^*: D_\lambda(\R) \rightarrow D_\lambda(V)$ and $u^*: D_\lambda(V) \rightarrow D_\lambda(\R)$ are chain maps with $u^*\circ \varepsilon^* = \Id$. Therefore, we have the sequence of cochain complexes
+\begin{equation}\label{Eq:UnitAugSS}
+\begin{tikzcd}
+ 0 \arrow{r} &D_{\lambda,\RedMRM}(V) \arrow[hook]{r} & D_\lambda(V) \arrow[two heads]{r}{u^*} & \arrow[bend left=50]{l}{\varepsilon^*} D_\lambda(\R) \arrow{r} & 0, 
+\end{tikzcd}
+\end{equation}
+which is exact everywhere except for the middle, and where $\varepsilon^*$ is a splitting map. The idea of \cite{LodayCyclic} is to replace these cochain complexes with quasi-isomorphic bicomplexes consisting of normalized Hochschild cochains $\bar{D}(V)$ such that the sequence becomes exact. The work then reduces to proving that $\bar{D}(V)$ computes $\H\H(\mathcal{A};\R)$; a variant of this result for $\AInfty$-algebras was proven in~\cite{Lazarev2003}.
+%The version for a dga, which is in fact enough for the examples in this article, also follows directly from \cite{LodayCyclic} using Lemma \ref{Lem:DGA} below.
+\end{proof}
+
+
+We will now compare our version of the cyclic cohomology of a dga $(V,\mu_1, \mu_2)$ to a version based on~\cite[Section 5.3.2]{LodayCyclic}. Let $\tilde{\Hd}$, $\tilde{\delta}: \bar{T}V \rightarrow \bar{T}V$ be the linear maps defined for all $\tilde{v}_1$, $\dotsc$, $\tilde{v}_k \in V$ by
+\allowdisplaybreaks
+\begin{align*}
+   \tilde{\Hd}(\tilde{v}_1\otimes \dotsb \otimes \tilde{v}_k) & \coloneqq \begin{multlined}[t] \sum_{i=1}^{k-1} (-1)^{i-1} \tilde{v}_1 \otimes \dotsb \otimes \tilde{\mu}_2(\tilde{v}_i, \tilde{v}_{i+1}) \otimes \dotsb \otimes \tilde{v}_k  \\ {}+ (-1)^{k-1+ \tilde{v}_k(\tilde{v}_1 + \dotsb + \tilde{v}_{k-1})}\tilde{\mu}_2(\tilde{v}_k, \tilde{v}_1)\otimes\tilde{v}_2\otimes\dotsb\otimes\tilde{v}_{k-1}, 
+\end{multlined} \\ 
+\tilde{\delta}(\tilde{v}_1\otimes \dotsb \otimes \tilde{v}_k) & \coloneqq  \sum_{i=1}^k (-1)^{\tilde{v}_1 + \dotsb + \tilde{v}_{i-1}} \tilde{v}_1\otimes\dotsb \otimes \tilde{\mu}_1(\tilde{v}_i)\otimes \dotsb \otimes \tilde{v}_k.
+\end{align*}
+For all $q\ge 0$, we define
+$$ \tilde{D}_q(V) \coloneqq \bigoplus_{\substack{k\ge 1 \\ d\in \Z \\k-d= q + 1}} (V^{\otimes k})^d $$
+and $\tilde{\Bdd}: \tilde{D}_{q+1}(V) \rightarrow \tilde{D}_{q}(V)$ by   
+$$ \tilde{\Bdd}(\tilde{v}_1\dotsb \tilde{v}_k) = \tilde{b}(\tilde{v}_1\dotsb \tilde{v}_k) + (-1)^{k+1} \tilde{\delta}(\tilde{v}_1\dotsb \tilde{v}_k). $$
+It can be checked that $\tilde{\Bdd}\circ\tilde{\Bdd}=0$ and $\tilde{\Bdd}(\Im(1-\tilde{t}))\subset \Im(1-\tilde{t})$, so that $\tilde{\Bdd}$ induces a boundary operator on
+the chain complexes \Correct[caption={DONE Wrong cyclic permutation}]{Here the $t$ is modified i.e. $\tilde{t}(v_1\dotsc v_k) = (-1)^{k-1} t(v_1 \dotsc v_k)$}
+$$ \tilde{D}(V)\coloneqq \bigoplus_{q\in \Z} \tilde{D}_q(V)\quad\text{and}\quad\tilde{D}^\lambda(V) \coloneqq \tilde{D}(V)/\Im(1-\tilde{t}). $$
+Here, we have $\tilde{t}(\tilde{v}_1 \dotsb \tilde{v}_k) \coloneqq (-1)^{k + \Abs{\tilde{v}_k}(\Abs{\tilde{v}_1} + \dotsb + \Abs{\tilde{v}_{k-1}})} \tilde{v}_k \tilde{v}_1 \dotsb \tilde{v}_{k-1}$. We call $(\tilde{D}(V),\tilde{\Bdd})$ the \emph{classical Hochschild complex} and $(\tilde{D}^\lambda(V), \tilde{\Bdd})$ the \emph{classical cyclic complex} of the dga $(V,\mu_1,\mu_2)$. The chain complex $(\tilde{D}(V),\tilde{\Bdd})$ is the total complex of the bicomplex
+$$\begin{tikzcd}
+{} & \arrow{d} &\arrow{d} & \arrow{d} & {} & {} \\
+{} &\arrow{l} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^1 & \arrow{l}{\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^0 & \arrow{l}{\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^{-1} & \arrow{l} & {} \\
+{} &\arrow{l} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^1 & \arrow{l}{-\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^0 & \arrow{l}{-\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^{-1} & \arrow{l} & {} \\
+{} &\arrow{l} V^1 & \arrow{l}{\tilde{\delta}} V^0 & \arrow{l}{\tilde{\delta}} V^{-1} & \arrow{l}, & {} 
+\end{tikzcd}$$
+which differs from the bicomplex \cite[Equation (5.3.2.1)]{LodayCyclic} by the reversed grading and by the fact that it lies in the whole upper half-plane and not just in the first quadrant. Their convention for a dga is namely $\Abs{\tilde{\mu}_1} = -1$, whereas ours is $\Abs{\tilde{\mu}_1}=1$, and they consider $\N_0$-grading, whereas we have $\Z$-grading. 
+
+\begin{Proposition}[The classical case] \label{Prop:DGA}
+Let $\mathcal{A} = (V,\mu_1,\mu_2)$ be a dga. Then the degree shift map
+$$ \begin{aligned} 
+ U: \tilde{D}_q (V) & \longrightarrow D_q(V), \\
+        \tilde{v}_1 \otimes \dotsb \otimes \tilde{v}_k & \longmapsto \varepsilon(\SuspU, \tilde{v}) v_1 \otimes \dotsb \otimes v_k,  \end{aligned}$$
+where we denote $v_i = \SuspU \tilde{v}_i$, is an isomorphism of the chain complexes $(\tilde{D}(V),\tilde{\Bdd}) \simeq (D(V), \Hd)$ and $(\tilde{D}^\lambda(V),\tilde{\Bdd})\simeq (D^\lambda(V),\Hd)$, respectively.
+\end{Proposition}
+   
+\begin{proof} 
+First of all, for the degrees holds $\Abs{\tilde{\mu}_j} = 2 - j$ for every $j\ge 1$. For every $j$, $k$, $l\ge 1$ such that $j+l \le k+1$ and for every $\tilde{v}_1$, $\dotsc$, $\tilde{v}_k \in V$, we compute
+$$ \begin{aligned}
+&\bigl[U^{-1}(\Id^{l-1}\otimes \mu_j \otimes \Id^{k-j-l+1})U\bigr](\tilde{v}_1\dotsb \tilde{v}_k) \\[\jot] &\quad = (-1)^{l-1 + (j-2)(\tilde{v}_1 + \dotsb + \tilde{v}_{l-1} + k - l - j +1)} \tilde{v}_1\dotsb\tilde{v}_{l-1}\tilde{\mu}_j(\tilde{v}_l\dotsb \tilde{v}_{l+j-1})\tilde{v}_{l+j}\dotsb \tilde{v}_k, \\[\jot]
+& [U^{-1} t_k U](\tilde{v}_1\dotsb \tilde{v}_k) = (-1)^{k-1} \tilde{v}_1 \dotsb \tilde{v}_k,
+\end{aligned}$$
+where we use the Koszul convention $(f_1\otimes f_2)(v_1\otimes v_2) = (-1)^{\Abs{f_2}\Abs{v_1}} f_1(v_1)\otimes f_2(v_2)$. Using this, we obtain
+$$\begin{aligned}
+U^{-1} \Hd'_k U &= \sum_{j=1}^k \sum_{i=0}^{k-1} (-1)^{i+j(i+k+1)} t^i_{k-j+1}(\tilde{\mu}_j \otimes \Id^{k-j})t_k^{-i}\quad\text{and} \\
+U^{-1} R_k U &= \sum_{j=1}^k \sum_{i=1}^{j-1} (-1)^{(i+j)(k+1)} (\tilde{\mu}_j\otimes \Id^{k-j})t_k^i.
+\end{aligned}$$
+It is now easy to check that $U^{-1}\circ \Hd\circ U = \tilde{\Bdd}$.
+
+If $k\in \N$ is a weight and $d\in\Z$ a degree such that $k-d-1 = q$ for some $q\in \Z$, we have schematically $U: (k,d)\mapsto (k, d - k) = (k,-q-1)$. Therefore, $U$ preserves the grading of chain complexes. This finishes the proof.
+\end{proof}
+
+
+
+\begin{Proposition}[Reduced cochains are complete in $0$,\,$1$-connected case]\label{Prop:SimplCon}
+Suppose that $V = \bigoplus_{d\ge 0} V^d$ is a non-negatively graded vector space with $V^0=\langle 1 \rangle$ for some $1\in V$ ($\eqqcolon$\,$V$ is \emph{connected}) and $V^1 = 0$ ($\eqqcolon$\,$V$ is \emph{simply-connected}). Then for all $m\ge 1$, we have
+$$ \hat{\Ext}_m \RedDBCyc V = \Ext_m \RedDBCyc V. $$
+\end{Proposition}
+\begin{proof}
+Let $\bar{V}\coloneqq \bigoplus_{d\ge 2} V^d$. We clearly have $\RedDBCyc V \simeq \DBCyc \bar{V}$. Since $\bar{V}[1]$ is positively graded, we have $(\B \bar{V})_{k}^d = 0$ whenever $k>d$. Therefore, a map $\Psi\in \hat{\Ext}_m \bar{V}$, which is non-zero only on finitely many homogenous components of $\BCyc V[1]^{\otimes m}$, will be non-zero only on finitely many weights. This implies that $\Psi\in \Ext_m \bar{V}$.
+\end{proof}
+
+\begin{Remark}[Universal coefficient theorem]\label{Rem:UCT}
+We have 
+$$ \B V = \bigoplus_{d\in\Z} \bigoplus_{k=1}^\infty (V[1]^{\otimes k})^d\quad\text{and}\quad \DB V = \bigoplus_{d\in \Z} \bigoplus_{k=1}^\infty (V[1]^{\otimes k})^{d*}, $$
+and hence
+$$ (\B V)^{\GD} = \bigoplus_{d\in\Z} \prod_{k=1}^\infty (V[1]^{\otimes k})^{d*} = \bigoplus_{d\in \Z} \reallywidehat{(\DB V)^d} = \CDB V. $$
+Therefore, $(D^*_\lambda(V), \Hd^*)$ is dual to $(D^\lambda(V), \Hd)$ as a chain complex. Now, because we work over $\R$, the universal coefficient theorem gives
+\begin{equation*}
+%\label{Eq:UCT}
+ \H^q_\lambda(\mathcal{A},\Hd^*) \simeq [\H_q^\lambda(\mathcal{A},\Hd)]^*\quad\text{for all } q\in \Z. 
+\end{equation*}
+Suppose that we have found closed homogenous elements $(w_i)_{i\in I}\subset D^\lambda(V)$ for some index set~$I$ which induce a basis of $\H^\lambda(\mathcal{A}; \R)$. For every $i\in I$, we define the linear map $w_i^*: D^\lambda(V) \rightarrow \R$ by prescribing
+$$ w_i^*(w_j) = \delta_{ij}\qquad\text{for all }j\in I $$
+and $w_i^* \equiv 0$ on $\Im \Hd$ and on a complement \Correct[caption={DONE Universal coefficient theorem}]{Here is enough an arbitrary complement of $\Ker)(b)$. That means that for every $i$, we can have a different complement $Z_i$} of $\Ker(\Hd)$ in $D^\lambda(V)$. Then $(w_i^*)_{i\in I} \subset D_\lambda^*(V)$ are closed homogenous elements which generate linearly independent cohomology classes in $\H_\lambda^*(\mathcal{A}; \R)$; if we denote $I_q \coloneqq \{i\in I \mid w_i \in C^\lambda_q(V)\}$, then we can write
+\begin{equation*}
+\H_\lambda^q(\mathcal{A}; \R) = \Bigl\{ \sum_{i\in I_q} \alpha_i w_i^* \bigMid \alpha_i\in \R \Bigr\}\quad\text{for all }q\in\Z.\qedhere
+\end{equation*}
+\end{Remark}
+
+\end{document}

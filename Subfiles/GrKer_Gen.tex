@@ -1,0 +1,126 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\begin{document}
+\section{Uniqueness of Hodge propagator}\label{Sec:TZ}
+
+\begin{Proposition}[Uniqueness of Hodge homotopy]\label{Prop:UniHO}
+Let $M$ be a closed oriented manifold, and let $\DR(M)=\Im\Dd\oplus\Im\CoDd\oplus\Harm$ be its Hodge decomposition. Any linear map $\Htp:\DR(M)\rightarrow\DR(M)$ satisfying
+\begin{equation}\label{Eq:GreenOp}
+\Dd\circ\Htp + \Htp\circ\Dd = \iota_\Harm\circ\pi_\Harm - \Id 
+\end{equation}
+can be expressed as
+\begin{equation} \label{Eq:GreenOpForm}
+\Htp = \begin{cases}
+ -(\Restr{\Dd}{\Im\CoDd})^{-1} + R_1 & \text{on }\Im \Dd, \\
+ (\Restr{\Dd}{\Im\CoDd})^{-1} R_1 \Dd + R_2 & \text{on } \Im \CoDd, \\
+ R_3 & \text{on }\Harm,
+\end{cases}
+\end{equation}
+where $\Restr{\Dd}{\Im \CoDd} : \Im \CoDd \rightarrow \Im \Dd$ is an isomorphism, for some linear maps $R_1: \Im \Dd \rightarrow \Im \Dd$, $R_2: \Im \CoDd \rightarrow \Ker \Dd$ and $R_3: \Harm \rightarrow \Ker \Dd$. Moreover, the following facts are equivalent for an operator $\Htp$ satisfying \eqref{Eq:GreenOp}:
+\begin{enumerate}[label=(\arabic*)]
+\item $\Htp = \StdHtp$ is the standard Hodge homotopy,
+\item $R_1 = R_2 = R_3 = 0$,
+\item $\Im\Htp\subset\Im\CoDd$, 
+\end{enumerate}
+\end{Proposition}
+\begin{proof}
+Suppose first that $\omega \in \Im\Dd$. Plugging it in \eqref{Eq:GreenOp}, we get that $\Htp \omega$ has to satisfy
+$$ \Dd \Htp \omega = \omega. $$
+We see that 
+$$ \Htp\omega \in \eta + \Ker \Dd, $$
+where $\eta$ is the unique coexact form with $\Dd \eta = \omega$. In other words, $\eta$ is the preimage of $\omega$ under the isomorphism $\Dd: \Im \CoDd \rightarrow \Im \Dd$, and we can write 
+\begin{equation}\label{Eq:GOpOnClosed}
+\Htp \omega = (\Restr{\Dd}{\Im \CoDd})^{-1} \omega + R_1 \omega,
+\end{equation}
+where $R_1: \Im \Dd \rightarrow \Ker \Dd$.
+
+Suppose now that $\omega \in \Im\CoDd$. Using \eqref{Eq:GreenOp} and \eqref{Eq:GOpOnClosed}, we obtain
+$$ \Dd \Htp \omega = \omega - \Htp \Dd \omega = \underbrace{\omega - (\Restr{\Dd}{\Im \CoDd})^{-1} \Dd \omega}_{=0}- R_1 \Dd \omega, $$
+where the two terms cancel because $\omega$ is the unique coexact primitive to $\Dd \omega$. Notice that this equation restricts $R_1$ to $R_1: \Im \Dd \rightarrow \Im \Dd$. Similarly as in the first case, we obtain
+$$ \Htp \omega = - (\Restr{\Dd}{\Im\CoDd})^{-1} R_1 \Dd \omega + R_2 \omega, $$
+where $R_2: \Im\CoDd \rightarrow \Ker \Dd$.
+
+If $\omega\in \Harm$, then \eqref{Eq:GreenOp} gives
+$$ \Dd \Htp \omega = 0, $$
+and hence $\Htp \omega = R_3 \omega$ for some $R_3: \Harm \rightarrow \Ker \Dd$.
+
+Therefore, \eqref{Eq:GreenOp} implies \eqref{Eq:GreenOpForm}. The other direction clearly holds as well.
+
+
+
+As for the equivalent facts, because $\Ker \Dd \perp \Im \CoDd$ (with respect to the $L^2$-inner product), it is clear from \eqref{Eq:GreenOpForm} that $\Im(\Htp)\subset \Im(\CoDd)$ is equivalent to $R_1 = R_2 = R_3 = 0$. Therefore, if there is a $\Htp$ satisfying \eqref{Eq:GreenOp} and (3), then it is unique; it must be $\HtpStd = -\CoDd\GOp$.  
+\end{proof}
+
+We see that the standard Hodge homotopy $\HtpStd$ can be characterized as the unique Hodge homotopy with coexact image.
+
+We would like to use the equation
+\begin{equation}\label{Eq:DFGDFG}
+\Dd \StdPrpg = \pm \HKer \quad\text{on }(M\times M)\backslash\Diag 
+\end{equation}
+and characterize $\StdPrpg$ as its unique coexact solution. This is probably not enough and additional assumptions on the asymptotic behavior near $\Diag$ are needed.
+
+Another idea is to lift the equation \eqref{Eq:DFGDFG} to the blow-up and study primitives to $\pi^*\HKer$ on $\Bl_\Diag(M\times M)$. The advantage is that $\Bl_\Diag(M\times M)$ is a compact manifold with boundary, and hence for a given Riemannian metric, we have the Hodge decomposition with boundary conditions.  However, the pull-back metric $g$ along $\pi : \Bl_\Diag(M\times M)\rightarrow M\times M$ is singular at the boundary. We would have to approximate it with a family of metrics $g_t$ in a correct way, use Hodge theory to find a $\CoDd$-primitive $\eta_t$ to a unique coexact $\Dd$-primitive~$\Prpg_t$ to $\pi^*\HKer$ with certain boundary conditions, and finally prove that $\Prpg_t$ converges to a solution of \eqref{Eq:DFGDFG} on the interior and $\eta_t$ to its $\CoDd$-primitive.
+
+Natural differential operators on $\DR(M\times M)$ do not always pull-back to differential operators on $\DR(\Bl_\Diag(M\times M))$ via the blow-down map. The total differential $\Dd$ does, but the operators $\Id \otimes \Dd_y$ and $\Dd_x \otimes \Id$ do not. We suppose that none of $\CoDd$, $\Id \otimes \CoDd_y$ and $\CoDd_x \otimes \Id$ does. We illustrate the consequences on the following seemingly patological example.
+%
+%if the $n-1$ homology of configuration space is zero
+%$$ \GKer_1 - \GKer_2 \in \Im\Dd \cap \Im \CoDd $$
+%or 
+%$$ \GKer_1 - \GKer_2 \in \Ker\Dd \cap \Im\CoDd $$
+%if it is non-zero. Study asymptotics of such forms. They are in particular all harmonic. Maybe the condition that they smoothly extend to blow-up imply that the difference must be zero by the maximum principle.
+\begin{Proposition}[Patological example]\label{Prop:PatEm}
+For any $n\in \N$, there exists a smooth form $\eta \in \DR(\Bl_\Diag(\R^n\times \R^n))$ with compact vertical support with respect to the fiber bundle $\tilde{\pi}_2 = \Pr_2 \circ \pi : \Bl_\Diag(\R^n\times \R^n) \rightarrow \R$ such that $\Dd_y \eta = 0$ on $(\R^n\times \R^n)\backslash \Diag$ but $\Dd \tilde{\pi}_{2*}\omega \neq 0$.
+
+If $\eta \in \DR(\Bl_\Diag(\R\times \R))$ is as above and satisfies in addition $\tau^* \eta = \pm \eta$, then $\Dd_y \eta = 0$ on $\R^n\times \R^n \backslash \Diag$ implies $\Dd \tilde{\pi}_{2*}\eta = 0$.
+\end{Proposition}
+\begin{proof}
+Let us start with $n=1$. Let $f: \R\times \R\backslash\Diag\rightarrow \R$ be a function such that 
+\begin{enumerate}
+ \item $f: \R\times \R\backslash\Diag\rightarrow \R$ is smooth.
+ \item It holds $\frac{\partial f}{\partial y}(x,y) = 0$ for all $(x,y)\in \R\times \R\backslash \Diag$.
+ \item For every $y\in \R$, the function $f(\cdot,y)$ has compact support in $\R$.
+\end{enumerate} 
+Clearly, (1) and (2) implies
+\begin{equation}\label{Eq:PartialConst}
+ f(x,y) = \begin{cases} f^-(x) & \text{for }x<y, \\ f^+(x) & \text{for }x>y, \end{cases}\quad\text{for all }(x,y)\in \R\times \R\backslash \Diag,
+\end{equation}
+where $f^+$, $f^-: \R \rightarrow \R$ are smooth functions. It is easy to see that (3) implies the existence of $x^+$, $x^-\in \R$ such that 
+$$ f^+(x) = 0\quad\text{for all }x>x^+ \quad\text{and}\quad f^-(x) = 0\quad\text{for all }x<x^-. $$
+We consider the form
+\begin{equation}
+\eta(x,y) = f(x,y) \Diff{x}\quad\text{on }\R\times\R\backslash\Diag.
+\end{equation}
+Recall that in general, a form $\eta(x,y)$ on $\R^n\times\R^n\backslash\Diag$ is restriction of a smooth form on $\Bl_\Diag(\R^n\times \R^n)$ if and only if the form $(\Phi^*\eta)(r,\omega,u)$ for the diffeomorphism $\Phi: (0,\infty) \times \Sph{n-1} \times \R^n \rightarrow \R^n \times \R^n \backslash \Diag$ given by $\Phi(r,\omega,u) = (u+r\omega,u)$ is restriction of a smooth form on $[0,\infty) \times \Sph{n-1}\times \R^n$. In our case, we have
+$$ (\Phi^*\eta)(r,u) = \begin{cases} 
+ f^+(u+r)\bigl(\Diff{u}+\Diff{r}\bigr) & \text{on } D^+:= [0,\infty) \times \{1\}\times \R, \\
+ f^-(u-r)\bigl(\Diff{u}-\Diff{r}\bigr) & \text{on }D^-:=[0,\infty) \times \{-1\} \times \R, 
+\end{cases} $$
+where we used the fact that $\Sph{0} = \{\pm 1\}$ and splitted the domain in two connected components. We see that $\Phi^* \eta$ extends smoothly to $[0,\infty) \times \Sph{0}\times \R$ in the obvious way. We denote the extension by $\widetilde{\Phi^* \eta}$ and the induced extension of $\eta$ to $\Bl_\Diag(\R\times \R)$ by $\tilde{\eta}$. It holds $\tilde{\Phi}^* \tilde{\eta} = \widetilde{\Phi^* \eta}$ under the extended diffeomorphism $\tilde{\Phi}: [0,\infty) \times \Sph{0} \times \R \rightarrow \Bl_\Diag(\R\times\R)$. The fiberwise integral along the smooth oriented fiber bundle $\tilde{\pi}_2: \Bl_\Diag(\R\times \R) \rightarrow \R$ transforms under $\tilde{\Phi}$ to the fiberwise integral along $\tilde{p}_3: [0,\infty) \times \Sph{0} \times \R \rightarrow \R$, and we get for all $y=u \in \R$ by the definition
+$$ (\tilde{\pi}_{3*}\tilde{\eta})(y) = \tilde{p}_{3*}(\widetilde{\Phi^*\eta})(u) = \int_0^\infty \bigl(f^+(u+r) + f^-(u-r) \bigr)\Diff{r}. $$
+The algebraic sign of the second term was canceled by the geometric sign coming from different orientations of $[0,\infty)$ in $[0,\infty)\times\{0\}$ and in $[0,\infty)\times \{1\}$. We think of $\tilde{\Phi}$ as of an isomorphism of fiber bundles $\tilde{p}_3$ and $\tilde{\pi}_2$ covering the identity, which explains the notation $y=u$. The fiberwise integration along $\tilde{p}_3: [0,\infty) \times \Sph{0} \times
+ \R \rightarrow \R$ reduces to Lebegue integration of a smooth function $g$ on $[0,\infty) \times \Sph{\omega} \times \R$ with respect to $(r,\omega)$. Clearly, we can permute any differential operator acting on $u$ with the integral. In our case, we use $\Dd$ and obtain
+\begin{align*}
+(\Dd \tilde{\pi}_{3*}\tilde{\eta})(y) &= (\Dd \tilde{p}_{3*}\widetilde{\Phi^*\eta})(u) \\
+ &= \frac{\partial }{\partial u}\Bigl(\int_{0}^\infty \bigl(f^+(u+r)+f^-(u-r)\bigr) \Diff{r}\Bigr) \Diff{u} \\
+&= \Bigl(\int_0^\infty (f^+)'(u+r) + (f^-)'(u-r) \Diff{r}\Bigr)\Diff{u} \\
+& = \Bigl(\int_u^\infty (f^+)'(z) \Diff{z} + \int_{-\infty}^u (f^-)'(z) \Diff{z}\Bigr) \Diff{u} \\
+& = \bigl(f^-(u)- f^+(u)\bigr) \Diff{u}
+\end{align*}
+This is zero precisely when $f$ extends continuously to $\R \times \R$.
+
+A general form on $\R\times \R\backslash \Diag$ is 
+$$ \eta(x,y) = f_0(x,y) + f_1(x,y) \Diff{x} + f_2(x,y) \Diff{y} + f_3(x,y) \Diff{x}\Diff{y}. $$
+Imposing the condition $\Dd_y\eta= 0$, we get \eqref{Eq:PartialConst} for both $f_0$ and $f_1$. Imposing $\tau^* \omega = - \omega$, we get $f_3(x,y) = f_3(y,x)$, $f_2(x,y) = - f_1(y,x)$ and $f_0(x,y) = - f_0(y,x)$. Now, requiring that $\eta$ has compact vertical support in $x$ implies $f_0 = f_1 \equiv 0$ because of \eqref{Eq:PartialConst}, and hence also $f_2 \equiv 0$. However, the form $f_3(x,y) \Diff{x} \Diff{y}$ satisfies $\Dd_y \eta = 0$ and $\Dd \tilde{\pi}_{2*} = 0$ trivially.
+
+For any $n\ge 1$ and $(x,y)\in \R^n\times\R^n\backslash\Diag$, consider
+\begin{equation*}
+\eta(x,y) := \begin{multlined}[t]\frac{\lambda(x)}{\Abs{x-y}^n} \sum_{i=1}^n (-1)^{i+1}(x^i - y^i) \Diff{x}^1\dotsb\Diff{x}^n\Diff{y}^1\dotsb \widehat{\Diff{y}^i}\dotsb\Diff{y}^n,\end{multlined}
+\end{equation*}
+where $\lambda: \R^n \rightarrow \R$ is a smooth bump function. Then $\eta$ extends smoothly to $\Bl_\Diag(\R^n\times \R^n)$, it holds $\Dd_y \eta(x,y) = 0$, but 
+$$ \Dd \int_x \eta(x,y) = \Vol(\Sph{n}) \lambda(y) \Diff{y}^1 \dotsb \Diff{y}^n. $$
+This finishes the proof.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,31 @@
+%auto-ignore
+\begin{tikzpicture}
+\tikzset{int/.style = {draw, circle, fill=black, minimum size=2pt,inner sep=0pt}}
+\tikzset{ext/.style = {draw, circle, fill=white, minimum size=2pt,inner sep=0pt}}
+\tikzset{->-/.style={decoration={markings,mark=at position #1 with {\arrow{>}}},postaction={decorate}}} 
+\def\FirstAng{70}
+\def\AngDif{50}
+\def\AngDifTwo{70}
+\def\ExtLen{1.4} %1.4
+\def\ArcAngDelta{15}
+\def\ArcAngDeltaLab{30}
+\coordinate[int] (V1) at (0,0);
+\coordinate[int] (V2) at (3,0);
+\coordinate[ext,label={$\scriptstyle c$}] (C1) at ($(V1) + (\FirstAng:\ExtLen)$);
+%\coordinate[ext,label={$\scriptstyle c+1$}] (C2) at ($(V1) + (\FirstAng+\AngDif:\ExtLen)$);
+\coordinate[ext,label={[below]$\scriptstyle c+k_1-2$}] (C3) at ($(V1) + (-\FirstAng:\ExtLen)$);
+\coordinate[ext,label={[below]$\scriptstyle c+k_1-1$}] (C4) at ($(V2) + (180+\FirstAng:\ExtLen)$);
+%\coordinate[ext,label={[below]$\scriptstyle c+k_1$}] (C5) at ($(V2) + (180+\FirstAng+\AngDifTwo:\ExtLen)$);
+\coordinate[ext,label={[above]$\scriptstyle c + k_1 + k_2 - 3$}] (C6) at ($(V2) + (180-\FirstAng:\ExtLen)$);
+\draw[->-={0.5},dotted] ($([shift=(\FirstAng+\ArcAngDelta:\ExtLen)]V1)$) arc (\FirstAng+\ArcAngDelta:360-\FirstAng-\ArcAngDeltaLab:\ExtLen);
+
+\draw[->-={0.5},dotted] ($([shift=(180+\FirstAng+\ArcAngDeltaLab:\ExtLen)]V2)$) arc (180+\FirstAng+\ArcAngDeltaLab:180-\FirstAng+360-\ArcAngDeltaLab:\ExtLen);
+
+\draw (V1) -- (V2) node[pos=0.13,above] {$\scriptstyle 1$} node[pos=0.87,above] {$\scriptstyle 1$};
+\draw (V1) -- (C1) node[pos=0.5,left] {$\scriptstyle 2$};
+%\draw (V1) -- (C2) node[pos=0.3,left] {$\scriptstyle 3$};
+\draw (V1) -- (C3) node[pos=0.4,left] {$\scriptstyle k_1$};
+\draw (V2) -- (C4) node[pos=0.5,right] {$\scriptstyle 2$};
+%\draw (V2) -- (C5) node[pos=0.5,above] {$\scriptstyle 3$};
+\draw (V2) -- (C6) node[pos=0.5,right] {$\scriptstyle k_2$};
+\end{tikzpicture}

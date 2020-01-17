@@ -1,0 +1,50 @@
+%auto-ignore
+\begin{tikzpicture}
+  \coordinate (P1) at (0,0);
+  \coordinate (P2) at (-0.5*\dif,\hght);
+  \coordinate (P3) at (0.5*\dif,\hght);
+  \coordinate (P4) at ($(P2)+(0,\dist)$);
+  \coordinate (P8) at ($(P3)+(0,\dist)$);
+  \coordinate (P9) at ($(P8)+(0,\hght)$);
+
+%Pair of pants
+  
+  \draw (P1) arc (180:360:{\rad} and {\ecc});
+  \draw[dashed] (P1) arc (180:0:{\rad} and {\ecc});
+  
+   \draw (P3) arc (180:360:{\rad} and {\ecc});
+  \draw (P3) arc (180:0:{\rad} and {\ecc});
+  
+  \draw (P2) arc (180:360:{\rad} and {\ecc});
+  \draw (P2) arc (180:0:{\rad} and {\ecc});
+  
+ \draw (P2) to[out=270,in=90] (P1);
+ \draw ($(P3)+(2*\rad,0)$) to[out=270,in=90] ($(P1)+(2*\rad,0)$);
+ \draw ($(P2)+(2*\rad,0)$) to[out=270,in=270] (P3); 
+ 
+% Maurer Cartan
+
+
+% Labels 
+ 
+ \node at ($(P1)+(\rad,0.5*\hght)$) {$\OPQ_{210}$};
+
+% Cylinders 
+ 
+ 
+ \draw (P9) arc (180:360:{\rad} and {\ecc});
+ \draw (P9) arc (180:0:{\rad} and {\ecc});  
+ \draw (P8) arc (180:360:{\rad} and {\ecc});
+ \draw[dashed] (P8) arc (180:0:{\rad} and {\ecc});
+ \draw (P8) -- (P9);
+ \draw ($(P8)+(2*\rad,0)$) -- ($(P9)+(2*\rad,0)$);
+ 
+ 
+  \draw (P4) arc (180:360:{\rad} and {\ecc});
+ \draw[dashed] (P4) arc (180:0:{\rad} and {\ecc});  
+ \coordinate (P12) at ($(P4)+(0,\hght)$); 
+ \draw (P12) arc (180:360:{\rad} and {\ecc});
+ \draw (P12) arc (180:0:{\rad} and {\ecc});
+ \draw (P4) -- (P12);
+ \draw ($(P4)+(2*\rad,0)$) -- ($(P12)+(2*\rad,0)$);
+\end{tikzpicture}

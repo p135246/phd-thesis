@@ -1,0 +1,65 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+\begin{document}
+
+\section{Homotopy transfer and effective action}\label{Sec:HPL}
+
+In \cite{Doubek2018}, they consider multilinear operations $l_{lg}: V^{\otimes l} \rightarrow \R$ for $l\ge 1$, $g\ge 0$ on an odd symplectic vector space~$V$ and write down an action $\Action\in \Fun(V)$ in the form of~\eqref{Eq:MyAction} with~$\MC_{lg}$ replaced by~$l_{lg}^+$. We remark that their ``vertices'' are $l^+_{lg}(v,\dotsc,v)$ for a ``field'' $v\in V$, whereas ours are $\MC_{lg}(v_1,\dotsc,v_l)$ for a ``string of fields'' $v_1\dotsb v_l\in \CycB(V)$. They consider the Schwarz's canonical $\BV$-operator on $\Fun(V)$ from~\cite{Schwarz1992} and show that $\Action$ satisfies the quantum master equation if and only if $(l_{lg})$ satisfy the relations of a quantum $\LInfty$-algebra.\footnote{This is equivalent to the notion of a loop homotopy algebra from \cite{Markl1997} and to string brackets in closed string field theory from \cite{Zwiebach1992}.} On the other hand, we have the string $\BV$-operator on $\Fun(\CycB(V))$ and our action \eqref{Eq:MyAction} satisfies the quantum master equation if and only if $\MC=(\MC_{lg})$ is a Maurer-Cartan element for $\dIBL(\CycC(V))$. Next, they consider a deformation retract ($\eqqcolon\mathrm{DR}$) as in \eqref{Eq:DefRetr} and obtain explicit formulas for the homotopy transfered quantum $\LInfty$-algebra on $V'$ together with all maps and homotopies via the Homological Perturbation Lemma ($\eqqcolon\mathrm{HPL}$). In what follows, we will sketch how to apply their construction to $\IBLInfty$-algebras. We stress that the details have NOT been done yet!
+
+A DR \eqref{Eq:DefRetr} induces a DR
+\begin{equation*}
+\begin{tikzcd}
+\bigl(\CycC(V),\OPQ_{110}\bigr) \arrow[loop left]{l}{K_\CycC}\arrow[shift left]{r}{P_\CycC} & \arrow[shift left]{l}{I_\CycC} \bigl(\CycC(V'),\OPQ_{110}'\bigr),
+\end{tikzcd}
+\end{equation*}
+which further induces a DR
+\begin{equation}\label{Eq:SDRSDR}
+\begin{tikzcd}
+\bigl(\Fun(B(V)),\hat{\OPQ}_{110}\bigr) \arrow[loop left]{l}{K}\arrow[shift left]{r}{P} & \arrow[shift left]{l}{I} \bigl(\Fun(B(V')),\hat{\OPQ}_{110}'\bigr).
+\end{tikzcd}
+\end{equation}
+In~\cite[Remark~3]{Doubek2018}, they write down a formula for $K$ on $\Fun(V)$ given $\Htp$ using a ``tensor trick'' due to Eilenberg Mac-Lane; the same method may apply to get~$K_C$ from~$\Htp$ on $\CycC(V)$ and $K$ on $\Fun(\CycB(V))$ from $K_C$ in our case. With such $K$'s, one can take $P_{\CycC}$ and $P$, resp.~$I_{\CycC}$ and~$I$ to be the natural extensions of $\iota^*$, resp.~$\pi^*$. Note that any surjective quasi-isomorphism over $\R$ is a deformation retraction, but their formula is explicit and preserves special DR's, i.e., DR's satisfying $\Htp^2 = \Htp \iota = \pi \Htp = 0$ ($\eqqcolon\mathrm{SDR}$). \ToDo[caption={injectiv qi},noline]{Are injective quasi-isomorphisms sections of deformatino retractions?} The crucial idea of~\cite{Doubek2018} translated to our situation is to view $\BVOp$ and $\BVOp^\MC$ as perturbations of $\{\FreeAction,\cdot\} = \hat{\OPQ}_{110}$, which we denote by~$\delta^{(1)}$ and~$\delta^{(2)}$, respectively, and apply the HPL from~\cite{Crainic2004}:
+
+For $i=1$, $2$, suppose that $\delta^{(i)}$ is ``small'', i.e., that $(\Id - \delta^{(i)} K)$ is invertible, and consider the maps
+\begin{align*} 
+ \BVOp^{(i)} &\coloneqq \hat{\OPQ}_{110}' + P(\Id - \delta^{(i)}K)^{-1}\delta^{(i)} I = \hat{\OPQ}_{110}' + P \delta^{(i)} I + P \delta^{(i)} K \delta^{(i)} I + \dotsb ,\\
+ I^{(i)} &\coloneqq I + K(\Id - \delta^{(i)}K)^{-1}\delta^{(i)} I = I + K \delta^{(i)} I + K \delta^{(i)} K \delta^{(i)} I + \dotsb,\\
+ P^{(i)} &\coloneqq P + P(\Id-\delta^{(i)}K)^{-1}\delta^{(i)} K = P + P \delta^{(i)} K + P \delta^{(i)} K \delta^{(i)} K + \dotsb,\\
+ K^{(i)} &\coloneqq K + K(\Id-\delta^{(i)}K)^{-1}\delta^{(i)}K = K + K\delta^{(i)} K + K \delta^{(i)} K \delta^{(i)} K + \dotsb.
+\end{align*}
+The HPL asserts that if \eqref{Eq:SDRSDR} is an SDR, then the following are SDR's as well:
+\begin{equation*}\begin{tikzcd}[execute at end picture={
+\draw[->,dashed] (3.5,1.5) to[out=0,in=90] node[midway,right,xshift=.5cm]{$\delta^{(1)} = \BVOp_0$} (5,.75) to[out=-90,in=0] (3.5,0);
+\draw[->,dashed] (3.5,1.5) to[out=0,in=0] node[pos=0.8,right,xshift=.3cm]{$\delta^{(2)} = \BVOp_0 + \{\IntAction,\cdot\}$} (3.5,-1.5);
+}]
+\bigl(\Fun(B(V)),\hat{\OPQ}_{110}\bigr) \arrow[loop left]{l}{K}\arrow[shift left]{r}{P} & \arrow[shift left]{l}{I} \bigl(\Fun(B(V')),\hat{\OPQ}_{110}'\bigr) \\
+\bigl(\Fun(B(V)),\BVOp \bigr) \arrow[loop left]{l}{K^{(1)}}\arrow[shift left]{r}{P^{(1)}} & \arrow[shift left]{l}{I^{(1)}} \bigl(\Fun(B(V')),\BVOp^{(1)}\bigr)\\
+\bigl(\Fun(B(V)),\BVOp^\MC \bigr) \arrow[loop left]{l}{K^{(2)}}\arrow[shift left]{r}{P^{(2)}} & \arrow[shift left]{l}{I^{(2)}} \bigl(\Fun(B(V')),\BVOp^{(2)}\bigr)
+\end{tikzcd}\end{equation*}
+One defines the \emph{effective action} 
+$$W \coloneqq \log\bigl(P^{(1)}(e^{\IntAction})\bigr) \in \Fun(\CycB(V'))$$
+and the \emph{path integral}
+$$ Z \coloneqq L_{e^{-W}} \circ P^{(1)} \circ L_{e^{\IntAction}}: \Fun(\CycB(V)) \rightarrow \Fun(\CycB(V')). $$
+Under certain circumstances, the following formulas hold:
+\begin{equation}\label{Eq:NiceEqns}
+\BVOp^{(1)} = P\BVOp_0 I,\quad \BVOp^{(2)}=\BVOp^{(1)} + \{W,\cdot\}^{(1)}\quad\text{and}\quad P^{(2)} = Z.
+\end{equation}
+This is proven in \cite{Doubek2018} on $\Fun(V)$ when $V'=\Harm$ is a ``harmonic'' subspace in a Hodge decomposition $V = \Harm \oplus C$ into odd symplectic subspaces, $\pi$ and $\iota$ are the canonical projection and inclusion, respectively, the homotopy $\Htp$ is such that $(\pi,\iota,\Htp)$ is an SDR, and the homotopy $K$ was constructed from $\Htp$ via the tensor trick. Since we deal with the string $\BV$-operator on $\Fun(\CycB(V))$, we can not talk about this ``symplectic compatibility'' and the proof of \eqref{Eq:NiceEqns} might be based on another arguments.
+
+\begin{Question}[HPL and $\IBLInfty$]\label{Q:EqForm}
+If one picks an SDR of $V$ onto a harmonic subspace~$\Harm$ as above (basically equivalent to the setting of \cite[Section~11]{Cieliebak2015}) and constructs $K_\CycC$ and $K$ in a particular way, can one achieve that \eqref{Eq:NiceEqns} and the following identities hold?
+$$ \BVOp^{(1)} = \BVOp_0',\quad \BVOp^{(2)} = \BVOp^\MC, \quad W = \Action_{\HTP_* \MC},\quad P^{(1)} = e^\HTP,\quad P^{(2)}= e^{\HTP^\MC}. $$
+Here, $\Action_{\HTP_*\MC}$ denotes the action \eqref{Eq:MyAction} for the Maurer-Cartan element $\HTP_*\MC$.
+\end{Question}
+
+\begin{Remark}[On $\BV$-formalism for $\IBLInfty$]
+\begin{RemarkList}
+\item As summarized in \cite[Section~5]{Doubek2018}, given a $\BV$-action $\Action$, there are various approaches to obtain $W$ and $Z$ as summations over Feynman graphs (see \cite{Mnev2017} for the stationary phase formula approach).
+\item The appearance of Feynman graphs can be explained from the proof of \cite[Theorem~2]{Doubek2018}, where they show that in the special setting above, it holds
+$$ P^{(1)} = P e^{D_{\Prpg}} $$
+for an order $\le 2$ differential operator $D_{\Prpg}$ which ``connects'' two legs with the propagator~$\Prpg$ (obtained by ``rising one index'' of $\Htp$ using the odd symplectic form). This is reminiscent of the Wick's Theorem for the (formal) perturbative expansion of the path integral (the classical approach to quantum field theories).
+\item Having a $\BV$-formulation of the $\IBLInfty$-theory, it is intriguing to compare it to~\cite{Muenster2011}, where certain $\IBLInfty$-structures are considered in the context of open-closed string field theory.\qedhere
+\end{RemarkList}
+\end{Remark}
+\end{document}

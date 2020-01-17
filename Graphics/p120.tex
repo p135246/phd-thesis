@@ -1,0 +1,37 @@
+%auto-ignore
+\begin{tikzpicture}
+
+
+  \coordinate (P1) at (0,\hght);
+  \coordinate (P2) at (-0.5*\difO,0);
+  \coordinate (P3) at (0.5*\difO,0);
+  \coordinate (P4) at ($(P1)+(0,\dist)$);
+  \coordinate (P5) at ($(P4)+(0,\hght)$);
+%Pair of pants 
+ 
+  \draw (P5) arc (180:360:{\radO} and {\eccO});
+  \draw (P5) arc (180:0:{\radO} and {\eccO});
+  \draw (P4) arc (180:360:{\radO} and {\eccO});
+  \draw[dashed] (P4) arc (180:0:{\radO} and {\eccO});
+  \draw (P4) -- (P5);
+  \draw ($(P4)+(2*\rad0,0)$) -- ($(P5)+(2*\rad0,0)$);
+  
+  \draw (P1) arc (180:360:{\radO} and {\eccO});
+  \draw (P1) arc (180:0:{\radO} and {\eccO});
+  
+   \draw (P3) arc (180:360:{\radO} and {\eccO});
+  \draw[dashed] (P3) arc (180:0:{\radO} and {\eccO});
+  
+  \draw (P2) arc (180:360:{\radO} and {\eccO});
+  \draw[dashed] (P2) arc (180:0:{\radO} and {\eccO});
+  
+ \draw (P2) to[out=90,in=270] (P1);
+ \draw ($(P3)+(2*\radO,0)$) to[out=90,in=270] ($(P1)+(2*\radO,0)$);
+ \draw ($(P2)+(2*\radO,0)$) to[out=90,in=90] (P3); 
+ 
+% Labels 
+ 
+ \node at ($0.5*(P2)+(\radO,0)+0.5*(P3)+(0,0.21*\hghtO-.7*\dist)$) {$\OPQ_{120}$};
+
+  
+\end{tikzpicture}

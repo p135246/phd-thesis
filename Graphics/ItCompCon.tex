@@ -1,0 +1,125 @@
+%auto-ignore
+\begin{tikzpicture}
+
+\def\distI{4cm}
+\def\distII{6cm}
+\def\hghtI{4cm}
+\def\hghtII{.6cm}
+\def\lenII{.5cm}
+\def\angI{30}
+\def\angII{30}
+\def\angIII{10}
+\def\pI{.6cm}
+\def\pII{1.2cm}
+\def\RectHor{.2cm}
+\def\RectVer{0cm}
+
+\coordinate[label={[xshift=.45cm,yshift=-.1cm]$\delta^{(n)}$}] (AI) at (0,0);
+\coordinate[label={[xshift=.45cm,yshift=-.1cm]$\delta^{(n)}$}] (AII) at ($(AI) + (\distI,0)$);
+\coordinate[label={[xshift=.45cm,yshift=-.1cm]$\delta^{(n)}$}] (AIII) at ($(AII) + (\distII,0)$);
+\coordinate[label={[xshift=.5cm,yshift=-.5cm]$\mu^{(m)}$}] (AIV) at ($(AI) + (0,-\hghtI)$);
+\coordinate[label={[xshift=.5cm,yshift=-.5cm]$\mu^{(m)}$}] (AV) at ($(AIV) + (\distI,0)$);
+\coordinate[label={[xshift=.5cm,yshift=-.5cm]$\mu^{(m)}$}] (AVI) at ($(AV) + (\distII,0)$);
+
+\coordinate (AICI) at ($(AI) + (-\pII,-\hghtII)$);
+\coordinate (AICII) at ($(AI) + (-\pI,-\hghtII)$);
+\coordinate (AICIII) at ($(AI) + (\pII,-\hghtII)$);
+
+\coordinate (AIICI) at ($(AII) + (-\pII,-\hghtII)$);
+\coordinate (AIICII) at ($(AII) + (-\pI,-\hghtII)$);
+\coordinate (AIICIII) at ($(AII) + (\pII,-\hghtII)$);
+
+\coordinate (AIIICI) at ($(AIII) + (-\pII,-\hghtII)$);
+\coordinate (AIIICII) at ($(AIII) + (-\pI,-\hghtII)$);
+\coordinate (AIIICIII) at ($(AIII) + (\pII,-\hghtII)$);
+
+\coordinate (AIVCI) at ($(AIV) + (-\pII,\hghtII)$);
+\coordinate (AIVCII) at ($(AIV) + (-\pI,\hghtII)$);
+\coordinate (AIVCIII) at ($(AIV) + (\pII,\hghtII)$);
+
+\coordinate (AVCI) at ($(AV) + (-\pII,\hghtII)$);
+\coordinate (AVCII) at ($(AV) + (-\pI,\hghtII)$);
+\coordinate (AVCIII) at ($(AV) + (\pII,\hghtII)$);
+
+\coordinate (AVICI) at ($(AVI) + (-\pII,\hghtII)$);
+\coordinate (AVICII) at ($(AVI) + (-\pI,\hghtII)$);
+\coordinate (AVICIII) at ($(AVI) + (\pII,\hghtII)$);
+
+
+\draw (AI)--++(90:\lenII);
+\draw (AII)--++(90:\lenII);
+\draw (AIII)--++(90:\lenII);
+\draw (AIV)--++(-90:\lenII);
+\draw (AV)--++(-90:\lenII);
+\draw (AVI)--++(-90:\lenII);
+
+\draw (AICI) -- (AIVCI); 
+\draw (AICII) -- (AVCI); 
+\path (AICIII) -- (AVICI) coordinate[pos=.4] (PVIIS) coordinate[pos=.9] (PVIIE);
+\draw (AICIII) -- (PVIIS); \draw (PVIIE) -- (AVICI);
+\draw[dashed] (PVIIS) -- (PVIIE); 
+
+\path (AIICI) --  (AIVCII) coordinate[pos=.05] (PIS) coordinate[pos=.25] (PIE) {} coordinate[pos=.4] (PIIS) {} coordinate[pos=.6] (PIIE) {};
+\draw (AIICI) -- (PIS); \draw (PIE) -- (PIIS); \draw (PIIE) -- (AIVCII);
+\draw[dashed] (PIS) -- (PIE); \draw[dashed] (PIIS) -- (PIIE);
+\path (AIICII) -- (AVCII) coordinate[pos=.15] (PIIIS) coordinate[pos=.4] (PIIIE);
+\draw (AIICII) -- (PIIIS); \draw (PIIIE) -- (AVCII);
+\draw[dashed] (PIIIS) -- (PIIIE);
+\path (AIICIII) -- (AVICII) coordinate[pos=.1] (PVIS) coordinate[pos=.8] (PVIE);
+\draw (AIICIII) -- (PVIS); \draw (PVIE) -- (AVICII);
+\draw[dashed] (PVIS) -- (PVIE);
+
+\path (AIIICI) -- (AIVCIII) coordinate[pos=.1] (PIVS) coordinate[pos=.9] (PIVE) ;
+\draw (AIIICI) -- (PIVS); \draw (PIVE) -- (AIVCIII);
+\draw[dashed] (PIVS) -- (PIVE);
+
+\path (AIIICII) -- (AVCIII) coordinate[pos=.2] (PVS) coordinate[pos=.9] (PVE);
+\draw (AIIICII) -- (PVS); \draw (PVE) -- (AVCIII);
+\draw[dashed] (PVS) -- (PVE); 
+\draw (AIIICIII) -- (AVICIII);
+
+\draw (AI) -- (AICI);
+\draw (AI) -- (AICII);
+\draw (AI) -- (AICIII);
+
+\draw (AII) -- (AIICI);
+\draw (AII) -- (AIICII);
+\draw (AII) -- (AIICIII);
+
+\draw (AIII) -- (AIIICI);
+\draw (AIII) -- (AIIICII);
+\draw (AIII) -- (AIIICIII);
+
+\draw (AIV) -- (AIVCI);
+\draw (AIV) -- (AIVCII);
+\draw (AIV) -- (AIVCIII);
+
+\draw (AV) -- (AVCI);
+\draw (AV) -- (AVCII);
+\draw (AV) -- (AVCIII);
+
+\draw (AVI) -- (AVICI);
+\draw (AVI) -- (AVICII);
+\draw (AVI) -- (AVICIII);
+
+\tikzset{
+DecorMyDots/.style 2 args={decorate,decoration={shape backgrounds,shape=circle,shape size=#1,shape sep=#2},fill},
+DecorMyDots/.default={0.3mm}{2mm},
+DecorMyBrace/.style={decorate, decoration={brace,amplitude=#1}},
+DecorMyBrace/.default={7mm}
+};
+ 
+\draw[DecorMyDots] ($.3*(AII) + .7*(AIII) + .5*(0,\hghtII)$) -- ($.7*(AII) + .3*(AIII) + .5*(0,\hghtII)$);
+\draw[DecorMyDots] ($.3*(AV) + .7*(AVI) - .5*(0,\hghtII)$) -- ($.7*(AV) + .3*(AVI) - .5*(0,\hghtII)$);
+\draw[DecorMyBrace] ($(AI)+(-2*\lenII,\lenII)$) -- ($(AIII)+(2*\lenII,\lenII)$) node[midway,above,yshift=7mm]{$m$-times};
+\draw[DecorMyBrace] ($(AVI)+(2*\lenII,-\lenII)$) -- ($(AIV)+(-2*\lenII,-\lenII)$) node[midway,below,yshift=-7mm]{$n$-times};
+\draw[DecorMyDots] ($.7*(AICII) + .3*(AICIII) + .3*(0,\hghtII)$) -- ($.4*(AICII) + .6*(AICIII) + .3*(0,\hghtII)$);
+\draw[DecorMyDots] ($.7*(AIICII) + .3*(AIICIII) + .3*(0,\hghtII)$) -- ($.4*(AIICII) + .6*(AIICIII) + .3*(0,\hghtII)$);
+\draw[DecorMyDots] ($.7*(AIIICII) + .3*(AIIICIII) + .3*(0,\hghtII)$) -- ($.4*(AIIICII) + .6*(AIIICIII) + .3*(0,\hghtII)$);
+\draw[DecorMyDots] ($.7*(AVICII) + .3*(AVICIII) + .3*(0,-\hghtII)$) -- ($.4*(AVICII) + .6*(AVICIII) + .3*(0,-\hghtII)$);
+\draw[DecorMyDots] ($.7*(AVCII) + .3*(AVCIII) + .3*(0,-\hghtII)$) -- ($.4*(AVCII) + .6*(AVCIII) + .3*(0,-\hghtII)$);
+\draw[DecorMyDots] ($.7*(AIVCII) + .3*(AIVCIII) + .3*(0,-\hghtII)$) -- ($.4*(AIVCII) + .6*(AIVCIII) + .3*(0,-\hghtII)$);
+
+\draw[dotted] ($(AICI)+(-\RectHor,\RectVer)$) -- ($(AIIICIII)+(\RectHor,\RectVer)$) -- ($(AVICIII)+(\RectHor,-\RectVer)$) node[midway,right] {$\sigma_{m,n}$} -- ($(AIVCI)+(-\RectHor,-\RectVer)$) -- cycle;
+
+\end{tikzpicture}

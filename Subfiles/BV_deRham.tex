@@ -1,0 +1,78 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+\begin{document}
+
+\section{Homological perturbation lemma}
+
+
+\begin{Remark}[Origin of $\BV$-formalism in physics]
+in $\BRST$ we have clasical fields $x$ and ghosts $c$ (and Lagrange multiplier $\lambda$ and $\bar{c}$ for gauge fixing)
+in $\BV$-formalism add anti-fields and anti-ghosts
+$$ \int_{V_0} \Vol(G) \int_{V_0/G} f(v) e^{S_{\BRST}}$$
+Having $S$, they use the 
+resolution of the integration
+$$(V_{\BV}\coloneqq T^*[-1]V_{\BRST},) \rightarrow (V_{\BRST},\int,Q,\Action_{\BRST} =)\rightarrow (V_0,\int,\Action_0)$$
+-and $\Action_0$ gets written as $\Action_{\BRST} = \Action_0 +  Q(\Psi)$, where $\Psi$ is a $Q$-exact term depending on $\lambda$, $\bar{c}$ and $c$ (and Faddeev Poppov determinant and gauge fixing) called the gauge fixing fermion. Now, eventhough $\int_{V_0} e^{\Action_0}$ does not exist, $\int_V e^{\Action_{\BRST}}$ exists and does not depend $\Psi$. To remove the choice completely, one considers the $\BV$-formalism on odd cotangent bundle $V_{\BV} = T^*[1] V_{0}$ with the canonical odd symplectic form, where there is a well-defined notion of integration over a Lagrangian subspace $L \subset V_{\BV}$ which does not depend on $L$ if  the integrand is $\BV$-closed. The choice of $\Psi$ then corresponds to the choice of $L$. Having $V_0 = \Harm \oplus C$ of ``harmonic'' and the rest and. This amounts 
+$$ Z:  $$
+$\BRST$ extends the space of fields 
+$$ $$
+$$ \int_V f(v) e^{\Action(v)} $$
+\end{Remark}
+
+
+In \cite{Doubek2018}, they consider multilinear operations $l_{kg}: V^{\otimes k} \rightarrow \R$ for $k\ge 1$, $g\ge 0$ on an odd symplectic vector space~$V$ and write down an action $\Action\in \Fun(V)$ similar to \eqref{Eq:MyAction} with~$\MC_{kg}$ replaced with~$l_{kg}^+$. Notice that whereas they have $l^+_{kg}(v,\dotsc,v)$ for a ``field'' $v\in V$, we have $\MC_{kg}(v_1,\dotsc,v_k)$ for a ``string of fields'' $v_1\dotsb v_k\in \CycB(V)$. They consider the Schwarz's canonical $\BV$-operator on $\Fun(V)$ and show that $\Action$ satisfies the quantum master equation if and only if $(l_{kg})$ satisfy the relation of a quantum $\LInfty$-algebra. This is equivalent to the notion of a loop homotopy algebra from \cite{Markl1997} and to string brackets in closed string field theory from \cite{Zwiebach1992}.
+
+In order to transform \eqref{Eq:QME} and \eqref{Eq:Twist} to the convention of \cite{Doubek2018}, we make the substitutions $\BVOp \mapsto \BVOp$ and $S \mapsto S = \hbar S$.
+
+
+A deformation retract \eqref{Eq:DefRetr} induces a deformation retract
+\begin{equation*}
+\begin{tikzcd}
+\bigl(\CycC(V),\OPQ_{110}\bigr) \arrow[loop left]{l}{K_\CycC}\arrow[shift left]{r}{P_\CycC} & \arrow[shift left]{l}{I_\CycC} \bigl(\CycC(V'),\OPQ_{110}'\bigr),
+\end{tikzcd}
+\end{equation*}
+which further induces a deformation retract
+\begin{equation*}
+\begin{tikzcd}
+\bigl(\Fun(B(V)),\hat{\OPQ}_{110}\bigr) \arrow[loop left]{l}{K}\arrow[shift left]{r}{P} & \arrow[shift left]{l}{I} \bigl(\Fun(B(V')),\hat{\OPQ}_{110}'\bigr).
+\end{tikzcd}
+\end{equation*}
+We can take $P$ and $P$, resp.~$I$ and $I$ to be the natural extensions of $\iota^*$, resp.~$\pi^*$. In~\cite{Doubek2018}, they write down formulas for $K_F$ given $K$ using a tensor trick due to Eilenberg Mac-Lane (the same method may apply to get $K$ from $\Htp$ too). Note that any surjective quasi-isomorphism over $\R$ is a deformation retract.\ToDo[caption={injectiv qi},noline]{Are injective quasi-isomorphisms sections of deformatino retractions?} They idea of \cite{Doubek2018} would be to view $\BVOp$ and $\BVOp^\MC$ as perturbations of $\{\FreeAction,\cdot\} = \hat{\OPQ}_{110}$ and apply the Homological Perturbation Lemma from \cite{Crainic2004} to obtain deformation retracts
+\begin{equation*}\begin{tikzcd}[execute at end picture={
+\draw[->,dashed] (3.5,1.5) to[out=0,in=90] node[midway,right,xshift=.5cm]{$\delta^{(1)} = \BVOp_0$} (5,.75) to[out=-90,in=0] (3.5,0);
+\draw[->,dashed] (3.5,1.5) to[out=0,in=0] node[pos=0.8,right,xshift=.3cm]{$\delta^{(2)} = \BVOp_0 + \{\IntAction,\cdot\}$} (3.5,-1.5);
+}]
+\bigl(\Fun(B(V)),\hat{\OPQ}_{110}\bigr) \arrow[loop left]{l}{K}\arrow[shift left]{r}{P} & \arrow[shift left]{l}{I} \bigl(\Fun(B(V')),\hat{\OPQ}_{110}'\bigr) \\
+\bigl(\Fun(B(V)),\BVOp \bigr) \arrow[loop left]{l}{K^{(1)}}\arrow[shift left]{r}{P^{(1)}} & \arrow[shift left]{l}{I^{(1)}} \bigl(\Fun(B(V')),\BVOp^{(1)}\bigr)\\
+\bigl(\Fun(B(V)),\BVOp^\MC \bigr) \arrow[loop left]{l}{K^{(2)}}\arrow[shift left]{r}{P^{(2)}} & \arrow[shift left]{l}{I^{(2)}} \bigl(\Fun(B(V')),\BVOp^{(2)}\bigr)
+\end{tikzcd}\end{equation*}
+where
+\begin{align*} 
+ \BVOp^{(i)} &= \hat{\OPQ}_{110}' + P(\Id - \delta^{(i)}K)^{-1}\delta^{(i)} I = \hat{\OPQ}_{110}' + P \delta^{(i)} I + P \delta^{(i)} K \delta^{(i)} I + \dotsb  \\
+ I^{(i)} &= I + K(\Id - \delta^{(i)}K)^{-1}\delta^{(i)} I = I + K \delta^{(i)} I + K \delta^{(i)} K \delta^{(i)} I + \dotsb \\
+ P^{(i)} &= P + P(\Id-\delta^{(i)}K)^{-1}\delta^{(i)} K = P + P \delta^{(i)} K + P \delta^{(i)} K \delta^{(i)} K + \dotsb\\
+ K^{(i)} &= K + K(\Id-\delta^{(i)}K)^{-1}\delta^{(i)}K = K + K\delta^{(i)} K + K \delta^{(i)} K \delta^{(i)} K + \dotsb
+\end{align*}
+The prerequisite for this is ``smallness'' of $\delta^{(i)}$, i.e., that $(\Id - \delta^{(i)} K)$ is invertible, plus another condition which guarantees $P(A K^2 A + A K + K A)I = 0$ where $A= (\Id - \delta K)\delta$. In the case of a special deformation retract, it holds automatically.
+
+In the special case of being the deformation retract onto the Hodge decomposition 
+
+$$ \BVOp^{(1)} = P\BVOp_0 I,\quad \BVOp^{(2)}=\BVOp^{(1)} + \{W,\cdot\}^{(1)}\quad\text{and}\quad P^{(2)}_{\Fun} = Z $$
+
+and define the \emph{effective action} 
+$$W \coloneqq \log\bigl(P'(e^{\IntAction})\bigr) \in \Fun(\CycB(V'))$$
+and the \emph{path integral}
+$$P^{(2)}_{\Fun} \coloneqq L_{\bigl(P'(e^{\IntAction})\bigr)^{-1}} \circ P'_{\Fun} \circ L_{P'(e^{\IntAction})}: \Fun(\CycB(V)) \rightarrow \Fun(\CycB(V')).$$
+
+
+\begin{Question}
+Can one choose the data and apply the Lemma to get
+$$ \BVOp^{(1)} = \BVOp_0', \quad W = \Action_{\HTP_* \MC},\quad P^{(1)} = e^\HTP,\quad P^{(2)}= e^{\HTP^\MC} $$
+\end{Question}
+
+
+The article of \cite{Doubek2018} contains references of other authors on how to get the path integral.
+
+The Chern-Simons is 
+\end{document}

@@ -1,0 +1,75 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\begin{document}
+\section{Homology of twisted IBL-infinity structure for complex projective space}
+%Computation of \texorpdfstring{$\OPQ_{210}$ and $\OPQ_{120}$}{q210 and q120}
+\label{Section:CPn1}
+Let $\Kaehler\in \DR^2(\CP^n)$ be the Fubini--Study K\"ahler form on $\CP^n$ (see \cite[Examples 3.1.9]{Huybrechts2004}). The powers of $\Kaehler$ are harmonic,\footnote{This follows by induction on the power of $\Kaehler$ using the fact that, on a general K\"ahler manifold $M$, the Lefschetz operator $\Lef: \DR(M)\rightarrow \DR(M)$ defined by $\Lef(\eta)\coloneqq \eta \wedge \Kaehler$ for all $\eta\in \DR(M)$ commutes with the Hodge--de Rham Laplacian~$\Delta$ (see \cite[Chapter 3]{Huybrechts2004}). } and we get easily
+$$ \Harm(\CP^n) = \langle 1,\Kaehler, \dotsc, \Kaehler^n \rangle. $$
+We denote the Riemannian volume of $\CP^n$ by
+$$ V\coloneqq \int_{\CP^n} \frac{1}{n!}\Kaehler^n. $$
+Consider the basis $e_0$, $\dotsc$, $e_n$ of $\Harm(\CP^n)[1]$ defined for all $i=0$, $\dotsc$, $n$ by
+$$ e_i\coloneqq \frac{\NK^i}{(n! V)^{\frac{i}{n}}}, \quad \text{where}\quad\NK^i\coloneqq \SuspU \Kaehler^i. $$
+The matrix of the pairing $\Pair$ from~\eqref{Eq:DeRhamDGA} with respect to the basis $e_0$,~$\dotsc$,~$e_{n}$ reads:
+$$ (\Pair^{ij}) = \begin{pmatrix}
+0 & \dotsb & 1 \\
+\vdots & {\displaystyle\, .^{{\displaystyle \, .^{\displaystyle\,.}}}} & \vdots \\
+1 & \dotsb & 0
+\end{pmatrix}. $$
+The basis $e^0$, $\dotsc$, $e^n$ dual to $e_0$, $\dotsc$, $e_n$ with respect to $\Pair$ thus satisfies
+$$ e^i = e_{n-i}\quad\text{for all }i=0,\dotsc,n. $$
+Therefore, the following holds for the matrix $(T^{ij})$ from~\eqref{Eq:PropagatorT}:
+\begin{equation*}
+(T^{ij}) = - (\Pair^{ij}).
+\end{equation*}
+For all $1\le i, j, k \le n$, we have
+$$ \mu_2(e_i, e_j) = e_{i+j}\quad \text{and}\quad
+\MC_{10}(\Susp e_{i}e_j e_k) = \delta_{i+j+k,n}. $$
+For $\psi$, $\psi_1$, $\psi_2 \in \CDBCyc \Harm$ and generating words $\omega$, $\omega_1$, $\omega_2 \in \BCyc\Harm$, we chave
+\begin{equation*}
+\begin{aligned}
+\OPQ_{210}(\Susp^2 \psi_1 \otimes \psi_2)(\Susp \omega) &= -\sum_{i=0}^n \sum \varepsilon(\omega\mapsto \omega^1\omega^2)(-1)^{\Abs{\omega^1}} \psi_1(e_i \omega^1)\psi_2(e_{n-i}\omega^2), \\
+\OPQ_{120}(\Susp \psi)(\Susp^2 \omega_1 \otimes \omega_2) & = - \sum_{i=0}^n \sum \varepsilon(\omega_1 \mapsto \omega_1^1)\varepsilon(\omega_2\mapsto \omega_2^1) (-1)^{\Abs{\omega_1}} \psi(e_i \omega_1^1 e_{n-i} \omega_2^1).
+\end{aligned}
+\end{equation*}
+
+The cyclic homology of $\Harm(\CP^n)$ is that of the truncated polynomial algebra $$ A \coloneqq\R[x]/(x^{n+1})\quad\text{with }\Deg(x)=2. $$
+The computation of $\ClasCycH(A)$ for $\Abs{x}=0$ over a field is the goal of \cite[Exercise 4.1.8.]{LodayCyclic} or \cite[Exercise 9.1.1]{Weibel1994}. The case of $\Abs{x} = d$ can be solved by taking suitable degree shifts in the proposed projective resolution which is used to compute $\H\H(A)$. Unfortunately, using a non-canonical projective resolution, we lose the concrete form of the cyclic cycles and obtain just the following result:
+
+For all $i=1$, $\dotsc$, $n$ and $k\in \N_0$, there are cycles $\tilde{t}_{2k+1,i}\in  \tilde{D}_q(A)$ of weights $2k+1$ and degrees $d(i+(n+1)k)$ which form a basis of $\ClasCycH(A)$. We apply the degree shift $U: \tilde{D}(A) \rightarrow D(A)$ from Proposition~\ref{Prop:DGA} to get the generators
+$$ t_{w,i} \coloneqq U(\tilde{t}_{w,i}) \in D^\lambda( \Harm(\CP^n)) $$
+of weights $w$ and degrees $2i+ (w-1)n -1$, so that
+$$ \H^\lambda(\Harm(\CP^n)) = \langle t_{w,i}, \NOne^{w} \mid w\in \N \text{ odd}, i=1,\dotsc, n\rangle. $$
+By the universal coefficient theorem we have $\H_\lambda^* = (\H^\lambda)^{\GD}$ with respect to the grading by the degree. Given $d\in \Z$, the equation $d= 2i + (w-1)n - 1$ has only finitely many solution $(w,i) \in \N \times \{1,\dotsc,n\}$, and hence we get
+\begin{equation}\label{Eq:CPnHom}
+\HIBL^\MC(\CycC(\Harm(\CP^n))) = \langle \Susp t_{w,i}^*, \Susp\NOne^{w*} \mid w\in \N \text{ odd}, i=1,\dotsc, n \rangle,
+\end{equation}
+where $t_{w,i}^*$ and $\NOne^{w*} \in \DBCyc \Harm$ are the duals to $t_{w,i}$ and $\NOne^{w}$, respectively (see Remark~\ref{Rem:UCT}). Notice that both $\Abs{\Susp t_{w,i}^*}$ and $\Abs{\Susp \NOne^{w*}}$ are even since $\Abs{\Susp} = 2n-3$.
+
+Because $\CP^n$ is geometrically formal, Proposition~\ref{Prop:GeomForm} implies that $\PMC_{10} = \MC_{10}$. Because $\HIBL^\MC(\CycC)$ is concentrated in even degrees and because a general $\IBLInfty$-operation $\OPQ_{klg}$ is odd, all operations vanish on the homology. Therefore, for the \emph{twisted $\IBL$-algebras} we have
+\begin{equation*}
+\IBL(\HIBL^\PMC(\CycC)) = \IBL(\HIBL^\MC(\CycC)) = (\HIBL^\MC(\CycC), \OPQ_{210} \equiv 0, \OPQ_{120}\equiv 0),
+\end{equation*}
+where $\HIBL^\MC(\CycC)$ is given by \eqref{Eq:CPnHom}.
+
+According to \cite[Section 3.1.2]{Basu2011}, the minimal model for the Borel construction $\LoopBorel \CP^n$ is the cdga $\Lambda^{\mathrlap{\Sph{1}}\hphantom{S}}(n+1,1)$, which is freely generated (over $\R$) by the homogenous vectors $x_1$, $x_2$, $y_1$, $y_2$, $u$ of degrees
+$$ \Abs{x_1} = 2,\quad \Abs{x_2} = 2n+1,\quad \Abs{y_1} = 1,\quad \Abs{y_2} = 2n, \quad \Abs{u} = 2, $$
+and whose differential $\Dd$ satisfies
+$$ \Dd y_1 = 0,\quad \Dd x_1 = y_1 u,\quad \Dd y_2 = -(n+1) x_1^n y_1,\quad \Dd x_2 = x_1^{n+1} + y_2 u. $$
+By \cite[Theorem 3.6]{Basu2011}, the string cohomology $\StringCoH^*(\Loop \CP^n; \R)\simeq \H(\Lambda^{\mathrlap{\Sph{1}}\hphantom{S}}(n+1,1),\Dd)$ satisfies for all $m\in \N_0$ the following:
+\begin{align*}
+\StringCoH^m(\Loop \CP^n; \R) = \begin{cases} 
+\langle u^j \rangle & \text{if }m=2j, \\
+\langle y_1 y_2^p x_1^q \mid 0\le q \le n-1, p\ge 0; q + n p = j\rangle & \text{if }m=2j+1.
+\end{cases}
+\end{align*}
+The right-hand side can be identified with $\StringH(\Loop \CP^n; \R)$ by the universal coefficient theorem. According to \cite[Proposition 3.7]{Basu2011}, we have $\StringOp_2 = 0$ and $\StringCoOp_2 = 0$. We conclude that the map
+$$\begin{aligned}
+ \HIBL^\PMC(\RedCycC(\Harm(\CP^n)))[1] & \longrightarrow \RedStringH(\Loop \CP^n; \R)[3-n] \\
+\Susp t^*_{2k+1,l} & \longmapsto \Susp y_1 y_2^k x_1^{l-1}\qquad\text{for }k\ge 0\text{ and }l=1,\dotsc, n
+\end{aligned} $$
+induces an isomorphism of $\IBL$-algebras
+$$ \IBL(\HIBL^\PMC(\RedCycC(\Harm(\CP^n)))) \simeq \IBL(\RedStringH(\Loop \CP^n; \R)[3-n]). $$
+\end{document}

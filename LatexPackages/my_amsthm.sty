@@ -1,0 +1,156 @@
+\newcommand{\FunDef}[2][]{\begin{aligned}[#1]#2 \end{aligned}}
+
+\newcommand\BlackQED{\hfill $\blacksquare$}
+
+% Using thmtools.sty
+
+
+\declaretheoremstyle[
+  spaceabove=\topsep, spacebelow=\topsep,
+  %headfont=\bfseries\scshape,
+  %notefont=\mdseries, notebraces={(}{)},
+  bodyfont=\itshape,
+  postheadspace=1em,
+  %qed=\qedsymbol
+]{IntroThmStyle}
+
+\declaretheoremstyle[style=definition
+%  spaceabove=\topsep, spacebelow=\topsep,
+%  headfont=\bfseries,
+%  %notefont=\mdseries, notebraces={(}{)},
+%  bodyfont=\itshape,
+%  postheadspace=1em,
+%  %qed=\qedsymbol
+]{MyDef}
+
+\declaretheoremstyle[
+%  spaceabove=\topsep, spacebelow=\topsep,
+%  headfont=\bfseries,
+%  %notefont=\mdseries, notebraces={(}{)},
+%  bodyfont=\itshape,
+%  postheadspace=1em,
+%  %qed=\qedsymbol
+]{MyThm}
+
+\declaretheoremstyle[style=remark
+%  spaceabove=\topsep, spacebelow=\topsep,
+%  headfont=\bfseries,
+%  %notefont=\mdseries, notebraces={(}{)},
+%  bodyfont=\itshape,
+%  postheadspace=1em,
+%  %qed=\qedsymbol
+]{MyRem}
+
+\declaretheoremstyle[
+  spaceabove=\topsep, spacebelow=\topsep,
+  %headfont=\normalfont\scshape,
+  %notefont=\mdseries, notebraces={(}{)},
+  bodyfont=\normalfont,
+  postheadspace=1em,
+  qed=\BlackQED
+]{MyMathBlockQED}
+
+\declaretheoremstyle[style=plain,
+  headfont=\normalfont\itshape
+  %notefont=\mdseries, notebraces={(}{)},
+]{subclaim}
+
+\declaretheoremstyle[style=prooftheorem,
+  headfont=\normalfont\itshape
+  %notefont=\mdseries, notebraces={(}{)},
+]{prooftheorem}
+
+\declaretheorem[style=plain,name=Lemma,parent=section]{Lem}
+%\declaretheorem[style=plain,name=Calculation]{Calculation}
+\declaretheorem[style=plain,name=Proposition,numberlike=Lem]{Proposition}
+\declaretheorem[style=plain,name=Notation,numberlike=Lem]{Notation}
+\declaretheorem[style=plain,name=Definition,numberlike=Lem]{Def}
+\declaretheorem[style=plain,name=Definition,numberlike=Lem]{Definition}
+\declaretheorem[style=plain,name=Claim,numberlike=Lem]{Claim}
+\declaretheorem[style=subclaim,name=Subclaim,unnumbered]{SubClaim}
+\declaretheorem[style=plain,name=Conjecture,numberlike=Lem]{Conjecture}
+\declaretheorem[style=plain,name=Theorem,numberlike=Lem]{IntroThm}
+\renewcommand*{\theIntroThm}{\Alph{IntroThm}}
+
+\declaretheorem[style=plain,name=Theorem,numberlike=Lem]{Thm}
+\declaretheorem[style=plain,name=Theorem,numberlike=Lem]{Theorem}
+
+\declaretheorem[style=prooftheorem,name=Theorem,parent=section]{ProofTheorem}
+
+\declaretheorem[style=prooftheorem,name=Proposition,parent=section]{ProofProposition}
+
+\declaretheorem[style=plain,name=Lemma,numberlike=Lem]{Lemma}
+\declaretheorem[style=plain,name=Corollary,numberlike=Lem]{Cor}
+\declaretheorem[style=plain,name=Corollary,numberlike=Lem]{Corollary}
+\declaretheorem[style=remark,name=Remark,qed=\BlackQED, numberlike=Lem]{Rem}
+\declaretheorem[style=remark,name=Remark,qed={\lower-0.3ex\hbox{$\lhd$}},numberlike=Lem]{Remark}
+\declaretheorem[style=remark,name=Example,qed={\lower-0.3ex\hbox{$\lhd$}},numberlike=Lem]{Example}
+
+\declaretheorem[style=plain,name=Question,numberlike=Lem]{Question}
+\declaretheorem[style=remark,name=Questions,numberlike=Lem]{Questions}
+
+\newtheorem{Open}{Open question}
+
+% Using amsthm.sty
+
+%\theoremstyle{definition}
+%\newtheorem{Def}{Definition}
+%\newtheorem{Claim}{Claim}
+%\newtheorem{Thm}{Theorem}
+%\newtheorem{Lem}{Lemma}
+%\newtheorem{Cor}{Corrolary}
+%\newtheorem{Rem}{Remark}
+%\newtheorem{Example}{Example}
+
+
+% ==========================
+% LISTS
+% ==========================
+
+\newlist{ClaimListAlph}{enumerate}{5}
+\setlist[ClaimListAlph]{leftmargin=1.7em,itemindent=*,label=\alph*)}
+
+\newlist{ClaimListRoman}{enumerate}{5}
+\setlist[ClaimListRoman]{leftmargin=0cm,itemindent=*,label=\roman*)}
+
+\newlist{ClaimListArab}{enumerate}{5}
+\setlist[ClaimListArab]{leftmargin=0cm,itemindent=*,label=\arabic*)}
+
+\newlist{ProofListAlph}{enumerate}{5}
+\setlist[ProofListAlph]{leftmargin=0cm,itemindent=*,label=\alph*)}
+
+\newlist{ProofListRoman}{enumerate}{5}
+\setlist[ProofListRoman]{leftmargin=0cm,itemindent=*,label=\roman*)}
+
+\newlist{ProofListArab}{enumerate}{5}
+\setlist[ProofListArab]{leftmargin=0cm,itemindent=*,label=\arabic*)}
+
+\newlist{ExampleListAlph}{enumerate}{5}
+\setlist[ExampleListAlph]{leftmargin=0cm,itemindent=*,label=\alph*)}
+
+\newlist{ExampleListRoman}{enumerate}{5}
+\setlist[ExampleListRoman]{leftmargin=0cm,itemindent=*,label=\roman*)}
+
+\newlist{ExampleListArab}{enumerate}{5}
+\setlist[ExampleListArab]{leftmargin=0cm,itemindent=*,label=\arabic*)}
+
+\newlist{PlainListAlph}{enumerate}{5}
+\setlist[PlainListAlph]{leftmargin=0cm,itemindent=*,label=\alph*)}
+
+\newlist{PlainListRoman}{enumerate}{5}
+\setlist[PlainListRoman]{leftmargin=0cm,itemindent=*,label=\roman*)}
+
+\newlist{PlainListArab}{enumerate}{5}
+\setlist[PlainListArab]{leftmargin=0cm,itemindent=*,label=\arabic*)}
+
+\newlist{RemarkListAlph}{enumerate}{5}
+\setlist[RemarkListAlph]{leftmargin=0cm,itemindent=*,label=\alph*)}
+
+\newlist{RemarkListRoman}{enumerate}{5}
+\setlist[RemarkListRoman]{leftmargin=0cm,itemindent=*,label=\roman*)}
+
+\newlist{RemarkListArab}{enumerate}{5}
+\setlist[RemarkListArab]{leftmargin=0cm,itemindent=*,label=\arabic*)}
+
+
+

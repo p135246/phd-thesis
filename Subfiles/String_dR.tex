@@ -1,0 +1,89 @@
+%auto-ignore
+\providecommand{\MainFolder}{.}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+
+\begin{document}
+	
+
+\section{Canonical dIBL-structures on cyclic cochains of de Rham cohomology} \label{Sec:Manifold1}
+%Proof of Proposition~\ref{Proposition:TwistedIBLSphere}
+%\newlength{\messyeqjot}
+%\setlength{\messyeqjot}{8pt}
+%\def\IncSpace{\setlength{\jot}{\messyeqjot}
+%\setlength{\abovedisplayskip}{1.5\messyeqjot}
+%\setlength{\belowdisplayskip}{1.5\messyeqjot}}
+Let $M$ be an oriented closed Riemannian manifold of dimension $n$. We consider the following graded vector spaces:
+$$\begin{aligned}
+\DR^*(M) &\;\,\dots && \text{smooth de Rham forms}, \\
+\Harm^*(M) &\;\,\dots &&\text{harmonic forms}, \\
+\H_{\mathrm{dR}}^*(M) &\;\,\dots && \text{de Rham cohomology}.
+\end{aligned}$$
+Since $M$ is fixed, we often write just $\DR$, $\Harm$ and~$\HDR$. We consider the Hodge decomposition $\DR=\Harm\oplus\Im\Dd\oplus\Im\CoDd$, where~$\Dd$ is the de Rham differential and~$\CoDd$ the codifferential. We call the corresponding projection
+\begin{equation}\label{Eq:HarmProj}
+\pi_\Harm: \DR^*(M) \longrightarrow \Harm^*(M) 
+\end{equation}
+the \emph{harmonic projection} and the induced isomorphism $\pi_\Harm: \H_{\mathrm{dR}} \rightarrow \Harm$ mapping a cohomology class into its unique harmonic representative the \emph{Hodge isomorphism}.
+
+\begin{Notation}[Updated notation for bar complexes] \label{Def:DeRham}
+We use Notation~\ref{Def:Notation} for $V=\DR{}$, $\Harm{}$, $\H_{\mathrm{dR}}{}$ and $A=n-3$ with the following changes:
+$$\tilde{v}\sim \eta \in V,\quad v \sim \alpha\in V[1],\quad w\sim \omega \in \BCyc V, \quad \W\sim \Omega\in \BCyc V[n-3]. $$
+We use the formal symbols $\Susp$ and $\SuspU$ with $\Abs{\Susp} = n - 3$ and $\Abs{\SuspU} = -1$, so that $\alpha = \SuspU \eta$ and $\Omega = \Susp \omega$.
+\end{Notation}
+% 
+%\begin{Remark} \label{Rem:SignConv}
+%Originally, the author used the following degree shift convention instead of~\eqref{Eq:DegreeShiftConv}:
+%$$ (\Susp^{l}_*\widebar{\Susp}^{k*} f)(\Susp^{k} \psi_1 \otimes \dotsb \otimes \psi_k ) = (-1)^{k \Abs{s}\Abs{f} + \frac{1}{2}k(k-1) \Abs{s}} \Susp^l f(\psi_1 \otimes \dotsb \otimes \psi_k). $$
+%It is namely a natural extension of the Koszul convention compatible with all common Koszul identifications and the composition in the dg-category. Here $\DeSusp$ denotes the inverse to $\Susp$ with degree $\Abs{\widebar{\Susp}} = - \Abs{\Susp}$, $\Susp_*^l f = \Susp^l \circ f$, $\DeSusp^{k*}f = (-1)^{k \Abs{s}\Abs{f}} f\circ \DeSusp^k$, and the sign $(-1)^{\frac{1}{2}k(k-1) \Abs{s}} = \varepsilon(\Susp, \DeSusp)$ comes from colliding $\DeSusp_1\dots \DeSusp_k \Susp_1 \dots \Susp_k \mapsto \DeSusp_1 \Susp_1 \dots \DeSusp_k \Susp_k = \Id$.
+%Notice that according to this convention a sign appears in~\eqref{Eq:EvaluationConvention}. The reason for a ``canonical'' sign convention was to explain some artificial signs in~\cite[Chapters 10--12]{Cieliebak2015} and develop an invariant framework in which the signs for the de Rham case, i.e., the canonical Fr\'echet $\dIBL$-structure from \cite[Chapter~13]{Cieliebak2015} (will appear in \cite{MyPhD}) and the formal pushforward Maurer-Cartan element (see Definition~\ref{Def:PushforwardMCdeRham}), could be deduced naturally. However, Claims 4 and 5 which handle disconnected graphs in the proof of~\cite[Theorem 11.3]{Cieliebak2015} do not seem to hold using this convention. Eventually, instead of the left-right Koszul convention, the top-bottom convention from~\cite{Cieliebak2015} was adopted:
+%
+%As we mentioned before Definition~\ref{Def:CircS}, we think of $f: \DBCyc \Harm(M)[3-n]^{\otimes k} \rightarrow \DBCyc \Harm(M)[3-n]^{\otimes l}$ as of a Riemannian surface with $k$ incoming ends at the top and $l$ outgoing ends at the bottom (c.f.\ the schematic formulas~\eqref{Eq:TwisteddIBL}). Inputs $\Psi_i$ are fed to the ends at the top and $f(\Psi_1\otimes \dotsb \otimes \Psi_k)$ is evaluated on $\Omega_1\otimes \dotsb \otimes \Omega_l$ by feeding $\Omega_i$ to the ends at the bottom. A (partial) composition of two maps is then viewed as putting the corresponding Riemannian surfaces on top of each other, together with an appropriate number of trivial cylinders so that the number of incoming and outgoing ends in between is equal, and gluing them together at the opposing ends (see~\cite[Figure~2]{Cieliebak2015}). 
+%\end{Remark}
+
+
+\begin{Proposition}[De Rham cyclic dga's]\label{Prop:DGAs}
+Let $M$ be an oriented closed Riemannian manifold of dimension $n$. The quadruple $(\DR(M), \Pair, m_1, m_2)$ with the operations from~\eqref{Eq:DeRhamDGA} is a cyclic dga of degree $2-n$.
+% (see Definition~\ref{Def:CyclicAinfty}).
+For the operations before the degree shift, we have
+\begin{align*}
+\tilde{m}_1(\eta_1) & = \Dd \eta_1, \\[\jot]
+\tilde{m}_2(\eta_1, \eta_2) &= \eta_1 \wedge \eta_2, \\ 
+\tilde{\Pair}(\eta_1, \eta_2) &=  \int_M \eta_1 \wedge \eta_2 \eqqcolon (\eta_1,\eta_2),
+\end{align*}
+where $\Dd$ is the de Rham differential, $\wedge$ the wedge product and $\tilde{\mathcal{P}}$ the \emph{intersection pairing}. 
+%We call it the \emph{de Rham algebra} and denote simply by $\H_{\mathrm{dR}}(M)$. 
+The operations restrict to $\H_{\mathrm{dR}}(M)$ and make $(\H_{\mathrm{dR}}(M),\Pair,m_1\equiv 0,m_2)$ into a cyclic dga. If we define $\mu_1 \equiv 0$ and
+\begin{equation}\label{Eq:HarmProd}
+\mu_2(\alpha_1, \alpha_2) \coloneqq \pi_{\Harm}(m_2(\alpha_1, \alpha_2))\quad \text{for all }\alpha_1, \alpha_2 \in \Harm(M)[1],
+\end{equation}
+then $(\Harm(M), \Pair, \mu_1, \mu_2)$ is a cyclic dga as well, and $\pi_\Harm: \H_{\mathrm{dR}} \rightarrow \Harm$ is an isomorphism of cyclic dga's. All three dga's $\DR$, $\H_{\mathrm{dR}}$ and $\Harm$ are strictly unital and strictly augmented with the unit $\NOne\coloneqq \SuspU 1 \in \DR[1]$, where $1$ is the constant one.
+\end{Proposition}
+
+\begin{proof}
+The relations \eqref{Eq:CycDGA} follow from the classical properties of $\Dd$ and $\wedge$ and from the Stokes' theorem for oriented closed manifolds. The Poincar\'e duality asserts that $(\cdot,\cdot)$ is non-degenerate on $\H_{\mathrm{dR}}{}$ and~$\Harm{}$, and thus they are cyclic dga's as well. The fact that $\pi_\Harm : \H_{\mathrm{dR}}{}\rightarrow \Harm{}$ is an isomorphism of vector spaces follows from the Hodge theory. As for compatibility with the product, given $\eta_1$, $\eta_2 \in \Harm{}$, then $\eta_1 \wedge \eta_2$ is closed, and since $\Ker \Dd = \Harm \oplus \Im \Dd$, we see that $\pi_{\Harm}(\eta_1 \wedge \eta_2) = \eta_1 \wedge \eta_2 + \Dd \eta$ for some $\eta\in \DR$ is a harmonic representative of the cohomology class $[\eta_1 \wedge \eta_2] = [\eta_1] \wedge [\eta_2]$. Unitality is obvious, and the construction of an augmentation map clear. Note that a strict augmentation for $\DR(M)$ is the evaluation at a point, for instance. 
+\end{proof}
+
+The facts (A) and (C) from the Introduction apply to the cyclic dga's $\Harm{}$ and~$\H_{\mathrm{dR}}{}$ (not to $\DR{}$ because it is infinite-dimensional!), and we get the canonical $\dIBL$-algebras $\dIBL(\CycC(\Harm))$ and $\dIBL(\CycC(\H_{\mathrm{dR}}))$ of bidegrees $(n-3,2)$ with the canonical Maurer-Cartan element $\MC = (\MC_{10})$. The Hodge isomorphism induces an isomorphism of these $\dIBL$-algebras, and hence we can use $\Harm$ and~$\HDR$ interchangeably.
+%Note that there is also the reduced version $\dIBL(\RedCycC(\Harm))$.
+%We have the $\IBLInfty$-isomorphisms $\dIBL(C(\Harm)) \simeq \dIBL(C(\HDR))$, $\dIBL^{\MC}(C(\Harm)) \simeq \dIBL^{\MC_{\mathrm{dR}}}(C(\HDR))$. The reduced versions (see Definition~\ref{Def:ReduceddIBL}) also satisfy $\dIBL(C_{\mathrm{red}}(\Harm)) \simeq \dIBL(C_{\mathrm{red}}(\HDR))$, $\dIBL^\MC(C_{\mathrm{red}}(\Harm)) \simeq \dIBL^{\MC_{\mathrm{dR}}}(C_{\mathrm{red}}(\HDR))$.
+We have $\OPQ_{110} \equiv 0$, and hence $\dIBL(\CycC(\Harm))$ is, in fact, an $\IBL$-algebra. However, we will denote it by $\dIBL$ and call it a $\dIBL$ algebra as a reminder of the canonical $\dIBL$-structure. The canonical Maurer-Cartan element~$\MC$ satisfies
+\begin{equation}\label{Eq:CanonMC}
+\MC_{10}(\Susp \alpha_1 \alpha_2 \alpha_3) = (-1)^{n-2 + \eta_2} \int_M \eta_1 \wedge \eta_2 \wedge \eta_3 \quad \text{for all } \alpha_1, \alpha_2, \alpha_3 \in \Harm[1].
+\end{equation}
+We get the canonical twisted $\dIBL$-algebra $\dIBL^\MC(\CycC(\Harm))$ from~\eqref{Eq:CanonMCTwist} with, in general, non-trivial boundary operator $\OPQ_{110}^\MC$ whose homology is the cyclic homology of $\HDR$ up to degree shifts.
+%Proposition~\ref{Prop:dIBL} gives the following for $\dIBL^\MC(\Harm)$:
+%\begin{equation}\label{Eq:CanonTwisteddIBL}
+%\begin{aligned}
+%\OPQ_{210}^\MC &= \OPQ_{210}, \quad \OPQ_{120}^\MC = \OPQ_{120}, \quad \OPQ_{110}^\MC(\cdot) = \OPQ_{210}(\MC_{10},\cdot) \\ 
+%\OPQ_{1lg}^\MC &= 0\qquad \forall l\ge 1, g\ge 0, (l,g)\neq (1,0), (2,0).
+%\end{aligned}
+%\end{equation}
+%
+%In order to determine the induced $\IBL$-algebra on the homology $\IBL^\MC(\HDR)$ (see Definition~\ref{Def:HomIBL}), which is well-defined due to Proposition~\ref{Prop:Compl}, \ref{Prop:Kuenneth}, we can, based on the theory from Sec.~\ref{Sec:Alg0}, proceed as follows:
+%\begin{enumerate}[label=(\arabic*)]
+% \item Compute the cyclic cohomology $\H_{\lambda}$ (see Definition~\ref{Def:CycHom}) of the de Rham algebra~$\HDR$ and use Proposition~\ref{Prop:CyclicHom} to get $\HIBL^\MC(\CycC(\HDR))$. It is usually easier to compute the cyclic cohomology of the reduced de Rham algebra $\bar{\H}_{\mathrm{dR}}$, use~\eqref{Eq:CycReduced} to get $\HIBL^\MC(\CycC(\bar{\H}_{\mathrm{dR}}))$, and add ``ones''~$\Susp \NOne^{q*}$ according to the splitting~\eqref{Eq:IBLSPlit} to obtain $\HIBL^\MC(\CycC(\HDR))$.
+%We can also compute the classical cyclic cohomology of $\HDR$ from \cite{LodayCyclic} and use Proposition~\ref{Prop:DGA} to transform it to~$\H_\lambda$. 
+% \item Pick a basis $(e_i) \subset \HDR$, find its dual basis $(e^i)$, determine $T^{ij}$ and plug it in Definition~\ref{Def:CanonicaldIBL} to compute the induced operations $\OPQ_{210}: \hat{\Ext}_2 \HIBL^\MC \rightarrow \hat{\Ext}_1 \HIBL^\MC$, $\OPQ_{120}: \hat{\Ext}_1 \HIBL^\MC \rightarrow \hat{\Ext}_2 \HIBL^\MC$. We can also compute $\OPQ_{210}$, $\OPQ_{120}$ just on the reduced homology $\HIBL^\MC(\CycC(\bar{\H}_{\mathrm{dR}}))$ and use Proposition~\ref{Prop:Ones} to get the rest of the relations with~$\Susp \NOne^{q*}$.
+%\end{enumerate}
+%In Sec.~\ref{Section:Computation1}, we carry out the example of $M=\Sph{n}$ and in Sec.~\ref{Section:CPn1} of~$M=\CP^n$.
+\end{document}

@@ -1,0 +1,436 @@
+%auto-ignore
+\providecommand{\MainFolder}{..}
+\documentclass[\MainFolder/Text.tex]{subfiles}
+
+\begin{document}
+
+\section{Canonical dIBL-structure on cyclic cochains
+%\texorpdfstring{$H_{\mathrm{dR}}(M)$}{HdR(M)}
+}
+
+\label{Sec:Alg3}
+ 
+In this section, we will consider a \underline{finite-dimensional} cyclic dga $(V,\Pair,m_1,m_2)$ of degree $2-n$ for some $n\in \N$.%(see Definition~\ref{Def:CyclicAinfty})
+% 
+%\begin{Remark} \label{Rem:SignConv}
+%Originally, the author used the following degree shift convention instead of~\eqref{Eq:DegreeShiftConv}:
+%$$ (\Susp^{l}_*\widebar{\Susp}^{k*} f)(\Susp^{k} \psi_1 \otimes \dotsb \otimes \psi_k ) = (-1)^{k \Abs{s}\Abs{f} + \frac{1}{2}k(k-1) \Abs{s}} \Susp^l f(\psi_1 \otimes \dotsb \otimes \psi_k). $$
+%It is namely a natural extension of the Koszul convention compatible with all common Koszul identifications and the composition in the dg-category. Here $\DeSusp$ denotes the inverse to $\Susp$ with degree $\Abs{\widebar{\Susp}} = - \Abs{\Susp}$, $\Susp_*^l f = \Susp^l \circ f$, $\DeSusp^{k*}f = (-1)^{k \Abs{s}\Abs{f}} f\circ \DeSusp^k$, and the sign $(-1)^{\frac{1}{2}k(k-1) \Abs{s}} = \varepsilon(\Susp, \DeSusp)$ comes from colliding $\DeSusp_1\dots \DeSusp_k \Susp_1 \dots \Susp_k \mapsto \DeSusp_1 \Susp_1 \dots \DeSusp_k \Susp_k = \Id$.
+%Notice that according to this convention a sign appears in~\eqref{Eq:EvaluationConvention}. The reason for a ``canonical'' sign convention was to explain some artificial signs in~\cite[Chapters 10--12]{Cieliebak2015} and develop an invariant framework in which the signs for the de Rham case, i.e., the canonical Fr\'echet $\dIBL$-structure from \cite[Chapter~13]{Cieliebak2015} (will appear in \cite{MyPhD}) and the formal pushforward Maurer-Cartan element (see Definition \ref{Def:PushforwardMCdeRham}), could be deduced naturally. However, Claims 4 and 5 which handle disconnected graphs in the proof of~\cite[Theorem 11.3]{Cieliebak2015} do not seem to hold using this convention. Eventually, instead of the left-right Koszul convention, the top-bottom convention from~\cite{Cieliebak2015} was adopted:
+%
+%As we mentioned before Definition~\ref{Def:CircS}, we think of $f: \DBCyc V[3-n]^{\otimes k} \rightarrow \DBCyc V[3-n]^{\otimes l}$ as of a Riemannian surface with $k$ incoming ends at the top and $l$ outgoing ends at the bottom (c.f.\ the schematic formulas~\eqref{Eq:TwisteddIBL}). Inputs $\Psi_i$ are fed to the ends at the top and $f(\Psi_1\otimes \dotsb \otimes \Psi_k)$ is evaluated on $w_1\otimes \dotsb \otimes w_l$ by feeding $w_i$ to the ends at the bottom. A (partial) composition of two maps is then viewed as putting the corresponding Riemannian surfaces on top of each other, together with an appropriate number of trivial cylinders so that the number of incoming and outgoing ends in between is equal, and gluing them together at the opposing ends (see~\cite[Figure~2]{Cieliebak2015}). 
+%\end{Remark}
+This means that for all $v_1$, $v_2$, $v_3 \in V[1]$, the following relations holds:
+\begin{equation}\label{Eq:CycDGA}{\hbadness=10000 \text{cyc. dga}\left\{ \begin{aligned} \Pair(v_1,v_2) &= (-1)^{1+ \Abs{v_1} \Abs{v_2}} \Pair(v_2, v_1), &
+\mathclap{
+\smash{
+\raisebox{-0.58cm}{$
+\hspace{-0.8cm}
+\left.\begin{aligned}\mathstrut\\ \mathstrut\\ \mathstrut \end{aligned}\right\}
+\text{\parbox{5em}{cyc. cochain complex}}
+$}}}
+\\
+m_1(m_1(v_1)) &= 0, &\\
+m_1^+(v_1, v_2) &= (-1)^{\Abs{v_1}\Abs{v_2}} m_1^+(v_2, v_1), &\\
+ m_1(m_2(v_1,v_2)) &= \begin{multlined}[t]- m_2(m_1(v_1),v_2)  \\ - (-1)^{\Abs{v_1}} m_2(v_1,m_1(v_2)), \end{multlined} &\\
+m_2(m_2(v_1, v_2), v_3) &= (-1)^{\Abs{v_1} + 1} m_2(v_1,m_2(v_2,v_3)), &\\
+m_2^+(v_1, v_2, v_3) &= (-1)^{\Abs{v_3}(\Abs{v_1}+\Abs{v_2})}m_2^+(v_3, v_1, v_2).
+\end{aligned}\right.}
+\end{equation}
+%Together with the previous identification we can identify $\Ext_k C$ with symmetric functionals on $\DBCyc V[3-n]^{\otimes k}$.
+%space of symmetric tensors in $\DBCyc V[3-n]^{\otimes k}$. 
+%We extend $f: \Ext_k C \rightarrow \Ext_l C$ to a symmetric map $\DBCyc V[3-n]^{\otimes k} \rightarrow \DBCyc V[3-n]^{\otimes l}$ so that $f(\tilde{w}_1 \otimes \dotsb \otimes \tilde{w}_k) = f(\frac{1}{k!} \sum_{\sigma\in \Perm_k} \varepsilon(\sigma,\tilde{w})\tilde{w}_{\sigma_1^{-1}} \otimes \dotsb \otimes \tilde{w}_k^{-1})$ where $\tilde{w_i} = \Susp w_i$ and $\varepsilon(\sigma,\tilde{w})$ is the Koszul sign to permute $\tilde{w}_1\otimes \dotsb \otimes\tilde{w}_k \mapsto \tilde{w}_{\sigma_1^{-1}} \otimes \dotsb \otimes \tilde{w}_{\sigma_k^{-1}}$. On the other hand we restrict a symmetric map with symmetric image to $\Ext_k C \rightarrow \Ext_l C$.
+The facts (A) and (C) from the Introduction apply, and we get the canonical $\dIBL$-algebra $\dIBL(\DBCyc V[2-n])$ of bidegree $(n-3,2)$ and the canonical Maurer-Cartan element $\MC = (\MC_{10})$. We will denote\Correct[caption={Definition of cyclic cochains},noline]{Define cyclic cochains as completion, and then distinguish long and short cyclic cochains.}
+$$ \CycC(V)\coloneqq \DBCyc V[2-n] $$
+and call it the space of \emph{cyclic cochains on $V$}. If $V$ is fixed, we will write just $\CycC$.
+
+\begin{Def}[The canonical $\dIBL$-algebra] \label{Def:CanonicaldIBL}
+Let $(V,\Pair,m_1)$ be a cyclic cochain complex of degree $2-n$ which is finite-dimensional. Let $(e_0, \dotsc, e_m)\subset V[1]$ be a basis of $V[1]$, and let $(e^0,\dotsc, e^m)$ be the dual basis with respect to $\Pair$; this means that
+$$ \Pair(e_i,e^j) = \delta_{ij}\quad\text{for all }i, j =0, \dotsc,  m. $$
+We define the tensor $T = \sum_{i,j=0}^m T^{ij} e_i \otimes e_j \in V[1]^{\otimes 2}$ by\footnote{See Appendix~\ref{Section:Appendix} for the invariant meaning of $T$ as the Schwartz kernel of $\pm \Id$.}
+\begin{equation} \label{Eq:PropagatorT}
+ T^{ij} = (-1)^{\Abs{e_i}} \Pair(e^i,e^j) \quad\text{for all }i,j = 0,\dotsc,m.
+\end{equation}
+%(A ``geometric'' meaning of $T$ as the Schwartz kernel of $\Id$ on $V[1]$ up to $\pm$ is explained in Appendix~\ref{Section:Appendix}.)
+The \emph{canonical $\dIBL$-algebra} on $\CycC(V)$ is the quadruple
+$$ \dIBL(\CycC(V)) \coloneqq (\CycC(V),\OPQ_{110}, \OPQ_{210}, \OPQ_{120}), $$
+where the operations $\OPQ_{110}$, $\OPQ_{210}$, $\OPQ_{120}$ are defined for all $\psi$, $\psi_1$, $\psi_2 \in \CDBCyc V$ and generating words $w = v_1 \dots v_k$, $w_1 = v_{11}\dots v_{1k_1}$, $w_2 = v_{21}\dots v_{2k_2}\in \BCyc V$ with $k$, $k_1$, $k_2\ge 1$ as follows:
+\begin{itemize}
+\item The \emph{$\dIBL$-boundary operator} $\OPQ_{110}: \hat{\Ext}_1 \CycC \rightarrow \hat{\Ext}_1 \CycC$ of degree $\Abs{\OPQ_{110}} = -1$ is defined by\Correct[noline,caption={Should here be $\Susp$?}]{There should not be $\Susp$, it is a number.}
+\begin{equation}\label{Eq:Diff}
+\OPQ_{110}(\Susp \psi)(\Susp w) \coloneqq \Susp\sum_{i=1}^k (-1)^{\Abs{v_1}+ \dotsb + \Abs{v_{i-1}}} \psi(v_1 \dots v_{i-1}m_1(v_i)v_{i+1} \dots v_k).
+\end{equation}
+\item The \emph{product} $\OPQ_{210}: \hat{\Ext}_2 \CycC \longrightarrow \hat{\Ext}_1 \CycC$ of degree $\Abs{\OPQ_{210}}= -2(n-3)-1$ is written schematically as
+$$ \OPQ_{210}(\Susp^2 \psi_1 \otimes \psi_2)(\Susp w) \coloneqq \sum \varepsilon(w\mapsto w^1 w^2)(-1)^{\Abs{e_j}\Abs{w^1}}T^{ij}\psi_{1}(e_i w^1) \psi_2(e_j w^2) $$
+%for $\psi_1$, $\psi_2\in \DBCyc V$, $w = v_1\dots v_k \in \BCyc V$ 
+and defined ``algorithmically'' as follows:
+
+
+For every cyclic permutation $\sigma\in\Perm_k$, consider the tensor 
+$$\sigma(w) \coloneqq \varepsilon(\sigma,w) v_{\sigma_1^{-1}}\otimes \dotsb \otimes v_{\sigma_k^{-1}}, $$
+and split it into two parts $w^1$ and $w^2$ of possibly zero length such that $v_{\sigma_1^{-1}}\otimes \dotsb \otimes v_{\sigma_k^{-1}} = w^1 \otimes w^2$. Feed $w^1$ and $w^2$ into $\psi_1$ and $\psi_2$ preceded by~$e_i$ and~$e_j$, respectively, and multiply the result with the sign $(-1)^{\Abs{e_j}\Abs{w^1}}$, which is the Koszul sign to order 
+$$ e_i e_j w^1 w^2 \longmapsto e_i w^1 e_j w^2. $$
+Finally, sum over all $\sigma \in \Perm_k$, all splittings of $\sigma(w)$ and all indices $i,j = 0$,~$\dotsc$, $m$. The sign $\varepsilon(\sigma,w)$ is denoted by $\varepsilon(w\mapsto w^1w^2)$ to indicate the splitting.
+
+\item The \emph{coproduct} $\OPQ_{120}: \hat{\Ext}_1 \CycC \longrightarrow \hat{\Ext}_2 \CycC$ of degree $\Abs{\OPQ_{120}} = -1$ is written schematically~as
+$$ \begin{aligned} &\OPQ_{120}(\Susp \psi)(\Susp^2 w_1 \otimes w_2) \\ & \qquad = \frac{1}{2} \sum \varepsilon(w_1\mapsto w_1^1)\varepsilon(w_2\mapsto w_2^1) (-1)^{\Abs{e_j}\Abs{w_1^1}} T^{ij} \psi(e_i w_1^1 e_j w_2^1) \end{aligned}$$
+%for $\psi\in \DBCyc V$, $w_1$, $w_2 \in \BCyc V$ 
+and defined ``algorithmically'' as follows:
+
+For all cyclic permutations $\sigma\in \Perm_{k_1}$ and $\mu\in \Perm_{k_2}$, denote $w_1^1\coloneqq \sigma(w_1)$ and $w_2^1\coloneqq \mu(w_2)$ and let $\varepsilon(w_1\mapsto w_1^1)$ and $\varepsilon(w_2\mapsto w_2^1)$ be the corresponding Koszul signs, respectively. Feed~$w_1^1$ and~$w_2^1$ into~$\psi$ in the indicated order interleaved by~$e_i$ and~$e_j$ and multiply the result with the sign $(-1)^{\Abs{e_j}\Abs{w_1^1}}$, which is the Koszul sign to order
+$$ e_i e_j w_1^1 w_2^1 \mapsto e_i w_1^1 e_j w_2^1. $$
+Finally, sum over all $\sigma\in \Perm_{k_1}$, $\mu\in\Perm_{k_2}$ and all indices $i$, $j = 0$, $\dotsc$, $m$.
+\end{itemize}
+The operations are extended continuously to the completion.
+\end{Def}
+
+\begin{Definition}[Canonical Maurer-Cartan element] \label{Def:CanonMC}
+Let $(V,\Pair,m_1,m_2)$ be a finite-dimensional cyclic dga of degree $2-n$. The \emph{canonical Maurer-Cartan element} $\MC$ for $\dIBL(\CycC(V))$  consists of only one element $\MC_{10}\in \hat{\Ext}_1 \CycC$ of degree $\Abs{\MC_{10}} = 2(n-3)$ which is defined by
+\begin{equation*}
+\MC_{10}(\Susp v_1 v_2 v_3) \coloneqq (-1)^{n-2}  \mu_2^+(v_1,v_2,v_3)\quad\text{for all } v_1, v_2, v_3\in V[1]
+\end{equation*}
+on the weight-three component of $\BCyc V[3-n]$ and extended by $0$ to other weight-$k$ components.
+\end{Definition}
+
+\begin{Remark}[On canonical $\dIBL$-structure]\phantomsection
+\begin{RemarkList}
+\item Elements of the completion $\hat{\CycC}(V)$ which are not in $\CycC(V)$ will be called \emph{long cyclic cochains}. Because there are no infinite sums in Definition~\ref{Def:CanonicaldIBL}, $\dIBL(\CycC)$ is completion-free. Clearly, the twist $\dIBL^{\PMC}(\CycC)$ remains completion-free as long as $\PMC_{lg}\in \Ext_l \CycC$ for all $l$, $g$.
+\item The constructions of $\OPQ_{210}$ and $\OPQ_{120}$ do not depend on the choice of a basis and can be rephrased in terms of summation over ribbon graphs (see Example~\ref{Ex:Canon}).
+%The operations extend to $\hat{\Ext}_2 C \rightarrow C$ and $C\rightarrow \hat{\Ext}_2 C \rightarrow C$, as it is required by Definition~\ref{Def:IBLInfty}, due to their finite filtration degree.
+\item According to Proposition~\ref{Prop:Compl}, the filtration on $\CycC(V)$ satisfies (WG1) \& (WG2), and hence the $\IBL$-structures $\IBL(\HIBL(\CycC))$ and $\IBL(\HIBL^{\MC}(\CycC))$ are well-defined (see Definition~\ref{Def:HomIBL}).\qedhere
+\end{RemarkList}
+\end{Remark}
+
+%For completeness and future reference, we also describe the dual operations. Consider the linear maps $\OPU_{210}: \BCyc V[3-n] \rightarrow (\BCyc V[3-n])^{\otimes 2}$ and $\OPU_{120}: (\BCyc V[3-n])^{\otimes 2} \rightarrow \BCyc V[3-n]$ which are defined schematically by
+%\begin{align*}
+% \OPU_{210}(\Susp w) &\coloneqq \Susp^2 \sum \varepsilon(e_i e_j w \mapsto w^1 w^2) T^{ij} w^1 \otimes w^2\quad\text{and}\\
+%\OPU_{120}(\Susp^2 w_1 \otimes w_2) &\coloneqq \frac{1}{2} \Susp \sum \varepsilon(e_i e_j w_1 w_2 \mapsto w^1 w^2) T^{ij} w^1 w^2
+%\end{align*}
+%for all generating words $w$, $w_1$, $w_2\in \BCyc V$, respectively, and described ``algorithmically'' as follows: \Correct[caption={Dual operations are weird}]{Remove the description of dual operations. It is in fact clear what they are and the current description is false. Remove it completely.}
+%\begin{description}[font=\normalfont]
+%\item[($\OPU_{210}$):] We insert $e_j$ into the string $w=v_1 \dots v_k$ anywhere except for the very last position to obtain a string~$w'$ of length $k+1$; i.e., we might get~$w' = e_j v_1 \dots v_k$, $v_1 e_j \dots v_k$ and so on up to $v_1 \dots e_j v_k$. Next, we place $e_i$ into $w'$ anywhere except for the very last position to obtain a string~$w''$ of length $k+2$. We set $w^1 \coloneqq e_i s_1$, where $s_1$ represents the substring between~$e_i$ and~$e_j$ in~$w''$ in the cyclic order from the left to the right. Likewise, we define $w^2 \coloneqq e_j s_2$, where $s_2$ represents the substring between~$e_j$ and $e_i$ in $w''$ in the cyclic order from the left to the right. We sum over all choices and indices $i$, $j=0$, $\dotsc$, $m$.
+%\item[($\OPU_{120}$):] The string $w^1$ is obtained by inserting~$e_i$ into $w_1$ anywhere except for the very last position, and likewise for $w^2$. We sum over all choices and indices $i$,~$j=0$,~$\dotsc$,~$m$.
+%\end{description}
+%
+%\begin{Proposition}[Dual operations]
+%For all $\psi$, $\psi_1$, $\psi_2\in \CDBCyc V$ and generating words $w$, $w_1$, $w_2\in \BCyc V$, we have  
+%$$\begin{aligned}
+% \bigl(\OPQ_{210}(\Susp \psi_1 \otimes \Susp \psi_2)\bigr)(\Susp w) &= (\Susp\psi_1 \otimes \Susp\psi_2)\bigl(\OPU_{210}(\Susp w)\bigr)\quad\text{and}  \\
+%\bigl(\OPQ_{120}(\Susp \psi)\bigr)(\Susp w_1 \otimes \Susp w_2) & = (\Susp \psi)\bigl(\OPU_{120}(\Susp w_1 \otimes \Susp w_2)\bigr),
+%\end{aligned}$$
+%where we use the pairing from Definition~\ref{Def:Pairings}.
+%\end{Proposition}
+%\begin{proof}
+%The proof is straightforward.
+%\end{proof}
+%
+%Note that the induced map $\OPQ_{210}: \Sym_2 \DBCyc V[3-n] \rightarrow \Sym_1 \DBCyc V[3-n]$ is dual to the induced map $\OPU_{210}: \Sym_2 \BCyc [3-n] \rightarrow \Sym_1 \BCyc[3-n]$ under the induced pairing of symmetric algebras.
+
+%The proof of the following lemma is a warm-up for sign computations.
+
+\begin{Proposition}[Formulas for twisted operations]\label{Prop:Formulafortwisted}
+Let $\dIBL(\CycC(V))$ be the canonical $\dIBL$-algebra for a finite-dimensional cyclic cochain complex $(V,\Pair,m_1)$ of degree $2-n$, and let $\PMC=(\PMC_{lg})$ be a Maurer-Cartan element. Then for all $l\ge 1$, $g\ge 0$, $\Psi\in \CDBCyc V[3-n]$ and generating words $\W_1$, $\dotsc$, $\W_l \in \BCyc V [3-n]$, we have 
+\begin{equation}\label{Eq:TwisteddIBL}
+\begin{aligned}
+& [(\OPQ_{210}\circ_1 \PMC_{lg})(\Psi)](\W_1 \otimes \dotsb \otimes \W_l) \\ 
+& \quad = \begin{multlined}[t]\sum_{j=1}^l \sum \varepsilon' \varepsilon(w_j \mapsto w_j^1 w_j^2) T^{ab} \Psi(\Susp e_a w_j^1) \PMC_{lg}(\W_1 \otimes \dotsb \W_{j-1} \otimes (\Susp e_b w_j^2)  \\ \otimes \W_{j+1} \otimes \dotsb \otimes \W_l), \end{multlined}
+\end{aligned}
+\end{equation}
+where the sum without limits is the sum in Definition \ref{Def:CanonicaldIBL} for $\OPQ_{210}$ and $\varepsilon'$ is the Koszul sign of the following operation:
+$$\begin{multlined}(\Susp e_a e_b) \W_1 \dots \W_{j-1}(\Susp w_j^1 w_j^2) \W_{j+1} \dots \W_l \\ 
+\longmapsto (\Susp e_a w_j^1) \W_1 \dots \W_{j-1} (\Susp e_b w_j^2)\W_{j+1} \dots \W_l.\end{multlined}$$
+In particular, for $l=1$, $g\ge 0$ and $\W\in \BCyc V[3-n]$, we have 
+\begin{equation}\label{Eq:TwistDif}
+(\OPQ_{210} \circ_1 \PMC_{1g})(\W)= (-1)^{n-3} \sum T^{ab} \varepsilon(w \mapsto w^1 w^2) \PMC_{1g}(\Susp e_a w^1)\psi(e_b w^2),
+\end{equation}
+and for $l=2$, $g\ge 0$ and $\W_1$, $\W_2\in \BCyc V[3-n]$, we have
+\begin{equation}\label{Eq:Twistn2}
+\begin{aligned}
+ & [(\OPQ_{210}\circ_1 \PMC_{2g})(\Psi)](\W_1 \otimes \W_2) \\
+ &\quad = \begin{multlined}[t](-1)^{(n-3)(\Abs{\Psi} + 1)} \Bigl[ \sum T^{ab} \varepsilon(w_1 \mapsto w_1^1w_{1}^{2}) (-1)^{\Abs{e_b}\Abs{w_1^1}}\Psi(\Susp e_a w_1^1)  \\ \PMC_{20}(\Susp e_b w_1^2 \otimes \W_2) + (-1)^{\Abs{\W_1}\Abs{\W_2}}\sum T^{ab}  \varepsilon(w_2\mapsto w_2^1w_2^2) \\ (-1)^{\Abs{e_b}\Abs{w_2^1}} \Psi(\Susp e_a w_2^1)\PMC_{20}(\Susp e_b w_2^2 \otimes \W_1)\Bigr].\end{multlined} \end{aligned}
+\end{equation}
+\end{Proposition}
+
+\begin{proof}
+Let us first discuss the completions. Given $\PMC_{lg}\in \hat{\Ext}_l \CycC$, we can write it as $\PMC_{lg} = \sum_{i=1}^\infty \Phi_1^i \dotsb \Phi_l^i$ with generating words $\Phi_1^i\dotsb \Phi_l^i\in \Ext_l \CycC$ of weights approaching $\infty$. The canonical extension of $\circ_h$ to maps with finite filtration degree commutes with convergent infinite sums, and hence we have $\OPQ_{klg} \circ_h \PMC_{lg} = \sum_{i=1}^\infty \OPQ_{klg}\circ_h (\Phi_1^i \dotsb \Phi_l^i)$. Therefore, it suffices to prove the formulas for generating words $\Phi_1^i \dotsb \Phi_l^i \in \Ext_l \CycC$.%From a similar reason, we can restrict to $\Psi\in \DBCyc V [3-n]$.
+
+From \eqref{Eq:CompositionSimple}, we get for every $\Psi$, $\Phi_1$, $\dotsc$, $\Phi_l \in \CycC$ the equation\Correct[noline,caption={This can't be correct!}]{There must be a sign problem, set $l=1$!}
+$$ [\OPQ_{210}\circ_1(\Phi_1\dotsb \Phi_l)](\Psi) = \sum_{i=1}^l (-1)^{\Abs{\Phi_i}(\Abs{\Phi_1}+\dotsb+\Abs{\Phi_{i-1}})}\OPQ_{210}(\Psi,\Phi_i) \Phi_1 \dotsb \hat{\Phi}_i \dotsb \Phi_l, $$
+where $\Phi_1\dotsb \Phi_l$ on the left-hand-side is considered as a map $\Ext_0 \CycC = \R \rightarrow \Ext_l \CycC$ mapping $1$ to $\Phi_1\dotsb \Phi_l$.
+For $\W_1$, $\dotsc$, $\W_l\in \BCyc V[3-n]$ and $\sigma\in \Perm_l$, we use
+$$ [\sigma(\Phi_1\otimes \dotsb \otimes \Phi_l)](\W_1 \otimes \dotsb \otimes \W_l) = (\Phi_1 \otimes \dotsb \otimes \Phi_l)[\sigma^{-1}(\W_1\otimes \dotsb \otimes \W_l)] $$
+and Definition~\ref{Def:CanonicaldIBL} to get
+\allowdisplaybreaks
+\begin{align*}
+&\bigl([\OPQ_{210}\circ_1(\Phi_1\dotsb \Phi_l)](\Psi)\bigr)(\W_1 \otimes \dotsb \otimes \W_l) = \\
+&\quad= \begin{multlined}[t] \sum_{i=1}^l (-1)^{\Abs{\Phi_i}(\Abs{\Phi_1}+\dotsb+\Abs{\Phi_{i-1}})} \frac{1}{l!}\sum_{\sigma\in \Perm_l} \varepsilon(\sigma^{-1},\W) [\OPQ_{210}(\Psi,\Phi_i)](\W_{\sigma_1}) \\ \Phi_1(\W_{\sigma_2}) \dotsb \hat{\Phi}_i(\emptyset) \dotsb \Phi_l(\W_{\sigma_l})\end{multlined} \\
+&\quad=\begin{multlined}[t] \sum_{i=1}^l (-1)^{\Abs{\Phi_i}(\Abs{\Phi_1}+\dotsb+\Abs{\Phi_{i-1}})} \frac{1}{l!}\sum_{\sigma\in \Perm_l} \varepsilon(\sigma^{-1},\W) (-1)^{\Abs{\Susp}\Psi}\\ \sum \varepsilon(w_{\sigma_1}\mapsto w_{\sigma_1}^1 w_{\sigma_1}^2) 
+(-1)^{\Abs{e_b}\Abs{w_{\sigma_1}^1}}T^{ab} \Psi(e_a w_{\sigma_1}^1) \Phi_i(e_b w_{\sigma_1}^2) \\ \Phi_1(\W_{\sigma_2}) \dots \hat{\Phi}_i(\emptyset) \dots \Phi_l(\W_{\sigma_l})\end{multlined} \\
+&\; \eqqcolon (*),
+\end{align*}
+where $\hat{\Phi}_i(\emptyset)$ means omission of the corresponding term. Consider the bijection 
+$$\begin{aligned}
+I: \{1,\dotsc, l\} \times \Perm_l &\longrightarrow \{1,\dotsc, l\} \times \Perm_l \\
+(i,\sigma) &\longmapsto \Biggl(j\coloneqq \sigma_1,\mu\coloneqq \begin{pmatrix} 1 & \dots & i-1 & i & i+1 & \dots & l \\ \sigma_2 & \dots & \sigma_{i} & \sigma_1 & \sigma_{i+1} & \dots & \sigma_l \end{pmatrix}\Biggr).
+\end{aligned}$$
+Given $(i,\sigma) \in \{1,\dotsc,l\}\times \Perm_l$ and $b\in \{1,\dotsc,m\}$, let $(j,\mu)\coloneqq I(i,\sigma)$ and
+$$ \W'\coloneqq \W_1 \otimes \dotsb \otimes \W_{j-1} \otimes (\Susp e_b w_{j}^2)\otimes \W_{j+1}  \otimes \dotsb \otimes \W_l. $$
+Suppose that $(\Phi_1 \otimes \dotsb \otimes \Phi_l)(\W')\neq 0$. We compute the Koszul sign $\varepsilon(\mu^{-1},\W')$ in the following way:
+$$ \begin{aligned}
+\W' &\mapsto (-1)^{(\Abs{w_{j}^1} + \Abs{e_b} + \Abs{\W_j})(\Abs{\W_1} + \dotsb + \Abs{\W_{j-1}})} (\Susp e_b w_j^2)\W_1 \dots \hat{\W}_j \dots \W_l \\
+ & \mapsto \underbrace{(-1)^{(\Abs{w_{j}^1} + \Abs{e_b})(\Abs{\W_1} + \dotsb + \Abs{\W_{j-1}})}}_{\eqqcolon\varepsilon_1}\varepsilon(\sigma^{-1},\W) (\Susp e_b w_j^2) \W_{\sigma_2} \dots \W_{\sigma_l} \\
+& \mapsto \underbrace{\varepsilon_1 \varepsilon(\sigma^{-1},\W) (-1)^{\Abs{\Phi_i}(\Abs{\Phi_1} + \dotsb + \Abs{\Phi_{i-1}})}}_{=\varepsilon(\mu^{-1},\W')}  \underbrace{\W_{\sigma_2} \dots \W_{\sigma_{i}} (\Susp e_b w_j^2) \W_{\sigma_{i+1}}\dots\W_{\sigma_l}}_{=\W'_{\mu_1}\dots \W'_{\mu_l}}.
+\end{aligned}$$
+Using this, we can rewrite $(*)$ as
+$$\begin{aligned}
+(*) &= \begin{multlined}[t](-1)^{\Abs{s}\Abs{\Psi}}\sum_{j=1}^l \sum\varepsilon(w_j \mapsto w_j^1 w_j^2)(-1)^{\Abs{e_b}\Abs{w_j^1}}T^{ab} \Psi(e_a w_j^1)  \\ 
+\varepsilon_1 \frac{1}{l!}\sum_{\mu \in \Perm_l} \varepsilon(\mu^{-1}, \W')\Phi_1(\W'_{\mu_1}) \dots \Phi_l(\W'_{\mu_l}) \end{multlined} \\
+ & = \begin{multlined}[t]\sum_{j=1}^l \sum \varepsilon(w_j \mapsto w_j^1 w_j^2) (-1)^{\Abs{s}\Abs{\Psi} + \Abs{e_b}\Abs{w_j^1} + (\Abs{w_j^1} + \Abs{e_b})(\Abs{\W_1}+ \dotsb + \Abs{\W_{j-1}}) }T^{ab} \\ 
+ \Psi(\Susp e_a w_j^1) (\Phi_1 \dotsb \Phi_l)(\W_1 \otimes \dotsb \otimes \W_{j-1} \otimes (\Susp e_b w_j^2) \otimes \W_{j+1} \otimes \dotsb \otimes \W_l). \end{multlined}
+\end{aligned}$$
+Finally, we use
+$$ T^{ab} \neq 0\; \Implies\; \Abs{e_a} + \Abs{e_b} = n-2 $$
+to write
+$$\begin{aligned}
+\Abs{s}\Abs{\Psi} &= \Abs{s}(\Abs{w_{j}^1} + \Abs{e_a}) = (n-3)(\Abs{w_{j}^1} + n-2 - \Abs{e_b}) \\ 
+&= \Abs{s}(\Abs{w_{j}^1} + \Abs{e_b}) \mod 2, \end{aligned}$$
+and the formula \eqref{Eq:TwisteddIBL} follows.
+
+As for \eqref{Eq:TwistDif}, we first compute $\varepsilon'$ for $l=1$ as follows:
+$$ \begin{aligned}\ln_{-1}(\varepsilon')  &= \Abs{w_1} \Abs{e_b} + (\Abs{e_b} + \Abs{w_1})\Abs{s}  \underset{\mathclap{\substack{\uparrow\rule{0pt}{1.5ex} \\2(n-3) = \Abs{\PMC_{10}} = \Abs{s} + \Abs{e_b} + \Abs{w^2}}}}{=} \Abs{w^1}\Abs{w^2} + \Abs{s}\Abs{e_b} \\ &\underset{\mathclap{\substack{\uparrow\rule{0pt}{1.5ex} \\ \Abs{e_a} + \Abs{e_b} = \Abs{s} + 1}}}{=} \Abs{w^1}\Abs{w^2} + \Abs{e_a}\Abs{e_b} \mod 2.  \end{aligned}$$
+Using this, we obtain
+$$ \begin{aligned}
+[(\OPQ_{210}\circ_1 \PMC_{1g})(\Psi)](W) &= \sum \varepsilon' \varepsilon(w\mapsto w^1 w^2) T^{ab} \Psi(\Susp e_a w^1) \PMC_{1g}(\Susp e_b w^2) \\
+&\underset{\mathclap{\substack{\uparrow\rule{0pt}{1.5ex} \\ T^{ab} = (-1)^{\Abs{s} + \Abs{e_a}\Abs{e_b}} T^{ba} \\
+\varepsilon(w\mapsto w^1 w^2) =  (-1)^{\Abs{w^1} \Abs{w^2}} \varepsilon(w\mapsto w^2 w^1)}}}{=} (-1)^{\Abs{s}} \sum \varepsilon(w\mapsto w^2 w^1) T^{ba} \PMC_{1g}(\Susp e_b w^2) \Psi(\Susp e_a w^1),
+\end{aligned}$$
+which implies \eqref{Eq:TwistDif}.
+
+The proof of \eqref{Eq:Twistn2} is a combination of the same arguments.
+\end{proof}
+
+We will now relate homology of the twisted boundary operator $\OPQ_{110}^\PMC$ to cohomology of an $\AInfty$-algebra on $V$ induced by $\PMC_{10}$. 
+%
+
+\begin{Definition}[$\AInfty$-operations and compatible Maurer-Cartan element]\label{Def:MukDef}
+Suppose that $(V,\Pair,m_1)$ is a finite-dimensional cyclic cochain complex of degree $2-n$, and let $\PMC = (\PMC_{lg})$ be a Maurer-Cartan element for $\dIBL(\CycC(V))$. We define the operations $\mu_k: V[1]^{\otimes k} \rightarrow V[1]$ for all $k\ge 1$ by
+\begin{equation*}
+%\label{Eq:DefMuGen} 
+\mu_k(v_1,\dotsc, v_k) \coloneqq (-1)^{n-3}\sum_{i, j} T^{ij} \PMC_{10}(\Susp e_i v_1 \dots v_k) e_j
+\end{equation*}
+for all $v_1$,~$\dotsc$, $v_k \in V[1]$, where $T^{ij}$ is the matrix from Definition~\ref{Def:CanonicaldIBL}.
+
+If $(V,\Pair,m_1,m_2)$ is in addition a cyclic dga and $\MC$ the canonical Maurer-Cartan element for $\dIBL(\CycC(V))$, then we say that $\PMC$ is \emph{compatible with $\MC$} if
+$$ \PMC_{10}(\Susp v_1 v_2 v_3) = \MC_{10}(\Susp v_1 v_2 v_3)\quad\text{for all }v_1, v_2, v_3 \in V[1]. $$
+\end{Definition}
+
+
+\begin{Proposition}[Twisted boundary operator $\OPQ^\PMC_{110}$ and $\AInfty$-cyclic cohomology]\label{Prop:CyclicHom}
+In the setting of Definition~\ref{Def:MukDef}, the triple $\mathcal{A}_\PMC(V) \coloneqq (V,\Pair, (\mu_k))$ is a cyclic $\AInfty$-algebra. We always have $\mu_1 = m_1$, and if $\PMC$ is compatible with $\MC$ for a cyclic dga $(V,\Pair,m_1,m_2)$, then also $\mu_2 = m_2$. 
+
+The following holds for the homologies:
+\begin{equation*}
+%\label{Eq:CyclicHom}
+ \HIBL^\PMC(\CycC(V))=  r(\H^*_\lambda(\mathcal{A}_\PMC(V);\R))[3-n].
+\end{equation*}
+\end{Proposition}
+
+\begin{proof}
+First of all, according to Definition~\ref{Def:MaurerCartan} we must have $\Norm{\PMC_{10}} > 2$, and hence 
+$$ \PMC_{10}(\Susp v_1 v_2) = \PMC_{10}(\Susp v_1) = 0 \quad\text{for all }v_1, v_2 \in V[1].  $$
+This implies $\mu_1 = m_1$.
+
+Now, let $e_0$, $\dotsc$, $e_m$ be a basis of $V[1]$ and let $e^0$, $\dotsc$, $e^m$ be the dual basis with respect to $\Pair$. For all $k\ge 2$ and $v_1$, $\dotsc$, $v_k \in V[1]$, we compute the following:
+\allowdisplaybreaks
+\begin{align*}
+& \Pair(\mu_k(v_1,\dotsc,v_k),v_{k+1}) \\
+&\qquad = (-1)^{n-3}\sum_{ij} (-1)^{\Abs{e_i}}\Pair(e^i, e^j) \PMC_{10}(\Susp e_i v_1\dots v_k) \Pair(e_j, v_{k+1}) \\
+&\qquad  \underset{\mathclap{\substack{\uparrow\rule{0pt}{1.5ex}\\\forall v\in V[1]: \ \sum_j \Pair(v,e^j)e_j = v}}}{=} (-1)^{n-3}\sum_i (-1)^{\Abs{e_i}} \PMC_{10}(\Susp e_i v_1\dotsc v_k) \Pair(e^i,v_{k+1}) \\
+&\qquad \underset{\mathclap{\substack{\uparrow\rule{0pt}{1.5ex}\\(\Abs{v}_1 + \dotsb + \Abs{v_k}) \Abs{e_i} = \\ (\Abs{\PMC_{10}} + \Abs{s}+\Abs{e_i})\Abs{e_i} = (\Abs{s}+1)\Abs{e_i}}}}{=} (-1)^{n-3}\sum_i (-1)^{\Abs{e_i}(n-3)} \PMC_{10}(\Susp v_1 \dotsc v_k e_i) \Pair(e^i,v_{k+1}) \\
+&\qquad \underset{\mathclap{\substack{\big\uparrow\rule{0pt}{2.5ex}\\ 1+\Abs{v_{k+1}}\Abs{e^i} = 1+(\Abs{e}^i + 2 - n)\Abs{e^i} \\= 1+(3-n)\Abs{e^i} = 1+(3-n)\Abs{e_i}}}}{=}  (-1)^{n-2}\sum_i \PMC_{10}(\Susp v_1 \dotsc v_k e_i) \Pair(v_{k+1},e^i) \\
+&\qquad = (-1)^{n-2}\PMC_{10}(\Susp v_1 \dotsc v_{k+1}).
+\end{align*}
+%and see that the cyclic symmetry of $\mu_k^+$ follows from the cyclic symmetry of $\PMC_{10}$.
+Therefore, we have
+\begin{equation*}
+%\label{Eq:MCForm}
+ \PMC_{10} = (-1)^{n-2}\sum_{k\ge 2} \mu_k^+.
+\end{equation*}
+In this case,~\cite[Proposition 12.3]{Cieliebak2015} asserts that the $\AInfty$-relations~\eqref{Eq:AInftyDef} for $(\mu_k)_{k\ge 1}$ are equivalent to the ``lowest'' Maurer-Cartan equation~\eqref{Eq:MCEq} for $\PMC_{10}$. 
+The degree condition $\Abs{\mu_k}=1$ and the cyclic symmetry of $\mu_k^+$ are easy to check. Therefore, $\mathcal{A}_\PMC(V)$ is a cyclic $\AInfty$-algebra.
+
+As for the compatibility with $\MC$, we have for all $v_1$, $v_2\in V[1]$ the following:
+\begin{equation*}
+ \begin{aligned}
+  m_2(v_1, v_2) & = \sum_i \Pair(e_i, m_2(v_1,v_2)) e^i \\
+ &\underset{\mathclap{\substack{\big\uparrow\rule{0pt}{2.5ex} \\ T^{ij} = (-1)^{\Abs{e_i}} \Pair(e^i,e^j)}}}{=}  \sum_{i,j} (-1)^{\Abs{e_i}} T^{ij} \Pair(e_i,m_2(v_1,v_2))e_j \\
+ &\underset{\mathclap{\substack{\big\uparrow\rule{0pt}{2.5ex}\\ \Pair(v_1,v_2) = (-1)^{1+(n-3)\Abs{v_1}} \Pair(v_2,v_1)}}}{=} \sum_{i,j} (-1)^{1 + (n-2)\Abs{e_i}}T^{ij} \underbrace{\Pair(m_2(v_1,v_2),e_i)}_{\displaystyle{\mathclap{=(-1)^{n-2}\MC_{10}(\Susp v_1 v_2 e_i)}}} e_j\\
+ & \underset{\mathclap{\substack{\big\uparrow\rule{0pt}{2.5ex} \\  (\Abs{v_1} + \Abs{v_2})\Abs{e_i} =(\Abs{\MC_{10}} - \Abs{s} - \Abs{e_i})\Abs{e_i}\\ = (n-2)\Abs{e_i} }}}{=} (-1)^{n-3} \sum_{i,j} T^{ij} \MC_{10}(\Susp e_i v_1 v_2)e_j \\ 
+ &= \mu_2(v_1,v_2).
+\end{aligned}
+\end{equation*}
+
+We will now clarify the relation to the cyclic cohomology of $\mathcal{A}_\PMC(V)$. Recall from Proposition~\ref{Prop:dIBL} that $\OPQ_{110}^\PMC(\Psi) = \OPQ_{110}(\Psi) + \OPQ_{210}(\PMC_{10}, \Psi)$ for $\Psi\in\CDBCyc V[3-n]$, where the first term is given by~\eqref{Eq:Diff} and the second by~\eqref{Eq:TwistDif}. Consider now ${\Hd'}^k$ and $R^k$ from~\eqref{Eq:bRH}, whose sum gives the Hochschild boundary operator $\Hd$. Using the cyclic symmetry, we can rewrite a summand of ${\Hd'}^k$ for $j=1$, $\dotsc$, $k$ and $i=0$, $\dotsc$, $k-j$ applied to a generating word $v_1\dots v_k \in \BCyc V$ as follows: 
+\begin{equation}\label{Eq:Tmp1}
+\begin{aligned}
+& [t^i_{k-j+1} \circ (\mu_j \otimes \Id^{k-j}) \circ t_k^{-i}](\underbrace{v_1 \dots v_k}_{\eqqcolon w}) = \\
+&\quad =(-1)^{\Abs{v_1} + \dotsb + \Abs{v_{i}}} v_1 \dots v_i \mu_j(v_{i+1} \dots v_{i+j})v_{i+j+1} \dots v_k \\[\jot]
+&\quad = \varepsilon(w\mapsto w^1 w^2) \mu_j(\underbrace{v_{i+1}\dots v_{i+j}}_{\eqqcolon w^1}) \underbrace{v_{i+j+1} \dots v_k v_1 \dots v_i}_{\eqqcolon w^2}
+\end{aligned}
+\end{equation}
+Clearly, summing \eqref{Eq:Tmp1} over $j=1$ and $i=0$, $\dotsc$, $k-1$ gives the dual to $\OPQ_{110}$. For $j=2$, $\dotsc$, $k$, we can write \eqref{Eq:Tmp1} as
+$$ 
+(-1)^{n-3} \sum_{i,j} \varepsilon(w\mapsto w^1 w^2) T^{ij}\PMC_{10}(\Susp e_i w^1) e_j w^2.
+$$
+Therefore, the sum over $j=2$, $\dotsc$, $k$ and $i=0$, $\dotsc$, $k-j$ gives the part of the dual to $\OPQ_{210}(\PMC_{10},\Psi)$ corresponding to the cyclic permutations $\sigma\in \Perm_{k}$ with $\sigma_1 = 1$, $j+1$, $\dotsc$, $k$. The rest, i.e., the cyclic permutations with $\sigma_1 = 2$, $\dotsc$, $j$, is obtained analogously from the summands $(\mu_j \otimes \Id^{k-j})\circ t_k^i$ of $R^k$ for $j=2$,~$\dotsc$,\,$k$ and $i=1$, $\dotsc$, $j-1$. We conclude that $\OPQ_{110}^\PMC: \CDBCyc V[3-n] \rightarrow \CDBCyc V[3-n]$ is a degree shift of $\Hd^*: \CDBCyc V \rightarrow \CDBCyc V$. As for the gradings, we have:
+$$ \begin{aligned}
+r(D_\lambda(V))[3-n]^i &= r(D_\lambda(V))^{i+3-n} = (D_\lambda(V))^{-i-3+n} = (\CDBCyc V)^{i+3-n-1} \\
+ &= \CDBCyc V[2-n]^i.
+\end{aligned}$$
+This finishes the proof.
+% It holds
+%$$ \pi_{\Harm}(\alpha) = \sum_i \Pair(\alpha,e^i) e_i = \sum_i \Pair(e_i, \alpha)e^i\quad\forall \alpha\in \DR(M)[1], $$
+%and hence
+\end{proof}
+
+%\begin{Remark}
+%On the other hand, given a cyclic $\AInfty$-algebra $(V,(\mu_k))$ the formula \eqref{Eq:MCForm} defines a Maurer-Cartan element $\PMC = (\PMC_{10})$ compatible with $\mu_1$ for $\dIBL(C(V))$. 
+%
+%The first part of the Maurer-Cartan equation contains implicitly $\mu_1$ recovers the differential part of $\AInfty$-relations.
+%\end{Remark}
+
+We will now turn to units and augmentations.
+
+\begin{Definition}[Reduced canonical $\dIBL$-algebra]\label{Def:ReduceddIBL}
+Let $(V, \Pair, m_1, \NOne, \varepsilon)$ be an augmented cyclic cochain complex of degree $2-n$ from Definition~\ref{Def:AugUnit}. We define the space of \emph{reduced cyclic cochains} on $V$ by
+$$ \CycC_{\RedMRM}(V)\coloneqq \RedDBCyc V[2-n]. $$
+We define the \emph{reduced canonical $\dIBL$-algebra} by
+$$ \dIBL(\RedCycC(V))\coloneqq (\RedCycC(V), \OPQ_{110}, \OPQ_{210}, \OPQ_{120}), $$
+where $\OPQ_{110}$, $\OPQ_{210}$, $\OPQ_{120}$ are restrictions of the operations of $\dIBL(\CycC(V))$.
+\end{Definition}
+
+\begin{Definition}[Strictly reduced Maurer-Cartan element] \label{Def:StrictlyReduced}
+In the setting of Definition~\ref{Def:ReduceddIBL}, we call a Maurer-Cartan element $\PMC=(\PMC_{lg})$ for $\dIBL(\CycC(V))$ \emph{strictly reduced} if $\PMC_{lg}\in \hat{\Ext}_l \RedCycC(V)$ for all $(l,g)\neq (1,0)$ and if the $\AInfty$-algebra $(\mathcal{A}_\PMC(V),\NOne,\varepsilon)$ induced by $\PMC_{10}$ is strictly unital and strictly augmented.
+%We sometimes write ``compatible strictly reduced''. 
+Given a strictly reduced Maurer-Cartan element $\PMC$, we can define the twisted $\IBLInfty$-algebra
+$$ \dIBL^\PMC(\CycC_{\mathrm{red}}(V)) \coloneqq (\CycC_{\mathrm{red}}(V), (\OPQ_{klg}^\PMC)), $$
+where $\OPQ_{klg}^\PMC$ are the restrictions of the operations of $\dIBL^\PMC(\CycC(V))$. We denote the homology of $\dIBL^\PMC(\RedCycC)$ by $\HIBL^\PMC(\RedCycC)$ or $\HIBL^{\PMC,\mathrm{red}}(\CycC)$.\footnote{The latter option suggests that it might be possible to define the reduced homology with the induced $\IBL$-algebra even if $\PMC$ is not strictly reducible, e.g., if $(\mathcal{A}_\PMC(V),\NOne,\varepsilon)$ is only homologically unital and augmented.}
+\end{Definition}
+
+\Modify[caption={DONE Put remark to text}]{Include this remark to text because it is in fact a definition.}
+
+\begin{Remark}[On strictly reduced Maurer-Cartan element]\phantomsection
+\begin{RemarkList}
+\item We can say that the $\IBLInfty$-algebra $\dIBL^\PMC(\CycC_{\mathrm{red}})$ is a \emph{subalgebra} of $\dIBL^\PMC(\CycC)$, which means that the inclusion $\CycC_{\mathrm{red}}\xhookrightarrow{}\CycC$ induces the following commutative diagram for all $k,l\ge 1$, $g\ge 0$:
+$$\begin{tikzcd}
+\hat{\Ext}_k \CycC \arrow{r}{\OPQ_{klg}^\PMC} & \hat{\Ext}_l \CycC \\
+\hat{\Ext}_k \CycC_{\mathrm{red}} \arrow{r}{\OPQ_{klg}^\PMC}\arrow[hook]{u} & \hat{\Ext}_l \CycC_{\mathrm{red}}.\arrow[hook]{u}
+\end{tikzcd}$$
+We denote this fact by $\dIBL^\PMC(\CycC_{\mathrm{red}})\subset \dIBL^\PMC(\CycC)$.
+
+\item The canonical Maurer-Cartan element $\MC$ of a strictly augmented strictly unital dga $(V,m_1,m_2,\NOne,\varepsilon)$ is strictly reduced (this follows from Proposition~\ref{Prop:CyclicHom}).
+
+\item In the situation of Definition~\ref{Def:StrictlyReduced}, we denote 
+$$ \bar{V}[1]\coloneqq \Ker(\varepsilon),$$
+so that $V=\bar{V}\oplus \langle 1 \rangle$. We use  the canonical projection $\pi: V \rightarrow \bar{V}$ to identify $\CDBCyc \bar{V} \xrightarrow{\simeq} \CRedDBCyc V$ via the componentwise pullback $\pi^*$. In this way, we obtain the $\IBLInfty$-algebras $\dIBL(\CycC(\bar{V}))$ and $\dIBL^\PMC(\CycC(\bar{V}))$, which are isomorphic to $\dIBL(\CycC_{\mathrm{red}}(V))$ and $\dIBL^\PMC(\CycC_{\mathrm{red}}(V))$, respectively.
+%\footnote{The $\IBLInfty$-isomorphism which we have in mind is given by $\HTP_{110} \coloneqq \pi^*$ and $\HTP_{klg} \coloneqq 0$ otherwise. See~\cite{Cieliebak2015} for $\IBLInfty$-morphisms.}
+\qedhere
+\end{RemarkList}
+\end{Remark}
+
+
+In the following list, we sum up our main reasons for considering units, augmentations and reduced Maurer-Cartan elements. Suppose that we are in the situation of Definition~\ref{Def:StrictlyReduced}, then:
+\begin{itemize}
+ \item  Proposition~\ref{Prop:Reduced} implies the splitting
+\begin{equation}\label{Eq:IBLSPlit}
+ \HIBL^\PMC(\CycC)[1] = \HIBL^\PMC(\CycC_{\mathrm{red}})[1] \oplus \langle \Susp \NOne^{2q-1 *} \mid q\in \N \rangle.
+\end{equation}
+Here $\NOne^{i*} \in \DBCyc V$ is the componentwise pullback $\varepsilon^*$ of $\NOne^{i*}\in \DBCyc(\R)$. To get this, we used
+\begin{equation*} 
+%\label{Eq:CycReduced}
+\HIBL^\PMC(\CycC_{\mathrm{red}}) =  r(\RedCycCoH^*(\mathcal{A}_\PMC))[3-n],
+\end{equation*}
+which can be seen by redoing the proof of Proposition~\ref{Prop:CyclicHom} with reduced cochains.
+\item The subalgebra $\dIBL^\PMC(\CycC_{\mathrm{red}})\subset \dIBL^\PMC(\CycC)$ induces the subalgebra 
+$$\IBL(\HIBL^\PMC(\CycC_{\mathrm{red}}))\subset \IBL(\HIBL^\PMC(\CycC)), $$
+and any higher operation $\OPQ_{1lg}^\PMC$ which induces a map $\hat{\Ext}_1 \HIBL(\CycC) \rightarrow \hat{\Ext}_l \HIBL(\CycC)$ induces a map $\hat{\Ext}_1\HIBL(\CycC_{\mathrm{red}}) \rightarrow \hat{\Ext}_l\HIBL(\CycC_{\mathrm{red}})$ as well.
+\item If $V$ is non-negatively graded, connected and simply-connected, then we have $\hat{\Ext}_k \CycC_{\mathrm{red}} \simeq \Ext_k \RedCycC$ for all $k\in \N_0$ by Proposition~\ref{Prop:SimplCon}, and hence $\dIBL^\PMC(\RedCycC)$ is completion-free. 
+%In particular, we obtain the classical $\IBL$-algebra $\IBL_0(\HIBL^\PMC(\CycC_{\mathrm{red}}))$.
+%becomes a classical $\IBL$-algebra with operations $\OPQ_{210}: \Sym_2 \HIBL^\PMC(\CycC_{\mathrm{red}}) \rightarrow \Sym_1 \HIBL^\PMC(\CycC_{\mathrm{red}})$ and $\OPQ_{120}^\PMC: \Sym_1 \HIBL^\PMC(\CycC_{\mathrm{red}}) \rightarrow \Sym_2 \HIBL^\PMC(\CycC_{\mathrm{red}})$. 
+\end{itemize}
+
+
+\begin{Proposition}[Operations on units]\label{Prop:Ones}
+Suppose that $(V,\Pair,m_1,\NOne,\varepsilon)$ is a finite-dimensional augmented cyclic cochain complex of degree $2-n$ such that $n\ge 1$, and let~$\PMC$ be a strictly reduced Maurer-Cartan element for $\dIBL(\CycC(V))$. The following relations are the only relations containing $\NOne^{i*}$ which may be non-zero on the homology $\HIBL^\PMC(\CycC)$: 
+
+For all $\Psi \in \RedCycC(V)$ and $l\ge 1$, $g\ge 0$, we have
+\begin{align*}
+\OPQ_{210}(\Susp\NOne^* \otimes \Psi) &= (-1)^{(n-2)\Abs{\Psi}} \OPQ_{210}(\Psi \otimes \Susp\NOne^*)  = (-1)^{n-2}\Psi \circ \iota_\NVol\quad\text{and} \\[\jot]
+\OPQ_{1lg}^\PMC(\Susp\NOne^*) & = - \PMC_{lg} \circ \iota_\NVol,
+\end{align*}
+where $\iota_\NVol$ is defined as follows:
+\begin{itemize}
+\item The element $\NVol \in V[1]$ is the unique vector such that $\Pair(\NOne,\NVol) = 1$ and $\NVol \perp \bar{V}[1]$ with respect to $\Pair$. Note that $\Abs{\NVol} = n-1$ and that such $\NVol$ always exists due to non-degeneracy.
+\item We start by defining $\iota_\NVol : \BCyc V \rightarrow \BCyc V$ by
+$$ \iota_\NVol(v_1\dots v_k) \coloneqq \sum_{i=1}^k (-1)^{\Abs{\NVol}(\Abs{v_1} + \dotsb + \Abs{v_{i-1}})} v_1 \dots v_{i-1} \NVol v_i \dots v_k $$
+for all generating words $v_1 \dots v_k \in \BCyc V$. Next, for all $k\ge 1$, we define $\iota_\NVol : (\BCyc V)^{\otimes k} \rightarrow (\BCyc V)^{\otimes k}$ by
+$$ \iota_\NVol(w_1 \otimes \dotsb \otimes w_k) \coloneqq  \begin{multlined}[t](-1)^{\Abs{\NVol}k}\sum_{j=1}^k (-1)^{\Abs{\NVol}(\Abs{w_1} + \dotsb + \Abs{w_{j-1}})} w_1 \otimes \dotsb \otimes w_{j-1} \\ \otimes  \iota_\NVol(w_j) \otimes w_{j+1} \otimes \dotsb \otimes w_k \end{multlined}$$
+for all generating words $w_1$, $\dotsc$, $w_k \in \BCyc V$. Finally, we take the degree shift $\iota_\NVol: (\BCyc V[3-n])^{\otimes k} \rightarrow (\BCyc V[3-n])^{\otimes k}$ according to the degree shift convention \eqref{Eq:DegreeShiftConv}. 
+\end{itemize}
+\end{Proposition}
+\begin{proof}
+Pick a basis $(e_0, \dotsc, e_m)$ of $V[1]$ such that $e_0 = \NOne$ and $\bar{V}[1] = \langle e_1, \dotsc, e_m \rangle$. If $(e^0,\dotsc,e^m)$ is the dual basis, then we have $\NVol = e^0$. We will often use the following relation:
+\begin{equation}\label{Eq:NiceFormula}
+ \sum_{j=0}^m T^{1j} e_j = \sum_{j=0}^m (-1)^{\Abs{\NOne}} \Pair(\NVol,e^j) e_j =  - \NVol.
+\end{equation}
+We consider only those generating words $w = v_1 \dotsc v_k$ of $\BCyc V$ with either $v_i\in \bar{V}$ for each $i$ (shortly $w\in \BCyc \bar{V}$) or $v_i = \NOne$ for each $i$ with $k$ odd (i.e., $w=\NOne^{2j-1}$ for some $j$). Let $w_1$, $\dotsc$, $w_l$ with $w_j = v_{j 1} \dots v_{j k_j}$ denote such generating words. Clearly, if $\Phi \in \hat{\Ext}_l \CycC(V)$ is a $\OPQ_{110}^\PMC$-closed element which vanishes on all $w_1 \otimes \dotsb \otimes w_l$, then~\eqref{Eq:IBLSPlit} implies that $[\Phi] = 0$ in $\hat{\Ext}_l\HIBL(\CycC)$.
+
+For $\Psi\in \RedCycC(V)$ and $q\ge 1$ odd, we compute using \eqref{Eq:NiceFormula} the following:
+\allowdisplaybreaks
+\begin{align*}
+\OPQ_{210}(\Susp^2 \NOne^{q*}\otimes \psi)(\Susp w)  &= \sum \varepsilon( w\mapsto w^1 w^2)(-1)^{(n-1)\Abs{w^1}}T^{1j}\NOne^{q*}(\NOne w^1) \psi(e_j w^2) \\[\jot]
+&= -\sum \varepsilon( w\mapsto w^1 w^2)(-1)^{(n-1)\Abs{w^1}}\NOne^{q*}(\NOne w^1) \psi(\NVol w^2)\\[\jot]
+&\eqqcolon(*). 
+\end{align*}
+Now, in order to get $(*)\neq 0$, we need either $q=1$ and $w\in \BCyc \bar{V}$, in which case
+\allowdisplaybreaks
+\begin{align*}
+ (*)&=-\sum \varepsilon(w\mapsto \underbrace{w^1}_{=\emptyset} w^2)\psi(\NVol w^2) \\ &= -\sum_{j=1}^k (-1)^{\Abs{v}(\Abs{v_1} + \dotsb + \Abs{v_{j-1}})} \psi(v_1 \dotsc v_{j-1} \NVol v_{j+1}\dotsc v_k) \\[\jot]
+ &=  - (\psi \circ \iota_\NVol)(w) = (-1)^{n-2} (\Psi \circ \iota_\NVol)(\W),
+\end{align*}
+or $q>1$ odd and $w = \NOne^{q-1}$, in which case
+\allowdisplaybreaks
+\begin{align*}
+ (*) &= \sum \varepsilon(w\mapsto w^1 \underbrace{w^2}_{=\emptyset}) \NOne^{q*}(\NOne^q) \psi(\NVol) \\
+ &= \psi(\NVol) \sum_{j=1}^{q-1} (-1)^j \\
+ & = 0.
+\end{align*}
+
+Next, because $n\ge 1$, we get $T^{11} = 0$, and hence 
+$$ \OPQ_{120}(\NOne^{q*}) = 0\quad\text{for all }q\in \N$$
+on the chain level. Therefore, we have $\OPQ_{1lg}^\PMC = \OPQ_{210}\circ_1 \PMC_{lg}$ for all $l\ge 1$, $g\ge 0$, and  using Proposition~\ref{Prop:Formulafortwisted} and \eqref{Eq:NiceFormula}, we obtain 
+\allowdisplaybreaks
+\begin{align*}
+&[(\OPQ_{210}\circ_1 \PMC_{lg})(\NOne^{q*})](\W_1 \otimes \dotsb \otimes \W_l) \\[\jot]
+&\quad= \begin{multlined}[t]-\smash{\sum_{j=1}^l} \sum \varepsilon' \varepsilon(w_j \mapsto w_j^1 w_j^2) \NOne^{q*}(\NOne w_j^1) \PMC_{lg}(\W_1 \otimes \dotsb \otimes \W_{j-1} \otimes (\Susp \NVol w_j^2) \\[\jot] \otimes \W_{j+1}\otimes \dotsb \otimes \W_l)\end{multlined}\\
+&\quad\eqqcolon(**).
+\end{align*}
+In order to get $(**)\neq 0$, we need either $q=1$ and $w_j \in \BCyc \bar{V}$ for all $j$, in which case
+\allowdisplaybreaks
+\begin{align*}
+(**) &= \begin{multlined}[t]-\smash{\sum_{j=1}^l} \smash{\sum_{i=1}^{k_j}} (-1)^{\Abs{\NVol}(\Abs{\W_1}+ \dotsb + \Abs{\W_{j-1}} + \Abs{\Susp})}(-1)^{\Abs{\NVol}(\Abs{v_1} + \dotsb + \Abs{v_{j-1}})}\PMC_{lg}(\W_1 \otimes \dotsb \\[\jot] \otimes \W_{j-1} \otimes (\Susp v_1 \dots v_{i-1} \NVol v_{i} \dots v_{k_j}) \otimes \W_{j+1}\otimes \dotsb\otimes \W_l)\end{multlined} \\[\jot]
+ &= -(\PMC_{lg} \circ \iota_\NVol)(\W_1 \otimes \dotsb \otimes \W_l),
+\end{align*}
+or $q>1$ odd and $w_j = \NOne^{q-1}$ for some $j$, in which case
+\allowdisplaybreaks
+\begin{align*}
+(**) &=\begin{multlined}[t]-\smash{\sum_{\substack{1\le j \le l \\ w_j = \NOne^{q-1}}}} \varepsilon' \Bigl(\sum \varepsilon(w_j \mapsto w_j^1 \underbrace{w_{j}^2}_{=\emptyset} \NOne^{q*}(\NOne w_j^1)) \Bigr) \PMC_{lg}(\W_1\otimes \dotsb \\ \otimes\W_{j-1}\otimes (\Susp\NVol)\otimes \W_{j+1} \otimes \dotsb \otimes \W_l )\end{multlined}\\[\jot]
+&=\begin{multlined}[t]-\smash{\sum_{\substack{1\le j \le l \\ w_j = \NOne^{q-1}}}} \varepsilon' \smash{\underbrace{\Bigl( \sum_{i=1}^{q-1} (-1)^i \Bigr)}_{=0}} \PMC_{lg}(\W_1 \otimes \dotsb \otimes \W_{j-1} \otimes (\Susp \NVol) \otimes \W_{j+1} \otimes \\[\jot] \dotsb \otimes \W_l)\end{multlined}\\[\jot]
+&=0.
+\end{align*}
+
+The only relation left to check is
+$$ \OPQ_{210}(\Susp \NOne^{q_1 *},\Susp \NOne^{q_1 *}) = 0 \quad\text{for all } q_1, q_2 \in \N.$$
+However, this is easy to see, and the proof is done. 
+\end{proof}
+\end{document}
