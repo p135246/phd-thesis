@@ -1,4 +1,5 @@
- %auto-ignore
+%auto-ignore
+%! TEX root = ../Text.tex
 \providecommand{\MainFolder}{..}
 \documentclass[\MainFolder/Text.tex]{subfiles}
 %\setuptodonotes{disable}
@@ -43,7 +44,7 @@
 %PROBABLY I NEED TO IMPOSE THE UNSTABLE GENUS STRICT FILTRATION CONDITION ONLY ON MORPHISMS, NOT ON THE OPERATIONS !!
 %
 %NOTICE THAT WE HAVE the part without any 
-%$$  \frac{1}{\hbar}\sum_{g\ge 0} \PMC_{0g}(1)\hbar^g $$
+%\[  \frac{1}{\hbar}\sum_{g\ge 0} \PMC_{0g}(1)\hbar^g \]
 %effect on the twisting. What shit is happening here? THESE ARE NOT DEFINED AS ELEMENTS OF THE MC ELEMENT. BUT WE MAY CONSIDER THEM. 
 %
 %WHY DO I NOT COUNT THE ELEMENTS $\PMC_{0g}$ WITHIN THE TWISTING?
@@ -52,7 +53,7 @@
 %
 %
 %Let us recall that 
-%$$ \chi_{klg} = \chi_{k^- l^- g^-} + \sum_{i=1}^r \chi_{k_i l_i g_i} $$
+%\[ \chi_{klg} = \chi_{k^- l^- g^-} + \sum_{i=1}^r \chi_{k_i l_i g_i} \]
 %and this can be used to bound the number $r_1$ of surfaces $\chi_{k_i l_i g_i}\ge 1$. The number of $(1,1,0)$ is bounded by $k = k_1 + k_2 + \dotsb + k_r$. The number of the rest unstable guys is bounded using the norm inequality and the special $\Norm>0$. It is necessary for motphisms but it does not seem necessary for weak $\IBLInfty$-algebras.
 %
 %
@@ -88,7 +89,7 @@
 \Correct[caption={$BV$ and $BVinfty$}]{Change $\BV$ to $\BVInfty$.}
 \Correct[caption={DONE Degree of BV},noline]{Probably $|\BVOp| = -1$ in our formalism. Indeed, it is $-1$. Correct!}
 In this appendix, we want to understand the $\BV$-formalism for $\IBLInfty$-algebras and the equivalence
-$$\IBLInfty:\quad \begin{gathered}
+\[\IBLInfty:\quad \begin{gathered}
 \underline{\text{Surface calculus}} \\
 (\OPQ_{klg}), (f_{klg}), \text{gluing relations}
 \end{gathered}
@@ -96,7 +97,7 @@ $$\IBLInfty:\quad \begin{gathered}
 \begin{gathered}
 \underline{\BV\text{-formalismus}} \\
  \BVOp, \MVMorF,\text{\,relations }\BVOp^2 = 0, e^\MVMorF \BVOp^+ = \BVOp^- e^\MVMorF.
-\end{gathered}$$
+\end{gathered}\]
 %Having this, we want to interpret a Maurer-Cartan element $\PMC$ for $\BVOp$ as a weak morphism of $\BVOp$ and the twisted algebra $\BVOp^\PMC$. Because~$\PMC$ has no inputs, it is given by the multiplication with the actual exponential $e^{\PMC(1)}$. Invertibility of the exponential induces the following seemingly paradoxical situation:\Modify[noline]{Induce all morphisms $\MVMorF$ the isomorphism $e^\MVMorF$?}
 %
 %\emph{``The twisted operations~$(\OPQ_{klg}^\PMC)$ undoubtedly contain additional information coming from~$\PMC$, yet the $\IBLInfty$-algebras $(\OPQ_{klg})$ and~$(\OPQ_{klg}^\PMC)$ are isomorphic in the weak sense, i.e., allowing no inputs for the morphism.''}
@@ -121,12 +122,12 @@ In Section~\ref{Sec:CompConvA}, we study the composition of maps which are convo
 
 We use the definitions of a filtration, completion and the induced filtration on the completion from Section~\ref{Sec:Alg1a} in Part~I. We formulate the statements in the category of vector spaces, but similar statements hold in the category of graded vector spaces (writing ``homogenous'' and ``graded'' everywhere). All filtrations are decreasing, i.e., $\Filtr^{\lambda_1} \supseteq \Filtr^{\lambda_2}$ whenever $\lambda_1 \le \lambda_2$.
 %If we say that a map is continuous in the filtered context, we mean that its filtration degree is not $-\infty$.
-We work over a field $\K$ of characteristics zero.
+We work over a field $\K$ of characteristic zero.
 
 We start with the following technical lemma, which shows that convergence in completion is very much like absolute convergence in analysis.\footnote{In fact, for complex numbers $v_k\in \C$ for $k\in\N_0$, property (b) of Lemma~\ref{Lem:TechLem} is equivalent to the absolute convergence of $\sum_{k=0}^\infty v_k$ in $\C$.
 %It can  direction uses Fubini's theorem for the counting measure and the other Riemann's Rearrangement Theorem.
 Thanks to Ji\v r\'i Zeman for noting that.}
-%(over a field $\K$ of characteristics $0$)
+%(over a field $\K$ of characteristic $0$)
  
 \begin{Lemma}[Resummation Lemma]\label{Lem:TechLem}
 Let $V$ be a vector space filtered by a decreasing filtration~$\Filtr$, and let~$\hat{V}$ be its completion. 
@@ -134,7 +135,7 @@ Let $V$ be a vector space filtered by a decreasing filtration~$\Filtr$, and let~
 \item Let $v_{ij}\in V$ for all $i$, $j\in\N_0$ be vectors such that $\sum_{j=0}^\infty v_{ij}$ converges for every $i\ge 0$ (i.e., $\Norm{v_{ij}}\to\infty$ as $j\to\infty$, so that $\sum_{j=0}^\infty v_{ij}\in\hat{V}$) and $\Norm{\sum_{j=0}^\infty v_{ij}} \to \infty$ as $i\to \infty$. Then for any bijection $r: \N_0\rightarrow \N_0 \times \N_0$, the sum $\sum_{i=0}^\infty v_{r(i)}$ converges and the limit does not depend on $r$; we denote it by $\sum_{i=0}^\infty\sum_{j=0}^\infty v_{ij} \in \hat{V}$.\footnote{It is an exercise to prove a similar statement for nested infinite sums $\sum_{i_1=0}^\infty \dotsb \sum_{i_n=0}^\infty v_{i_1,\dotsc,i_n}$.}
 %\item If $\sum_{i=0}^\infty v_i \in \hat{V}$ and $s: \N_0\times \N_0 \rightarrow \N_0$ is a bijection, then $\sum_{i=0}^\infty v_i = \sum_{i=0}^\infty\sum_{j=0}^\infty v_{s(i,j)}$.
 \item Suppose that $\sum_{k=0}^\infty v_k$ for $v_k\in V$ converges, and let $s: Z\subset \N_0\times \N_0 \rightarrow \N_0$ be a bijection. If we define $w_{ij} \coloneqq v_{s(i,j)}$ for $(i,j)\in Z$ and $w_{ij} \coloneqq 0$ otherwise, then $\sum_{i=0}^\infty \sum_{j=0}^\infty w_{ij}$ converges (in the sense of (a)) and equals $\sum_{k=0}^\infty v_k$.
-\item Let $V$ and $V'$ be vector spaces filtered by exhaustive filtrations, and let $\sum_{i=0}^\infty v_{i}$ for $v_i\in V$ and $\sum_{i=0}^\infty v_{i}'$ for $v_i'\in V'$ converge. Then for any bijection $r: \N_0 \rightarrow \N_0 \times \N_0$, $i\to (r_1(i),r_2(i))$, the sum $\sum_{i=0}^\infty v_{r_1(i)}\otimes v_{r_2(i)}'$ converges and the limit does not depend on $r$; we denote it by $\sum_{i=0}^\infty v_i \otimes \sum_{j=0}^\infty v_j' \in V\COtimes V$.
+\item Let $V$ and $V'$ be vector spaces filtered by exhaustive filtrations, and let $\sum_{i=0}^\infty v_{i}$ for $v_i\in V$ and $\sum_{i=0}^\infty v_{i}'$ for $v_i'\in V'$ converge. Then for any bijection $r: \N_0 \rightarrow \N_0 \times \N_0$, $i\to (r_1(i),r_2(i))$, the sum $\sum_{i=0}^\infty v_{r_1(i)}\otimes v_{r_2(i)}'$ converges and the limit does not depend on $r$; we denote it by $\sum_{i=0}^\infty v_i \otimes \sum_{j=0}^\infty v_j' \in V\COtimes V'$.
 \end{ClaimList}
 Moreover, we have the following statements about maps of filtered vector spaces:
 \begin{ClaimList}[resume]
@@ -181,7 +182,7 @@ A morphism of (complete) filtered algebras, coalgebras or bialgebras is a linear
 \begin{Remark}[On (complete) filtered algebras]
 \begin{RemarkList}
 \item Clearly, completion is a functor from filtered algebras to complete filtered algebras. In deformation theory, we may deal with complete filtered algebras which are not in the image of this functor.
-\item  The $\IBLInfty$-algebra on $C$ from Definition~\ref{Def:IBLInfty} in Part~I for $\gamma = 0$ is, in fact, a ``complete filtered $\IBLInfty$-algebra on~$\hat{C}$'' in the sense of Definition~\ref{Def:FiltAlg} plus the data of the filtered vector space~$C$. It might not be the completion of a ``filtered $\IBLInfty$-algebra on~$C$''; in fact, we called an $\IBLInfty$-algebra ``completion-free'' if the operations on~$\hat{C}$ arose as continuous extensions of operations on~$C$. Definition~\ref{Def:FiltAlg} seemed natural when we were trying to compute examples of the twisted structure, hoping that we do not encounter infinite sums. After dealing with completions, however, Definition~\ref{Def:FiltAlg} is more logical as an abstract definition.
+\item  The $\IBLInfty$-algebra on $C$ from Definition~\ref{Def:IBLInfty} in Part~I for $\gamma = 0$ is, in fact, a ``complete filtered $\IBLInfty$-algebra on~$\hat{C}$'' in the sense of Definition~\ref{Def:FiltAlg} plus the data of the filtered vector space~$C$. It might not be the completion of a ``filtered $\IBLInfty$-algebra on~$C$''; in fact, we called an $\IBLInfty$-algebra ``completion-free'' if the operations on~$\hat{C}$ arose as continuous extensions of operations on~$C$. Definition~\ref{Def:IBLInfty} seemed natural when we were trying to compute examples of the twisted structure, hoping that we do not encounter infinite sums. After dealing with completions, however, Definition~\ref{Def:FiltAlg} is more logical as an abstract definition.
 
 Notice that for $\gamma > 0$, the norm $\Norm{\OPQ_{klg}} \ge \gamma(2-2g-k-l)$ is allowed to be negative; in particular, $\Norm{\OPQ_{210}}\ge -\gamma$ and $\Norm{\OPQ_{120}}\ge -\gamma$. Therefore, one has to allow finite filtration degree in Definition~\ref{Def:FiltAlg} in order to accommodate it to $\IBLInfty$-algebras with $\gamma \ge 0$.
 \end{RemarkList}
@@ -203,12 +204,12 @@ Given a vector space $U$ over $\K$, we will work with the \emph{symmetric bialge
 \end{align*}
 respectively. Here $\Perm_{k_1,k_2}$ denotes the shuffle permutations and $\varepsilon(\sigma,u)$ the Koszul sign. The unit $\MVUnit: \K \rightarrow \Sym U$ is given by $\MVUnit(1) = 1 \in \Sym_0 U = \K$, and the augmentation $\MVAug: \Sym U \rightarrow \K$ is determined by its reduced algebra $\RedSym U = \bigoplus_{k=1}^\infty \Sym_k U$. If $U$ is filtered, then $\MVProd$, $\MVCoProd$, $\MVUnit$ and~$\MVAug$ preserve the induced filtration on $\Sym U$ (see Definition~\ref{Def:Filtrations} in Part~I), and hence $\Sym U$ is a filtered bialgebra. We will also use the canonical projection $\pi_k: \Sym U \rightarrow \Sym_k U$ and the canonical inclusion $\iota_l: \Sym_l U \rightarrow \Sym U$ for $k\in\N_0$ and $l\in \N_0$. They too preserve the filtration.
 
-The symmetric bialgebra of a filtered vector space has naturally two filtrations --- the induced filtration and the filtration by weights $\Filtr_\WeightMRM^\lambda \Sym U \coloneqq \bigoplus_{k\ge \lambda} \Sym_k U$.\footnote{Note that the filtration by weights can be also viewed as the induced filtration from the filtration on $U$ defined by $\Filtr^{\le 1}U \coloneqq U$, $\Filtr^{>1}U\coloneqq 0$.} In general, having two filtration~$\Filtr_1$ and~$\Filtr_2$ on a vector space $V$, we define the filtrations
+The symmetric bialgebra of a filtered vector space has naturally two filtrations --- the induced filtration and the filtration by weights $\Filtr_\WeightMRM^\lambda \Sym U \coloneqq \bigoplus_{k\ge \lambda} \Sym_k U$.\footnote{Note that the filtration by weights can be also viewed as the induced filtration from the filtration on $U$ defined by $\Filtr^{\le 1}U \coloneqq U$, $\Filtr^{>1}U\coloneqq 0$.} In general, having two filtrations~$\Filtr_1$ and~$\Filtr_2$ on a vector space $V$, we define the filtrations
 \begin{equation}\label{Eq:CombinedFiltr}
 \Filtr_\cup^\lambda \coloneqq \Filtr_1^\lambda + \Filtr_2^\lambda\quad\text{and}\quad\Filtr_\cap^{\lambda} \coloneqq \Filtr_1^\lambda \cap \Filtr_2^\lambda
 \end{equation}
 and call them the \emph{combined filtrations} --- the union and the intersection. It is easy to see that \Correct[caption={DONE Inequality for combined fitlrations},noline]{There has to be an inequality!!}
-$$ \Norm{\cdot}_\cup \ge \max(\Norm{\cdot}_1,\Norm{\cdot}_{2})\quad\text{and}\quad\Norm{\cdot}_\cap \le \min(\Norm{\cdot}_1,\Norm{\cdot}_{2}) $$
+\[ \Norm{\cdot}_\cup \ge \max(\Norm{\cdot}_1,\Norm{\cdot}_{2})\quad\text{and}\quad\Norm{\cdot}_\cap \le \min(\Norm{\cdot}_1,\Norm{\cdot}_{2}) \]
 hold for the corresponding filtration degrees.
 
 \begin{figure}[t]\label{Fig:FiltrationTypes}
@@ -232,11 +233,11 @@ it holds $\Norm{\MVProd}_\cap \ge 0$ and $\Norm{\MVCoProd}_\cup\ge 0$, respectiv
 %Non-negativity of the combined norms of $\MVUnit$ and $\MVAug$ is clear.
 
 We now demonstrate that it might happen that $\Norm{\MVProd}_\cup = - \infty$ and $\Norm{\MVCoProd}_\cap = -\infty$. Let $U = \Ten W$ be the tensor algebra over a non-zero vector space $W$. On $U$, consider the filtration by weights $\Filtr^\lambda U = \bigoplus_{k\ge \lambda} W^{\otimes k}$. Let $0\neq w\in W$, and define 
-$$ v_k \coloneqq \underbrace{w\smallotimes \dotsb \smallotimes w}_{k\text{-times}} \in \Filtr^{k} \Sym_1 U\quad\text{for all }k\in\N, $$
+\[ v_k \coloneqq \underbrace{w\smallotimes \dotsb \smallotimes w}_{k\text{-times}} \in \Filtr^{k} \Sym_1 U\quad\text{for all }k\in\N, \]
 where $\smallotimes$ denotes the tensor product on $\Ten W$. For $0\neq u \in \Ten_0 W = \K$, define 
-$$ v_k' \coloneqq \underbrace{u\dotsb u}_{k\text{-times}} \in \Filtr^0 \Sym_k U\quad\text{for all }k\in \N, $$
+\[ v_k' \coloneqq \underbrace{u\dotsb u}_{k\text{-times}} \in \Filtr^0 \Sym_k U\quad\text{for all }k\in \N, \]
 where $\cdot$ denotes the concatenation product on $\Sym U$. It follows that 
-$$ \Norm{v_k}_{\cup} = k,\quad\Norm{v_k'}_{\cup} = k\quad\text{and}\quad\Norm{v_k v_k'}_\cup = k+1. $$
+\[ \Norm{v_k}_{\cup} = k,\quad\Norm{v_k'}_{\cup} = k\quad\text{and}\quad\Norm{v_k v_k'}_\cup = k+1. \]
 Therefore, for all $k\in \N$, it holds
 \begin{align*}
 \Norm{\MVProd}_\cup &\le \Norm{v_k v_k'}_\cup - \Norm{v_k \otimes v_k'}_{\cup} \\
@@ -244,7 +245,7 @@ Therefore, for all $k\in \N$, it holds
 &=  1 - k.
 \end{align*}
 Consequently $\Norm{\mu}_\cup = -\infty$. Next, it holds 
-$$ \Norm{v_k v_k'}_\cap = k\quad\text{and}\quad\Norm{v_k\otimes v_k'}_\cap = 1, $$
+\[ \Norm{v_k v_k'}_\cap = k\quad\text{and}\quad\Norm{v_k\otimes v_k'}_\cap = 1, \]
 and we compute
 \begin{align*}
 \Norm{\MVCoProd}_\cap &\le \Norm{\MVCoProd(v_k v_k')}_\cap - \Norm{v_k v_k'}_\cap \\ 
@@ -260,10 +261,10 @@ Suppose that the filtration on $U$ is bounded from above. Let $v_i\in\Filtr^{\la
 %\Filtr^\xi U = V\quad\text{for some }\xi>0.
 %\end{equation}
 %In other words, $\Filtr$ is bounded from above in positive degree. Then we have $\Norm{v} \ge \xi \Norm{v}_{\mathrm{w}}$ for all $v\in \Sym(U)$, and it follows that
-%$$\begin{cases}
+%\[\begin{cases}
 %\Norm{v}\le\Norm{v}_\cup\le \frac{1}{\xi}\Norm{v} & \text{if }0<\xi\le 1, \\
 %\Filtr_\cup = \Filtr & \text{otherwise.}
-%\end{cases}$$
+%\end{cases}\]
 %It follows that in both cases, the completions with respect to the combined and induced filtrations are homeomorphic, and we can extend $\mu$ and $\delta$ to $\hat{\Sym}^{\cup}(U)$. However, in order to get an $\MV$-algebra, i.e., in order to have $\Norm{\mu} = \Norm{\delta} = 0$, we require \eqref{Eq:CombFiltrCond} with $\xi = 1$. This is clearly satisfied for the reduced dual cyclic bar complex $\DBCyc W$, which is used throughout part I. However, it makes it unclear how to do it for the non-reduced bar complex. In this case, our $\BV$-formalism fails.
 %Let us shortly mention another possibilities of combining $\Filtr$ and $\Filtr_{\mathrm{w}}$. First of all, we have the space $\tilde{\Sym}(U) = \prod_{k=0}^\infty \hat{\Sym}_k(U)$. This space arises by completing using $\Filtr$ for fixed weight (and degree), obtaining $\bigoplus_{k=0}^\infty \hat{\Sym}_k(U)$, and then completing by weights.
 \end{Example}
@@ -302,12 +303,12 @@ We consider the exponential and the logarithm on filtered algebras.
 
 \begin{Lemma}[Exponential and logarithm on filtered algebras]\label{Lem:Exponential}
 Let $V$ be a complete filtered associative algebra with unit~$1$. Given $v\in V$ with $\Norm{v}>0$, we define the exponential
-$$ e^v \coloneqq 1 + v + \frac{1}{2!}v^2 + \frac{1}{3!} v^3 + \dotsb \in V. $$
+\[ e^v \coloneqq 1 + v + \frac{1}{2!}v^2 + \frac{1}{3!} v^3 + \dotsb \in V. \]
 It holds $e^v e^{-v} = 1$. Given $v\in V$ with $\Norm{v-1}>0$, we define the logarithm
-$$ \log(v) = \sum_{r=1}^\infty \frac{(-1)^{r-1}}{r} (v-1)^{r}\in V. $$
+\[ \log(v) = \sum_{r=1}^\infty \frac{(-1)^{r-1}}{r} (v-1)^{r}\in V. \]
 It holds $\log(e^v) = v$ for $v\in V$ with $\Norm{v}>0$ and $e^{\log v} = v$ for $v\in V$ with $\Norm{v-1}>0$.
 %In order to define the composition, we consider the logarithm
-%$$ \log(\MVMorF) = \sum_{r=1}^\infty \frac{(-1)^{r-1}}{r} (\MVMorF - \StarProdOne)^{\Star r}, $$
+%\[ \log(\MVMorF) = \sum_{r=1}^\infty \frac{(-1)^{r-1}}{r} (\MVMorF - \StarProdOne)^{\Star r}, \]
 %where $\StarProdOne$ is the convolution unit and $\MVMorF: \hat{\Sym}U((\hbar))\rightarrow\hat{\Sym}U((\hbar))$ is an $R$-linear map such that 
 %\begin{equation}\label{Eq:LogCondFiltr}
 %\Norm{\MVMorF}\ge 0\quad\text{and}\quad\Norm{\MVMorF(1) - 1} >0.
@@ -325,7 +326,7 @@ On the second line, we used that the multiplication with $e^{-v}$ from the left 
 \end{proof}
 
 Let $(V,\MVCoProd)$ be a coalgebra and $(V',\MVProd')$ an algebra. The \emph{convolution product} $\Star$ on $\K$-linear maps $f_1$, $f_2: V \rightarrow V'$ is defined by
-$$ f_1\Star f_2 \coloneqq \MVProd'\circ(f_1\otimes f_2)\circ\MVCoProd. $$
+\[ f_1\Star f_2 \coloneqq \MVProd'\circ(f_1\otimes f_2)\circ\MVCoProd. \]
 See also \cite[Section~1.6]{Loday2012}.
 %Note that in Section~\ref{Sec:Alg1}, in the context of symmetric bialgebras, we denoted~$\Star$ by $\odot$.
 If~$\MVAug: V \rightarrow \K$ is a counit for~$V$ and~$\MVUnit': \K \rightarrow V'$ a unit for~$V'$, then
@@ -334,15 +335,15 @@ If~$\MVAug: V \rightarrow \K$ is a counit for~$V$ and~$\MVUnit': \K \rightarrow 
 \end{equation}
 is the unit for $\Star$. The convolution product is associative and commutative provided that the algebra and coalgebra are.
 
-Let us recall the conilpotency property of a cougmented counital coassociative coalgebra $(V,\MVCoProd,\MVAug,\MVUnit)$, where $\MVAug: V \rightarrow \K$ is the counit and $\MVUnit: \K\rightarrow V$ the coaugmentation. We write
-$$ \MVCoProd =\bar{\MVCoProd}+ \MVCoProd_0, $$
+Let us recall the conilpotency property of a coaugmented counital coassociative coalgebra $(V,\MVCoProd,\MVAug,\MVUnit)$, where $\MVAug: V \rightarrow \K$ is the counit and $\MVUnit: \K\rightarrow V$ the coaugmentation. We write
+\[ \MVCoProd =\bar{\MVCoProd}+ \MVCoProd_0, \]
 where $\MVCoProd_0: V \rightarrow V\otimes V$ is defined by
 \begin{equation}\label{Eq:CoProdOne}
 \MVCoProd_0(v) \coloneqq \begin{cases} 1 \otimes 1 & \text{if }v=1, \\
 1\otimes v + v\otimes 1 & \text{if }v\in \bar{V},\end{cases}
 \end{equation}
 with respect to the decomposition $V = \langle 1 \rangle \oplus \bar{V}$. The other map is then defined simply as the difference 
-$$ \bar{\MVCoProd} \coloneqq \MVCoProd - \MVCoProd_0: V \longrightarrow V\otimes V. $$
+\[ \bar{\MVCoProd} \coloneqq \MVCoProd - \MVCoProd_0: V \longrightarrow V\otimes V. \]
 We call~$\MVCoProd_0$ the \emph{trivial coproduct} and $\bar{\MVCoProd}$ the \emph{reduced diagonal.} They are both coassociative, and $\MVCoProd_0$ is even cocommutative. The \emph{conilpotency property} reads: for every $v\in V$, there exists an $n\in \N$ such that $\bar{\MVCoProd}^{(n)}(v) = 0$, where $\bar{\MVCoProd}^{(n)}\coloneqq(\bar{\MVCoProd}\otimes\Id^{\otimes n-2})\circ \dotsb\circ\bar{\MVCoProd}$ is the iterated reduced diagonal with $n$ outputs.
 
 Using the conilpotency property, it is possible to weaken the condition $\Norm{f}>0$ on the convergence of a power series in $f\in\Hom(V,V')$ in the convolution algebra $(\Hom(V,V'),\Star,\StarProdOne)$ to $\Norm{f}\ge 0$ and $\Norm{f(1)}>0$. The latter condition can not be weakened because $e^f(1) = e^{f(1)}$ is the exponential in $(V',\MVProd',\MVUnit')$.
@@ -350,7 +351,7 @@ Using the conilpotency property, it is possible to weaken the condition $\Norm{f
 \begin{Proposition}[Power series in $\Star$ with coefficients in $\K$]\label{Prop:ConvPwrSer}
 Let $(V,\MVCoProd,\MVAug, \MVUnit)$ be a complete filtered coaugmented counital cocommutative coassociative coalgebra such that the following \emph{limit conilpotency property} holds:
 \begin{equation}\label{Eq:LimConilp}
-\bar{\MVCoProd}^{(n)}(v) \to 0\text{ as }n\to\infty\text{ for all }v\in V.
+\bar{\MVCoProd}^{(n)}(v) \to 0\quad\text{as}\quad n\to\infty\quad\text{for all }v\in V.
 \end{equation}
 Let $(V',\MVProd',\MVUnit',\MVAug')$ be a complete filtered augmented unital commutative associative algebra. Let~$R$ be a complete filtered $\K$-algebra. Then the following holds:
 \begin{ClaimList}
@@ -364,7 +365,7 @@ where ${\MVProd'}^{(n)}$ and $\MVCoProd^{(n)}$ are the continuous $R$-linear ext
 \Norm{\MVMorF}\ge 0\quad\text{and}\quad\Norm{\MVMorF(1)}>0.
 \end{equation}
 Then any power series $\sum_{k=0}^\infty \alpha_k \MVMorF^{\Star k}$ with coefficients $\alpha_k\in \K$, where $\MVMorF^{\Star 0}\coloneqq \StarProdOne$ is the unit of the convolution product, converges to an $R$-linear map $V\COtimes R \rightarrow V'\COtimes R$ of non-negative filtration degree, and it holds
-$$ \bigl(\sum_{k=0}^\infty \alpha_k \MVMorF^{\Star k}\bigr)(1) = \sum_{k=0}^\infty \alpha_k \MVMorF(1)^k. $$
+\[ \bigl(\sum_{k=0}^\infty \alpha_k \MVMorF^{\Star k}\bigr)(1) = \sum_{k=0}^\infty \alpha_k \MVMorF(1)^k. \]
 \end{ClaimList}
 \end{Proposition}
 \begin{proof}
@@ -419,11 +420,11 @@ Let $w\in V\COtimes R$ and $n\ge 2$. For the map $\MVCoProd^{(n)}: V\COtimes R \
 \MVCoProd^{(n)}(w) = \sum_{i=0}^n\sum_{(n-i)\times 1} \sum_{\bar{\MVCoProd^{(i)}}} w_{(1)}\COtimes_R 1 \COtimes_R 1 \COtimes_R w_{(2)}\COtimes_R 1 \COtimes_R \dotsb \COtimes_R w_{(i)}\COtimes_R 1,
 \end{equation}
 where the second sum is over all insertions of $n-i$ units $1$ into the tensor product and the third sum denotes the sum from the Sweedler's notation
-$$ \bar{\delta}^{(i)}(w) = \sum w_{(1)}\COtimes_R \dotsb \COtimes_R w_{(i)}. $$
+\[ \bar{\delta}^{(i)}(w) = \sum w_{(1)}\COtimes_R \dotsb \COtimes_R w_{(i)}. \]
 Formula \eqref{Eq:ItCoprod} is easy to see from $\MVCoProd = \MVCoProd_0 + \bar{\MVCoProd}$.
 
 Before we continue, let us check that $\bar{\MVCoProd}: V\COtimes R \rightarrow (V\COtimes R)^{\COtimes_R 2}$ also satisfies the limit conilpotency property (the proof is similar to the proof of Lemma~\ref{Lem:SymAlgLimConilp} below). Every element of $V\COtimes R$ can be written as $\sum_{i=0}^\infty r_i v_i$ for $r_i\in R$ and $v_i\in V$ such that $\Norm{r_i v_i} \to \infty$ as $i\to \infty$; this follows from the Resummation Lemma (Lemma~\ref{Lem:TechLem}). Given $K>0$, we pick $i_0\in \N$ such that $\Norm{r_iv_i}\ge K$ for all $i\ge i_0$. We pick $n_0\in \N$ such that $\Norm{\bar{\MVCoProd}^{(n)}(v_0)}+\Norm{r_0}$, $\dotsc$, $\Norm{\bar{\MVCoProd}^{(n)}(v_{i_0-1})}+\Norm{r_{i_0-1}} \ge K$ for all $n\ge n_0$. According to the construction in (a), we have 
-$$ \bar{\MVCoProd}^{(n)}(\sum_{i=0}^\infty r_i v_i) = \sum_{i=0}^\infty r_i \bar{\MVCoProd}^{(n)}(v_i). $$
+\[ \bar{\MVCoProd}^{(n)}(\sum_{i=0}^\infty r_i v_i) = \sum_{i=0}^\infty r_i \bar{\MVCoProd}^{(n)}(v_i). \]
 For $n\ge n_0$, it holds $\Norm{r_i\bar{\MVCoProd}^{(n)}(v_i)}\ge \Norm{r_i} + \Norm{\bar{\MVCoProd}^{(n)}(v_i)}\ge K$ for $i<i_0$ and $\Norm{r_i\bar{\MVCoProd}^{(n)}(v_i)}\ge \Norm{r_i v_i} \ge K$ for $i\ge i_0$. It follows that $\bar{\MVCoProd}^{(n)}(\sum_{i=0}^\infty r_i v_i) \to 0$ as $n\to \infty$.
 
 
@@ -436,7 +437,7 @@ Going on with the main proof, using~\eqref{Eq:ItStarProd} and~\eqref{Eq:ItCoprod
 \end{align*}
 Let $K>0$ be arbitrary. Because $\Norm{\MVMorF}\ge 0$, $\Norm{\MVMorF(1)}>0$ and $\bar{\delta}^{i}(w) \to 0$ as $i\to \infty$ by the assumptions, we obtain an $n_1\in \N$ such that $(*)_n\ge K$ for all $n \ge n_1$ (see Figure~\ref{Fig:Convergence}).
 %Because 
-%$$\Norm{\alpha_n \MVMorF^{\Star n}(rv)} \ge \Norm{\MVMorF^{\Star n}(v)} + \Norm{r}\quad\text{for any }r\in R\text{ and }v\in V, $$
+%\[\Norm{\alpha_n \MVMorF^{\Star n}(rv)} \ge \Norm{\MVMorF^{\Star n}(v)} + \Norm{r}\quad\text{for any }r\in R\text{ and }v\in V, \]
 This implies the convergence of $\sum_{n=0}^\infty \alpha_n\MVMorF^{\Star n}(w)$ in $V\COtimes R$. Using (e) of the Resummation Lemma, we get a well-defined $\K$-linear map $\sum_{k=0}^\infty \alpha_k \MVMorF^{\Star k}: V\COtimes R \rightarrow V\COtimes R$ with $\Norm{\sum_{k=0}^\infty \alpha_k \MVMorF^{\Star k}} \ge \inf_{k=0,\dotsc,\infty} \Norm{\MVMorF^{\Star k}} \ge  0$. It is easy to see that it is $R$-linear as well. \qedhere
 \end{ProofList}
 \end{proof}
@@ -446,15 +447,15 @@ Let $(V,\MVCoProd,\MVAug,\MVUnit)$ be a filtered coaugmented counital coassociat
 \end{Lemma}
 \begin{proof}
 Let $v\in \hat{V}$, and write $v = \sum_{i=0}^\infty v_i$ for $v_i\in V$ with $\Norm{v_i} \to \infty$. Given $K>0$, find $i_0\in \N$ such that $\Norm{v_i}\ge K$ for all $i\ge i_0$. From the conilpotency, we can find $n_0\in \N$ such that $\bar{\MVCoProd}^{(n)}(v_0) = \dotsc = \Norm{\bar{\MVCoProd}^{(n)}(v_{i_0-1})} = 0$ for all $n\ge n_0$. Because $\bar{\MVCoProd}$ has finite filtration degree, $\bar{\MVCoProd}^{(n)}$ has finite filtration degree too, and so we can permute it with the infinite sum and write 
-$$ \bar{\MVCoProd}^{(n)}(v) = \sum_{i=0}^\infty \bar{\MVCoProd}^{(n)}(v_i) = \sum_{i=i_0}^\infty \bar{\MVCoProd}^{(n)}(v_i). $$
+\[ \bar{\MVCoProd}^{(n)}(v) = \sum_{i=0}^\infty \bar{\MVCoProd}^{(n)}(v_i) = \sum_{i=i_0}^\infty \bar{\MVCoProd}^{(n)}(v_i). \]
 Because $\Norm{\bar{\MVCoProd}} \ge 0$, we have $\Norm{\bar{\MVCoProd}^{(n)}} \ge 0$, and hence 
-$$ \Norm{\bar{\MVCoProd}^{(n)}(v)} \ge \inf_{i=i_0,\dotsc,\infty}\Norm{\bar{\MVCoProd}^{(n)}(v_i)} \ge \inf_{i=i_0,\dotsc,\infty} \Norm{v_i} \ge K $$
+\[ \Norm{\bar{\MVCoProd}^{(n)}(v)} \ge \inf_{i=i_0,\dotsc,\infty}\Norm{\bar{\MVCoProd}^{(n)}(v_i)} \ge \inf_{i=i_0,\dotsc,\infty} \Norm{v_i} \ge K \]
 for all $n\ge n_0$. This shows the limit conilpotency property.
 %Let $v\in \hat{\Sym}U$, and write $v = \sum_{i = 0}^\infty v_i$ for $v_i \in \hat{\Sym}_i U$ with $\Norm{v_i}\to\infty$. This is always possible due to the Resummation Lemma (Lemma~\ref{Lem:TechLem}). Given $K>0$, we find $i_0\in \N_0$ such that $\Norm{v_i} \ge K$ for all $i\ge i_0$. Because $\bar{\MVCoProd}$ has finite filtration degree, we can propagate it over an infinite sum, and for all $i\ge i_0$, we get
-%$$ \bar{\MVCoProd}^{(i)}(v) = \sum_{j=0}^\infty \bar{\MVCoProd}^{(i)}(v_j) = \sum_{j=i_0}^\infty \bar{\MVCoProd}^{(i)}(v_j), $$
+%\[ \bar{\MVCoProd}^{(i)}(v) = \sum_{j=0}^\infty \bar{\MVCoProd}^{(i)}(v_j) = \sum_{j=i_0}^\infty \bar{\MVCoProd}^{(i)}(v_j), \]
 %where we used the conilpotency 
 %Thus, we have
-%$$ \Norm{\bar{\MVCoProd}^{(i)}(v)}\ge \inf_{j=i_0,\dotsc,\infty}\Norm{v_j} \ge K. $$
+%\[ \Norm{\bar{\MVCoProd}^{(i)}(v)}\ge \inf_{j=i_0,\dotsc,\infty}\Norm{v_j} \ge K. \]
 %This finishes the argument.
 \end{proof}
 
@@ -464,10 +465,10 @@ for all $n\ge n_0$. This shows the limit conilpotency property.
 \item It is obvious that Lemma~\ref{Lem:Exponential} holds for~$\Star$ with the weakened conditions~\eqref{Eq:ConditionsPowerSeries}. To sum up, the conditions for the existence of $\exp(\MVMorF)$ are $\Norm{\MVMorF}\ge 0$ and $\Norm{\MVMorF(1)}>0$, and the conditions for the existence of $\log(\MVMorF)$ are $\Norm{\MVMorF}\ge 0$ and $\Norm{\MVMorF(1) - 1}>0$.
 
 \item Given $\MVMorF: V\COtimes R \rightarrow V\COtimes R$ satisfying~\eqref{Eq:ConditionsPowerSeries}, it holds $e^{-\MVMorF}\Star e^{\MVMorF} = \StarProdOne$ by Lemma~\ref{Lem:Exponential} because $\StarProdOne$ is the unit for the convolution product. However, there might not be any $\MVMorG: V\COtimes R \rightarrow V\COtimes R$ such that $\MVMorG \circ e^{\MVMorF} = \Id$ (or $e^{\MVMorF}\circ\MVMorG = \Id$). To see this, let $V=\hat{\Sym} U$, $R=\K$, and let $\HTP_{110}: U \rightarrow U$ be a linear map with $\Norm{\HTP_{110}}\ge 0$ such that there is $0 \neq v\in U$ with $\HTP_{110}(v)=0$. Consider the trivial extension $\MVMorF\coloneqq \HTP_{110}: \hat{\Sym}U\rightarrow\hat{\Sym}U$ (it equals $\HTP_{110}$ on $\hat{\Sym}_1 U\rightarrow \hat{\Sym}_1 U$ and $0$ otherwise). Because
-$$ \HTP^{\Star n}(\underbrace{v \dotsb v}_{k\text{-times}}) = \begin{cases}
+\[ \HTP^{\Star n}(\underbrace{v \dotsb v}_{k\text{-times}}) = \begin{cases}
  n! \HTP_{110}(v)^n & \text{if } k = n, \\
  0 & \text{otherwise},
-\end{cases}$$
+\end{cases}\]
 for all $k$, $n\in\N_0$, it holds $e^{\MVMorF}(v) = \HTP_{110}(v) = 0$, and so $e^{\MVMorF}: \hat{\Sym}U\rightarrow \hat{\Sym}U$ is not invertible.
 
 \item In the case of $V=\hat{\Sym}U$, one can check that $\log(\Id)$ is the trivial extension of $\Id_{110}: \hat{U}\rightarrow \hat{U}$ (see also \cite[Example~21]{Markl2015} in the non-filtered setting).\qedhere
@@ -518,14 +519,14 @@ In \cite{Markl2015}, $\MV$-algebras were introduced; they are precisely the alge
 \end{aligned}
 \end{gathered}
 \end{equation}
-Here, $R$ is a complete local Noetherian ring with residue field~$\K$ of characteristics $0$ and maximal ideal~$\mathfrak{m}$, $(V,\MVProd,\MVUnit,\MVAug)$ is a graded commutative associative algebra $(V,\mu)$ over $\K$ with unit $\MVUnit: \K \rightarrow V$ and augmentation $\MVAug: V\rightarrow\K$, $(V,\MVCoProd,\MVAug,\MVUnit)$ is a \emph{conilpotent} graded cocommutative coassociative coalgebra with counit~$\MVAug$ and coaugmentation~$\MVUnit$ (the same maps as $\MVAug$ and $\MVUnit$ for $(V,\mu)$), $V\COtimes R \coloneqq \varprojlim_n (V\otimes R/V\otimes \mathfrak{m}^n)$, where $\mathfrak{m}^n = \mathfrak{m}\dotsb\mathfrak{m}$, is the completed tensor product, the operators~$\BVOp$ and~$\MVMorF$ are $R$-linear and have non-negative filtration degrees with respect to the filtration by $V\COtimes \mathfrak{m}^n$.
+Here, $R$ is a complete local Noetherian ring with residue field~$\K$ of characteristic $0$ and maximal ideal~$\mathfrak{m}$, $(V,\MVProd,\MVUnit,\MVAug)$ is a graded commutative associative algebra over $\K$ with unit $\MVUnit: \K \rightarrow V$ and augmentation $\MVAug: V\rightarrow\K$, $(V,\MVCoProd,\MVAug,\MVUnit)$ is a \emph{conilpotent} graded cocommutative coassociative coalgebra with counit~$\MVAug$ and coaugmentation~$\MVUnit$ (the same maps as $\MVAug$ and $\MVUnit$ for $(V,\mu)$), $V\COtimes R \coloneqq \varprojlim_n (V\otimes R/V\otimes \mathfrak{m}^n)$, where $\mathfrak{m}^n = \mathfrak{m}\dotsb\mathfrak{m}$, is the completed tensor product, the operators~$\BVOp$ and~$\MVMorF$ are $R$-linear and have non-negative filtration degrees with respect to the filtration by $V\COtimes \mathfrak{m}^n$.
 
 If $R$ is a $\K$-algebra,\footnote{The ring $\Z_4$ is a local ring which is not a $\K$-algebra over its residue field $\K=\Z_2$. The ring of polynomials $\R[x]$ in a single variable $x$ is a $\K$-algebra over its residue field $\K=\R$, but it is not a local ring because both $(x)$ and $(x+1)$ are maximal ideals. In contrast to this, the ring of power series $\K((\hbar))$ is both a local ring and a $\K$-algebra. Thanks to Thorsten Hertl for pointing this out.} then this is precisely the same setting as that of Proposition~\ref{Prop:ConvPwrSer} for the filtrations $\Filtr^{\le 0} V = V$, $\Filtr^{>0} V= 0$ and $\Filtr^{\lambda\le 0} R = R$, $\Filtr^{\lambda>0} R = \mathfrak{m}^{\lceil\lambda\rceil}$. Clearly, $\HTP(1)\subset V^- \COtimes \mathfrak{m}^-$ is equivalent to $\Norm{\HTP(1)}>0$. Therefore, $e^\MVMorF$ exists by Proposition~\ref{Prop:ConvPwrSer}.
 
 Recall from \cite[p.\,5]{Markl2015} that a linear operator $D: V\rightarrow V$ on a commutative associative algebra~$V$ with unit $1$ is called a \emph{differential operator} of order $\le k$ for $k\in \N_0$ if it holds\label{Page:DiffOp}
-$$ \psi^D_{k+1}(v_1, \dotsc, v_{k+1}) \coloneqq [[\dotsb[[D,L_{v_1}],L_{v_2}],\dotsc],L_{v_{k+1}}] = 0 \quad\text{for all }v_1, \dotsc, v_{k+1}\in V, $$
+\[ \psi^D_{k+1}(v_1, \dotsc, v_{k+1}) \coloneqq [[\dotsb[[D,L_{v_1}],L_{v_2}],\dotsc],L_{v_{k+1}}] = 0 \quad\text{for all }v_1, \dotsc, v_{k+1}\in V, \]
 where 
-$$ L_v(w) \coloneqq v w\quad\text{for all }w\in V $$
+\[ L_v(w) \coloneqq v w\quad\text{for all }w\in V \]
 is the left-multiplication with $v\in V$ and $[\cdot,\cdot]$ is the graded commutator. 
 
 %
@@ -535,17 +536,17 @@ is the left-multiplication with $v\in V$ and $[\cdot,\cdot]$ is the graded commu
 %\end{equation}
 %where $\mu^{(n)}$ and $\delta^{(n)}$ are the $R$-linear extensions to $V\COtimes R$ of the iterated products and coproducts with $n$ inputs and outputs, respectively. F
 %Therefore, if $n\in\N$ is such that $\bar{\delta}^n(v)=0$ by conilpotence, then 
-%$$ \MVMorF^{\Star (n+i)}(v) \subset V\COtimes\mathfrak{m}^i\quad\text{for all }i\in \N $$
+%\[ \MVMorF^{\Star (n+i)}(v) \subset V\COtimes\mathfrak{m}^i\quad\text{for all }i\in \N \]
 %because $\delta^{(n+i)}(v)$ contains at least $i$ ones. See Proposition~\ref{Prop:ConvPwrSer} below for a precise proof in a more general setting.
 
-The categories of $\BVInfty$- and $\IBLInfty$-algebras contained in the $\MV$-formalism are not the most general ones; this is what $*$ and $**$ indicate. Before we explain this, let us agree on calling an $\IBLInfty$-algebra $(\OPQ_{klg})$ \emph{strict} if $\OPQ_{0lg}=\OPQ_{k0g}=0$ for all $k$, $l$, $g\in \N_0$, \emph{input-strict} if $\OPQ_{0lg} = 0$ for all $l$, $g\in \N_0$, and \emph{weak} if we want to emphasize that operations with no input and output are allowed. The same terminology is used for morphisms.
+The categories of $\BVInfty$- and $\IBLInfty$-algebras contained in the $\MV$-formalism are not the most general ones; this is what $*$ and $**$ indicate. Before we explain this, let us agree on calling $(\OPQ_{klg})$ a \emph{strict $\IBLInfty$-algebra} if $\OPQ_{0lg}=\OPQ_{k0g}=0$ for all $k$, $l$, $g\in \N_0$, an \emph{input-strict $\IBLInfty$-algebra} if $\OPQ_{0lg} = 0$ for all $l$, $g\in \N_0$, and a \emph{weak $\IBLInfty$-algebra} if we want to emphasize that operations with no input and output are allowed. The same terminology will be used for morphisms.
 \begin{itemize}
 \item[*] It is the category of \emph{augmented strictly commutative $\BVInfty$-algebras} (see \cite[Section~5]{Cieliebak2007} for the definition of a commutative $\BVInfty$-algebra). The augmentation $\varepsilon$ is an additional data to get an $\MV$-algebra. The coproduct is defined by $\delta\coloneqq \delta_{0}$ (see~\eqref{Eq:CoProdOne}).
 \item[**] It is the category of \emph{(non-filtered) input-strict $\IBLInfty$-algebras} $(\OPQ_{klg})_{k \ge 1, l, g\ge 0}$ and input-strict morphisms~$(\HTP_{klg})_{k\ge 1,l, g\ge 0}$ which satisfy the following \emph{finiteness condition} for all $k\ge 1$ and $g\ge 0$: for any $v\in \Sym U$, we have\Add[caption={DONE Add a reference},noline]{Remark (6) at the beginning of CFL15.}
 \begin{equation}\label{Eq:RegCond}
 \OPQ_{klg}(v) = 0\quad\text{and}\quad\MVMorF_{klg}(v) = 0 \quad\text{for all but finitely many }l\in \N_0.
 \end{equation}
-See \cite[Remark~(6), p.\,14]{Cieliebak2015} for the same finiteness condition.
+See \cite[Remark~(6), p.\,14]{Cieliebak2015} for the same finiteness condition. This is precisely what symplectic field theory for exact cobordisms gives.
 
 (The transformation formulas between $\OPQ_{klg}$ and $\BVOp_i$ and $\MVMorF_{klg}$ and $\MVMorF_i$ were written down in Remark~\ref{Rem:BVForm} in Part~I. We will repeat them in Proposition~\ref{Prop:EqCharOfMVIBL} below.)
 \end{itemize}
@@ -555,11 +556,11 @@ The following filtered version of $\MV$-algebras will allow us to describe more 
 
 \begin{Definition}[Complete filtered $\MV$-algebra]\label{Def:FilteredMV}
 A \emph{complete filtered $\MV$-algebra} over a complete filtered graded algebra $R$ over a field $\K$ is a complete filtered graded vector space~$V$ over $\K$, a homogenous $R$-linear map $\BVOp: V\COtimes R \rightarrow V\COtimes R$ of finite filtration degree satisfying 
-$$ \Abs{\BVOp} = -1, \quad \Norm{\BVOp}\ge 0,\quad\Norm{\BVOp(1)}>0 \quad\text{and}\quad\BVOp\circ \BVOp = 0,$$
+\[ \Abs{\BVOp} = -1, \quad \Norm{\BVOp}\ge 0,\quad\Norm{\BVOp(1)}>0 \quad\text{and}\quad\BVOp\circ \BVOp = 0,\]
 and operations $\MVProd: V\COtimes V \rightarrow V$, $\MVCoProd: V \rightarrow V\COtimes V$, $\MVUnit: \K \rightarrow V$ and $\MVAug: V\rightarrow \K$ such that $(V,\mu,\eta,\varepsilon)$ is a complete filtered augmented unital commutative associative algebra and $(V,\delta,\varepsilon,\eta)$ is a complete filtered coaugmented counital cocommutative coassociative coalgebra satisfying the limit conilpotency property \eqref{Eq:LimConilp}. We often denote a complete filtered $\MV$-algebra simply by $(V,\BVOp)$.
 
 A \emph{morphism of complete filtered $\MV$-algebras} $(V^+,\BVOp^+)$ and $(V^-,\BVOp^-)$ over $R$ is a homogenous $R$-linear map $\MVMorF: V^+\COtimes R\rightarrow V^-\COtimes R$ of finite filtration degree \Add[caption={DONE Degree $0$?},noline]{Add that $\HTP$ is of degree $0$?}such that 
-$$ \Abs{\MVMorF} = 0,\quad \Norm{\MVMorF}\ge0, \quad \Norm{\MVMorF(1)}>0\quad\text{and}\quad e^{\MVMorF}\circ\BVOp^+ = \BVOp^- \circ e^\MVMorF. $$
+\[ \Abs{\MVMorF} = 0,\quad \Norm{\MVMorF}\ge0, \quad \Norm{\MVMorF(1)}>0\quad\text{and}\quad e^{\MVMorF}\circ\BVOp^+ = \BVOp^- \circ e^\MVMorF. \]
 
 The \emph{composition} $\DiamComp$ of two composable morphisms $\MVMorF_1$ and $\MVMorF_2$ (i.e., the target of $\MVMorF_2$ is the source of $\MVMorF_1$) is defined by
 \begin{equation}\label{Eq:CompositionMV}
@@ -610,7 +611,7 @@ From now on, we will denote the convolution product~$\Star$ on morphisms of $\Sy
 \end{Notation}
 \renewcommand{\Star}{\odot}
 For a map $\MVMorF = \sum_{i=-\infty}^\infty \MVMorF_{i+1}\hbar^i: \hat{\Sym}U^+((\hbar)) \rightarrow \hat{\Sym}U^-((\hbar))$, where $\MVMorF_{i}: \hat{\Sym}U^+\rightarrow\hat{\Sym}U^-$ is $\K$-linear, we denote 
-$$ \langle \MVMorF\rangle_{klg} \coloneqq \pi_l \circ \MVMorF_{k+g}\circ \iota_k: \hat{\Sym}_k U^+ \rightarrow \hat{\Sym}_l U^-\quad\text{for all }k, l\ge 0, g\in \Z. $$
+\[ \langle \MVMorF\rangle_{klg} \coloneqq \pi_l \circ \MVMorF_{k+g}\circ \iota_k: \hat{\Sym}_k U^+ \rightarrow \hat{\Sym}_l U^-\quad\text{for all }k, l\ge 0, g\in \Z. \]
 This is the notation introduced in \cite[Equation~(2.14)]{Cieliebak2015}.
 %\Modify[caption={DONE Filtration preserving},noline]{Perhaps one should require $\MVMorF$ to be filtration preserving instead of just $\Norm{\MVMorF}\ge 0$. When are these two notions equivalent? Something like gapped filtration...}
 %\begin{Remark}[On filtered $\MV$-algebras]\label{Rem:FilteredMV}
@@ -622,9 +623,9 @@ This is the notation introduced in \cite[Equation~(2.14)]{Cieliebak2015}.
 %\Filtr_\lambda \K = \begin{cases} \K & \lambda\le 0, \\ 0 & \lambda >0. \end{cases}
 %\end{equation}
 %Because $\eta$ and $\varepsilon$ preserve the filtration, and because we require the augmentation property
-%$$ \varepsilon(\eta(1))=1, $$
+%\[ \varepsilon(\eta(1))=1, \]
 %we see that 
-%$$ \Norm{\eta} = \Norm{\varepsilon} = 0,\quad \im \eta \subset \Filtr_0 V\quad\text{and}\quad\ker \varepsilon\supset\sum_{\lambda>0}\Filtr_\lambda V. $$
+%\[ \Norm{\eta} = \Norm{\varepsilon} = 0,\quad \im \eta \subset \Filtr_0 V\quad\text{and}\quad\ker \varepsilon\supset\sum_{\lambda>0}\Filtr_\lambda V. \]
 %\item We can realize a (non-filtered) $\MV$-algebra from \cite{Markl2015} as a filtered $\MV$-algebra by taking the trivial filtration on $V$ and the $\mathfrak{m}$-adic filtration $\Filtr_i\coloneqq \mathfrak{m}^i$ on $R$.
 %Notice the additional condition $\Norm{f}\ge 0$.
 %However, in contrast to the original definition, we do not require conilpotency of $\delta$ and impose the additional condition $\Norm{\MVMorF}\ge 0$ for morphisms.\Correct[noline]{This is wrong. We need to require some sort of limit conilpotency! DONE}
@@ -639,7 +640,7 @@ This is the notation introduced in \cite[Equation~(2.14)]{Cieliebak2015}.
 %\Norm{z_{n,k,i}} \ge \Norm{r_k} + i \Norm{\MVMorF(1)} + (n-i)\Norm{\MVMorF} + \Norm{\bar{\delta}^{(n-i)}(v_k)}.
 %\end{equation} 
 %We see that the convergence of a power series of $\MVMorF$ evaluated at $v$ is guaranteed by
-%$$ \inf_{\substack{i=0,\dotsc,n \\ k=0,\dotsc, \infty}} \Norm{z_{n,k,i}} \to \infty\quad\text{as }n\to \infty. $$
+%\[ \inf_{\substack{i=0,\dotsc,n \\ k=0,\dotsc, \infty}} \Norm{z_{n,k,i}} \to \infty\quad\text{as }n\to \infty. \]
 %From \eqref{Eq:NormIneq}, this is clearly satisfied provided $\Norm{\MVMorF}\ge 0$ and $\Norm{\MVMorF(1)}>0$.
 %\qedhere
 %\end{RemarkList}
@@ -661,14 +662,13 @@ for linear homogenous maps $D_i : \hat{\Sym}_i U\subset\hat{\Sym}U \rightarrow \
 \end{Lemma}
 
 \begin{proof}
-Before we begin, we recall that an operator $D: \Sym U \rightarrow \Sym U$ is called a \emph{derivative} of order $\le k$ if 
-$$ D(1)=0\quad\text{and}\quad\psi_i^D(v_1,\dotsc,v_i)(1)=0\quad\text{for all }i\ge k+1\text{ and }v_1, \dotsc, v_i\in V. $$
-This definition can be extended to complete filtered algebras in a straightforward way.
 \begin{ProofList}
 %\item This was done in \cite[Proposition~3.2]{Markl1997} with derivatives of order $\le k$ (they are defined by requiring $\psi(v_1,\dotsc,v_{k+1})(1) = 0$ and $D(1)=0$) and in the non-completed case. However, the proof, which we recall below, works in the same way in our case. 
 %
 %One checks that given $D_i$, \eqref{Eq:DifOpForm} defines a differential operator of order $\le k$. This shows one implication. For the other implication, one checks that vanishing of a differential operator of order $\le k$ on $\hat{\Sym}_{i\le k}U$ implies $D=0$. This shows uniqueness. Finally, given~$D$, one finds $D_i$ by solving a linear equation involving $D\circ \iota_j$ for $0\le j \le i$. This shows the existence.
-\item The claim is implied by the following subclaim and proposition, which generalize in a straightforward way to the filtered case:
+\item The claim is implied by the following subclaim and proposition, which generalize in a straightforward way to the filtered case. Recall that an operator $D: \Sym U \rightarrow \Sym U$ is called a \emph{derivative} of order $\le k$ if 
+\[ D(1)=0\quad\text{and}\quad\psi_i^D(v_1,\dotsc,v_i)(1)=0\quad\text{for all }i\ge k+1\text{ and }v_1, \dotsc, v_i\in V, \]
+where $\psi_i^D$ were defined on page~\pageref{Page:DiffOp}.
 \begin{SubClaim}[Derivatives and differential operators]\label{SubClaimFiltr}
 A homogenous linear operator $D: \Sym U \rightarrow \Sym U$ is a differential operator of order $\le k$ if and only if the linear operator $D' \coloneqq D - D_0\Star \Id$, where $D_0 = D\circ\iota_0$, is a derivative of order $\le k$ (recall that $\iota_k: \Sym_k U \rightarrow \Sym U$ is the inclusion).
 \end{SubClaim}
@@ -680,7 +680,7 @@ Given a derivative $D'$ of order $\le k$ and a linear map $D_0: \Sym_0 U\subset 
  &=\psi_{k+1}^{D'}(v_1,\dotsc,v_{k+1})(v_{k+2})-\underbrace{\psi_{k+1}^{D'}(v_1,\dotsc,v_{k+1})(1)}_{=0} v_{k+2}
 \end{align*}
 for all $v_1$, $\dotsc$, $v_{k+2}\in V$, and hence $D'$ is also a differential operator of order $\le k$. For all $v\in \Sym U$, it holds
-$$ (D_0\Star\Id)(v) = D_0(1)v,$$
+\[ (D_0\Star\Id)(v) = D_0(1)v,\]
 and hence for all $v$, $v_1\in \Sym U$, we have
 \begin{align*}
 \psi^{D_0\Star \Id}_1(v_1)(v) &= (D_0\Star \Id)(v_1 v) - (-1)^{D_0 v_1} v_1 (D_0\Star \Id)(v) \\
@@ -690,9 +690,9 @@ and hence for all $v$, $v_1\in \Sym U$, we have
 It follows that $D_0 \Star \Id$ is a differential operator of order $0$. Clearly, a sum of differential operators of orders $\le k_1$ and $\le k_2$ is a differential operator of order $\le \max(k_1,k_2)$. Therefore, $D = D' + D_0\Star\Id$ is a differential operator of order $\le k$. Moreover, since $D'(1) = 0$ by definition, we have $D(1) = D_0(1)$, i.e., $D_0 = D \circ \iota_0$.
 
 Given a differential operator $D$ of order $\le k$, we define $D_0\coloneqq D\circ\iota_0$ and $D'\coloneqq D - D_0\Star\Id$. Firstly, it holds 
-$$ D'(1) = D(1) - (D_0\Star \Id)(1) = 0. $$
+\[ D'(1) = D(1) - (D_0\Star \Id)(1) = 0. \]
 Secondly, we have 
-$$ \psi_i^D(v_1,\dotsc,v_i) = \psi^{D'}(v_1,\dotsc,v_i) = 0, $$
+\[ \psi_i^D(v_1,\dotsc,v_i) = \psi^{D'}(v_1,\dotsc,v_i) = 0, \]
 and hence $\psi_i^D(v_1,\dotsc,v_i)(1) = 0$ for all $i\ge k+1$ and $v_1$, $\dotsc$, $v_i\in V$. Therefore, $D'$ is a derivative of order $\le k$.
 \renewcommand{\qed}{\hfill\textit{(Subclaim) }$\square$}
 \end{proof}
@@ -769,7 +769,7 @@ Thus (1) follows. Using that $\Norm{f\circ g} \ge \Norm{f} + \Norm{g}$ and $\Nor
  &\quad\Equiv\quad\forall k, l, g \ge 0, k+g=i+1: \Norm{\OPQ_{klg}} \ge -2\gamma (k+g-1).
 \end{align*}
 Thus (2) follows. The argument for ``$\Implies$'' on the second line is inductive using that
-$$ Q_{kg} = \Bigl(\BVOp_{k+g} - \sum_{j=0}^{k-1} Q_{j, k+g - j} \Star \Id\Bigr)\circ\iota_k $$
+\[ Q_{kg} = \Bigl(\BVOp_{k+g} - \sum_{j=0}^{k-1} Q_{j, k+g - j} \Star \Id\Bigr)\circ\iota_k \]
 for all $k$, $g\ge 0$. Evaluation of $\BVOp(1)$ gives
 \begin{align*}
 \BVOp(1)&=\BVOp_0(1)\hbar^{-1}+\BVOp_1(1)+\BVOp_2(1)\hbar+\dotsb \\
@@ -777,7 +777,7 @@ for all $k$, $g\ge 0$. Evaluation of $\BVOp(1)$ gives
 & = \Bigl(\sum_{l=0}^\infty \OPQ_{0l0}(1) \Bigr)\hbar^{-1} +  \Bigl(\sum_{l=0}^\infty \OPQ_{0l1}(1)\Bigr) + \hbar\Bigl(\sum_{l=0}^\infty \OPQ_{0l2}(1)\Bigr) + \dotsb,
 \end{align*}
 and we see that $\Norm{\BVOp(1)}>0$ is equivalent to (3). As for (4), it is implied by the Resummation Lemma (Lemma~\ref{Lem:TechLem}). Namely, we have 
-$$ \sum_{l=0}^\infty \OPQ_{klg}(v) = \sum_{l=0}^\infty \pi_l(Q_{kg}(v)) \overset{\ref{Lem:TechLem}}{=} Q_{kg}(v)\quad \text{for all }v\in \hat{\Sym}_k U. $$
+\[ \sum_{l=0}^\infty \OPQ_{klg}(v) = \sum_{l=0}^\infty \pi_l(Q_{kg}(v)) \overset{\ref{Lem:TechLem}}{=} Q_{kg}(v)\quad \text{for all }v\in \hat{\Sym}_k U. \]
 Thus $\sum_{l=0}^\infty \OPQ_{klg}$ converges to $Q_{kg}$.
 
 On the other hand, given $\OPQ_{klg}$ satisfying (1), (2), (3) and (4), we clearly get an operator $\BVOp: \hat{\Sym}U((\hbar))\rightarrow\hat{\Sym}U((\hbar))$ which has the decomposition \eqref{Eq:BVOpDecompRel} and which satisfies $\Abs{\BVOp} = 0$, $\Norm{\BVOp}\ge 0$ and $\Norm{\BVOp(1)}>0$.
@@ -785,10 +785,10 @@ On the other hand, given $\OPQ_{klg}$ satisfying (1), (2), (3) and (4), we clear
 Assuming (1), (2), (3) and (4), it remains to check that $\BVOp^2 = 0$ is equivalent to (5). This is the same computation as in \cite[Section~2]{Cieliebak2015}, just in the filtered setting and allowing $k=0$ or $l=0$ (it will turn out that it does not change anything). Recall the notation from Section~\ref{Sec:Alg1} in Part~I that $\hat{D} \coloneqq D \Star \Id = \mu(D\COtimes \Id)\delta$. We will be using formulas from Remark~\ref{Rem:Compositions} in that section, which are proven in Proposition~\ref{Prop:PartCompositions} in the next section. Note that by the Resummation Lemma, elements of the completion can be summed up in any order, even as nested infinite sums, provided one (and hence all) of these sums converges. Therefore, we could, in principle, write just one sum $\sum$ and think of $\BVOp$ as of the sum $\sum \hat{\OPQ}_{klg} \hbar^{k+g-1}$ over all $k$, $l$, $g\ge 0$.
 
 We have
-$$ \begin{aligned} \BVOp\circ\BVOp& = \sum_{i=-2}^\infty \Bigl(\sum_{\substack{k_1, l_1, g_1, k_2, l_2, g_2 \ge 0 \\ k_1 + k_2 + g_1 + g_2 = i + 2}} \hat{\OPQ}_{k_1 l_1 g_1}\circ\hat{\OPQ}_{k_2 l_2 g_2}\Bigr) \hbar^i \\
- & = \sum_{i=-2}^\infty \Bigl(\sum_{\substack{k_1, l_1, g_1, k_2, l_2, g_2 \ge 0 \\ k_1 + k_2 + g_1 + g_2 = i + 2\\ }}\sum_{h=0}^{\min(k_1,l_2)}\reallywidehat{\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}}\Bigr) \hbar^i, \end{aligned}$$
+\[ \begin{aligned} \BVOp\circ\BVOp& = \sum_{i=-2}^\infty \Bigl(\sum_{\substack{k_1, l_1, g_1, k_2, l_2, g_2 \ge 0 \\ k_1 + k_2 + g_1 + g_2 = i + 2}} \hat{\OPQ}_{k_1 l_1 g_1}\circ\hat{\OPQ}_{k_2 l_2 g_2}\Bigr) \hbar^i \\
+ & = \sum_{i=-2}^\infty \Bigl(\sum_{\substack{k_1, l_1, g_1, k_2, l_2, g_2 \ge 0 \\ k_1 + k_2 + g_1 + g_2 = i + 2\\ }}\sum_{h=0}^{\min(k_1,l_2)}\reallywidehat{\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}}\Bigr) \hbar^i, \end{aligned}\]
 and we see that 
-$$ \langle \BVOp^2 \rangle_{klg} = \sum_{\substack{k_1, l_1, g_1, k_2, l_2, g_2 \ge 0 \\ k_1 + k_2 + g_1 + g_2 = k+g + 1\\ }}\sum_{h=0}^{\min(k_1,l_2)}\pi_l\circ\reallywidehat{\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}}\circ\iota_k\quad\text{for all }k,l\ge 0, g\ge -1.  $$
+\[ \langle \BVOp^2 \rangle_{klg} = \sum_{\substack{k_1, l_1, g_1, k_2, l_2, g_2 \ge 0 \\ k_1 + k_2 + g_1 + g_2 = k+g + 1\\ }}\sum_{h=0}^{\min(k_1,l_2)}\pi_l\circ\reallywidehat{\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}}\circ\iota_k\quad\text{for all }k,l\ge 0, g\ge -1.  \]
 Because $\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}: \hat{\Sym}_{k_1+k_2-h}U\rightarrow\hat{\Sym}_{l_1+l_2-h}U$, it follows from the definition $\hat{f} \coloneqq \mu(f\otimes \Id)\delta$ that $\pi_l \circ \reallywidehat{\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}}\circ\iota_k = 0$ unless $0\le k_1 + k_2 - h \le k$, $0\le l_1 + l_2 - h\le l$ and $l_1 + l_2 + h - (k_1 + k_2 + h) = l-k$. For fixed $k$, $l$, $h\ge 0$, $g\ge -1$, it holds
 \begin{align*}
 \left\{\begin{aligned}
@@ -825,7 +825,7 @@ which is equivalent to $\BVOp^2 = 0$, follows from $(\square)_{klg} = 0$ for all
 \item $k' + l' + 2g' = k + l + 2g$ and $g' = g$ and $k' < k$.
 \end{enumerate}
 For the last sum in \eqref{Eq:ComputingComponentsBVOp}, we denote $k_s\coloneqq k-s$, $l_s\coloneqq l-s$ and $g_s\coloneqq g+s$ and compute
-$$  (k-k_s) + (l-l_s) + 2(g-g_s) = s + s + 2(-s) = 0. $$
+\[  (k-k_s) + (l-l_s) + 2(g-g_s) = s + s + 2(-s) = 0. \]
 Therefore, case (ii) applies, and so $(k_s,l_s,g_s)\prec (k,l,g)$ for all $s=1$, $\dotsc$, $k$. This shows the equivalence of $\BVOp^2 = 0$  and $(\square)_{klg} = 0$ for all $k$, $l\ge 0$, $g\ge -1$. Finally, $(\square)_{k,l,-1} = 0$ holds automatically because $g_1 + g_2 + h =0$ implies $h=0$, and all terms $\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}$ with $h=0$ vanish. This is because~$\OPQ_{klg}$ are odd and $f_1 \circ_0 f_2 = (-1)^{\Abs{f_1}\Abs{f_2}} f_2\circ_0 f_1$.
 %Because $\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}: \hat{\Sym}_{k_1+k_2-h}U\rightarrow\hat{\Sym}_{l_1+l_2-h}U$, we see from the definition $\hat{f} = \mu(f\otimes \Id)\delta$ that $\pi_l \circ (*)_i \circ\iota_k$ consists of contributions $\reallywidehat{\OPQ_{k_1 l_1 g_1}\circ_h \OPQ_{k_2 l_2 g_2}}$ with $k_1 + k_2 - h \le k$ and $l_1 + l_2 - h\le l$ only. This shows that $\BVOp^2 = 0$ is equivalent to (5).
 \item Exactly as in (a), we first prove the equivalence of $\Abs{\MVMorF} = 0$, $\Norm{\MVMorF} \ge 0$, $\Norm{\MVMorF(1)}>0$ and the conditions \eqref{Eq:MorDecompRel} and \eqref{Eq:CondOnMor} to (1), (2), (3) and (4) under the correspondence \eqref{Eq:FormulasSums}. Clearly, $\MVAug^- \circ \MVMorF = \MVMorF \circ \MVUnit^+ = 0$ is equivalent to (5). 
@@ -848,7 +848,7 @@ and similarly
 k^- + k_1 + \dotsb + k_r + g^- \\ + g_1 + \dotsb + g_r = i + r + 1 }}\sum_{\substack{h_1, \dotsc, h_r \ge 0 \\ h_1 + \dotsb + h_r = k^-}}\OPQ_{k^- l^- g^-}^-\circ_{h_1,\dotsc,h_r}(\HTP_{k_1 l_1 g_1},\dotsc,\HTP_{k_r l_r g_r})}_{\displaystyle =: (*)^-_{i,r}: \hat{\Sym}U^+ \rightarrow\hat{\Sym}U^-}\Bigr)\hbar^i.
 \end{align*}
 We will consider $\pi_l \circ (*)^+_{i,r} \circ \iota_k$ for fixed $i\in \Z$ and $k$, $l\ge 0$. Because of the definition of $\circ_{h_1,\dotsc,h_r}$, only the terms with $l_1 + \dotsb + l_r = l$ and $k^+ + k_1 + \dotsb + k_r - h_1 - \dotsb - h_r = k^+ + k_1 + \dotsb + k_r - l^+= k$ survive in $\pi_l \circ (*)^+_{i,r} \circ \iota_k$. Denoting $g\coloneqq i - k + 1$, we have
-$$\begin{aligned}
+\[\begin{aligned}
 k^+ + k_1 + \dotsb + k_r + g^+ + g_1 + \dotsb + g_r &= i +r +1 \\
 k^+ + k_1 + \dotsb + k_r  - l^+ &= k \\
 l_1 + \dotsb + l_r &= l
@@ -857,7 +857,7 @@ l_1 + \dotsb + l_r &= l
 g_1 + \dotsb + g_r + g^+ + l^+ -  r &= g \\
 k^+ + k_1 + \dotsb + k_r  - l^+ &= k \\
 l_1 + \dotsb + l_r &= l.
-\end{aligned}$$
+\end{aligned}\]
 Therefore, it holds
 \begin{align*}
 \pi_l \circ (*)^+_{i,r} \circ \iota_k  = \!\!\sum_{\substack{k^+,l^+,g^+\ge 0\\ 
@@ -958,27 +958,27 @@ Now, $e^{\MVMorF}\BVOp^+ = \BVOp^- e^{\MVMorF}$ is equivalent to
 \sum_{r=0}^\infty \frac{1}{r!} \pi_l \circ (*)^+_{i,r} \circ \iota_k = \sum_{r=0}^\infty \frac{1}{r!}\pi_l \circ (*)^-_{i,r} \circ \iota_k\quad\text{for all }k, l \ge 0\text{ and }i\in \Z.
 \end{equation}
 By our previous computations, this follows from
-$$ \sum_{r=0}^\infty \frac{1}{r!} (\square^+)_{klg}^r = \sum_{r=0}^\infty \frac{1}{r!} (\square^-)_{klg}^r\quad \text{for all }k, l, g\ge 0, $$
+\[ \sum_{r=0}^\infty \frac{1}{r!} (\square^+)_{klg}^r = \sum_{r=0}^\infty \frac{1}{r!} (\square^-)_{klg}^r\quad \text{for all }k, l, g\ge 0, \]
 which are precisely equations \eqref{Eq:WeakIBLMor}. In order to prove the reverse implication, one needs to do induction on signatures $(k,l,g)$ as in (a). It is possible in the strict case by the following lemma.
 \begin{SubClaim}[Induction in strict case I]
 Suppose that $\HTP_{0lg} = \HTP_{k0g} = 0$ for all $k$, $l$, $g\ge 0$. Then for any $k$, $l\ge 0$ and $i\in\Z$, $g=i-k+1$, only the terms with $(k',l',g')\prec(k,l,g)$ contribute to the sums on the right-hand side of \eqref{Eq:PositiveEq} and \eqref{Eq:NegativeEq}. These sums vanish if $(k,l,g) = (0,0,0)$.
 \end{SubClaim}
 \begin{proof}
 Recall the definition of $\prec$ on p.\,\pageref{Enum:OrderingOfSignatures}. First of all, $(\triangle)_{k-k',l-l',g-g'}^t \neq 0$ implies
-$$ D\coloneqq (k+l+2g) - (k' + l' + 2 g') = (k-k') + (l-l') + 2(g-g') \ge t + t + 2(-t) = 0, $$
+\[ D\coloneqq (k+l+2g) - (k' + l' + 2 g') = (k-k') + (l-l') + 2(g-g') \ge t + t + 2(-t) = 0, \]
 where $k-k'$, $l-l'\ge t$ holds due to strictness. Suppose that $D=0$. Then $g'\ge g$ must hold because $k-k'\ge 0$ and $l-l'\ge 0$. If $g'=g$, then $l=l'$ and $k=k'$ must hold; this is a contradiction with $k-k'\ge t \ge 1$. Therefore, it holds $g'>g$, and case (ii) of the definition of $\prec$ applies.
 
 If $(k,l,g) = (0,0,0)$, then $(\triangle)^t_{0,0,-g'} = 0$ because $t\ge 1$ and $k-k'\ge t$.\renewcommand{\qed}{\hfill\textit{(Subclaim) }$\square$}
 \end{proof}
 \item We have
-$$ e^\MVMorF = \sum_{k,l,g\ge 0} \langle e^\MVMorF \rangle_{klg} \hbar^{k+g-1}, $$
+\[ e^\MVMorF = \sum_{k,l,g\ge 0} \langle e^\MVMorF \rangle_{klg} \hbar^{k+g-1}, \]
 where
 \begin{align}
 \langle e^{\MVMorF}\rangle_{klg} &= \sum_{\substack{r\ge 0 \\ k_1, l_1, g_1, \dotsc, k_r, l_r, g_r \ge 0 \\ k_1 + \dotsb + k_r = k \\ l_1 + \dotsb + l_r = l \\ g_1 + \dotsb + g_r - r + 1 = g}} \frac{1}{r!} \HTP_{k_1 l_1 g_1}\Star\dotsb\Star\HTP_{k_r l_r g_r} \nonumber \\
 & = \HTP_{klg} + \sum_{\substack{r\ge 2 \\ k_1, l_1, g_1, \dotsc, k_r, l_r, g_r \ge 0 \\ k_1 + \dotsb + k_r = k \\ l_1 + \dotsb + l_r = l \\ g_1 + \dotsb + g_r - r + 1 = g}} \frac{1}{r!} \HTP_{k_1 l_1 g_1}\Star\dotsb\Star\HTP_{k_r l_r g_r} \label{Eq:ComponentOfExpo}
 \end{align}
 for all $(k,l,g)\neq (0,0,1)$ with $k$, $l\ge 0$, $g\in\Z$. For $(k,l,g) = (0,0,1)$, one has to add the unit $\StarProdOne$ coming from the summand with $r=0$. We find that
-$$\langle e^{\MVMorF^-}e^{\MVMorF^+}\rangle_{klg} = \hspace{-2cm}\sum_{\substack{r^-, r^+ \ge 0 \\ k_{1}^-, l_1^-, g_1^-, \dotsc, k_{r^-}^-, l_{r^-}^-, g_{r^-}^- \ge 0 \\ k_{1}^+, l_1^+, g_1^+, \dotsc, k_{r^+}^+, l_{r^+}^+, g_{r^+}^+ \ge 0 \\ k_1^- + \dotsb + k^-_{r^-} = l_1^+ + \dotsb + l_{r^+}^+ \\ k_1^+ + \dotsb + k_{r^+}^+ = k \\ l_1^- + \dotsb + l_{r^-}^- = l \\ g_1^+ + \dotsb + g_{r^+}^+ + g_1^- + \dotsb + g_r^- - r^+ - r^- + k_1^- + \dotsb + k_{r^-}^- + 1 = g}}\hspace{-2.4cm}\frac{1}{r^+! r^-!} (\HTP^-_{k_1^- l_1^- g_1^-} \Star \dotsb \Star \HTP^-_{k_{r^-}^- l_{r^-}^- g_{r^-}^-})\circ (\HTP^+_{k_1^+ l_1^+ g_1^+} \Star \dotsb \Star \HTP^+_{k_{r^+}^+ l_{r^+}^+ g_{r^+}^+})$$
+\[\langle e^{\MVMorF^-}e^{\MVMorF^+}\rangle_{klg} = \hspace{-2cm}\sum_{\substack{r^-, r^+ \ge 0 \\ k_{1}^-, l_1^-, g_1^-, \dotsc, k_{r^-}^-, l_{r^-}^-, g_{r^-}^- \ge 0 \\ k_{1}^+, l_1^+, g_1^+, \dotsc, k_{r^+}^+, l_{r^+}^+, g_{r^+}^+ \ge 0 \\ k_1^- + \dotsb + k^-_{r^-} = l_1^+ + \dotsb + l_{r^+}^+ \\ k_1^+ + \dotsb + k_{r^+}^+ = k \\ l_1^- + \dotsb + l_{r^-}^- = l \\ g_1^+ + \dotsb + g_{r^+}^+ + g_1^- + \dotsb + g_r^- - r^+ - r^- + k_1^- + \dotsb + k_{r^-}^- + 1 = g}}\hspace{-2.4cm}\frac{1}{r^+! r^-!} (\HTP^-_{k_1^- l_1^- g_1^-} \Star \dotsb \Star \HTP^-_{k_{r^-}^- l_{r^-}^- g_{r^-}^-})\circ (\HTP^+_{k_1^+ l_1^+ g_1^+} \Star \dotsb \Star \HTP^+_{k_{r^+}^+ l_{r^+}^+ g_{r^+}^+})\]
 for all $k$, $l\ge 0$, $g\in \Z$. The composition $\MVMorF^-\DiamComp\MVMorF^+ = \log(e^{\MVMorF^-}\circ e^{\MVMorF^+})$ is the unique $\MVMorF$ such that $e^{\MVMorF} = e^{\MVMorF^-}\circ e^{\MVMorF^+}$; this is equivalent to 
 \begin{equation}\label{Eq:IndEqComp}
  \langle e^\MVMorF \rangle_{klg} = \langle e^{\MVMorF^-}e^{\MVMorF^+}\rangle_{klg}\quad\text{for all }k, l\ge 0, g\in\Z.
@@ -989,7 +989,7 @@ Suppose that $\HTP^+$ and $\HTP^-$ are strict. Then it holds $(k_i,l_i,g_i)\prec
 \end{SubClaim}
 \begin{proof}
 We compute
-$$ k + l + 2g - 2 = (k_1 + l_1 + 2 g_1 -2) + \dotsb + (k_r + l_r + 2 g_r -2), $$
+\[ k + l + 2g - 2 = (k_1 + l_1 + 2 g_1 -2) + \dotsb + (k_r + l_r + 2 g_r -2), \]
 where $k_i + l_i + 2g_i - 2 \ge 0$ by strictness. It follows that $k+l+2g \ge k_i + l_i + 2 g_i$ holds for all $i=1$,~$\dotsc$, $r$. If, e.g., $k + l + 2g = k_1 + l_1 + 2 g_1$, then $k_2 = l_2 = \dotsb = k_r = l_r = 1$, $g_2 = \dotsb = g_r = 0$, and hence $g = 1-r$. However, this can not happen as $r\ge 2$ and $g\ge 0$. Therefore, case (i) of $\prec$ always occurs.
 \renewcommand{\qed}{\hfill\textit{(Subclaim) }$\square$}
 \end{proof}
@@ -1010,7 +1010,7 @@ and, secondly, the equations \eqref{Eq:ComponentsBlaBla}. A \emph{morphism of fi
 is a collection of homogenous $\K$-linear maps $\HTP_{klg}: \hat{\Sym}_k U^+ \rightarrow \hat{\Sym}_l U^-$ of finite filtration degrees for all $k$, $l$, $g\in \N_0$ which satisfy, firstly, (1) and (2) of (b) of Proposition~\ref{Prop:EqCharOfMVIBL} with the strict inequality in (2) for $(k,l,g)\in\eqref{Eq:UnstableSignatures}$ and, secondly, the equations~\eqref{Eq:SequenceOfEquations}.
 
 Recall \eqref{Eq:DefOfU} and notice that if we define the filtration $\Filtr_W^\lambda U \coloneqq (\Filtr^\lambda W)[1]$ for all $\lambda\in \R$ and denote the corresponding filtration degree by $\Norm{\cdot}_W$, then it holds $\Norm{\cdot} = \Norm{\cdot}_W + \gamma$ on~$U$, and for a map $\OPQ_{klg}:\hat{\Sym}_k U\rightarrow\hat{\Sym}_l U$, we have
-$$ \Norm{\OPQ_{klg}}\ge -2\gamma(k+g-1)\quad\Equiv\quad\Norm{\OPQ_{klg}}_W \ge \gamma(2-2g-k-l). $$
+\[ \Norm{\OPQ_{klg}}\ge -2\gamma(k+g-1)\quad\Equiv\quad\Norm{\OPQ_{klg}}_W \ge \gamma(2-2g-k-l). \]
 
 Signatures \eqref{Eq:UnstableSignatures} together with $(1,1,0)$ correspond to unstable surfaces, i.e., those $(k,l,g)$ for which $\chi_{klg}=2-2g-k-l \ge 0$. Allowing morphisms $\MVMorF$ which have non-zero components of these signatures leads to the appearance of an infinite number of summands in $\langle \BVOp^- e^{\MVMorF} \rangle_{klg}$, $\langle e^{\MVMorF}\BVOp^+\rangle_{klg}$ and $\langle e^{\MVMorF^-}e^{\MVMorF^+}\rangle_{klg}$ (and in the Maurer-Cartan equation \eqref{Eq:TwistingEq} later); the strict inequalities for filtration degrees of these components seem to be the minimal condition to algebraically handle this situation. Again, the author does not see any technical reason for imposing strict filtration degree conditions for~$\OPQ_{klg}$. See Figure~\ref{Fig:Bubbling} for the graphical explanation of the \emph{bubbling}.
 
@@ -1086,7 +1086,7 @@ We observe the following differences between our approach to weak $\IBLInfty$-al
 %But it is easy to check that they are preserved by composition.
 %We can also define the $\IBLInfty$-algebras using the surface calculus.
 % and $\Norm{\HTP_{klg}}$ and all \eqref{Eq:UnstableSignatures}.
-Bubbling in $\IBLInfty$-relations. If we glue any of the components above to a surface of signature $(k,l,g)$, the signature remains the same. Note that since~$g$ is defined via the Euler characteristics, adding a disconnected component without inputs and outputs decreases $g$ by one.}
+Bubbling in $\IBLInfty$-relations. If we glue any of the components above to a surface of signature $(k,l,g)$, the signature remains the same. Note that since~$g$ is defined via the Euler characteristic, adding a disconnected component without inputs and outputs decreases $g$ by one.}
 \label{Fig:Bubbling}
 \end{figure}
 
@@ -1102,7 +1102,7 @@ For such $W$, we will consider weak $\IBLInfty$-algebras of bidegree $(d,\gamma)
 \item Filtered $\IBLInfty$-algebras and morphisms from \cite{Cieliebak2015} over $\mathcal{W}_{-\gamma}$ are also complete filtered $\MV$-algebras and morphisms from Definition~\ref{Def:ComplFiltrIBL}, respectively.
 \item The two definitions agree over $\mathcal{W}_0$. If in addition $\gamma\ge 1$, then also the $\BV$-formalisms are identical.
 \item The canonical $\dIBL$-structure on the (reduced) dual cyclic bar complex 
-$$W = \CDBCyc V[2-n]$$
+\[W = \CDBCyc V[2-n]\]
 for a Poincar\'e duality algebra $V$ of degree $n$ from Section~\ref{Sec:Alg3} in Part~I satisfies (b).
 \end{ClaimList}
 %Let $\OPQ_{klg}: \hat{\Sym}_k(W[1]) \rightarrow \hat{\Sym}_l(W[1])$ for $k$, $l$, $g\in \N_0$ be a collection of homogenous $\K$-linear maps of finite filtration degrees satisfying (1) and (2) of Proposition~\ref{Prop:EqCharOfMVIBL} for $U=W[1]$. Then (4) is satisfied, and (3) is satisfied if and only if \eqref{Eq:UnstableSignatures} is. Therefore, the definitions of weak $\IBLInfty$-algebras over $\K$ and their morphisms according to Definition~\ref{Prop:EqCharOfMVIBL} and according to~\cite{Cieliebak2015} agree for $W$ satisfying \eqref{Eq:FiltrCondU}.
@@ -1111,7 +1111,7 @@ for a Poincar\'e duality algebra $V$ of degree $n$ from Section~\ref{Sec:Alg3} i
 \end{Proposition}
 \begin{proof}
 For $W\in \mathcal{W}_\zeta$, there is an $\alpha>\zeta$ such that
-$$ \Norm{\cdot} = \Norm{\cdot}_W + \gamma \ge  \alpha + \gamma \quad\text{on }U, $$
+\[ \Norm{\cdot} = \Norm{\cdot}_W + \gamma \ge  \alpha + \gamma \quad\text{on }U, \]
 and hence
 \begin{equation}\label{Eq:IneqWeight}
 \Norm{\OPQ_{klg}(v)}_U \ge l (\alpha + \gamma) \quad\text{for all }v\in\hat{\Sym}_k U
@@ -1128,9 +1128,9 @@ Here, $\Norm{\OPQ_{0lg}} = \Norm{\OPQ_{0lg}(1)}$ holds because the trivial filtr
 \begin{ProofList}
 \item Assuming \eqref{Eq:StrCondII}, we have to prove \eqref{Eq:StrCondI}. It is easy to see that if $\zeta \ge -\gamma$, then~\eqref{Eq:StrCondI} follows from~\eqref{Eq:IneqWeight} except for $(k,l,g) = (0,0,0)$, $(0,1,0)$, $(0,2,0)$ and $(0,0,1)$. These are precisely the signatures from \eqref{Eq:UnstableSignatures} with no input; in particular, they are implied by \eqref{Eq:StrCondII}.
 \item Assuming \eqref{Eq:StrCondI}, we have to prove \eqref{Eq:StrCondII}. Clearly,~\eqref{Eq:StrCondI} implies the strict inequality for all~$(k,l,g)\in$\eqref{Eq:UnstableSignatures} with no input. It remains to check it for $(1,0,0)$ and $(2,0,0)$. Using $\zeta\ge-\gamma$, we obtain
-$$ \Norm{\HTP_{100}(v)} \ge \Norm{\HTP_{100}} + \Norm{v} \ge 0 + (\gamma + \alpha) > 0\quad\text{for all }v\in\hat{\Sym}_1 V, $$ 
+\[ \Norm{\HTP_{100}(v)} \ge \Norm{\HTP_{100}} + \Norm{v} \ge 0 + (\gamma + \alpha) > 0\quad\text{for all }v\in\hat{\Sym}_1 V, \] 
 and using $\zeta \ge 0$, we obtain
-$$ \Norm{\HTP_{200}(v)} \ge \Norm{\HTP_{200}} + \Norm{v} \ge - 2 \gamma + 2(\gamma + \alpha)>0\quad\text{for all }v\in\hat{\Sym}_2 V. $$
+\[ \Norm{\HTP_{200}(v)} \ge \Norm{\HTP_{200}} + \Norm{v} \ge - 2 \gamma + 2(\gamma + \alpha)>0\quad\text{for all }v\in\hat{\Sym}_2 V. \]
 Because $\im \HTP_{100}$, $\im \HTP_{200} \subset \K$, it must hold $\HTP_{100} = \HTP_{200} = 0$, and hence the strict filtration degree condition is automatically satisfied.
 
 The equivalence of $\BV$-formalisms for $\gamma\ge 1$ follows from Lemma~\ref{Lem:BoundCondOnFiltr} because $\Filtr^{1} U = (\Filtr^{1-\gamma} W)[1] = W[1] = U$, where $\alpha>0 \ge 1-\gamma$.
@@ -1143,7 +1143,7 @@ The equivalence of $\BV$-formalisms for $\gamma\ge 1$ follows from Lemma~\ref{Le
 where $\Filtr_{\WeightMRM}$ is the increasing filtration by weights, $\Filtr$ the dual filtration and $(\DBCyc V)_{i}$  the graded dual to $\BCyc_i V$. We also see that $\Filtr^\lambda \DBCyc V = \DBCyc V$ for all $\lambda<1$. Since $\CDBCyc V$ is the completion of $\DBCyc V$ in the graded category, we have $\CDBCyc V\in W_0$. Finally, we know that $\gamma = 2$ for the canonical $\dIBL$-algebra.\Correct[caption={DONE Possible problems},noline]{There might be problem with using \eqref{Eq:IneqWeight} in the way I am using this! Maybe over $\K$ there are even more zero operations.}\qedhere
 \end{ProofList}
 %Clearly, all strict inequalities of \eqref{Eq:StrCondI} are satisfied automatically due to \eqref{Eq:IneqWeight} except for $(0,0,0)$, $(0,1,0)$ and $(0,0,1)$. However, these are implied by \eqref{Eq:StrCondII}. On the other hand, all strict inequalities of \eqref{Eq:StrCondII} are implied by \eqref{Eq:StrCondI} except for $(1,0,0)$ and $(2,0,0)$. Now, $\Norm{\HTP_{200}}_U > - 2 \gamma$ is satisfied automatically due to \eqref{Eq:IneqWeight}. As for $(1,0,0)$, we use the inequality
-%$$ \Norm{\HTP_{klg}(v)}_U \ge \Norm{\HTP_{klg}}_U + \Norm{v}_U \ge -2\gamma(g-1)\quad\text{for all }v\in \hat{\Sym}_k U. $$
+%\[ \Norm{\HTP_{klg}(v)}_U \ge \Norm{\HTP_{klg}}_U + \Norm{v}_U \ge -2\gamma(g-1)\quad\text{for all }v\in \hat{\Sym}_k U. \]
 %It follows that $\Norm{\HTP_{100}(v)}_U\ge 2\gamma$ for all $v\in \hat{U}$, and hence $\HTP_{100}(v) = 0$ because we have the trivial filtration on $\K$ for which $\lambda\neq 0$ implies $\Norm{\lambda} = 0$ for all $\lambda\in \K$. Therefore, $\HTP_{100} = 0$, and the equivalence is proven.
 %
 \end{proof}
@@ -1194,7 +1194,7 @@ We will now illustrate the bubbling of $\HTP_{100}$ and~$\HTP_{010}$ in the rela
 \BVOp'&\coloneqq \sum_{k=1}^\infty \hat{\OPQ}_{k10}\hbar^{k-1}, & \MVMorF' &\coloneqq\HTP_{010}\hbar^{-1}.
 \end{align*}
 Assume that $\Norm{\HTP} = \Norm{\HTP_{100}}\ge 0$. Because $\HTP_{100}(1)=0$, convergence of the exponential
-$$ e^{\MVMorF} = \sum_{r=0}^\infty \frac{1}{r!}\HTP_{100}^{\Star r}: \hat{\Sym}U((\hbar))\rightarrow\hat{\Sym}U((\hbar)) $$
+\[ e^{\MVMorF} = \sum_{r=0}^\infty \frac{1}{r!}\HTP_{100}^{\Star r}: \hat{\Sym}U((\hbar))\rightarrow\hat{\Sym}U((\hbar)) \]
 relies purely on the limit conilpotency property (see the proof of Proposition~\ref{Prop:ConvPwrSer}). Assume that $\Norm{\HTP_{010}} = \Norm{\HTP_{010}(1)}>2\gamma$, i.e., $\Norm{\MVMorF'} = \Norm{\MVMorF'(1)} = \Norm{\HTP_{010}(1)} - 2 \gamma >0$. Clearly, convergence of the exponential
 \begin{equation}\label{Eq:ExpII}
 e^{\MVMorF'} = \sum_{r=0}^\infty \frac{1}{r!}\HTP_{010}^{\Star r}\hbar^{-r}: \hat{\Sym}U((\hbar))\rightarrow\hat{\Sym}U((\hbar))
@@ -1230,18 +1230,18 @@ Clearly, the condition $\Norm{\HTP_{010}(1)}>0$ is required for the convergence 
 %If we have filtered $\IBLInfty$-algebra with. And their morphisms are can be interpreted as well-defined maps $e^\HTP: \hat{\Sym}U^+ \rightarrow \hat{\Sym}U^-$. We could define $\BVOp$ with respect to $\Filtr_\cup$, but then 
 
 Let us now consider the twisting of a complete filtered $\IBLInfty$-algebra in $\MV$-formalism $(\OPQ_{klg})$ on $W$ with a Maurer-Cartan element $\PMC$. The \emph{Maurer-Cartan element} is, by definition, a morphism from the trivial $\IBLInfty$-algebra $0$ to $W$. Because $\hat{\Sym}0 = \hat{\Sym}_0 0 = \K$, only the $(0,l,g)$-components denote by $\PMC_{lg}: \K \rightarrow \hat{\Sym}_l U$ for $l$, $g\ge 0$ might be non-zero, and thus\Add[noline,caption={$l=0$ Maurer Cartan}]{Kai does not have $\PMC_{0g}$. Notice that having $\PMC_{0g}$ causes disconnected twisting!}
-$$ \PMC = \sum_{l,g \ge 0} \PMC_{lg} \hbar^{g-1}:\ \hat{\Sym}0((\hbar))\longrightarrow\hat{\Sym}U((\hbar)).$$
+\[ \PMC = \sum_{l,g \ge 0} \PMC_{lg} \hbar^{g-1}:\ \hat{\Sym}0((\hbar))\longrightarrow\hat{\Sym}U((\hbar)).\]
 Clearly, $e^\PMC(1) = e^{\PMC(1)}\in \hat{\Sym}U((\hbar))$. Consider the left multiplication $L_{e^{\PMC(1)}}: \hat{\Sym}U((\hbar)) \rightarrow \hat{\Sym}U((\hbar))$, and let $\BVOp$ be the $\BV$-operator for $(\OPQ_{klg})$. The $\BV$-operator for the twisted $\IBLInfty$-algebra $(\OPQ_{klg}^\PMC)$ is defined by
 \begin{equation}\label{Eq:TwistingEq}
 \BVOp^\PMC \coloneqq L_{e^{-\PMC(1)}} \circ \BVOp \circ L_{e^{\PMC(1)}}:\hat{\Sym}U((\hbar))\longrightarrow\hat{\Sym}U((\hbar)).
 \end{equation}
 The twisting always produces an input-strict $\IBLInfty$-algebra. Indeed, we have
-$$ \BVOp \circ e^\PMC = 0\quad\Equiv\quad\BVOp(e^{\PMC(1)})=0\quad\Equiv\quad\BVOp^{\PMC}(1) = 0. $$
+\[ \BVOp \circ e^\PMC = 0\quad\Equiv\quad\BVOp(e^{\PMC(1)})=0\quad\Equiv\quad\BVOp^{\PMC}(1) = 0. \]
 This is called the \emph{Maurer-Cartan equation}.
 
 \begin{Proposition}[Twisted $\IBLInfty$-algebra]\label{Eq:TwistingProp}
 Let $(W,\BVOp)$ be a complete filtered $\IBLInfty$-algebra in $\MV$-formalism, and let $\PMC$ be a Maurer-Cartan element. Then $\BVOp^\PMC$ defined by~\eqref{Eq:TwistingEq} is an input-strict complete filtered $\IBLInfty$-algebra in $\MV$-formalism of the same bidegree as $(W,\BVOp)$, and for its components $(\OPQ_{klg}^\PMC)$, it holds
-$$ \OPQ^\PMC_{klg} = \sum_{\substack{r\ge 0\\ k', l', g', l_1, g_1, \dotsc, l_{r}, g_{r} \ge 0 \\ k' - h_1 - \dotsb - h_{r}  = k \\ l' + l_1 + \dotsb + l_{r} - h_1 - \dotsb - h_r = l \\ g' + h_1 + \dotsb + h_{r} - r + g_1 + \dotsb+ g_{r} = g}}\hspace{-1cm}\OPQ_{k'l'g'}\circ_{h_1,\dotsc,h_{r}}(\PMC_{l_1 g_1},\dotsc,\PMC_{l_{r},g_{r}})\quad\text{for all }k\ge 1, l, g\ge 0, $$
+\[ \OPQ^\PMC_{klg} = \sum_{\substack{r\ge 0\\ k', l', g', l_1, g_1, \dotsc, l_{r}, g_{r} \ge 0 \\ k' - h_1 - \dotsb - h_{r}  = k \\ l' + l_1 + \dotsb + l_{r} - h_1 - \dotsb - h_r = l \\ g' + h_1 + \dotsb + h_{r} - r + g_1 + \dotsb+ g_{r} = g}}\hspace{-1cm}\OPQ_{k'l'g'}\circ_{h_1,\dotsc,h_{r}}(\PMC_{l_1 g_1},\dotsc,\PMC_{l_{r},g_{r}})\quad\text{for all }k\ge 1, l, g\ge 0, \]
 where $(\OPQ_{klg})$ and $(\PMC_{lg})$ are components of $\BVOp$ and $\PMC$, respectively.
 \end{Proposition}
 \begin{proof}
@@ -1303,7 +1303,7 @@ Clearly, the definition works also for filtered $\IBLInfty$-algebras from \cite{
 
 \begin{Remark}[$\BV$-bicomplex for surfaces]\label{Rem:BVBicomp}
 Writing $\BVOp = \BVOp_1 + \BVOp_2 \hbar + \BVOp_3 \hbar^2 + \dotsb$ in the input-strict case, we have 
-$$ 0 \overset{!}{=} \BVOp^2 = \BVOp_1^2 + \hbar(\BVOp_1 \BVOp_2 + \BVOp_2 \BVOp_1) + \hbar^2(\BVOp_2^2 + \BVOp_1 \BVOp_3 + \BVOp_3 \BVOp_1) + \hbar^3(\dotsb) + \dotsb. $$
+\[ 0 \overset{!}{=} \BVOp^2 = \BVOp_1^2 + \hbar(\BVOp_1 \BVOp_2 + \BVOp_2 \BVOp_1) + \hbar^2(\BVOp_2^2 + \BVOp_1 \BVOp_3 + \BVOp_3 \BVOp_1) + \hbar^3(\dotsb) + \dotsb. \]
 We see that $\BVOp_1^2 = 0$ and $[\BVOp_1,\BVOp_2] = 0$, where $[\cdot,\cdot]$ is the graded commutator, always hold. Moreover, if $[\BVOp_1,\BVOp_3] = 0$, then also $\BVOp_2^2 = 0$. Now, $\Abs{\BVOp_1} = -1$ always holds, and if $d=-1$, then $\Abs{\hbar} = -2$ and $\Abs{\BVOp_2} = -1 - 2d = 1$. We see that if $[\BVOp_1,\BVOp_3]=0$ and $d=-1$, then $(\hat{\Sym}U, \BVOp_1, \BVOp_2)$ is a (homological) mixed complex. If $\BVOp_k = 0$ for $k \ge 3$, then the $[\hbar^{-1},\hbar]]$- and $[[\hbar]]$-versions of the total complex (see Remark~\ref{Rem:MixedCompl}) compute the $\BV$- and strict $\BV$-homology, respectively. Note that by \cite[Proposition~2.2]{Cieliebak2018b}, these versions are quasi-isomorphism invariants of mixed complexes.\footnote{A morphism of mixed complexes commutes with both the boundary operator and the differential. A quasi-isomorphism of homological mixed complexes is a morphism of mixed complexes which is a quasi-isomorphism with respect to the boundary operator.}
 
 In the case of the canonical $\dIBL$-algebra on cyclic cochains of a Poincar\'e duality algebra of degree $n$, we have $d=n-3$, and so $d=-1$ corresponds to $n=2$.
@@ -1336,7 +1336,7 @@ where $U=\DBCyc\HDR(M)[3-n]$ is the (reduced) dual cyclic bar complex of the de 
 \item a quasi-isomorphism of $\BV$-complexes? 
 \end{enumerate}
 \item For a Maurer-Cartan element $\PMC$, what is
-$$ \log L_{e^{\PMC(1)}}:\ \hat{\Sym}U((\hbar)) \longrightarrow \hat{\Sym}U((\hbar)), $$
+\[ \log L_{e^{\PMC(1)}}:\ \hat{\Sym}U((\hbar)) \longrightarrow \hat{\Sym}U((\hbar)), \]
 and can one see that this map is, in general, not in the form of an $\IBLInfty$-morphism?
 \qedhere
 \end{RemarkList}
@@ -1356,11 +1356,11 @@ The theory is based on the following observation.
 \label{Fig:Spider}
 \end{figure}
 \begin{Lemma}[Iterated compatibility condition]\label{Lem:ItCompCond}
-Let $(V, \MVProd, \MVCoProd, \MVUnit, \MVAug)$ be an $\N_0$-graded bialgebra. Write $V = \bigoplus_{i=0}^\infty V_i$,\footnote{We use the lower index because it should correspond to the weight in the weight-graded setting of $V = \Sym U$.} and for every $i\in \N_0$, let $\iota_i : V_i \rightarrow V$ and $\pi_i: V \rightarrow V_i$ be the canonical inclusion and projection, respectively. Let $m$, $n\in \N$, and let $\sigma_{m,n}\in \Perm_{m n}$ be the permutation of $mn$ elements depicted in Figure~\ref{Fig:Spider}. For $A\in \N_0^{m} \times \N_{0}^n$, let
-$$ F_{A}\coloneqq \bigotimes_{i=1}^m \bigotimes_{j=1}^n \pi_{A_{ij}}\circ \iota_{A_{ij}} : V^{\otimes m n } \longrightarrow V^{\otimes m n}. $$
+Let $(V, \MVProd, \MVCoProd, \MVUnit, \MVAug)$ be an $\N_0$-graded bialgebra. Write $V = \bigoplus_{i=0}^\infty V_i$,\footnote{We use the lower index because it should correspond to the weight in the weight-graded setting of $V = \Sym U$.} and for every $i\in \N_0$, let $\iota_i : V_i \rightarrow V$ and $\pi_i: V \rightarrow V_i$ be the canonical inclusion and projection, respectively. Let $m$, $n\in \N$, and let $\sigma_{m,n}\in \Perm_{m n}$ be the permutation of $mn$ elements depicted in Figure~\ref{Fig:Spider}. For $A\in \N_0^{m\times n}$, let
+\[ F_{A}\coloneqq \bigotimes_{i=1}^m \bigotimes_{j=1}^n \pi_{A_{ij}}\circ \iota_{A_{ij}} : V^{\otimes m n } \longrightarrow V^{\otimes m n}. \]
 Then for the iterated product $\MVProd^{(m)}: V^{\otimes m} \rightarrow V$ and the iterated coproduct $\MVCoProd^{(n)}: V\rightarrow V^{\otimes n}$, the following holds:
 \begin{equation}\label{Eq:ItCompRel}
-\MVCoProd^{(n)}\MVProd^{(m)} = \MVProd^{(m)\otimes n} \sigma_{m,n} \MVCoProd^{(n)\otimes m} =  \sum_{A\in \N_0^m \times \N_0^n} \MVProd^{(m)\otimes n} \sigma_{m,n}F_A \MVCoProd^{(n)\otimes m}.
+\MVCoProd^{(n)}\MVProd^{(m)} = \MVProd^{(m)\otimes n} \sigma_{m,n} \MVCoProd^{(n)\otimes m} =  \sum_{A\in \N_0^{m\times n}} \MVProd^{(m)\otimes n} \sigma_{m,n}F_A \MVCoProd^{(n)\otimes m}.
 \end{equation}
 For $n=m=2$, this reduces to the well-known compatibility relation
 \begin{equation}\label{Eq:BasicCompCond}
@@ -1368,7 +1368,7 @@ For $n=m=2$, this reduces to the well-known compatibility relation
 \end{equation}
 \end{Lemma}
 \begin{proof}
-Clearly, the second equality of \eqref{Eq:ItCompRel} holds because $\sum_{A\in \N_0^m\times\N_0^n} F_A = \Id^{mn}$. As for the first equality, it holds for $m=n=2$ from the definition of a bialgebra; the rest is obtained by induction on $m$, $n$, distinguishing the two cases $\MVCoProd^{(n)}\MVProd^{(m)} = (\MVCoProd\otimes\Id^{\otimes n-2})\MVCoProd^{(n-1)}\MVProd^{(m)}$ and $\MVCoProd^{(n)}\MVProd^{(m)} = \MVCoProd^{(n)}\MVProd^{(m-1)}(\mu\otimes\Id^{\otimes n-2})$, respectively. In the first case, the induction step reads
+Clearly, the second equality of \eqref{Eq:ItCompRel} holds because $\sum_{A\in\N_0^{m\times n}} F_A = \Id^{mn}$. As for the first equality, it holds for $m=n=2$ from the definition of a bialgebra; the rest is obtained by induction on $m$, $n$, distinguishing the two cases $\MVCoProd^{(n)}\MVProd^{(m)} = (\MVCoProd\otimes\Id^{\otimes n-2})\MVCoProd^{(n-1)}\MVProd^{(m)}$ and $\MVCoProd^{(n)}\MVProd^{(m)} = \MVCoProd^{(n)}\MVProd^{(m-1)}(\mu\otimes\Id^{\otimes n-2})$, respectively. In the first case, the induction step reads
 \begin{align*}
 \MVCoProd^{(n)}\MVProd^{(m)} & = (\MVCoProd\otimes\Id^{\otimes n-2})\MVCoProd^{(n-1)}\MVProd^{(m)} \\
 & = (\MVCoProd\otimes\Id^{\otimes n-2})\MVProd^{(m)\otimes n-1}\sigma_{m,n-1}\MVCoProd^{(n-1)\otimes m} \\
@@ -1391,19 +1391,19 @@ The second case is analogous.
 %\end{align*}
 \end{proof}
 \begin{Definition}[Compositions of monomials in convolution product]\label{Def:ConComp}
-Consider an $\N_0$-graded bialgebra $(V,\MVProd,\MVCoProd,\MVUnit,\MVAug)$. Given linear maps $\MVMorF_1$, $\dotsc$, $\MVMorF_r$, $\MVMorF_1', \dotsc, \MVMorF_{r'}': V \rightarrow V$ and a matrix $A\in \N_0^{r'} \times \N_0^r$ for $r$, $r'\in \N$, we define the \emph{$A$-composition} $(\MVMorF_1,\dotsc,\MVMorF_r)\SquareComp_A(\MVMorF_1,\dotsc,\MVMorF_{r'}): V \rightarrow V$ by the formula
+Consider an $\N_0$-graded bialgebra $(V,\MVProd,\MVCoProd,\MVUnit,\MVAug)$. Given linear maps $\MVMorF_1$, $\dotsc$, $\MVMorF_r$, $\MVMorF_1', \dotsc, \MVMorF_{r'}': V \rightarrow V$ and a matrix $A\in \N_0^{r'\times r}$ for $r$, $r'\in \N$, we define the \emph{$A$-composition} $(\MVMorF_1,\dotsc,\MVMorF_r)\SquareComp_A(\MVMorF_1,\dotsc,\MVMorF_{r'}): V \rightarrow V$ by the formula
 \begin{align*}
 &(\MVMorF_1,\dotsc,\MVMorF_r)\SquareComp_A(\MVMorF_1,\dotsc,\MVMorF_{r'}) \\
 &\qquad\coloneqq \MVProd^{(r)}\circ(\MVMorF_1 \otimes \dotsb \otimes \MVMorF_r)\circ \Prod^{(r')\otimes r} \circ  \sigma_{r',r}\circ F_A \circ \MVCoProd^{(r)\otimes r'} \circ (\MVMorF_1' \otimes \dotsb \otimes \MVMorF_{r'}')\circ\MVCoProd^{(r')},
 \end{align*}
 where $\sigma_{r',r}$ and $F_A$ were defined in Lemma~\ref{Lem:ItCompCond}.
 
-We call a matrix $A\in\N_0^{r'} \times \N_0^{r}$ \emph{connected} if for the matrix
-$$ B \coloneqq \begin{pmatrix} 0 & A \\ A^T & 0 \end{pmatrix}, $$
+We call a matrix $A\in\N_0^{r'\times r}$ \emph{connected} if for the matrix
+\[ B \coloneqq \begin{pmatrix} 0 & A \\ A^T & 0 \end{pmatrix}, \]
 the matrix product $B^{r+r'}$ has at least one row with all entries non-zero.\footnote{Such $A$ represents a connected weighted bipartite graph.} In this case, we say that the $A$-composition $(\MVMorF_1,\dotsc,\MVMorF_r)\SquareComp_A(\MVMorF_1,\dotsc,\MVMorF_{r'})$ is \emph{connected.}
 
 Suppose that $V$ is connected, i.e., $V_0 = \langle 1\rangle$. Given linear maps $\MVMorF_1$, $\dotsc$, $\MVMorF_r$, $\MVMorF_1'$, $\dotsc$, $\MVMorF_{r'}': V\rightarrow V$ for $r$, $r'\in \N$, we define the \emph{connected composition} $(\MVMorF_1, \dotsc, \MVMorF_r)\circ_{\mathrm{con}}(\MVMorF_1',\dotsc,\MVMorF_{r'}'): V \rightarrow V$ by
-$$ (\MVMorF_1, \dotsc, \MVMorF_r)\circ_{\mathrm{con}}(\MVMorF_1,\dotsc,\MVMorF_{r'}) = \sum_{\substack{A\in \N_0^{r'+1}\times\N_0^{r+1}\\ A\  \mathrm{connected} \\ A_{r'+1,r+1} = 0 }} (\MVMorF_1,\dotsc,\MVMorF_r,\Id)\SquareComp_A (\MVMorF_1',\dotsc,\MVMorF_{r'}',\Id).$$
+\[ (\MVMorF_1, \dotsc, \MVMorF_r)\circ_{\mathrm{con}}(\MVMorF_1,\dotsc,\MVMorF_{r'}) = \sum_{\substack{A\in \N_0^{(r'+1)\times (r+1)}\\ A\  \mathrm{connected} \\ A_{r'+1,r+1} = 0 }} (\MVMorF_1,\dotsc,\MVMorF_r,\Id)\SquareComp_A (\MVMorF_1',\dotsc,\MVMorF_{r'}',\Id).\]
 Given linear maps $\MVMorF$, $\MVMorF_1$, $\dotsc$, $\MVMorF_r: V \rightarrow V$ and parameters $h_1$, $\dotsc$, $h_r\in \N_0$ for $r\in \N$, we define the \emph{partial compositions} $\MVMorF\circ_{h_1, \dotsc, h_r}(\MVMorF_1, \dotsc, \MVMorF_r)$, $(\MVMorF_1, \dotsc, \MVMorF_r)\circ_{h_1, \dotsc, h_r}\MVMorF: V\rightarrow V$ by
 \begin{align*}
 &\MVMorF\circ_{h_1, \dotsc, h_r}(\MVMorF_1, \dotsc, \MVMorF_r) \\
@@ -1422,13 +1422,13 @@ where we set $F_{h_1,\dotsc, h_r} \coloneqq F_{(h_1,\dotsc,h_r)} = F_{(h_1,\dots
 \begin{Proposition}[Partial compositions]\label{Prop:PartCompAComp}
 Let $\MVMorF$, $\MVMorF_1$, $\dotsc$, $\MVMorF_r : V \rightarrow V$ be linear maps on a connected $\N_0$-graded bialgebra $V$, and let $h_1$,~$\dotsc$, $h_r \in \N_0$ for $r\in \N$. Then the following formulas hold:
 \begin{align*}
-\MVMorF\circ_{h_1, \dotsc, h_r}(\MVMorF_1, \dotsc, \MVMorF_r) &= \sum_{\substack{A \in \N_0^{r+1} \times \N_0^{2} \\ A = \left(\begin{smallmatrix}
+\MVMorF\circ_{h_1, \dotsc, h_r}(\MVMorF_1, \dotsc, \MVMorF_r) &= \sum_{\substack{A \in \N_0^{(r+1)\times 2} \\ A = \left(\begin{smallmatrix}
 h_1 & \bullet \\
 \vphantom{\int\limits^x}\smash{\vdots} &  \smash{\vdots} \\
 h_r & \bullet \\ 
 \bullet & 0
 \end{smallmatrix}\right)}} (\MVMorF,\Id)\SquareComp_{A}(\MVMorF_1,\dotsc,\MVMorF_r,\Id), \\
-(\MVMorF_1, \dotsc, \MVMorF_r)\circ_{h_1, \dotsc, h_r}\MVMorF &= \sum_{\substack{A \in \N_0^{2} \times \N_0^{r+1} \\ A = \left(\begin{smallmatrix}
+(\MVMorF_1, \dotsc, \MVMorF_r)\circ_{h_1, \dotsc, h_r}\MVMorF &= \sum_{\substack{A \in \N_0^{2\times(r+1)} \\ A = \left(\begin{smallmatrix}
 h_1 & \dotsb & h_r & \bullet \\
 \bullet & \dotsb & \bullet & 0
 \end{smallmatrix}\right)
@@ -1439,13 +1439,13 @@ h_1 & \dotsb & h_r & \bullet \\
 \begin{proof}
 We compute
 \begin{align*}
-& \sum_{\substack{A \in \N_0^{r+1} \times \N_0^{2} \\ A = \left(\begin{smallmatrix}
+& \sum_{\substack{A \in \N_0^{(r+1)\times 2} \\ A = \left(\begin{smallmatrix}
 h_1 & \bullet \\
 \vphantom{\int\limits^x}\smash{\vdots} & \smash{\vdots} \\
 h_r & \bullet \\ 
 \bullet & 0
 \end{smallmatrix}\right)}} (\MVMorF\Star\Id)\SquareComp_A (\MVMorF_1\Star\dotsb\Star\MVMorF_r \Star \Id) \\
-&\quad =\sum_{\substack{A \in \N_0^{r+1} \times \N_0^{2} \\ A = \left(\begin{smallmatrix}
+&\quad =\sum_{\substack{A \in \N_0^{(r+1)\times 2} \\ A = \left(\begin{smallmatrix}
 h_1 & \bullet \\
 \vphantom{\int\limits^x}\smash{\vdots} & \smash{\vdots} \\
 h_r & \bullet \\ 
@@ -1457,7 +1457,7 @@ h_r & \bullet \\
 &\quad=\MVMorF\circ_{h_1, \dotsc, h_r}(\MVMorF_1, \dotsc, \MVMorF_r).
 \end{align*}
 On the line before the last line we used that for a connected bialgebra $V$, it holds
-$$ (\Id\otimes\iota_0\pi_0)\MVCoProd(v)=v\otimes 1\quad\text{and}\quad (\iota_0\pi_0\otimes\Id)\MVCoProd(v) = 1 \otimes v\quad\text{for all }v\in V.$$
+\[ (\Id\otimes\iota_0\pi_0)\MVCoProd(v)=v\otimes 1\quad\text{and}\quad (\iota_0\pi_0\otimes\Id)\MVCoProd(v) = 1 \otimes v\quad\text{for all }v\in V.\]
 The case of $(\MVMorF_{1},\dotsc,\MVMorF_r)\circ_{h_1,\dotsc,h_r}\MVMorF$ is treated analogously, using that $\sigma_{m,n} = \sigma_{n,m}^{-1}$ (this is visible by looking at the highlighted square in Figure~\ref{Fig:Spider}, which is symmetric under the rotation by $180^\circ$).
 \end{proof}
 
@@ -1520,12 +1520,12 @@ On the second line, we used the compatibility condition; on the third line, we u
 
 In order to see \eqref{Eq:FormII}, the easiest is to use Proposition~\ref{Prop:PartCompAComp}:
 \begin{align*}
-\hat{\MVMorF}(\MVMorF_1 \Star \dotsb \Star \MVMorF_r)&= \sum_{k\ge 0}\sum_{\substack{h_1,\dotsc,h_r\ge 0 \\ h_1 + \dotsb + h_r = k}}\sum_{\substack{A\in \N_0^r \times \N_0^2 \\ A=\left(\begin{smallmatrix}
+\hat{\MVMorF}(\MVMorF_1 \Star \dotsb \Star \MVMorF_r)&= \sum_{k\ge 0}\sum_{\substack{h_1,\dotsc,h_r\ge 0 \\ h_1 + \dotsb + h_r = k}}\sum_{\substack{A\in \N_0^{r \times 2} \\ A=\left(\begin{smallmatrix}
 h_1 & \bullet \\ 
 \vphantom{\int\limits^x}\smash{\vdots} & \smash{\vdots} \\
 h_r & \bullet
 \end{smallmatrix}\right)}}(\MVMorF \iota_k \pi_k,\Id)\SquareComp_{A}(\MVMorF_1,\dotsc,\MVMorF_r) \\
-& = \sum_{k\ge 0}\sum_{\substack{h_1,\dotsc,h_r\ge 0 \\ h_1 + \dotsb + h_r = k}}\sum_{\substack{A'\in \N_0^{r+1} \times \N_0^{2} \\ A'=\left(\begin{smallmatrix}
+& = \sum_{k\ge 0}\sum_{\substack{h_1,\dotsc,h_r\ge 0 \\ h_1 + \dotsb + h_r = k}}\sum_{\substack{A'\in \N_0^{(r+1)\times 2} \\ A'=\left(\begin{smallmatrix}
 h_1 & \bullet \\
 \vphantom{\int\limits^x}\smash{\vdots} & \smash{\vdots} \\
 h_r & \bullet \\ 
@@ -1551,7 +1551,7 @@ As for \eqref{Eq:FormIV}, we prefer to manipulate the expression with bialgebra 
 % &\ = \sum_{\substack{h_1, h_2\ge 0 \\ h_1 + h_2 = k'}} \MVMorF\circ_{h_1,h_2}(\MVMorF_1,\MVMorF_2). 
 %\end{align*}
 %Next, for every $r\ge 1$, $h_1$, $\dotsc$, $h_r\ge 0$ and a linear $\MVMorF_{r+1}: E_{k_{r+1}}\rightarrow E_{l_{r+1}}$, $k_{r+1}$, $l_{r+1} \ge 0$, the following holds: 
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %& \MVMorF\circ_{h_1,\dotsc,h_r}(\MVMorF_1,\dotsc, \MVMorF_r \Star \MVMorF_{r+1}) =  \\
 %& \quad = \begin{multlined}[t] 
 %\MVProd(\MVMorF\otimes \Id)(\MVProd\otimes\Id)(\Id\otimes\tau)\bigl(\bigl[(\MVProd^{(r)}\otimes\MVProd^{(r)})(F_{h_1,\dotsc,h_r}\otimes \Id^{\otimes r})\sigma_r \MVCoProd^{\otimes r}\bigr]\otimes \Id\bigr)\\(\Id^{\otimes r-1}\otimes \MVProd \otimes \Id)(\MVMorF_1\otimes \dotsb\otimes \MVMorF_r \otimes \MVMorF_{r+1}\otimes \Id)(\Id^{\otimes r-1}\otimes \MVCoProd \otimes \Id)\MVCoProd^{(r)}
@@ -1561,19 +1561,19 @@ As for \eqref{Eq:FormIV}, we prefer to manipulate the expression with bialgebra 
 %\end{multlined}\\
 %&\quad =: (*).
 %\end{aligned}
-%$$
+%\]
 %The auxiliary computations
-%$$ \begin{aligned} \MVCoProd^{\otimes r}(\Id^{\otimes r-1}\otimes \MVProd) &= \MVCoProd^{\otimes r-1} \otimes (\MVCoProd \MVProd) \\ &= \MVCoProd^{\otimes r-1} \otimes \bigl((\MVProd \otimes \MVProd)(\Id \otimes \tau \otimes \Id)(\MVCoProd\otimes\MVCoProd)\bigr) \\ 
+%\[ \begin{aligned} \MVCoProd^{\otimes r}(\Id^{\otimes r-1}\otimes \MVProd) &= \MVCoProd^{\otimes r-1} \otimes (\MVCoProd \MVProd) \\ &= \MVCoProd^{\otimes r-1} \otimes \bigl((\MVProd \otimes \MVProd)(\Id \otimes \tau \otimes \Id)(\MVCoProd\otimes\MVCoProd)\bigr) \\ 
 %&= \bigl(\Id^{\otimes 2r-2} \otimes (\MVProd\otimes \MVProd)(\Id \otimes \tau \otimes \Id)\bigr) \MVCoProd^{\otimes r+1}, \\
 %\sigma_r \bigl(\Id^{\otimes 2r-2} \otimes (\MVProd\otimes \MVProd)(\Id \otimes \tau \otimes \Id)\bigr) &= (\Id^{\otimes r-1}\otimes\MVProd\otimes\Id^{\otimes r-1}\otimes \MVProd)\sigma_{r+1}, \\
 % \MVMorF_{h_1,\dotsc,h_r}(\Id^{\otimes r-1} \otimes \MVProd) &= \sum_{\substack{i, j\ge 0 \\ i + j = h_r}} (\Id^{\otimes r-1}\otimes \MVProd)F_{h_1, \dotsc, h_{r-1}, i, j}, 
-%\end{aligned} $$
+%\end{aligned} \]
 %in this order, show that
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %(*) & = \begin{multlined}[t] \smash{\sum_{\substack{i,j\ge 0 \\ i + j = h_r}}}\vphantom{\sum}\MVProd(\MVMorF\otimes \Id)(\MVProd \otimes \Id)(\Id \otimes \tau)\bigl(\bigl[(\MVProd^{(r+1)}\otimes\MVProd^{(r+1)}) (F_{h_1,\dotsc,h_{r-1},i,j} \\ \otimes \Id^{\otimes r+1})
 %\sigma_{r+1}\MVCoProd^{\otimes r+1}\bigr]\otimes \Id \bigr) (\MVMorF_1\otimes \dotsb\otimes \MVMorF_{r+1}\otimes \Id)\MVCoProd^{(r+1)} \end{multlined} \\
 %& = \sum_{\substack{i,j \ge 0 \\ i+j= h_r}} \MVMorF\circ_{h_1, \dotsc, h_{r-1}, i, j}(\MVMorF_1,\dotsc,\MVMorF_{r+1}).
-%\end{aligned}$$
+%\end{aligned}\]
 %This together with \eqref{Eq:Comput1} and associativity of $\Star$, which is easy to check, implies~\eqref{Eq:CompFormula}.
 \begin{align*}
 &\MVMorF\circ_{h_1,\dotsc,h_{r-1},0}(\MVMorF_1,\dotsc,\MVMorF_r) \\
@@ -1587,12 +1587,12 @@ As for \eqref{Eq:FormIV}, we prefer to manipulate the expression with bialgebra 
 \end{align*}
 Equation~\eqref{Eq:FormV} is proven analogously.
 %The last equation is similar
-%$$\begin{aligned}
+%\[\begin{aligned}
 % &\MVMorF \circ_{h_1,\dotsc,h_{r-1},0}(\MVMorF_1,\dotsc,\MVMorF_{r}) = \\
 % &\quad =\begin{multlined}[t]\MVProd (\MVMorF\otimes \Id)(\MVProd\otimes \Id)(\Id\otimes \tau)(\Id\otimes \MVProd \otimes \Id)\bigl([(\MVProd^{(r-1)}\otimes\MVProd^{(r-1)})(F_{h_1,\dotsc,h_{r-1}}\otimes\Id^{\otimes r-1}) \\ (\sigma_{r-1}\otimes \Id)(\MVCoProd^{\otimes r-1} \otimes \Id)] \otimes \Id \bigr)(\MVMorF_1\otimes \dotsb\otimes \MVMorF_r \otimes \Id)\MVCoProd^{(r+1)} \end{multlined} \\
 %&\quad = \begin{multlined}[t] \MVProd(\MVMorF\otimes\Id)(\MVProd\otimes\Id)\underbrace{(\Id\otimes\tau)(\Id \otimes \MVProd \otimes \Id)(\Id^{\otimes 2}\otimes \tau)}_{(\Id \otimes \MVProd)(\Id \otimes\tau \otimes\Id)}\bigl([(\MVProd^{(r-1)}\otimes\MVProd^{(r-1)})  (F_{h_1,\dotsc,h_{r-1}}\\ \otimes\Id^{\otimes r-1}) (\sigma_{r-1}\otimes \Id)(\MVCoProd^{\otimes r-1} \otimes \Id)] \otimes \Id \bigr)(\MVMorF_1\otimes \dotsb\otimes \MVMorF_{r-1} \otimes \Id \otimes \MVMorF_r)\MVCoProd^{(r+1)}\end{multlined} \\
 %& \quad = \MVProd(\MVMorF\circ_{h_1,\dotsc,h_{r-1}}(\MVMorF_1,\dotsc,\MVMorF_{r-1}) \otimes \MVMorF_r)\MVCoProd
-%\end{aligned}$$
+%\end{aligned}\]
 \end{proof}
 \end{document}
 %\clearpage
@@ -1624,9 +1624,9 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %\Filtr^1 U = U.
 %\end{equation}
 %The reason for this assumption is discussed in Remark~\ref{} below. We consider the induced filtration $\Filtr$ on $V\coloneqq \Sym(U)$ and take the standard bialgebra structure as in (a); it clearly preserves the induced filtration. Condition~\eqref{Eq:CondFiltr} implies that
-%$$ \Norm{v}\ge\Norm{v}_{\mathrm{w}}\quad\text{for all }v\in\Sym(U). $$
+%\[ \Norm{v}\ge\Norm{v}_{\mathrm{w}}\quad\text{for all }v\in\Sym(U). \]
 %In particular, the limit conilpotency condition for $\delta$ is satisfied. Let $R=\K((\hbar))$ be the field of Laurent series with the filtration 
-%$$ \Filtr^\lambda R = \Span_{\K}\{\hbar^i \mid i \ge\lambda\}.$$
+%\[ \Filtr^\lambda R = \Span_{\K}\{\hbar^i \mid i \ge\lambda\}.\]
 %Recall that $\K((\hbar))$ is the localization of $\K[[\hbar]]$ at the powers of $\hbar$, i.e., the space of formal power series $\sum_{i=-\infty}^\infty a_i \hbar^{i}$ with $a_i\in \K$ and $a_i = 0$ for all but finitely many $i<0$. Also, $\K((\hbar))$ is complete with respect to $\Filtr$.
 %
 %In the weak setting, we allow $k=0$ or $l=0$, and we have
@@ -1639,7 +1639,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %\Norm{f_{klg}}, \Norm{\OPQ_{klg}} \ge 1-g-k\quad\text{for all }k, l, g\ge 0.
 %\end{equation}
 %Because $\Norm{\OPQ_{klg}(v)}\ge \Norm{\OPQ_{klg}(v)}_{\mathrm{w}} = (l-k) + \Norm{v}_{\mathrm{w}}$ for all $v\in \Sym(U)$, the operations $Q_{kg} = \sum_{l=0}^\infty \OPQ_{klg}: \hat{\Sym}(U) \rightarrow \hat{\Sym}(U)$ are well defined and satisfy $\Norm{Q_{kg}}\ge 1-g-k$. Therefore, it holds $\Norm{\BVOp}\ge 0$. Similar reasoning shows that $\MVMorF$ is well-defined and satisfies $\Norm{\MVMorF}\ge 0$. Next, we compute
-%$$ \MVMorF(1) = \Bigl(\sum_{l=0}^\infty f_{0l0}(1) \Bigr)\hbar^{-1} +  \Bigl(\sum_{l=0}^\infty f_{0l1}(1)\Bigr) + \hbar\Bigl(\sum_{l=0}^\infty f_{0l2}(1)\Bigr) + \dotsb. $$
+%\[ \MVMorF(1) = \Bigl(\sum_{l=0}^\infty f_{0l0}(1) \Bigr)\hbar^{-1} +  \Bigl(\sum_{l=0}^\infty f_{0l1}(1)\Bigr) + \hbar\Bigl(\sum_{l=0}^\infty f_{0l2}(1)\Bigr) + \dotsb. \]
 %Because $\Norm{\hbar}=1$ and $\Norm{\MVMorF_{0lg}(1)}\ge\Norm{\MVMorF_{0lg}(1)}_{\mathrm{w}} = l$, the only terms which can spoil $\Norm{\MVMorF(1)}>0$ are those for $(k,l,g)=(0,0,0)$, $(0,1,0)$, $(0,0,1)$. We therefore have to assume 
 %\begin{equation}\label{Eq:MapFiltrCondII}
 %\Norm{f_{000}(1)}>1 \quad \text{and}\quad \Norm{f_{010}(1)}>1.
@@ -1681,16 +1681,16 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %\reallywidehat{\reallywidehat{\tilde{\Sym}} \otimes \reallywidehat{\tilde{\Sym}}}\simeq \reallywidehat{\tilde{\Sym}\tilde{\otimes}\tilde{\Sym}}
 %\end{equation}
 %
-%$$ \Filtr^\lambda (\reallywidehat{\tilde{\Sym}} \otimes \reallywidehat{\tilde{\Sym}})^d = \bigoplus_{\substack{d_1 + d_2 = d\\\lambda_1+\lambda_2=\lambda}} \Filtr^{\lambda_1} \hat{\tilde{\Sym}}^{d_1}\otimes\Filtr^{\lambda_2}\hat{\tilde{\Sym}}^{d_2}$$
+%\[ \Filtr^\lambda (\reallywidehat{\tilde{\Sym}} \otimes \reallywidehat{\tilde{\Sym}})^d = \bigoplus_{\substack{d_1 + d_2 = d\\\lambda_1+\lambda_2=\lambda}} \Filtr^{\lambda_1} \hat{\tilde{\Sym}}^{d_1}\otimes\Filtr^{\lambda_2}\hat{\tilde{\Sym}}^{d_2}\]
 %
-%$$ \Filtr^\lambda(\tilde{\Sym}\tilde{\otimes}\tilde{\Sym})^d = $$
+%\[ \Filtr^\lambda(\tilde{\Sym}\tilde{\otimes}\tilde{\Sym})^d = \]
 %
-%$$ 1+1, a+b, a\otimes b, a{\otimes}b, {a}\otimes{b}, a\COtimes b $$
+%\[ 1+1, a+b, a\otimes b, a{\otimes}b, {a}\otimes{b}, a\COtimes b \]
 %
 %Let us argue whyy 
 %
 %Consider $U = \Ten W$ with the weight-filtration, and let 
-%$$ \sum_{k=1}^\infty (w\smallotimes \dotsb\smallotimes w) \otimes (\underbrace{1\cdot\dotsb\cdot 1}_{k\text{-times}}) \in \reallywidehat{\Sym(U) \otimes \Sym(U)} $$
+%\[ \sum_{k=1}^\infty (w\smallotimes \dotsb\smallotimes w) \otimes (\underbrace{1\cdot\dotsb\cdot 1}_{k\text{-times}}) \in \reallywidehat{\Sym(U) \otimes \Sym(U)} \]
 %
 %
 %Clearly, $w\smallotimes\dotsb\smallotimes w\in\Filtr^k\Sym_1(U)\subset \Filtr_{\mathrm{cup}}^k \Sym(U)$ and $1\cdot\dotsb\cdot 1\in \Filtr^0 \Sym_k(U)\subset \Filtr_{\mathrm{cup}}^k \Sym(U)$
@@ -1760,7 +1760,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %\end{Lemma}
 %\begin{proof}
 %Standardly, we would have
-%$$ \Norm{x_i} \ge \min \{\Norm{x_i^k} \mid k\in \N_0\} \le \Norm{x_i^l} \quad\text{for all }l\in \N_0. $$
+%\[ \Norm{x_i} \ge \min \{\Norm{x_i^k} \mid k\in \N_0\} \le \Norm{x_i^l} \quad\text{for all }l\in \N_0. \]
 %However, because the filtration of $\Ext C$ is weight-graded, the first inequality is in fact an equality, and hence $\Norm{x_i^l}\ge \Norm{x_i}$ for all $l\in \N_0$. This implies that $y_j$ converge, i.e., that $y_j\in \hat{\Ext}_j C$ and that $\Norm{y_j} \ge \inf\{\Norm{x_i^j} \mid \} = \lambda''_j\ge \in \R$. It remains to prove that $\lambda_j' \to \infty$. Suppose that there is a $K>0$ such that there is an infinite sequence $\lambda_{j_n}'< K $.  However, this is a constradiction because there is just finitely many $x_i^j$ below every $\lambda$-level. Let us consider $\lambda_j'$ slightly below but uniformly. Therefore, $\sum y_j \in B$. This map is injective and surjective. Clearly, it also preserves the filtration degree.
 %\end{proof}
 %
@@ -1774,7 +1774,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %\end{Lemma}
 %\begin{proof}
 %Given $K>0$, let $i_0'\in\N$ be such that $\Norm{x_i}\ge K$ for all $i\ge i_0$. Let $i_0\in \N$ be such that $i_0\ge i_0'$ and $\{1,\dotsc, i_0'\}\subset r(1,\N)\cup\dotsb\cup r(i_0,\N)$. Now, in the sum
-%$$ \Delta_{i_0}\coloneqq \sum_{i=1}^{i_0} x_i - \sum_{i=1}^{i_0} \sum_{j=1}^\infty x_{r(i,j)}, $$ 
+%\[ \Delta_{i_0}\coloneqq \sum_{i=1}^{i_0} x_i - \sum_{i=1}^{i_0} \sum_{j=1}^\infty x_{r(i,j)}, \] 
 %only elements $x_i$ with $i>i_0$ remain, and hence $\|\Delta_{i_0}\|\ge K$. Therefore, both sides of~\eqref{Eq:Resummation} converge to the same element in $\hat{C}$.
 %\end{proof}
 %\begin{Remark}
@@ -1782,7 +1782,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %\end{Remark}
 %
 %Now, let $\Ext C$ be a weight-graded vector space.
-%$$ \widehat{\Ext C}^{\text{ind}}  = \bigl\{ \sum_{i=1}^\infty x_i \mid x_i \in \Filtr^{\lambda_i}\hat{\Ext}_k C\bigr \} $$
+%\[ \widehat{\Ext C}^{\text{ind}}  = \bigl\{ \sum_{i=1}^\infty x_i \mid x_i \in \Filtr^{\lambda_i}\hat{\Ext}_k C\bigr \} \]
 %With the topology of infinite sums is canonically 
 %
 %
@@ -1808,15 +1808,15 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %\item the induced filtration $\Filtr^\lambda\Ext C \coloneqq \bigoplus_{k=0}^\infty \Filtr^\lambda \Ext_k C$,
 %\item the weight filtration $\Filtr_{\text{w}}^\lambda\Ext C = \bigoplus_{k\ge\lambda}\Ext_k C$,
 %\item and the combined filtration 
-%$$ \Filtr^\lambda_{\text{comb}} \Ext C \coloneqq \Filtr^\lambda\Ext C \cup\Filtr^\lambda_{\text{w}}\Ext C = \Filtr_\lambda \Ext_0 C \oplus \dotsb \oplus \Filtr^\lambda\Ext_{\ceil{\lambda}-1} C \oplus \Ext_{\ceil{\lambda}} C \oplus \dotsb. $$
+%\[ \Filtr^\lambda_{\text{comb}} \Ext C \coloneqq \Filtr^\lambda\Ext C \cup\Filtr^\lambda_{\text{w}}\Ext C = \Filtr_\lambda \Ext_0 C \oplus \dotsb \oplus \Filtr^\lambda\Ext_{\ceil{\lambda}-1} C \oplus \Ext_{\ceil{\lambda}} C \oplus \dotsb. \]
 %\end{itemize}
 %These filtrations are weight-graded in the sense that
-%$$ \Filtr^\lambda\Ext C = \bigoplus_{\substack{k\ge 0 \\ d\in \Z}} (\Filtr^\lambda\Ext C)^d_k\quad\text{where}\quad(\Filtr^\lambda\Ext C)^d_k = \Filtr^\lambda\Ext C \cap(\Ext_k C)^d. $$
+%\[ \Filtr^\lambda\Ext C = \bigoplus_{\substack{k\ge 0 \\ d\in \Z}} (\Filtr^\lambda\Ext C)^d_k\quad\text{where}\quad(\Filtr^\lambda\Ext C)^d_k = \Filtr^\lambda\Ext C \cap(\Ext_k C)^d. \]
 %We have the following completions of $\Ext C$:
 %\begin{enumerate}
 % \item The weight-graded completion with respect to $\Filtr_{\text{w}}^\lambda$ equals $\Ext C$.
 % \item The weight-graded completions with respect to $\Filtr^\lambda$ and $\Filtr^\lambda_{\text{comb}}$ are the same and equal to 
-% $$ \tilde{\Ext}C \coloneqq \bigoplus_{k\ge 0} \hat{\Ext}_k C. $$
+% \[ \tilde{\Ext}C \coloneqq \bigoplus_{k\ge 0} \hat{\Ext}_k C. \]
 % \item The graded completions with respect to $\Filtr^\lambda$, $\Filtr_{\text{w}}^\lambda$ and $\Filtr_{\text{comb}}^\lambda$ are pairwise different which is illustrated in the following figure:
 % \missingfigure
 % Here, we identify the completion with a power series   
@@ -1825,8 +1825,8 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 % We denote the by $\hat{\Ext}C$
 %\item We consider the weight completion of the weight-graded completionr
 %i.e., the space
-%$$  \WGComplExt C = \bigoplus_{d\in\Z} 
-%\prod_{k\ge 0} (\ComplExt_k C)^d $$
+%\[  \WGComplExt C = \bigoplus_{d\in\Z} 
+%\prod_{k\ge 0} (\ComplExt_k C)^d \]
 %\end{enumerate}
 %For all $k$ the sum has to be convergent.
 %
@@ -1838,7 +1838,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %
 %
 %The weight-graded completion with respect to $\Filtr_{\text{w}}^\lambda\Ext C$ is trivial, and the weight-graded completions with respect to $\Filtr^\lambda\Ext C$ and $\Filtr^\lambda_{\text{comb}}\Ext C$ are both equal to
-%$$ \WGComplExt C \coloneqq \bigoplus_{k\ge 0} \ComplExt_k C. $$
+%\[ \WGComplExt C \coloneqq \bigoplus_{k\ge 0} \ComplExt_k C. \]
 %The graded completions are, in general, pairwise different; the situation is depicted in Figure~\ref{}.
 %
 %We denote by $\WGComplExt C = \bigoplus_{d\in\Z} (\WGComplExt C)^d $ 
@@ -1852,7 +1852,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %\item $\hat{\Ext}^{\text{ind}} C$: the graded completion of $\Ext C$ with respect to the induced filtration $\Filtr^\lambda\Ext C$.
 %\item $\hat{\Ext}^{\text{w}} C$: the graded completion of $\Ext C$ with respect to the weight filtration $\Filtr^\lambda_{\text{w}} \Ext C$.
 %\item $\hat{\Ext}^{\text{comb}} C$: the graded completion of $\Ext C$ with respect to the combined filtration 
-%$$ \Filtr^\lambda_{\text{comb}} \coloneqq \Filtr^\lambda_{\text{ind}}\cup\Filtr^\lambda_{\text{w}}. $$
+%\[ \Filtr^\lambda_{\text{comb}} \coloneqq \Filtr^\lambda_{\text{ind}}\cup\Filtr^\lambda_{\text{w}}. \]
 %\end{itemize}
 %
 %Let $V$ be a graded vector space with a graded decreasing filtration $\Filtr^\lambda V$. Then $\Ten V$ has the induced
@@ -1891,7 +1891,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %Recall that 
 %
 %Recall the stabiliy condition for a pointed riemannian surface:it is stable if $\chi(\sigma\backslash \eta) < 0$ where 
-%$$ \chi = 2 - 2g - k - l$$
+%\[ \chi = 2 - 2g - k - l\]
 %euler characteristic for closed surface with $k+l$ points removed. Then $\chi < 0$ corresponds to the special triples from \cite{Cieliebak2015} plus the boundary operator $(1,1,0)$. Indeed all of these may cause troubles in the 
 %
 %Why isn't it possible to twist weak filtered $\IBLInfty$-structures? Why is the whole theory only for strict?
@@ -1907,31 +1907,31 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %
 %
 %The formula 
-%$$ e^{-\PMC} \circ \BVOp \circ e^{\PMC} $$
+%\[ e^{-\PMC} \circ \BVOp \circ e^{\PMC} \]
 %
 %which is a bookkeaper for the twisted operations
-%$$ $$
+%\[ \]
 %is an actual composition of maps. One just has to check the convergencies. Notice that $e^{\PMC}$ is an isomorphism 
 %
-%$$ \sum_{j\in\Z} \hbar^{j} \sum \Delta $$
+%\[ \sum_{j\in\Z} \hbar^{j} \sum \Delta \]
 %
 %\clearpage
 %
 %Consider the components $e^\PMC_j:\ComplExt V \rightarrow \ComplExt V$ of $e^\PMC = \sum_{j\in\Z}\hbar^j e^\PMC_j$.
 %For $f: \Ext_0 V \rightarrow \Ext_l V$, it holds
-%$$ \hat{f}(x) = \mu(f\otimes \Id)\Delta(x) = f(1)\cdot x\quad\text{for all }x\in \Ext C, $$
+%\[ \hat{f}(x) = \mu(f\otimes \Id)\Delta(x) = f(1)\cdot x\quad\text{for all }x\in \Ext C, \]
 %and this property extends to the completion. Therefore, we have
-%$$ e^\PMC_j(x) = e^{\PMC}_j(1)\cdot x\qquad\text{for all }x\in \ComplExt V [[\hbar]]. $$
+%\[ e^\PMC_j(x) = e^{\PMC}_j(1)\cdot x\qquad\text{for all }x\in \ComplExt V [[\hbar]]. \]
 %Recall from \ref{} that $e^\PMC = \sum_{j=-\infty}^\infty\hbar^j (e^\PMC)_j$. 
 %
-%$$ \Norm{e^\PMC_j} \ge \inf\{\Norm{\PMC_{l_1 g_1}\odot\dotsb\odot\PMC_{l_r g_r}}\mid g_1 + \dotsb + g_r - r = j\}$$ 
+%\[ \Norm{e^\PMC_j} \ge \inf\{\Norm{\PMC_{l_1 g_1}\odot\dotsb\odot\PMC_{l_r g_r}}\mid g_1 + \dotsb + g_r - r = j\}\] 
 % 
 %
 %Notice that $e^\PMC \circ \Delta^\PMC = \Delta \circ e^\PMC$. The image is somewhere else!!
 %
 %
 %Let us consider $\AInfty$. If $\PMC=\PMC_{10}$, then
-%$$ e^\PMC = \sum_{j=0}^\infty \frac{1}{\hbar^j j!} \PMC_{10}^{\odot j} = e^{\frac{1}{\hbar}\PMC_{10}} $$ 
+%\[ e^\PMC = \sum_{j=0}^\infty \frac{1}{\hbar^j j!} \PMC_{10}^{\odot j} = e^{\frac{1}{\hbar}\PMC_{10}} \] 
 %Here $\Norm{e^{\PMC}_{-j}}= \Norm{\PMC_{10}^{\odot j}} \ge j \gamma$. The multiplication is well-defined on $\hbar^{-1}$ where it is an isomorphism. 
 %
 %There are always negative powers even if genus is $0$. But if genus is $0$ there are only negative powers. If genus is non-zero there are both powers and in arbitrary $j$ because it can be multiplied.
@@ -1939,7 +1939,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %It is never sort of an isomorphism!!
 %
 %Let us compare it to the situation with $\AInfty$ from FOOO. There one has $m\in V$ and the symmetric exponential 
-%$$ \exp(m) = \dotsb . $$
+%\[ \exp(m) = \dotsb . \]
 %And the multiplication is an isomorphism of the completion $\ComplExt V$. Therefore, it is a weak isomorphism of strict filtered $\AInfty$-algebras in the sense that it induces a isomorphism (algebraic isomorphism which is continuous and his inverse too) of the completed coalgebras.
 %
 %
@@ -1960,10 +1960,10 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %
 %\begin{Definition}[Extensions]\label{Def:Extensions}
 %Given a linear map $f: E_k C \rightarrow E_l C$, $k$, $l\ge 0$, we define the (``non-trivial'') \emph{extension} $\hat{f}: EC \rightarrow EC$ by
-%$$ \hat{f}\coloneqq \mu\circ(f\otimes \Id)\circ \Delta. $$
+%\[ \hat{f}\coloneqq \mu\circ(f\otimes \Id)\circ \Delta. \]
 %
 %More generally, given $r\ge 1$ and linear maps $f_i : E_{k_i} C \rightarrow E_{l_i} C$, $k_i$, $l_i \ge 0$ for $i=1$,~$\dotsc$, $r$, we define their \emph{symmetric product} $f_1 \odot \dotsb \odot f_r: EC \rightarrow EC$ by
-%$$ f_1 \odot \dotsb \odot f_r \coloneqq \mu^{(r)}(f_1 \otimes \dotsb \otimes f_r)\Delta^{(r)}, $$
+%\[ f_1 \odot \dotsb \odot f_r \coloneqq \mu^{(r)}(f_1 \otimes \dotsb \otimes f_r)\Delta^{(r)}, \]
 %\end{Definition}
 %
 %
@@ -1978,29 +1978,29 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %
 %\begin{Definition}[Two completions of $EC$]
 %We denote by $\tilde{E}C$ the weight-graded completion of $EC$, i.e.,
-%$$ \tilde{E}C = \bigoplus_{\substack{k\ge 0 \\ d\in \Z}} \widehat{(E_k C)^d} = \bigoplus_{k\ge 0} \hat{E}_k C. $$
+%\[ \tilde{E}C = \bigoplus_{\substack{k\ge 0 \\ d\in \Z}} \widehat{(E_k C)^d} = \bigoplus_{k\ge 0} \hat{E}_k C. \]
 %We denote by $\hat{E}C$ the graded completion of $EC$ with respect to the filtration combined with weights (see above); it is generated by the series
-%$$  \sum_{i=0}^\infty c_i \quad \text{with } c_i\in \mathcal{F}_{\lambda_i}(E_{k_i} C)^d\text{ such that }\max(\lambda_i,k_i) \to \infty. $$ 
+%\[  \sum_{i=0}^\infty c_i \quad \text{with } c_i\in \mathcal{F}_{\lambda_i}(E_{k_i} C)^d\text{ such that }\max(\lambda_i,k_i) \to \infty. \] 
 %\end{Definition}
 %
 %\begin{Remark} \label{Remark:TwoCompletions}
 %On $\tilde{E}C$, we can also consider the filtration combined with weights. The canonical map $EC\rightarrow \tilde{E}C$ preserves these filtrations and induces an isomorphism of the graded modules as follows. Denoting $E_k\coloneqq E_k C$, we have for every $\lambda\in \R$
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %&\tilde{E}C / \mathcal{F}''_{\lambda+\varepsilon}\tilde{E}C  =\\
 %&\quad = \bigl(\hat{E}_0\bigr/\mathcal{F}_{\lambda+\varepsilon}\hat{E}_0) \oplus \dotsb \oplus \bigl(\hat{E}_{\ceil{\lambda}}/\mathcal{F}_{\lambda+\varepsilon} \hat{E}_{\ceil{\lambda}} \bigr) \oplus \bigl( \hat{E}_{\ceil{\lambda+\varepsilon}} / \mathcal{F}_{\lambda+\varepsilon} \hat{E}_{\ceil{\lambda+\varepsilon}}\bigr)  \\
 % &\quad \simeq \begin{multlined}[t]\bigl(E_0\bigr/\mathcal{F}_{\lambda+\varepsilon}E_0) \oplus \dotsb \oplus \bigl(E_{\ceil{\lambda}}/\mathcal{F}_{\lambda} E_{\ceil{\lambda}} \bigr) \oplus \bigl( E_{\ceil{\lambda+\varepsilon}} / \mathcal{F}_{\lambda+\varepsilon} E_{\ceil{\lambda+\varepsilon}}\bigr) \\ \hfil = EC / \mathcal{F}''_{\lambda}EC. \end{multlined} 
-%\end{aligned}$$
+%\end{aligned}\]
 %From this it follows that $EC\rightarrow \tilde{E}C$ induces an isomorphism of the graded completions; i.e., a completion of $\tilde{E}C$ recovers $\hat{E}C$.
 %\end{Remark}
 %
 %Given filtered vector spaces $C_1$ and $C_2$, the filtration of $C_1 \otimes C_2$ is defined by 
-%$$\mathcal{F}_\lambda(C_1\otimes C_2) = \sum_{\lambda_1 + \lambda_2 = \lambda} \mathcal{F}_{\lambda_1}C_1 \otimes \mathcal{F}_{\lambda_2}C_2. $$
+%\[\mathcal{F}_\lambda(C_1\otimes C_2) = \sum_{\lambda_1 + \lambda_2 = \lambda} \mathcal{F}_{\lambda_1}C_1 \otimes \mathcal{F}_{\lambda_2}C_2. \]
 %We denote by $C_1 \COtimes C_2$ the completion. 
 %It is easy see that
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %\Delta(\mathcal{F}_\lambda E_k C) & \subset \bigoplus_{k_1 + k_2 = k} \mathcal{F}_\lambda(E_{k_1}C \otimes E_{k_2} C) \\
 %E_k C &\supset \mu\bigl(\bigoplus_{k_1 + k_2 = k} \mathcal{F}_\lambda(E_{k_1}C \otimes \mathcal{F}_{\lambda} E_{k_2} C)\bigr)
-%\end{aligned} $$
+%\end{aligned} \]
 %for every $\lambda\in \Z$, $k\in \N_0$. Moreover, $\Delta$ and $\mu$ preserve $k$ and $d$. Therefore, they extend to $\mu: EC \COtimes EC  \rightarrow \tilde{E}C$ and $\Delta : \tilde{E}C \rightarrow EC \COtimes EC$, where the weight-graded completions are taken. We get the following lemma.
 %
 %\begin{Lemma}
@@ -2016,10 +2016,10 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %
 %\begin{Definition}[Definitions in $\mathrm{BV}$-formalism]\label{Def:BVForm}
 %Let $(C, (\OPQ_{klg})_{k,l\ge 1; g\ge 0})$ be a strict filtered $\IBLInfty$-algebra of bidegree $(d,\gamma)$, $\PMC=(\PMC_{lg})_{l\ge 1; g\ge 0}$ a Maurer-Cartan element and $(\OPQ_{klg}^\PMC)_{k,l\ge 1; g\ge 0}$ the twisted operations. Let $\hbar$ be a formal symbol with $\Abs{\hbar} = 2d$, and let $\hat{E}C[[\hbar]]$ be the space of Laurent series in $\hbar$ with coefficients in~$\hat{E}C$. We define the operators $\hat{\OPQ}$, $\hat{\OPQ}^\PMC$, $\PMC$, $e^{\PMC} : \hat{E}C[[\hbar]] \rightarrow \frac{1}{\hbar}\hat{E}C[[\hbar]]$ by
-%$$\begin{aligned}
+%\[\begin{aligned}
 % \hat{\OPQ}&\coloneqq \sum_{\substack{k,l\ge 1 \\ g\ge 0}} \hat{\OPQ}_{klg} \hbar^{k+g-1}, \quad \hat{\OPQ}^\PMC = \sum_{\substack{k,l\ge 1 \\ g\ge 0}} \hat{\OPQ}_{klg}^{\PMC} \hbar^{k+g-1}, \quad \PMC\coloneqq \sum_{\substack{l\ge 1 \\ g \ge 0}} \hat{\PMC}_{lg} \hbar^{g-1},  \\
 %e^{\PMC}&\coloneqq \sum_{r=0}^\infty \frac{1}{r!} \sum_{\substack{l_1, \dotsc, l_r\ge 1 \\ g_1,\dotsc, g_r\ge 0}}  (\PMC_{l_1 g_1}\odot \dotsb\odot \PMC_{l_r g_r}) \hbar^{g-r}.
-%\end{aligned}$$ 
+%\end{aligned}\] 
 %\end{Definition}
 %
 %\noindent Using conditions 1) \& 2) of Definitions \ref{Def:IBLInfty} and \ref{Def:MaurerCartan} it is straightforward to check that $\hat{\OPQ}$, $\hat{\OPQ}^\PMC$,  $\PMC$ and $e^\PMC$ are well-defined and homogenous of degree $-1$ (see \cite[Section 8]{Cieliebak2015}).
@@ -2035,7 +2035,7 @@ Equation~\eqref{Eq:FormV} is proven analogously.
 %
 %
 %Given $c\in \hat{E}C$, it holds $\Norm{\hat{\OPQ}_{klg}(c)} \to \infty$ as $l\to \infty$ because $\OPQ_{klg}$ increases the weight by $l-k$. Therefore, $Q_{kg}\coloneqq \sum_{l\ge 1} \hat{\OPQ}_{klg}: \hat{E}C \rightarrow \hat{E}C$ is well-defined, and we can write 
-%$$ \hat{\OPQ} = \sum_{p=0}^\infty \Bigl(\sum_{\substack{k\ge 1, g\ge 0 \\ k + g - 1 = p}} Q_{kg}\Bigr)\hbar^p = \Delta_1 + \Delta_2 \hbar + \dotsb . $$
+%\[ \hat{\OPQ} = \sum_{p=0}^\infty \Bigl(\sum_{\substack{k\ge 1, g\ge 0 \\ k + g - 1 = p}} Q_{kg}\Bigr)\hbar^p = \Delta_1 + \Delta_2 \hbar + \dotsb . \]
 %This obviously defines a map $\hat{E}C[[\hbar]] \rightarrow \hat{E}C[[\hbar]]$.  
 %
 %

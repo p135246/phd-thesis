@@ -5,8 +5,8 @@
 \begin{document}
 \section{Schwartz form and smooth extension to blow-up}\label{Sec:SchwFrom}
 
-For a smooth vector bundle $\pi: E\rightarrow M$, let $\TestF(E)$ be the space of ``test sections of $E$'', and let $\TestF'(E^*)$ be the space of distributions.  Let $\langle\cdot,\cdot\rangle: \TestF'(E^*)\otimes\TestF(E)\rightarrow \R$ be the natural pairing. See \cite{Albin2012} for detailed definitions.
-\begin{Proposition}[Schwartz kernel theorem, see {\cite[Theorem~12]{Albin2012}}]\label{Prop:SchwKer}
+For a smooth vector bundle $\pi: E\rightarrow M$, let $\TestF(E)$ be the space of ``test sections of $E$'', and let $\TestF'(E^*)$ be the space of distributions.  Let $\langle\cdot,\cdot\rangle: \TestF'(E^*)\otimes\TestF(E)\rightarrow \R$ be the natural pairing. Proper definitions can be formulated easily based on \cite[Section~6]{HormanderI}.
+\begin{Proposition}[Schwartz kernel theorem, see {\cite[Theorem~5.2.1]{HormanderI}} for the local version]\label{Prop:SchwKer}
 Let $E_1$ and $E_2$ be smooth vector bundles over smooth manifolds $M_1$ and $M_2$, respectively. Then there is a one-to-one correspondence between continuous operators $\TOp: \TestF(E_1)\rightarrow\TestF'(E_2)$ and elements $\KKer_\TOp\in\TestF'(E_1\boxtimes E_2^*)$ which is given by the equation
 $$ \langle \TOp s_1, \psi_2 \rangle = \langle \KKer_\TOp, s_1 \boxtimes \psi_2 \rangle\quad\text{for all }s_1\in \TestF(E_1)\text{ and }\psi_2\in \TestF(E_2^*). $$
 The distributional section $\KKer_{\TOp}$ is called the \emph{Schwartz kernel} of $\TOp$. 
@@ -49,7 +49,7 @@ Straightforward computations similar to Example~\ref{Ex:IdFE} below.
 The current $\DR_\TOp\in \DR'(M\times M)$ from Proposition~\ref{Prop:SchwForm} is called the \emph{Schwartz form} of $\TOp$.
 \end{Definition}
 
-We will consider pseudo-differential operators $\TOp:\DR(M)\rightarrow\DR(M)$ on a Riemannian manifold $M$; this class of operators generalizes differential operators and contains generalized inverses of elliptic operators (see \cite{Albin2012} and \cite{Hormander} for thorough treatments).
+We will consider pseudo-differential operators $\TOp:\DR(M)\rightarrow\DR(M)$ on a Riemannian manifold $M$; this class of operators generalizes differential operators and contains generalized inverses of elliptic operators (see \cite{Hormander} for thorough treatment).
 
 \begin{Proposition}[Schwartz form of pseudo-differential operators] \label{Prop:ASD}
 Let $\TOp: \DR(M) \rightarrow \DR(M)$ be a pseudo-differential operator on a smooth oriented Riemannian manifold $M$. Then the Schwartz form $\DR_{\TOp}$ restricts to a smooth form on $M\times M\backslash\Diag$.

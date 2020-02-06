@@ -1,4 +1,5 @@
 %auto-ignore
+%! TEX root = ../Text.tex
 \providecommand{\MainFolder}{..}
 \documentclass[\MainFolder/Text.tex]{subfiles}
 \begin{document}
@@ -31,7 +32,7 @@ For homogenous $\psi_1 \in \Hom(V^{\otimes k_1},V)$, $\psi_2 \in \Hom(V^{\otimes
 \end{aligned}
 \end{equation}
 Here and almost everywhere in this section, we suppress writing the tensor product. We recall that we use the same symbol $v$ to denote both a homogenous vector and its degree in the exponent. From \eqref{Eq:PreLie}, we get a bilinear operation 
-$$ \OpPre: \DSp V\otimes \DSp V \longrightarrow \DSp V, $$
+\[ \OpPre: \DSp V\otimes \DSp V \longrightarrow \DSp V, \]
 which preserves the degree and decreases the weight by $1$. It can be visualized as grafting of trees (see Figure~\ref{Fig:GraftTrees}).
 \begin{figure}
 \centering
@@ -41,7 +42,7 @@ which preserves the degree and decreases the weight by $1$. It can be visualized
 \end{figure}
 \begin{Lemma}[Pre-Lie algebra]\label{Lem:PreLie}\Reminder[noline,caption={Non-reduced pre-Lie algebra.}]{Can one define $\Star$ differently when there are no inputs and get something non-trivial?}
 Let $V$ be a graded vector space. The pair $(\DSp V,\OpPre)$ is a graded pre-Lie algebra with respect to the degree, i.e., it holds
-$$ (\psi_1 \OpPre \psi_2)\OpPre\psi_3 -  \psi_1 \OpPre (\psi_2\OpPre\psi_3) = (-1)^{\psi_2 \psi_3}\bigl[(\psi_1 \OpPre \psi_3)\OpPre\psi_2 - \psi_1 \OpPre (\psi_3\OpPre\psi_2)\bigr] $$
+\[ (\psi_1 \OpPre \psi_2)\OpPre\psi_3 -  \psi_1 \OpPre (\psi_2\OpPre\psi_3) = (-1)^{\psi_2 \psi_3}\bigl[(\psi_1 \OpPre \psi_3)\OpPre\psi_2 - \psi_1 \OpPre (\psi_3\OpPre\psi_2)\bigr] \]
 for all homogenous $\psi_1$, $\psi_2$, $\psi_3 \in \DSp V$. 
 \end{Lemma}
 \begin{proof}
@@ -73,7 +74,8 @@ This finishes the proof.
 
 \begin{Definition}[Canonical Lie algebra on Hochschild cochains]\label{Def:CanonLA}
 Let $V$ be a graded vector space. For all $\psi_1$, $\psi_2 \in \DSp V$, we define the bracket by
-$$ [\psi_1, \psi_2] \coloneqq \psi_1 \OpPre \psi_2 - (-1)^{\psi_1 \psi_2} \psi_2 \OpPre \psi_1. $$
+\[ [\psi_1, \psi_2] \coloneqq \psi_1 \OpPre \psi_2 - (-1)^{\psi_1 \psi_2} \psi_2 \OpPre \psi_1. \]
+It is called the \emph{Gerstenhaber bracket}.
 \end{Definition}
 \begin{Proposition}[Canonical Lie algebra on Hochschild cochains]\label{Prop:CanonLA}
 In the situation of Definition~\ref{Def:CanonLA}, the pair $(\DSp V,[\cdot,\cdot])$ is a graded Lie algebra with bracket $[\cdot,\cdot]$ of degree $0$ and weight $-1$.
@@ -83,7 +85,7 @@ The proof is standard.
 \end{proof}
 
 Let $\langle\cdot,\cdot\rangle: V \otimes V \rightarrow \R$ be a homogenous bilinear form of degree $-n$. This means that
-$$ \langle v_1, v_2 \rangle \neq 0\quad\Implies\quad v_1 + v_2 = n. $$
+\[ \langle v_1, v_2 \rangle \neq 0\quad\Implies\quad v_1 + v_2 = n. \]
 To every $\psi\in \Hom(V^{\otimes k},V)$, we associate $\psi^+\in \Hom(V^{\otimes k + 1},\R)$ defined for all $v_1$, $\dotsc$, $v_{k + 1} \in V$ by the formula
 \begin{equation}\label{Eq:ff}
 \psi^+(v_1\dotsb v_{k+1}) \coloneqq \langle \psi(v_1 \dotsb v_{k}),v_{k+1}\rangle.
@@ -93,9 +95,9 @@ We define the weight-graded vector spaces
 \DSpPlus V \coloneqq \bigoplus_{k=0}^\infty \Hom(V^{\otimes k},\R)\quad\text{and}\quad\DSpPlusRed V \coloneqq \bigoplus_{k=1}^\infty \Hom(V^{\otimes k},\R).
 \end{equation}
 We use here the cohomological grading convention; i.e., $\psi\in \DSpPlus V$ has degree~$d$ and weight~$k$ if and only if for all homogenous $v_1$, $\dotsc$, $v_k\in V$, the following implication holds:
-$$ \psi(v_1 \dotsb v_k) \neq 0 \quad\Implies \quad v_1 + \dotsb + v_k = d. $$ 
+\[ \psi(v_1 \dotsb v_k) \neq 0 \quad\Implies \quad v_1 + \dotsb + v_k = d. \] 
 We say that $\varphi\in \DSp V$ is cyclically symmetric if 
-$$ \varphi(v_1 \dotsb v_{k}) = \underbrace{(-1)^{v_{k}(v_1 + \dotsb + v_{k-1})}}_{\eqqcolon\varepsilon(v_1\dotsb v_{k},v_{k} v_1 \dotsb v_{k-1})} \varphi(v_{k} v_1 \dotsb v_{k-1}) $$
+\[ \varphi(v_1 \dotsb v_{k}) = \underbrace{(-1)^{v_{k}(v_1 + \dotsb + v_{k-1})}}_{\eqqcolon\varepsilon(v_1\dotsb v_{k},v_{k} v_1 \dotsb v_{k-1})} \varphi(v_{k} v_1 \dotsb v_{k-1}) \]
 for all homogenous $v_1$, $\dotsc$, $v_{k}\in V$. We define the weight-graded vector spaces
 \begin{align*}
 \DSpPlusCyc V &\coloneqq \{\varphi\in \DSpPlus V \mid \varphi\text{ is cyclically symmetric}\}\quad\text{and} \\
@@ -111,44 +113,50 @@ and similarly for the reduced versions. Formula \eqref{Eq:ff} defines the follow
 This might be related to Remark~\ref{Rem:NWG} in Part~I about weight-reduced bar complexes.
 
 Because $\DSpPlus V$ has the cohomological grading and~$\DSp V$ the standard grading for homogenous maps, ${}^+$ is not homogenous; instead, it satisfies 
-$$\Abs{\psi^+} = n - \Abs{\psi}. $$
+\[\Abs{\psi^+} = n - \Abs{\psi}. \]
 It is also useful to note that if $\psi^+(v_1\dotsb v_{k+1})\neq 0$, then
-$$ \varepsilon(v_1\dotsb v_{k+1},v_{k+1} v_1 \dotsb v_k) = (-1)^{v_{k+1}(\psi^+ - 1)} = (-1)^{v_{k+1}(\psi - n - 1)}. $$
+\[ \varepsilon(v_1\dotsb v_{k+1},v_{k+1} v_1 \dotsb v_k) = (-1)^{v_{k+1}(\psi^+ - 1)} = (-1)^{v_{k+1}(\psi - n - 1)}. \]
 
 \begin{Lemma}[Restriction of Lie bracket to cyclic invariants]
 Let $V$ be a graded vector space and $\langle \cdot,\cdot\rangle: V\otimes V \rightarrow \R$ a homogenous bilinear form of degree $-n$ which is graded antisymmetric. This means that for all homogenous $v_1$, $v_2\in V$, we have
-$$ \langle v_1, v_2 \rangle = (-1)^{1+v_1 v_2}\langle v_2, v_1\rangle. $$
+\[ \langle v_1, v_2 \rangle = (-1)^{1+v_1 v_2}\langle v_2, v_1\rangle. \]
 Then the Lie bracket $[\cdot,\cdot]$ on $\DSp V$ satisfies $[\DSpCyc V, \DSpCyc V]\subset\DSpCyc V$, and thus it restricts to the Lie bracket (which we denote by the same symbol) 
-$$ [\cdot,\cdot]: \DSpCyc V \otimes \DSpCyc V \longrightarrow \DSpCyc V. $$
+\[ [\cdot,\cdot]: \DSpCyc V \otimes \DSpCyc V \longrightarrow \DSpCyc V. \]
 \end{Lemma}
 \begin{proof}
 For any homogenous $v_1$, $\dotsc$, $v_{k_1+k_2} \in V$, we compute
 \begin{align*}
 &\langle[\psi_1,\psi_2](v_1,\dotsc,v_{k_1+k_2-1}),v_{k_1+k_2}\rangle \\
-& = \begin{multlined}[t]\sum_{i=1}^{k_1} (-1)^{\psi_2(v_1+\dotsb+v_{i-1})}\langle \psi_1(v_1 \dotsb v_{i-1}\psi_2(v_i \dotsb v_{i+k_2-1}) v_{i+k_2}\dotsb \\ v_{k_1+k_2-1}), v_{k_1+k_2}\rangle - (-1)^{\psi_1 \psi_2}\sum_{j=1}^{k_2}(-1)^{\psi_1(v_1+\dotsb+v_{j-1})}\langle \psi_2(v_1\dotsb \\ v_{j-1}\psi_1(v_j\dotsb v_{j+k_1-1})v_{j+k_1}\dotsb v_{k_1+k_2-1})), v_{k_1+k_2}\rangle\end{multlined}\\
-& = \begin{multlined}[t](-1)^{v_{k_1+k_2}(v_1 + \dotsb v_{k_1+k_2-1})}\Bigl[\sum_{i=1}^{k_1-1} (-1)^{\psi_2(v_{k_1+k_2}+v_1+\dotsb+v_{i-1})}\\ 
-\langle \psi_1(v_{k_1+k_2} v_1 \dotsb \psi_2(v_i \dotsb v_{i+k_2-1}) v_{i+k_2}\dotsb v_{k_1+k_2-2}), v_{k_1+k_2-1}\rangle  \\ 
-{}+(-1)^{\psi_2(v_1+\dotsb+v_{k_1-1})+v_{k_1+k_2}\psi_2}\langle \psi_1(v_{k_1+k_2} v_1\dotsb v_{k_1-1}),\psi_2(v_{k_1}\dotsb \\ v_{k_1+k_2-1})\rangle - (-1)^{\psi_1 \psi_2}\Bigl(\sum_{j=1}^{k_2-1}(-1)^{\psi_1(v_{k_1+k_2}+v_1+\dotsb+v_{j-1})}\langle \psi_2(v_1\dotsb\psi_1(v_j\dotsb\\ v_{j+k_1-1})v_{j+k_1}\dotsb v_{k_1+k_2-1})), v_{k_1+k_2}\rangle + (-1)^{\psi_1(v_1+\dotsb+v_{k_2-1})+v_{k_1+k_2}\psi_1} \\ \langle \psi_2(v_{k_1+k_2} v_1\dotsb v_{k_2-1}),\psi_1(v_{k_2},\dotsb,v_{k_1+k_2-1})\rangle\Bigr)\Bigr].
-\end{multlined}
+& = \begin{aligned}[t]
+&\sum_{i=1}^{k_1} (-1)^{\psi_2(v_1+\dotsb+v_{i-1})}\langle \psi_1(v_1 \dotsb v_{i-1}\psi_2(v_i \dotsb v_{i+k_2-1}) v_{i+k_2}\dotsb \\ &v_{k_1+k_2-1}), v_{k_1+k_2}\rangle - (-1)^{\psi_1 \psi_2}\sum_{j=1}^{k_2}(-1)^{\psi_1(v_1+\dotsb+v_{j-1})}\langle \psi_2(v_1\dotsb \\
+&v_{j-1}\psi_1(v_j\dotsb v_{j+k_1-1})v_{j+k_1}\dotsb v_{k_1+k_2-1})), v_{k_1+k_2}\rangle\end{aligned}\\
+& = \begin{aligned}[t]
+& (-1)^{v_{k_1+k_2}(v_1 + \dotsb v_{k_1+k_2-1})} \\
+& \Bigl[\sum_{i=1}^{k_1-1} (-1)^{\psi_2(v_{k_1+k_2}+v_1+\dotsb+v_{i-1})} \langle \psi_1(v_{k_1+k_2} v_1 \dotsb \psi_2(v_i \dotsb v_{i+k_2-1})\\
+& v_{i+k_2}\dotsb v_{k_1+k_2-2}), v_{k_1+k_2-1}\rangle+(-1)^{\psi_2(v_1+\dotsb+v_{k_1-1})+v_{k_1+k_2}\psi_2}\\
+&\langle \psi_1(v_{k_1+k_2} v_1\dotsb v_{k_1-1}),\psi_2(v_{k_1}\dotsb v_{k_1+k_2-1})\rangle\\
+&- (-1)^{\psi_1 \psi_2}\Bigl(\sum_{j=1}^{k_2-1}(-1)^{\psi_1(v_{k_1+k_2}+v_1+\dotsb+v_{j-1})}\langle \psi_2(v_1\dotsb\psi_1(v_j\dotsb\\
+& v_{j+k_1-1})v_{j+k_1}\dotsb v_{k_1+k_2-1})), v_{k_1+k_2}\rangle + (-1)^{\psi_1(v_1+\dotsb+v_{k_2-1})+v_{k_1+k_2}\psi_1} \\
+& \langle \psi_2(v_{k_1+k_2} v_1\dotsb v_{k_2-1}),\psi_1(v_{k_2},\dotsb,v_{k_1+k_2-1})\rangle\Bigr)\Bigr].
+\end{aligned}
 \end{align*}
-Using the graded antisymmetry, we have
+Using graded antisymmetry, we have for the last summand in square brackets
 \begin{align*}
 &(-1)^{\psi_1(v_1+\dotsb+v_{k_2-1} + v_{k_1 + k_2})}\langle \psi_2(v_{k_1+k_2} v_1\dotsb v_{k_2-1}),\psi_1(v_{k_2},\dotsb,v_{k_1+k_2-1})\rangle \\
 &= \begin{multlined}[t](-1)^{1 + \psi_1 \psi_2 + (\psi_2 + v_{k_1 + k_2}+v_1+\dotsb+v_{k_2-1})(v_{k_2}+ \dotsb + v_{k_1+k_2-1})} \\ 
 \langle \psi_1(v_{k_2}\dotsb v_{k_1+k_2-1}),\psi_2(v_{k_1+k_2} v_1 \dotsb v_{k_2-1})\rangle\end{multlined} \\
-& = (-1)^{1+\psi_1 \psi_2}\langle\psi_1(\psi_2(v_{k_1 + k_2} v_1 \dotsb v_{k_2-1}) v_{k_2}\dotsb v_{k_1 + k_2 - 2}),v_{k_1 + k_2 - 1}\rangle \\
-& \eqqcolon (*),
+& = (-1)^{1+\psi_1 \psi_2}\langle\psi_1(\psi_2(v_{k_1 + k_2} v_1 \dotsb v_{k_2-1}) v_{k_2}\dotsb v_{k_1 + k_2 - 2}),v_{k_1 + k_2 - 1}\rangle
 \end{align*}
-and similarly
+and similarly for the second summand
 \begin{align*}
 &(-1)^{\psi_2(v_1+\dotsb+v_{k_1-1} + v_{k_1+k_2})}\langle\psi_1(v_{k_1+k_2}v_1\dotsb v_{k_1-1}),\psi_2(v_{k_1}\dotsb v_{k_1+k_2-1})\rangle\\
 &=\begin{multlined}
 (-1)^{1+\psi_1 \psi_2} \langle \psi_2(\psi_1(v_{k_1+k_2} v_1 \dotsb v_{k_1-1}) v_{k_1} \dotsb v_{k_1+k_2-2}),v_{k_1 + k_2 - 1}\rangle.
 \end{multlined}
 \end{align*}
-We see that 
-$$ (*) = (-1)^{v_{k_1 + k_2}(v_1+\dotsb+v_{k_1+k_2-1})} \langle[\psi_1,\psi_2](v_{k_1+k_2} v_1 \dotsb v_{k_1 + k_2 - 2}), v_{k_1 + k_2 -1} \rangle. $$
-This proves the lemma.
+Therefore, the square bracket equals
+\[ \langle[\psi_1,\psi_2](v_{k_1+k_2} v_1 \dotsb v_{k_1 + k_2 - 2}), v_{k_1 + k_2 -1} \rangle \]
+and the lemma is proven.
 \end{proof} 
 
 The horizontal arrows in \eqref{Eq:CycDiag} become isomorphisms provided that $\langle \cdot,\cdot \rangle$ is non-degenerate (injectivity) and $V$ is of finite type (surjectivity). Therefore, the following definition is possible.
@@ -157,9 +165,9 @@ The horizontal arrows in \eqref{Eq:CycDiag} become isomorphisms provided that $\
 \newcommand{\NDeg}{\mathbb{\nu}}
 \begin{Definition}[Candidate for $\IBL$-product]\label{Def:NewProduct}
 Let $V$ be a graded vector space of finite type, and let $\langle \cdot,\cdot \rangle: V\otimes V \rightarrow \R$ be a non-degenerate homogenous graded antisymmetric bilinear form of degree $-n$. Let $\NDeg$ be a formal symbol of degree $n$ realizing the degree shift by $-n$. We define the operation 
-$$ \OPQ^*_{210}: (\DSpPlusCycRed V)[-n] \otimes (\DSpPlusCycRed V)[-n] \longrightarrow (\DSpPlusCycRed V)[-n] $$ 
+\[ \OPQ^*_{210}: (\DSpPlusCycRed V)[-n] \otimes (\DSpPlusCycRed V)[-n] \longrightarrow (\DSpPlusCycRed V)[-n] \] 
 for all $\psi_1$, $\psi_2 \in \DSpCyc V$ by
-$$ \OPQ^*_{210}( \NDeg\psi_1^+\otimes \NDeg\psi_2^+) \coloneqq \NDeg[\psi_2,\psi_1]^+. $$
+\[ \OPQ^*_{210}( \NDeg\psi_1^+\otimes \NDeg\psi_2^+) \coloneqq \NDeg[\psi_2,\psi_1]^+. \]
 \end{Definition}
 
 
@@ -174,7 +182,7 @@ As for the degree, we have
 &= n  - \Abs{\psi_1}  - \Abs{\psi_2} + n\\
 &= n + \Abs{\psi_1^+} + \Abs{\psi_2^+} - n \\
 & = -n + \Abs{\NDeg \psi_1^+} + \Abs{\NDeg \psi_2^+} - n \\
-& = \Abs{\NDeg \psi_1^+} + \Abs{\NDeg \psi_2^+} -2n
+& = \Abs{\NDeg \psi_1^+} + \Abs{\NDeg \psi_2^+} -2n.
 \end{align*}
 The weights are clear. As for the graded anticommutativity, we have 
 \begin{align*}
@@ -183,7 +191,7 @@ The weights are clear. As for the graded anticommutativity, we have
 &= -(-1)^{\Abs{\NDeg\psi_1}\Abs{\NDeg\psi_2}} \OPQ_{210}^*(\NDeg \psi_1^+ \otimes \NDeg\psi_2^+),
 \end{align*}
 where we used that 
-$$ \Abs{\NDeg \psi^+} = n + \Abs{\psi^+} = n + n - \Abs{\psi} = 2n - \Abs{\psi}. $$ 
+\[ \Abs{\NDeg \psi^+} = n + \Abs{\psi^+} = n + n - \Abs{\psi} = 2n - \Abs{\psi}. \] 
 From the same reason, the graded Jacobi identity for $\OPQ_{210}^*$ is implied by the graded Jacobi identity for $[\cdot,\cdot]$.
 \end{proof}
 
@@ -197,7 +205,7 @@ g^{ij} &= \langle e^i, e^j\rangle, \\
 \psi^+(e_{i_1}\dotsb e_{i_{k_1+1}}) & = \psi_{i_1 \dotsb i_{k_1 + 1}},
 \end{align*}
 where $\psi\in\DSp V$ and $\psi^+\in\DSpPlus V$. It holds
-$$ g_{ij} = (-1)^{i j + 1} g_{ji}, \quad g^{ij} = (-1)^{ij + 1} g^{ji} \quad \text{and}\quad g_{ik}g^{jk} = \delta_i^j. $$ 
+\[ g_{ij} = (-1)^{i j + 1} g_{ji}, \quad g^{ij} = (-1)^{ij + 1} g^{ji} \quad \text{and}\quad g_{ik}g^{jk} = \delta_i^j. \] 
 Equation \eqref{Eq:ff} is now equivalent to 
 \begin{equation}\label{Eq:TransfForm}
 \psi^i_{i_1 \dotsb i_{k_1}} g_{i i_{k_1+1}}  = \psi_{i_1\dotsb i_{k_1 + 1}},\quad\text{or to}\quad \psi^i_{i_1\dotsb i_{k_1}} = \psi_{i_1 \dotsb i_{k_1} k} g^{ik}.
@@ -211,20 +219,18 @@ We define the operation $\mu: (\DSpPlusCycRed V)^{\otimes 2} \rightarrow \DSpPlu
 \Correct[noline, caption={DONE possibly wrong sign}]{There might be a sign mistake in $(-1)^a$ because what is needed is probabaly $(-1)^{e^a}$ which differs by $n$. IT IS CORRECT AS IT IS.}
 \Modify[caption={DONE finite type},noline]{One can replace finite dimensional by finite type.}
 \begin{Remark}[Comparison to \cite{Cieliebak2015}]\label{Rem:CompToCFL}
-In order to compare the $\mu$ from \eqref{Eq:CoordFormula} to the $\mu$ from~\cite[Section~10]{Cieliebak2015} (and to the definition of~$\OPQ_{210}$ from Section~\ref{Sec:Alg3} in Part~I), we must make the replacements
-$$ V\mapsto V[1], \quad  n \mapsto n - 2\quad\text{and}\quad\DSpPlusCycRed V\mapsto \DBCyc V. $$
-Then $\OPQ_{210}$ and $\OPQ^*_{210}: (\DBCyc V)[2-n]^{\otimes 2} \rightarrow (\DBCyc V)[2-n]$ clearly have the same degree $2(2-n)$.\footnote{The degree of $\OPQ_{210}$ on tensor powers of $C = \DBCyc V [2-n]$, is obtained from the degree on $\Ext C = \Sym(C[1])$ in Definition~\ref{Def:CanonicaldIBL} in Part~I by substracting $1$ (and by adding $1$ for the cobracket).} Also, $\varphi_1 j + i j$ is precisely the sign needed to move $j$ over $i_{c}\dotsb i_{c+k_1-1}$. We also recall the identification of $\DBCyc V$ with the weight-graded dual $(\BCyc V)^{\WGD}$ from Remark~\ref{Rem:Identifications} in Part~I and remind that $\BCyc V$ and $\DBCyc V$ were defined to be weight-reduced in order to ease the notation (see Definition~\ref{Def:BarComplex} in Part~I).
+In order to compare~$\mu$ from \eqref{Eq:CoordFormula} to~$\mu$ from~\cite[Section~10]{Cieliebak2015} (and to the definition of~$\OPQ_{210}$ from Section~\ref{Sec:Alg3} in Part~I), we must make the replacements
+\[ V\mapsto V[1], \quad  n \mapsto n - 2\quad\text{and}\quad\DSpPlusCycRed V\mapsto \DBCyc V. \]
+Then $\OPQ_{210}$ and $\OPQ^*_{210}: (\DBCyc V)[2-n]^{\otimes 2} \rightarrow (\DBCyc V)[2-n]$ clearly have the same degree $2(2-n)$.\footnote{The degree of $\OPQ_{210}$ on tensor powers of $C = \DBCyc V [2-n]$, is obtained from the degree on $\Ext C = \Sym(C[1])$ in Definition~\ref{Def:CanonicaldIBL} in Part~I by substracting $1$ (and by adding $1$ for the cobracket).} Also, $\varphi_1 j + i j$ is precisely the sign needed to move $j$ over $i_{c}\dotsb i_{c+k_1-1}$. We also recall the identification of $\DBCyc V$ with the weight-graded dual $(\BCyc V)^{\WGD}$ from Remark~\ref{Rem:Identifications} in Part~I and remind that $\BCyc V$ and $\DBCyc V$ were defined to be weight-reduced in order to ease the terminology and notation (see Definition~\ref{Def:BarComplex} in Part~I).
 %The direct comparison to Definition~\ref{Def:CanonicaldIBL} is also clear.
 \Correct[noline,caption={DONE wrong degree}]{The degrees seem wrong. $\OPQ_{210}$ has $-2(n-3)-1$ and... NO PROBLEM.}
 \end{Remark}
 
-Taking into account Remark~\ref{Rem:CompToCFL}, the equality
-$$ \bar{\pi}\circ \OPQ_{210}^*\circ (\bar{\iota}\otimes\bar{\iota}) = \OPQ_{210}, $$
-where $\bar{\pi}: \DSpPlusCyc V \rightarrow \DSpPlusCycRed V$ and $\bar{\iota}: \DSpPlusCycRed V \rightarrow \DSpPlusCyc V$ are the canonical projection and inclusion, respectively, is obtained from the next proposition.
+The equality $\OPQ_{210}^*= \OPQ_{210}$ is obtained from the next proposition (c.f., Remark~\ref{Rem:CompToCFL}).
 
 \begin{Proposition}[Equivalence of definitions of $\IBL$-product]\label{Prop:EqOfDefCool}
 Let $V$ be a graded vector space of finite type, and let $\langle \cdot,\cdot\rangle: V\otimes V \rightarrow \R$ be a non-degenerate homogenous graded antisymmetric bilinear form of degree $-n$. Then the operation $\OPQ_{210}^*: (\DSpPlusCyc V)[-n]^{\otimes 2} \rightarrow (\DSpPlusCyc V)[-n]$ defined invariantly in Definition~\ref{Def:NewProduct} is a degree shift of the operation $\mu: (\DSpPlusCycRed V)^{\otimes 2} \rightarrow \DSpPlusCycRed V$ defined in coordinates above. More precisely, for all $\varphi_1$, $\varphi_2 \in \DSpPlusCycRed V$, it holds
-$$ \OPQ_{210}^*(\NDeg^2 \varphi_1 \otimes \varphi_2) = \NDeg \mu(\varphi_1 \otimes \varphi_2)\qquad\text{in }(\DSpPlusCycRed V)[-n].$$
+\[ \OPQ_{210}^*(\NDeg^2 \varphi_1 \otimes \varphi_2) = \NDeg \mu(\varphi_1 \otimes \varphi_2)\qquad\text{in }(\DSpPlusCycRed V)[-n].\]
 \end{Proposition}
 \begin{proof}
 Consider $\psi_1$, $\psi_2 \in \DSpCyc V$ with $k_1$, $k_2$ inputs, respectively. Writing the definition of $[\cdot,\cdot]$ in coordinates, we get 
@@ -276,32 +282,32 @@ This finishes the proof.
 We start with a remark about the naive dualization of the bracket on the dual.
 
 \begin{Remark}[Naive dualization]
-If we ignore the fact that the dualization of spaces like~$\DSp V$ is problematic and we might not get $(\DSp V^{\GD})^{\GD}\simeq \DSp V$,\footnote{It holds $V\simeq (V^{\GD})^{\GD}$ provided that $V$ is of finite type. The tensor product of graded vector spaces of finite type is also of finite type provided that the grading is, e.g., bounded from below. Moreover, one has to require that $W^0 =W^1=0$ for $W$ for which $V=W[1]$ or take suitable completions with respect to weights in order to deal with arbitrary long tensor products in the same degree in the dual of $\DSp V$.} a naive way to obtain a cobracket $\bar{\delta}: \DSp V\rightarrow\DSp V \otimes\DSp V$ would be to dualize the  canonical bracket $[\cdot,\cdot]^*: \DSp V^{\GD} \otimes \DSp V^{\GD} \rightarrow \DSp V^{\GD}$ from the previous section (replacing $V$ by $V^{\GD}$). Because $w([\cdot,\cdot]^*) = -1$, the dual would have $w(\bar{\delta}) = 1$, where $w$ denotes the weights. However, the $\IBL$-cobracket has $w(\OPQ_{120})=-2$ (see Definition~\ref{Def:CanonicaldIBL} in Part~I), and hence 
-$$w\bigl(\bigl(({}^+)^{-1}\otimes({}^+\bigr)^{-1}\bigr)\circ\OPQ_{120}\circ{}^+\bigr) = w(\OPQ_{120}) - 1 = - 3 \neq 1 = w(\bar{\delta}), $$
+If we ignore the fact that the dualization of spaces like~$\DSp V$ is problematic and we might not get $(\DSp V^{\GD})^{\GD}\simeq \DSp V$,\footnote{It holds $V\simeq (V^{\GD})^{\GD}$ provided that $V$ is of finite type. The tensor product of graded vector spaces of finite type is also of finite type provided that the grading is non-negative. Moreover, one has to require that $W^0 =W^1=0$ for $W$ for which $V=W[1]$ or take suitable completions with respect to weights in order to deal with arbitrary long tensor products in the same degree in the dual of $\DSp V$.} a naive way to obtain a cobracket $\bar{\delta}: \DSp V\rightarrow\DSp V \otimes\DSp V$ would be to dualize the  canonical bracket $[\cdot,\cdot]^*: \DSp V^{\GD} \otimes \DSp V^{\GD} \rightarrow \DSp V^{\GD}$ from the previous section (replacing $V$ by $V^{\GD}$). Because $w([\cdot,\cdot]^*) = -1$, the dual would have $w(\bar{\delta}) = 1$, where $w$ denotes the weights. However, the $\IBL$-cobracket has $w(\OPQ_{120})=-2$ (see Definition~\ref{Def:CanonicaldIBL} in Part~I), and hence 
+\[w\bigl(\bigl(({}^+)^{-1}\otimes({}^+\bigr)^{-1}\bigr)\circ\OPQ_{120}\circ{}^+\bigr) = w(\OPQ_{120}) - 1 = - 3 \neq 1 = w(\bar{\delta}), \]
 where the map ${}^+: \DSp V\rightarrow\DSpPlus V$ of weight $+1$ was defined in \eqref{Eq:CycDiag}. It might be interesting to write down the coordinate expression for such $\bar{\delta}$ which comes from~$\OPQ_{120}$ and study its origin and properties on~$\DSp V$.
 \end{Remark}
 
 In the following definition, we will use the terms ``cobracket'' and ``$\BV$-operator'' to denote some operations without actually knowing that they satisfy the corresponding relations (see Remark~\ref{Rem:OpenProbBrCo} at the end of this section).
  
 \begin{Definition}[Hochschild cobracket and $\BV$-operator]\label{Def:DefOfHochOp}
-Let $V$ be a graded vector space, let $(e_i)\in V$ be its homogenous basis, and let $(\eta^i)\subset V^{\GD}$ be the dual basis, i.e., it holds $\eta^i(e_j) = \delta^i_j$. We denote by~$\Ten V^{\GD}$ the tensor algebra over~$V^{\GD}$ and consider its basis $\eta^{\otimes I} \coloneqq \eta^{i_1} \otimes \dotsb \otimes \eta^{i_k}$ for all multiindices $I = (i_1,\dotsc,i_k)$.
+Let $V$ be a graded vector space, let $(e_i)\in V$ be its homogenous basis, and let $(\eta^i)\subset V^{\GD}$ be the dual basis, i.e., it holds $\eta^i(e_j) = \delta^i_j$. We denote by~$\Ten(V^{\GD})$ the tensor algebra over~$V^{\GD}$ and consider its basis $\eta^{\otimes I} \coloneqq \eta^{i_1} \otimes \dotsb \otimes \eta^{i_k}$ for all multiindices $I = (i_1,\dotsc,i_k)$.
 
-For each $i$, $j$, we define the \emph{cyclic double derivative} $\Der_{ij}:\Ten  V^{\GD} \longrightarrow \Ten V^{\GD} \otimes \Ten V^{\GD}$ on the basis by the following formula, which we explain below:
+For each $i$, $j$, we define the \emph{cyclic double derivative} $\Der_{ij}:\Ten(V^{\GD}) \longrightarrow \Ten(V^{\GD}) \otimes \Ten(V^{\GD})$ on the basis by the following formula, which we explain below:
 \begin{equation}\label{Eq:DoubleDeriv}
-\Der_{ij}(\eta^{\otimes I}) \coloneqq \sum_{(i,j)\in I} \frac{1}{k_1}\frac{1}{k_2}\sum_{\substack{c_1 \in \CycPerm_{k_1}\\ c_2 \in \CycPerm_{k_2}}} \varepsilon(I,ijI_1^{c_1}I_2^{c_2}) \bigl(\eta^{\otimes I_1^{c_1}} \otimes \eta^{\otimes I_2^{c_2}}\bigr)
+\Der_{ij}(\eta^{\otimes I}) \coloneqq \sum_{(i,j)\in I} \sum_{\substack{c_1 \in \CycPerm_{k_1}\\ c_2 \in \CycPerm_{k_2}}}\frac{1}{k_1}\frac{1}{k_2}\varepsilon(I,ijI_1^{c_1}I_2^{c_2}) \bigl(\eta^{\otimes I_1^{c_1}} \otimes \eta^{\otimes I_2^{c_2}}\bigr)
 \end{equation}
-The first sum is over all pairs of indices $(i,j)$ at two distinct positions in $I$. We consider the cyclic order on positions in $I$ (of length $k$) starting from the left and define~$I_1$ and~$I_2$ as the substrings between~$i$ and~$j$ (of length~$k_1$) and between~$j$ and~$i$ (of length~$k_2$), respectively. We include neither $i$ nor $j$ in $I_1$ or $I_2$, i.e., $k= k_1 + k_2 + 2$. The second sum is over all cyclic permutations $c_1$ and $c_2$ of $I_1$ and $I_2$, respectively. As usual, $\varepsilon$ stands for the Koszul sign and $i$ has the degree of $e_i$. 
+The first sum is over all pairs of indices $(i,j)$ at two distinct positions in $I$. We consider the cyclic order on positions in $I$ (of length $k$) starting from the left and define~$I_1$ and~$I_2$ as the substrings between~$i$ and~$j$ (of length~$k_1$) and between~$j$ and~$i$ (of length~$k_2$), respectively. We include neither $i$ nor $j$ in $I_1$ or $I_2$, i.e., $k= k_1 + k_2 + 2$. The second sum is an average over all cyclic permutations $c_1$ and $c_2$ of $I_1$ and $I_2$, respectively. As usual, $\varepsilon$ stands for the Koszul sign and $i$ has the degree of $e_i$. If $k_1$ or $k_2$ vanishes, we replace the average over $c_1$ or $c_2$, respectively, by $1$ and set $\eta^{\emptyset} = 1$.
 %Algorithmically, we take the derivatives with respect to $\eta^i$ and $\eta^j$ with Koszul signs (the derivative acts from the left which is indicated by the arrow), remember positions where they were applied, rotate the whole string to position~$I_1 I_2$, add $\otimes$ in between and permute~$I_1$ and~$I_2$.
 
-On $\Ten V^{\GD}$, we consider the \emph{shuffle product} $\ProdSh: \Ten V^{\GD}\otimes\Ten V^{\GD} \rightarrow \Ten V^{\GD}$ which is defined by
-$$ \ProdSh(\eta^{\otimes I_1},\eta^{\otimes I_2}) \coloneqq \frac{k_1! k_2!}{(k_1 + k_2)!} \sum_{\mu\in\Perm_{k_1,k_2}} \varepsilon(I_1 I_2, \eta(I_1 I_2)) \eta^{\otimes\eta(I_1 I_2)}, $$
+On $\Ten(V^{\GD})$, we consider the \emph{shuffle product} $\ProdSh: \Ten(V^{\GD})\otimes\Ten(V^{\GD}) \rightarrow \Ten(V^{\GD})$ which is defined by
+\[ \ProdSh(\eta^{\otimes I_1},\eta^{\otimes I_2}) \coloneqq  \sum_{\mu\in\Perm_{k_1,k_2}} \frac{k_1! k_2!}{(k_1 + k_2)!} \varepsilon(I_1 I_2, \mu(I_1 I_2)) \eta^{\otimes\mu(I_1 I_2)}, \]
 where $k_1$ and $k_2$ are the lengths of $I_1$ and $I_2$, respectively, and $\Perm_{k_1,k_2}$ denotes the shuffle permutations.
 
-If $V$ is of finite type and $\langle\cdot,\cdot\rangle$ is a non-degenerate homogenous bilinear form on~$V$, we consider the coordinates $g^{ij} = \langle e^i,e^j\rangle$, where $(e^i)\subset V$ is the basis such that $\langle e^i,e_j\rangle = \delta^i_j$. We define the \emph{Hochschild cobracket} $\CoProdHoch: \Ten V^{\GD} \rightarrow \Ten V^{\GD} \otimes \Ten V^{\GD}$ by
+If $V$ is of finite type and $\langle\cdot,\cdot\rangle$ is a non-degenerate homogenous bilinear form on~$V$, we consider the coordinates $g^{ij} = \langle e^i,e^j\rangle$, where $(e^i)\subset V$ is the basis such that $\langle e^i,e_j\rangle = \delta^i_j$. We define the \emph{Hochschild cobracket} $\CoProdHoch: \Ten(V^{\GD}) \rightarrow \Ten(V^{\GD}) \otimes \Ten(V^{\GD})$ by
 \begin{equation}
 \CoProdHoch = \frac{1}{2}\sum_{i,j} (-1)^{e_i} g^{ij} \Der_{ij}
 \end{equation}
-and the \emph{Hochschild $\BV$-operator} $\BVOpHoch: \Ten V^{\GD} \rightarrow \Ten V^{\GD}$ by
+and the \emph{Hochschild $\BV$-operator} $\BVOpHoch: \Ten(V^{\GD}) \rightarrow \Ten(V^{\GD})$ by
 \begin{equation}
 \BVOpHoch \coloneqq \ProdSh \circ \CoProdHoch.
 \end{equation}
@@ -309,15 +315,15 @@ and the \emph{Hochschild $\BV$-operator} $\BVOpHoch: \Ten V^{\GD} \rightarrow \T
 
 It is easy to check that the definitions of $\ProdSh$, $\CoProdHoch$ and $\BVOpHoch$ do not depend on the choice of the basis $(e_i)$ of $V$.
 
-We denote by~$(\Ten V^{\GD})_{\CycMRM}$ the subspace of cyclic invariants of $\Ten V^{\GD}$  and by $(\Ten V^{\GD})_{\SymMRM}$ the subspace of symmetric invariants. We consider the cyclization map $\pi_{\CycMRM}: \Ten V^{\GD} \rightarrow (\Ten V^{\GD})_{\CycMRM}$ and the symmetrization map $\pi_{\SymMRM}: \Ten V^{\GD} \rightarrow (\Ten V^{\GD})_{\SymMRM}$; they are defined by
+We denote by~$\Ten(V^{\GD})_{\CycMRM}$ the subspace of cyclic invariants of $\Ten(V^{\GD})$  and by $\Ten(V^{\GD})_{\SymMRM}$ the subspace of symmetric invariants. We consider the cyclization map $\pi_{\CycMRM}: \Ten(V^{\GD}) \rightarrow \Ten(V^{\GD})_{\CycMRM}$ and the symmetrization map $\pi_{\SymMRM}: \Ten(V^{\GD}) \rightarrow \Ten(V^{\GD})_{\SymMRM}$; they are defined by the averages
 \begin{align*}
-\pi_{\CycMRM}(\eta^{\otimes I})&= \frac{1}{k}\sum_{c\in\CycPerm_k} \varepsilon(I,I^c) \eta^{\otimes I^c}\qquad\text{and}\\
-\pi_{\SymMRM}(\eta^{\otimes I}) &= \frac{1}{k!}\sum_{\sigma\in\Perm_k} \varepsilon(I,I^\sigma) \eta^{\otimes I^\sigma},
+\pi_{\CycMRM}(\eta^{\otimes I})&= \sum_{c\in\CycPerm_k}\frac{1}{k} \varepsilon(I,I^c) \eta^{\otimes I^c}\qquad\text{and}\\
+\pi_{\SymMRM}(\eta^{\otimes I}) &= \sum_{\sigma\in\Perm_k}\frac{1}{k!} \varepsilon(I,I^\sigma) \eta^{\otimes I^\sigma},
 \end{align*}
-respectively, where $k$ is the length of $I$. We denote by $\CycCoProj$ the projection to cyclic coinvariants and by $\SymCoProj$ the projection to symmetric coinvariants.
+respectively, where $k$ is the length of $I$ (if~$k=0$, we have~$\eta^{\emptyset}=1$ and~$\pi_{\CycMRM}(1) \coloneqq 1$). We denote by $\CycCoProj$ the projection to cyclic coinvariants and by $\SymCoProj$ the projection to symmetric coinvariants.
 
 \begin{Definition}[Cyclic and symmetric versions]\label{Def:CycSymVersions}
-In the situation of Definition~\ref{Def:DefOfHochOp}, we define the cyclic and symmetric versions of the operations $\Der_{ij}$, $\CoProdHoch$, $\ProdSh$ and $\BVOpHoch$ by precomposing with the inclusions $\CycInc: (\Ten V^{\GD})_{\CycMRM} \rightarrow \Ten V^{\GD}$ and $\SymInc: (\Ten V^{\GD})_{\SymMRM} \rightarrow \Ten V^{\GD}$ and postcomposing with the projections $\CycProj: \Ten V^{\GD} \rightarrow (\Ten V^{\GD})_{\CycMRM}$ and $\SymProj: \Ten V^{\GD} \rightarrow (\Ten V^{\GD})_{\SymMRM}$, respectively. In formulas, we have
+In the situation of Definition~\ref{Def:DefOfHochOp}, we define the cyclic and symmetric versions of the operations $\Der_{ij}$, $\CoProdHoch$, $\ProdSh$ and $\BVOpHoch$ by precomposing with the inclusions $\CycInc: \Ten(V^{\GD})_{\CycMRM} \rightarrow \Ten(V^{\GD})$ and $\SymInc: \Ten(V^{\GD})_{\SymMRM} \rightarrow \Ten(V^{\GD})$ and postcomposing with the projections $\CycProj: \Ten(V^{\GD}) \rightarrow \Ten(V^{\GD})_{\CycMRM}$ and $\SymProj: \Ten(V^{\GD}) \rightarrow \Ten(V^{\GD})_{\SymMRM}$, respectively. In formulas, we have
 \begin{equation}\label{Eq:CycSymVersions}\begin{aligned}
  \DerCyc_{ij} & \coloneqq (\CycProj\otimes\CycProj)\circ\Der_{ij}\circ\CycInc, & \DerSym_{ij} & \coloneqq (\SymProj\otimes\SymProj)\circ\Der_{ij}\circ\SymInc, \\
  \CoProdCyc & \coloneqq (\CycProj\otimes\CycProj)\circ\CoProdHoch\circ\CycInc, &  \CoProdSym & \coloneqq (\SymProj\otimes\SymProj)\circ\CoProdHoch\circ\SymInc, \\ 
@@ -329,11 +335,11 @@ In the situation of Definition~\ref{Def:DefOfHochOp}, we define the cyclic and s
 
 \begin{Proposition}[Hochschild, cyclic and symmetric operations]\label{Prop:HochCycSym}
 In the situation of Definition~\ref{Def:CycSymVersions}, we consider for every multiindex $I$ the linear functional $\alpha^I: \Ten V \rightarrow\R$ given with respect to the basis $e_{\otimes J}$ by 
-$$\alpha^I(e_{\otimes J}) \coloneqq \varepsilon(I,J). $$
+\[\alpha^I(e_{\otimes J}) \coloneqq \varepsilon(I,J). \]
 We set
 \begin{equation*}
-\alpha^I_{\mathrm{sym}} =  \frac{1}{k!} \sum_{\sigma\in \Perm_{k}}\varepsilon(I,I^\sigma) \alpha^{I^\sigma}\quad\text{and}\quad
-\alpha^I_{\mathrm{cyc}} = \frac{1}{k}\sum_{c\in\CycPerm_{k}}\varepsilon(I,I^c)\alpha^{I^c}.
+\alpha^I_{\mathrm{sym}} = \sum_{\sigma\in \Perm_{k}} \frac{1}{k!} \varepsilon(I,I^\sigma) \alpha^{I^\sigma}\quad\text{and}\quad
+\alpha^I_{\mathrm{cyc}} = \sum_{c\in\CycPerm_{k}}\frac{1}{k} \varepsilon(I,I^c)\alpha^{I^c}.
 \end{equation*}
 We define the monomorphisms $I$, $I_{\CycMRM}$ and $I_{\SymMRM}$ by
 \begin{equation}\label{Eq:IdentDiaCycSym}
@@ -343,7 +349,9 @@ We define the monomorphisms $I$, $I_{\CycMRM}$ and $I_{\SymMRM}$ by
 (TV^{\GD})_{\SymMRM} \arrow[hook]{r}{I_{\SymMRM}}\arrow[hook]{u} \& \DSpPlusSym V: \arrow[hook]{u} \& \SymProj(\eta^{\otimes I}) \arrow[mapsto]{r} \& \alpha_{\SymMRM}^I.
 \end{tikzcd}
 \end{equation}
-The vertical arrows are inclusions and the diagram commutes. Moreover, $I$, $I_{\CycMRM}$ and $I_{\SymMRM}$ become isomorphisms provided that $V$ is of finite type with degrees bounded from below.\footnote{We need just $(V^{\otimes k})^{\GD} \simeq {V^{\GD}}^{\otimes k}$.} In this case, we transfer the operations and obtain the following commutative diagram: 
+The vertical arrows are inclusions and the diagram commutes. Moreover, $I$, $I_{\CycMRM}$ and $I_{\SymMRM}$ become isomorphisms provided that $V$ is of finite type with non-negative degrees. 
+%\footnote{We need just $(V^{\otimes k})^{\GD} \simeq {V^{\GD}}^{\otimes k}$.}
+In this case, we transfer the operations and obtain the following commutative diagram: 
 \begin{equation}\label{Eq:ComDiagram}
 \begin{tikzcd}
 \BVOpHoch: &\DSpPlus V \arrow{r}{\CoProdHoch} & \DSpPlus V \otimes \DSpPlus V \arrow{r}{\ProdSh} & \DSpPlus V \\
@@ -362,19 +370,19 @@ The following formulas hold:
 \end{Proposition}
 
 \begin{proof}
-The commutativity of \eqref{Eq:IdentDiaCycSym} is clear from the definitions. The commutativity of~\eqref{Eq:ComDiagram} is equivalent to the commutativity of the same diagram with $\DSpPlus V$, $\DSpPlusCyc V$, $\DSpPlusSym V$ replaced by $\Ten V^{\GD}$, $(\Ten V^{\GD})_{\CycMRM}$, $(\Ten V^{\GD})_{\SymMRM}$, respectively. This commutativity then follows from the defining relations \eqref{Eq:CycSymVersions} if we show the following inclusions:
+The commutativity of \eqref{Eq:IdentDiaCycSym} is clear from the definitions. The commutativity of~\eqref{Eq:ComDiagram} is equivalent to the commutativity of the same diagram with $\DSpPlus V$, $\DSpPlusCyc V$, $\DSpPlusSym V$ replaced by $\Ten(V^{\GD})$, $\Ten(V^{\GD})_{\CycMRM}$, $\Ten(V^{\GD})_{\SymMRM}$, respectively. This commutativity then follows from the defining relations \eqref{Eq:CycSymVersions} if we show the following inclusions:
 \begin{enumerate}[label=(\arabic*)]
-\item $\Der_{ij}((\Ten V^{\GD})_{\CycMRM})\subset(\Ten V^{\GD})_{\CycMRM}\otimes(\Ten V^{\GD})_{\CycMRM}$, 
-\item $\Der_{ij}((\Ten V^{\GD})_{\SymMRM})\subset(\Ten V^{\GD})_{\SymMRM}\otimes(\Ten V^{\GD})_{\SymMRM}$,
-\item $\ProdSh((\Ten V^{\GD})_{\CycMRM}\otimes(\Ten V^{\GD})_{\CycMRM})\subset (\Ten V^{\GD})_{\CycMRM}$,
-\item $\ProdSh((\Ten V^{\GD})_{\SymMRM}\otimes(\Ten V^{\GD})_{\SymMRM})\subset (\Ten V^{\GD})_{\SymMRM}$. 
+\item $\Der_{ij}(\Ten(V^{\GD})_{\CycMRM})\subset\Ten(V^{\GD})_{\CycMRM}\otimes\Ten(V^{\GD})_{\CycMRM}$, 
+\item $\Der_{ij}(\Ten(V^{\GD})_{\SymMRM})\subset\Ten(V^{\GD})_{\SymMRM}\otimes\Ten(V^{\GD})_{\SymMRM}$,
+\item $\ProdSh(\Ten(V^{\GD})_{\CycMRM}\otimes\Ten(V^{\GD})_{\CycMRM})\subset \Ten(V^{\GD})_{\CycMRM}$,
+\item $\ProdSh(\Ten(V^{\GD})_{\SymMRM}\otimes\Ten(V^{\GD})_{\SymMRM})\subset \Ten(V^{\GD})_{\SymMRM}$. 
 \end{enumerate}
 %follows from commutativity of the diagrams
 %\begin{equation}\label{Eq:ComDiagramInv}
 %\begin{tikzcd}
-%\BVOpHoch: & \Ten V^{\GD}\arrow{r}{\CoProdHoch}& (\Ten V^{\GD})\otimes(\Ten V^{\GD})\arrow{r}{\ProdSh}& \Ten V^{\GD} \\
-%\BVOpCyc: &(\Ten V^{\GD})_{\CycMRM} \arrow{r}{\CoProdCyc}\arrow[hook]{u} & (\Ten V^{\GD})_{\CycMRM} \otimes (\Ten V^{\GD})_{\CycMRM}\arrow{r}{\ProdCyc}\arrow[hook]{u}& (\Ten V^{\GD})_{\CycMRM}\arrow[hook]{u} \\
-%\BVOpSym: & (\Ten V^{\GD})_{\SymMRM} \arrow{r}{\CoProdSym}\arrow[hook]{u} & (\Ten V^{\GD})_{\SymMRM}  \otimes (\Ten V^{\GD})_{\SymMRM} \arrow{r}{\ProdSym} \arrow[hook]{u} &  (\Ten V^{\GD})_{\SymMRM} \arrow[hook]{u} 
+%\BVOpHoch: & \Ten(V^{\GD})\arrow{r}{\CoProdHoch}& \Ten(V^{\GD})\otimes\Ten(V^{\GD})\arrow{r}{\ProdSh}& \Ten(V^{\GD}) \\
+%\BVOpCyc: &\Ten(V^{\GD})_{\CycMRM} \arrow{r}{\CoProdCyc}\arrow[hook]{u} & \Ten(V^{\GD})_{\CycMRM} \otimes \Ten(V^{\GD})_{\CycMRM}\arrow{r}{\ProdCyc}\arrow[hook]{u}& \Ten(V^{\GD})_{\CycMRM}\arrow[hook]{u} \\
+%\BVOpSym: & \Ten(V^{\GD})_{\SymMRM} \arrow{r}{\CoProdSym}\arrow[hook]{u} & \Ten(V^{\GD})_{\SymMRM}  \otimes \Ten(V^{\GD})_{\SymMRM} \arrow{r}{\ProdSym} \arrow[hook]{u} &  \Ten(V^{\GD})_{\SymMRM} \arrow[hook]{u} 
 %\end{tikzcd}
 %\end{equation}
 %and
@@ -386,32 +394,32 @@ The commutativity of \eqref{Eq:IdentDiaCycSym} is clear from the definitions. Th
 %\end{tikzcd}
 %\end{equation}
 %where $I_{\SymMRM}$, $I_{\CycMRM}$ and $I$ are given by \eqref{}.
-Inclusion (1) is clear from \eqref{Eq:DoubleDeriv}. In fact, it holds even $\Der_{ij}(\Ten V^{\GD}) \subset  (\Ten V^{\GD})_{\CycMRM} \otimes (\Ten V^{\GD})_{\CycMRM}$. As for inclusion (2), we have
-$$ \Der_{ij}\bigl(\pi_{\SymMRM}(\eta^{\otimes I})\bigr) = \frac{1}{k!}\sum_{\sigma\in \Perm_k}\sum_{(i,j)\in I^\sigma}\frac{1}{k_1}\frac{1}{k_2}\sum_{\substack{c_1\in\CycPerm_{k_1}\\c_2\in\CycPerm_{k_2}}}\varepsilon(I,i j I_1^{\sigma c_1}I_2^{\sigma c_2})\eta^{\otimes I_1^{\sigma c_1}}\otimes\eta^{\otimes I_2^{\sigma c_2}}. $$
+Inclusion (1) is clear from \eqref{Eq:DoubleDeriv}. In fact, it holds even $\Der_{ij}(\Ten(V^{\GD})) \subset  \Ten(V^{\GD})_{\CycMRM} \otimes \Ten(V^{\GD})_{\CycMRM}$. As for inclusion (2), we have
+\[ \Der_{ij}\bigl(\pi_{\SymMRM}(\eta^{\otimes I})\bigr) = \sum_{\sigma\in \Perm_k}\frac{1}{k!}\sum_{(i,j)\in I^\sigma}\sum_{\substack{c_1\in\CycPerm_{k_1}\\c_2\in\CycPerm_{k_2}}}\frac{1}{k_1}\frac{1}{k_2}\varepsilon(I,i j I_1^{\sigma c_1}I_2^{\sigma c_2})\eta^{\otimes I_1^{\sigma c_1}}\otimes\eta^{\otimes I_2^{\sigma c_2}}. \]
 A pair $(\sigma_1,\sigma_2)\in\Perm_{k_1}\times\Perm_{k_2}$ induces a bijection of the domain of summation, which consists of the elements $\sigma$, $(i,j)$, $c_1$, $c_2$, by keeping $(i,j)$, $c_1$, $c_2$ fixed and defining a new $\tilde{\sigma}$ by altering $\sigma$ to compensate for the effect of $(\sigma_1, \sigma_2)$. The signs fit since we only consider the Koszul sign. Therefore, we have
-$$ (\sigma_1\otimes \sigma_2)\Der_{ij}\bigl(\pi_{\SymMRM}(\eta^{\otimes I})\bigr) = \Der_{ij}\bigl(\pi_{\SymMRM}(\eta^{\otimes I})\bigr), $$
+\[ (\sigma_1\otimes \sigma_2)\Der_{ij}\bigl(\pi_{\SymMRM}(\eta^{\otimes I})\bigr) = \Der_{ij}\bigl(\pi_{\SymMRM}(\eta^{\otimes I})\bigr), \]
 and (2) follows. As for (3), we have
 \begin{align*}
 & \ProdSh\bigl(\CycProj(\eta^{\otimes I_1}),\CycProj(\eta^{\otimes I_2})\bigr)\\
-&\qquad=\frac{k_1!k_2!}{(k_1+k_2)!}  \sum_{\mu\in\Perm_{k_1,k_2}} \frac{1}{k_1}\frac{1}{k_2} \sum_{\substack{c_1\in \CycPerm_{k_1}\\ c_2\in\CycPerm_{k_2}}} \varepsilon(I_1 I_2,\mu(I_1^{c_1},I_2^{c_2})) \eta^{\otimes \mu(I_1^{c_1},I_2^{c_2})}.
+&\qquad= \sum_{\mu\in\Perm_{k_1,k_2}}\frac{k_1!k_2!}{(k_1+k_2)!} \sum_{\substack{c_1\in \CycPerm_{k_1}\\ c_2\in\CycPerm_{k_2}}}\frac{1}{k_1}\frac{1}{k_2}\varepsilon(I_1 I_2,\mu(I_1^{c_1},I_2^{c_2})) \eta^{\otimes \mu(I_1^{c_1},I_2^{c_2})}.
 \end{align*}
 A permutation $c\in \Perm_k$ again induces a bijection of the domain of summation, which consists of the elements $\mu$, $c_1$, $c_2$. A similar argument holds for (4).
 
 We now derive \eqref{Eq:CycSymExplicit}. Because
-$$ \Der_{ij}(\alpha^I_{\CycMRM}) = \sum_{(i,j)\in I} \varepsilon(I,ijI_1I_2) \alpha^{I_1}_{\CycMRM}\otimes\alpha^{I_2}_{\CycMRM}, $$
+\[ \Der_{ij}(\alpha^I_{\CycMRM}) = \sum_{(i,j)\in I} \varepsilon(I,ijI_1I_2) \alpha^{I_1}_{\CycMRM}\otimes\alpha^{I_2}_{\CycMRM}, \]
 the formula for $\CoProdCyc$ is clear. As for $\BVOpSym$, because $\ProdSym = \pi_{\SymMRM} \circ \ProdConcat$ for the concatenation product $\ProdConcat(\eta^{\otimes I_1},\eta^{\otimes I_2}) = \eta^{\otimes I_1 I_2}$, we have
 \begin{align*}
-(\ProdSym\circ \Der_{ij})(\pi_{\SymMRM}\bigl(\eta^{\otimes I})\bigr) & = \frac{1}{k!}\sum_{\sigma\in \Perm_k}\sum_{(i,j)\in I^\sigma}\frac{1}{k_1}\frac{1}{k_2}\sum_{\substack{c_1\in\CycPerm_{k_1}\\c_2\in\CycPerm_{k_2}}}\pi_{\SymMRM}\bigl(\varepsilon(I,i j I_1^{\sigma c_1}I_2^{\sigma c_2})\eta^{\otimes I_1^{\sigma c_1}I_2^{\sigma c_2}}\bigr) \\
+(\ProdSym\circ \Der_{ij})(\pi_{\SymMRM}\bigl(\eta^{\otimes I})\bigr) & = \sum_{\sigma\in \Perm_k}\frac{1}{k!}\sum_{(i,j)\in I^\sigma}\sum_{\substack{c_1\in\CycPerm_{k_1}\\c_2\in\CycPerm_{k_2}}}\frac{1}{k_1}\frac{1}{k_2}\pi_{\SymMRM}\bigl(\varepsilon(I,i j I_1^{\sigma c_1}I_2^{\sigma c_2})\eta^{\otimes I_1^{\sigma c_1}I_2^{\sigma c_2}}\bigr) \\
 & = \sum_{(i,j)\in I} \varepsilon(I,ijI_1 I_2) \pi_{\SymMRM}(\eta^{\otimes I_1 I_2}),
 \end{align*}
 where we used that $\pi_{\SymMRM} \circ \sigma = \pi_{\SymMRM}$ for every permutation $\sigma$. The formula for $\BVOpSym$ follows. The formula for $\ProdSym$ is also clear.
 \end{proof}
 
-%We let \eqref{Eq:DoubleDeriv} descend to cyclic invariants $(\Ten V^{\GD})_{\text{cyc}}$ via the commutative diagram
-%$$\begin{tikzcd}
-%\dfrac{\vec{\partial}}{\partial \eta^i} \otimes \dfrac{\vec{\partial}}{\partial \eta^j}: &  \Ten V^{\GD} \arrow{r} & \Ten V^{\GD} \otimes \Ten V^{\GD} \arrow[two heads]{d}{\pi_{\text{cyc}}\otimes\pi_{\text{cyc}}}\\
-%\Bigl(\dfrac{\vec{\partial}}{\partial \eta^i} \otimes \dfrac{\vec{\partial}}{\partial \eta^j}\Bigr)_{\text{cyc}}: & (\Ten V^{\GD})_{\text{cyc}} \arrow{r}\arrow[hook]{u}{\iota_{\text{cyc}}} & (\Ten V^{\GD})_{\text{cyc}} \otimes (\Ten V^{\GD})_{\text{cyc}},
-%\end{tikzcd}$$
+%We let \eqref{Eq:DoubleDeriv} descend to cyclic invariants $\Ten(V^{\GD})_{\text{cyc}}$ via the commutative diagram
+%\[\begin{tikzcd}
+%\dfrac{\vec{\partial}}{\partial \eta^i} \otimes \dfrac{\vec{\partial}}{\partial \eta^j}: &  \Ten(V^{\GD}) \arrow{r} & \Ten(V^{\GD}) \otimes \Ten(V^{\GD}) \arrow[two heads]{d}{\pi_{\text{cyc}}\otimes\pi_{\text{cyc}}}\\
+%\Bigl(\dfrac{\vec{\partial}}{\partial \eta^i} \otimes \dfrac{\vec{\partial}}{\partial \eta^j}\Bigr)_{\text{cyc}}: & \Ten(V^{\GD})_{\text{cyc}} \arrow{r}\arrow[hook]{u}{\iota_{\text{cyc}}} & \Ten(V^{\GD})_{\text{cyc}} \otimes \Ten(V^{\GD})_{\text{cyc}},
+%\end{tikzcd}\]
 %where $\iota_{\text{cyc}}$ is the inclusion and $\pi_{\text{cyc}}$ with $\pi_{\text{cyc}}(\eta^{\otimes I}) = \frac{1}{m}\sum_{c=1}^m \varepsilon(I,I^c) \eta^{\otimes I^c}$ the cyclization map. Recall our convention that the index $i$ has degree of the basis element $e_i$ and that~$I^c$ denotes the $c$-th cyclic permutation of $I$. 
 %
 %Because the second sum in \eqref{Eq:DoubleDeriv} commutes with cyclic permutations of $I$,  we have
@@ -422,9 +430,9 @@ where we used that $\pi_{\SymMRM} \circ \sigma = \pi_{\SymMRM}$ for every permut
 %We also consider its cyclic version $\zeta_{\text{cyc}}$ on $(\Ten V/\text{cyc})^{\GD}^{\GD}$, or $\DSpPlusCyc V$, obtained by replacing $\vec{\partial}_i\otimes\vec{\partial}_j$ with $(\vec{\partial}_i\otimes\vec{\partial}_j)_{\text{cyc}}$.
 %\begin{Example}[Double derivative is not invariant on all permutations]
 %We have 
-%$$\Bigl(\frac{\vec{\partial}}{\partial e_1} \otimes \frac{\vec{\partial}}{\partial e_2}\Bigr)(e_1\smallotimes e_2\smallotimes e_3) = (-1)^{e_1 e_2} 1 \otimes e_3$$
+%\[\Bigl(\frac{\vec{\partial}}{\partial e_1} \otimes \frac{\vec{\partial}}{\partial e_2}\Bigr)(e_1\smallotimes e_2\smallotimes e_3) = (-1)^{e_1 e_2} 1 \otimes e_3\]
 %and
-%$$\Bigl(\frac{\vec{\partial}}{\partial e_1} \otimes \frac{\vec{\partial}}{\partial e_2}\Bigr)(e_1\smallotimes e_3\smallotimes e_2) = (-1)^{e_2 (e_1+e_3)} e_3 \otimes 1.$$
+%\[\Bigl(\frac{\vec{\partial}}{\partial e_1} \otimes \frac{\vec{\partial}}{\partial e_2}\Bigr)(e_1\smallotimes e_3\smallotimes e_2) = (-1)^{e_2 (e_1+e_3)} e_3 \otimes 1.\]
 %These expressions are clearly not equal.
 %\end{Example}
 %On $\Sym V^{\GD}$, there is the standard commutative associative product $\mu_{\text{sym}}$ (or $\cdot_{\text{sym}}$ in the infix notation). With respect to this product, it holds $\pi(\eta^{\otimes I}) = \eta^{\cdot_{\text{sym}}I}$. If we compose it with $\zeta_{\text{sym}}$, we obtain the unary operator
@@ -432,7 +440,7 @@ where we used that $\pi_{\SymMRM} \circ \sigma = \pi_{\SymMRM}$ for every permut
 %\BVOp_{\text{sym}} \coloneqq \mu_{\text{sym}}\circ \zeta_{\text{sym}} = \frac{1}{2}\sum_{i,j=1}^m (-1)^{e_i} g^{ij} \frac{\vec{\partial}}{\partial \eta^i} \cdot \frac{\vec{\partial}}{\partial \eta^j}: \Sym V^{\GD} \longrightarrow \Sym V^{\GD},
 %\end{equation}
 %where we denoted 
-%$$ \frac{\vec{\partial}}{\partial \eta^i} \cdot \frac{\vec{\partial}}{\partial \eta^j} \coloneqq \mu_{\text{sym}}\circ\Bigl(\frac{\vec{\partial}}{\partial \eta^i}\otimes \frac{\vec{\partial}}{\partial \eta^j}\Bigr). $$ 
+%\[ \frac{\vec{\partial}}{\partial \eta^i} \cdot \frac{\vec{\partial}}{\partial \eta^j} \coloneqq \mu_{\text{sym}}\circ\Bigl(\frac{\vec{\partial}}{\partial \eta^i}\otimes \frac{\vec{\partial}}{\partial \eta^j}\Bigr). \] 
 In the formula \eqref{Eq:CycSymExplicit} for $\BVOpSym$, we recognize the canonical $\BV$-operator on $\Sym V^{\GD}$ from~\cite[Definition~4]{Doubek2018}.\footnote{In fact, they work on a bigger ``algebra of functions'' on $V$, which is a completion of $\Sym V^{\GD}$ with respect to a suitable filtration. Their statement is that the algebra of functions on an odd symplectic vector space carries a canonical $\BV$-operator. It is given by the divergence of the Hamiltonian vector field.}
 %This is confirmed by the coordinate computation  
 %\begin{align*}
@@ -449,10 +457,10 @@ In the formula \eqref{Eq:CycSymExplicit} for $\BVOpSym$, we recognize the canoni
 %\end{align*}
 %
 %On $\Ten V'/\text{cyc}$, we can consider the bilinear operator $\mu_{\text{cyc}}$ (or $\cdot_{\text{cyc}}$ in the infix notation) defined by
-%$$ \mu_{\text{cyc}}\bigl(\alpha^{I_1},\alpha^{I_2}) \coloneqq \sum_{c_1, c_2} \varepsilon(I_1,I_1^{c_1})\varepsilon(I_2,I_2^{c_2})\alpha^{I_1^{c_1}I_2^{c_2}}, $$
-%%$$ \mu_{\text{cyc}}\bigl(\pi(\eta^{\otimes I_1}), \pi(\eta^{\otimes I_2}) \coloneqq \sum_{c_1, c_2} \varepsilon(I_1,I_1^{c_1})\varepsilon(I_2,I_2^{c_2})\pi\bigl(\eta^{\otimes I_1^{c_1}}\otimes\eta^{\otimes I_2^{c_2}}\bigr), $$
+%\[ \mu_{\text{cyc}}\bigl(\alpha^{I_1},\alpha^{I_2}) \coloneqq \sum_{c_1, c_2} \varepsilon(I_1,I_1^{c_1})\varepsilon(I_2,I_2^{c_2})\alpha^{I_1^{c_1}I_2^{c_2}}, \]
+%%\[ \mu_{\text{cyc}}\bigl(\pi(\eta^{\otimes I_1}), \pi(\eta^{\otimes I_2}) \coloneqq \sum_{c_1, c_2} \varepsilon(I_1,I_1^{c_1})\varepsilon(I_2,I_2^{c_2})\pi\bigl(\eta^{\otimes I_1^{c_1}}\otimes\eta^{\otimes I_2^{c_2}}\bigr), \]
 %where we sum over all cyclic permutations. This product is commutative but not associative (see Example~\ref{Ex:NonAsCyc} below). Similarly as in the symmetric case, we define 
-%$$ \BVOp_{\text{cyc}} \coloneqq \mu_{\text{cyc}}\circ \zeta_{\text{cyc}}. $$
+%\[ \BVOp_{\text{cyc}} \coloneqq \mu_{\text{cyc}}\circ \zeta_{\text{cyc}}. \]
 %\begin{Example}[Non-associativity of $\cdot_{\text{cyc}}$]\label{Ex:NonAsCyc}
 %On $\Ten V / \text{cyc}$, we have
 %\begin{align*}
@@ -484,18 +492,16 @@ by
 \end{equation}
 We set $\delta \varphi = 0$ for $k\le 3$. In order to obtain $(\delta\varphi)\in(\DSpPlusCycRed V)^{\otimes 2}$, we use the embedding $(\DSpPlusCyc V)^{\otimes k} \subset (\Ten V)^{\otimes k*}$ from Remark~\ref{Rem:Identifications} in Part~I. Note that we can also use the canonical identification $(\Ten V/\CycMRM)^{\WGD}\simeq \DSpPlusCyc V$ and work with the cyclic words $e_I \coloneqq \CycCoProj(e_{\otimes I})$ instead. We see that~\eqref{Eq:StdCoprCoord} is precisely the defining equation \cite[Equation~(10.6)]{Cieliebak2015} for the $\IBL$-cobracket $\delta: \DSpPlusCycRed V \rightarrow (\DSpPlusCycRed V)^{\otimes 2}$, and $\OPQ_{120}:(\DSpPlusCycRed V)[-n]\rightarrow(\DSpPlusCycRed V)[-n]^{\otimes 2}$ is the degree shift of $\delta$.
 
-Taking into account Remark~\ref{Rem:CompToCFL}, the equality
-$$ (\bar{\pi}\otimes\bar{\pi})\circ\OPQ_{120}^*\circ\bar{\iota} = \OPQ_{120} $$
-is obtained from the next proposition.
-\Modify[caption={DONE finite type},noline]{One can replace finite dimensional by finite type.}
+The equality $\OPQ_{120}^*= \OPQ_{120}$ on the reduced part
+is obtained from the next proposition (c.f., Remark~\ref{Rem:CompToCFL} for the translation from the $\DSpPlusCycRed$- to the  $\DBCyc$-notation).\Modify[caption={DONE finite type},noline]{One can replace finite dimensional by finite type.}
 \begin{Proposition}[Equivalence of definitions of $\IBL$-cobracket]\label{Prop:EqCoprod}
 Let $V$ be a graded vector space of finite type, and let $\langle\cdot,\cdot\rangle$ be a non-degenerate homogenous bilinear form of degree~$-n$. For every $\varphi\in \DSpPlusCycRed V$, it holds
-$$ \OPQ_{120}^*(\nu \varphi) = \nu^2 \delta \varphi\qquad\text{in }(\DSpPlusCycRed V)[-n]. $$
+\[ \OPQ_{120}^*(\nu \varphi) = \nu^2 \delta \varphi\qquad\text{in}\quad(\DSpPlusCycRed V)[-n]^{\otimes 2}. \]
 \end{Proposition}
 \begin{proof}
 %We identify the cyclic invariants of the weight-graded dual $(\Ten V')_{\text{cyc}}$ with the weight-graded dual of cyclic co-invariants $\bigl(\Ten V/\text{cyc}\bigr)''$ so that $\alpha^I$ which corresponds to $\pi_{\text{cyc}}(\eta^{\otimes I}) = \frac{1}{m}\sum_{c=1}^m \varepsilon(\eta,c) \eta^{i_c} \otimes \dotsb \otimes \eta^{i_{c-1}}$ acts on $e_J = \pi(e_{\otimes J})$, where $\pi: \Ten V \rightarrow \Ten V/\mathrm{cyc}$ is the canonical projection, as 
 We consider the basis $(\alpha^I_{\CycMRM})$ of $\DSpPlusCyc V$ from Proposition~\ref{Prop:HochCycSym}. Given $\varphi\in\DSpPlusCyc V$, we can write $\varphi=\sum_{I}\frac{1}{\Abs{I}}\varphi_I\alpha^I_{\CycMRM}$, where we sum over all multiindices $I$ and $\varphi_I\in \R$ are coefficients cyclically symmetric in $I$. For every $I$ of length $k$, we have
-$$ \varphi(e_{\otimes I}) = \sum_{c\in \CycPerm_k}\frac{1}{k}\varphi_{I^c} \alpha^{I^c}_{\CycMRM}(e_{\otimes I}) = \sum_{c\in\CycPerm_k}\frac{1}{k}\varphi_{I^c} \varepsilon(I^c,I) = \varphi_I, $$
+\[ \varphi(e_{\otimes I}) = \sum_{c\in \CycPerm_k}\frac{1}{k}\varphi_{I^c} \alpha^{I^c}_{\CycMRM}(e_{\otimes I}) = \sum_{c\in\CycPerm_k}\frac{1}{k}\varphi_{I^c} \varepsilon(I^c,I) = \varphi_I, \]
 and hence $\varphi_I$ correspond to the coefficients \eqref{Eq:CoefCoord}. Using \eqref{Eq:CycSymExplicit}, we compute
 \begin{align*}
  \CoProdCyc(\varphi)&= \frac{1}{2}\sum_I \sum_{(i,j)\in I} \frac{1}{\Abs{I}}\varphi_I  (-1)^{e_i} g^{ij}\varepsilon(I,i j I_1 I_2) \alpha^{I_1}_{\CycMRM} \otimes \alpha^{I_2}_{\CycMRM} \\
@@ -580,13 +586,13 @@ This shows the proposition.
 %
 %\begin{Remark}[Continuation to Hochschild cochains]
 %Both of the squares
-%$$\begin{tikzcd}
+%\[\begin{tikzcd}
 % V\otimes D^+_{\CycMRM}V \arrow{r}{\mu_{\CycMRM}} & d
-%\end{tikzcd}$$
+%\end{tikzcd}\]
 %\begin{align*}
 % I_{\CycMRM}(\alpha^I_{\CycMRM})(e_J) = \frac{1}{k}\sum_{c}\varepsilon(I,J^c) 
 %\end{align*}
-%$$ I_{\mathrm{Hoch}}(\eta^{\otimes I})(e_J) = $$
+%\[ I_{\mathrm{Hoch}}(\eta^{\otimes I})(e_J) = \]
 %
 %HAVE TO REDEFINE THE DOUBLE DERIVATIVE.
 %\begin{tikzcd}
@@ -616,15 +622,15 @@ It clearly uses associativity (and in this form also commutativity). It is a kno
 % & = \alpha^{I_1 I_2}. 
 %\end{align*}
 %Now, we have
-%$$ \alpha^{I_1 I_2}(e_K) = \sum_{} $$
+%\[ \alpha^{I_1 I_2}(e_K) = \sum_{} \]
 %According to the old definition from section \ref{}, we have
 %\begin{align*}
 %(\alpha^{I_1}\odot\alpha^{I_2})(e_K) &= \mu_{\mathrm{sym}}(\alpha^{I_1} \otimes \alpha^{I_2})\Delta(e_K) \\ 
 %&= \sum_{K = K_1 \cup K_2} \varepsilon(K,K_1 K_2) \alpha^{I_1}(e_{K_1})\alpha^{I_2}(e_{K_2})
 %\end{align*}
-%%$$\begin{tikzcd}
+%%\[\begin{tikzcd}
 %%(\Ten V')_{\mathrm{sym}} \arrow{r} & \DSp V
-%%\end{tikzcd}$$
+%%\end{tikzcd}\]
 %
 %We fist check that the diagram
 %\begin{equation}\label{Eq:IdentDiaCycSym}
@@ -641,7 +647,7 @@ It clearly uses associativity (and in this form also commutativity). It is a kno
 %& = \frac{1}{(\Abs{I}-1)!} \sum_{\sigma\in \Perm_{\mathrm{n.c.}}(I)} \varepsilon(I,I^\sigma)\CycProj(\eta^{\otimes I^\sigma}),
 %\end{align*} 
 %we have
-%$$  \iota(\alpha^{I}_{\SymMRM})=\frac{1}{(\Abs{I}-1)!} \sum_{\sigma\in \Perm_{\mathrm{n.c.}}(I)} \varepsilon(I,I^\sigma)\alpha^{I^\sigma}_{\CycMRM}, $$
+%\[  \iota(\alpha^{I}_{\SymMRM})=\frac{1}{(\Abs{I}-1)!} \sum_{\sigma\in \Perm_{\mathrm{n.c.}}(I)} \varepsilon(I,I^\sigma)\alpha^{I^\sigma}_{\CycMRM}, \]
 %where $\Perm_{\mathrm{n.c.}}(I)\subset \Perm_{\Abs{I}}$ are permutations $\sigma$ such that $I$ and $\sigma(I)$ are not cyclically equivalent. SHOULD BE JUST THE QUOTIENT, IE DOES NOT DEPEND ON I. Now we have
 %\begin{align*}
 % I_{\CycMRM}(\iota(\alpha^I_{\SymMRM}))(e_J) &= \frac{1}{(\Abs{I}-1)!} \sum_{\sigma\in \Perm_{\mathrm{n.c.}}(I)} \varepsilon(I,I^\sigma)\alpha^{I^\sigma}_{\CycMRM}(e_J) \\
@@ -700,7 +706,4 @@ It clearly uses associativity (and in this form also commutativity). It is a kno
 %
 %
 %WRITE $I_1^\sigma$ BECAUSE IT COMES FROM $I^\sigma$ !!!! IT MAKES IT BETTER.
-
-
-
 \end{document}

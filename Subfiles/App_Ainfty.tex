@@ -1,15 +1,15 @@
+%! TEX root = ../Text.tex
 %auto-ignore
 \providecommand{\MainFolder}{..}
 \documentclass[\MainFolder/Text.tex]{subfiles}
 \begin{document}
 \chapter{Reduced cyclic homology of A-infinity-algebras}
 
-In this appendix, we prove Proposition~\ref{Prop:Reduced} in Part~I. The idea from \cite{LodayCyclic} is to resolve cyclic (co)invariants degreewise and obtain certain bicomplexes with better properties.
+In this appendix, we prove Proposition~\ref{Prop:Reduced} in Part~I. The idea from \cite{LodayCyclic} is to resolve cyclic (co)invariants degree-wise and obtain certain bicomplexes with better properties.
 
 In Section~\ref{Sec:FF}, given a strictly unital $\AInfty$-algebra on a graded vector space $V$, we define the normalized and reduced Hochschild (co)chain complexes (Definition~\ref{Def:NormRedHoch}) and prove the computational prerequisites CP1--CP4 (Lemmas~\ref{Lem:CP1}, \ref{Lem:CP2}, \ref{Lem:CP3} and \ref{Lem:CP4}); they are necessary for the development of the cyclic homology theory in the upcoming section. These prerequisites, like squaring to zero of the Hochschild differential, seem to be much harder computationally for $\AInfty$-algebras than for $\DGA$'s. Proofs of some of these relations in different formalisms appeared already in \cite{Mescher2016} and \cite{Lazarev2003}.
 
 In Section~\ref{Sec:HomBi}, we define Loday's and Connes' cyclic half-plane bicomplexes for $\AInfty$-algebras together with their normalized and reduced versions (Definition~\ref{Def:CycBico}). We then summarize some convergence results for spectral sequences associated to horizontal, vertical and diagonal filtrations (Proposition~\ref{Prop:ConvOfSpSeq}). In a series of lemmas (Lemmas~\ref{Lem:LodCycBiCycHom}, \ref{Lem:LodConCycBi}, \ref{Lem:ConNormVer} and~\ref{Lem:ReducedCyclic}), we prove that some of the (co)homologies are isomorphic. These lemmas copy results for $\DGA$'s from \cite{LodayCyclic}; we just do them carefully for half-plane bicomplexes and more explicitly. There is a new phenomenon of long chains coming from completing the direct sum total complex; these long chains seem to disappear in homology if the degrees of $V$ are bounded (Lemma~\ref{Lem:BddDegrees}). Additionally, we point out some differences between first-quadrant and half-plane bicomplexes (Remark~\ref{Rem:SpecSeq}) and mention the relation to mixed complexes (Remark~\ref{Rem:MixedCompl}).
-
 
 In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes' bicomplexes (Lemma~\ref{Lem:ConBiRed}), which replace, up to quasi-isomorphisms, the non-exact sequences for reduced cyclic Hochschild (co)chains. We summarize the isomorphisms of (co)homologies from Section~\ref{Sec:HomBi} (Figure~\ref{Fig:FinalPictureHom}), finish the proof of Proposition~\ref{Prop:Reduced} in Part~I and formulate a few open question (Remark~\ref{Rem:OpenProbAInftx}).
 %
@@ -30,9 +30,9 @@ In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes'
 %
 %\begin{Definition}[Basic operations]
 %Let~$V$ be a $\Z$-graded vector space. For every~$k\ge 1$ and $v_1$,~$\dotsc$, $v_k \in V[1]$, we define the cyclic permutation
-%$$\CycPermOp_k(v_1 \otimes \dotsb \otimes v_k) \coloneqq (-1)^{\Abs{v_k}(\Abs{v_1} + \dotsb + \Abs{v_{k-1}})} v_k \otimes v_1 \otimes \dotsb \otimes v_{k-1},$$
+%\[\CycPermOp_k(v_1 \otimes \dotsb \otimes v_k) \coloneqq (-1)^{\Abs{v_k}(\Abs{v_1} + \dotsb + \Abs{v_{k-1}})} v_k \otimes v_1 \otimes \dotsb \otimes v_{k-1},\]
 %where $\Abs{v}$ denotes the degree in $V[1]$. We set
-%$$ N_k \coloneqq \sum_{i = 0}^{k-1} \CycPermOp^{i} : V[1]^{\otimes k} \longrightarrow V[1]^{\otimes k}. $$
+%\[ N_k \coloneqq \sum_{i = 0}^{k-1} \CycPermOp^{i} : V[1]^{\otimes k} \longrightarrow V[1]^{\otimes k}. \]
 %
 %Consider a strict $\AInfty$-algebra on $V$ given by the operations $\mu_j: V[1]^{\otimes j}\rightarrow V[1]$ for~$j\ge 1$ (see Definition~\ref{Def:CyclicAinfty}). For every~$k\ge 1$ and~$1 \le j \le k$, we define the operations $[\Hd']^k_j$, $[R]^k_j: V[1]^{\otimes k} \rightarrow V[1]^{\otimes k-j+1}$ by the following formulas:
 %\begin{align*}
@@ -42,7 +42,7 @@ In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes'
 %
 %Let $\NOne\in V[1]$ be a strict unit for $(V,(\mu_j))$. This means that $\Abs{\NOne} = -1$, $\mu_2(\NOne,v) = (-1)^{\Abs{v}+1} \mu_2(v, \NOne)=v$ for all $v\in V[1]$ and $\mu_k(v_1, \dotsc, v_k) = 0$ for all $k\neq 2$ whenever~$v_i = \NOne$ for some $1\le i \le k$ (see Definition~\ref{Def:AugUnit}).
 %For $2\le i \le k+1$, we define the maps $[s]_i^k : V[1]^{\otimes k} \rightarrow V[1]^{\otimes k + 1}$ by
-%$$ [s]_i^k(v_1\otimes\dotsb\otimes v_k) \coloneqq (-1)^{\Abs{v_1}+\dotsb + \Abs{v_{i-1}}} v_1\otimes \dotsb\otimes v_{i-1}\otimes \NOne\otimes v_{i}\otimes\dotsb\otimes v_k $$
+%\[ [s]_i^k(v_1\otimes\dotsb\otimes v_k) \coloneqq (-1)^{\Abs{v_1}+\dotsb + \Abs{v_{i-1}}} v_1\otimes \dotsb\otimes v_{i-1}\otimes \NOne\otimes v_{i}\otimes\dotsb\otimes v_k \]
 %for all $v_1$,~$\dotsc$, $v_k \in V[1]$.
 %We define the map $[s]^k_1: V[1]^{\otimes k} \rightarrow V[1]^{\otimes k + 1}$ for $k\ge 1$ similarly --- by putting $\NOne$ at the beginning.
 % 
@@ -55,7 +55,7 @@ In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes'
 %s_i &\coloneqq \sum_{k=i-1}^\infty [s]_i^k, & s_1 &\coloneqq \sum_{k=1}^\infty [s]_1^k.
 %\end{align*}
 %We define the \emph{Hochschild boundary operator} by
-%$$ \Hd\coloneqq \Hd' + R. $$
+%\[ \Hd\coloneqq \Hd' + R. \]
 %\end{Definition}
 %
 %
@@ -63,32 +63,32 @@ In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes'
 %
 %\begin{Definition} \label{Def:Complexes}
 %Let $\mathcal{A} = (V, (\mu_j))$ be an $\AInfty$-algebra. For all $q\in \Z$ let
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %\HC_q(V) &\coloneqq (\B V)_{-q-1}, & \HC^q(V) &\coloneqq (\CDB V)^{-q-1}, \\
 %\HC^\lambda_q(V) &\coloneqq (\BCyc V)^{-q-1}, & \HC_\lambda^q &\coloneqq (\CDBCyc V)^{-q-1}.
-%\end{aligned} $$
+%\end{aligned} \]
 %Here $\CDB V$ is the completion of the weight-graded vector space $\DB V$ with respect to the weights, i.e we have $\CDB V = \bigoplus_{q\in \Z} (\CDB V)^{q}$, where
-%$$ (\CDB V)^{q}  = \prod_{k=1}^\infty (\DB V)^{q}_k. $$
+%\[ (\CDB V)^{q}  = \prod_{k=1}^\infty (\DB V)^{q}_k. \]
 %We identify $\CDBCyc V$ with the subspace of $\CDB V$ consisting of cyclic symmetric maps. We call $(\HC_*,\Hd)$ and $(\HC^*,\Hd^*)$ the \emph{Hochschild complexes} and denote their homologies by $H_*(\mathcal{A})$ and $H^*(\mathcal{A})$, respectively. We call $(\HC_*^\lambda,\Hd)$ and $(\HC^*_\lambda,\Hd^*)$ \emph{Connes' cyclic complexes} and denote their homologies by $H^\lambda_*(\mathcal{A})$ and $H_\lambda^*(\mathcal{A})$, respectively.
 %
 %Suppose that $\mathcal{A}$ has a strict unit $\NOne$. Denote $\bar{V}\coloneqq V/\langle \NOne \rangle$. For all $q\in \Z$ let
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %\bar{\HC}_q(V) &\coloneqq (\B V)^{-q-1}, & \bar{\HC}^q(V) &\coloneqq \{ \psi \in \HC^q(V) \mid s_i^* \psi = 0 \text{ for all }i\ge 2\}, \\
 %\bar{\HC}_q^\lambda(V) &\coloneqq \HC_q^\lambda(\bar{V}), & \bar{\HC}^q_\lambda(V) &\coloneqq \HC_\lambda^q(\bar{V}).
-%\end{aligned} $$
+%\end{aligned} \]
 %We call $(\bar{\HC}_*,\Hd)$ and $(\bar{\HC}^*,\Hd^*)$ the \emph{normalized Hochschild complexes}.  We call $(\bar{\HC}^\lambda_*,\Hd)$ and $(\bar{\HC}_\lambda^*,\Hd^*)$ \emph{reduced Connes' cyclic complexes} and denote their homologies by $\bar{H}_*(\mathcal{A})$ and $\bar{H}^*(\mathcal{A})$.
 %
 %We denote by $\NormProj : \HC(V) \rightarrow \bar{\HC}_\bullet(V)$, $p^\lambda: \HC_\bullet(V) \rightarrow \HC^\lambda_\bullet(V)$ and $\NormIncl: \bar{\HC}^\bullet(V) \rightarrow \HC^\bullet(V)$, $\iota_\lambda: \HC_\lambda^\bullet(V) \rightarrow \HC^\bullet(V)$ the canonical projections and inclusions, respectively. 
 %
 %
 %For all $q\in \Z$ let
-%$$ \HC_q^{\mathrm{red}}(V) = \begin{cases}
+%\[ \HC_q^{\mathrm{red}}(V) = \begin{cases}
 %\bar{\HC}_q(V) & q \neq 0, \\
 %\HC_0(\bar{V}) & q = 0,
 %\end{cases} \quad \HC^q_{\mathrm{red}}(V) = \begin{cases}
 %\bar{\HC}^q(V) & q \neq 0, \\
 %\{\psi\in \bar{\HC}^0(V) \mid \psi(\NOne) = 0 \} & q=0.
-%\end{cases}$$
+%\end{cases}\]
 %We call $(\HC_*^{\mathrm{red}},\Hd)$ and $(\HC^*_{\mathrm{red}},\Hd^*)$ the \emph{reduced Hochschild complexes} and denote their homologies by $\bar{H}^\lambda_*(\mathcal{A})$ and $\bar{H}_\lambda^*(\mathcal{A})$.
 %\end{Definition}
 %
@@ -101,21 +101,21 @@ In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes'
 %\item Taking $\CDB V$ instead of $\DB V$ is necessary for $\Hd^*$ to be well-defined. The reason is that $\mu_k$ have unbounded weights $k\in \Z$, and hence there might be $\psi\in \DB V$ with $\psi \circ \Hd \notin \DB V$. On the other hand, $\Hd$ is not well-defined on $\hat{B} V$.
 %\item If $V$ has bounded degrees, then $\CDB V$ equals the completion of $\DB V$ with respect to both weights and degrees, which gives the entire linear dual of $\B V$. Therefore, the cochain complexes from Definition \ref{Def:Complexes} are dual to the corresponding chain complexes in the classical sense.
 %\item If $V = V_0$ is concentrated in degree $0$, then
-%$$ \HC_q(V) = (\B V)_{q+1}\quad \text{and}\quad \HC^q(V)= (\DB V)^{-q-1} = (\DB V)_{q+1}. $$
+%\[ \HC_q(V) = (\B V)_{q+1}\quad \text{and}\quad \HC^q(V)= (\DB V)^{-q-1} = (\DB V)_{q+1}. \]
 %In particular, the complexes are bounded from below. 
 %\item If $\mu_k = 0$ for all $k\neq 2$, then $\Hd$ has not only degree $+1$ on $\B V$, but also weight $-1$. We cal also grade $\B V$ by weights (notice we can not grade $\CDB V$ by weights). Write $\B V = \bigoplus_{k\in \N, d\in \Z} (\B V)_k^d$ and let
-%$$ \HC_q(V) = \bigoplus_{k=1}^\infty (\B V)_k^{-q-1}\quad\text{and}\quad \tilde{\HC}_k(V) = \bigoplus_{q\in \Z} (\B V)_k^{-q-1}. $$ 
+%\[ \HC_q(V) = \bigoplus_{k=1}^\infty (\B V)_k^{-q-1}\quad\text{and}\quad \tilde{\HC}_k(V) = \bigoplus_{q\in \Z} (\B V)_k^{-q-1}. \] 
 %If $V = V_0$, then $\HC_q(V) = \tilde{\HC}_q(V)$. The homology of these complexes is also bigraded. Therefore, we get one from each other by resummation
 %  
 %\item If $V$ is non-negatively graded and simply-connected, i.e.\ $V_1=0$, then it holds  $\CDB \bar{V}  = \DB \bar{V}$.
 %\item Consider the map $u: \bar{\HC}_*(\R) \rightarrow \bar{\HC}_*(V)$ defined by extending $\SuspU 1\in \R[1] \mapsto \NOne\in V[1]$ to tensor powers. It is a chain map and $\HC_*^{\mathrm{red}}(V)$, resp. $\HC^*_{\mathrm{red}}(V)$ arise naturally as $\CoKer(u)$, resp. $\ker(u^*)$.
-%%$$ \bar{C}_q(\R) = \begin{cases}
+%%\[ \bar{C}_q(\R) = \begin{cases}
 %%                    0 & q\neq 0,\\
 %%                    \langle \NOne \rangle & q = 0
 %%                   \end{cases} \quad \text{and}\quad \bar{C}^q(\R) = \begin{cases}
 %%                    0 & q\neq 0,\\
 %%                    \langle \NOne^* \rangle & q = 0.
-%%                   \end{cases} $$
+%%                   \end{cases} \]
 %\end{RemarkList}
 %\end{Remark}
 %\clearpage
@@ -127,33 +127,35 @@ The heart of cyclic (co)homology theory, following \cite{LodayCyclic}, are the f
 \begin{description}
 \item[\quad CP0\,{\normalfont (horizontal relations)}:] $\ker \CountOp = \im (\Id-\CycPermOp)$, $\ker(\Id-\CycPermOp) = \im \CountOp$,
 \item[\quad CP1\,{\normalfont (vertical relations)}:] $\Hd\circ\Hd = 0$, $\Hd'\circ \Hd' = 0$,
-\item[\quad CP2\,{\normalfont (vertical-horizontal relations)}:] $\Hd'\circ \CountOp = \CountOp\circ \Hd$, $(\Id-\CycPermOp)\circ \Hd' = \Hd\circ (\Id-\CycPermOp)$;
+\item[\quad CP2\,{\normalfont (vertical-horizontal relations)}:] $\Hd'\circ \CountOp = \CountOp\circ \Hd$, $(\Id-\CycPermOp)\circ \Hd' = \Hd\circ (\Id-\CycPermOp)$,
 %$\InsOneOp_i b = - b' \InsOneOp_i + \Id - \CycPermOp$
 \end{description}
 and in the strictly unital case
 \begin{description}[resume]
-\item[\quad CP3\,{\normalfont (null-homotopy of the bar resolution)}:] $\Hd'\circ \InsOneOp_1 + \InsOneOp_1\circ \Hd' = \Id$, 
+\item[\quad CP3\,{\normalfont (null-homotopy of the bar resolution)}:] $\Hd'\circ \InsOneOp_1 + \InsOneOp_1\circ \Hd' = \Id$ and
 \item[\quad CP4\,{\normalfont (contraction onto normalized chains)}:] $\NormProj: \HC V \rightarrow \HNC V$ is a quasi-isomorphisms.
 \end{description}
-The definitions of $\CycPermOp$, $\Hd$ and $\Hd'$ can be found in Section~\ref{Sec:Alg2} in Part~I. The new players are the \emph{counting operator}
-$$ \CountOp \coloneqq \sum_{k=1}^\infty \underbrace{\sum_{i=0}^{k-1} t_k^i}_{\displaystyle{\eqqcolon\CountOp_k}} : \HC V \longrightarrow \HC V $$
+The definitions of $\CycPermOp$ (cyclic permutation), $\Hd$ ($\AInfty$-Hochschild differential), $\Hd'$ (acyclic $\AInfty$-Hochschild differential) and $\HC V$ ((reduced) bar complex with reversed grading shifted by one) can be found in Section~\ref{Sec:Alg2} in Part~I; in particular, consult Definition~\ref{Def:CycHom}. The new players are the \emph{counting operator}
+\[ \CountOp \coloneqq \sum_{k=1}^\infty \underbrace{\sum_{i=0}^{k-1} t_k^i}_{\displaystyle{\eqqcolon\CountOp_k}} : \HC V \longrightarrow \HC V \]
 and the projection $\bar{p}: \HC V \rightarrow \HNC V$ to normalized Hochschild chains --- this we define below.
 
 \begin{Definition}[Normalized and reduced Hochschild complex]\label{Def:NormRedHoch}
 \Correct[noline,caption={DONE Wrong def of normalized}]{The normalized complex is not properly defined!! The projection does not work.}
 Let $(V,(\mu_j),\NOne)$ be a strictly unital $\AInfty$-algebra. Let $\bar{V}[1]\coloneqq V[1]/\langle\NOne\rangle$. We define the \emph{normalized Hochschild chain complex} by
-$$ \HNC V \coloneqq \bigoplus_{k=0}^\infty V[1]\otimes\bar{V}[1]^{\otimes k}. $$
-We define $\NormProj: \HC V \rightarrow \HNC V$ to be the canonical projection $V[1]\rightarrow \bar{V}[1]$ for $k=0$, and for $k\ge 1$, we define
-$$ \Restr{\NormProj}{V[1]^{\otimes k}} \coloneqq \Id \otimes \underbrace{\NormProj \otimes \dotsb \otimes \NormProj}_{k-\text{times}}.$$
-For every $k\ge 1$, we define the operator $\InsOneOp_k : \HC V \rightarrow \HC V$ by inserting $\NOne$ at the $k$-th position of a tensor product, where the position $k=1$ is in front; i.e., we have
-$$ \InsOneOp_1(v_1\otimes\dotsb\otimes v_i) = \NOne\otimes v_1\otimes\dotsb\otimes v_i\quad\text{for all }v_j\in V[1]\text{ and }i\ge j\ge 1.$$
+\[ \HNC V \coloneqq \bigoplus_{l=0}^\infty V[1]\otimes\bar{V}[1]^{\otimes l}. \]
+We consider the canonical projection $\NormProj: V[1]\rightarrow \bar{V}[1]$ and define $\NormProj: \HC V \rightarrow \HNC V$ by
+\[ \Restr{\NormProj}{V[1]^{\otimes l}} \coloneqq \Id \otimes \underbrace{\NormProj \otimes \dotsb \otimes \NormProj}_{l-\text{times}}.\]
+For every $l\ge 1$, we define the operator $\InsOneOp_l : \HC V \rightarrow \HC V$ by inserting $\NOne$ at the $l$-th position of a tensor product, where the position $l=1$ is in front; i.e., we have
+\[ \InsOneOp_1(v_1\otimes\dotsb\otimes v_i) = \NOne\otimes v_1\otimes\dotsb\otimes v_i\quad\text{for all }v_j\in V[1]\text{ and }i\ge j\ge 1.\]
 We define the \emph{normalized Hochschild cochain complex} by 
-$$ \HNC^* V \coloneqq \{\varphi\in\HC^*V \mid \varphi \circ \InsOneOp_i = 0\text{ for all }i\ge 2\}. $$
+\[ \HNC^* V \coloneqq \{\varphi\in\HC^*V \mid \varphi \circ \InsOneOp_l = 0\text{ for all }l\ge 2\}. \]
 
-If $u: \HC \R \rightarrow \HC V$ is the unit map and $\NormIncl: \HNC^*V \rightarrow \HC^* V$ the inclusion, we define the \emph{reduced Hochschild chain and cochain complexes} $\HC^{\RedMRM} V$ and $\HC_{\RedMRM}^* V$ by
-$$ \HC^{\RedMRM} V \coloneqq \coker(\NormProj\circ u)\quad\text{and}\quad\HC_{\RedMRM}^*
- \coloneqq \ker(u^* \circ \NormIncl),\quad\text{respectively}.$$
-We denote by $p^{\RedMRM}: \HC V \rightarrow \HC^{\RedMRM} V$ and $\iota_{\RedMRM}: \HC^*_{\RedMRM} V \rightarrow \HC^* V$ the canonical projection and inclusion, respectively.  
+If $u: \HC \R \rightarrow \HC V$ is the unit map (in the strictly unital case, $\Restr{u}{\R[1]^{\otimes k}}\coloneqq u^{\otimes k}$ where $u: \R[1]\to V[1]$ is the canonical injection; see also Definition~\ref{Def:AugUnit} and the discussion below) and $\NormIncl: \HNC^*V \rightarrow \HC^* V$ the inclusion, we define the \emph{reduced Hochschild chain and cochain complexes} $\HC^{\RedMRM} V$ and $\HC_{\RedMRM}^* V$ by
+\[ \HC^{\RedMRM} V \coloneqq \coker(\NormProj\circ u)\quad\text{and}\quad\HC_{\RedMRM}^*
+ \coloneqq \ker(u^* \circ \NormIncl),\quad\text{respectively}.\]
+We denote by $p^{\RedMRM}: \HC V \rightarrow \HC^{\RedMRM} V$ and $\iota_{\RedMRM}: \HC^*_{\RedMRM} V \rightarrow \HC^* V$ the canonical projection and inclusion, respectively.
+
+All chain complexes above are graded by degree and equipped with a boundary operator induced naturally from $\Hd$ (see the remark below).
 \end{Definition}
 
 \begin{Remark}[Some details on normalized and reduced complexes]
@@ -163,7 +165,7 @@ Since $\NOne$ is a unit for~$\mu_2$, we have
 0 & = (-1)^{\Abs{v}_1 + \dotsb + \Abs{v_{i-2}}}\bigl(v_1 \dotsb \mu_2(v_{i-1}, \NOne) v_i \dotsb v_k + (-1)^{\Abs{v_{i-1}}} v_1 \dotsb  v_{i-1}\mu_2(\NOne, v_i) \dotsb v_k \bigr)
 \end{align*}
 for all $i=2$, $\dotsc$, $k$. This fact and strict unitality implies
-$$ \Hd\bigl(\sum_{i\ge 2}\im \InsOneOp_i\bigr)\subset\sum_{i\ge 2}\im \InsOneOp_i = \ker \NormProj.$$
+\[ \Hd\bigl(\sum_{i\ge 2}\im \InsOneOp_i\bigr)\subset\sum_{i\ge 2}\im \InsOneOp_i = \ker \NormProj.\]
 Therefore, $\Hd$ induces a differential on $\HNC V$. Since $\HNC^* V = \{\varphi\in \HC^*V \mid \varphi(\sum_{i\ge 2}\im\InsOneOp_i) = 0\}$, the dual $\Hd^*$ restricts to $\HNC^* V$. Clearly, both $\NormProj$ and $\NormIncl$ are chain maps, and they are compatible under the dualization from Definition~\ref{Def:Pairings} in Part~I; i.e., $\NormIncl \simeq \NormProj^*$ under $\HNC^* V \simeq (\HNC V)^{\GD}$ and $\HC^* V \simeq (\HC V)^{\GD}$, where $^{\GD}$ denotes the graded dual.
  
 As for the reduced complexes, $u$ is a chain map, and thus $\ker$ and $\coker$ are chain complexes. Again, it holds $\HC_{\RedMRM}^* V \simeq (\HC^{\RedMRM} V)^{\GD}$ and $\iota_\RedMRM \simeq p^{\RedMRM,*}$ under the dualization.
@@ -174,7 +176,7 @@ We will now prove CP1, CP2, CP3 and CP4 for strictly unital $\AInfty$-algebras. 
 We first introduce some notation which simplifies computations:
 \begin{Definition}[Notation]
 For the cyclic permutation $\CycPermOp_k^i$ ($\coloneqq i$-times $t_k$), we define $c\coloneqq k - i + 1$ and write
-$$ v_c \dotsb v_{c-1} \coloneqq \CycPermOp_k^i(v_1\otimes \dotsb \otimes v_k). $$ 
+\[ v_c \dotsb v_{c-1} \coloneqq \CycPermOp_k^i(v_1\otimes \dotsb \otimes v_k). \] 
 We compute indices modulo $k$ and often omit writing the tensor product.
 %\item We denote by $\le$ the \emph{cyclic ordering} on $\{1, \dots, k\}$; for example, for $k=4$, we have $4 \le 1 \le 3$. 
 %For two indices $i_1$, $i_2\in \{1,\dots,k\}$ we let $\mathrm{dist}(i_1,i_2)$ be their distance in the cyclic ordering; for example $\mathrm{dist}$
@@ -185,24 +187,24 @@ For every $i = 1$,~$\dotsc$, $k$ and $j = 1$,~$\dotsc$, $k-i+ 1$, we define the 
 &\qquad \coloneqq (-1)^{\Abs{v_1} + \dotsb + \Abs{v_i-1}} v_1 \otimes \dotsb \otimes \mu_j(v_i \otimes \dotsb \otimes v_{i+j-1})\otimes \dotsb \otimes v_k.
 \end{aligned} \end{equation}
 If we apply the closed bracket two-times, we write the first application as an \emph{underbracket} and the second as an \emph{overbracket}; for instance, we have
-$$ \begin{aligned} & v_1 \dotsb \MuII{v_{i_1} \dotsb v_{i_2}} \dotsb \MuI{v_{i_3}\dotsb v_{i_4}} \dotsb v_k \\ 
+\[ \begin{aligned} & v_1 \dotsb \MuII{v_{i_1} \dotsb v_{i_2}} \dotsb \MuI{v_{i_3}\dotsb v_{i_4}} \dotsb v_k \\ 
 & \quad =  \begin{multlined}[t] (-1)^{\Abs{v_{i_1}} + \dotsb + \Abs{v_{i_3-1}}}
  v_1 \otimes \dotsb \otimes \mu_{j_2}(v_{i_1}\otimes \dotsb \otimes v_{i_2})\otimes \dotsb \\ \otimes \mu_{j_1}(v_{i_3}\otimes \dotsb \otimes v_{i_4})\otimes \dotsb \otimes v_k,
-\end{multlined}\end{aligned}$$
+\end{multlined}\end{aligned}\]
 where $j_1 = i_4 - i_3 + 1$, $j_2 = i_2 - i_1 + 1$. Clearly, the difference is only in the sign. We denote
- $$ v_1 \dotsb v_{i-1} \NOneII v_{i} \dotsb v_k \coloneqq \InsOneOp_i(v_1 \dotsb v_k) = (-1)^{\Abs{v_1}+\dotsb+\Abs{v_{i-1}}} v_1\dotsb v_{i-1} \NOne v_i \dotsb v_k. $$
+ \[ v_1 \dotsb v_{i-1} \NOneII v_{i} \dotsb v_k \coloneqq \InsOneOp_i(v_1 \dotsb v_k) = (-1)^{\Abs{v_1}+\dotsb+\Abs{v_{i-1}}} v_1\dotsb v_{i-1} \NOne v_i \dotsb v_k. \]
  If $\InsOneOp_i$ is composed with an other operation, we write $\NOneI$ if the corresponding $\NOne$ was inserted first and $\NOneII$ if it was inserted second. For example, we have
- $$ v_1 \NOneI v_2 v_3 \NOneII v_4 = \InsOneOp_5(\InsOneOp_2(v_1 v_2 v_3 v_4)). $$
+ \[ v_1 \NOneI v_2 v_3 \NOneII v_4 = \InsOneOp_5(\InsOneOp_2(v_1 v_2 v_3 v_4)). \]
 
 For $j\ge 1$ and $1\le i_1 \le i_2 \le k$ with $i_2 - i_1 \ge j$, we define the \emph{open bracket} as follows:
- $$ v_1 \dotsb \OMuIIO[j]{v_{i_1} \dotsb v_{i_2}} \dotsb v_k \coloneqq \sum_{\substack{i_1\le i_3 \le i_4 \le i_2 \\ i_4 - i_3 = j}} v_1 \dotsb v_{i_1} \dotsb \MuII{v_{i_3}\dotsb v_{i_4}} \dotsb v_{i_2} \dotsb v_k. $$
+ \[ v_1 \dotsb \OMuIIO[j]{v_{i_1} \dotsb v_{i_2}} \dotsb v_k \coloneqq \sum_{\substack{i_1\le i_3 \le i_4 \le i_2 \\ i_4 - i_3 = j}} v_1 \dotsb v_{i_1} \dotsb \MuII{v_{i_3}\dotsb v_{i_4}} \dotsb v_{i_2} \dotsb v_k. \]
 \end{Definition}
 
 Using the notation above, it holds
-$$ \begin{aligned}
+\[ \begin{aligned}
 b'(v_1\dotsb v_k) &= \sum_{1\le i_1 \le i_2 \le k} v_1 \dotsb \MuII{v_{i_1} \dotsb v_{i_2}} \dotsb v_k = \sum_{j=1}^k \OMuIIO[j]{v_1\dotsb v_k}, \\
 R(v_1\dotsb v_k) & = \sum_{\substack{2 \le c \le k}} \MuII{v_{c} \dotsb v_{1}} \dotsb v_{c-1},
-\end{aligned} $$
+\end{aligned} \]
 and the $\AInfty$-relations simplify to
 \begin{equation} \label{Eq:AInftyCyclic}
 \sum_{1 \le i_1 \le  i_2 \le k} \MuII{v_{1}\dotsb \MuI{v_{i_1} \dotsb v_{i_2} } \dotsb v_{k}} = \sum_{j=1}^k \MuII{\OMuIO[j]{v_1\dotsb v_k}} = 0. 
@@ -214,11 +216,11 @@ v_{1}\dotsb \MuI{v_{i_1} \dotsb v_{i_2}} \dotsb \MuII{v_{i_3} \dotsb v_{i_4}} \d
 
 \begin{Lemma}[CP1] \label{Lem:CP1}
 For an $\AInfty$-algebra $(V,(\mu_j))$, it holds
-$$ \Hd'\circ \Hd' = 0\quad\text{and}\quad \Hd \circ \Hd = 0. $$
+\[ \Hd'\circ \Hd' = 0\quad\text{and}\quad \Hd \circ \Hd = 0. \]
 \end{Lemma}
 \begin{proof}
 We write
-$$ \Hd\circ\Hd  = (\Hd' + R)\circ(\Hd' + R) = \Hd'\circ \Hd' + \Hd' \circ R + R \circ \Hd' + R \circ R $$
+\[ \Hd\circ\Hd  = (\Hd' + R)\circ(\Hd' + R) = \Hd'\circ \Hd' + \Hd' \circ R + R \circ \Hd' + R \circ R \]
 and evaluate it on a tensor $v_1\dotsb v_k \in \HC V$. We claim that a summand of $\Hd(\Hd(v_1\dotsb v_k))$ coming from the subsequent application of the operations can be uniquely determined by the following data: 
 \begin{itemize}
 \item the information whether it comes from $\Hd'\circ \Hd'$, $\Hd'\circ R$, $R\circ \Hd'$ or $R\circ R$;
@@ -260,7 +262,7 @@ For an $\AInfty$-algebra $(V,(\mu_j))$, the following relations hold:
 \begin{proof}
 \begin{ProofList}
 \item We denote $z_j \coloneqq \mu_j \otimes \Id^{k-j}$ and omit writing the composition $\circ$. We consider the components
-$$ {\Hd'}_k^j \coloneqq \sum_{i=0}^{k-j} \CycPermOp^i_{k-j+1}z_j\CycPermOp_k^{-i} \qquad\text{and}\qquad R_k^j \coloneqq \sum_{i=1}^{j-1} z_j\CycPermOp_k^i. $$
+\[ {\Hd'}_k^j \coloneqq \sum_{i=0}^{k-j} \CycPermOp^i_{k-j+1}z_j\CycPermOp_k^{-i} \qquad\text{and}\qquad R_k^j \coloneqq \sum_{i=1}^{j-1} z_j\CycPermOp_k^i. \]
 It holds
 \begin{align*} 
 {\Hd'}_k^j \CountOp_k &= \sum_{l=0}^{k-1}\sum_{i=0}^{k-j} \CycPermOp^i_{k-j+1} z_j \CycPermOp^{-i + l}_k \\
@@ -268,15 +270,15 @@ It holds
 & = \sum_{u=1-k}^{k-j} \bigl(\sum_{l\in L_u} \CycPermOp^l_{k-j+1}\bigr) \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k,
 \end{align*}
 where $u \coloneqq i - l$ and 
-$$L_u \coloneqq \{ l\in \{0, \dotsc, k-1\} \mid \exists i\in \{0,\dotsc, k-j\} : u = i-l \}. $$ 
+\[L_u \coloneqq \{ l\in \{0, \dotsc, k-1\} \mid \exists i\in \{0,\dotsc, k-j\} : u = i-l \}. \] 
 We distinguish the cases
-$$ L_u = \begin{cases}
+\[ L_u = \begin{cases}
          \{0,\dotsc, k-j-u\} & \text{for }0\le u \le k-j, \\
          \{-u, \dotsc, k-j-u\} & \text{for } 1-j \le u \le -1\quad\text{and} \\
          \{-u, \dotsc, k -1\} & \text{for }1-k \le u \le -j
-         \end{cases}$$
+         \end{cases}\]
 and denote the corresponding sums by $\mathrm{I}$, $\mathrm{II}$ and $\mathrm{III}$, respectively. It holds         
-$$ \mathrm{I} = \sum_{u=0}^{k-j} \bigr(\sum_{l=0}^{k-j-u} \CycPermOp^l_{k-j+1} \bigl) \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k $$
+\[ \mathrm{I} = \sum_{u=0}^{k-j} \bigr(\sum_{l=0}^{k-j-u} \CycPermOp^l_{k-j+1} \bigl) \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k \]
 and  
 \begin{align*}
 \mathrm{III} &= \sum_{u = 1- k}^{-j} \sum_{l = -u}^{k-1} \CycPermOp^l_{k-j+1} \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k \\
@@ -285,11 +287,11 @@ and
 & = \sum_{u=1}^{k-j} \bigl(\sum_{l =  k - j -u + 1}^{k-j} \CycPermOp^l_{k-j+1}\bigr) \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k.
 \end{align*}
 Therefore, we have
-$$ \mathrm{I} + \mathrm{III} = \sum_{u=0}^{k-j} \bigl( \sum_{l=0}^{k-j} \CycPermOp^l_{k-j+1} \bigr) \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k = \CountOp_{k-j+1} {b'}_k^j $$
+\[ \mathrm{I} + \mathrm{III} = \sum_{u=0}^{k-j} \bigl( \sum_{l=0}^{k-j} \CycPermOp^l_{k-j+1} \bigr) \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k = \CountOp_{k-j+1} {b'}_k^j \]
 Next, we have
-$$ \mathrm{II} = \sum_{u = 1-j}^{-1} \sum_{l=-u}^{k-j-u} \CycPermOp^l_{k-j+1} \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k = \sum_{u = 1}^{j-1} \bigl(\sum_{l=0}^{k-j} \CycPermOp^l_{k-j+1}\bigr) z_j \CycPermOp^u_k = \CountOp_{k-j+1} R_k^j. $$
+\[ \mathrm{II} = \sum_{u = 1-j}^{-1} \sum_{l=-u}^{k-j-u} \CycPermOp^l_{k-j+1} \CycPermOp^u_{k-j+1} z_j \CycPermOp^{-u}_k = \sum_{u = 1}^{j-1} \bigl(\sum_{l=0}^{k-j} \CycPermOp^l_{k-j+1}\bigr) z_j \CycPermOp^u_k = \CountOp_{k-j+1} R_k^j. \]
 We conclude that
-$$ {\Hd'}_k^j \CountOp_k = \CountOp_{k-j+1}{\Hd'}_k^j + \CountOp_{k-j + 1} R_k^j = \CountOp_{k-j+1}\Hd_k. $$
+\[ {\Hd'}_k^j \CountOp_k = \CountOp_{k-j+1}{\Hd'}_k^j + \CountOp_{k-j + 1} R_k^j = \CountOp_{k-j+1}\Hd_k. \]
 This proves the claim.
 \item For every $k\ge 1$ and $1\le j \le k$ we compute
 \begin{align*}
@@ -306,20 +308,20 @@ This proves the claim. \qedhere
 
 \begin{Lemma}[CP3] \label{Lem:CP3}
 For a strictly unital $\AInfty$-algebra $(V,(\mu_k),\NOne)$, it holds
-$$ \Hd'\circ \InsOneOp_1 + \InsOneOp_1 \circ \Hd' = \Id. $$
+\[ \Hd'\circ \InsOneOp_1 + \InsOneOp_1 \circ \Hd' = \Id. \]
 \end{Lemma}
 \begin{proof}
 For any $k\ge 1$ and $v_1$, $\dotsc$, $v_k \in V[1]$, we compute
-$$ \begin{aligned} 
+\[ \begin{aligned} 
 \Hd' \InsOneOp_1(v_1\dots v_k) + \InsOneOp_1 \Hd' (v_1\dots v_k) &= \MuII{\NOneI v_1} v_2 \dots v_k  + \NOneI \OMuIIO{v_1 \dots v_k} + \NOneII \OMuIO{v_1 \dots v_k} \\ &= v_1 \dots v_k. 
-\end{aligned} $$
+\end{aligned} \]
 This proves the claim.
 \end{proof} 
 
 
 \begin{Lemma}[CP4] \label{Lem:CP4}
 Let $\mathcal{A} = (V,(\mu_k),\NOne)$ be a strictly unital $\AInfty$-algebra. For all $k\ge 2$, we define $h_k: \HC V \rightarrow \HC V$ by
-$$ h_k\coloneqq \InsOneOp_k \circ \Hd + \Hd\circ \InsOneOp_k + \Id. $$
+\[ h_k\coloneqq \InsOneOp_k \circ \Hd + \Hd\circ \InsOneOp_k + \Id. \]
 Then the formulas
 \begin{align*}
     s^* &\coloneqq  s^*_2 + s^*_3 \circ h^*_2 + s^*_4 \circ h^*_3 \circ h_2^* + \dotsb\quad\text{and} \\
@@ -334,11 +336,11 @@ It implies that $\NormIncl$ and $\NormProj$ are quasi-isomorphisms.
 
 \begin{proof}
 We set $\HNC^*_{(1)} V\coloneqq \HC^* V$, and for all $k\ge 2$, we define
-$$ \HNC^*_{(k)} V \coloneqq \{\psi\in \HC^* V \mid \psi \circ \InsOneOp_i = 0\text{ for all }i=2, \dotsc, k\}. $$
+\[ \HNC^*_{(k)} V \coloneqq \{\psi\in \HC^* V \mid \psi \circ \InsOneOp_i = 0\text{ for all }i=2, \dotsc, k\}. \]
 We will show first that $h_k^*$ restricts to a projection $\HNC^*_{(k-1)}V \rightarrow \HNC^*_{(k)} V$.  Let $i \ge 1$ and $v_1$,~$\dotsc$, $v_i\in V[1]$. We make the following computations:
 \begin{PlainList}
 \item For $i<k-1$, we have
-$$(\InsOneOp_i \Hd + \Hd \InsOneOp_i)(v_1 \dots v_i) = 0 $$
+\[(\InsOneOp_i \Hd + \Hd \InsOneOp_i)(v_1 \dots v_i) = 0 \]
 by the definition of $\InsOneOp_ik$ and by the fact that $\Hd$ does not increase weights.
 \item For $i = k-1$, we have
 \begin{align*}
@@ -371,14 +373,14 @@ Notice that $\NOne$ is at the $k$-th position in $\mathrm{I}$ and $\mathrm{III}$
 Let $k\ge 2$, and let $\psi\in \HNC_{(k-1)}^* V$. In order to show that $\InsOneOp_j^* h_k^* \psi = 0$ for $2 \le j \le k$, let $i\ge j$, and let $v_1$,~$\dotsc$, $v_{i}\in V[1]$ be such that $v_{j} = \NOne$.
 %The only non-trivial case to consider is (3).
 Clearly, $\psi(\mathrm{II}) = \psi(\mathrm{IV}) = 0$ for any~$v$'s. As for $\mathrm{III}$, the vector $v_j=\NOne$ lies either inside $\mu_j$ with $j\ge 3$ or at a position $<k$. It follows that $\psi(\mathrm{III})=0$. As for $\mathrm{I}$, we write 
-$$ \mathrm{I} = \overbrace{\OMuIO[2]{v_1 \dotsb v_k} \NOneII v_{k+1} \dotsb v_i}^{\mathrm{Ia}} + \overbrace{\sum_{j\ge 3}^{i-k+2} \OMuIO[j]{v_1\dotsb v_{k+j-2}}\NOneII v_{k+j-1}\dotsb v_i}^{\mathrm{Ib}}. $$
+\[ \mathrm{I} = \overbrace{\OMuIO[2]{v_1 \dotsb v_k} \NOneII v_{k+1} \dotsb v_i}^{\mathrm{Ia}} + \overbrace{\sum_{j\ge 3}^{i-k+2} \OMuIO[j]{v_1\dotsb v_{k+j-2}}\NOneII v_{k+j-1}\dotsb v_i}^{\mathrm{Ib}}. \]
 It holds $\psi(\mathrm{Ib})=0$. For $2\le j<k$, it holds  
 \begin{align*}
 \psi(\mathrm{Ia}) &= \begin{multlined}[t]\psi(v_1 \dots \MuI{v_{j-1}\NOne} v_{j+1} \dots v_k \NOneII v_{k+1} \dots v_i) \\{}+ \psi(v_1 \dots v_{j-1}\MuI{\NOne v_{j+1}} \dots v_k \NOneII v_{k+1} \dots v_i) \end{multlined} \\ 
 &= 0,
 \end{align*}
 whereas for $j=k$, we have
-$$ \psi(v_1 \dotsb \MuI{v_{k-1} \NOne} \NOneII v_{k+1} \dotsb v_i) = - \psi(v_1 \dots v_{i}). $$
+\[ \psi(v_1 \dotsb \MuI{v_{k-1} \NOne} \NOneII v_{k+1} \dotsb v_i) = - \psi(v_1 \dots v_{i}). \]
 It follows that
 \begin{equation}
  h_k^*\psi(v_1 \dotsb v_i) = \psi(v_1\dotsb v_i) + \psi\bigl((\InsOneOp_i \Hd + \Hd \InsOneOp_i)(v_1\dotsb v_i)\bigr) = 0.
@@ -391,7 +393,7 @@ For $k\ge 2$, we define
  \leftidx{^k}{h}{^*} &\coloneqq h_k^* \circ \dotsb \circ h_2^*.
 \end{align*}
 Let $\Filtr^n_{\WeightMRM} \HC V = \bigoplus_{k=1}^n \HC_k V$ be the filtration of $\HC V$ by weights. For all $k\ge n+1$ it holds
-$$ \Restr{\leftidx{^{k}}{h}{^*}\psi}{\Filtr^n_{\WeightMRM} \HC V} = \leftidx{^{n+1}}{h}{^*}\psi\quad\text{and}\quad \Restr{\leftidx{^k}{s}{^*}\psi}{\Filtr^n_{\WeightMRM} \HC V} = \leftidx{^{n+1}}{s}{^*}\psi. $$
+\[ \Restr{\leftidx{^{k}}{h}{^*}\psi}{\Filtr^n_{\WeightMRM} \HC V} = \leftidx{^{n+1}}{h}{^*}\psi\quad\text{and}\quad \Restr{\leftidx{^k}{s}{^*}\psi}{\Filtr^n_{\WeightMRM} \HC V} = \leftidx{^{n+1}}{s}{^*}\psi. \]
 It follows that $h^*$, $s^*: \HC^* V \rightarrow \HC^* V$ are well-defined and that $h^*$ is a projection onto~$\HNC^* V$. Also, it suffices to prove  \eqref{Eq:Homot} with~$\leftidx{^k}{s}{^*}$ and~$\leftidx{^k}{h}{^*}$ instead of~$s^*$ and~$h^*$ for each~$k\ge 2$. For~$k=2$, it holds by definition. Suppose that \eqref{Eq:Homot} holds for some~$k\ge 2$. Then
 \begin{align*}
 &\Hd^*\circ (\leftidx{^{k+1}}{s}{^*}) + (\leftidx{^{k+1}}{s}{^*})\circ \Id \\
@@ -404,7 +406,7 @@ The lemma is finally proven.\qedhere
 \end{proof}
 %\begin{proof}
 %It is easy to check that 
-%$$ \Restr{\leftidx{^k}{h}{}}{\Filtr_n \B V} = \leftidx{^{n+1}}{h}{}\quad\text{and}\quad \Restr{\leftidx{^k}{s}{}}{\Filtr_n \B V} = \leftidx{^{n+1}}{s}{}\quad \text{for all }k\ge n+1. $$
+%\[ \Restr{\leftidx{^k}{h}{}}{\Filtr_n \B V} = \leftidx{^{n+1}}{h}{}\quad\text{and}\quad \Restr{\leftidx{^k}{s}{}}{\Filtr_n \B V} = \leftidx{^{n+1}}{s}{}\quad \text{for all }k\ge n+1. \]
 %It follows that $\Hd$, $s: \BV \rightarrow \BV$ are well-defined and we can prove the homotopy by proving it for $\leftidx{^k}{h}{}$, $\leftidx{^k}{s}{}$ for all $k$, or in other words on $\Filtr_{k-1} \B V$. However, can I get a direct homotopy from this?
 %\end{proof}
 %
@@ -446,7 +448,7 @@ respectively. The standard convention is that the squares anticommute (see \cite
  \ToDo[noline,caption={DONE Do bicomplexes commute or anticommute?}]{According to our convention, the squares anti-commute. Boardmann says they should anticommute!!! }
  
 We consider the \emph{total complexes} $(\TotI(B), \Bdd)$ and $(\TotII(B),\Bdd)$, where for all $q\in \Z$, the chain groups are defined by
-$$ (\TotI B)_q \coloneqq \bigoplus_{i + j =q} B_{i,j},\quad\text{and}\quad (\TotII B)_q \coloneqq \prod_{i + j =q} B_{i,j}, $$
+\[ (\TotI B)_q \coloneqq \bigoplus_{i + j =q} B_{i,j},\quad\text{and}\quad (\TotII B)_q \coloneqq \prod_{i + j =q} B_{i,j}, \]
 respectively, and where $\Bdd = \Bdd_v + \Bdd_h$ is the total boundary operator consisting of the vertical and horizontal boundary operators $\Bdd_v$ and $\Bdd_h$, respectively. 
 %we have $\Tot_I(B^{\DblBul})$ and $\Tot_{II}(B^{\DblBul})$ with $\Dd = \Dd_v + \Dd_h$.
 The homologies of $\TotI$ and $\TotII$ are denoted by $\H B$ and $\H \hat{B}$, respectively. We proceed similarly in cohomology.\Add[caption={DONE Remark about half-plane bi},noline]{Make a remark why half-plane happen in A-infinity, example of the snake where the spectral sequence does not compute the homology properly, make a remark about dualizations. These are the main problems.}
@@ -464,14 +466,14 @@ For each $B$ and $B^*$, we consider the vertical and horizontal filtrations whic
 In order to check that morphisms of bicomplexes induce quasi-isomorphisms of total complexes, we will use the techniques of spectral sequences. Because we work with half-plane bicomplexes, our spectral sequences do not lie in the first quadrant, as in~\cite{Weibel1994}, and the notion of conditional convergence from~\cite{Boardmann1999} comes in handy. In the following, we recall some basic theory and formulate a proposition about the convergence of some unbounded spectral sequences.
 
 A \emph{cohomological spectral sequence} is a collection $\SSPage_r$ of bigraded vector spaces and differentials $\SSDiff_{r}: \SSPage_r^{\bullet\bullet} \rightarrow \SSPage_r^{\bullet+r,\bullet-r+1}$ for $r\in \N$ such that $\SSPage_{r+1} = \H(\SSPage_r,\SSDiff_r)$. Let $(C^*,\Dd)$ be a cochain complex with a decreasing filtration $\Filtr^s C^*$ (it has to be graded and preserved by~$\Dd$). For every $s\in \Z$, the short exact sequence
-$$ 0\longrightarrow \Filtr^{s+1} C^* \overset{i}{\longrightarrow} \Filtr^s C^* \overset{j}{\longrightarrow} \Gr_s(C^*) \coloneqq \Filtr^{s} C^* / \Filtr^{s+1} C^* \longrightarrow 0 $$
+\[ 0\longrightarrow \Filtr^{s+1} C^* \overset{i}{\longrightarrow} \Filtr^s C^* \overset{j}{\longrightarrow} \Gr_s(C^*) \coloneqq \Filtr^{s} C^* / \Filtr^{s+1} C^* \longrightarrow 0 \]
 induces the long exact sequence\Modify[caption={DONE Labels on arrows},noline]{Add labels $i$, $j$, $\delta$ to arrows!}
-$$\dotsb \longrightarrow \H^\bullet(\Filtr^{s+1} C^*) \overset{i}{\longrightarrow}  \H^\bullet(\Filtr^{s} C^*) \overset{j}{\longrightarrow} \H^\bullet(\Gr_s C^*) \overset{\delta}{\longrightarrow} \H^{\bullet+1}(\Filtr^{s+1} C^*) \longrightarrow \dotsb, $$
+\[\dotsb \longrightarrow \H^\bullet(\Filtr^{s+1} C^*) \overset{i}{\longrightarrow}  \H^\bullet(\Filtr^{s} C^*) \overset{j}{\longrightarrow} \H^\bullet(\Gr_s C^*) \overset{\delta}{\longrightarrow} \H^{\bullet+1}(\Filtr^{s+1} C^*) \longrightarrow \dotsb, \]
 which wraps into the exact couple of bigraded vector spaces
-$$\begin{tikzcd}
+\[\begin{tikzcd}
 A_1 \coloneqq \bigoplus_{s\in \Z} \H(\Filtr^s C^*)[s]  \arrow{rr}{i} && A_1 \arrow{dl}{j}\\
  & \SSPage_1 \coloneqq \bigoplus_{s\in \Z} \H(\Gr_s C^*)[s] \arrow{ul}{\delta}.
-\end{tikzcd}$$
+\end{tikzcd}\]
 This is the so called \emph{geometric grading} convention.\footnote{It is chosen such that $\SSPage_1^{sd} = \H(B^{sd},\Dd_\VertMRM)$ for the vertical filtration.} We also define $A_1^s \coloneqq \H(\Filtr^s C^*)$ and $\SSPage_1^s \coloneqq \H(\Gr_s C^*)$. By deriving this triangle (see, e.g., \cite{Cieliebak2013}), one obtains a spectral sequence $\SSPage_r$ associated to the filtration. One defines the $\SSPage_\infty$ page (see~\cite{Boardmann1999}) and studies the convergence of $\SSPage_r$ to a filtered group $G$. In order to formulate this, one considers the limit $A^\infty \coloneqq \lim_s A^s$, the colimit $A^{-\infty} \coloneqq \colim_s A^s$ and the right derived module for the limit $RA^\infty \coloneqq \lim_s^1 A^s$. We will use the following notions of convergence:
 \begin{enumerate}
 \item\emph{Strong convergence to a filtered group $G$}\ $:\Equiv$\ For each $s\in \Z$, we have $\Gr_s G \simeq \SSPage_\infty^s/\SSPage_\infty^{s+1}$ and the filtration on $G$ is exhaustive, Hausdorff and complete (i.e., $G^\infty = 0$, $G^{-\infty} = G$ and $RG^\infty = 0$ for $G^s \coloneqq \Filtr^s G$).
@@ -485,7 +487,7 @@ The following statements about convergence of spectral sequences hold:
 \item For any $\Z$-graded cochain complex $(C^*,\Dd)$ with the canonical filtration $\Filtr^k_{\CanMRM} C^* \coloneqq \bigoplus_{i\ge k} C^i$, the associated spectral sequence converges strongly and conditionally to the colimit $\H(C^*)$.
 \item The spectral sequence associated to the total complex $\TotI B^*$ of a cohomological half-plane bicomplex $B^*$ with the filtration induced from the horizontal filtration $\Filtr^k_{\HorMRM} B^* = \bigoplus_{i\in\Z}\bigoplus_{j\ge k} B^{ij}$ converges strongly to the colimit $\H(\TotI B^*)$.
 \item The spectral sequence associated to the total complex $\TotI B^*$ of a cohomological half-plane bicomplex $B^{*}$ with the filtration induced from the diagonal filtration 
-$$ \Filtr^k B^* = \bigoplus_{j-i>k} B^{ij} \oplus \bigoplus_{i\in \N_0} Z^{i,k+i}, $$
+\[ \Filtr^k B^* = \bigoplus_{j-i>k} B^{ij} \oplus \bigoplus_{i\in \N_0} Z^{i,k+i}, \]
 where $Z^{ij} \subset B^{i j}$ is such that $\Dd_{\HorMRM} Z^{ij} = 0$ and $\Dd_{\HorMRM} B^{i-1 j} \subset Z^{ij}$, converges strongly to the colimit $\H(\TotI B^*)$.
 \item The spectral sequence associated the total complex $\TotII B^*$ of a cohomological half-plane bicomplex $B^{*}$ with the filtration induced from the vertical filtration $\Filtr^k_{\VertMRM} B^* = \bigoplus_{i\ge k}\bigoplus_{j\in\Z} B^{ij}$ converges conditionally to the colimit $\H(\TotII B^*)$.
 \end{ClaimList}
@@ -516,15 +518,15 @@ Suppose that $\SSPage^s = 0$ for all $s>0$ and $A^{-\infty} = 0$. Then the spect
 The proof can be done degreewise (see \cite{MO336781}), and it can be shown that Theorem~\ref{Thm:Boardman61} generalizes appropriately under the weaker assumption of ``exiting differentials''. This means that the pages occupy a half-plane and for any fixed $(s,d)$, all but finitely many differentials $\Dd_r: \SSPage_r^{sd} \rightarrow \SSPage_{r}^{s+r,d-r+1}$  leave the half-plane (and thus vanish). In our case,~$\SSPage_r^{sd}$ occupy the half-plane $\{(s,d)\mid d\ge 0\}$, and because $d-r+1 \to -\infty$ as $r\to \infty$, the condition of exiting differentials is satisfied.
 
 We still have to check that $A^{\infty}=0$ and compute $A^{-\infty}$. Because the colimit is an exact functor, it commutes with $\H$, and we have
-$$ A^{-\infty} = \colim_s \H(\Filtr^s\TotI B^*) = \H(\colim_s\Filtr^s\TotI B^*) = \H\Bigl(\bigcup_s \Filtr^s \TotI B^*\Bigr) = \H(\TotI B^*). $$
+\[ A^{-\infty} = \colim_s \H(\Filtr^s\TotI B^*) = \H(\colim_s\Filtr^s\TotI B^*) = \H\Bigl(\bigcup_s \Filtr^s \TotI B^*\Bigr) = \H(\TotI B^*). \]
 We used here that $\Filtr$ is exhaustive. The limit $A^\infty$ can be represented as
-$$ A^\infty \simeq \Bigl\{([a_s]) \in \prod_{s\in \Z} A^s \mid [a_{s+1}]\mapsto [a_s]\Bigr\}, $$
+\[ A^\infty \simeq \Bigl\{([a_s]) \in \prod_{s\in \Z} A^s \mid [a_{s+1}]\mapsto [a_s]\Bigr\}, \]
 where $\H(\Filtr^{s+1}\TotI B^*) \rightarrow \H(\Filtr^s \TotI B)$ is induced by the inclusion $\Filtr^{s+1}\TotI B^* \xhookrightarrow{} \Filtr^s \TotI B^*$. Pick $s_0\in \Z$ and consider $[a_{s_0}] \in A^{s_0}$ with a fixed representative $a_{s_0}\in \Filtr^{s_0} B^*$. Because the cohomological degrees of $a_{s_0}$ are bounded, let's say that $d_0\in \Z$ is an upper bound, and the filtration is degreewise bounded from below, there is an $s_1 \ge s_0$ such that $\Filtr^{s} \TotI B^* \cap (\TotI B^*)^{d} = 0$ for all $s\ge s_1$ and $d\le d_0$. Now, we have $[a_{s_1}] \mapsto [a_{s_0}]$, and hence $[a_{s_0}] = 0$. Because $s_0$ was arbitrary, we get $([a_s]) = 0$. Therefore, it holds $A^\infty=0$.
 
 Alternatively, a direct proof of (b) can be found in \cite{Cencelj1998}.
 
 \item The first page reads
-$$\SSPage_1^{sd} = \H^{s+d}(\Gr_s \TotI B^*) = \H(B^{\lfloor\frac{d}{2}\rfloor,s+\lceil\frac{d}{2}\rceil},\Dd'), $$
+\[\SSPage_1^{sd} = \H^{s+d}(\Gr_s \TotI B^*) = \H(B^{\lfloor\frac{d}{2}\rfloor,s+\lceil\frac{d}{2}\rceil},\Dd'), \]
 where $\Dd'$ is the differential on $\Gr \TotI B^*$. We see that $\SSPage_r^{sd}$ occupy the half-plane $\{(s,d)\mid d\ge 0\}$, and hence the condition of exiting differentials is satisfied. The groups~$A^\infty$ and~$A^{-\infty}$ are computed as in (b). The strong convergence is again implied by a generalization of Theorem~\ref{Thm:Boardman61}.
 
 Alternatively, one can modify the direct proof for the horizontal filtration from~\cite{Cencelj1998}.
@@ -534,7 +536,7 @@ Alternatively, one can modify the direct proof for the horizontal filtration fro
 Let $C^*$ be a cochain complex filtered by an exhaustive, Hausdorff and complete filtration. Then the spectral sequence converges conditionally to $\H(C^*)$.
 \end{ProofTheorem}
 We have
-$$ \Filtr^k_{\VertMRM} (\TotI B^*)^d = \bigoplus_{i\ge k} B^{i,d-i}, $$
+\[ \Filtr^k_{\VertMRM} (\TotI B^*)^d = \bigoplus_{i\ge k} B^{i,d-i}, \]
 and hence $\TotII B^*$ is the completion of $\TotI B^*$ with respect to $\Filtr_{\VertMRM}$. Hence, it is complete. Clearly, it is also Hausdorff and exhaustive, and we can apply Theorem~\ref{Thm:Thm92}.
 
 \item This follows from (a), (b), (c) and the following theorem:
@@ -560,7 +562,7 @@ Therefore, the condition $\SSPage^s = \bar{\SSPage}^s = 0$ for all $s<0$ is sati
 \begin{Remark}[Differences to first-quadrant bicomplexes]\label{Rem:SpecSeq}
 \begin{RemarkList}
 \item Given a half-plane bicomplex $B$, we have
-$$ (\TotI B)^{\GD} \simeq \TotII B^*, $$
+\[ (\TotI B)^{\GD} \simeq \TotII B^*, \]
 where $B^* = \bigoplus_{i,j} B_{ij}^*$ is the ``pointwise dual'' to $B$. This is why we have to consider homology and cohomology separately and can not just dualize the results.
 \item The vertical filtration of $B^*$ might not converge strongly to $\H(\TotI B^*)$. Indeed, let
 \begin{center}
@@ -659,16 +661,16 @@ The coordinate $(0,0)$ in the bicomplexes above always correspond to $\HC^0 V$ i
 \end{Definition}
 %
 %The reason why we consider half-plane bicomplexes is that some filtration become bounded. One can also continue the bicomplexes to the left and obtain other homology theories.
-Note that an other convention of drawing homological bicomplexes in the left half-plane and cohomological bicomplexes in the right half-plane might be more natural.
+Note that another convention of drawing homological bicomplexes in the left half-plane and cohomological bicomplexes in the right half-plane might be more natural.
 \Add[caption={DONE Origin of bicomplexes},noline]{Define where the point $(0,0)$ is for the bicomplexes.}
 \begin{Remark}[Mixed complexes]\label{Rem:MixedCompl}
 One can equivalently encode the data of a cohomological Connes bicomplex into that of a mixed complex $(\HC^*,\Hd^*,\Cd^*)$. In general, it is a graded vector space $\HC^*$ with a differential $\Hd^*$, $\Abs{\Hd^*}=1$ and a boundary operator $\Cd^*$, $\Abs{\Cd^*}=-1$ which anticommute. One introduces the formal symbol~$\FormU$ of degree $\Abs{\FormU}= 2$ and considers the polynomial ring $\HC^*[\FormU]$ in $\FormU$ with values in~$\HC^*$ and the ring of power series $\HC^*[[\FormU]]$ with the differential $\Hd^* + \Cd^*\FormU$. Clearly, the former is quasi-isomorphic to $\TotI(\ConCycBi^{*})$ and the latter to $\TotII(\ConCycBi^{*})$ (columns of $\ConCycBi^{*}$ are indexed with non-negative powers of $\FormU$).
 %Doing this in homology, the degrees are multiplied with $-1$, and one has to consider the rings $\HC[\FormU^{-1}]$ and $\HC[[\FormU^{-1}]]$ instead (columns of $\ConCycBi$ are indexed with non-positive powers of $\FormU$).
-Altogether, there are seven versions $[\FormU]$, $[\FormU^{-1}]$, $[\FormU,\FormU^{-1}]$, $[[\FormU^{-1},\FormU]$, $[\FormU^{-1},\FormU]]$, $[[\FormU,\FormU^{-1}]]$ whose relation is studied in \cite{Cieliebak2018b}. Some of these might be related to periodic and negative versions of cyclic homology (see~\cite{LodayCyclic}).
+Altogether, there are seven versions $[\FormU]$, $[\FormU^{-1}]$, $[\FormU,\FormU^{-1}]$, $[[\FormU^{-1},\FormU]$, $[\FormU^{-1},\FormU]]$, $[[\FormU,\FormU^{-1}]]$ whose relation is studied in \cite{Cieliebak2018b}. Some of these are related to periodic and negative versions of cyclic homology (see~\cite{LodayCyclic}).
 \end{Remark}
 %\begin{Remark}
 %The map $u$ from v) of Remark \ref{Remark:BasicDef} induces the maps of bicomplexes $u : \ConCycBi_{**}(\R) \rightarrow \ConCycBi_{**}(\mathcal{A})$ and $u^*: \ConCycBi^{**}(\mathcal{A}) \rightarrow \ConCycBi^{**}(\R)$.  
-%$$ \ConCycBi^{\mathrm{red}}_{**}\coloneqq \CoKer(u) \quad\text{and}\quad \ConCycBi_{\mathrm{red}}^{**}\coloneqq \ker(u^*). $$
+%\[ \ConCycBi^{\mathrm{red}}_{**}\coloneqq \CoKer(u) \quad\text{and}\quad \ConCycBi_{\mathrm{red}}^{**}\coloneqq \ker(u^*). \]
 %We denote the corresponding (co)homologies by $H\ConCycBi$ and $H\hat{\ConCycBi}$.
 %\end{Remark}
 In the following proofs, we might not need the full strength of Proposition~\ref{Prop:ConvOfSpSeq} since the spectral sequences for the bicomplexes from Definition~\ref{Def:CycBico} mostly collapse already on the second page (see question (iii) of Remark~\ref{Rem:OpenProbAInftx}).
@@ -676,39 +678,39 @@ In the following proofs, we might not need the full strength of Proposition~\ref
 %\begin{description}
 % \item[LA1] %(Suppose we do it over a ring which contains $\Q$)
 % The projection $p^\lambda: CC_{**} \rightarrow \HC_*^\lambda$ to the first column modulo $\im(\Id-\CycPermOp)$ for homology, resp. the inclusion $\iota_\lambda: \HC_\lambda^{*} \rightarrow CC^{**}$ into the first column for cohomology are chain maps and induce the isomorphisms 
-% $$ HC_* \simeq H^\lambda_*,\quad\text{resp.}\quad HC^* \simeq H_\lambda^*. $$
+% \[ HC_* \simeq H^\lambda_*,\quad\text{resp.}\quad HC^* \simeq H_\lambda^*. \]
 %It is proven for homology in \cite[Theorem 2.1.5]{LodayCyclic} using the horizontal filtration of $CC$: The first page $E^1$ of the induced spectral sequence is exactly $C_*^\lambda$ in the first column and $0$ otherwise, and hence $p^\lambda$ induces an isomorphism of $E^1$. The strong convergence of the spectral sequence implies that $p^\lambda$ is a quasi-isomorphism. The proof for cohomology is analogous.
 %\end{description}
 %Let $\mathcal{A}$ have a unit $\NOne$ (strict=homological unit).
 %\begin{description}[resume]
 %\item[LA2] We have
-% $$ HC_* \simeq H\mathcal{B}_*\quad\text{and}\quad HC^* \simeq H\mathcal{B}^*. $$
+% \[ HC_* \simeq H\mathcal{B}_*\quad\text{and}\quad HC^* \simeq H\mathcal{B}^*. \]
 % It is proven for homology in \cite[Theorem 2.1.8]{LodayCyclic} by applying Killing's Lemma about contractible complexes to the contractible subspace of $\Tot_I$ generated by odd columns of $CC$.
 % \item[LA3]  The projection $\NormProj: \mathcal{B}\rightarrow \bar{\mathcal{B}}$, resp. the inclusion $\NormIncl: \bar{\mathcal{B}} \rightarrow \mathcal{B}$ are chain maps of bicomplexes and induce the isomorphisms
-% $$ H\mathcal{B}_* \simeq H\bar{\mathcal{B}}_*, \quad\text{resp.}\quad H\mathcal{B}^* \simeq H\bar{\mathcal{B}}^*. $$
+% \[ H\mathcal{B}_* \simeq H\bar{\mathcal{B}}_*, \quad\text{resp.}\quad H\mathcal{B}^* \simeq H\bar{\mathcal{B}}^*. \]
 %It is proven for homology in \cite[Corollary 2.1.10]{LodayCyclic} using the vertical spectral sequence. The first pages are namely exactly copies of Hochschild, resp. normalized Hochschild (co)homologies in columns, so that CP4 can be applied. The rest follows from the strong convergence.
 %\item[LA4] 
 %%(Suppose we do it over a ring which contains $\Q$ and that $\im(u)$ is a direct summand)
 %The projection $p^\lambda: \mathcal{B}^{\mathrm{red}}_{**} \rightarrow \bar{\HC}^\lambda_*$ to the first column modulo $\im(\Id-\CycPermOp)$, resp. the inclusion $\iota_\lambda: \bar{\HC}_\lambda^* \rightarrow \mathcal{B}_{\mathrm{red}}^{**}$ into the first column are chain maps of bicomplexes and induce the isomorphisms
-%$$ H\mathcal{B}^{\mathrm{red}}_* \simeq H^\lambda_*, \quad \text{resp.}\quad H\mathcal{B}_{\mathrm{red}}^* \simeq H_\lambda^*. $$
+%\[ H\mathcal{B}^{\mathrm{red}}_* \simeq H^\lambda_*, \quad \text{resp.}\quad H\mathcal{B}_{\mathrm{red}}^* \simeq H_\lambda^*. \]
 %It is proven for homology in \cite[Proposition 2.2.14]{LodayCyclic} using a diagonal filtration $\mathcal{B}^{\mathrm{red}}$ such that the graded module of $\Tot_I$ is a resolution of $\bar{\HC}^\lambda$, and hence the $n$-th homology group gives $\bar{\HC}^\lambda_n$. The spectral sequence is again strongly convergent, which implies the result.
 % \item[LA5] %(Suppose we do it over a ring which contains $\Q$)
 % We have the SESes of bicomplexes
-% $$ 0 \rightarrow \bar{\mathcal{B}}(\R) \xrightarrow{u} \bar{\mathcal{B}} \xrightarrow{\pi} \mathcal{B}^{\mathrm{red}} \rightarrow 0\quad\text{and}\quad 0 \rightarrow \mathcal{B}_{\mathrm{red}} \xrightarrow{\iota} \bar{\mathcal{B}} \xrightarrow{u^*} \bar{\mathcal{B}}(\R) \rightarrow 0, $$
+% \[ 0 \rightarrow \bar{\mathcal{B}}(\R) \xrightarrow{u} \bar{\mathcal{B}} \xrightarrow{\pi} \mathcal{B}^{\mathrm{red}} \rightarrow 0\quad\text{and}\quad 0 \rightarrow \mathcal{B}_{\mathrm{red}} \xrightarrow{\iota} \bar{\mathcal{B}} \xrightarrow{u^*} \bar{\mathcal{B}}(\R) \rightarrow 0, \]
 % where $\pi$, resp. $\iota$ are the canonical projection, resp. inclusion. If the algebra is in addition augmented, then the corresponding LESes split, and we get
-%$$ H_\lambda = \bar{H}_\lambda \oplus H_\lambda(\R)\quad\text{and}\quad H^\lambda = \bar{H}^\lambda \oplus H^\lambda(\R). $$
+%\[ H_\lambda = \bar{H}_\lambda \oplus H_\lambda(\R)\quad\text{and}\quad H^\lambda = \bar{H}^\lambda \oplus H^\lambda(\R). \]
 %This is mentioned for homology in \cite[Paragraph 2.2.13]{LodayCyclic}. For cohomology the same argument works.
 %\end{description}
 % Since $\Tot_I C^\lambda = \Tot_{II} C^\lambda = C^\lambda$ as a chain complex, we get 
-%$$ H(\Tot_I CC_{**}) \simeq H^\lambda \simeq H(\Tot_{II}CC_{**}). $$
+%\[ H(\Tot_I CC_{**}) \simeq H^\lambda \simeq H(\Tot_{II}CC_{**}). \]
 %Since $\Tot_I C_\lambda = C_\lambda$ as a cochain complex, we get
-%$$ H(\Tot_I CC^{**}) \simeq H_\lambda $$  
+%\[ H(\Tot_I CC^{**}) \simeq H_\lambda \]  
 \begin{Lemma}[Loday's cyclic bicomplexes and cyclic homology]\label{Lem:LodCycBiCycHom}
 Let $\Alg = (V,(\mu_k))$ be an $\AInfty$-algebra. The projection $p^\lambda: \LodCycBi \rightarrow \HC^\lambda$ to the first column modulo $\im(\Id-\CycPermOp)$ is a chain map and induces an isomorphism $\H(\widehat{\LodCycBi}) \simeq \H^\lambda(\Alg)$. The inclusion $\iota_\lambda: \HC_\lambda^{*} \rightarrow \LodCycBi^{*}$ into the first column is a chain map and induces an isomorphism $\H_\lambda^*(\Alg) \simeq \H(\LodCycBi^*)$.
 \end{Lemma}
 \begin{proof}
-The fact that $p^\lambda$ and $\iota_\lambda$ are chain maps is obvious. We consider the horizontal filtration $\Filtr^\HorMRM$ of $\LodCycBi^*$. Because of (CP1), the rows are acyclic, and we see that the only non-zero terms of the first page of the corresponding spectral sequence are 
-$$ \SSPage_1^{0 d} =  \HC^d V / \ker(\Id - \CycPermOp^*). $$ The differential $\Dd_1$ is easy to check to be $\Hd^*$, and the inclusion $\iota_\lambda$ induces the isomorphism $\HC_{\lambda}^d\simeq \HC^d V / \ker(\Id - \CycPermOp^*)$. Considering the canonical filtration on $\HC^*_\lambda$, claims (a), (b) and~(e) of Proposition~\ref{Prop:ConvOfSpSeq} apply.
+The fact that $p^\lambda$ and $\iota_\lambda$ are chain maps is obvious. We consider the horizontal filtration $\Filtr^\HorMRM$ of $\LodCycBi^*$. Because of CP1, the rows are acyclic, and we see that the only non-zero terms of the first page of the corresponding spectral sequence are 
+\[ \SSPage_1^{0 d} =  \HC^d V / \ker(\Id - \CycPermOp^*). \] The differential $\Dd_1$ is easy to check to be $\Hd^*$, and the inclusion $\iota_\lambda$ induces the isomorphism $\HC_{\lambda}^d\simeq \HC^d V / \ker(\Id - \CycPermOp^*)$. Considering the canonical filtration on $\HC^*_\lambda$, claims (a), (b) and~(e) of Proposition~\ref{Prop:ConvOfSpSeq} apply.
 
 As for homology, we consider the degree reversed cochain complex $\DegRev(\TotII \LodCycBi)$ and the reversed filtration $\DegRev(\Filtr^\HorMRM)_s = \Filtr^\HorMRM_{-s}$. For the corresponding cohomological spectral sequence~$\tilde{\SSPage}_r$, we have
 \begin{align*}
@@ -733,7 +735,7 @@ Let $\Alg=(V,(\mu_k),\NOne)$ be a strictly unital $\AInfty$-algebra. Suppose tha
 \item We will denote $\LodCycBi(\Alg)$, $\NConCycBi(\Alg)$ and $\HC V$ simply by $\LodCycBi$, $\NConCycBi$ and $\HC$, respectively. Consider the (increasing) filtration $\Filtr_{\WeightMRM}$ of $\HC$ by weights. We first prove the following subclaim:
 \begin{SubClaim}[Weight normalization]\label{SubClaim:LodCycBi}
 Let $c = (c_i)_{i=0}^\infty\in {\TotII}_k(\LodCycBi)$ be a closed chain of degree~$k$; i.e., for all $i\in\N_0$, we have $c_i \in \HC_{k-i}$, and the relations
-$$ \Hd c_{2i} + (\Id-\CycPermOp)c_{2i+1} = 0 \quad\text{and}\quad -\Hd' c_{2i+1} + \CountOp c_{2i+2} = 0$$
+\[ \Hd c_{2i} + (\Id-\CycPermOp)c_{2i+1} = 0 \quad\text{and}\quad -\Hd' c_{2i+1} + \CountOp c_{2i+2} = 0\]
 hold. Suppose that we are given $j\ge 1$ and $n_0\in \N$ such that $c_{j-1}\in \Filtr^{n_0}_{\WeightMRM} \HC_{k-j+1}$. Then we can construct $\tilde{c}_j\in \Filtr^{n_0}_{\WeightMRM}\HC_{k-j}$, $\tilde{c}_{j+1}\in \HC_{k-j-1}$ and $\tilde{z}_{j+1}\in \HC_{k-j}$ such that if we define
 \begin{equation}\label{Eq:DefOfChains}
 \tilde{c}_i \coloneqq \begin{cases}
@@ -781,7 +783,7 @@ c - c^{1} & = \Bdd z^{1} \\
 c^{1} - c^{2} & = \Bdd z^{2} \\
 \dotsb &= \dotsb 
 \end{align*}
-such that $c^l_i\in \Filtr^{n_0}_{\WeightMRM} \HC_{k-i}$ for all $j\le i\le j+l$. The limit chain $c'\coloneqq \lim_{k\to\infty} c^{k} \in \TotII\LodCycBi$ has the property that $c'_i \in \Filtr^{n_0}_{\WeightMRM}\HC_{k-i}$ for all $i\ge j$, and the sum homotopy $z' \coloneqq \sum_{k=1}^\infty z^k \in \TotII \LodCycBi$ converges and satisfies $\Bdd z' = c-c'$.
+such that $c^l_i\in \Filtr^{n_0}_{\WeightMRM} \HC_{k-i}$ for all $j\le i\le j+l$. The limit chain $c'\coloneqq \sum_{k=0}^{\infty} c^{k} \in \TotII\LodCycBi$ has the property that $c'_i \in \Filtr^{n_0}_{\WeightMRM}\HC_{k-i}$ for all $i\ge j$, and the limit homotopy $z' \coloneqq \sum_{k=1}^\infty z^k \in \TotII \LodCycBi$ converges and satisfies $\Bdd z' = c-c'$.
 \end{proof}
 
 We will now prove surjectivity of the map on homology induced by the inclusion $\TotI \hookrightarrow \TotII$. Given $[c]\in \H_k(\widehat{\LodCycBi})$, using the Subclaim, we can assume that there is an $n_0\in\N$ such that $c_i\in \Filtr^{n_0}_{\WeightMRM}\HC_{k-i}$ for all $i\in\N_0$. However, we have $\Abs{c_i} = -k+i-1$ for the degrees in $\B V$, and because the degrees of $V$ are bounded, $c_i$ eventually, as $i\to \infty$, reach degrees which can not be produced by $n_0$ vectors. Therefore, there is an $i_0\in \N_0$ such that $c_i = 0$ for all $i\ge i_0$; this means that $c \in \TotI \LodCycBi$.
@@ -791,17 +793,17 @@ To show injectivity of the induced map on homology, suppose that $c\in \TotI \Lo
 \item We will prove an analogy of the Subclaim from (a):
 
 Given a closed $c = (c_i)_{i=0}^\infty \in \TotII_k \NConCycBi$, every $c_i \in \HNC_{k-2i} V$ can be written as 
-$$ c_i = \tilde{c}_i + \NOne \hat{c}_i $$
+\[ c_i = \tilde{c}_i + \NOne \hat{c}_i \]
 for unique $\tilde{c}_i\in \HC_{q-2i} \bar{V}$ and $\hat{c}_i \in \HC_{q-2i-1} \bar{V}$. Using strict unitality, we have $\Hd(\NOne\hat{c}_i) = (\Id-\CycPermOp)\hat{c}_i - \NOne \Hd'\hat{c}_i$, and hence
 \begin{align*}
    \Hd c_i &=  \Hd\bar{c}_i + (\Id-\CycPermOp)\hat{c}_i - \NOne \Hd'\hat{c}_i, \\
    \NCd c_i &= \NOne \CountOp \bar{c}_i.
 \end{align*}
 For the second equality, recall the definition \eqref{Eq:NCd} and note that the $\bar{p}$ in front ``kills'' any input of $\NCd$ containing at least one $\NOne$. We see that $\Bdd c = 0$ is equivalent to $\Hd c_i = - \NCd c_{i+1}$ which is equivalent to
-$$ \begin{aligned}
+\[ \begin{aligned}
 \Hd \bar{c}_i + (\Id-\CycPermOp)\hat{c}_i & = 0\quad\text{and}  \\
 \Hd'\hat{c}_i &= \CountOp \bar{c}_{i+1}
-\end{aligned} $$ 
+\end{aligned} \] 
 for all $i\in \N_0$.
 \begin{figure}
 \centering
@@ -842,8 +844,8 @@ The following relations hold:
 \item $\Hd \tilde{z}_{j+1} = \tilde{c}_{j+1} - c_{j+1}$.
 \end{EqnList}
 Relations I--III show that $\tilde{c}$ is closed, and relations IV--VI show that $\Bdd z = \tilde{c} - c$. Here $\tilde{c}$ is defined as in \eqref{Eq:DefOfChains} and $z$ has one more term:
-$$ z_i \coloneqq \begin{cases} \tilde{z}_j & \text{for } i = j, \\ \tilde{z}_{j+1} & \text{for } i = j+1, \\
-0 & \text{otherwise}. \end{cases} $$
+\[ z_i \coloneqq \begin{cases} \tilde{z}_j & \text{for } i = j, \\ \tilde{z}_{j+1} & \text{for } i = j+1, \\
+0 & \text{otherwise}. \end{cases} \]
 Since $\tilde{c}_j = \bar{d}_j + \NOne \hat{d}_j$, $\bar{d}_j\in \Filtr^{n_0-1}_{\WeightMRM}\HC_{k-2j}\bar{V}$ and $\hat{d}_j\in \Filtr^{n_0-1}_{\WeightMRM}\HC_{k-2j-1}\bar{V}$, we have $\tilde{c}_j \in \Filtr^{n_0}_{\WeightMRM} \HNC_{k-2j}$.
 
 Having the recursive step, the rest can be done in the same way as in (a). \qedhere
@@ -861,12 +863,12 @@ Having the recursive step, the rest can be done in the same way as in (a). \qedh
 %By repeating this procedure infinitely many times as in the proof of (a), we see that we can assume that $\bar{c}_i \in \Filtr^{n_0 - 1}\HNC_{k-2i}$ for all $i\ge j$. In the next paragraph, we will show that we can modify $\hat{c}_i$, keeping $\bar{c}_i$ fixed, so that $\hat{c}_i\in \Filtr^{n_0-1} \HC_{k-2i-1} \bar{V}$ for all $i\ge j$. It will follow that $c_i\in \Filtr^{n_0} \HNC_{k-2i}$ for all $i\ge j$, which proves Subclaim from (a) also for (b).
 %
 %We can find $\hat{d}_{j} \in \Filtr^{n_0-1} \HC_{k-2j}\bar{V}$ so that $(\Id-\CycPermOp)\hat{d}_{j} = - \Hd \bar{c}_j$. There exists an $\bar{w}_{i+1}$ such that $\CountOp \bar{w}_{i+1} = \hat{d}_{i+1} - \hat{c}_{i+1}$. We set  $w_{i+1} \coloneqq \bar{w}_{i+1}$ and define $\tilde{c}_{i+1} = c_{i+1} + \NCd w_{i+1}$. We also define $\tilde{c}_{i+2} = c_{i+2} - \Hd w_{i+1}$. Then it holds 
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %\Hd \tilde{c}_{i+2} &= \Hd c_{i+2}, \\
 %\NCd \tilde{c}_{i+2} &= \NCd c_{i+2} + \Hd \NCd w_{i+1} = \Hd(c_{i+1} + \NCd w_{i+1}) = \Hd \tilde{c}_{i+1}, \\
 %\NCd \tilde{c}_{i+1}  &= \NOne \CountOp \bar{\tilde{c}}_{i+1} = \NOne \CountOp \HNC_{i+1} = \NCd c_{i+1}, \\
 %\hat{\tilde{c}}_{i+1} &= \hat{c}_{i+1} + \CountOp \bar{w}_{i+1} = \hat{c}_{i+1} + \hat{d}_{i+1} - \hat{c}_{i+1} = \hat{d}_{i+1}.
-%\end{aligned} $$
+%\end{aligned} \]
 %Therefore, we can also achieve $\hat{c}_{i+1} \in \Filtr^{n_0} C(\bar{V})$ by adding an exact term. The rest is shown as in a). \qedhere
 \end{ProofList}
 \end{proof}
@@ -878,13 +880,13 @@ I: \TotII \ConCycBi &\longrightarrow \TotII\LodCycBi\\
 (c_0, c_1, c_2, \dotsc) &\longmapsto (c_0, \InsOneOp_1 \CountOp c_1, c_1, \InsOneOp_1 \CountOp c_2, c_2, \dotsc )
 \end{align*}
 is a chain map inducing the isomorphisms 
-$$\H( \widehat{\ConCycBi})\simeq \H(\widehat{\LodCycBi})\quad\text{and}\quad\H(\ConCycBi)\simeq\H(\LodCycBi).$$ Analogously, the map 
+\[\H( \widehat{\ConCycBi})\simeq \H(\widehat{\LodCycBi})\quad\text{and}\quad\H(\ConCycBi)\simeq\H(\LodCycBi).\] Analogously, the map 
 \begin{align*}
 P: \TotII\LodCycBi^* &\longrightarrow \TotII \ConCycBi^* \\
 (\psi_0, \psi_1,\psi_2, \dotsc )&\longmapsto (\psi_0, \psi_2 + \CountOp^* \InsOneOp_1^* \psi_1, \psi_4 + \CountOp^* \InsOneOp_1^* \psi_3, \dotsc )
 \end{align*}
 is a chain map inducing the isomorphisms 
-$$\H(\widehat{\ConCycBi}^*) \simeq \H(\widehat{\LodCycBi}^*)\quad\text{and}\quad\H(\ConCycBi^*) \simeq \H(\LodCycBi^*).$$
+\[\H(\widehat{\ConCycBi}^*) \simeq \H(\widehat{\LodCycBi}^*)\quad\text{and}\quad\H(\ConCycBi^*) \simeq \H(\LodCycBi^*).\]
 \end{Lemma}
 \begin{proof}
 The following computation shows that $\iota$ is a chain map:
@@ -906,9 +908,9 @@ The following computation shows that $\iota$ is a chain map:
 %\label{Fig:PosOfElConCycBi}
 %\end{figure}
 Clearly, $I$ is injective, and hence it induces an isomorphisms of chain complexes 
-$$ \bigl(\TotII\ConCycBi,\Bdd_{\ConCycBi}\bigr) \simeq \bigl(\im(I),\Restr{\Bdd_{\LodCycBi}}{\im(I)}\bigr)\subset (\TotII \LodCycBi, \Bdd_{\LodCycBi}). $$
+\[ \bigl(\TotII\ConCycBi,\Bdd_{\ConCycBi}\bigr) \simeq \bigl(\im(I),\Restr{\Bdd_{\LodCycBi}}{\im(I)}\bigr)\subset (\TotII \LodCycBi, \Bdd_{\LodCycBi}). \]
 Consider the subcomplex $(\TotII \LodCycBi_{\mathrm{odd},\bullet},-{\Hd'})\subset (\TotII\LodCycBi,\Bdd_{\LodCycBi})$ which consists of odd columns of $\LodCycBi$. It is a direct complement of $\im(I)$ in $\TotII \LodCycBi$. Indeed, $(0,c_1,0,c_2,\dotsc) \in \im(I)$ implies $c_i = 0$ for all $i\in\N$, which gives $\TotII(\LodCycBi_{\mathrm{odd},\bullet}) \cap \im(I) = 0$; also, for any $(c_i)\in \TotII \LodCycBi$, we have
-$$ (c_0, c_1, c_2, c_3, c_4 \dotsc ) = I\bigl((c_0, c_2, c_4, \dotsc )\bigr) - (0,\InsOneOp_1\CountOp c_2 - c_1 , 0, \InsOneOp_1\CountOp c_4 - c_3, 0, \dotsc), $$
+\[ (c_0, c_1, c_2, c_3, c_4 \dotsc ) = I\bigl((c_0, c_2, c_4, \dotsc )\bigr) - (0,\InsOneOp_1\CountOp c_2 - c_1 , 0, \InsOneOp_1\CountOp c_4 - c_3, 0, \dotsc), \]
 which gives $\im(I) + \TotII(\LodCycBi_{\mathrm{odd},\bullet}) = \TotII \LodCycBi$. Now, $\TotII(\LodCycBi_{\mathrm{odd},\bullet})$ is contractible by CP3, and hence $\H(\TotII \ConCycBi) \simeq \H(\TotII \LodCycBi)$ (using an argument with the long exact sequence in homology). Clearly, $I$ restricts to short chains $\TotI$, and thus $\H(\TotI \ConCycBi) \simeq \H(\TotI \LodCycBi)$ holds too.
 
 A similar discussion applies in cohomology. The following computation shows that $P$ is a chain map:
@@ -927,14 +929,14 @@ A similar discussion applies in cohomology. The following computation shows that
 &\quad = \Dd_{\ConCycBi} P (\psi_0,\psi_1,\psi_2,\psi_3,\psi_4,\dotsc)
 \end{align*}
 The fourth equality uses that $\InsOneOp_1 \Hd' + \Hd' \InsOneOp_1 = \Id$ and $\Hd'\CountOp = \CountOp\Hd$. Because $(\psi_0,\psi_1,\dotsc) = P(\psi_0,0,\psi_1,0,\dotsc )$, $P$ is surjective, and hence it induces an isomorphism of cochain complexes $\TotII \LodCycBi^*/\ker(P) \simeq \TotII \ConCycBi^*$.  It is easy to see that 
-$$ \ker(P) = \bigl\{(0,\psi_1,-\CountOp^*\InsOneOp_1^*\psi_1,\psi_3,-\CountOp^*\InsOneOp_1^*\psi_3,\dotsc)\bigr\} $$
+\[ \ker(P) = \bigl\{(0,\psi_1,-\CountOp^*\InsOneOp_1^*\psi_1,\psi_3,-\CountOp^*\InsOneOp_1^*\psi_3,\dotsc)\bigr\} \]
 and that the map
 \begin{align*}
 Z: \TotII(\LodCycBi^{\mathrm{odd},\bullet}) &\longrightarrow \ker(p) \\
 (\psi_1, \psi_3, \dotsc) &\longmapsto (0 ,\psi_1, -\CountOp^* \InsOneOp_1^* \psi_1, \psi_3, -\CountOp^* \InsOneOp_1^* \psi_3, \dotsc )
 \end{align*}
 is an isomorphism of the cochain complexes
-$$ \bigl(\TotII(\LodCycBi^{\mathrm{odd},\bullet}),-{\Hd'}^*\bigr) \simeq \bigl(\ker(P),\Restr{\Bdd_{\LodCycBi}}{\ker(P)}\bigr) \subset (\TotII\LodCycBi,\Bdd_{\LodCycBi}). $$
+\[ \bigl(\TotII(\LodCycBi^{\mathrm{odd},\bullet}),-{\Hd'}^*\bigr) \simeq \bigl(\ker(P),\Restr{\Bdd_{\LodCycBi}}{\ker(P)}\bigr) \subset (\TotII\LodCycBi,\Bdd_{\LodCycBi}). \]
 Indeed, we have 
 \begin{align*}
  \Bdd_{\LodCycBi}Z(\psi_1,\psi_3,\dotsc) &= (0,-{\Hd'}^*\psi_1, \CountOp^*\psi_1 - \Hd^*\CountOp^*\InsOneOp_1^*\psi_1, -(\Id-\CycPermOp^*)\CountOp^*\InsOneOp_1^*\psi_1 - {\Hd'}^*\psi_3, \dotsc ) \\
@@ -965,7 +967,7 @@ Let~$\Alg=(V,(\mu_k),\NOne)$ be a strictly unital $\AInfty$-algebra. The project
 
 \begin{proof}
 We start with the cohomology. It is easy to see that $\InsOneOp_1$ induces $\InsOneOp_1^*: \HC_{\RedMRM}^* V \rightarrow \HC_{\RedMRM}^* V$ and that for this map, we have
-$$ Z\coloneqq \ker \InsOneOp_1^* = \im \InsOneOp_1^* \simeq \HC^* \bar{V}. $$
+\[ Z\coloneqq \ker \InsOneOp_1^* = \im \InsOneOp_1^* \simeq \HC^* \bar{V}. \]
 %Notice that had we taken $\bar{\HC}$ instead of $\HC_{\mathrm{bar}}$, there would be $\NOne^* \in \bar{\HC}$, for which $\InsOneOp_i^*(\NOne^*) = 0$ but $\NOne^* \not\in \im{\InsOneOp_i^*}$.
 We consider the following diagonal filtration of $\ConCycBi^*_{\RedMRM}$:
  \begin{center}
@@ -978,18 +980,18 @@ Z^s \arrow[u]{}{\Hd^*} \arrow[r]{}{\NCd^*}  & 0 \arrow[u] \arrow[r]  & 0 \arrow[
 \end{tikzcd} 
 \end{center}
 The first page of the corresponding spectral sequence consists of the columns
-$$ \SSPage_1^s = \H(\Gr_s \TotI) = \H\bigl(Z^s \xrightarrow{\Hd^*} \HC_{\RedMRM}^{s+1}/Z^{s+1} \xrightarrow{\NCd^*} Z^s \xrightarrow{\Hd^*} \dotsb \bigr), $$
+\[ \SSPage_1^s = \H(\Gr_s \TotI) = \H\bigl(Z^s \xrightarrow{\Hd^*} \HC_{\RedMRM}^{s+1}/Z^{s+1} \xrightarrow{\NCd^*} Z^s \xrightarrow{\Hd^*} \dotsb \bigr), \]
 where the cochain complex starts in degree $s$. Because $\InsOneOp_1^* \Hd^* = - {\Hd'}^* \InsOneOp_1^* + (\Id - \CycPermOp^*)$ and $\NCd^* = \CountOp^* \InsOneOp_1^*$ on $\HC_{\RedMRM}$, we have the commutative diagram
-$$\begin{tikzcd}
+\[\begin{tikzcd}
  Z^s \arrow{r}{\Hd^*}\arrow{d}{\Id} & \HC_{\RedMRM}^{s+1}/Z^{s+1} \arrow{r}{\NCd^*}\arrow{d}{\InsOneOp_1^*} & Z^s \arrow{r}{\Hd^*}\arrow{d}{\Id} & \dotsb \\
  Z^s \arrow{r}{\Id-\CycPermOp^*} & Z^s \arrow{r}{\CountOp^*} & Z^s \arrow{r}{\Id-\CycPermOp^*} & \dotsb.
-\end{tikzcd}$$
+\end{tikzcd}\]
 Therefore, the only non-zero terms of the first page are
-$$ \SSPage_1^{s,0} = Z_s / \ker(\Id-\CycPermOp^*) = \bar{\HC}_\lambda^s $$
+\[ \SSPage_1^{s,0} = Z_s / \ker(\Id-\CycPermOp^*) = \bar{\HC}_\lambda^s \]
 with the differential $\Dd_1 = \Hd^*$. This is precisely the first page of the canonical filtration of~$\bar{\HC}_\lambda^*$. The map induced by $\iota_\lambda$ on the first page is the identity, and Proposition~\ref{Prop:ConvOfSpSeq} implies the rest.
 
 The situation in homology is analogous. We consider the restriction $\InsOneOp_1: \HC^{\RedMRM} \rightarrow \HC^{\RedMRM}$ and the subspace
-$$ B\coloneqq \ker \InsOneOp_1 = \im \InsOneOp_1. $$
+\[ B\coloneqq \ker \InsOneOp_1 = \im \InsOneOp_1. \]
 The diagonal filtration is now
 \begin{center}
  $\Filtr^s \ConCycBi^{\RedMRM}: \quad$\begin{tikzcd}[column sep=scriptsize, row sep=scriptsize]
@@ -1006,10 +1008,10 @@ The reversed filtration $\DegRev(\Filtr)_s = \Filtr^{-s}$ of the degree reversed
 & = \H(\HC^{\RedMRM}_{-s-1}/B_{-s-1} \xleftarrow{\Hd} B_{-s} \xleftarrow{\NCd} \HC^{\RedMRM}_{-s-1}/B_{-s-1} \xleftarrow{\Hd}\dotsb)
 \end{align*}
 where the first group has degree $s$. We have the commutative diagram
-$$\begin{tikzcd}
+\[\begin{tikzcd}
 \HC^{\RedMRM}_{-s-1}/B_{-s-1}\arrow{d}{\InsOneOp_1} & \arrow{l}{\Hd}\arrow{d}{\Id} B_{-s} & \arrow{l}{\NCd} \HC^{\RedMRM}_{-s}/B_{-s}\arrow{d}{\InsOneOp_1} & \arrow{l}{\Hd}\dotsb \\
 B^{-s}&\arrow{l}{\Id-\CycPermOp}B^{-s}&\arrow{l}{\CountOp}B^{-s}&\arrow{l}{\Id-\CycPermOp}\dotsb,
-\end{tikzcd}$$
+\end{tikzcd}\]
 and thus $\tilde{\SSPage}_1^{s,0} = B^{-s}/\im(\Id-\CycPermOp) = \HC^{\lambda,\RedMRM}_{-s}$. The rest is as in the case of cohomology.
 \end{proof}
 
@@ -1019,13 +1021,13 @@ We are finally in position to prove Proposition~\ref{Prop:Reduced} in Part~I. Pr
 
 \begin{Lemma}[Short exact sequence of normalized Connes' cyclic bicomplexes]\label{Lem:ConBiRed}
 Let $\mathcal{A}=(V,(\mu_j),\NOne,\varepsilon)$ be a strictly augmented strictly unital $\AInfty$-algebra. The short exact sequences of bicomplexes
-$$\begin{tikzcd}
+\[\begin{tikzcd}
  0 \arrow{r} &  \NConCycBi(\R) \arrow{r}{u} & \NConCycBi(V)\arrow{r}{p^{\RedMRM}} & \ConCycBi^{\RedMRM} \arrow{r} & 0
-\end{tikzcd}$$
+\end{tikzcd}\]
 and
-$$\begin{tikzcd}
+\[\begin{tikzcd}
  0 \arrow{r} & \ConCycBi_{\RedMRM}^* \arrow{r}{\iota_{\RedMRM}} & \NConCycBi^*(V) \arrow{r}{u^*} & \NConCycBi(\R) \arrow{r} & 0
-\end{tikzcd}$$
+\end{tikzcd}\]
 split. From this, we obtain the following isomorphisms:
 \begin{equation}\label{Eq:ConRedBiIso}
 \begin{aligned}
@@ -1038,7 +1040,7 @@ split. From this, we obtain the following isomorphisms:
 Because we have a strict unit and a strict augmentation, the maps $u: \HC \R \rightarrow \HC V$ and $\varepsilon: \HC V \rightarrow \HC \R$ satisfy $\varepsilon \circ u = \Id$. It follows that $\HC V = \ker\varepsilon\oplus\im u$. The same holds for the induced maps $\bar{u}: \HNC \R \rightarrow \HNC V$ and $\bar{\varepsilon}: \HNC V \rightarrow \HNC \R$. We can now define the splitting $r: \NConCycBi(V) \rightarrow \NConCycBi(\R)$ of the homological short exact sequence by projecting to $\ker \bar{\varepsilon}$ along $\im \bar{u}$. It is easy to check that it is a morphism of bicomplexes. This dualizes ``pointwisely'' to cohomology.
 
 Because 
-$$ (\HNC \R)_i = \begin{cases} 0 & \text{for }i \neq 0, \\ \R & \text{for } i = 0, \end{cases} $$
+\[ (\HNC \R)_i = \begin{cases} 0 & \text{for }i \neq 0, \\ \R & \text{for } i = 0, \end{cases} \]
 the bicomplex $\NConCycBi(\R)$ is diagonal, and hence $\TotI$ and $\TotII$ are the same; both compute $\H^\lambda(\R)$ (using results from the previous sections). The same is true in cohomology. This shows~\eqref{Eq:ConRedBiIso}.
 \end{proof} 
 
@@ -1077,7 +1079,7 @@ We summarize our results in Figure~\ref{Fig:FinalPictureHom}. Having $\H^\lambda
 %
 %\begin{Example}[Direct proof for spheres]
 %Let $V[1] = \langle \NOne, \NVol \rangle$, where $\Abs{\NVol}=n-1$ for some $n\in \Z$. Suppose $\mu_2(\NVol,\NVol)=0$ and $\mu_j = 0$ for $j\neq 2$. Then $\HC^{\mathrm{red}}_*(V)$ is generated by $\NOne\NVol^k$ and $\NVol^k$ for $k\ge 1$, and we compute
-%$$ \begin{aligned} 
+%\[ \begin{aligned} 
 %   \bar{B}(\NOne \NVol^k)&= 0 & \bar{B}(\NVol^k), &= \begin{cases}
 %   0 & \text{for }k\text{ and }n\text{ even,}\\   
 %   k \NOne \NVol^k & \text{otherwise}, \end{cases} \\
@@ -1085,7 +1087,7 @@ We summarize our results in Figure~\ref{Fig:FinalPictureHom}. Having $\H^\lambda
 %   0 & \text{otherwise},
 %   \end{cases}
 %    & \Hd(\NVol^k) &= 0.
-%   \end{aligned} $$
+%   \end{aligned} \]
 %Let $(c_i)\in \Tot_{II}\mathcal{B}^{\mathrm{red}}(V)$ be closed.  We will show that, for an arbitrary $i\ge 1$, we can achieve $c_i = 0$ by adding an exact term. Clearly, $\im \bar{B} \cap \im \Hd = 0$, and hence $\Hd(c_i) = \bar{B}(c_i) = 0$ for all $i \ge 1$. For $n$ odd, resp. even we must have $c_i \in \langle \NOne \NVol^k \rangle$, resp. $c_i \in \langle \NVol^{2k}, \NOne \NVol^{2k-1}\rangle$ for all $i\ge 1$. The claim follows because it holds $\NOne \NVol^k = \frac{1}{k}\bar{B}(\NVol^k)$ for $n$ odd and $\NVol^{2k} = \frac{1}{2} \Hd(\NOne \NVol^{2k})$, $\NOne\NVol^{2k-1} = \frac{1}{2k-1} \bar{B}(\NVol^{2k-1})$ for $n$ even.
 %
 %We have shown that $H\hat{\mathcal{B}}^{\mathrm{red}}_* \simeq H \mathcal{B}^{\mathrm{red}}$ by "contracting" both bicomplexes to the first column.
@@ -1098,17 +1100,17 @@ We summarize our results in Figure~\ref{Fig:FinalPictureHom}. Having $\H^\lambda
 %
 %Let us first discuss the algebraic setting. We start with a graded associative product $\tilde{\mu}_2 : V^{\otimes 2} \rightarrow V$ of degree $0$ on $V$.
 %Let $M\coloneqq V^*$. For all $u_0$, $u_1\in V$ and $\eta\in V^*$ define
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %(u_1\cdot \nu)(u_0) &\coloneqq (-1)^{u_1(\nu + u_0) +  \nu}\nu(u_0\cdot u_1), \\ 
 %(\nu \cdot u_1)(u_0) &\coloneqq (-1)^{\nu}\nu(u_1\cdot u_0).
-%\end{aligned} $$
+%\end{aligned} \]
 % Notice that the signs correspond to the Koszul signs $\tilde{\mu}_2 u_1 \nu u_0 \mapsto \nu \tilde{\mu}_2 u_0 u_1$, resp. $\tilde{\mu}_2 \nu u_1 u_0 \mapsto \nu \tilde{\mu}_2 u_1 u_0$.
 %For all $u_1$, $u_2\in V$ and $\nu\in V^*$ it holds
-%$$\begin{aligned}
+%\[\begin{aligned}
 %u_1 \cdot (u_2 \cdot \nu) &= (-1)^{u_1} (u_1\cdot u_2)\cdot \nu, \\
 %(\nu \cdot u_1)\cdot u_2 &= (-1)^{\nu} \nu\cdot (u_1\cdot u_2), \\
 %(u_1\cdot \nu)\cdot u_2 &= (-1)^{\nu} v_1\cdot (\nu\cdot u_2),
-%\end{aligned}$$
+%\end{aligned}\]
 %and hence $\cdot$ defines the structure of a graded $\tilde{\mu}_2$-bimodule on $M$. We now consider the degree shift of this structure to $M[1]= V^*[1] = V[-1]^*$. Recall briefly our degree-shift convention:
 %\begin{itemize}
 %\item We use the letters $u$, $v$, $\nu$, $\alpha$ to denote elements of $V$, $V[1]$, $V^*$, $V^*[1]$ respectively. They are related by $v=\Susp u$, $\alpha = \SuspU \eta$, where $\SuspU$ is a formal symbol of degree $-1$.
@@ -1117,30 +1119,30 @@ We summarize our results in Figure~\ref{Fig:FinalPictureHom}. Having $\H^\lambda
 %\item We denote by $\tilde{\mu}_k$ the operations on $V$ and by $\mu_k$ the operations on $V[1]$, and similarly for other maps $\tilde{f}: V^{\otimes k} \rightarrow V^{\otimes l}$. We degree shift these maps using $f(\SuspU^k u_1 \dots u_k) = \SuspU^l \tilde{f}(u_1\dots u_k)$.
 %\end{itemize}
 %The degree shifted product $\mu_2$ on $V[1]$ has degree $1$ and is graded anti-associative:
-%$$ \mu_2(\mu_2(v_1, v_2),v_3) = (-1)^{\Abs{v_1} + 1} \mu_2(v_1,\mu_2(v_2,v_3))\quad \text{for all }v_1, v_2, v_3\in V[1]. $$
+%\[ \mu_2(\mu_2(v_1, v_2),v_3) = (-1)^{\Abs{v_1} + 1} \mu_2(v_1,\mu_2(v_2,v_3))\quad \text{for all }v_1, v_2, v_3\in V[1]. \]
 %For $\alpha\in V[1]^*$, $v_0$, $v_1$, $v_2 \in V[1]$ it holds
-%$$ \begin{aligned}
+%\[ \begin{aligned}
 %(v_1\cdot \alpha)(v_0) &\coloneqq (-1)^{\Abs{v_1}(\Abs{\alpha} + \Abs{v_0}) +  \Abs{\alpha}}\alpha(v_2\cdot v_1) ,\\ 
 %(\alpha \cdot v_1)(v_0) &\coloneqq (-1)^{\Abs{\alpha}}\alpha(v_1\cdot v_0), \\
 %v_1 \cdot (v_2 \cdot \alpha) &= (-1)^{\Abs{v_1}} (v_1\cdot v_2)\cdot \alpha, \\
 %(\alpha \cdot v_1)\cdot v_2 &= (-1)^{\Abs{\alpha}} \alpha\cdot (v_1\cdot v_2).
-%\end{aligned}$$
+%\end{aligned}\]
 %In particular, $M[1]$ is a graded left and right $\mu_2$-module. However, the compatibility becomes
-%$$ (v_1\cdot \alpha)\cdot v_2 = (-1)^{\Abs{v_1} + 1} v_1 \cdot (\alpha\cdot v_2), $$
+%\[ (v_1\cdot \alpha)\cdot v_2 = (-1)^{\Abs{v_1} + 1} v_1 \cdot (\alpha\cdot v_2), \]
 %and hence $M[1]$ is not an $\mu_2$-bimodule.
 %
 %For $k\ge 1$ we consider the graded vector space $\Hom(V[1]^{\otimes k},M[1])$ generated by homogenous $\R$-linear maps $\Psi: V[1]^{\otimes k} \rightarrow M[1]$. Its elements are called Hochschild cochains with values in $M$. For all $k\ge 2$ we define the map
-%$$ \Hd_m^*: \Hom(V[1]^{\otimes k-1},M[1]) \rightarrow \Hom(V[1]^{\otimes k},M[1])$$
+%\[ \Hd_m^*: \Hom(V[1]^{\otimes k-1},M[1]) \rightarrow \Hom(V[1]^{\otimes k},M[1])\]
 %for $\Psi\in \Hom(V[1]^{\otimes k-1}, M[1])$ and $v_1$, $\dotsc$, $v_k \in V[1]$ as follows:
-%$$ (\Hd_m^*\Psi)(v_1 \dots v_k) \coloneqq\begin{multlined}[t] (-1)^{(\Abs{v_1}+1) \Abs{\Psi}} v_1 \cdot \Psi(v_2 \dots v_k) + (-1)^{\Abs{\Psi}} \Psi(v_1\dots v_{k-1})\cdot v_k \\{}+ \sum_{i=1}^{k-1} (-1)^{\Abs{v_1} + \dotsb + \Abs{v_{i-1}}} \Psi(v_1 \dots v_i \cdot v_{i+1} \dots v_k). \end{multlined}$$
+%\[ (\Hd_m^*\Psi)(v_1 \dots v_k) \coloneqq\begin{multlined}[t] (-1)^{(\Abs{v_1}+1) \Abs{\Psi}} v_1 \cdot \Psi(v_2 \dots v_k) + (-1)^{\Abs{\Psi}} \Psi(v_1\dots v_{k-1})\cdot v_k \\{}+ \sum_{i=1}^{k-1} (-1)^{\Abs{v_1} + \dotsb + \Abs{v_{i-1}}} \Psi(v_1 \dots v_i \cdot v_{i+1} \dots v_k). \end{multlined}\]
 %Notice that the signs correspond to the Koszul signs with the starting order $\Psi \mu_2 v_1 \dots v_k$. The label $m$ means ``module''. Using the anti-compatibility of the left and right $\mu_2$-module $M$, we get $\Hd_m^* \circ \Hd_m^* = 0$. Consider the correspondence
 %\begin{equation}\label{Eq:Corr1}
 %\psi \in \Hom(V[1]^{\otimes k},\R) \simeq \Hom(V[1]^{\otimes (k-1)}, M[1])\ni \Psi,
 %\end{equation}
 %which is for all $v_0$, $\dotsc$, $v_{k-1}\in V[1]$ given by 
-%$$ \Psi(v_1 \dots v_{k-1})(v_0) = (-1)^{\Abs{v_0}(\Abs{v_1}+ \dotsb + \Abs{v_{k-1}})}\psi(v_0 v_1\dots v_{k-1}).$$
+%\[ \Psi(v_1 \dots v_{k-1})(v_0) = (-1)^{\Abs{v_0}(\Abs{v_1}+ \dotsb + \Abs{v_{k-1}})}\psi(v_0 v_1\dots v_{k-1}).\]
 %We compute 
-%$$\begin{aligned}
+%\[\begin{aligned}
 %&(\Hd_m^*\Psi)(v_1 \dots v_k)(v_0) \\
 %&\quad = \begin{multlined}[t] (-1)^{(\Abs{v_1} + 1)(\Abs{v_2} + \dotsb + \Abs{v_k}) + \Abs{v_1}\Abs{v_0}} \Psi(v_2\dots v_k)(v_0 \cdot v_1) \\ {}+ (-1)^{\Abs{v_1} + \dotsb + \Abs{v_{k-1}}}\Psi(v_1 \dots v_{k-1})(v_k \cdot v_0) \\ {}+ \sum_{i=1}^{k-1} (-1)^{\Abs{v_1} + \dotsb + \Abs{v_{i-1}}} \Psi(v_1 \dots v_i \cdot v_{i+1} \dots v_k)(v_0)
 %\end{multlined} \\
@@ -1149,7 +1151,7 @@ We summarize our results in Figure~\ref{Fig:FinalPictureHom}. Having $\H^\lambda
 % {}+ (-1)^{\Abs{v_k}(\Abs{v_0}+ \dotsb + \Abs{v_{k-1}})} \psi(v_k \cdot v_0 v_1 \dots v_{k-1})\\
 % {}+ \sum_{i=1}^{k-1} (-1)^{\Abs{v_0}+\Abs{v_1} + \dotsb + \Abs{v_{i-1}}} \psi(v_0 v_1 \dots v_i \cdot v_{i+1} \dots v_k)\bigr].
 %\end{multlined}
-%\end{aligned}$$
+%\end{aligned}\]
 %It follows that $\Hd_m^*$ becomes $\Hd^*$ under the correspondence \eqref{Eq:Corr1}.
 %\end{Remark}
 %
