@@ -6,61 +6,59 @@
 \chapter{Evaluation of labeled ribbon graphs}
 \label{Section:Appendix}
 \Correct[noline,caption={DONE Propagator}]{Change propagator to admissible propagator or symmetric propagator. Let's leave it as a propagator. It is the propagator in our theory, hence, we can have some definitions.}
-In this appendix, we define the algebraic propagator $P$ and the graph pairing $\langle \cdot, \cdot \rangle^P_\Gamma$ (Definition~\ref{Def:EvalRibGraph}), which encapsulates the contribution of a ribbon graph~$\Gamma$ to the map $f_{klg}: (\DBCyc V)^{\otimes k} \rightarrow (\DBCyc V)^{\otimes l}$ defined as a sum of contributions of ribbon graphs (Proposition~\ref{Prop:GraphPairing}). Such maps were already defined in \cite[Section 11]{Cieliebak2015} using coordinates; here we use an invariant framework inspired by~\cite{Mnev2017}. As an example, we work out in details expressions for the canonical $\dIBL$-operations $\OPQ_{210}$ and~$\OPQ_{120}$ (Example~\ref{Ex:Canon}). We also explain the technicality of identifying symmetric maps with maps on symmetric powers (Remark~\ref{Rem:SymMaps}).
+In this appendix, we consider an algebraic propagator $\Prpg$ and the graph pairing $\langle \cdot, \cdot \rangle^{\Prpg}_\Gamma$ (Definition~\ref{Def:EvalRibGraph}), which encapsulates the contribution of a ribbon graph~$\Gamma$ to the map $f_{klg}: (\DBCyc V)^{\otimes k} \rightarrow (\DBCyc V)^{\otimes l}$ defined as a sum of contributions of ribbon graphs (Proposition~\ref{Prop:GraphPairing}). Such maps were already defined in \cite[Section 11]{Cieliebak2015} using coordinates; here we use an invariant framework inspired by~\cite{Mnev2017}. As an example, we work out in details expressions for the canonical $\dIBL$-operations $\OPQ_{210}$ and~$\OPQ_{120}$ (Example~\ref{Ex:Canon}). We also explain the technicality of identifying symmetric maps with maps on symmetric powers (Remark~\ref{Rem:SymMaps}).
 
-Next, we define the notion of an algebraic Schwartz kernel (Definition~\ref{Def:LinSchw}) and show that the matrix $(T^{ij})$ from Definition~\ref{Def:CanonicaldIBL} in Part~I corresponds to the Schwartz kernel of the identity $\Id$ up to a sign. Assuming that the Hodge propagator $\Prpg$ from Definition~\ref{Def:GreenKernel} in Part~I is algebraic, we deduce the signs in Definition~\ref{Def:PushforwardMCdeRham} in Part~I using the formula from \cite[Remark 12.10]{Cieliebak2015} for the genuine pushforward Maurer-Cartan element~$\PMC$ in the finite-dimensional case. Establishing the formal analogy between the de Rham case and the finite-dimensional case is our main application of the invariant framework. Finally, we sketch how to obtain signs for the Fr\'echet $\dIBL$-structure on $\DR(M)$ (Remark~\ref{Rem:Frechet}).
+Next, we show that the matrix $(T^{ij})$ from Definition~\ref{Def:CanonicaldIBL} corresponds to the algebraic Schwartz kernel (Definition~\ref{Def:LinSchw}) of the identity $\Id$ up to a sign. Assuming that the Hodge propagator $\Prpg$ from Definition~\ref{Def:GreenKernel} is algebraic, we deduce natural candidates for the signs in Definition~\ref{Def:PushforwardMCdeRham} based on the formula from \cite[Remark 12.10]{Cieliebak2015} for the genuine pushforward Maurer-Cartan element~$\PMC$ in the finite-dimensional case. Establishing the formal analogy between the de Rham case and the finite-dimensional case is our main application of the invariant framework. Finally, we sketch how to obtain signs for the Fr\'echet $\dIBL$-structure on $\DR(M)$ (Remark~\ref{Rem:Frechet}).
 
-
-Throughout this appendix, we will use Notation~\ref{Def:Notation} in Part~I without further remarks.
+Throughout this appendix, we will use Notation~\ref{Def:Notation} without further remarks.
 %
 %Let $V$ be a finite dimensional graded vector space. We will use: the notation from Sec.~\ref{Section:Proof2} for graphs and their labellings; and the algebraic setting from Sec.~\ref{Section:TheoryA}. 
 
 \section{Finite dimensional case}
 
-
 \begin{Def}[Propagator \& graph pairing]\label{Def:EvalRibGraph}
-Let $V$ be a graded vector space. The tensor $\PKer\in V[1]^{\otimes 2}$ is called an \emph{(algebraic) propagator} if it satisfies the following symmetry condition:
+Let $V$ be a graded vector space. We will call a tensor $\Prpg\in V[1]^{\otimes 2}$ an \emph{algebraic propagator}. We call it \emph{admissible} if the symmetry condition
 \begin{equation}\label{Eq:SymmetryCondition}
- \tau(\PKer) = (-1)^{\Abs{\PKer}} \PKer.
+ \tau(\Prpg) = (-1)^{\Abs{\Prpg}} \Prpg
 \end{equation}
-The map $\tau$ is the twist map defined by $\tau(v_1 \otimes v_2) = (-1)^{\Abs{v_1}\Abs{v_2}} v_2 \otimes v_1$ for all $v_1$, $v_2\in V[1]$.
+is satisfied, where $\tau: V[1]^{\otimes 2} \rightarrow V[1]^{\otimes 2}$ is the twist map defined by $\tau(v_1 \otimes v_2) = (-1)^{\Abs{v_1}\Abs{v_2}} v_2 \otimes v_1$ for all $v_1$, $v_2\in V[1]$.
 
-For a ribbon graph $\Gamma \in \RRG_{klg}$ and its labeling $L$, consider the permutation~$\sigma_L$ from Definition~\ref{Def:EdgeVertex} in Part~I. It acts on tensor powers according to Definition~\ref{Def:Permutations} in Part~I and thus defines the map
+For a ribbon graph $\Gamma \in \RRG_{klg}$ and its labeling $L$, consider the permutation~$\sigma_L$ from Definition~\ref{Def:EdgeVertex}. It acts on tensor powers according to Definition~\ref{Def:Permutations} and thus defines the map
 \begin{equation*} \sigma_L: (V[1]^{\otimes 2})^{\otimes e} \otimes V[1]^{\otimes s_1} \otimes \dotsb \otimes V[1]^{\otimes s_l} \longrightarrow V[1]^{\otimes d_1} \otimes \dotsb \otimes V[1]^{\otimes d_k},
 \end{equation*}
-where $d_i$ and $s_i$ are the valencies of internal vertices $1$, $\dotsc$, $k$ and boundary components $1$, $\dotsc$, $l$, respectively, and $e$ is the number of internal edges. We extend $\sigma_L$ by $0$ to other combinations of tensor powers. The \emph{graph pairing}
-$$ \langle \cdot, \cdot \rangle_{\Gamma}^P\ :\ (\DBCyc V)^{\otimes k} \otimes (\BCyc V)^{\otimes l} \longrightarrow \R  $$
+where $d_i$ and $s_i$ are the valencies of internal vertices $1$, $\dotsc$, $k$ and boundary components $1$, $\dotsc$, $l$, respectively, and $e$ is the number of internal edges. We extend $\sigma_L$ by $0$ to other combinations of tensor powers.
+
+The \emph{graph pairing}
+\[ \langle \cdot, \cdot \rangle_{\Gamma}^{\Prpg}\ :\ (\DBCyc V)^{\otimes k} \otimes (\BCyc V)^{\otimes l} \longrightarrow \R  \]
 is defined for all $\psi_1$, $\dotsc$, $\psi_{k} \in \DBCyc V$ and generating words $w_i = v_{i1} \dots v_{i m_i}$ with $v_{ij} \in V[1]$ for $m_{i} \in \N$ and $i=1$, $\dotsc$, $l$ by the following formula:
 \begin{align*}
-&\langle \psi_1\otimes \dotsb \otimes \psi_{k}, w_1 \otimes \dotsb \otimes w_l \rangle_{\Gamma}^P \\
- &\quad \coloneqq \begin{multlined}[t]\smash{\sum_{L_1,\,L_3^b}}\vphantom{\sum_{L}} (\psi_1 \otimes \dotsb \otimes \psi_k)\bigl(\sigma_L(P^{\otimes e}\otimes  (v_{11}\otimes \dotsb \otimes v_{1 m_1}) \otimes \dotsb \\ \otimes (v_{l1}\otimes \dotsb \otimes v_{l m_{l}})\bigr), \end{multlined}
+&\langle \psi_1\otimes \dotsb \otimes \psi_{k}, w_1 \otimes \dotsb \otimes w_l \rangle_{\Gamma}^{\Prpg} \\
+ &\quad \coloneqq \begin{multlined}[t]\smash{\sum_{L_1,\,L_3^b}}\vphantom{\sum_{L}} (\psi_1 \otimes \dotsb \otimes \psi_k)\bigl(\sigma_L(\Prpg^{\otimes e}\otimes  (v_{11}\otimes \dotsb \otimes v_{1 m_1}) \otimes \dotsb \\ \otimes (v_{l1}\otimes \dotsb \otimes v_{l m_{l}})\bigr), \end{multlined}
 \end{align*}
-where we use the pairing from Definition~\ref{Def:Pairings} in Part~I and in every summand an $L_2$ compatible with $L_1$ and an $L_{3}^v$ are chosen arbitrarily to get a full labeling $L$ of~$\Gamma$. The graph pairing extends to $\langle \cdot, \cdot\rangle_\Gamma^P\ :\ \RTen \DBCyc V \otimes \RTen \BCyc V \rightarrow \R$. 
+where we use the pairing from Definition~\ref{Def:Pairings} and in every summand an $L_2$ compatible with $L_1$ and an $L_{3}^v$ are chosen arbitrarily to get a full labeling $L$ of~$\Gamma$. The graph pairing extends to $\langle \cdot, \cdot\rangle_\Gamma^{\Prpg}\ :\ \RTen \DBCyc V \otimes \RTen \BCyc V \rightarrow \R$, where $\RTen W = \bigoplus_{k=1}^\infty W^{\otimes k}$ is the reduced tensor product.
 \end{Def}
 
-
-
 \begin{Proposition}\label{Prop:GraphPairing}
-In the setting of Definition~\ref{Def:EvalRibGraph}, we denote $w = w_1 \otimes \dotsb \otimes w_l$ and $\psi = \psi_1 \otimes \dotsb\otimes \psi_k$ and have the following:
+In the setting of Definition~\ref{Def:EvalRibGraph}, we denote $w = w_1 \otimes \dotsb \otimes w_l$ and $\psi = \psi_1 \otimes \dotsb\otimes \psi_k$. If $\Prpg$ is admissible, then the following holds:
 \begin{ClaimList}
-\item The number $\psi(\sigma_L(P^{\otimes e}\otimes w))$ does not depend on the choice of $L_{3}^v$ and an $L_2$ compatible with $L_1$. Moreover, $\langle\cdot, \cdot \rangle_\Gamma^P$ does not depend on the representative of $[\Gamma]\in \RRG_{klg}$.
+\item The number $\psi(\sigma_L(\Prpg^{\otimes e}\otimes w))$ does not depend on the choice of $L_{3}^v$ and an $L_2$ compatible with $L_1$. Moreover, $\langle\cdot, \cdot \rangle_\Gamma^{\Prpg}$ does not depend on the representative of $[\Gamma]\in \RRG_{klg}$.
 \item If $V$ is finite-dimensional, then for every $k$, $l \ge 1$, $g \ge 0$ there is a unique linear map
-$$ f_{klg}: (\DBCyc V)^{\otimes k} \rightarrow (\DBCyc V)^{\otimes l} $$ such that
+\[ f_{klg}: (\DBCyc V)^{\otimes k} \longrightarrow (\DBCyc V)^{\otimes l} \] such that
 \begin{equation*}
 \begin{aligned}
 &f_{klg}(\psi_1\otimes \dotsb \otimes \psi_k)(w_1 \otimes \dotsb \otimes w_l) \\
- &\qquad\qquad =  \frac{1}{l!} \sum_{[\Gamma]\in \RRG_{klg}} \frac{1}{\Abs{\Aut(\Gamma)}} \langle \psi_1\otimes \dotsb \otimes \psi_k, w_1 \otimes \dotsb \otimes w_l\rangle^P_{\Gamma}. \end{aligned}
+ &\qquad\qquad =  \frac{1}{l!} \sum_{[\Gamma]\in \RRG_{klg}} \frac{1}{\Abs{\Aut(\Gamma)}} \langle \psi_1\otimes \dotsb \otimes \psi_k, w_1 \otimes \dotsb \otimes w_l\rangle^{\Prpg}_{\Gamma}. \end{aligned}
 \end{equation*}
-\item The following holds for the map $f_{klg}$ from b):
+\item The following holds for the map $f_{klg}$ from (b):
 \begin{itemize}
 \item It is homogenous of degree
-\begin{equation} \label{Eq:DegreeForm} \Abs{f_{klg}} = -\Abs{P}(k+l-2+2g). \end{equation}
+\begin{equation} \label{Eq:DegreeForm} \Abs{f_{klg}} = -\Abs{\Prpg}(k+l-2+2g). \end{equation}
 \item The filtration degree satisfies
 \begin{equation} \label{Eq:FiltrDegreeForm} 
  \Norm{f_{klg}} \ge - 2 (k+l-2+2g).
 \end{equation}
 \item For all $\eta\in\Perm_l$ and $\mu\in\Perm_k$, we have
-\begin{equation} \label{Eq:SymmetryForm} \eta \circ f_{klg} \circ \mu = (-1)^{\Abs{P}(\eta + \mu)}f_{klg}.
+\begin{equation} \label{Eq:SymmetryForm} \eta \circ f_{klg} \circ \mu = (-1)^{\Abs{\Prpg}(\eta + \mu)}f_{klg}.
 \end{equation}
 \end{itemize}
 \end{ClaimList}
@@ -68,43 +66,43 @@ $$ f_{klg}: (\DBCyc V)^{\otimes k} \rightarrow (\DBCyc V)^{\otimes l} $$ such th
 
 \begin{proof}
 \begin{ProofList}
-\item Let us denote by $\bar{i}$ and $ij$ the operations on $L_2$ given by $\mathrm{e}_i \mapsto -\mathrm{e}_i$ and $\mathrm{e}_i \leftrightarrow \mathrm{e}_j$, respectively. An even number of these operations does not change the orientation of the complex~\eqref{Eq:OrientationComplex} in Part~I. Their effect in $\sigma_L$ acting on $P^{\otimes e}\otimes w$ is
+\item Let us denote by $\bar{i}$ and $ij$ the operations on $L_2$ given by $\mathrm{e}_i \mapsto -\mathrm{e}_i$ and $\mathrm{e}_i \leftrightarrow \mathrm{e}_j$, respectively. An even number of these operations does not change the orientation of the complex~\eqref{Eq:OrientationComplex}. Their effect in $\sigma_L$ acting on $\Prpg^{\otimes e}\otimes w$ is
 \begin{equation*}
 %\label{Eq:PPPP} 
-\bar{i}: P_i\mapsto \tau(P_i) = (-1)^{\Abs{P}} P_i\quad\text{and}\quad ij: P_i \dots P_j\mapsto (-1)^{\Abs{P}} P_j \dots P_i.
+\bar{i}: \Prpg_i\mapsto \tau(\Prpg_i) = (-1)^{\Abs{\Prpg}} \Prpg_i\quad\text{and}\quad ij: \Prpg_i \dots \Prpg_j\mapsto (-1)^{\Abs{\Prpg}} \Prpg_j \dots \Prpg_i.
 \end{equation*}
-Therefore, an even number of them does not change $\sigma_L(P^{\otimes e}\otimes w)$. This proves the independence of the choice of a compatible $L_2$. The independence of the choice of $L_{3}^v$ is clear since $\psi_i$ are cyclic symmetric.
+Therefore, an even number of them does not change $\sigma_L(\Prpg^{\otimes e}\otimes w)$. This proves the independence of the choice of a compatible $L_2$. The independence of the choice of $L_{3}^v$ is clear since $\psi_i$ are cyclic symmetric.
 
 An isomorphism of ribbon graphs $\eta: \Gamma \rightarrow \Gamma'$ induces the map of compatible labelings $L \mapsto L' = \eta_* L$ such that $\sigma_{L} = \sigma_{L'}$. The independence of the choice of a representative of $[\Gamma]$ follows.
 
-\item Suppose that $\psi = \psi_1 \otimes \dotsb \otimes \psi_k$ with $\psi_i \in (\DBCyc V)_{r_i}^{c_i}$, where $r_i\in \N$ and $c_i \in \Z$ for $i=1$, $\dotsc$, $k$. A~general element of $(\DBCyc V)^{\otimes k}$ is then a finite linear combination of such $\psi$'s. 
+\item Suppose that $\psi = \psi_1 \otimes \dotsb \otimes \psi_k$ with $\psi_i \in (\DBCyc V)_{r_i}^{c_i}$, where $r_i\in \N$ and $c_i \in \Z$ for $i=1$, $\dotsc$, $k$. A~general element of $(\DBCyc V)^{\otimes k}$ is then a finite linear combination of such~$\psi$'s. 
 
-First of all, let us argue that the sum $\sum_{\RRG_{klg}}$ is finite. The number of internal edges~$e$ is fixed from the Euler formula \eqref{Eq:EulerFormula} in Part~I. Therefore, the number of contributing graphs $(V_{\mathrm{int}}, E_{\mathrm{int}})$ is finite. In order to bound the number of external vertices, we notice that $d_1 = r_1$, $\dotsc$, $d_k = r_k$ must hold for $\psi(\sigma_L(P^{\otimes e}\otimes w))$ to be non-zero. Therefore, the sum is finite.
+First of all, let us argue that the sum $\sum_{\RRG_{klg}}$ is finite. The number of internal edges~$e$ is fixed from the Euler formula \eqref{Eq:EulerFormula}. Therefore, the number of contributing graphs $(V_{\mathrm{int}}, E_{\mathrm{int}})$ is finite. In order to bound the number of external vertices, we notice that $d_1 = r_1$, $\dotsc$, $d_k = r_k$ must hold for $\psi(\sigma_L(\Prpg^{\otimes e}\otimes w))$ to be non-zero. Therefore, the sum is finite.
 
 We now have the linear functional 
-$$ f_{klg}(\psi) \coloneqq \frac{1}{l!}\sum_{[\Gamma]\in \RRG_{klg} } \frac{1}{\Abs{\Aut(\Gamma)}} \langle \psi \mid \cdot \rangle_\Gamma^{\PKer}: (\BCyc V)^{\otimes l} \rightarrow \R $$ 
-and need to show that $f_{klg}(\psi)\in (\DBCyc V)^{\otimes l} \subset (\BCyc V)^{\otimes l*}$. Because $V$ has finite dimension, the weight-filtration of $\BCyc V$ satisfies (WG1) \& (WG2) (see \eqref{Eq:WGs} and Proposition~\ref{Prop:Compl} in Part~I), and hence we have
-$$ (\DBCyc V)^{\otimes l} = (\BCyc V)^{\WGD \otimes l} =\bigl((\BCyc V)^{\otimes l}\bigr)^{\WGD} $$
+\[ f_{klg}(\psi) \coloneqq \frac{1}{l!}\sum_{[\Gamma]\in \RRG_{klg} } \frac{1}{\Abs{\Aut(\Gamma)}} \langle \psi \mid \cdot \rangle_\Gamma^{\Prpg}: (\BCyc V)^{\otimes l} \longrightarrow \R \] 
+and need to show that $f_{klg}(\psi)\in (\DBCyc V)^{\otimes l} \subset (\BCyc V)^{\otimes l*}$. Because $V$ has finite dimension, the weight-filtration of $\BCyc V$ satisfies (WG1) \& (WG2) (see \eqref{Eq:WGs} and Proposition~\ref{Prop:Compl}), and hence we have
+\[ (\DBCyc V)^{\otimes l} = (\BCyc V)^{\WGD \otimes l} =\bigl((\BCyc V)^{\otimes l}\bigr)^{\WGD} \]
 for the weight-graded duals. Therefore, it suffices to show that $f_{klg}(\psi)$ vanishes on all but finitely many degrees and weights of $(\BCyc V)^{\otimes k}$. However, the relation $f_{klg}(\psi)(w) \neq 0$ for a generating word $w\in (\BCyc V)^{\otimes k}$ implies
 \begin{equation}\label{Eq:UUUU}
 \begin{aligned}
-\Abs{w} &= \Abs{\psi} - e \Abs{\PKer}\quad\text{and} \\
+\Abs{w} &= \Abs{\psi} - e \Abs{\Prpg}\quad\text{and} \\
 k(w) &= k(\psi) - 2 e,
 \end{aligned}
 \end{equation}
 where $k$ denotes the weight, and hence $f_{klg}(\psi)\in (\DBCyc V)^{\otimes l}$ indeed holds.
 
-\item The formulas~\eqref{Eq:DegreeForm} and~\eqref{Eq:FiltrDegreeForm} follow from~\eqref{Eq:UUUU} and from~\eqref{Eq:EulerFormula} in Part~I.
+\item The formulas~\eqref{Eq:DegreeForm} and~\eqref{Eq:FiltrDegreeForm} follow from~\eqref{Eq:UUUU} and from~\eqref{Eq:EulerFormula}.
 
 As for the symmetry \eqref{Eq:SymmetryForm}, suppose that $L$ and $L'$ are compatible labelings of the same graph $\Gamma$ such that $L_1'$ differs from $L_1$ by a permutation $\mu\in \Perm_{k}$ of internal vertices and a permutation $\eta\in \Perm_l$ of boundary components. Viewing $\mu$ and $\eta$ as block permutations in the vertex and edge order, respectively, we get
-$$ \sigma_{L'}(P^{\otimes e}\otimes w)=(-1)^{\Abs{P}(\eta+\mu)}\mu(\sigma_L(P^{\otimes e}\otimes \eta( w))). $$
-The sign comes from the difference of $L_2$ and $L_2'$ which compensates the change of the orientation of~\eqref{Eq:OrientationComplex} in Part~I caused by $\mu$ and $\eta$.\qedhere
+\[ \sigma_{L'}(\Prpg^{\otimes e}\otimes w)=(-1)^{\Abs{\Prpg}(\eta+\mu)}\mu(\sigma_L(\Prpg^{\otimes e}\otimes \eta( w))). \]
+The sign comes from the difference of $L_2$ and $L_2'$ which compensates the change of the orientation of~\eqref{Eq:OrientationComplex} caused by $\mu$ and $\eta$.\qedhere
 \end{ProofList}
 \end{proof}
 
 Given $\mu\in \Perm_k$ and $\psi = \psi_1 \otimes \dotsb \otimes \psi_k \in (\DBCyc V)^{\otimes k}$, it is easy to see that
-$$ \varepsilon(\mu, \Psi) = \varepsilon(\mu(\Susp),\mu(\psi)) \varepsilon(\mu,\Susp)\varepsilon(\Susp,\psi)\varepsilon(\mu,\psi), $$
-where $\Psi = (\Susp \psi_1) \otimes \dotsb \otimes (\Susp \psi_k) \in (\DBCyc V[A])^{\otimes k}$ and $\varepsilon(\mu,\Susp) = (-1)^{\Abs{s}\mu}$. If $A= - \Abs{\PKer}$, then we get from \eqref{Eq:SymmetryForm} that the degree shift $\HTP_{klg}: (\DBCyc V [A])^{\otimes k} \rightarrow (\DBCyc V[A])^{\otimes l}$ has the following symmetries:
+\[ \varepsilon(\mu, \Psi) = \varepsilon(\mu(\Susp),\mu(\psi)) \varepsilon(\mu,\Susp)\varepsilon(\Susp,\psi)\varepsilon(\mu,\psi), \]
+where $\Psi = (\Susp \psi_1) \otimes \dotsb \otimes (\Susp \psi_k) \in (\DBCyc V[A])^{\otimes k}$ and $\varepsilon(\mu,\Susp) = (-1)^{\Abs{s}\mu}$. If $A= - \Abs{\Prpg}$, then we get from \eqref{Eq:SymmetryForm} that the degree shift $\HTP_{klg}: (\DBCyc V [A])^{\otimes k} \rightarrow (\DBCyc V[A])^{\otimes l}$ has the following symmetries:
 \begin{equation}\label{Eq:SymMap}
 \forall \mu \in \Perm_k, \eta\in \Perm_l: \quad \eta \circ \HTP_{klg} \circ \mu = \HTP_{klg}.
 \end{equation}
@@ -115,13 +113,13 @@ Note that the degrees satisfy
 
 \begin{Remark}[Symmetric maps versus maps on symmetric powers]\label{Rem:SymMaps}
 In the situation above, we define~$\tilde{\HTP}_{klg}$ as the unique map such that the solid lines of the following diagram commute:    
-$$\begin{tikzcd}
+\[\begin{tikzcd}
 (\DBCyc V[A])^{\otimes k} \arrow{r}{\HTP_{klg}} \arrow[two heads]{d}{\pi} & (\DBCyc V[A])^{\otimes l} \arrow[two heads,swap]{d}{\pi}\\
 \arrow[bend left,dotted]{u}{\iota}\Sym_k \DBCyc V[A] \arrow{r}{\tilde{\HTP}_{klg}} & \Sym_l \DBCyc V[A].\arrow[bend right,swap,dotted]{u}{\iota}
-\end{tikzcd}$$
+\end{tikzcd}\]
 The symmetry condition \eqref{Eq:SymMap} provides the existence of $\tilde{\HTP}_{klg}$ and implies commutativity of the dotted diagram as well. Moreover, for all $\psi_1$, $\dotsc$, $\psi_k \in \DBCyc V$ and $w_1$, $\dotsc$, $w_l\in \BCyc V$, we have 
-$$ \tilde{\HTP}_{klg}(\Susp^k \psi_1\cdots \psi_k)(\Susp^l w_1\cdots w_l) = \HTP_{klg}(\Susp^k \psi_1 \otimes \dotsb \otimes \psi_k)(\Susp^l w_1 \otimes \dotsb\otimes w_l), $$
-where we use the pairing from Definition~\ref{Def:Pairings} in Part~I. We denote $\tilde{\HTP}_{klg}$ again by $\HTP_{klg}$.
+\[ \tilde{\HTP}_{klg}(\Susp^k \psi_1\cdots \psi_k)(\Susp^l w_1\cdots w_l) = \HTP_{klg}(\Susp^k \psi_1 \otimes \dotsb \otimes \psi_k)(\Susp^l w_1 \otimes \dotsb\otimes w_l), \]
+where we use the pairing from Definition~\ref{Def:Pairings}. We denote $\tilde{\HTP}_{klg}$ again by $\HTP_{klg}$.
 \end{Remark}
 
 \begin{Definition}[Algebraic Schwartz kernel]\label{Def:LinSchw}
@@ -130,7 +128,7 @@ Let $V$ be a graded vector space and $\Pair: V\otimes V \rightarrow \R$ a non-de
 %\label{Eq:TensorPairing}
 \Pair(v_{11} \otimes \dotsb \otimes v_{1k}, v_{21}\otimes \dotsb \otimes v_{2k}) \coloneqq \varepsilon(v_1, v_2)\Pair(v_{11},v_{21}) \dots \Pair(v_{1k},v_{2k})
 \end{equation*}
-for all $v_{11}$, $\dotsc$, $v_{1k}$, $v_{21}$, $\dotsc$,  $v_{2k}\in V$, where $\varepsilon$ is the Koszul sign (see Definition~\ref{Def:Koszul} in Part~I). For $k=0$, we let $\Pair: \R\otimes \R \rightarrow \R$ be the multiplication on $\R$.
+for all $v_{11}$, $\dotsc$, $v_{1k}$, $v_{21}$, $\dotsc$,  $v_{2k}\in V$, where $\varepsilon$ is the Koszul sign (see Definition~\ref{Def:Koszul}). For $k=0$, we let $\Pair: \R\otimes \R \rightarrow \R$ be the multiplication on $\R$.
 
 For $k$, $l \ge 0$, we say that $\Kern_L\in V^{\otimes k + l}$ is the \emph{algebraic Schwartz kernel} of a linear operator $L: V^{\otimes k} \rightarrow V^{\otimes l}$ if the following is satisfied:
 \begin{equation} \label{Eq:KernelEquation}
@@ -140,51 +138,51 @@ We usually omit writing ``algebraic'' if it is clear from the context (i.e., if 
 \end{Definition}
 
 In the situation of Definition~\ref{Def:LinSchw}, let $(e_i)\subset V$ be a basis and $(e^i)$ its dual basis such that $\Pair(e_i,e^j)=\delta_{ij}$. We define the coordinates $K_L^{ij} \in \R$ and $L^{ij}\in \R$ by 
-$$ \Kern_L = \sum_{i,j} K_L^{ij} e_i \otimes e_j\quad\text{and}\quad L^{ij} \coloneqq \Pair(L (e^i),e^j).$$
+\[ \Kern_L = \sum_{i,j} K_L^{ij} e_i \otimes e_j\quad\text{and}\quad L^{ij} \coloneqq \Pair(L (e^i),e^j).\]
 From \eqref{Eq:KernelEquation} we have
 \begin{equation} \label{Eq:KernelCoordinates}
 \Kern_L^{ij} = (-1)^{(\Abs{L}+1)(\Abs{\Pair}+\Abs{e_i})} L^{ij}\quad \text{for all }i,j.
 \end{equation} 
 
-From now on, we will be in the situation of (A) and (B) in the Introduction; in particular, we put $V[1]$ in place of $V$ in Definition~\ref{Def:LinSchw}. Let $\Kern_{\Id} \in V[1]^{\otimes 2}$ be the Schwartz kernel of the identity $\Id: V[1]\rightarrow V[1]$ and $\Kern_{\Htp} \in V[1]^{\otimes 2}$ the Schwartz kernel of the cochain homotopy $\Htp: V[1] \rightarrow V[1]$. From~\eqref{Eq:KernelCoordinates}, we get
+From now on, we will be in the situation of (A) and (B) in the Overview; in particular, we put $V[1]$ in place of $V$ in Definition~\ref{Def:LinSchw}. Let $\Kern_{\Id} \in V[1]^{\otimes 2}$ be the Schwartz kernel of the identity $\Id: V[1]\rightarrow V[1]$ and $\Kern_{\Htp} \in V[1]^{\otimes 2}$ the Schwartz kernel of the cochain homotopy $\Htp: V[1] \rightarrow V[1]$. From~\eqref{Eq:KernelCoordinates}, we get
 \begin{equation*} 
 %\label{Eq:PropagatorsCoordinate}
 \Kern_{\Htp}^{ij} = \Htp^{ij} \quad \text{and} \quad {\Kern_{\Id}}^{ij} = (-1)^{\Abs{e_i} + \Abs{\Pair}} \Pair(e^i,e^j)\quad\text{for all }i,j. 
 \end{equation*}
-We see that the tensor $\TKer = \sum_{i,j} \TKer^{ij} e_i \otimes e_j$ from~\eqref{Eq:PropagatorT} in Part~I can be expressed as
+We see that the tensor $\TKer = \sum_{i,j} \TKer^{ij} e_i \otimes e_j$ from~\eqref{Eq:PropagatorT} can be expressed as
 \begin{equation*}
 %\label{Eq:GeomMeanT}
 \TKer = (-1)^{n-2} \Kern_{\Id}.
 \end{equation*}
 This is the invariant meaning of $\TKer$. Note that the degrees satisfy 
-$$ \Abs{\TKer} = n-2\quad\text{and}\quad \Abs{\Kern_{\Htp}} = n - 3. $$
+\[ \Abs{\TKer} = n-2\qquad\text{and}\qquad\Abs{\Kern_{\Htp}} = n - 3. \]
 
-The assumption~\eqref{Eq:ConditionOnG} in Part~I on $\Htp$ is equivalent to graded antisymmetry of the bilinear form $\Htp^+\coloneqq \Pair\circ (\Htp\otimes \Id): V[1]^{\otimes 2} \rightarrow \R$. This is further equivalent to
-$$ \tau(\Kern_{\Htp}) = (-1)^{\Abs{\Kern_{\Htp}}}\Kern_{\Htp}. $$
-Therefore, $\Kern_{\Htp}$ satisfies~\eqref{Eq:SymmetryCondition}, and hence it can be used as a propagator for the construction of $f_{klg}$ for every $k$, $l\ge 1$, $g\ge 0$. We have from~\eqref{Eq:SymmetryForm} that the degree shift $\HTP_{klg}: (\DBCyc V[3-n])^{\otimes k} \rightarrow (\DBCyc V[3-n])^{\otimes l}$ is symmetric. Moreover, using~\eqref{Eq:DegreeForm},~\eqref{Eq:FiltrDegreeForm} and \eqref{Eq:DegDegShift}, we obtain
-$$\begin{aligned}
+The assumption~\eqref{Eq:ConditionOnG} on $\Htp$ is equivalent to graded antisymmetry of the bilinear form $\Htp^+\coloneqq \Pair\circ (\Htp\otimes \Id): V[1]^{\otimes 2} \rightarrow \R$. This is further equivalent to
+\[ \tau(\Kern_{\Htp}) = (-1)^{\Abs{\Kern_{\Htp}}}\Kern_{\Htp}. \]
+Therefore, $\Kern_{\Htp}$ satisfies~\eqref{Eq:SymmetryCondition}, and hence it defines an admissible propagator for the construction of $f_{klg}$ for every $k$, $l\ge 1$, $g\ge 0$. We have from~\eqref{Eq:SymmetryForm} that the degree shift $\HTP_{klg}: (\DBCyc V[3-n])^{\otimes k} \rightarrow (\DBCyc V[3-n])^{\otimes l}$ is symmetric. Moreover, using~\eqref{Eq:DegreeForm},~\eqref{Eq:FiltrDegreeForm} and \eqref{Eq:DegDegShift}, we obtain
+\[\begin{aligned}
 \Abs{\HTP_{klg}} &= - 2d(k+g-1), \\
 \Norm{\HTP_{klg}}&\ge \gamma (2-2g-k-l),
-\end{aligned}$$
+\end{aligned}\]
 where $(d,\gamma) = (n-3,2)$. These are the degree and filtration conditions on an $\IBLInfty$-morphism from~\cite[Definition~2.8 and (8.3)]{Cieliebak2015}. In fact, our $\HTP=(\HTP_{klg})_{k,l\ge 1, g\ge 0}$ is precisely the $\IBLInfty$-homotopy from \cite[Theorem 11.3]{Cieliebak2015}.
 
 Graded antisymmetry of $\Pair$ is equivalent to 
-$$ \tau(\TKer)= (-1)^{\Abs{\TKer}+1}\TKer. $$
-Visibly, $\TKer$ does not satisfy~\eqref{Eq:SymmetryCondition}. Nevertheless, we can still use it to define $f_{210}$ and~$f_{120}$ since the corresponding graphs $\Gamma$ (see Figure~\ref{Fig:GammasGraphs}) have only one internal edge $\mathrm{e}$, and, for a given $L_1$, there is a unique compatible~$L_2$ determined by the orientation of $\mathrm{e}$ (see Example~\ref{Ex:Canon} for the compatibility condition). As for the symmetry of the resulting maps, a transposition of internal vertices or boundary components in~\eqref{Eq:OrientationComplex} in Part~I can be compensated only by $\mathrm{e}\mapsto-\mathrm{e}$, which produces $(-1)^{\Abs{\TKer}+1}$ (c.f.~the proof of Proposition~\ref{Prop:GraphPairing} (a)). Therefore, if we shift the degrees by $A= - \Abs{\TKer} +  1 = n- 3$, we obtain symmetric maps $\OPQ_{210}: (\DBCyc V[A])^{\otimes 2} \rightarrow \DBCyc V[A]$ and $\OPQ_{120}: \DBCyc V[A] \rightarrow (\DBCyc V[A])^{\otimes 2}$. We show in Example~\ref{Ex:Canon} below that these operations agree with those defined in Definition~\ref{Def:CanonicaldIBL} in Part~I.
+\[ \tau(\TKer)= (-1)^{\Abs{\TKer}+1}\TKer. \]
+Visibly, $\TKer$ does not satisfy~\eqref{Eq:SymmetryCondition}, and hence is not an admissible propagator. Nevertheless, we can still use it to define $f_{210}$ and~$f_{120}$ since the corresponding graphs $\Gamma$ (see Figure~\ref{Fig:GammasGraphs}) have only one internal edge $\mathrm{e}$, and, for a given $L_1$, there is a unique compatible~$L_2$ determined by the orientation of $\mathrm{e}$ (see Example~\ref{Ex:Canon} for the compatibility condition). As for the symmetry of the resulting maps, a transposition of internal vertices or boundary components in~\eqref{Eq:OrientationComplex} can be compensated only by $\mathrm{e}\mapsto-\mathrm{e}$, which produces $(-1)^{\Abs{\TKer}+1}$ (c.f.~the proof of Proposition~\ref{Prop:GraphPairing} (a)). Therefore, if we shift the degrees by $A= - \Abs{\TKer} +  1 = n- 3$, we obtain symmetric maps $\OPQ_{210}: (\DBCyc V[A])^{\otimes 2} \rightarrow \DBCyc V[A]$ and $\OPQ_{120}: \DBCyc V[A] \rightarrow (\DBCyc V[A])^{\otimes 2}$. We show in Example~\ref{Ex:Canon} below that these operations agree with those defined in Definition~\ref{Def:CanonicaldIBL}.
 
 
 \begin{Example}[The canonical $\dIBL$-operations]\label{Ex:Canon}
 We have
 \begin{equation}\label{Eq:DefByGraphs}
 \begin{aligned}
-f_{210}(\psi_1 \otimes \psi_2)(w) & = \frac{1}{1!} \sum_{[\Gamma]\in \RRG_{210}} \frac{1}{\Abs{\Aut(\Gamma)}} \langle \psi_1 \otimes \psi_2 \mid w \rangle_\Gamma^P\quad\text{and} \\
-f_{120}(\psi)(w_1 \otimes w_2) & = \frac{1}{2!} \sum_{[\Gamma]\in \RRG_{120}} \frac{1}{\Abs{\Aut(\Gamma)}} \langle \psi \mid w_1 \otimes w_2 \rangle_\Gamma^P.
+f_{210}(\psi_1 \otimes \psi_2)(w) & = \frac{1}{1!} \sum_{[\Gamma]\in \RRG_{210}} \frac{1}{\Abs{\Aut(\Gamma)}} \langle \psi_1 \otimes \psi_2 \mid w \rangle_\Gamma^{\Prpg}\quad\text{and} \\
+f_{120}(\psi)(w_1 \otimes w_2) & = \frac{1}{2!} \sum_{[\Gamma]\in \RRG_{120}} \frac{1}{\Abs{\Aut(\Gamma)}} \langle \psi \mid w_1 \otimes w_2 \rangle_\Gamma^{\Prpg}.
 \end{aligned}
 \end{equation}
 We parametrize $\RG_{210}$ by the ribbon graphs $\Gamma_{k_1, k_2}$ with $1\le k_1\le k_2$ and $\RG_{120}$ by the ribbon graphs $\Gamma^{s_1, s_2}$ with $0\le s_1 \le s_2$; these graphs are depicted in Figure~\ref{Fig:GammasGraphs}. We have 
 $\RRG_{210} = \RG_{210}\backslash \{[\Gamma_{1,1}]\}$ and $\RRG_{120} = \RG_{120}\backslash \{[\Gamma^{0,0}], [\Gamma^{0,1}]\}$. We also have 
-$$\Abs{\Aut(\Gamma_{k_1,k_2})} = \begin{cases} 1 & \text{if }k_1 \neq k_2, \\ 
-              2 & \text{if }k_1 = k_2, \end{cases}$$
+\[\Abs{\Aut(\Gamma_{k_1,k_2})} = \begin{cases} 1 & \text{if }k_1 \neq k_2, \\ 
+              2 & \text{if }k_1 = k_2, \end{cases}\]
 and likewise for $\Gamma^{s_1,s_2}$. We fix labelings~$L_{3}^v$ and parametrize $L_{3}^b$ by $c=1$, $\dotsc$, $k_1 + k_2 - 2$ for $\Gamma_{k_1,k_2}$ and by $c_1 = 1$, $\dotsc$, $s_1$ and $c_2 = 1$, $\dotsc$, $s_2$ for $\Gamma^{s_1,s_2}$ as it is indicated in Figure~\ref{Fig:GammasGraphs}.
 
 There are two possible labelings $L_{1}^v$ for $\Gamma_{k_1, k_2}$ and two possible labelings $L_{1}^b$ for $\Gamma^{s_1, s_2}$; this is the only freedom in choosing a full labeling $L$ because $L_3$ is fixed and $L_2$ is just the orientation of the single internal edge, which is uniquely determined by $L_1$. For both $\Gamma_{k_1, k_2}$ and $\Gamma^{s_1, s_2}$, we will denote the two possible full labelings by $L^1$ and $L^2$. They can be depicted as follows:
@@ -226,15 +224,15 @@ $L^2$ & \begin{tikzpicture}
 \end{tikzpicture}
 \end{tabular}
 \end{equation}
-Let us check that the indicated $L_1$ and $L_2$ are compatible. For the complexes $C_2 \rightarrow C_1 \rightarrow C_0$ from \eqref{Eq:OrientationComplex} in Part~I, we have the following:
-$$\begin{aligned}
+Let us check that the indicated $L_1$ and $L_2$ are compatible. For the complexes $C_2 \rightarrow C_1 \rightarrow C_0$ from \eqref{Eq:OrientationComplex}, we have the following:
+\[\begin{aligned}
 \Gamma_{k_1,k_2}:\qquad &\langle \mathrm{b} \rangle \xrightarrow{\Bdd_2 = 0}  \langle \mathrm{e} \rangle \xrightarrow{\Bdd_1} \langle \mathrm{v}_2 - \mathrm{v}_1 \rangle \oplus \langle \mathrm{v}_1 + \mathrm{v}_2 \rangle,  \\
 \Gamma^{s_1, s_2}:\qquad &\langle \mathrm{b}_1 - \mathrm{b}_2 \rangle \oplus \langle \mathrm{b}_1 + \mathrm{b}_2 \rangle  \xrightarrow{\Bdd_2} \langle \mathrm{e} \rangle \xrightarrow{\Bdd_1 = 0} \langle \mathrm{v} \rangle.  
-\end{aligned}$$
+\end{aligned}\]
 As for $\Gamma_{k_1,k_2}$, the basis $\mathrm{v}_2 - \mathrm{v}_1$, $\mathrm{v}_1 + \mathrm{v}_2$ of $C_0$ is positively oriented with respect to the basis $\mathrm{v}_2$, $\mathrm{v}_1$. Therefore, $\mathrm{e}$ has to be oriented such that $\Bdd_1 \mathrm{e} = \mathrm{v}_2 - \mathrm{v}_1$; i.e., it is a path from $\mathrm{v}_1$ to $\mathrm{v}_2$. As for $\Gamma^{s_1,s_2}$, the basis $\mathrm{b}_1-\mathrm{b}_2$, $\mathrm{b}_1 + \mathrm{b}_2$ of $C_2$ is positively oriented with respect to $\mathrm{b}_1$, $\mathrm{b}_2$. Therefore, $\mathrm{e}$ has to be oriented such that $\mathrm{e} = \Bdd_2 (\mathrm{b}_1 - \mathrm{b}_2)$. Recall that we orient the boundary of a $2$-simplex by the ``outer normal first'' convention. We conclude that the labelings from~\eqref{Eq:OrientLabel} are indeed compatible.
 
 As for $f_{210}$, the permutations $\sigma_1\coloneqq\sigma_{L^1}$ and $\sigma_2\coloneqq \sigma_{L^2}$ corresponding to the labelings $L^1$ and $L^2$, respectively, read
-$$\begin{aligned}
+\[\begin{aligned}
 \sigma_{1} &= \biggl(\begin{array}{cc|ccc}
  1 & 2     & \dots & c+2 & \dots \\
  1 & k_1+1 & \undermat{k_1+k_1-2}{\dots& c+2 & \dots}\dots & 2& \dots 
@@ -243,25 +241,28 @@ $$\begin{aligned}
  1 & 2     & \dots & c+2 & \dots  \\
  1 & k_2+1 & \undermat{k_1+k_2-2}{\dots & k_2 + 2 & \dots}\dots & k_2 + 2 & \dots
 \end{array}\biggr).\\[3ex]
-\end{aligned}$$
+\end{aligned}\]
 The underbracket marks the block which represents a cyclic permutation of the remaining indices. We see that 
-$$\begin{aligned}
+\[\begin{aligned}
 \sigma_{1}&:  V^{\otimes 2} \otimes V^{\otimes s} \longrightarrow V^{\otimes k_1}\otimes V^{\otimes k_2},\quad e_i e_j w \longmapsto e_i w^1 e_j w^2,  \\
 \sigma_{2}&: V^{\otimes 2}\otimes V^{\otimes s} \longrightarrow V^{\otimes k_2}\otimes V^{\otimes k_1},\quad e_i e_j w  \longmapsto e_i w^2 e_j w^1,
-\end{aligned}$$
+\end{aligned}\]
 where $w^1 = w_c \dots w_{c+k_1-2}$, $w^2 = w_{c+k_1-1}\dots w_{c+k_1+k_2-3}$ and $s \coloneqq k_1 + k_2 - 2$. Defining $\tilde{w}^1 \coloneqq w^2$ and $\tilde{w}^2 \coloneqq w^1$, The Koszul sign of $\sigma_2$ can be written as
-$$ \varepsilon(w\mapsto w^1 w^2) (-1)^{\Abs{w^2}\Abs{e_j} + \Abs{w^1}\Abs{w^2}} = \varepsilon(w\mapsto \tilde{w}^1 \tilde{w}^2 ) (-1)^{\Abs{\tilde{w}^1} \Abs{e_j}}. $$
+\[ \varepsilon(w\mapsto w^1 w^2) (-1)^{\Abs{w^2}\Abs{e_j} + \Abs{w^1}\Abs{w^2}} = \varepsilon(w\mapsto \tilde{w}^1 \tilde{w}^2 ) (-1)^{\Abs{\tilde{w}^1} \Abs{e_j}}. \]
 We use these facts to rewrite \eqref{Eq:DefByGraphs} as follows:
-$$\begin{aligned}
-& f_{210}(\psi_1 \otimes \psi_2)(w) = \\ &\quad \sum_{\substack{1\le k_1 < k_2}} \sum_{i,j} \TKer^{ij} \Bigl(\sum_{k(w^1) = k_1 - 1} \varepsilon(w\mapsto w^1 w^2)(-1)^{\Abs{w^1}\Abs{e_j}} \psi_1(e_i w^1) \psi_2(e_j w^2) \\ &\quad {}+ \sum_{k(w^1) = k_2 - 1} \varepsilon(w\mapsto w^1 w^2) (-1)^{\Abs{w^2}\Abs{e_j} + \Abs{w^1}\Abs{w^2}} \psi_1(e_i w^2) \psi_2(e_j w^1)\Bigr) \\ 
-&\quad + \sum_{1< k_1 = k_2} \frac{1}{2} \Bigl(\sum_{k(w^1) = k_1 - 1} \varepsilon(w\mapsto w^1 w^2)(-1)^{\Abs{w^1}\Abs{e_j}} \psi_1(e_i w^1) \psi_2(e_j w^2) \\ 
-&\quad {}+ \sum_{k(w^1) = k_2 - 1} \varepsilon(w\mapsto w^1 w^2) (-1)^{\Abs{w^2}\Abs{e_j} + \Abs{w^1}\Abs{w^2}} \psi_1(e_i w^2) \psi_2(e_j w^1)\Bigr) \\
-&\quad =\sum_{\substack{k_1, k_2 \ge 1 \\ k_1 + k_2 > 2}} \sum_{\substack{ k(w^1) = k_1 - 1 \\ k(w^2) = k_2 - 1}}  \TKer^{ij}\varepsilon(w \mapsto w^1 w^2) (-1)^{\Abs{w^1}\Abs{e_j}} \psi_1(e_i w^1) \psi_2(e_j w^2).
-\end{aligned}$$
-This coincides with the formula from Definition~\ref{Def:CanonicaldIBL} in Part~I.
+\begin{align*}
+& f_{210}(\psi_1 \otimes \psi_2)(w) \\
+&\qquad=\begin{aligned}[t]
+& \sum_{\substack{1\le k_1 < k_2}} \sum_{i,j} \TKer^{ij} \Bigl(\sum_{k(w^1) = k_1 - 1} \varepsilon(w\mapsto w^1 w^2)(-1)^{\Abs{w^1}\Abs{e_j}} \psi_1(e_i w^1) \psi_2(e_j w^2) \\
+&{}+ \sum_{k(w^1) = k_2 - 1} \varepsilon(w\mapsto w^1 w^2) (-1)^{\Abs{w^2}\Abs{e_j} + \Abs{w^1}\Abs{w^2}} \psi_1(e_i w^2) \psi_2(e_j w^1)\Bigr) \\
+&{}+ \sum_{1< k_1 = k_2} \frac{1}{2} \Bigl(\sum_{k(w^1) = k_1 - 1} \varepsilon(w\mapsto w^1 w^2)(-1)^{\Abs{w^1}\Abs{e_j}} \psi_1(e_i w^1) \psi_2(e_j w^2) \\ 
+&{}+\sum_{k(w^1) = k_2 - 1} \varepsilon(w\mapsto w^1 w^2) (-1)^{\Abs{w^2}\Abs{e_j} + \Abs{w^1}\Abs{w^2}} \psi_1(e_i w^2) \psi_2(e_j w^1)\Bigr)\end{aligned}\\
+&\qquad=\sum_{\substack{k_1, k_2 \ge 1 \\ k_1 + k_2 > 2}} \sum_{\substack{ k(w^1) = k_1 - 1 \\ k(w^2) = k_2 - 1}}  \TKer^{ij}\varepsilon(w \mapsto w^1 w^2) (-1)^{\Abs{w^1}\Abs{e_j}} \psi_1(e_i w^1) \psi_2(e_j w^2).
+\end{align*}
+This coincides with the formula from Definition~\ref{Def:CanonicaldIBL}.
 
 As for $f_{120}$, the permutations $\sigma_1\coloneqq\sigma_{L^1}$ and $\sigma_2\coloneqq \sigma_{L^2}$ corresponding to the labelings $L^1$ and $L^2$, respectively, read
-$$\begin{aligned}
+\[\begin{aligned}
 \sigma_{1} &= \biggl(\begin{array}{cc|ccc|ccc}
 1 & 2      & \dots & c_1+2 & \dots & \dots & c_2 + s_1 + 2 & \dots \\
  1 & s_1 + 2& \undermat{s_1}{\dots & c_1+2 & \dots}\dots & 2 & \dots &\undermat{s_2}{\dots & c_2 + s_1 + 2 & \dots}\dots & s_1 + 3 & \dots
@@ -270,17 +271,17 @@ $$\begin{aligned}
  1       & 2 &  \dots  & c_2 + 2 & \dots & \dots & c_1 + s_2 + 2 & \dots  \\
  s_1 + 2 & 1 & \undermat{s_2}{\dots & c_2+2 & \dots} \dots  & s_1 + 3 & \dots & \undermat{s_1}{\dots & c_1 + s_2 + 2 & \dots} \dots &  2     & \dots
 \end{array}\biggr), \\[3ex]
-\end{aligned}$$
+\end{aligned}\]
 where the underbracketed blocks denote cyclic permutations of consecutive indices on the corresponding boundary component. We see that 
-$$\begin{aligned}
+\[\begin{aligned}
 \sigma_1 &: V^{\otimes 2}\otimes V^{\otimes s_1}\otimes V^{\otimes s_2} \longrightarrow V^{\otimes k}, \quad e_i e_j w_1 w_2 \longmapsto e_i w_1^1 e_j w_2^1, \\
 \sigma_2 &:  V^{\otimes 2}\otimes V^{\otimes s_2} \otimes V^{\otimes s_1} \longrightarrow V^{\otimes k}, \quad  e_i e_j w_1 w_2 \longmapsto e_j w_2^1 e_i w_1^1,
-\end{aligned}$$
+\end{aligned}\]
 where $w_i^1$ denotes a cyclic permutation and $k\coloneqq s_1 + s_2 +2$. The Koszul sign of~$\sigma_2$ can be written as
-$$\begin{aligned}&(-1)^{\Abs{e_i}\Abs{e_j} + \Abs{w_1}\Abs{w_2} + \Abs{e_i}\Abs{w_2}} \varepsilon(w_1 \mapsto w_1^1)\varepsilon(w_2\mapsto w_2^1)\\
-&\qquad= (-1)^{(\Abs{e_i} + \Abs{w_1})(\Abs{e_j} + \Abs{w_2}) + \Abs{w_1} \Abs{e_j}}\varepsilon(w_1 \mapsto w_1^1)\varepsilon(w_2\mapsto w_2^1).\end{aligned}$$
+\[\begin{aligned}&(-1)^{\Abs{e_i}\Abs{e_j} + \Abs{w_1}\Abs{w_2} + \Abs{e_i}\Abs{w_2}} \varepsilon(w_1 \mapsto w_1^1)\varepsilon(w_2\mapsto w_2^1)\\
+&\qquad= (-1)^{(\Abs{e_i} + \Abs{w_1})(\Abs{e_j} + \Abs{w_2}) + \Abs{w_1} \Abs{e_j}}\varepsilon(w_1 \mapsto w_1^1)\varepsilon(w_2\mapsto w_2^1).\end{aligned}\]
 We use this fact and the cyclic symmetry of $\psi$ to rewrite \eqref{Eq:DefByGraphs} as follows:
-$$\begin{aligned}
+\[\begin{aligned}
 &f_{120}(\psi)(w_1 \otimes w_2)
 \\&\; = \begin{aligned}[t]
 & \begin{multlined}[t]\sum_{0\le s_1 < s_2} \Bigl(\delta\bigl(\substack{k(w_1) = s_1 \\ k(w_2) = s_2}\bigr)\sum \TKer^{ij} \varepsilon(w_1\mapsto w_1^1) \varepsilon(w_2\mapsto w_2^1)(-1)^{\Abs{w_1} \Abs{e_j}} \\
@@ -290,60 +291,60 @@ $$\begin{aligned}
 \frac{1}{2} \Bigl(\sum \TKer^{ij} \varepsilon(w_1\mapsto w_1^1) \varepsilon(w_2\mapsto w_2^1)\\ (-1)^{\Abs{w_1} \Abs{e_j}} \psi(e_i w_1^1 e_j w_2^1) + \sum \TKer^{ij} \varepsilon(w_1\mapsto w_1^1)\varepsilon(w_2\mapsto w_2^1) \\ (-1)^{\Abs{e_i} \Abs{e_j} + \Abs{w_2} \Abs{w_1} + \Abs{e_i}\Abs{w_2}} \psi(e_j w_2^1 e_i w_1^1) \Bigr) \end{multlined}
 \end{aligned} \\
 &\; = \begin{multlined}[t] \smash{\sum_{\substack{s_1, s_2 \ge 0 \\ s_1 + s_2 > 0}}} \delta\bigl(\substack{k(w_1) = s_1 \\ k(w_2) = s_2}\bigr) \sum \TKer^{ij} \varepsilon(w_1 \mapsto w_1^1)\varepsilon(w_2 \mapsto w_2^1)(-1)^{\Abs{w_1}\Abs{e_j}} \\ \psi(e_i w_1^1 e_j w_2^1).\end{multlined}
-\end{aligned}$$
-This coincides with the formula from Definition~\ref{Def:CanonicaldIBL} in Part~I.
+\end{aligned}\]
+This coincides with the formula from Definition~\ref{Def:CanonicaldIBL}.
 \end{Example}
 
 \section{De Rham case}
 
-We will now establish a formal analogy between the finite-dimensional and the de Rham case, which will explain the signs in Definition~\ref{Def:PushforwardMCdeRham} in Part~I.
+We will now establish a formal analogy between the finite-dimensional and the de Rham case, which will explain the signs in Definition~\ref{Def:PushforwardMCdeRham}.
 
-\textbf{The finite-dimensional case.} Consider the situation of (A) -- (D) in the Introduction. To recall briefly, we have a finite-dimensional cyclic dga $(V,\Pair,m_1, m_2)$ and a subcomplex $\Harm \subset V$ such that there is a projection $\pi: V[1] \rightarrow \Harm[1]$ chain homotopic to $\Id$ via a chain homotopy $\Htp: V[1] \rightarrow V[1]$. Using~$m_2$, one constructs the canonical Maurer-Cartan element $\MC$ for $\dIBL(\CycC(V))$. Using the algebraic Schwartz kernel $\Kern_{\Htp}$ of $\Htp$, one constructs the $\IBLInfty$-quasi-isomorphism $\HTP = (\HTP_{klg}): \dIBL(\CycC(V)) \rightarrow \dIBL(\CycC(\Harm))$. The Maurer-Cartan element $\MC$ is then pushed forward along $\HTP$ to obtain the Maurer-Cartan element $\PMC \coloneqq \HTP_* \MC$  for $\dIBL(\CycC(\Harm))$ (see \cite[Lemma 9.5]{Cieliebak2015}). The formula for~$\PMC$ given in~\cite[Remark~12.10]{Cieliebak2015} reads
+\textbf{The finite-dimensional case.} Consider the situation of (A) -- (D) in the Overview. To recall briefly, we have a finite-dimensional cyclic dga $(V,\Pair,m_1, m_2)$ and a subcomplex $\Harm \subset V$ such that there is a projection $\pi: V[1] \rightarrow \Harm[1]$ chain homotopic to $\Id$ via a chain homotopy $\Htp: V[1] \rightarrow V[1]$. Using~$m_2$, one constructs the canonical Maurer-Cartan element $\MC$ for $\dIBL(\CycC(V))$. The algebraic Schwartz kernel $\Kern_{\Htp}$ of $\Htp$ is an admissible propagator used to construct the $\IBLInfty$-quasi-isomorphism $\HTP = (\HTP_{klg}): \dIBL(\CycC(V)) \rightarrow \dIBL(\CycC(\Harm))$. The Maurer-Cartan element $\MC$ is then pushed forward along $\HTP$ to obtain the Maurer-Cartan element $\PMC \coloneqq \HTP_* \MC$  for $\dIBL(\CycC(\Harm))$ (see \cite[Lemma 9.5]{Cieliebak2015}). The formula for~$\PMC$ given in~\cite[Remark~12.10]{Cieliebak2015} reads
 \begin{equation} \label{Eq:PushforwardMC}
 \begin{aligned} &\PMC_{lg}(\Susp^l w_1 \otimes \dotsb \otimes  w_l) \\
 &\qquad=\frac{1}{l!}\sum_{[\Gamma]\in \TRRG_{klg}} \frac{1}{\Abs{\Aut(\Gamma)}} (-1)^{k(n-2)}\langle (m_2^+)^{\otimes k}, w_1 \otimes \dotsb \otimes w_l \rangle_{\Gamma}^{\Kern_{\Htp}}.
 \end{aligned}\end{equation}
-Here the artificial sign $(-1)^{k(n-2)}$ is added because our sign conventions for $m_2^+$ differ (see Remark~\ref{Rem:mukplus} in Part~I).
+Here the artificial sign $(-1)^{k(n-2)}$ is added because our sign conventions for $m_2^+$ differ (see Remark~\ref{Rem:mukplus}).
 % where $w_i\in \BCyc V$ and $G\in V[1]^{\otimes 2}$ is the Schwartz kernel with respect to $m$ of the cochain homotopy $\Htp: V[1]\rightarrow V[1]$.
 %Recall that  $\Prpg\in V[1]^{\otimes 2}$ is the Schwartz kernel of $\Htp: V[1] \rightarrow V[1]$.
 
 
 \textbf{The de Rham case.}
-We are in the setting of Definition~\ref{Def:PushforwardMCdeRham} in Part~I. To recall briefly, we have the cyclic dga $(\DR(M), \Pair, m_1, m_2)$, the subspace of harmonic forms $\Harm\subset \DR$, the harmonic projection $\pi_\Harm: \DR\rightarrow \Harm$ and a Hodge propagator $\Prpg\in \DR(\Bl_\Diag(M\times M))$, which is the Schwartz kernel of a chain homotopy $\Htp: \DR \rightarrow \DR$ between $\pi_\Harm$ and~$\Id$. In analogy with the finite-dimensional case, the canonical Maurer-Cartan element~\eqref{Eq:CanonMC} in Part~I for $\dIBL(\Harm)$ satisfies $\MC_{10} = (-1)^{n-2}m_2^+$ with $m_2^+ = \Pair(m_2 \otimes \Id)$. Because $\dim(\DR) = \infty$, Definition~\ref{Def:CanonicaldIBL} in Part~I does not give the canonical $\dIBL$-structure on $\CycC(\DR)$, and hence we have neither $\HTP$ nor~$\PMC$ in the standard sense.
+We are in the setting of Definition~\ref{Def:PushforwardMCdeRham}. To recall briefly, we have the cyclic dga $(\DR(M), \Pair, m_1, m_2)$, the subspace of harmonic forms $\Harm\subset \DR$, the harmonic projection $\pi_\Harm: \DR\rightarrow \Harm$ and a Hodge propagator $\Prpg\in \DR(\Bl_\Diag(M\times M))$, which is the Schwartz kernel of a chain homotopy $\Htp: \DR \rightarrow \DR$ between $\pi_\Harm$ and~$\Id$. In analogy with the finite-dimensional case, the canonical Maurer-Cartan element~\eqref{Eq:CanonMC} for $\dIBL(\Harm)$ satisfies $\MC_{10} = (-1)^{n-2}m_2^+$ with $m_2^+ = \Pair(m_2 \otimes \Id)$. Because $\dim(\DR)$ is not of finite type, Definition~\ref{Def:CanonicaldIBL} does not give the canonical $\dIBL$-structure on $\CycC(\DR)$, and hence we have neither $\HTP$ nor~$\PMC$ in the standard sense.
 
-In order to deduce the formal analogy, we embed $\DR(M)^{\otimes 2}$ into $\DR(\Bl_{\Diag}(M\times M))$ using the external wedge product $(\eta_1,\eta_2)\mapsto \tilde{\pi}_1^*\eta_1 \wedge \tilde{\pi}_2^*\eta_2$ and suppose that the Hodge propagator $\Prpg$ satisfies $\Prpg \in \DR^{\otimes 2}$. This never happens, so what follows is just a formal computation whose point is to deduce a candidate for the sign.%\footnote{If $\Prpg \in \DR(M)^{\otimes 2}$, then $\dim(\Im \Htp)< \infty$. From \eqref{Eq:gdef}, we get $\Dd \Htp \Dd = \Dd$, and hence $\dim(\Im \Dd)<\infty$. This is obviously not true for $\dim(M)>0$.} 
+In order to deduce the formal analogy, we embed $\DR(M)^{\otimes 2}$ into $\DR(\Bl_{\Diag}(M\times M))$ using the external wedge product $(\eta_1,\eta_2)\mapsto \tilde{\pi}_1^*\eta_1 \wedge \tilde{\pi}_2^*\eta_2$ and suppose that the Hodge propagator $\Prpg$ satisfies $\Prpg \in \DR^{\otimes 2}$. This never happens, so what follows is just a formal computation whose purpose is to deduce candidates for signs.%\footnote{If $\Prpg \in \DR(M)^{\otimes 2}$, then $\dim(\Im \Htp)< \infty$. From \eqref{Eq:gdef}, we get $\Dd \Htp \Dd = \Dd$, and hence $\dim(\Im \Dd)<\infty$. This is obviously not true for $\dim(M)>0$.} 
 
 \begin{Proposition}\label{Prop:FinDimAnalog}
-In the de Rham case, suppose that $\Prpg\in \DR(M)^{\otimes 2}$. Then \eqref{Eq:PushforwardMC} reduces to \eqref{Eq:PushforwardMCdeRham} in Part~I.
+In the de Rham case, suppose that $\Prpg\in \DR(M)^{\otimes 2}$. Then \eqref{Eq:PushforwardMC} reduces to \eqref{Eq:PushforwardMCdeRham}.
 \end{Proposition}
 \begin{proof}
-Consider the intersection pairing $\tilde{\Pair}$ and its degree shift $\Pair$ (see Proposition~\ref{Prop:DGAs} in Part~I). According to Definition~\ref{Def:LinSchw}, they extend to pairings on $\DR(M)^{\otimes k}$ and $\DR(M)[1]^{\otimes k}$ for all $k\ge 1$, respectively. For all $\eta_{11}$, $\eta_{12}$, $\eta_{21}$, $\eta_{22}\in \DR(M)$, we have:
+Consider the intersection pairing $\tilde{\Pair}$ and its degree shift $\Pair$ (see Proposition~\ref{Prop:DGAs}). According to Definition~\ref{Def:LinSchw}, they extend to pairings on $\DR(M)^{\otimes k}$ and $\DR(M)[1]^{\otimes k}$ for all $k\ge 1$, respectively. For all $\eta_{11}$, $\eta_{12}$, $\eta_{21}$, $\eta_{22}\in \DR(M)$, we have:
 \begin{equation}\label{Eq:PairComp}
 \begin{aligned}
 &\Pair(\SuspU^2 \eta_{11}\otimes \eta_{12},\SuspU^2 \eta_{21}\otimes \eta_{22}) \\ 
 &\qquad = (-1)^{\eta_{11} + \eta_{21}} \Pair(\SuspU\eta_{11}\otimes \SuspU\eta_{12}, \SuspU \eta_{21}\otimes \SuspU\eta_{22}) \\
 &\qquad = (-1)^{\eta_{11} + \eta_{21} + (1+\eta_{12})(1+\eta_{21})} \Pair(\SuspU \eta_{11}, \SuspU \eta_{21}) \Pair(\SuspU \eta_{12},\SuspU \eta_{22})\\
-&\qquad =(-1)^{1+\eta_{12}\eta_{21}} \tilde{P}(\eta_{11},\eta_{21})\tilde{\Pair}(\eta_{12},\eta_{22}) \\
+&\qquad =(-1)^{1+\eta_{12}\eta_{21}} \tilde{\Prpg}(\eta_{11},\eta_{21})\tilde{\Pair}(\eta_{12},\eta_{22}) \\
 &\qquad = - \tilde{\Pair}(\eta_{11}\otimes \eta_{12}, \eta_{21}\otimes \eta_{22}).
 \end{aligned}
 \end{equation}
 One can also check that
-$$ \tilde{\Pair}(\eta_{11} \otimes \eta_{12}, \eta_{21}\otimes\eta_{22}) = \int_{x,y} \eta_{11}(x)\eta_{12}(y)\eta_{21}(x)\eta_{22}(y). $$
+\[ \tilde{\Pair}(\eta_{11} \otimes \eta_{12}, \eta_{21}\otimes\eta_{22}) = \int_{x,y} \eta_{11}(x)\eta_{12}(y)\eta_{21}(x)\eta_{22}(y). \]
 
 For the Hodge homotopy $\Htp: \DR(M) \rightarrow \DR(M)$ and its Hodge propagator $\Prpg \in \DR(M)^{\otimes 2}$, we have the following:
-$$ \forall \eta_1, \eta_2\in \DR(M): \quad \tilde{\Pair}(\Htp(\eta_1),\eta_2) = \int_{x,y} \Prpg(x,y)\eta_1(x)\eta_2(y) = \tilde{\Pair}(\Prpg, \eta_1\otimes \eta_2). $$
+\[ \forall \eta_1, \eta_2\in \DR(M): \quad \tilde{\Pair}(\Htp(\eta_1),\eta_2) = \int_{x,y} \Prpg(x,y)\eta_1(x)\eta_2(y) = \tilde{\Pair}(\Prpg, \eta_1\otimes \eta_2). \]
 %We will realize the degree shift $\DR(M)[1]$ as multiplication with the formal symbol $\SuspU$ of degree $-1$. Following 
 From this and \eqref{Eq:PairComp}, we obtain
-$$\begin{aligned}
+\[\begin{aligned}
 \Pair(\Htp(\SuspU \eta_1),\eta_2) &= \Pair(\SuspU \Htp(\eta_1),\SuspU \eta_2) = (-1)^{1+\eta_1} \tilde{\Pair}(\Htp(\eta_1),\eta_2) \\ &= (-1)^{1+\eta_1} \tilde{\Pair}(\Prpg,\eta_1\otimes \eta_2) = (-1)^{\eta_1}\Pair(\SuspU^2 \Prpg, \SuspU^2 \eta_1 \otimes \eta_2)  \\ &= \Pair(\SuspU^2 \Prpg, \SuspU\eta_1 \otimes \Susp\eta_2).
-\end{aligned}$$
+\end{aligned}\]
 Therefore, the element $\SuspU^{2} \Prpg \in V[1]^{\otimes 2}$ corresponds to the Schwartz kernel $\Kern_{\Htp}$ of $\Htp: V[1] \rightarrow V[1]$. We write this correspondence as
-$$ \Kern_{\Htp}\in V[1]^{\otimes 2}\ \sim\ \SuspU^2 \Prpg \in \Bl_\Diag(M\times M)[2]. $$
+\[ \Kern_{\Htp}\in V[1]^{\otimes 2}\ \sim\ \SuspU^2 \Prpg \in \Bl_\Diag(M\times M)[2]. \]
 
 Let us check that $\SuspU^{2}\Prpg$ satisfies~\eqref{Eq:SymmetryCondition}. First of all, if we embed $\DR(M)^{\otimes k}$ into $\DR(M^{\times k})$ using the external wedge product $\eta_1 \otimes \dotsb \otimes \eta_k \mapsto \pi_1^*\eta_1 \wedge \dotsm \wedge \pi_k^* \eta_k \eqqcolon \eta_1(x_1)\wedge \dotsm \wedge \eta_k(x_k)$, then for all $\eta_1$, $\dotsc$, $\eta_k \in \DR(M)$ we have
-$$\sigma(\eta_1 \otimes \dotsb \otimes \eta_k)(x_1,\dotsc,x_k) = \eta_1(x_{\sigma_1})\wedge \dotsc \wedge \eta_k(x_{\sigma_k}), $$
-where the action on the left-hand side is given by~\eqref{Eq:Perm} in Part~I. Now, the symmetry property \eqref{Eq:SymProp} in Part~I implies
-$$ \tau(\SuspU^{2}\Prpg) = - \SuspU^{2}\tau^*(\Prpg) = (-1)^{n+1} \SuspU^{2} \Prpg = (-1)^{\Abs{\SuspU^2 \Prpg}} \SuspU^2 \Prpg. $$
+\[\sigma(\eta_1 \otimes \dotsb \otimes \eta_k)(x_1,\dotsc,x_k) = \eta_1(x_{\sigma_1})\wedge \dotsc \wedge \eta_k(x_{\sigma_k}), \]
+where the action on the left-hand side is given by~\eqref{Eq:Perm}. Now, the symmetry property \eqref{Eq:SymProp} implies
+\[ \tau(\SuspU^{2}\Prpg) = - \SuspU^{2}\tau^*(\Prpg) = (-1)^{n+1} \SuspU^{2} \Prpg = (-1)^{\Abs{\SuspU^2 \Prpg}} \SuspU^2 \Prpg. \]
 Therefore, the symmetry condition \eqref{Eq:SymmetryCondition} is indeed satisfied.
 
 Let $\Gamma\in \TRRG_{klg}$, and let $L$ be a labeling of $\Gamma$. We abbreviate $\sigma\coloneqq \sigma_L \in \Perm_{3k} $. Given $\eta_{ij}\in \DR(M)$ for $j=1$, $\dotsc$, $s_i$ and $i=1$, $\dotsc$, $l$, where $s_i$ is the valency of the $i$-th boundary component, we set $\eta_i = \eta_{i1}\otimes \dotsb \otimes \eta_{is_i}$, $\eta =\eta_1 \otimes \dotsb \otimes \eta_l$, $\alpha_{ij}=\SuspU \eta_{ij}$, $\omega_i = \alpha_{i1}\otimes \dotsb \otimes \alpha_{i s_i}$ and $\omega = \omega_1\otimes \dotsb \otimes \omega_l$. We denote $s \coloneqq s_1 + \dotsb + s_l$, so that $3k = 2e + s$, where $e$ is the number of internal edges. We have
@@ -359,21 +360,21 @@ where $\varepsilon(\SuspU,\eta)$ is the Koszul sign to order $\SuspU^s \eta_{11}
  &\quad = \begin{multlined}[t]\overbrace{(-1)^{\frac{1}{2} k(k-1) n  + \kappa_{\sigma^{-1}_{2}} + \dotsb + \kappa_{\sigma^{-1}_{3k-1}}} \varepsilon(\sigma,\kappa)}^{\eqqcolon\varepsilon_2} (m_2^+)^{\otimes k} \bigl((\SuspU \kappa_{\sigma^{-1}_1} \otimes \SuspU \kappa_{\sigma^{-1}_2} \\ \otimes \SuspU \kappa_{\sigma^{-1}_3}) \otimes \dotsb \otimes (\SuspU \kappa_{\sigma^{-1}_{3k-2}} \otimes \SuspU \kappa_{\sigma^{-1}_{3k-1}} \otimes \SuspU \kappa_{\sigma^{-1}_{3k}})\bigr). \end{multlined}
 \end{align*}
 %where $\varepsilon(\sigma,\kappa)$ is the Koszul sign to permute $\kappa_1\dots \kappa_{3k} \mapsto \kappa_{\sigma^{-1}_1}\dots \kappa_{\sigma_{3k}^{-1}}$.
-Next, using the formula \eqref{Eq:ChernSimons} in Part~I for $m_2^+$, we get
+Next, using the formula \eqref{Eq:ChernSimons} for $m_2^+$, we get
 \begin{align*}
 &(m_2^+)^{\otimes k}\bigl((\SuspU \kappa_{\sigma^{-1}_{1}} \otimes \SuspU \kappa_{\sigma^{-1}_{2}} \otimes \SuspU \kappa_{\sigma^{-1}_{3}}) \otimes \dotsb \otimes (\SuspU \kappa_{\sigma^{-1}_{3k-2}} \otimes \SuspU \kappa_{\sigma^{-1}_{3k-1}} \otimes \SuspU \kappa_{\sigma^{-1}_{3k}})\bigr) \\
 &\quad= \begin{multlined}[t](-1)^{\kappa_{\sigma^{-1}_{2}} + \dotsb + \kappa_{\sigma^{-1}_{3k-1}}} \Bigl(\int_{x_1} \kappa_{\sigma^{-1}_{1}}(x_1)\kappa_{\sigma^{-1}_{2}}(x_1)\kappa_{\sigma^{-1}_{3}}(x_1) \Bigr) \dotsm \\ \Bigl(\int_{x_k} \kappa_{\sigma^{-1}_{3k-2}}(x_k)\kappa_{\sigma^{-1}_{3k-1}}(x_k) \kappa_{\sigma^{-1}_{3k}}(x_k) \Bigr)\end{multlined} \\
 &\quad= \begin{multlined}[t](-1)^{\kappa_{\sigma^{-1}_{2}} + \dotsb + \kappa_{\sigma^{-1}_{3k-1}}} \int_{x_1,\dotsc,x_k} \kappa_{\sigma_{1}^{-1}}(x_1)\kappa_{\sigma_{2}^{-1}}(x_1)\kappa_{\sigma_{3}^{-1}}(x_1) \dotsm \\ \kappa_{\sigma_{3k-2}^{-1}}(x_k) \kappa_{\sigma_{3k-1}^{-1}}(x_k) \kappa_{\sigma_{3k}^{-1}}(x_k) \end{multlined}\\
 &\quad = \begin{multlined}[t]\overbrace{(-1)^{\kappa_{\sigma^{-1}_{2}} + \dotsb + \kappa_{\sigma^{-1}_{3k-1}}} \varepsilon(\sigma,\kappa)}^{\eqqcolon\varepsilon_3} \int_{x_1,\dotsc,x_k} \kappa_{1}(x_{\xi(\sigma_{1})})\kappa_{2}(x_{\xi(\sigma_{2})}) \kappa_{3}(x_{\xi(\sigma_{3})}) \dotsm \\ \kappa_{3k-2}(x_{\xi(\sigma_{3k-2})}) \kappa_{3k-1}(x_{\xi(\sigma_{3k-1})})\kappa_{3k}(x_{\xi(\sigma_{3k})}), \end{multlined}
 \end{align*}
-where $\xi(3j-2) = \xi(3j-1) = \xi(3j) = j$ for $j=1$, $\dotsc$, $k$ (see Definition~\ref{Def:PushforwardMCdeRham} in Part~I). In total, we have 
+where $\xi(3j-2) = \xi(3j-1) = \xi(3j) = j$ for $j=1$, $\dotsc$, $k$ (see Definition~\ref{Def:PushforwardMCdeRham}). In total, we have 
 \begin{align*} &(m_2^+)^{\otimes k} \bigl(\sigma((\SuspU^{ 2} \Prpg)^{\otimes e} \otimes \omega)\bigr) \\ 
 &\quad = \begin{multlined}[t]\varepsilon_1 \varepsilon_2 \varepsilon_3  \int_{x_1,\dotsc,x_k} \Prpg(x_{\xi(\sigma_1)},x_{\xi(\sigma_2)}) \dotsm  \Prpg(x_{\xi(\sigma_{2e-1})},x_{\xi(\sigma_{2e})}) \\ \alpha_{11}(x_{\xi(\sigma_{2e+1})}) \dotsm \alpha_{ls_{l}}(x_{\xi(\sigma_{2e+s})}),\end{multlined}
 \end{align*}
 where
-$$ \varepsilon_1 \varepsilon_2 \varepsilon_3 = (-1)^{\sigma + s e (n-1)+ \frac{1}{2}k(k-1)n} \varepsilon(\SuspU,\eta). $$
-Using~\eqref{Eq:EulerFormula} and~\eqref{Eq:TrivalentFormula} in Part~I and $\varepsilon(\SuspU,\eta) = (-1)^{P(\omega)}$, we get the total sign
-$$ (-1)^{k(n-2)}\varepsilon_1 \varepsilon_2 \varepsilon_3  = (-1)^{s(k,l) + \sigma + P(\omega)},  $$
+\[ \varepsilon_1 \varepsilon_2 \varepsilon_3 = (-1)^{\sigma + s e (n-1)+ \frac{1}{2}k(k-1)n} \varepsilon(\SuspU,\eta). \]
+Using~\eqref{Eq:EulerFormula} and~\eqref{Eq:TrivalentFormula} and $\varepsilon(\SuspU,\eta) = (-1)^{\Prpg(\omega)}$, we get the total sign
+\[ (-1)^{k(n-2)}\varepsilon_1 \varepsilon_2 \varepsilon_3  = (-1)^{s(k,l) + \sigma + \Prpg(\omega)},  \]
 where $(-1)^{k(n-2)}$ is the artificial sign from~\eqref{Eq:PushforwardMC}. This proves the proposition.
 %Under $\DR(M)^{\otimes k}\subset \DR(M^{\times k})$, the action of $\sigma = \sigma_L$ from~\eqref{Eq:ActivePrmutation} corresponds to the pullback along 
 %\begin{equation} \label{Eq:PermutationsOfVariables}

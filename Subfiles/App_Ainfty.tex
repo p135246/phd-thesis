@@ -5,13 +5,13 @@
 \begin{document}
 \chapter{Reduced cyclic homology of A-infinity-algebras}
 
-In this appendix, we prove Proposition~\ref{Prop:Reduced} in Part~I. The idea from \cite{LodayCyclic} is to resolve cyclic (co)invariants degree-wise and obtain certain bicomplexes with better properties.
+In this appendix, we prove Proposition~\ref{Prop:Reduced}. The idea from \cite{LodayCyclic} is to resolve cyclic (co)invariants degree-wise and obtain certain bicomplexes with better properties.
 
 In Section~\ref{Sec:FF}, given a strictly unital $\AInfty$-algebra on a graded vector space $V$, we define the normalized and reduced Hochschild (co)chain complexes (Definition~\ref{Def:NormRedHoch}) and prove the computational prerequisites CP1--CP4 (Lemmas~\ref{Lem:CP1}, \ref{Lem:CP2}, \ref{Lem:CP3} and \ref{Lem:CP4}); they are necessary for the development of the cyclic homology theory in the upcoming section. These prerequisites, like squaring to zero of the Hochschild differential, seem to be much harder computationally for $\AInfty$-algebras than for $\DGA$'s. Proofs of some of these relations in different formalisms appeared already in \cite{Mescher2016} and \cite{Lazarev2003}.
 
 In Section~\ref{Sec:HomBi}, we define Loday's and Connes' cyclic half-plane bicomplexes for $\AInfty$-algebras together with their normalized and reduced versions (Definition~\ref{Def:CycBico}). We then summarize some convergence results for spectral sequences associated to horizontal, vertical and diagonal filtrations (Proposition~\ref{Prop:ConvOfSpSeq}). In a series of lemmas (Lemmas~\ref{Lem:LodCycBiCycHom}, \ref{Lem:LodConCycBi}, \ref{Lem:ConNormVer} and~\ref{Lem:ReducedCyclic}), we prove that some of the (co)homologies are isomorphic. These lemmas copy results for $\DGA$'s from \cite{LodayCyclic}; we just do them carefully for half-plane bicomplexes and more explicitly. There is a new phenomenon of long chains coming from completing the direct sum total complex; these long chains seem to disappear in homology if the degrees of $V$ are bounded (Lemma~\ref{Lem:BddDegrees}). Additionally, we point out some differences between first-quadrant and half-plane bicomplexes (Remark~\ref{Rem:SpecSeq}) and mention the relation to mixed complexes (Remark~\ref{Rem:MixedCompl}).
 
-In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes' bicomplexes (Lemma~\ref{Lem:ConBiRed}), which replace, up to quasi-isomorphisms, the non-exact sequences for reduced cyclic Hochschild (co)chains. We summarize the isomorphisms of (co)homologies from Section~\ref{Sec:HomBi} (Figure~\ref{Fig:FinalPictureHom}), finish the proof of Proposition~\ref{Prop:Reduced} in Part~I and formulate a few open question (Remark~\ref{Rem:OpenProbAInftx}).
+In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes' bicomplexes (Lemma~\ref{Lem:ConBiRed}), which replace, up to quasi-isomorphisms, the non-exact sequences for reduced cyclic Hochschild (co)chains. We summarize the isomorphisms of (co)homologies from Section~\ref{Sec:HomBi} (Figure~\ref{Fig:FinalPictureHom}), finish the proof of Proposition~\ref{Prop:Reduced} and formulate a few open question (Remark~\ref{Rem:OpenProbAInftx}).
 %
 %We develop this theory for $\AInfty$-algebras following the theory for $\DGA$'s from \cite{LodayCyclic}.
 %
@@ -135,7 +135,7 @@ and in the strictly unital case
 \item[\quad CP3\,{\normalfont (null-homotopy of the bar resolution)}:] $\Hd'\circ \InsOneOp_1 + \InsOneOp_1\circ \Hd' = \Id$ and
 \item[\quad CP4\,{\normalfont (contraction onto normalized chains)}:] $\NormProj: \HC V \rightarrow \HNC V$ is a quasi-isomorphisms.
 \end{description}
-The definitions of $\CycPermOp$ (cyclic permutation), $\Hd$ ($\AInfty$-Hochschild differential), $\Hd'$ (acyclic $\AInfty$-Hochschild differential) and $\HC V$ ((reduced) bar complex with reversed grading shifted by one) can be found in Section~\ref{Sec:Alg2} in Part~I; in particular, consult Definition~\ref{Def:CycHom}. The new players are the \emph{counting operator}
+The definitions of $\CycPermOp$ (cyclic permutation), $\Hd$ ($\AInfty$-Hochschild differential), $\Hd'$ (acyclic $\AInfty$-Hochschild differential) and $\HC V$ ((reduced) bar complex with reversed grading shifted by one) can be found in Section~\ref{Sec:Alg2}; in particular, consult Definition~\ref{Def:CycHom}. The new players are the \emph{counting operator}
 \[ \CountOp \coloneqq \sum_{k=1}^\infty \underbrace{\sum_{i=0}^{k-1} t_k^i}_{\displaystyle{\eqqcolon\CountOp_k}} : \HC V \longrightarrow \HC V \]
 and the projection $\bar{p}: \HC V \rightarrow \HNC V$ to normalized Hochschild chains --- this we define below.
 
@@ -166,7 +166,7 @@ Since $\NOne$ is a unit for~$\mu_2$, we have
 \end{align*}
 for all $i=2$, $\dotsc$, $k$. This fact and strict unitality implies
 \[ \Hd\bigl(\sum_{i\ge 2}\im \InsOneOp_i\bigr)\subset\sum_{i\ge 2}\im \InsOneOp_i = \ker \NormProj.\]
-Therefore, $\Hd$ induces a differential on $\HNC V$. Since $\HNC^* V = \{\varphi\in \HC^*V \mid \varphi(\sum_{i\ge 2}\im\InsOneOp_i) = 0\}$, the dual $\Hd^*$ restricts to $\HNC^* V$. Clearly, both $\NormProj$ and $\NormIncl$ are chain maps, and they are compatible under the dualization from Definition~\ref{Def:Pairings} in Part~I; i.e., $\NormIncl \simeq \NormProj^*$ under $\HNC^* V \simeq (\HNC V)^{\GD}$ and $\HC^* V \simeq (\HC V)^{\GD}$, where $^{\GD}$ denotes the graded dual.
+Therefore, $\Hd$ induces a differential on $\HNC V$. Since $\HNC^* V = \{\varphi\in \HC^*V \mid \varphi(\sum_{i\ge 2}\im\InsOneOp_i) = 0\}$, the dual $\Hd^*$ restricts to $\HNC^* V$. Clearly, both $\NormProj$ and $\NormIncl$ are chain maps, and they are compatible under the dualization from Definition~\ref{Def:Pairings}; i.e., $\NormIncl \simeq \NormProj^*$ under $\HNC^* V \simeq (\HNC V)^{\GD}$ and $\HC^* V \simeq (\HC V)^{\GD}$, where $^{\GD}$ denotes the graded dual.
  
 As for the reduced complexes, $u$ is a chain map, and thus $\ker$ and $\coker$ are chain complexes. Again, it holds $\HC_{\RedMRM}^* V \simeq (\HC^{\RedMRM} V)^{\GD}$ and $\iota_\RedMRM \simeq p^{\RedMRM,*}$ under the dualization.
 \end{Remark}
@@ -1017,7 +1017,7 @@ and thus $\tilde{\SSPage}_1^{s,0} = B^{-s}/\im(\Id-\CycPermOp) = \HC^{\lambda,\R
 
 \section{Final argument and remarks}\label{Sec:FinRem}
 
-We are finally in position to prove Proposition~\ref{Prop:Reduced} in Part~I. Precisely as in the proof sketch, we replace the unit-augmentation sequence \eqref{Eq:UnitAugSS} in Part~I, up to a quasi-isomorphism, by a short exact sequence of normalized Connes' cyclic bicomplexes.
+We are finally in position to prove Proposition~\ref{Prop:Reduced}. Precisely as in the proof sketch, we replace the unit-augmentation sequence \eqref{Eq:UnitAugSS}, up to a quasi-isomorphism, by a short exact sequence of normalized Connes' cyclic bicomplexes.
 
 \begin{Lemma}[Short exact sequence of normalized Connes' cyclic bicomplexes]\label{Lem:ConBiRed}
 Let $\mathcal{A}=(V,(\mu_j),\NOne,\varepsilon)$ be a strictly augmented strictly unital $\AInfty$-algebra. The short exact sequences of bicomplexes
@@ -1044,12 +1044,12 @@ Because
 the bicomplex $\NConCycBi(\R)$ is diagonal, and hence $\TotI$ and $\TotII$ are the same; both compute $\H^\lambda(\R)$ (using results from the previous sections). The same is true in cohomology. This shows~\eqref{Eq:ConRedBiIso}.
 \end{proof} 
 
-We summarize our results in Figure~\ref{Fig:FinalPictureHom}. Having $\H^\lambda(\Alg) \simeq \H^{\lambda,\RedMRM}(\Alg) \oplus \H^{\lambda}(\R)$, Proposition~\ref{Prop:Reduced} in Section~\ref{Sec:Alg2} in Part~I follows by dualization. 
+We summarize our results in Figure~\ref{Fig:FinalPictureHom}. Having $\H^\lambda(\Alg) \simeq \H^{\lambda,\RedMRM}(\Alg) \oplus \H^{\lambda}(\R)$, Proposition~\ref{Prop:Reduced} in Section~\ref{Sec:Alg2} follows by dualization. 
 
 \begin{Remark}[Some questions]\label{Rem:OpenProbAInftx}
 \begin{RemarkList}
 \item Suppose that $V$ has bounded degrees and look at Figure~\ref{Fig:FinalPictureHom}. Does $\H(\widehat{\LodCycBi}^*)\simeq \H(\LodCycBi^*)$ hold? Does $\H(\ConCycBi^*)\simeq\H(\NConCycBi^*)$ hold?
-\item Does Proposition~\ref{Prop:Reduced} in Part~I hold for homological unital and homological augmented $\AInfty$-algebras? A strategy would be to construct a quasi-isomorphic strictly unital and strictly augmented $\AInfty$-algebra. Does it exist?
+\item Does Proposition~\ref{Prop:Reduced} hold for homological unital and homological augmented $\AInfty$-algebras? A strategy would be to construct a quasi-isomorphic strictly unital and strictly augmented $\AInfty$-algebra. Does it exist?
 \item How is it with the conditional and strong convergence of spectral sequences associated to different filtrations of bicomplexes from Definition~\ref{Def:CycBico}? Because of the simple internal data, lots of them collapse.\qedhere
 \end{RemarkList}
 \end{Remark}

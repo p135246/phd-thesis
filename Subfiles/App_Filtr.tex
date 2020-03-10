@@ -115,12 +115,12 @@ In Section~\ref{Sec:FilteredMV}, we recall $\MV$-algebras from \cite{Markl2015} 
 
 In Section~\ref{Sec:BVCompl}, we define the $\BV$-chain complexes associated to a complete filtered $\IBLInfty$-algebra in $\MV$-formalism (Definition~\ref{Def:BVCompl}) and observe that morphisms and the twisting with the Maurer-Cartan element induce chain maps of these chain complexes (Proposition~\ref{Prop:ObservationsMor}). We formulate some open questions (Remark~\ref{Rem:SomeQuestionsFilter}).
 
-In Section~\ref{Sec:CompConvA}, we study the composition of maps which are convolutions of other maps (Lemma~\ref{Lem:ItCompCond}). This leads to the definition of compositions controlling the number of ``veins'' between the individual maps (Definition~\ref{Def:ConComp}). This can be used to formulate the surface calculus algebraically (Proposition~\ref{Prop:PartCompAComp}). We give proofs of some formulas for partial compositions from Section~\ref{Sec:Alg1} in Part~I (Proposition~\ref{Prop:PartCompositions}).
+In Section~\ref{Sec:CompConvA}, we study the composition of maps which are convolutions of other maps (Lemma~\ref{Lem:ItCompCond}). This leads to the definition of compositions controlling the number of ``veins'' between the individual maps (Definition~\ref{Def:ConComp}). This can be used to formulate the surface calculus algebraically (Proposition~\ref{Prop:PartCompAComp}). We give proofs of some formulas for partial compositions from Section~\ref{Sec:Alg1} (Proposition~\ref{Prop:PartCompositions}).
 
 
 \section{Filtered bialgebras and exponential in convolution product}\label{Sec:DetailsOnFiltr}
 
-We use the definitions of a filtration, completion and the induced filtration on the completion from Section~\ref{Sec:Alg1a} in Part~I. We formulate the statements in the category of vector spaces, but similar statements hold in the category of graded vector spaces (writing ``homogenous'' and ``graded'' everywhere). All filtrations are decreasing, i.e., $\Filtr^{\lambda_1} \supseteq \Filtr^{\lambda_2}$ whenever $\lambda_1 \le \lambda_2$.
+We use the definitions of a filtration, completion and the induced filtration on the completion from Section~\ref{Sec:Alg1a}. We formulate the statements in the category of vector spaces, but similar statements hold in the category of graded vector spaces (writing ``homogenous'' and ``graded'' everywhere). All filtrations are decreasing, i.e., $\Filtr^{\lambda_1} \supseteq \Filtr^{\lambda_2}$ whenever $\lambda_1 \le \lambda_2$.
 %If we say that a map is continuous in the filtered context, we mean that its filtration degree is not $-\infty$.
 We work over a field $\K$ of characteristic zero.
 
@@ -182,14 +182,14 @@ A morphism of (complete) filtered algebras, coalgebras or bialgebras is a linear
 \begin{Remark}[On (complete) filtered algebras]
 \begin{RemarkList}
 \item Clearly, completion is a functor from filtered algebras to complete filtered algebras. In deformation theory, we may deal with complete filtered algebras which are not in the image of this functor.
-\item  The $\IBLInfty$-algebra on $C$ from Definition~\ref{Def:IBLInfty} in Part~I for $\gamma = 0$ is, in fact, a ``complete filtered $\IBLInfty$-algebra on~$\hat{C}$'' in the sense of Definition~\ref{Def:FiltAlg} plus the data of the filtered vector space~$C$. It might not be the completion of a ``filtered $\IBLInfty$-algebra on~$C$''; in fact, we called an $\IBLInfty$-algebra ``completion-free'' if the operations on~$\hat{C}$ arose as continuous extensions of operations on~$C$. Definition~\ref{Def:IBLInfty} seemed natural when we were trying to compute examples of the twisted structure, hoping that we do not encounter infinite sums. After dealing with completions, however, Definition~\ref{Def:FiltAlg} is more logical as an abstract definition.
+\item  The $\IBLInfty$-algebra on $C$ from Definition~\ref{Def:IBLInfty} for $\gamma = 0$ is, in fact, a ``complete filtered $\IBLInfty$-algebra on~$\hat{C}$'' in the sense of Definition~\ref{Def:FiltAlg} plus the data of the filtered vector space~$C$. It might not be the completion of a ``filtered $\IBLInfty$-algebra on~$C$''; in fact, we called an $\IBLInfty$-algebra ``completion-free'' if the operations on~$\hat{C}$ arose as continuous extensions of operations on~$C$. Definition~\ref{Def:IBLInfty} seemed natural when we were trying to compute examples of the twisted structure, hoping that we do not encounter infinite sums. After dealing with completions, however, Definition~\ref{Def:FiltAlg} is more logical as an abstract definition.
 
 Notice that for $\gamma > 0$, the norm $\Norm{\OPQ_{klg}} \ge \gamma(2-2g-k-l)$ is allowed to be negative; in particular, $\Norm{\OPQ_{210}}\ge -\gamma$ and $\Norm{\OPQ_{120}}\ge -\gamma$. Therefore, one has to allow finite filtration degree in Definition~\ref{Def:FiltAlg} in order to accommodate it to $\IBLInfty$-algebras with $\gamma \ge 0$.
 \end{RemarkList}
 \end{Remark}
 
 \begin{Remark}[Units and augmentations]\label{Rem:FiltrUnitAug}
-The ground field $\K$ is filtered by the trivial complete filtration $\Filtr^{\lambda\le 0}\K = \K$ and $\Filtr^{\lambda>0}\K = 0$ (see also \eqref{Eq:TrivFiltr} in Part~I). Suppose that $\MVUnit: \K \rightarrow V$ is a unit and $\MVAug: V \rightarrow \K$ an augmentation of a complete filtered algebra~$V$; in particular, we have $\MVAug \circ \MVUnit = \Id$ and $\Norm{\MVUnit}$, $\Norm{\MVAug}\ge 0$. From this, we deduce the following implications for~$v\in V$:
+The ground field $\K$ is filtered by the trivial complete filtration $\Filtr^{\lambda\le 0}\K = \K$ and $\Filtr^{\lambda>0}\K = 0$ (see also \eqref{Eq:TrivFiltr}). Suppose that $\MVUnit: \K \rightarrow V$ is a unit and $\MVAug: V \rightarrow \K$ an augmentation of a complete filtered algebra~$V$; in particular, we have $\MVAug \circ \MVUnit = \Id$ and $\Norm{\MVUnit}$, $\Norm{\MVAug}\ge 0$. From this, we deduce the following implications for~$v\in V$:
 \begin{align*}
 \Norm{v}>0 &\quad\Implies\quad v\in \ker \MVAug =: \bar{V},\\
 v\in \im \MVUnit &\quad\Implies\quad \Norm{v} = 0.
@@ -197,12 +197,12 @@ v\in \im \MVUnit &\quad\Implies\quad \Norm{v} = 0.
 Recall that $V = \im \MVUnit \oplus \bar{V}$.
 \end{Remark}
 
-Given a vector space $U$ over $\K$, we will work with the \emph{symmetric bialgebra} $\Sym U = \bigoplus_{k=0}^\infty \Sym_k U$ from Definition~\ref{Def:SymAlgebra} in Part~I. It has the concatenation product $\MVProd: \Sym U \otimes \Sym U \rightarrow \Sym U$ and the shuffle coproduct $\MVCoProd: \Sym U \rightarrow \Sym U \otimes \Sym U$ which are given for all $u_{ij}$, $u_i \in U$ and $k$, $k'\in \N_0$ by
+Given a vector space $U$ over $\K$, we will work with the \emph{symmetric bialgebra} $\Sym U = \bigoplus_{k=0}^\infty \Sym_k U$ from Definition~\ref{Def:SymAlgebra}. It has the concatenation product $\MVProd: \Sym U \otimes \Sym U \rightarrow \Sym U$ and the shuffle coproduct $\MVCoProd: \Sym U \rightarrow \Sym U \otimes \Sym U$ which are given for all $u_{ij}$, $u_i \in U$ and $k$, $k'\in \N_0$ by
 \begin{align*}
 \MVProd(u_{11}\dotsb u_{1k} \otimes u_{21} \dotsb u_{2k'}) &= u_{11} \dotsb u_{1k} u_{21} \dotsb u_{2k'}\quad \text{and}\\
 \MVCoProd(u_1 \dotsb u_k) &= \sum_{\substack{k_1,\,k_2 \ge 0\\ k_1 + k_2 = k}} \sum_{\sigma\in \Perm_{k_1, k_2}} \varepsilon(\sigma,u) u_{\sigma^{-1}_1} \dotsb u_{\sigma_{k_1}^{-1}}\otimes u_{\sigma_{k_1+1}^{-1}}\dotsb u_{\sigma_{k_1 + k_2}^{-1}},
 \end{align*}
-respectively. Here $\Perm_{k_1,k_2}$ denotes the shuffle permutations and $\varepsilon(\sigma,u)$ the Koszul sign. The unit $\MVUnit: \K \rightarrow \Sym U$ is given by $\MVUnit(1) = 1 \in \Sym_0 U = \K$, and the augmentation $\MVAug: \Sym U \rightarrow \K$ is determined by its reduced algebra $\RedSym U = \bigoplus_{k=1}^\infty \Sym_k U$. If $U$ is filtered, then $\MVProd$, $\MVCoProd$, $\MVUnit$ and~$\MVAug$ preserve the induced filtration on $\Sym U$ (see Definition~\ref{Def:Filtrations} in Part~I), and hence $\Sym U$ is a filtered bialgebra. We will also use the canonical projection $\pi_k: \Sym U \rightarrow \Sym_k U$ and the canonical inclusion $\iota_l: \Sym_l U \rightarrow \Sym U$ for $k\in\N_0$ and $l\in \N_0$. They too preserve the filtration.
+respectively. Here $\Perm_{k_1,k_2}$ denotes the shuffle permutations and $\varepsilon(\sigma,u)$ the Koszul sign. The unit $\MVUnit: \K \rightarrow \Sym U$ is given by $\MVUnit(1) = 1 \in \Sym_0 U = \K$, and the augmentation $\MVAug: \Sym U \rightarrow \K$ is determined by its reduced algebra $\RedSym U = \bigoplus_{k=1}^\infty \Sym_k U$. If $U$ is filtered, then $\MVProd$, $\MVCoProd$, $\MVUnit$ and~$\MVAug$ preserve the induced filtration on $\Sym U$ (see Definition~\ref{Def:Filtrations}), and hence $\Sym U$ is a filtered bialgebra. We will also use the canonical projection $\pi_k: \Sym U \rightarrow \Sym_k U$ and the canonical inclusion $\iota_l: \Sym_l U \rightarrow \Sym U$ for $k\in\N_0$ and $l\in \N_0$. They too preserve the filtration.
 
 The symmetric bialgebra of a filtered vector space has naturally two filtrations --- the induced filtration and the filtration by weights $\Filtr_\WeightMRM^\lambda \Sym U \coloneqq \bigoplus_{k\ge \lambda} \Sym_k U$.\footnote{Note that the filtration by weights can be also viewed as the induced filtration from the filtration on $U$ defined by $\Filtr^{\le 1}U \coloneqq U$, $\Filtr^{>1}U\coloneqq 0$.} In general, having two filtrations~$\Filtr_1$ and~$\Filtr_2$ on a vector space $V$, we define the filtrations
 \begin{equation}\label{Eq:CombinedFiltr}
@@ -375,7 +375,7 @@ Then any power series $\sum_{k=0}^\infty \alpha_k \MVMorF^{\Star k}$ with coeffi
 %\begin{equation}\label{Eq:IsomCompl}
 %(V\COtimes R)^{\COtimes_R \displaystyle n }\simeq(\hat{V}\otimes R)^{\COtimes_R \displaystyle n} \simeq \hat{V}^{\otimes \displaystyle n} \COtimes R \simeq V^{\otimes \displaystyle n} \COtimes R \simeq (V\otimes R)^{\COtimes_R \displaystyle n}.
 %\end{equation}
-Given a $\K$-linear map $u: V^{\COtimes k} \rightarrow \hat{V}^{\otimes l}$ of finite filtration degree for some $k$, $l\ge 0$, we consider its $R$-linear extension $u\otimes \Id: V^{\COtimes k}\otimes R \rightarrow V^{\COtimes l}\otimes R$ and extend it continuously to $V^{\COtimes k}\COtimes R\rightarrow V^{\COtimes l}\COtimes R$. Because $V^{\COtimes n}\COtimes R \simeq (V\COtimes R)^{\COtimes_R n}$ via canonical maps (this can be proven explicitly using Proposition~\ref{Prop:IsoCrit} in Part~I), we get the desired continuous $R$-linear extension $(V\COtimes R)^{\COtimes_R k}\rightarrow (V\COtimes R)^{\COtimes_R l}$. We apply this construction to $u = {\mu'}^{(n)}$, $\delta^{(n)}$ and define $\MVMorF_1\Star\dotsb\Star\MVMorF_n$ using \eqref{Eq:ItStarProd} for all $n\ge 2$. It is then easy to see that
+Given a $\K$-linear map $u: V^{\COtimes k} \rightarrow \hat{V}^{\otimes l}$ of finite filtration degree for some $k$, $l\ge 0$, we consider its $R$-linear extension $u\otimes \Id: V^{\COtimes k}\otimes R \rightarrow V^{\COtimes l}\otimes R$ and extend it continuously to $V^{\COtimes k}\COtimes R\rightarrow V^{\COtimes l}\COtimes R$. Because $V^{\COtimes n}\COtimes R \simeq (V\COtimes R)^{\COtimes_R n}$ via canonical maps (this can be proven explicitly using Proposition~\ref{Prop:IsoCrit}), we get the desired continuous $R$-linear extension $(V\COtimes R)^{\COtimes_R k}\rightarrow (V\COtimes R)^{\COtimes_R l}$. We apply this construction to $u = {\mu'}^{(n)}$, $\delta^{(n)}$ and define $\MVMorF_1\Star\dotsb\Star\MVMorF_n$ using \eqref{Eq:ItStarProd} for all $n\ge 2$. It is then easy to see that
 \begin{align*}
 & (\dotsb((\MVMorF_1\Star\MVMorF_2)\Star\MVMorF_3)\Star\dotsb)\Star\MVMorF_n\\
 &\quad= \MVProd'(\MVProd'(\dotsb\MVProd'(\MVMorF_1 \COtimes_R \MVMorF_2)\MVCoProd \COtimes_R \MVMorF_3)\MVCoProd\COtimes_R \dotsb \COtimes_R \MVMorF_n)\MVCoProd  \\
@@ -464,6 +464,8 @@ for all $n\ge n_0$. This shows the limit conilpotency property.
 \begin{RemarkList}
 \item It is obvious that Lemma~\ref{Lem:Exponential} holds for~$\Star$ with the weakened conditions~\eqref{Eq:ConditionsPowerSeries}. To sum up, the conditions for the existence of $\exp(\MVMorF)$ are $\Norm{\MVMorF}\ge 0$ and $\Norm{\MVMorF(1)}>0$, and the conditions for the existence of $\log(\MVMorF)$ are $\Norm{\MVMorF}\ge 0$ and $\Norm{\MVMorF(1) - 1}>0$.
 
+As for $\log(\MVMorF)$, we will explain how $\Norm{\MVMorF}\ge 0$ and $\Norm{\MVMorF(1)}>0$ together imply $\Norm{\MVMorF - \StarProdOne}\ge 0$. Let $\lambda < 0$, $\mu\in \R$ and $v\in \Filtr_{\mu}(V\COtimes R)$ be arbitrary. If $v$ is not a multiple of $1$, then $(\MVMorF - \StarProdOne)(v) = \MVMorF(v) \in \Filtr_{\mu + \lambda}$ as $\lambda<\Norm{\MVMorF}$. If $v = \tau$ for $0\neq\tau\in\K$, then it must hold $\mu \le 0$, and further because of $\Norm{\MVMorF(1)-1}>0$, there is an $\varepsilon>0$ such that $(\MVMorF - \StarProdOne)(\tau) \in \Filtr_\varepsilon \subset \Filtr_{\mu + \lambda}$. It follows that $\Norm{\MVMorF - \StarProdOne}\ge 0$.
+
 \item Given $\MVMorF: V\COtimes R \rightarrow V\COtimes R$ satisfying~\eqref{Eq:ConditionsPowerSeries}, it holds $e^{-\MVMorF}\Star e^{\MVMorF} = \StarProdOne$ by Lemma~\ref{Lem:Exponential} because $\StarProdOne$ is the unit for the convolution product. However, there might not be any $\MVMorG: V\COtimes R \rightarrow V\COtimes R$ such that $\MVMorG \circ e^{\MVMorF} = \Id$ (or $e^{\MVMorF}\circ\MVMorG = \Id$). To see this, let $V=\hat{\Sym} U$, $R=\K$, and let $\HTP_{110}: U \rightarrow U$ be a linear map with $\Norm{\HTP_{110}}\ge 0$ such that there is $0 \neq v\in U$ with $\HTP_{110}(v)=0$. Consider the trivial extension $\MVMorF\coloneqq \HTP_{110}: \hat{\Sym}U\rightarrow\hat{\Sym}U$ (it equals $\HTP_{110}$ on $\hat{\Sym}_1 U\rightarrow \hat{\Sym}_1 U$ and $0$ otherwise). Because
 \[ \HTP^{\Star n}(\underbrace{v \dotsb v}_{k\text{-times}}) = \begin{cases}
  n! \HTP_{110}(v)^n & \text{if } k = n, \\
@@ -548,7 +550,7 @@ The categories of $\BVInfty$- and $\IBLInfty$-algebras contained in the $\MV$-fo
 \end{equation}
 See \cite[Remark~(6), p.\,14]{Cieliebak2015} for the same finiteness condition. This is precisely what symplectic field theory for exact cobordisms gives.
 
-(The transformation formulas between $\OPQ_{klg}$ and $\BVOp_i$ and $\MVMorF_{klg}$ and $\MVMorF_i$ were written down in Remark~\ref{Rem:BVForm} in Part~I. We will repeat them in Proposition~\ref{Prop:EqCharOfMVIBL} below.)
+(The transformation formulas between $\OPQ_{klg}$ and $\BVOp_i$ and $\MVMorF_{klg}$ and $\MVMorF_i$ were written down in Remark~\ref{Rem:BVForm}. We will repeat them in Proposition~\ref{Prop:EqCharOfMVIBL} below.)
 \end{itemize}
 
 
@@ -607,7 +609,7 @@ where for all $i\ge 0$ the map $\MVMorF_i : \hat{\Sym}U^+\rightarrow\hat{\Sym}U^
 \end{Definition}
 
 \begin{Notation}[Replacing $\Star$ with $\odot$ for $V=\Sym U$]
-From now on, we will denote the convolution product~$\Star$ on morphisms of $\Sym U$ by $\odot$. It is namely the same operation on morphisms which is denoted by~$\odot$ in Section~\ref{Sec:Alg1} in Part~I and in~\cite{Cieliebak2015}.
+From now on, we will denote the convolution product~$\Star$ on morphisms of $\Sym U$ by $\odot$. It is namely the same operation on morphisms which is denoted by~$\odot$ in Section~\ref{Sec:Alg1} and in~\cite{Cieliebak2015}.
 \end{Notation}
 \renewcommand{\Star}{\odot}
 For a map $\MVMorF = \sum_{i=-\infty}^\infty \MVMorF_{i+1}\hbar^i: \hat{\Sym}U^+((\hbar)) \rightarrow \hat{\Sym}U^-((\hbar))$, where $\MVMorF_{i}: \hat{\Sym}U^+\rightarrow\hat{\Sym}U^-$ is $\K$-linear, we denote 
@@ -740,7 +742,7 @@ The equivalences (a) and (b) are given by the formulas
 \begin{equation}\label{Eq:FormulasSums}
 \BVOp_i = \sum_{\substack{k, g\ge 0 \\k+g=i}} Q_{kg}\Star\Id \quad\text{and}\quad\MVMorF_i = \sum_{\substack{k,g\ge 0\\k+g=i}} F_{kg}\quad\text{for all }i\ge 0,\text{ respectively.}
 \end{equation}
-We remark that the operations $\circ_{h_1,\dotsc,h_r}$ are  defined in Definition \ref{Def:ConComp} in the next section or in Definition~\ref{Def:CircS} in Part~I.
+We remark that the operations $\circ_{h_1,\dotsc,h_r}$ are  defined in Definition \ref{Def:ConComp} in the next section or in Definition~\ref{Def:CircS}.
 
 Suppose that $\MVMorF^+$ and $\MVMorF^-$ are strict composable morphisms of complete filtered $\IBLInfty$-algebras in $\MV$-formalism. Then we have the following:
 \begin{ClaimList}[resume]
@@ -782,7 +784,7 @@ Thus $\sum_{l=0}^\infty \OPQ_{klg}$ converges to $Q_{kg}$.
 
 On the other hand, given $\OPQ_{klg}$ satisfying (1), (2), (3) and (4), we clearly get an operator $\BVOp: \hat{\Sym}U((\hbar))\rightarrow\hat{\Sym}U((\hbar))$ which has the decomposition \eqref{Eq:BVOpDecompRel} and which satisfies $\Abs{\BVOp} = 0$, $\Norm{\BVOp}\ge 0$ and $\Norm{\BVOp(1)}>0$.
 
-Assuming (1), (2), (3) and (4), it remains to check that $\BVOp^2 = 0$ is equivalent to (5). This is the same computation as in \cite[Section~2]{Cieliebak2015}, just in the filtered setting and allowing $k=0$ or $l=0$ (it will turn out that it does not change anything). Recall the notation from Section~\ref{Sec:Alg1} in Part~I that $\hat{D} \coloneqq D \Star \Id = \mu(D\COtimes \Id)\delta$. We will be using formulas from Remark~\ref{Rem:Compositions} in that section, which are proven in Proposition~\ref{Prop:PartCompositions} in the next section. Note that by the Resummation Lemma, elements of the completion can be summed up in any order, even as nested infinite sums, provided one (and hence all) of these sums converges. Therefore, we could, in principle, write just one sum $\sum$ and think of $\BVOp$ as of the sum $\sum \hat{\OPQ}_{klg} \hbar^{k+g-1}$ over all $k$, $l$, $g\ge 0$.
+Assuming (1), (2), (3) and (4), it remains to check that $\BVOp^2 = 0$ is equivalent to (5). This is the same computation as in \cite[Section~2]{Cieliebak2015}, just in the filtered setting and allowing $k=0$ or $l=0$ (it will turn out that it does not change anything). Recall the notation from Section~\ref{Sec:Alg1} that $\hat{D} \coloneqq D \Star \Id = \mu(D\COtimes \Id)\delta$. We will be using formulas from Remark~\ref{Rem:Compositions} in that section, which are proven in Proposition~\ref{Prop:PartCompositions} in the next section. Note that by the Resummation Lemma, elements of the completion can be summed up in any order, even as nested infinite sums, provided one (and hence all) of these sums converges. Therefore, we could, in principle, write just one sum $\sum$ and think of $\BVOp$ as of the sum $\sum \hat{\OPQ}_{klg} \hbar^{k+g-1}$ over all $k$, $l$, $g\ge 0$.
 
 We have
 \[ \begin{aligned} \BVOp\circ\BVOp& = \sum_{i=-2}^\infty \Bigl(\sum_{\substack{k_1, l_1, g_1, k_2, l_2, g_2 \ge 0 \\ k_1 + k_2 + g_1 + g_2 = i + 2}} \hat{\OPQ}_{k_1 l_1 g_1}\circ\hat{\OPQ}_{k_2 l_2 g_2}\Bigr) \hbar^i \\
@@ -1103,7 +1105,7 @@ For such $W$, we will consider weak $\IBLInfty$-algebras of bidegree $(d,\gamma)
 \item The two definitions agree over $\mathcal{W}_0$. If in addition $\gamma\ge 1$, then also the $\BV$-formalisms are identical.
 \item The canonical $\dIBL$-structure on the (reduced) dual cyclic bar complex 
 \[W = \CDBCyc V[2-n]\]
-for a Poincar\'e duality algebra $V$ of degree $n$ from Section~\ref{Sec:Alg3} in Part~I satisfies (b).
+for a Poincar\'e duality algebra $V$ of degree $n$ from Section~\ref{Sec:Alg3} satisfies (b).
 \end{ClaimList}
 %Let $\OPQ_{klg}: \hat{\Sym}_k(W[1]) \rightarrow \hat{\Sym}_l(W[1])$ for $k$, $l$, $g\in \N_0$ be a collection of homogenous $\K$-linear maps of finite filtration degrees satisfying (1) and (2) of Proposition~\ref{Prop:EqCharOfMVIBL} for $U=W[1]$. Then (4) is satisfied, and (3) is satisfied if and only if \eqref{Eq:UnstableSignatures} is. Therefore, the definitions of weak $\IBLInfty$-algebras over $\K$ and their morphisms according to Definition~\ref{Prop:EqCharOfMVIBL} and according to~\cite{Cieliebak2015} agree for $W$ satisfying \eqref{Eq:FiltrCondU}.
 %
@@ -1296,7 +1298,7 @@ The claim follows.
 We plan to use the filtered $\MV$-formalism from the previous section to study chain-maps between the following chain complexes.
 
 \begin{Definition}[Chain complexes for $\IBLInfty$-algebras]\label{Def:BVCompl}
-Given a complete filtered $\IBLInfty$-algebra in $\MV$-formalism $(U,\BVOp)$, we call the chain complex $(\hat{\Sym}U((\hbar)),\BVOp)$ the \emph{$\BV$-complex}. If $(U,\BVOp)$ is input-strict, i.e., if $\BVOp(1) = 0$, then $(\hat{\Sym}U[[\hbar]],\BVOp)$ is a chain complex as well, and we call it the \emph{strict $\BV$-complex}. If $(U,\BVOp)$ is strict, we also have the chain complex $(\hat{\Sym}_1 U, \OPQ_{110})$, and we call it the \emph{$\IBLInfty$-chain complex} (c.f., Definition~\ref{Def:HomIBL} in Part~I).
+Given a complete filtered $\IBLInfty$-algebra in $\MV$-formalism $(U,\BVOp)$, we call the chain complex $(\hat{\Sym}U((\hbar)),\BVOp)$ the \emph{$\BV$-complex}. If $(U,\BVOp)$ is input-strict, i.e., if $\BVOp(1) = 0$, then $(\hat{\Sym}U[[\hbar]],\BVOp)$ is a chain complex as well, and we call it the \emph{strict $\BV$-complex}. If $(U,\BVOp)$ is strict, we also have the chain complex $(\hat{\Sym}_1 U, \OPQ_{110})$, and we call it the \emph{$\IBLInfty$-chain complex} (c.f., Definition~\ref{Def:HomIBL}).
 \end{Definition}
 
 Clearly, the definition works also for filtered $\IBLInfty$-algebras from \cite{Cieliebak2015} (we are just not sure about Proposition~\ref{Prop:ObservationsMor} below, and thus we rather stick to our formalism).
@@ -1321,7 +1323,9 @@ In the category of complete filtered $\IBLInfty$-algebras in $\MV$-formalism, th
 Clear.
 \end{proof}
 
-Notice that whereas $L_{e^{\PMC(1)}}$ is an isomorphism of chain complexes and it even has non-negative filtration degree, it might not be, and it should not be, an $\IBLInfty$-morphism (see question~(iii) of Remark~\ref{Rem:SomeQuestionsFilter}). This would clarify the author's confusion explained in the preamble.
+Notice that whereas $L_{e^{\PMC(1)}}: \hat{\Sym}U \rightarrow\hat{\Sym}U$ is an isomorphism of chain complexes and it has a well-defined logarithm (i.e., it holds $\Norm{L_{e^{\PMC(1)}}}\ge 0$ and $\Norm{L_{e^{\PMC(1)}}(1)-1}=\Norm{e^{\PMC(1)}-1}>0$), it is typically not equal to $e^\HTP$ for any (weak) $\IBLInfty$-morphism $\HTP$.
+
+As an example, suppose that $\PMC(1) = \hbar^{-1}\PMC_{10}(1) \in \hat{\Sym}U$ (recall that we interpret $\PMC_{10}$ as a map $\K \rightarrow \hat{\Sym}U$) and assume that $L_{e^{\PMC(1)}} = e^\HTP$ for $\HTP = \HTP_0\hbar^{-1} + \HTP_1 + \HTP_2\hbar + \dotsb$ with $\hat{\Sym}_i U \subset \ker(\HTP_k)$ for all $i>k$. In particular, for $u\in U$, there is no negative power of $\hbar$ in $\HTP(u)$. On the other hand, there is precisely one negative power of $\hbar$ in $\sum_{k=1}^\infty \frac{(-1)^k}{k}(L_{e^{\PMC(1)}} - \StarProdOne)^{\Star k}u$, namely $\PMC_{10}(1)\hbar^{-1}$ for $k=1$. Therefore, $L_{e^{\PMC(1)}}$ does not come from a weak $\IBLInfty$-morphism as long as $\PMC_{10}(1)\neq 0$. This sheds light on the matter of the author's confusion from the preamble about twisting with a Maurer-Cartan element.
 
 \begin{Remark}[Some questions]\label{Rem:SomeQuestionsFilter}\begin{RemarkList}
 \item What is the geometric meaning of 
@@ -1335,9 +1339,9 @@ where $U=\DBCyc\HDR(M)[3-n]$ is the (reduced) dual cyclic bar complex of the de 
 \item a quasi-isomorphism of strict $\BV$-complexes and
 \item a quasi-isomorphism of $\BV$-complexes? 
 \end{enumerate}
-\item For a Maurer-Cartan element $\PMC$, what is
-\[ \log L_{e^{\PMC(1)}}:\ \hat{\Sym}U((\hbar)) \longrightarrow \hat{\Sym}U((\hbar)), \]
-and can one see that this map is, in general, not in the form of an $\IBLInfty$-morphism?
+\item For a Maurer-Cartan element $\PMC$, is there a formula for
+\[ \log L_{e^{\PMC(1)}}:\ \hat{\Sym}U((\hbar)) \longrightarrow \hat{\Sym}U((\hbar))? \]
+Notice that $\Norm{L_{e^{\PMC(1)}}}\ge 0$ and ${}$
 \qedhere
 \end{RemarkList}
 \end{Remark}
@@ -1416,7 +1420,7 @@ where we set $F_{h_1,\dotsc, h_r} \coloneqq F_{(h_1,\dotsc,h_r)} = F_{(h_1,\dots
 \MVMorF \circ_h \MVMorF_1 &= \MVProd(\MVMorF\otimes \Id)(\MVProd\otimes\Id)(\Id\otimes\tau)(F_h\otimes\Id^{\otimes 2})(\MVCoProd\otimes \Id)(\MVMorF_1 \otimes \Id)\MVCoProd \\
 \Bigl(\!\!&= \MVProd(\MVMorF\otimes \Id)(\MVProd\otimes\Id)(F_h\otimes\Id^{\otimes 2})(\Id\otimes\tau)(\MVCoProd\otimes \Id)(\MVMorF_1 \otimes \Id)\MVCoProd\Bigr).
 \end{align*}
-(c.f., Definition~\ref{Def:CircS} in Section~\ref{Sec:Alg1} in Part~I for the case of $V = \Sym(C[1])$)
+(c.f., Definition~\ref{Def:CircS} in Section~\ref{Sec:Alg1} for the case of $V = \Sym(C[1])$)
 \end{Definition}
 
 \begin{Proposition}[Partial compositions]\label{Prop:PartCompAComp}
@@ -1463,7 +1467,7 @@ The case of $(\MVMorF_{1},\dotsc,\MVMorF_r)\circ_{h_1,\dotsc,h_r}\MVMorF$ is tre
 
 We see that the operations $\circ_{h_1,\dotsc,h_r}$ and $\circ_{\mathrm{con}}$, which are the cornerstone of the surface calculus for $\Sym U$ in Section~\ref{Sec:FilteredMV}, originate naturally from $\SquareComp_A$. Clearly, we can now replace~$\Sym U$ by any connected weight-graded bialgebra~$V$ and develop a surface calculus for $\BVInfty$-algebras over~$V$.
 
-The following formulas were stated in Remark~\ref{Rem:Compositions} in Section~\ref{Sec:Alg1} in Part~I and come from \cite{Cieliebak2015}, where they were used in a slightly different form (and without a proof).
+The following formulas were stated in Remark~\ref{Rem:Compositions} in Section~\ref{Sec:Alg1} and come from \cite{Cieliebak2015}, where they were used in a slightly different form (and without a proof).
 %
 %\begin{align*}
 %&\MVMorF\circ_{h_1, \dotsc, h_r}(\MVMorF_1, \dotsc, \MVMorF_r) \\

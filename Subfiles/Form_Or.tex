@@ -1,4 +1,5 @@
 %auto-ignore
+%! TEX root = ../Text.tex
 \providecommand{\MainFolder}{..}
 \documentclass[\MainFolder/Text.tex]{subfiles}
 
@@ -11,7 +12,7 @@ In this section, a $\DGA$ $V$ is a triple $(V,\Dd,\wedge)$, where
 \item $V = \bigoplus_{n\in \Z} V^n$ is a $\Z$-graded vector space,
 \item $\Dd: V\rightarrow V$ a differential of degree $1$, and
 \item $\wedge: V\otimes V \rightarrow V$ an associative product of degree $0$ such that $\Dd$ and $\wedge$ satisfy the Leibnitz identity $\Dd(v_1 \wedge v_2) = \Dd v_1 \wedge v_2 + (-1)^{v_1} v_1 \wedge\Dd v_2$ for all homogenous $v_1$, $v_2\in V$.
-%$$ \Dd(v_1 \wedge v_2) = \Dd v_1 \wedge v_2 + (-1)^{v_1} v_1 \wedge \Dd v_2. $$
+%\[ \Dd(v_1 \wedge v_2) = \Dd v_1 \wedge v_2 + (-1)^{v_1} v_1 \wedge \Dd v_2. \]
 \end{itemize}
 In other words, we consider general, possibly non-unital and non-commutative, $\Z$-graded $\DGA$'s. We denote by $\deg(v)$ the degree of a homogenous element $v\in V$ and write $(-1)^v$ in the exponent.
 %We will consider two closely related notions on a $\DGA$ --- an orientation and a cyclic structure.
@@ -22,14 +23,14 @@ In other words, we consider general, possibly non-unital and non-commutative, $\
 Let $(V,\Dd)$ be a $\Z$-graded cochain complex. We define the following:
 \begin{itemize}
 \item An \emph{orientation in degree $n$} is a linear function $\Or : V^n \rightarrow \R$ such that
-$$\Or \neq 0\quad\text{and}\quad\Or \circ \Dd = 0. $$
+\[\Or \neq 0\quad\text{and}\quad\Or \circ \Dd = 0. \]
 In other words, it is a surjective chain map $\Or : (V,\Dd) \rightarrow (\R[-n],0)$.
 \item A~\emph{cyclic structure of degree $n$} is a homogenous bilinear form $\langle \cdot, \cdot \rangle : V \otimes V \rightarrow \R$ of degree $-n$ as a map such that for all homogenous $v_1$, $v_2\in V$, we have
 \begin{equation}\label{Eq:CycStr}
 \langle \Dd v_1, v_2\rangle = (-1)^{1+v_1 v_2} \langle \Dd v_2, v_1 \rangle.
 \end{equation}
 \end{itemize}
-A cyclic structure on a $\DGA$ $(V,\Dd,\wedge)$ satisfies in addition  
+A cyclic structure on a $\DGA$ $(V,\Dd,\wedge)$ is additionally required to satisfy  
 \begin{equation}\label{Eq:CycStrII}
 \langle v_1 \wedge v_2, v_3 \rangle = (-1)^{v_3(v_1 + v_2)}\langle v_3\wedge v_1, v_2 \rangle
 \end{equation}
@@ -40,8 +41,8 @@ for all homogenous $v_1$, $v_2$, $v_3\in V$.
 Analogously, one can define a cyclic structure on an $\AInfty$-algebra.
 
 \begin{Remark}[Cyclic $\DGA$]\label{Rem:Eq}
-A cyclic $\DGA$ $(V,\Pair,\mu_1,\mu_2)$ of degree $n$ from Definition~\ref{Def:CyclicAinfty} in Part~I is the same as a $\DGA$ equipped with a cyclic structure~$\langle\cdot,\cdot\rangle$ of degree $n$ which is symmetric, i.e., 
-$$ \langle v_1, v_2 \rangle = (-1)^{v_1 v_2} \langle v_2, v_1\rangle $$
+A cyclic $\DGA$ $(V,\Pair,\mu_1,\mu_2)$ of degree $n$ from Definition~\ref{Def:CyclicAinfty} is the same as a $\DGA$ equipped with a cyclic structure~$\langle\cdot,\cdot\rangle$ of degree $n$ which is symmetric, i.e., 
+\[ \langle v_1, v_2 \rangle = (-1)^{v_1 v_2} \langle v_2, v_1\rangle \]
 for all homogenous $v_1$, $v_2\in V$, and non-degenerate (see Definition~\ref{Def:PoincDual}). The correspondence is via the degree shift
 \begin{align*}
 \mu_1(\SuspU v) &= \SuspU \Dd(v),\\
@@ -64,8 +65,8 @@ respectively, where $[\cdot]$ denotes the cohomology class. It is easy to see th
 We have the following:
 \begin{ClaimList}
 \item Let $(V,\Dd)$ be a $\Z$-graded cochain complex, and let $n\in \Z$. Given an orientation $\tilde{\Or}: \H^n(V) \rightarrow \R$, there is an orientation $\Or^V: V^n \rightarrow \R$ such that~$\tilde{\Or} = \Or^\H$. If $\Dd V^n = 0$, then we have the correspondence
-$$\text{Orientations on }V\text{ in degree }n\ \overset{1:1}{\simeq}\ \text{Orientations on }\H(V)\text{ in degree }n. $$  
-\item If $(V_1,\Dd_1,\Or_1)$ and $(V_2,\Dd_2,\Or_2)$ are $\Z$-graded cochain complexes oriented in degree $n$ with $\Dd V_1 \simeq \Dd V_2 = 0$, then a chain map $f: V_1 \rightarrow V_2$ preserves the orientation if and only if the induced map $f_*: \H(V_1) \rightarrow \H(V_2)$ preserves the induced orientation.
+\[\text{Orientations on }V\text{ in degree }n\ \overset{1:1}{\simeq}\ \text{Orientations on }\H(V)\text{ in degree }n. \]  
+\item If $(V_1,\Dd_1,\Or_1)$ and $(V_2,\Dd_2,\Or_2)$ are $\Z$-graded cochain complexes oriented in degree $n$ with $\Dd V_1^n = 0 = \Dd V_2^n$, then a chain map $f: V_1 \rightarrow V_2$ preserves the orientation if and only if the induced map $f_*: \H(V_1) \rightarrow \H(V_2)$ preserves the induced orientation.
 \end{ClaimList}
 \end{Proposition}
 \begin{proof}
@@ -73,7 +74,7 @@ $$\text{Orientations on }V\text{ in degree }n\ \overset{1:1}{\simeq}\ \text{Orie
 \item We define $\Or^V(v) \coloneqq \tilde{\Or}([v])$ for all closed $v\in V$ and extend it by $0$ to a complement of $\Ker \Dd$ in~$V$. It is obvious that $\Or^\H = \tilde{\Or}$. If $\Dd V^n = 0$, any complement is trivial and $\Or^V$ is uniquely determined by $\Or^\H$.
 
 \item Let $v\in V_1^n$. Because $\Dd v = 0$, we have
-$$ \Or_2(f(v)) = \Or^{\H}_2([f(v)]) = \Or^{\H}_2(f_*[v]) = \Or^{\H}_1([v]) = \Or_1(v). $$
+\[ \Or_2(f(v)) = \Or^{\H}_2([f(v)]) = \Or^{\H}_2(f_*[v]) = \Or^{\H}_1([v]) = \Or_1(v). \]
 This finishes the proof.\qedhere
 \end{ProofList}
 \end{proof}
@@ -86,7 +87,7 @@ Suppose that $1$ is a unit for $(V,\Dd,\wedge)$, i.e., $1\in V^0$, $\Dd 1 = 0$ a
 \end{align*}
 and hence $\langle \cdot,\cdot\rangle$ is automatically symmetric.
 
-Recall that a $\DGA$ is called commutative if $v_1 \wedge v_2 = (-1)^{v_1 v_2} v_2\wedge v_1$ for all homogenous $v_1$, $v_2\in V$. Commutativity of a $\DGA$ and symmetricity of a general cyclic structure on it seem to be unrelated.
+Recall that a $\DGA$ is called commutative if $v_1 \wedge v_2 = (-1)^{v_1 v_2} v_2\wedge v_1$ for all homogenous $v_1$, $v_2\in V$. Commutativity of a $\DGA$ and symmetry of a general cyclic structure on it seem to be unrelated.
 
 %The induced cyclic structure on the $\DGA$ $(\H(V), 0, \wedge)$ is denoted by the same symbol and defined by 
 %\begin{equation}\label{Eq:IndHom}
@@ -95,7 +96,7 @@ Recall that a $\DGA$ is called commutative if $v_1 \wedge v_2 = (-1)^{v_1 v_2} v
 %
 %The (induced) orientation in degree $n$ on $\H(V)$ is denoted by $\int: \H^n(V) \rightarrow \R$; by definition, we have
 %\begin{equation}\label{Eq:IndOr}
-%\int [v] = \Or(v)\quad\text{for all closed }v\in V.
+%\int [v] = \Or(v)\quad\text{for all closed }in V.
 %\end{equation}
 
 %
@@ -117,9 +118,9 @@ Let $(V,\Dd,\wedge)$ be a $\DGA$. Then the following holds:
  \end{cases}
 \end{equation}
 \item For a unital commutative $\DGA$ $(V,\Dd,\wedge,1)$, formulas \eqref{Eq:PairForm} and \eqref{Eq:OrForm} define the correspondence
-$$ \text{Orientations in degree }n\ \overset{1:1}{\simeq}\ \text{Non-zero cyclic structures of degree }n.$$
+\[ \text{Orientations in degree }n\ \overset{1:1}{\simeq}\ \text{Non-zero cyclic structures of degree }n.\]
 %If moreover $(V,\Dd,\wedge,1)$ is unital, then there is a canonical correspondence
-%$$ \text{cyc.~str.~on }V\text{ of degree }n\ \overset{1:1}{\simeq}\  \text{ cyc.~str.~on }\H(V)\text{ of degree }n. $$
+%\[ \text{cyc.~str.~on }V\text{ of degree }n\ \overset{1:1}{\simeq}\  \text{ cyc.~str.~on }\H(V)\text{ of degree }n. \]
 %%In particular, a DGA-morphism $f: V \rightarrow V'$ preserves the corresponding structure on the chain level if and only if $f_*: \H(V) \rightarrow \H(V')$ preserves it on homology.
 \end{ClaimList}
 \end{Proposition}
@@ -157,7 +158,7 @@ Therefore, $\Or$ is an orientation on $V$.
 
 \begin{Remark}[Volume forms]\label{Rem:VolForms}
 If $\H^n(V) \simeq \R$, then orientations $\Or: \H^n(V)\rightarrow\R$  and elements $0\neq [\Vol] \in \H^n(V)$ called \emph{volume forms} are in one-to-one correspondence via
-$$ \Or([\Vol]) = 1. $$
+\[ \Or([\Vol]) = 1. \]
 A consequence is the following:
 Suppose that $(V_1,\Dd_1,\Or_1)$ and $(V_2,\Dd_2,\Or_2)$ are cochain complexes oriented in degree $n$ which satisfy 
 \begin{equation}\label{Eq:SDDFG}
@@ -170,24 +171,25 @@ so that Proposition~\ref{Prop:OrOnHomG} applies. Then a chain map $f: V_1 \right
 
 
 %Observe that if the cyclic structure $\langle\cdot,\cdot\rangle$ comes from an orientation, which is always the case when the $\DGA$ is unital by Proposition~\ref{Prop:OrAndCyc}, then it is \emph{graded symmetric} (shortly symmetric), i.e., it holds
-%$$ \langle v_1,v_2\rangle = (-1)^{v_1 v_2}\langle v_2,v_1\rangle\quad\text{for all homogenous }v_1, v_2\in V. $$
+%\[ \langle v_1,v_2\rangle = (-1)^{v_1 v_2}\langle v_2,v_1\rangle\quad\text{for all homogenous }v_1, v_2\in V. \]
 
 \begin{Definition}[Non-degeneracy and Poincar\'e duality]\label{Def:PoincDual}
 %An orientation $\Or: V \rightarrow \R$ on a graded vector space~$V$ is called \emph{non-degenerate} if for every $v\in V$, the following implication holds:
-%$$ \Or(v\wedge w)= 0\quad\text{for all }w\in V\quad\Implies\quad v=0. $$
-A symmetric homogenous bilinear form ($\eqqcolon$\,pairing) $\langle\cdot,\cdot\rangle: V\otimes V \rightarrow \R$ of degree $-n$ (as a map) on a graded vector space~$V$ is called \emph{non-degenerate} if for every $v\in V$, the following implication holds:
-$$ \langle v,w \rangle= 0\quad\text{for all }w\in V\quad\Implies\quad v=0. $$
+%\[ \Or(v\wedge w)= 0\quad\text{for all }w\in V\quad\Implies\quad v=0. \]
+Given a graded vector space~$V$, a homogenous bilinear form ($\eqqcolon$\,pairing) $\langle\cdot,\cdot\rangle: V\otimes V \rightarrow \R$ of degree $-n$ as a map which is graded symmetric is called \emph{non-degenerate} if for every $v\in V$, the following implication holds:
+\[ \langle v,w \rangle= 0\quad\text{for all }w\in V\quad\Implies\quad v=0. \]
 We say that $\langle\cdot,\cdot\rangle$ satisfies \emph{Poincar\'e duality} if the map $\flat: V \rightarrow V^{\GD}$ (graded dual) defined by 
-$$\flat(v)(w) \coloneqq \langle v,w\rangle\quad \text{for all }v,w\in V$$
-is a graded isomorphism of graded vector spaces (it has degree $-n$ as a map).
+\[\flat(v)(w) \coloneqq \langle v,w\rangle\quad \text{for all }v,w\in V\]
+is a graded isomorphism (it has degree $-n$ as a map) of graded vector spaces.
 \end{Definition}
 
 \begin{Remark}[On non-degeneracy and Poincar\'e duality]\label{Rem:NonDegPD}
 \begin{RemarkList}
-\item Clearly, Poincar\'e duality implies non-degeneracy. If the degree $k$ component $V^k$ of $V$ is finite-dimensional for every~$k\in \Z$ --- we say that $V$ is of \emph{finite type} --- then the opposite is true as well. Note that Poincar\'e duality does not imply that $V$ is of finite type since there are infinite-dimensional vector spaces with $V^* \simeq V$.
+\item Clearly, Poincar\'e duality implies non-degeneracy. If the degree $k$ component $V^k$ of $V$ is finite-dimensional for every~$k\in \Z$ --- we say that $V$ is of \emph{finite type} --- then the opposite is true as well. If $n=0$, then Poincar\'e duality implies that $V$ is of finite type.
 %In this case, we obtain the well-known Poincar\'e duality $V^k \simeq V^{n-k}$.
 \item If $V$ is non-negatively graded, then non-degeneracy of $\langle\cdot,\cdot\rangle: V\otimes V \rightarrow \R$ implies $V = V^0 \oplus \dotsb \oplus V^n$. Therefore, non-negatively graded vector spaces of finite type which admit a non-degenerate homogenous bilinear form are finite-dimensional.
-\item The relation of non-degeneracy and Poincar\'e duality for $V$ and for $\H(V)$ is not obvious. For instance, the de Rham complex $(\DR(M),\Dd,\wedge)$ of an oriented closed $n$-manifold~$M$ with the orientation $\int: \DR^n(M) \rightarrow \R$ is a non-degenerate oriented $\DGA$ whose induced cyclic structure does not satisfy Poincar\'e duality. On the other hand, the induced structure on homology $\H(\DR(M))$ satisfies Poincar\'e duality.\qedhere
+\item The de Rham complex $(\DR(M),\Dd,\wedge)$ of an oriented closed $n$-manifold~$M$ with the orientation $\int: \DR^n(M) \rightarrow \R$ is an oriented $\DGA$ whose cyclic structure is non-degenerate but does not satisfy Poincar\'e duality. On the other hand, the induced structure on homology $\H(\DR(M))$ satisfies Poincar\'e duality.
+\qedhere
 \end{RemarkList}
 \end{Remark}
 %
@@ -198,11 +200,11 @@ is a graded isomorphism of graded vector spaces (it has degree $-n$ as a map).
 %\item An ``oriented Poincar\'e-CDGA'' as defined in \cite{Lambrechts2007} is a $\uCDGA$ with non-negatively graded $V$ of finite type such that $\H(V)$ is a Poincar\'e algebra.
 %\end{itemize}
 %For unital cyclic $\DGA$'s, cyclicity implies \emph{graded symmetry} of $\langle\cdot,\cdot\rangle$. Indeed, for all homogenous $v_1$, $v_2\in V$, we have
-%$$ \langle v_1, v_2 \rangle = \langle 1 \wedge v_1, v_2 \rangle = (-1)^{v_1 v_2} \langle v_2 \wedge 1, v_1 \rangle = (-1)^{v_1 v_2} \langle v_2, v_1\rangle. $$
+%\[ \langle v_1, v_2 \rangle = \langle 1 \wedge v_1, v_2 \rangle = (-1)^{v_1 v_2} \langle v_2 \wedge 1, v_1 \rangle = (-1)^{v_1 v_2} \langle v_2, v_1\rangle. \]
 %Graded symmetry is also automatic for $\langle\cdot,\cdot\rangle$ coming from an orientation.
 %%For simplicity, we will assume from now on that $\langle\cdot,\cdot\rangle$ is symmetric.
 
-An analog of the following definition is used in \cite{Van2019} and also in \cite{Lambrechts2007} (under the name the ``set of orphans''). 
+An analog of the following definition is used in \cite{Van2019} and also in \cite{Lambrechts2007} (under the name ``set of orphans''). 
 
 \begin{Definition}[Degenerate subspace and non-degenerate quotient]\label{Def:NonDegQ}
 Given a symmetric pairing $\langle\cdot,\cdot\rangle: V\otimes V\rightarrow\R$ on a graded vector space~$V$, we define the \emph{degenerate subspace}~$V^\perp\subset V$ by 
@@ -228,12 +230,12 @@ V = \Ker \Dd \oplus C, \quad \Ker \Dd = \Im \Dd \oplus \Harm\quad\text{and}\quad
 where $\perp$ denotes the relation of being perpendicular with respect to $\langle\cdot,\cdot\rangle$. Such decomposition is called a \emph{Hodge decomposition.} We call $\Harm$ the \emph{harmonic subspace} and $C$ the \emph{coexact part}.
 
 Given a Hodge decomposition, we define the \emph{standard Hodge homotopy} $\HtpStd: V \rightarrow V$~by 
-$$\HtpStd \coloneqq \begin{cases}
+\[\HtpStd \coloneqq \begin{cases}
     -(\Restr{\Dd}{C})^{-1} & \text{on }\Im \Dd, \\
     0 & \text{on } \Harm \oplus C.
-   \end{cases}$$
+   \end{cases}\]
 Then we have $\Dd \HtpStd = - \pi_{\Im \Dd}$, $\HtpStd \Dd = -\pi_{C}$, and hence 
-$$ [\Dd,\HtpStd] = \Dd \HtpStd + \HtpStd \Dd = \pi_\Harm - \Id.$$
+\[ [\Dd,\HtpStd] = \Dd \HtpStd + \HtpStd \Dd = \pi_\Harm - \Id.\]
  We call $(\Harm,\HtpStd)$ the \emph{Hodge pair} associated to the Hodge decomposition \eqref{Eq:HodgeDecomp}.
 \end{Definition}
 
@@ -245,7 +247,7 @@ This is \cite[Lemma~11.1]{Cieliebak2015}, and the proof uses formal Hodge theory
 \end{proof}
 
 \begin{Remark}[Harmonic subspaces]\label{Rem:RemarkHarm}
-In the situation of Proposition~\ref{Prop:NDegFin}, it was shown in \cite[Remark~2.6]{Van2019} that for any section $s: \H(V)\rightarrow \Ker\Dd$ of the canonical projection $\pi: \Ker \Dd \rightarrow \H(V)$, there is a coexact part $C$ such that $V=\Im s \oplus \Im \Dd \oplus C$ is a Hodge decomposition. From this reason, we call any $\Im s$ a harmonic subspace.
+In the situation of Proposition~\ref{Prop:NDegFin}, it was shown in \cite[Remark~2.6]{Van2019} that for any complement $\Harm$ of $\im\Dd$ in $\ker\Dd$ (in other words, the image of a section $\H(V)\rightarrow \Ker\Dd$) there is a coexact part $C$ such that $V=\Harm \oplus \Im \Dd \oplus C$ is a Hodge decomposition. From this reason, we call any complement of $\im \Dd$ in $\ker \Dd$ a \emph{harmonic subspace.}\footnote{Given a Hodge decomposition $V=\Harm\oplus\im\Dd\oplus C$ and a harmonic subspace $\Harm'$, then it holds $\Harm' = \Graph(\alpha: \Harm \rightarrow \Dd V)$ because $\Harm \oplus \Dd V = \Harm' \oplus \Dd V$, and one can take $C'=\Graph(- \alpha^\dagger - \frac{1}{2}\alpha\alpha^\dagger: C \rightarrow \Harm\oplus\Dd V)$.}
 \end{Remark}
 
 The following lemma will be used in the proof of Proposition~\ref{Prop:HodgeAcyc}.
@@ -256,10 +258,10 @@ Let $f: V_1 \rightarrow V_2$ be an injective chain map of cochain complexes $(V_
 
 \begin{proof}
 For every $i\in \Z$, consider the diagram
-$$\begin{tikzcd}
+\[\begin{tikzcd}
 \Ker \Dd_1^i \oplus C^i_1 \arrow{r}{f^i} \arrow{d}{\Dd_1^i} & \Ker \Dd_2^i \oplus C^i_2 \arrow{d}{\Dd_2^i} \\
 \Ker \Dd^{i+1}_1 \oplus C^{i+1}_1 \arrow{r}{f^{i+1}} & \Ker \Dd_2^{i+1} \oplus C^{i+1}_2,
-\end{tikzcd}$$
+\end{tikzcd}\]
 where $C^i_1$ is a complement of $\Ker \Dd_1^i$ in $V_1^i$ and $C^i_2$ is a complement of $\Ker \Dd_2^i$ in~$V_2^i$. With respect to this decomposition, we write
 \begin{align*}
 f^i & = \begin{pmatrix}
@@ -288,7 +290,7 @@ Relations \eqref{Eq:EqEqEq} hold also for $g$ with $d_1$ and $d_2$ switched. In 
 g^i_{11} f^i_{11} = \Id, \quad g^i_{11} f^i_{12} + g^i_{12}f^i_{22}=0, \quad g^i_{22} f^i_{22} = \Id.
 \end{equation}
 Because $d_1^i$ is an isomorphism, the last equation is equivalent to 
-$$ \Id = d_1^i g^i_{22}f^i_{22} (d_1^i)^{-1} = g^{i+1}_{11} d_2^i f^i_{22} (d_1^i)^{-1} = g^{i+1}_{11} f^{i+1}_{11} d_1^i (d_1^i)^{-1} = g^{i+1}_{11} f^{i+1}_{11}. $$
+\[ \Id = d_1^i g^i_{22}f^i_{22} (d_1^i)^{-1} = g^{i+1}_{11} d_2^i f^i_{22} (d_1^i)^{-1} = g^{i+1}_{11} f^{i+1}_{11} d_1^i (d_1^i)^{-1} = g^{i+1}_{11} f^{i+1}_{11}. \]
 
 We see that $g$ can be constructed as follows. For all $i\in \Z$, let $g_i^{11}$ be an arbitrary left inverse of $f_i^{11}$. Set $g_{22}^i \coloneqq (d_1^i)^{-1}g_{11}^{i+1} d_2^i$ and $g_i^{21}\coloneqq0$. Finally, $g_{12}^i$ has to be chosen such that the second equation of \eqref{Eq:EqEq} is satisfied. This is possible since we can first define~$g_{12}^i$ on $\Im f^i_{22}$ because~$f^i_{22}$ injective and then extend it by $0$ to a complement.
 \end{proof}
@@ -309,9 +311,9 @@ Moreover, the following reverse implication holds:
 \begin{proof}
 \begin{ProofList}
 \item Let $V = \Im \Dd \oplus \Harm \oplus C$ be a Hodge decomposition. Then $\Im \Dd \oplus C \subset \Harm^\perp$, and hence
-$$ \langle \Dd \eta + b + c, b' \rangle = \langle b,b'\rangle\quad\text{for all }\eta\in V, c\in C\text{ and }b, b'\in \Harm. $$
+\[ \langle \Dd \eta + b + c, b' \rangle = \langle b,b'\rangle\quad\text{for all }\eta\in V, c\in C\text{ and }b, b'\in \Harm. \]
 The claim follows easily. Notice that having a Hodge decomposition, it holds
-$$ \Restr{\langle \cdot,\cdot\rangle}{\Harm\otimes \Harm}\text{ non-degenerate}\quad\Equiv\quad \Im\Dd \oplus C=\Harm^\perp. $$ 
+\[ \Restr{\langle \cdot,\cdot\rangle}{\Harm\otimes \Harm}\text{ non-degenerate}\quad\Equiv\quad \Im\Dd \oplus C=\Harm^\perp. \] 
 \item Consider a Hodge decomposition as above, and let $v\in V^\perp \cap \Ker \Dd$ be a non-zero vector. Suppose that $v\not\in \Im\Dd$. Then $[v] \neq 0$ in $\H(V)$, and hence there is a $b\in \Harm$ such that $\langle v,b \rangle \neq 0$ by non-degeneracy of $\langle\cdot,\cdot\rangle^\H$. This is a contradiction with $v\in V^\perp$. Therefore, it holds $V^\perp \cap \Ker \Dd = V^\perp \cap \Im \Dd$. In particular, there is an $\eta \in C$ such that $v = \Dd \eta$. Now, for any $\eta'\in C$, $b\in \Harm$ and $c\in C$, we have using $C\perp \Harm\oplus C$ and $v\in V^\perp$ the following:
 \begin{align*}
 \langle \Dd \eta' + b + c, \eta \rangle &= \langle \Dd \eta',\eta \rangle \\
@@ -329,11 +331,11 @@ The following notions were taken from \cite{Van2019}.
 
 \begin{Definition}[Hodge subalgebra and small subalgebra]\label{Def:SmallSubalg}
 Consider a $\DGA$ $(V,\Dd,\wedge)$ with a symmetric cyclic structure $\langle\cdot,\cdot\rangle$. Suppose that it admits a Hodge decomposition with the Hodge pair $(\Harm,\HtpStd)$. A \emph{Hodge subalgebra} is a differential graded subalgebra $W\subset V$ which satisfies
-$$ \Harm\subset W \quad\text{and}\quad \HtpStd W \subset W. $$
+\[ \Harm\subset W \quad\text{and}\quad \HtpStd W \subset W. \]
 We denote the smallest Hodge subalgebra of $V$ by $\VansSmall(V)$ and call it the \emph{small subalgebra}. We stress that the definition of $\VansSmall(V)$ depends on $(\Harm,\HtpStd)$!
 \end{Definition}
 %In the situation of Definition~\ref{Def:SmallSubalg}, it holds
-%$$ \VansSmall(V) = \bigcap_{\substack{W\subset V\\\text{Hodge subalgebra}}} W. $$
+%\[ \VansSmall(V) = \bigcap_{\substack{W\subset V\\\text{Hodge subalgebra}}} W. \]
 
 The following is a version of \cite[Proposition~3.3]{Van2019} which generalizes to the non-simply-connected case (see (iii) of Remark~\ref{Rem:OnHodgeSubalg} below for the comparison).
 
@@ -383,11 +385,13 @@ It holds even $\Dd\langle\Trees\rangle = \Dd\HtpStd\langle\widebar{\VansSmall}\w
 \end{equation}
 If $\H^1 = 0$, this agrees with the formula from \cite[Proposition~3.3]{Van2019}. In this case, it holds $\VansSmall^1 = 0$, and hence $\langle\widebar{\VansSmall}\wedge\widebar{\VansSmall}\rangle^{k+1}$ depends only on $\VansSmall^i$ for $i<k$. Therefore, we can compute~$\VansSmall^k$ from \eqref{Eq:VansFormula} inductively starting with $\VansSmall^0 = \langle 1\rangle$.
 \item The previous remark implies the following: Let $(V,\Dd,\wedge)$ be a non-negatively graded $\DGA$ with cyclic structure $\langle\cdot,\cdot\rangle$ of Hodge type. Suppose that $\H^1(V)=0$. If $\H(V)$ is of finite type, then so is $\VansSmall(V)$.
-\item The subalgebra $\VansSmall(V)$ resolves $V$; i.e., there is a $\DGA$-quasi-isomorphism $\VansSmall(V) \xhookrightarrow{} V$ (the inclusion). Consider the smallest subalgebra $\langle\Harm\rangle^\wedge$ containing~$\Harm$; similarly as $\VansSmall(V)$, it is generated as graded vector space by evaluations of rooted binary trees with $\Id$ on interior edges. The $\DGA$ $\langle\Harm\rangle^\wedge$ also resolves $V$. The advantage of $\VansSmall(V)$ over $\langle\Harm\rangle^\wedge$ is that  it is of Hodge type and is thus quasi-isomorphic to its non-degenerate quotient $\VansQuotient(\VansSmall(V))$. Therefore, we have the diagram of pairing preserving $\DGA$-quasi-isomorphisms
-$$\begin{tikzcd}
+%\item The subalgebra $\VansSmall(V)$ ``resolves'' $V$; i.e., there is a $\DGA$-quasi-isomorphism $\VansSmall(V) \xhookrightarrow{} V$ (the inclusion). Consider the smallest subalgebra $\langle\Harm\rangle^\wedge$ containing~$\Harm$; similarly as $\VansSmall(V)$, it is generated as graded vector space by evaluations of rooted binary trees with $\Id$ on interior edges. The $\DGA$ $\langle\Harm\rangle^\wedge$ also ``resolves'' $V$.
+\item The advantage of $\VansSmall(V)$ is that we have the diagram of pairing preserving $\DGA$-quasi-isomorphisms
+\[\begin{tikzcd}
  V & \VansSmall(V)\arrow[hook']{l} \arrow[two heads]{r} & \VansQuotient(\VansSmall(V)).
-\end{tikzcd}$$
-If $V$ is non-negatively graded and $\VansSmall(V)$ is of finite type, e.g., as in (iii), then $\VansQuotient(\VansSmall(V))$ is finite-dimensional.\qedhere
+\end{tikzcd}\]
+Moreover, in the case of (iii), the non-degenerate quotient is finite-dimensional, and hence a Poincar\'e duality model of $V$ (see the next section).
+\item Notice that if there is a quasi-isomorphism $f:\H(V)\rightarrow V$, then $\VansSmall(V) = V$ for any Hodge decomposition with harmonic subspace $\im f$.  \qedhere
 \end{RemarkList}
 \end{Remark}
 
@@ -399,16 +403,16 @@ Let $(V,\Dd,\wedge)$ be a $\DGA$ with a symmetric cyclic structure $\langle\cdot
 \begin{proof}
 The fact that $\VansSmall\coloneqq\VansSmall(V)$ admits a Hodge decomposition with Hodge pair $(\Harm,\HtpStd^\VansSmall)$ was stated in (i) of Remark~\ref{Rem:OnHodgeSubalg} and is easy to check.
 
-Let us prove that $\VansQuotient\coloneqq \VansQuotient(V)$ has a Hodge decomposition with Hodge pair $(\pi^\VansQuotient(\Harm),\HtpStd^\VansQuotient)$. Because $\pi^\VansQuotient$ is a quasi-isomorphism, $\pi^\VansQuotient(\Harm)$ is a harmonic subspace of $\VansQuotient$, and we have $\Ker \Dd^\VansQuotient = \pi^\VansQuotient(\Harm)\oplus \Im \Dd^\VansQuotient$. Let $c\in C$ with $\Dd c \in V^\perp$ such that $\pi^\VansQuotient(c)\in\Ker\Dd^\VansQuotient \cap \pi^\VansQuotient(C)$. From the cyclicity of $\langle\cdot,\cdot\rangle$ with respect to $\Dd$ and from $C\perp\Harm\oplus C$, it follows that $c\in V^\perp$, and thus $\pi^\VansQuotient(c)=0$. Together with surjectivity of $\pi^\VansQuotient$ this implies that $\VansQuotient = \ker \Dd^\VansQuotient \oplus \pi^\VansQuotient(C)$. From $\langle \pi^\VansQuotient(\cdot),\pi^\VansQuotient(\cdot)\rangle^\VansQuotient$, we see that $\pi^\VansQuotient(C) \perp \pi^\VansQuotient(\Harm) \oplus \pi^\VansQuotient(C)$. Therefore, $\VansQuotient = \pi^\VansQuotient(\Harm)\oplus\Im\Dd^\VansQuotient\oplus\pi^\VansQuotient(C)$ is a Hodge decomposition, and it is easy to see that its standard Hodge homotopy $\HtpStd^\VansQuotient$ satisfies $\HtpStd^\VansQuotient \circ \pi^\VansQuotient=\pi^\VansQuotient\circ \HtpStd$. This defines $\HtpStd^\VansQuotient$ uniquely because $\pi^\VansQuotient$ is surjective.
+We prove that $\VansQuotient\coloneqq \VansQuotient(V)$ has a Hodge decomposition with Hodge pair $(\pi^\VansQuotient(\Harm),\HtpStd^\VansQuotient)$. Because $\pi^\VansQuotient$ is a quasi-isomorphism, $\pi^\VansQuotient(\Harm)$ is a harmonic subspace of $\VansQuotient$, and we have $\Ker \Dd^\VansQuotient = \pi^\VansQuotient(\Harm)\oplus \Im \Dd^\VansQuotient$. Let $c\in C$ with $\Dd c \in V^\perp$ such that $\pi^\VansQuotient(c)\in\Ker\Dd^\VansQuotient \cap \pi^\VansQuotient(C)$. From the cyclicity of $\langle\cdot,\cdot\rangle$ with respect to $\Dd$ and from $C\perp\Harm\oplus C$, it follows that $c\in V^\perp$, and thus $\pi^\VansQuotient(c)=0$. Together with surjectivity of $\pi^\VansQuotient$ this implies that $\VansQuotient = \ker \Dd^\VansQuotient \oplus \pi^\VansQuotient(C)$. From $\langle \pi^\VansQuotient(\cdot),\pi^\VansQuotient(\cdot)\rangle^\VansQuotient$, we see that $\pi^\VansQuotient(C) \perp \pi^\VansQuotient(\Harm) \oplus \pi^\VansQuotient(C)$. Therefore, $\VansQuotient = \pi^\VansQuotient(\Harm)\oplus\Im\Dd^\VansQuotient\oplus\pi^\VansQuotient(C)$ is a Hodge decomposition, and it is easy to see that its standard Hodge homotopy $\HtpStd^\VansQuotient$ satisfies $\HtpStd^\VansQuotient \circ \pi^\VansQuotient=\pi^\VansQuotient\circ \HtpStd$. This defines $\HtpStd^\VansQuotient$ uniquely because $\pi^\VansQuotient$ is surjective.
 
 As for the relations \eqref{Eq:QSRelations}, the first two are clear. The third can be seen as follows. Since $\pi^\VansQuotient: V \rightarrow \VansQuotient$ is a $\DGA$-morphism mapping the harmonic subspaces isomorphically onto each other and commuting with $\Dd$ and $\HtpStd$, the assignments $Y\subset V \mapsto \pi^\VansQuotient(Y)\subset \VansQuotient$ and $Z\subset \VansQuotient \mapsto (\pi^{\VansQuotient})^{-1}(Z)\subset V$ preserve Hodge subalgebras. Therefore, if $Z\subset \VansQuotient(\VansSmall)$ is a Hodge subalgebra, then $(\pi^\VansQuotient)^{-1}(Z)\subset\VansSmall$ is a Hodge subalgebra. It holds even $(\pi^\VansQuotient)^{-1}(Z)=\VansSmall$ by minimality of $\VansSmall$, and hence $Z=\VansQuotient(\VansSmall)$ by surjectivity of~$\pi^\VansQuotient$.  
 \end{proof}
 
 %In the ideal world, the isomorphism class of $\VansQuotient(\VansSmall(V))$ would not depend on the chosen Hodge decomposition of $V$. We collect some lemmas which shall point us to a uniqueness statement for $\VansQuotient(\VansSmall(V))$ below.
 
-Notice that solely the fact that $\langle\cdot,\cdot\rangle$ is non-degenerate on $V$ does not imply that $\VansSmall(V) \simeq V$. A counterexample is $V = \DR(M)$, where $M$ is a compact oriented manifold with $\HDR^1(M) = 0$; indeed, by (iii) of Remark~\ref{Rem:OnHodgeSubalg}, $\VansSmall(\DR(M))$ is of finite type because $\HDR(M)$ is, but $\DR(M)$ is not of finite type.
+%Notice that solely the fact that $\langle\cdot,\cdot\rangle$ is non-degenerate on $V$ does not imply that $\VansSmall(V) \simeq V$. A counterexample is $V = \DR(M)$, where $M$ is a compact oriented manifold with $\HDR^1(M) = 0$; indeed, by (iii) of Remark~\ref{Rem:OnHodgeSubalg}, $\VansSmall(\DR(M))$ is of finite type because $\HDR(M)$ is, but $\DR(M)$ is not of finite type.
 
-A natural question is how does $\VansQuotient(\VansSmall(V))$ depend on the chosen Hodge pair and how does it behave under quasi-isomorphisms. We hope that the following lemmas will be useful in answering this question.
+A natural question is, how does $\VansQuotient(\VansSmall(V))$ depend on the chosen Hodge pair and how does it behave under quasi-isomorphisms? The following lemmas might be useful.
 
 \begin{Lemma}[Kernel of pairing-preserving morphism]\label{Lem:PomLemma}
 Let $V_1$ and $V_2$ be vector spaces with symmetric bilinear forms $\langle \cdot,\cdot \rangle_1: V_1 \otimes V_1 \rightarrow \R$ and $\langle \cdot,\cdot\rangle_2: V_2\otimes V_2 \rightarrow \R$, respectively. Let $f: V_1 \rightarrow V_2$ be a linear map such that
@@ -416,7 +420,7 @@ Let $V_1$ and $V_2$ be vector spaces with symmetric bilinear forms $\langle \cdo
 \langle v_1, v_2 \rangle_1 = \langle f(v_1), f(v_2) \rangle_2 \quad \text{for all }v_1, v_2 \in V_1.
 \end{equation}
 Then it holds 
-$$ \Ker f \subset V_1^\perp\quad\text{and}\quad f(V_1^\perp)\subset f(V_1)^\perp. $$
+\[ \Ker f \subset V_1^\perp\quad\text{and}\quad f(V_1^\perp)\subset f(V_1)^\perp. \]
 In particular, the following statements are true:
 \begin{ClaimList}
 \item If $\langle\cdot,\cdot\rangle_1$ is non-degenerate, then $f$ is injective.
@@ -443,15 +447,15 @@ and hence $v = 0$ by non-degeneracy of $\Or_1$.
 \end{proof}
 
 \begin{Lemma}[Small subalgebra of cyclic $\DGA$ and quasi-iso.]\label{Eq:LemSmallSub}
-Let $(V_1,\Dd_1,\wedge_1,\langle\cdot,\cdot\rangle_1)$ and~$(V_2,\Dd_2,\wedge_2,\langle\cdot,\cdot\rangle_2)$ be finite-dimensional non-negatively graded unital commutative $\DGA$'s with non-degenerate cyclic structures of degree $n$. Let $f: V_1 \rightarrow V_2$ be a $\DGA$-morphism such that $f_*: (\H(V_1),\Or_1^\H)\rightarrow (\H(V_1),\Or_2^\H)$ is an isomorphism. Then a Hodge decomposition of $V_1$ with Hodge pair $(\Harm_1,\HtpStd^1)$ induces a Hodge decomposition of~$V_2$ with Hodge pair $(f(\Harm_1),\HtpStd^2)$, where~$\HtpStd^2$ satisfies $\HtpStd^2 \circ f = f\circ \HtpStd^1$. Consequently,~$f$ induces an isomorphism $\VansSmall(V_1) \simeq \VansSmall(V_2)$.
+Let $(V_1,\Dd_1,\wedge_1,\langle\cdot,\cdot\rangle_1)$ and~$(V_2,\Dd_2,\wedge_2,\langle\cdot,\cdot\rangle_2)$ be non-negatively graded unital commutative $\DGA$'s of finite type with non-degenerate cyclic structures of degree $n$ (hence finite-dimensional). Let $f: V_1 \rightarrow V_2$ be a $\DGA$-morphism such that $f_*: (\H(V_1),\Or_1^\H)\rightarrow (\H(V_2),\Or_2^\H)$ is an isomorphism. Then a Hodge decomposition of $V_1$ with Hodge pair $(\Harm_1,\HtpStd^1)$ induces a Hodge decomposition of~$V_2$ with Hodge pair $(f(\Harm_1),\HtpStd^2)$, where~$\HtpStd^2$ satisfies $\HtpStd^2 \circ f = f\circ \HtpStd^1$. Consequently,~$f$ induces an isomorphism $\VansSmall(V_1) \simeq \VansSmall(V_2)$.
 \end{Lemma}
 \begin{proof}
-Because $f_*$ preserves orientation and it holds $V_1^{n+1} \simeq V_2^{n+1} = 0$, Proposition~\ref{Prop:OrOnHomG} implies that $f$ preserves cyclic structure and hence is injective by Lemma~\ref{Lem:PomLemma}. Let $V_1 = \Harm_1 \oplus \Im \Dd_1 \oplus C_1$ be a Hodge decomposition. From the injectivity of $f$, it follows that
-$$ f(V_1) = f(\Harm_1) \oplus \Dd f(V_1) \oplus f(C_1) $$
+Because $f_*$ preserves orientation and it holds $V_1^{n+1} = 0 = V_2^{n+1}$, Proposition~\ref{Prop:OrOnHomG} implies that $f$ preserves cyclic structure and hence is injective by Lemma~\ref{Lem:PomLemma}. Let $V_1 = \Harm_1 \oplus \Im \Dd_1 \oplus C_1$ be a Hodge decomposition. From the injectivity of $f$, it follows that
+\[ f(V_1) = f(\Harm_1) \oplus \Dd f(V_1) \oplus f(C_1) \]
 and that the restriction of $\langle\cdot,\cdot\rangle_2$ to $f(V_1)\otimes f(V_1)$ is non-degenerate. Because $V_1$ is of finite type, $f(V_1)$ is of finite type, and so non-degeneracy implies Poincar\'e duality $f(V_1)^{\GD}\simeq f(V_1)$. It follows that
-$$ V_2 = f(V_1) \oplus f(V_1)^\perp.$$
+\[ V_2 = f(V_1) \oplus f(V_1)^\perp.\]
 Cyclicity of $\Dd_2$ with respect to $\langle\cdot,\cdot\rangle_2$ implies that $f(V_1)^\perp\subset V_2$ is a subcomplex. Because~$f$ is a quasi-isomorphism, we have $\H(V_1)\simeq \H(f(V_1))\simeq \H(V_2)$; because the homology is additive, we have $\H(V_2)\simeq\H(f(V_1))\oplus\H(f(V_1)^\perp)\simeq \H(V_2)\oplus\H(f(V_1)^\perp)$; finally, because $\H(V_2)$ is of finite type, we have $\H(f(V_1)^\perp) = 0$. Because $V_2 = f(V_1) \oplus f(V_1)^\perp$ and $\langle\cdot,\cdot\rangle_2$ is non-degenerate, its restriction to $f(V_1)^\perp$ is non-degenerate too. As $V_2$ and hence $f(V_1)^\perp$ is of finite type, Proposition~\ref{Prop:NDegFin} gives a Hodge decomposition $f(V_1)^\perp = \Dd f(V_1)^\perp \oplus C_2'$. It is easy to check that 
-$$ V_2 = f(\Harm_1)\oplus\underbrace{\bigl(\Dd f(V_1) \oplus \Dd f(V_1)^\perp)}_{\displaystyle=\Im\Dd_2}\oplus(\underbrace{f(C_1)\oplus C_2'}_{\displaystyle\eqqcolon C_2})$$
+\[ V_2 = f(\Harm_1)\oplus\underbrace{\bigl(\Dd f(V_1) \oplus \Dd f(V_1)^\perp)}_{\displaystyle=\Im\Dd_2}\oplus(\underbrace{f(C_1)\oplus C_2'}_{\displaystyle\eqqcolon C_2})\]
 is a Hodge decomposition of $V_2$. The corresponding standard Hodge homotopy clearly satisfies $\HtpStd^2 \circ f = f\circ \HtpStd^1$, and it holds $\HtpStd^2(f(V_1)) \subset f(V_1)$, so that $f(V_1)$ is a Hodge subalgebra. By injectivity, it follows that $\VansSmall(V_1) \simeq \VansSmall(V_2)$.
 \end{proof}
 %
@@ -477,42 +481,23 @@ is a Hodge decomposition of $V_2$. The corresponding standard Hodge homotopy cle
 %\end{ExampleList}
 %\end{Example}
 %
-\begin{Proposition}[Small subalgebra in geometrically formal case]\label{Prop:SmalGeomForm}
-Let $(V,\Dd,\wedge)$ be a non-negatively graded unital commutative $\DGA$ with a cyclic structure $\langle\cdot,\cdot\rangle$ of Hodge type such that the induced cyclic structure on $\H(V)$ is non-degenerate. Suppose that there is $\DGA$-quasi-isomorphism $f: \H(V) \rightarrow V$ preserving orientation on homology. Then there is a Hodge decomposition of $V$ with $\Harm = \im f$ and $f$ induces an isomorphism $\H(V) \simeq \VansQuotient(\VansSmall(V))$.
-\end{Proposition}
+%\begin{Proposition}[Small subalgebra in geometrically formal case]\label{Prop:SmalGeomForm}
+%Let $(V,\Dd,\wedge)$ be a non-negatively graded unital commutative $\DGA$ with a cyclic structure $\langle\cdot,\cdot\rangle$ of Hodge type such that the induced cyclic structure on $\H(V)$ is non-degenerate. Suppose that there is $\DGA$-quasi-isomorphism $f: \H(V) \rightarrow V$ preserving orientation on homology. Then there is a Hodge decomposition of $V$ with $\Harm = \im f$ and $f$ induces an isomorphism $\H(V) \simeq \VansQuotient(\VansSmall(V))$.
+%\end{Proposition}
+%
+%\begin{proof}
+%By Remark~\ref{Rem:RemarkHarm}, there is a Hodge decomposition with $\Harm = \Im f$. Therefore, we can restrict the codomain of $f$ and obtain the $\DGA$-quasi-isomorphism $\tilde{f}: \H(V) \rightarrow \VansSmall(V) \rightarrow \VansQuotient(\VansSmall(V))$ which preserves orientation on homology. Lemma~\ref{Eq:LemSmallSub} implies that there is a Hodge decomposition of $V$ such that $\tilde{f}$ induces an isomorphism $\VansSmall(\H(V))\simeq \VansSmall(\VansQuotient(\VansSmall(V)))$. However, $\VansSmall(\H(V))=\H(V)$ and $\VansSmall(\VansQuotient(\VansSmall(V)))=\VansQuotient(\VansSmall(V))$ by Proposition~\ref{Prop:PropPropertiessd}.
+%\end{proof}
 
-\begin{proof}
-By Remark~\ref{Rem:RemarkHarm}, there is a Hodge decomposition with $\Harm = \Im f$. Therefore, we can restrict the codomain of $f$ and obtain the $\DGA$-quasi-isomorphism $\tilde{f}: \H(V) \rightarrow \VansSmall(V) \rightarrow \VansQuotient(\VansSmall(V))$ which preserves orientation on homology. Lemma~\ref{Eq:LemSmallSub} implies that there is a Hodge decomposition of $V$ such that $\tilde{f}$ induces an isomorphism $\VansSmall(\H(V))\simeq \VansSmall(\VansQuotient(\VansSmall(V)))$. However, $\VansSmall(\H(V))=\H(V)$ and $\VansSmall(\VansQuotient(\VansSmall(V)))=\VansQuotient(\VansSmall(V))$ by Proposition~\ref{Prop:PropPropertiessd}.
-\end{proof}
-
-
-The following conjecture is based on a remark of Prof.~Hông Vân Lê, communicated in an e-mail correspondence, that ``the small subalgebra is the image of a minimal model''.
-
-\begin{Conjecture}[Hodge-Sullivan minimal model]\label{Conj:HodgeSullMin}
-Let $(V,\Dd,\wedge)$ be a non-negatively graded unital commutative $\DGA$ with a cyclic structure $\langle\cdot,\cdot\rangle$ of Hodge type. Suppose that~$V$ is of finite type, $\H^0(V) = \R$ and $\H^1(V) = 0$. Then for any Hodge decomposition of~$V$, there is a Sullivan minimal model $\Lambda U \rightarrow V$ (see \cite{Felix2008} or Remark~\ref{Rem:Models} later) whose image contains a Hodge subalgebra. 
-\end{Conjecture}
-\begin{proof}[Idea of proof] The author tried to modify the well-known inductive construction of $\Lambda U \rightarrow V$ to achieve that its image is $\HtpStd$-invariant; he observed that vanishing of higher homology groups might be required. In any case, it sufficient (and necessary) to prove that the image contains at least the trees from Proposition~\ref{Prop:SmallDescription}.
-\end{proof}
-
-If Conjecture~\ref{Conj:HodgeSullMin} is true, then we have the following:
-
-\begin{Conjecture}[Uniqueness of non-degenerate small subalgebra]\label{Conj:UnieqSmal}
-Let $(V,\Dd,\wedge)$ be a non-negatively graded unital commutative $\DGA$ with a cyclic structure $\langle\cdot,\cdot\rangle$ of degree $n$ of Hodge type. Suppose that~$\H(V)$ is of finite type, $\H^0(V) = \R$ and $\H^1(V) = 0$. Suppose, in addition, that $\Dd V^n = 0$ and $\Dd (\Lambda U)^n = 0$ for the Sullivan minimal model $\Lambda U$ of $V$. Then for any two Hodge decompositions with small subalgebras $\VansSmall_1(V)$ and $\VansSmall_2(V)$, there is a pairing-preserving isomorphism $\VansQuotient(\VansSmall_1(V))\simeq\VansQuotient(\VansSmall_2(V))$.
-\end{Conjecture}
-\begin{proof}
-Conjecture~\ref{Conj:HodgeSullMin} applied to $\VansSmall_1$, resp.~$\VansSmall_2$ delivers Sullivan minimal models $f_1: \Lambda U_1 \rightarrow \VansSmall_1$, resp.~$f_2: \Lambda U_2 \rightarrow \VansSmall_2$ whose images contain Hodge subalgebras. Because $\VansSmall_i$ are small, $f_i$ are forced to be surjective. Considering the compositions $\Lambda U \xrightarrow{f_1} \VansSmall_1 \xhookrightarrow{} V$ and $\Lambda U \xrightarrow{f_2} \VansSmall_2 \xhookrightarrow{} V$, the uniqueness of the Sullivan minimal model of~$V$ (see \cite[Theorem~2.24]{Felix2008}), provides, after composing~$f_2$ with an isomorphism $\Lambda U \coloneqq \Lambda U_1 \simeq \Lambda U_2$, a diagram
+Since $\VansSmall=\VansSmall(V)$ is ``small'', a question whether it can be fit inside the image of a Sullivan's minimal model arose. This would imply, under some additional assumptions, that for any two Hodge decompositions of $V$, the non-degenerate quotients $\VansQuotient_1$, resp.~$\VansQuotient_2$ of the corresponding small subalgebras $\VansSmall_1$, resp.~$\VansSmall_2$ would be isomorphic as Poincar\'e duality algebras. Let us sketch the idea of this construction assuming that $f_1: \Lambda U_1 \twoheadrightarrow \VansSmall_1$ and $f_2: \Lambda U_2 \twoheadrightarrow \VansSmall_2$ are surjective Sullivan's minimal models. Uniqueness from \cite[Theorem~2.24]{Felix2008} gives an isomorphism $\Lambda U \coloneqq \Lambda U_1 \simeq \Lambda U_2$ such that the following diagram commutes up to homotopy of $\DGA$'s:
 \begin{equation}\label{Eq:HpyCommutDiag}
 \begin{tikzcd}
 & & \VansSmall_1 \arrow[hook]{ld}\arrow{r} & \VansQuotient_1 \\
 \Lambda U \arrow[bend left,two heads]{rru}{f_1}\arrow[bend right,two heads]{rrd}[below]{f_2}  &  V & &  \\
-& & \VansSmall_2 \arrow[hook]{lu}\arrow{r}& \VansQuotient_2
+& & \VansSmall_2 \arrow[hook]{lu}\arrow{r}& \VansQuotient_2.
 \end{tikzcd}
 \end{equation}
-which is commutative up to a homotopy of $\DGA$'s.
-
-We now construct a cyclic structure $\langle\cdot,\cdot\rangle^{\Lambda U}$ on $\Lambda U$ which is preserved by both $f_1$ and~$f_2$ ($\VansSmall_i$ and $\VansQuotient_i$ are equipped with the cyclic structures induced from $V$). Proposition~\ref{Prop:OrAndCyc} applies, and hence we can use orientations and cyclic structures interchangeably. By homotopy commutativity of \eqref{Eq:HpyCommutDiag}, the maps $\Lambda U \xrightarrow{f_1} \VansSmall_1 \xhookrightarrow{} V$ and $\Lambda U \xrightarrow{f_2} \VansSmall_2 \xhookrightarrow{} V$ induce the same isomorphism on homology, which we can use to pullback the orientation~$\Or^\H$ on $\H(V)$ to an orientation $\tilde{\Or}$ on $\H(\Lambda U)$. Now, all maps of \eqref{Eq:HpyCommutDiag} preserve orientation on homology. Because $\Dd V^n = 0$ and $\Dd (\Lambda U)^n = 0$, Proposition~\ref{Prop:OrOnHomG} implies that $\tilde{\Or}$ defines a unique orientation $\Or^{\Lambda U}$ on $\Lambda U$ and guarantees that if a map preserves orientation on homology, then it preserves orientation on chain-level too. This gives the desired $\langle\cdot,\cdot\rangle^{\Lambda U}$.
-
-In the last step, we denote $f_i^\VansQuotient\coloneqq \pi^{\VansQuotient}_i \circ f_i$ in \eqref{Eq:HpyCommutDiag} and write down the following diagram with pairing-preserving $\DGA$-quasi-isomorphisms:
+Now, $\Lambda U \xrightarrow{f_1} \VansSmall_1 \xhookrightarrow{} V$ and $\Lambda U \xrightarrow{f_2} \VansSmall_2 \xhookrightarrow{} V$ induce the same isomorphism on homology; this can be used to pullback the orientation~$\Or^\H$ on $\H(V)$ to an orientation $\tilde{\Or}$ on $\H(\Lambda U)$, so that all maps in \eqref{Eq:HpyCommutDiag} will preserve the orientation on homology. Under the assumptions $\Dd V^n = 0$ and $\Dd (\Lambda U)^n = 0$, Proposition~\ref{Prop:OrOnHomG} applies, and we obtain a cyclic structure $\langle\cdot,\cdot\rangle^{\Lambda U}$ on $\Lambda U$ which is preserved by both $f_1$ and~$f_2$ on the chain level. We denote $f_i^\VansQuotient\coloneqq \pi^{\VansQuotient}_i \circ f_i$ and write down the following diagram with pairing-preserving $\DGA$-quasi-isomorphisms:
 \begin{equation}\label{Eq:Diagram}
 \begin{tikzcd}
 & \arrow[two heads,swap]{ld}{f_1^\VansQuotient} \bigl(\Lambda U,\langle\cdot,\cdot\rangle^{\Lambda U}\bigr)\arrow[two heads]{rd}{f_2^\VansQuotient}& \\
@@ -520,19 +505,332 @@ In the last step, we denote $f_i^\VansQuotient\coloneqq \pi^{\VansQuotient}_i \c
 \end{tikzcd}
 \end{equation}
 Claim (b) of Lemma~\ref{Lem:PomLemma} implies that $\ker f_1^\VansQuotient = \ker f_2^\VansQuotient = (\Lambda U)^\perp$, and hence
-$$ \VansQuotient_1 \simeq  \underbrace{\Lambda U / (\Lambda U)^\perp}_{\displaystyle=\VansQuotient(\Lambda U)}\simeq \VansQuotient_2. $$
-This finishes the proof.
-\end{proof}
+\[ \VansQuotient_1 \simeq  \Lambda U / (\Lambda U)^\perp\simeq \VansQuotient_2. \]
+Unfortunately, the next two examples show that one can not, in general, expect~$\VansSmall_1$ and~$\VansSmall_2$, or even $\VansQuotient_1$ and $\VansQuotient_2$ to be isomorphic and $\VansSmall$ to fit inside the image of the minimal model.\footnote{Note that it is always possible to construct a surjective (non-minimal) Sullivan model $f: \Lambda U \twoheadrightarrow V$ by taking the minimal Sullivan model and inductively adding generators $\xi_i$ and $\mu_i$ with $\Dd \mu_i = 0$ and $\Dd \xi_i = \mu_i$ (the minimality condition on a Sullivan's algebra would require $\Dd \xi_i$ to be decomposable), and mapping them to $v\in V$ and $\Dd v$, respectively. Nevertheless, the uniqueness property of non-minimal Sullivan models is much weaker, see \cite[Lemma~2.20]{Felix2008}.}
 
+\begin{Example}[Small algebras are, in general, not unique and not contained in images of Sullivan minimal models]\label{Ex:NonUniqueSmall}
+Consider $M=\CP^2$, and let $\Kaehler$ be the Fubini--Study form on~$M$.
+For $\alpha\in\DR^1(M)$, set $\Kaehler_\alpha \coloneqq \Kaehler + \Dd\alpha$.
+Then $K_\alpha \wedge K_\alpha = K \wedge K + \Dd(2\alpha\wedge K + \alpha \wedge \Dd\alpha)$.
+We can choose $\alpha$ such that $\Dd(2\alpha\wedge K + \alpha\wedge\Dd\alpha)\neq 0$.
+Consider the Riemannian Hodge decomposition of $\DR(M)$ with $\Harm = \langle 1, \Kaehler, \Kaehler\wedge \Kaehler\rangle$.
+According to Remark~\ref{Rem:RemarkHarm}, there is also a ``twisted'' Hodge decomposition with the harmonic subspace $\Harm_\alpha \coloneqq \langle 1, \Kaehler_\alpha, \Kaehler \wedge \Kaehler\rangle$.
+
+The small subalgebra $\VansSmall$ for the Riemann Hodge decomposition is $\VansSmall=\langle 1, \Kaehler, \Kaehler\wedge\Kaehler\rangle$.
+The small subalgebra $\VansSmall_\alpha$ for the twisted Hodge decomposition must contain $1$, $\Kaehler_\alpha$ and both $\Kaehler_\alpha\wedge\Kaehler_\alpha$ and $\Kaehler\wedge\Kaehler$ (we require $\Harm_\alpha\subset\VansSmall_\alpha$ by definition).
+Therefore, it contains 
+\[
+\Kaehler_\alpha \wedge \Kaehler_\alpha - \Kaehler\wedge\Kaehler = \Dd(2\alpha\wedge K + \alpha\wedge\Dd\alpha)
+\]
+and also
+\[
+\StdPrpg^\alpha\Dd(2\alpha\wedge K + \alpha\wedge\Dd\alpha)=\pi_{C_\alpha}(2\alpha\wedge K + \alpha\wedge\Dd\alpha).
+\]
+Proposition~\ref{Prop:SmallDescription} asserts that these vectors, together with $1$ and $\Kaehler_\alpha$, generate $\VansSmall_\alpha$ as a graded vector space.
+Clearly, $\VansSmall_\alpha$ is not isomorphic to $\VansSmall$ for generic $\alpha$, but 
+\[
+\VansQuotient(\VansSmall_\alpha)=\langle1,\Kaehler_\alpha,\Kaehler_\alpha\wedge\Kaehler_\alpha\rangle\simeq \langle 1, \Kaehler, \Kaehler\wedge\Kaehler\rangle= \VansQuotient(\VansSmall).
+\]
+In fact, the previous argument works in general and implies that for $\CP^2$, the non-degenerate quotients of two small subalgebras are isomorphic as Poincar\'e duality algebras (this does not hold for any $M$, see Example~\ref{Ex:SUsix}).
+
+The Sullivan minimal model of $M$ is the free $\DGA$ $\Model \coloneqq \Lambda(\eta,\mu)$ with $\Abs{\eta}=2$, $\Abs{\mu}=5$, $\Dd\eta = 0$ and $\Dd\mu=\eta\wedge\eta$.
+A $\DGA$-quasi-isomorphism $f: \Model\rightarrow\DR(M)$ is specified by its values on~$\eta$ and~$\mu$; for example, $f(\eta)\coloneqq\Kaehler$ and $f(\mu)\coloneqq 0$.
+We see that neither $\VansSmall_\alpha$ nor $\Harm_\alpha$ can lie in $\im f$ because $\dim (\im f)^{4}=1$ for any $f$.
+\end{Example}
+
+\begin{Example}[Non-degenerate quotients of small subalgebras for different Hodge decompositions are, in general, not isomorphic]\label{Ex:SUsix}
+Consider $M=\mathrm{SU}(6)$.
+It is a compact simply-connected Lie group of dimension~$35$ ($=n^2 - 1$ for $n=6$) whose cohomology ring is freely generated by single elements in degrees  $3$, $5$,~$\dotsc$,~$11$; see \cite[Corollary~3.11]{Mimura1991}.
+There is a biinvariant Riemannian metric and there are biinvariant differential forms $x_3$, $x_5$,~$\dotsc$, $x_{11}$ in the corresponding degrees such that 
+\[
+\Harm \coloneqq \Lambda(x_3, \dotsc, x_{11})\subset \DR(M)
+\]
+is the algebra of harmonic forms, see \cite[Chapter~1]{Felix2008}.
+
+For $\eta_6\in \DR^6(M)$ and $\eta_8\in\DR^8(M)$, which are going to be specified later, set
+\[
+\tilde{x}_7 \coloneqq x_7 + \Dd \eta_6\quad\text{and}\quad\tilde{x}_9 \coloneqq x_9 + \Dd \eta_8,
+\]
+and let $\Harm'$ denote the graded vector space obtained from $\Harm$ by replacing the vectors $x_{7}$ and $x_{9}$ with $\tilde{x}_7$ and $\tilde{x}_9$, respectively.
+We emphasize that we are replacing just the vectors, not the products; e.g., $x_7\wedge x_9$ is an element of $\Harm'$ but $\tilde{x}_7\wedge \tilde{x}_9$ might not be.
+Let $\VansSmall = \Harm$ be the small subalgebra corresponding to the Riemannian Hodge decomposition, and let~$\VansSmall'$ be the small subalgebra corresponding to a Hodge decomposition based on~$\Harm'$ (such always exists by Remark~\ref{Rem:RemarkHarm}).
+The following elements in degrees $15$, resp.~$20$ must be contained in $\VansSmall'$:
+\begin{align*}
+y&\coloneqq\StdPrpg'(\tilde{x}_7 \wedge x_9 -x_7 \wedge x_9)\\
+ &=\StdPrpg'\Dd(\eta_6 \wedge x_9),\\
+z&\coloneqq\tilde{x}_9 \wedge x_{11} - x_9 \wedge x_{11}\\
+ &=\Dd(\eta_8 \wedge x_{11}).
+\end{align*}
+Using Stokes theorem and $\Dd\circ\StdPrpg' = \pi_{\Im \Dd}$, we get
+\begin{align*}
+\langle y,z\rangle & = \pm \int_{M} \StdPrpg'\Dd(\eta_6 \wedge x_9) \wedge\Dd(\eta_8 \wedge x_{11})\\
+&= \pm \int_{M} \Dd\eta_6\wedge \eta_8 \wedge x_9 \wedge x_{11}.
+\end{align*}
+We claim that the integral can be made non-zero by a choice of $\eta_6$ and $\eta_8$.
+Indeed, because $x_9\wedge x_{11}$ generates non-zero homology, there is an $m\in M$ such that $x_9(m)\wedge x_{11}(m)\neq 0$.
+Pick local coordinates $(x^i)$ centered at $m$, and let $\alpha^I\Diff{x}^I$ be a non-zero coefficient in $x_9(m)\wedge x_{11}(m)$. Consider the complement $J = I^C$ and decompose $J= J_1 \cup J_2$ into two parts with $\Abs{J}_1 = 7$ and $\Abs{J}_2 = 8$.
+For some $0\neq c\in\R$, set locally
+\[
+\eta_6 \coloneqq ((x^{J_{11}}+c)\Diff{x}^{J_1\backslash\{J_{11}\}})\quad\text{and}\quad\eta_8=\Diff{x}^{J_2},
+\]
+and extend them to the whole of $M$ by multiplying with a bump function which is constant non-zero in a neighborhood of $m$.
+We have achieved that the integrand $\omega \coloneqq \Dd\eta_6\wedge \eta_8 \wedge x_9 \wedge x_{11}$ is non-zero around $m$.
+Because the intersection pairing is non-degenerate and because $\omega \neq 0$, there is a function $f\in C^\infty(M)$ such that $\int_M f\omega \neq 0$.
+We can now just rescale $\eta_8$ by $f$.
+
+We have shown that $z$ induces a non-zero element $\pi_{\VansQuotient}'(z)\in \VansQuotient(\VansSmall')^{20}$, where $\pi_{\VansQuotient}': \VansSmall' \rightarrow \VansSmall'/{\VansSmall'}^\perp$ is the canonical projection.
+Now, $\pi_{\VansQuotient}'$ is a $\DGA$-morphism, and hence $\pi_{\VansQuotient}'(z)$ is exact.
+Because $\VansSmall'$ is of Hodge type, $\pi_{\VansQuotient}'$ is also a quasi-isomorphism, and hence $\pi_{\VansQuotient}'(x_{9}\wedge x_{11})$ generates non-trivial homology.
+It follows that $\pi_{\VansQuotient}'(z)$ is not a multiple of $\pi_{\VansQuotient}'(x_9\wedge x_{11})$, and thus $\dim \VansQuotient(\VansSmall')^{20} \ge 2$.
+However, we have $\VansQuotient(\VansSmall)^{20} = \Harm^{20} = \langle x_9\wedge x_{11} \rangle$.
+This shows that $\VansQuotient(\VansSmall)$ and $\VansQuotient(\VansSmall')$ can not be isomorphic as vector spaces.
+\end{Example}
+
+%The following conjecture is based on a remark of Prof.~Hông Vân Lê, communicated in an e-mail correspondence, that ``the small subalgebra is the image of a minimal model''.
+
+%\begin{Conjecture}[Hodge-Sullivan minimal model]\label{Conj:HodgeSullMin}
+%Let $(V,\Dd,\wedge)$ be a non-negatively graded unital commutative $\DGA$ with a cyclic structure $\langle\cdot,\cdot\rangle$ of Hodge type. Suppose that~$V$ is of finite type, $\H^0(V) = \R$ and $\H^1(V) = 0$. Then for any Hodge decomposition of~$V$, there is a Sullivan minimal model $\Lambda U \rightarrow V$ (see \cite{Felix2008} or Remark~\ref{Rem:Models} later) whose image contains a Hodge subalgebra. 
+%\end{Conjecture}
+%\begin{proof}[Idea of proof] The author tried to modify the well-known inductive construction of $\Lambda U \rightarrow V$ to achieve that its image is $\HtpStd$-invariant; he observed that vanishing of higher homology groups might be required. In any case, it sufficient (and necessary) to prove that the image contains at least the trees from Proposition~\ref{Prop:SmallDescription}.
+%\end{proof}
+%If Conjecture~\ref{Conj:HodgeSullMin} is true, then we have the following:
+%\begin{Conjecture}[Uniqueness of non-degenerate small subalgebra]\label{Conj:UnieqSmal}
+%Let $(V,\Dd,\wedge)$ be a non-negatively graded unital commutative $\DGA$ with a cyclic structure $\langle\cdot,\cdot\rangle$ of degree $n$ of Hodge type. Suppose that~$\H(V)$ is of finite type, $\H^0(V) = \R$ and $\H^1(V) = 0$. Suppose, in addition, that $\Dd V^n = 0$ and $\Dd (\Lambda U)^n = 0$ for the Sullivan minimal model $\Lambda U$ of $V$. Then for any two Hodge decompositions with small subalgebras $\VansSmall_1(V)$ and $\VansSmall_2(V)$, there is a pairing-preserving isomorphism $\VansQuotient(\VansSmall_1(V))\simeq\VansQuotient(\VansSmall_2(V))$.
+%\end{Conjecture}
+%\begin{proof}
+%\end{proof}
+
+It is not hard to come up with artificial examples of oriented $\DGA$'s which are not of Hodge type.\Add[noline,caption={Not of Hodge type}]{Example of an oriented dga without a Hodge decomposition.}
+
+The following lemma and proposition show that in some cases it is possible to extend a $\DGA$ to a $\DGA$ of Hodge type.
+
+\begin{Lemma}[Giving partners to non-degenerates]\label{Lemma:Exte}
+ Let $(V,\Dd,\wedge,\Or)$ be a unital commutative $\DGA$ which is non-negatively graded and oriented in degree $n$.
+ For $k=\lceil\frac{n}{2}\rceil$, $\dotsc$, $n$, consider the following property $(P_k)$ of a direct sum decomposition%(``almost Hodge decomposition'')
+\begin{equation}\label{Eq:DecompOfV}
+V=\Harm\oplus \Dd V \oplus C,
+\end{equation}
+where $\Harm$ is a harmonic subspace and $C$ a complement of $\ker \Dd$ in $V$ perpendicular to~$\Harm$ with respect to the induced cyclic structure $\langle\cdot,\cdot\rangle$:
+\begin{description}
+\item[$(P_{k})$] There is a complement $E$ of
+\[
+C^\perp\coloneqq \{ c^\perp \in C \mid \langle c^\perp,c\rangle=0\text{ for all }c\in C\}
+\]
+in $C$ and a homogenous linear map 
+\[
+\rho:  E^{\lceil n/2\rceil}\oplus \dotsb \oplus E^{k} \longrightarrow \Dd V
+\]
+such that for all $e'\in E$ and $c^\perp\in C^\perp$, the following holds:
+\begin{align}
+\langle e', \rho(e) \rangle &=\langle e', e \rangle, \label{Eq:ConditionTemp} \\
+\langle c^\perp, \rho(e) \rangle &=  0.\label{Eq:ConditionTempII}
+\end{align}
+\end{description}
+Suppose that $V$ is non-negatively graded, of finite type and satisfies $V^0=\Span\{1\}$ and $V^1 = 0$.
+Suppose that $n \ge 5$ and that $(\H(V), \wedge, \Or^\H)$ is a Poincar\'e duality algebra.
+Given $\lceil\frac{n}{2}\rceil\le l\le n$, suppose that $V$ admits a decomposition of type \eqref{Eq:DecompOfV} such that either $l=\lceil\frac{n}{2}\rceil$ or $l>\lceil\frac{n}{2}\rceil$ and $(P_{l-1})$ holds.
+Then there is an $m\in \N_0$ and a Sullivan $\DGA$ 
+ \begin{equation}\label{Eq:SullAlg}
+ \Lambda \coloneqq \Lambda(w_1,\dotsc,w_m,z_1,\dotsc,z_m)
+ \end{equation}
+ specified by $\deg w_i = l-1$, $\deg z_i = l$, $\Dd z_i = 0$ and $\Dd w_i = z_i$ for all $i=1$, $\dotsc$, $m$ such that the tensor product $\DGA$ 
+\[
+ \hat{V}\coloneqq V\otimes \Lambda
+ \]
+ admits an orientation $\hat{\Or}: \hat{V}\to\R$ which extends $\Or: V \rightarrow \R$ on the canonical inclusion $V \hookrightarrow\hat{V}$, and there is a decomposition
+\begin{equation}\label{Eq:DevompOfVHat}
+\hat{V} = \hat{\Harm}\oplus \Dd \hat{V}\oplus \hat{C}
+\end{equation}
+of type \eqref{Eq:DecompOfV} for which $(P_{l})$ holds.
+\end{Lemma}
+
+\begin{proof}
+The proof consists of a construction of $\hat{\Or}: \hat{V}\rightarrow\R$, a construction of a harmonic subspace $\hat{\Harm}$ in $\hat{V}$, a construction of a complement $\hat{C}$ of $\ker \Dd$ in $\hat{V}$, a degreewise description of $\hat{C}$ and $\hat{C}^\perp$, a degreewise construction of a complement $\hat{E}$ of $\hat{C}^\perp$ in $\hat{C}$ and a proof of the property $(P_l)$ for the constructed decomposition.
+\begin{description}[leftmargin=0pt,font=\normalfont\itshape]
+\item[Construction of $\hat{\Or}$:]
+Consider the decomposition \eqref{Eq:DecompOfV}.
+Because $\Dd : C \rightarrow \Dd V$ is an isomorphism, we can write
+\begin{equation}\label{Eq:VDecomp}
+V = \Harm \oplus \underbrace{\Dd E \oplus \Dd C^\perp}_{\displaystyle \Dd V}\oplus \underbrace{E\oplus C^\perp}_{\displaystyle C}.
+\end{equation}
+The restriction of $\langle\cdot,\cdot\rangle$ to $E$ is non-degenerate, and $V$ is of finite type by assumption; hence, $E$ is finite-dimensional.
+Set
+\[
+m \coloneqq \dim E^l.
+\]
+Let $\xi_1$, $\dotsc$, $\xi_m$ be a basis of $E^{l}$ and $\xi^1$, $\dotsc$, $\xi^m$ its dual basis in $E^{n-l}$.
+The Sullivan algebra~$\Lambda$ can be written as a direct sum 
+\begin{equation}\label{Eq:LambdaDecomp}
+\Lambda = \bigoplus_{k=0}^\infty \Lambda_k\quad\text{with}\quad
+\Lambda_k = \bigoplus_{\substack{r, m \ge 0 \\ r + m = k}}\Lambda_r(w)\otimes \Lambda_m(z),
+\end{equation}
+where $\Lambda_r(w)$ and $\Lambda_m(z)$ are the graded vector spaces generated by monomials $w_I = w_{i_1}\dotsc w_{i_r}$ and $z_J = z_{j_1}\dotsc z_{j_m}$ for all multiindices $I=\{i_1, \dotsc, i_r\}$ and $J=\{j_1,\dotsc,j_m\}$, respectively.
+The direct sum decompositions~\eqref{Eq:VDecomp} and~\eqref{Eq:LambdaDecomp} induce a direct sum decomposition of $\hat{V} = V \otimes \Lambda$ via the distributivity of $\otimes$ and $\oplus$.
+We denote 
+\[
+\hat{V}_k \coloneqq V \otimes \Lambda_k\quad\text{for }k\ge 0.
+\]
+Let $\hat{\Or}: \hat{V} \to \R$ be the linear map satisfying
+\begin{align}
+	\hat{\Or}(v) &\coloneqq \Or(v) && \text{for all }v\in V,\\
+	\hat{\Or}(\xi^i \wedge z_j) &\coloneqq \Or(\xi^i\wedge \xi_j) && \text{and} \\
+	\hat{\Or}(\Dd \xi^i \wedge w_j) &\coloneqq (-1)^{\deg \xi^i + 1}\Or(\xi^i \wedge \xi_j) && \text{for all }i, j = 1, \dotsc, m,
+\end{align}
+and which is zero on $(\Harm\oplus\Dd V\oplus C^\perp \oplus \bigoplus_{i\ge 0, i \neq n-l}E^i)\otimes \Lambda_1(z)$, on $(\Harm\oplus C \oplus \Dd C^\perp \oplus \bigoplus_{i\ge 0, i\neq n-l} \Dd E^i)\otimes\Lambda_1(w)$ and on $\hat{V}_k$ for $k \ge 2$.
+
+In order to show that $\hat{\Or}$ is an orientation, we must check that $\hat{\Or}\neq 0$ and $\hat{\Or}\circ \Dd = 0$.
+The first condition is clear from $\Restr{\hat{\Or}}{V} = \Or \neq 0$. 
+As for the second condition, $\hat{V}$ is generated by elements $v \wedge w_I \wedge z_J$ for $v\in V$ and multiindices $I$, $J$.
+It holds $\Dd \hat{V}_k \subset \hat{V}_k$ for all~$k\ge 0$, and hence $\Dd \hat{V} = \bigoplus_{k=0}^\infty \Dd \hat{V}_k$.
+From the definition of $\hat{\Or}$, we have immediately $\Dd \hat{V}_0 = \Dd V \subset \ker \Or \subset \ker \hat{\Or}$ and $\bigoplus_{k=2}^\infty \Dd \hat{V}_k \subset \ker\hat{\Or}$.
+As for $\Dd\hat{V}_1$, we write $\hat{V}_{1} = \Span \{v\wedge w_j, v\wedge z_j \mid v\in V, j=1,\dotsc, m\}$ as a graded vector space and compute
+\begin{equation}\label{Eq:DVI}
+\begin{aligned}
+	\Dd \hat{V}_1 &= \Span\{\Dd(v\wedge w_j), \Dd(v\wedge z_j) \mid v\in V, j=1, \dotsc, m \}\\
+	&=\Span\{\Dd v \wedge w_j + (-1)^{\Deg v} v \wedge z_j \mid v\in V, j=1, \dotsc, m\}.
+\end{aligned}
+\end{equation}
+Write $v\in V^{n-l}$ as $v = h  + \Dd c + c^\perp + \sum_{i=1}^m \alpha_i \xi^i$ for $h\in \Harm^{n-l}$, $c\in C^{n-l-1}$, $c^\perp\in C^{\perp n-l}$ and $\alpha_i\in \R$, and compute for every $j=1$, $\dotsc$, $m$ the following:
+\begin{align*}
+\hat{\Or}(\Dd v\wedge w_j) & = \hat{\Or}\Bigl(\Dd c^\perp \wedge w_j + \sum_{i=1}^m \alpha_i \Dd \xi^i \wedge w_j\Bigr)\\
+&= \sum_{i=1}^m \alpha_i \hat{\Or}(\Dd \xi^i \wedge w_j)\\
+&= \sum_{i=1}^m (-1)^{\deg \xi^i + 1}\alpha_i \hat{\Or}(\xi^i \wedge \xi_j) \\
+&= (-1)^{n-l+1}\sum_{i=1}^m \alpha_i \hat{\Or}(\xi^i \wedge z_j)\\
+&= (-1)^{n-l+1}\hat{\Or}\Bigl((h + \Dd c + c^\perp)\wedge z_j +\sum_{i=1}^m \alpha_i \xi^i \wedge z_j \Bigr) \\
+&= (-1)^{\deg v + 1}\hat{\Or}(v\wedge z_j).
+\end{align*}
+Consequently, $\Dd \hat{V}_{1}\subset \ker \hat{\Or}$.
+This shows $\hat{\Or}\circ\Dd = 0$.
+
+The inclusion $V\hookrightarrow\hat{V}$ is clearly orientation preserving. 
+
+\item[Construction of $\hat{\Harm}$:]
+It holds $\bar{\H}(\Lambda) = 0$ for the reduced homology, and hence $\H(\hat{V}) \simeq \H(V)\otimes\H(\Lambda) = \H(V)$ by K\"unneth's formula. Because $\Harm\subset \ker \Dd$, $\Harm\cap\im\Dd = 0$ and $\dim(\Harm) = \dim \H(\hat{V})$, $\Harm$ is a complement of $\Dd\hat{V}$ in $\ker \Dd$. Therefore, 
+\[
+\hat{\Harm} \coloneqq \Harm
+\]
+is a harmonic subspace of $\hat{V}$.
+Also note that $\H(\hat{V})=\bigoplus_{k=0}^\infty \H(\hat{V}_k)$ and $\dim \H(\hat{V}) = \dim \H(\hat{V}_0)$, and hence $\H(\hat{V}_k) = 0$ for all $k\ge 1$.
+
+\item[Construction of $\hat{C}$:]
+We construct $\hat{C}$ as a direct sum $\hat{C} = \bigoplus_{k=0}^\infty \hat{C}_k$. 
+Set 
+\[
+\hat{C}_0 \coloneqq C.
+\]
+For $k=1$, define
+\begin{equation}\label{Eq:CIDef}
+\begin{aligned}
+ \tilde{C}_1 &\coloneqq \Span\{v \wedge w_i \mid v\in V, i=1, \dotsc,m\} \subset \hat{V}_1, \\
+  \hat{C}_1 &\coloneqq \{\tilde{c} - \pi(\tilde{c}) \mid \tilde{c}\in \tilde{C}_1\}\subset\hat{V}_0\oplus\hat{V}_1,
+\end{aligned}
+\end{equation}
+where $\pi: \hat{V}\rightarrow\hat{\Harm}$ is the orthogonal projection.
+For all $k\ge 2$, let $\hat{C}_k \subset \hat{V}_k$ be an arbitrary complement of $\ker\Dd$ in $\hat{V}_k$ as a graded vector space.
+
+We show first that $\hat{C}_i$ for $i\ge 0$ are disjoint.
+Clearly, $\hat{C}_j \cap \sum_{i=0, i\neq j}^\infty \hat{C}_i = 0$ for all $j\ge 2$.
+Because $(\Harm + C)\cap\tilde{C}_1 = 0$ and $\Harm \cap C = 0$, it holds $\hat{C}_1 \cap \hat{C}_0 = 0$, and $(\hat{C}_0 + \hat{C}_1) \cap \sum_{i\ge 2} \hat{C}_i = 0$ implies that $\hat{C}_j \cap \sum_{i=0, i\neq j}^\infty \hat{C}_i = 0$ holds also for $j=0$, $1$.
+
+We show that $\hat{C}=\bigoplus_{k\ge 0}\hat{C}_k$ is a complement of $\ker \Dd$ in~$\hat{V}$.
+For $k\ge 2$, $\hat{C}_k$ are complements of $\ker \Dd$ in $\hat{V}_k$ by construction.
+For $k=0$, $\hat{C}_0 \oplus \ker \Dd \cap \hat{V}_0 = \hat{V}_0$ follows from \eqref{Eq:DecompOfV}. 
+For $k=1$, we compare \eqref{Eq:DVI} and \eqref{Eq:CIDef} to see that $\tilde{C}_1 \oplus \Dd \hat{V}_1 = \hat{V}_1$.
+Because $\Harm\subset \ker \Dd$, it is easy to see that $\hat{C}_0\oplus\hat{C}_1$ is a complement of $\ker \Dd$ in $\hat{V}_0\oplus\hat{V}_1$.
+
+Finally, $\hat{C}_0 \perp \hat{\Harm}$ holds by \eqref{Eq:DecompOfV}, $\hat{C}_1\perp\Harm$ holds by the construction of $\hat{C}_1$ from $\tilde{C}_1$ and $\hat{C}_k \perp \Harm$ follows from the definition of $\hat{\Or}$.
+
+\item[Degreewise description of $\hat{C}$ and $\hat{C}^\perp$:]
+We are interested in $\hat{C}^i$ for $0\le i\le l$.
+For all $k\ge 2$, the graded vector space $\hat{C}_k$ is concentrated in degrees $i\ge 2(l-1)$.
+But $2(l-1)>l$ due to $n\ge 5$.
+Therefore, $\hat{C}_k^i = 0$ for $k\ge 2$ and $0\le i \le l$.
+We denote $\bar{V} \coloneqq \bigoplus_{i=1}^\infty V^i$ and write $\tilde{C}_1 = \Lambda_1(w) \oplus (\bar{V}\otimes \Lambda_1(w))$.
+Because $V^1=0$, the graded vector space $\bar{V}\otimes\Lambda_1(w)$ is concentrated in degrees $i\ge 2 + (l-1) = l + 1$. We obtain  
+\begin{equation}\label{Eq:CDegreewise}
+\hat{C}^i = (\hat{C}_0 \oplus \hat{C}_1)^i =
+ \begin{cases}
+ 	C^i & \text{for }0 \le i \le l-1, \\
+	C^i + \Span\{ w_j \mid j = 1, \dotsc, m\} & \text{for }i = l - 1, \\
+	C^i & \text{for }i = l.
+ \end{cases}
+\end{equation}
+Here we used that $\hat{C}_1^{l-1} = \tilde{C}_1^{l-1} = \Span\{ w_i \mid i = 1, \dotsc, m\}$, which is true because $\Lambda_1(w)\perp\Harm$ from the definition of $\hat{\Or}$.
+
+We are now interested in $\hat{C}^{\perp i}$ for $n-l\le i \le l$.
+Note that $n-l \le i \le l$ is equivalent to $n-l \le n-i \le l$.
+By definition, $\hat{\Or}$ vanishes on $C\wedge\Lambda_1(w)=C\otimes\Lambda_1(w)$ and $\Lambda_1(w)\wedge\Lambda_1(w) \subset \Lambda_2(w)$.
+Looking at \eqref{Eq:CDegreewise}, we see the following: 
+\begin{equation}\label{Eq:CPerpDegreewise}
+	\hat{C}^{\perp i} =
+		\begin{cases}
+			C^{\perp i} &  \text{for }n-l \le i \le l - 2, \\
+			C^{\perp i} + \Span\{w_i\mid i=1,\dotsc,m\} & \text{for }i = l-1, \\
+			C^{\perp i} & \text{for }i = l.
+		\end{cases}		
+\end{equation}
+Because $\hat{V}$ is non-negatively graded, it holds $\hat{C}^{\perp i} = \hat{C}^i$ for $i>n$.
+Notice that $\hat{C}^{\perp i}$ might be smaller than $C^i$ for $0\le i \le n-l-1$.
+The reason for this is a possible existence of $v_1$, $v_2\in V$ such that $v_1 \wedge v_2$ has a non-trivial $\Dd E$-component and $\langle v_1, v_2\wedge w_i \rangle = \hat{\Or}((v_1\wedge v_2)\wedge w_i) \neq 0$.
+
+\item[Construction of $\hat{E}$:]
+Because $\hat{V}_i \wedge \hat{V}_j \subset \hat{V}_{i+j}$ and $\hat{V}_k \subset \ker \hat{\Or}$ for $k\ge 2$, we have $\hat{C}_k \subset \hat{C}^\perp$ for all $k\ge 2$.
+It follows that 
+\[
+\hat{C}^\perp = (\hat{C}_0\oplus\hat{C}_1)\cap\hat{C}^\perp \oplus \bigoplus_{k\ge 2}\hat{C}_k,
+\]
+and hence it is enough to construct $\hat{E} \subset \hat{C}_0\oplus\hat{C}_1$ such that $\hat{E}\oplus (\hat{C}_0\oplus\hat{C}_1)\cap\hat{C}^\perp = \hat{C}_0\oplus\hat{C}_1$.
+Because $E\cap \hat{C}^\perp \subset E \cap C^\perp = 0$, we can get $\hat{E}$ by extending $E$.
+For $0\le i \le n$, we define
+%For $n-l \le i \le l$, we set $\hat{E}^i\coloneqq E^i$.
+%For $i=0$, $\dotsc$, $n-l-1$, we obtain $\hat{E}^i$ from $E^i$ by adding elements from $C^i$.
+%For $i=l+1$, $\dotsc$, $n$, we obtain $\hat{E}^i$ from $E^i$ by adding elements from $\hat{C}_0^i \oplus \hat{C}_1^i$.
+\begin{equation}\label{Eq:EDegreewise}
+\hat{E}^i \coloneqq
+	\begin{cases}
+		E^i\oplus \Span\{c_1^i,\dotsc, c_{k_i}^i\}\text{ for }c_1^i, \dotsc, c_{k_i}^i\in C^i & \text{for }0\le i \le n-l-1,\\
+		E^i & \text{for }n-l\le i \le l,\\
+		E^i\oplus\Span\{\hat{v}_1,\dotsc,\hat{v}_k\}\text{ for }\hat{v}_1^i,\dotsc,\hat{v}_{k_i}^i\in(\hat{C}_0\oplus\hat{C}_1)^i & \text{for }l+1\le i \le n,
+	\end{cases}
+\end{equation}
+where the existence of $c^i_j$ and $\hat{v}^i_j$ and the fact that $\hat{C} = \hat{E}\oplus\hat{C}^\perp$ are justified by \eqref{Eq:CDegreewise}, \eqref{Eq:CPerpDegreewise} and \eqref{Eq:ConditionTempII}.
+
+\item[Property $(P_l)$:] We define $\hat{\rho}: \hat{E}^{\lceil \frac{n}{2}\rceil}\oplus\dotsb\oplus\hat{E}^l \rightarrow \Dd\hat{V}$ by $\hat{\rho} \coloneqq \rho$ on $\hat{E}^{\lceil \frac{n}{2}\rceil}\oplus\dotsb\oplus\hat{E}^{l-1}=E^{\lceil \frac{n}{2}\rceil}\oplus\dotsb\oplus E^{l-1}$ and by
+\[
+\hat{\rho}(\xi_i) \coloneqq z_i\quad\text{for all }i=1, \dotsc, m.
+\]
+Conditions \eqref{Eq:ConditionTemp} and \eqref{Eq:ConditionTempII} are checked easily using $(P_{l-1})$, \eqref{Eq:CDegreewise}, \eqref{Eq:CPerpDegreewise}, \eqref{Eq:EDegreewise} and the definition of $\hat{\Or}$.\qedhere
+%For $\lceil\frac{n}{2}\rceil \le i \le l - 1$, 
+%\eqref{Eq:ConditionTemp} \eqref{Eq:ConditionTempI}
+%
+%Given $\lceil \frac{n}{2} \rceil \le i \le l - 1$ and $e\in \hat{E}^i = E^i$, there is $z\in(\im\Dd)^i$ such that $\langle e,f\rangle = \langle z,f\rangle$ and $\langle z,c^\perp\rangle=0$ for all $f\in E^{n-i}$ and $c^\perp\in (C^\perp)^{n-i}$. 
+%Due to $j\le l$ and $l\le $
+%$n - j \ge n - l$
+%
+%
+% we can write an $\hat{e}\in\hat{E}^i$ as $\hat{e} = e + c^\perp + v \wedge w + w$ for $e\in E$, $c^\perp\in C^\perp$, $v\in V^{\ge 2}$ and $w\in \Lambda_1(w)$.
+% It holds $\deg(v\wedge w) = l+1$, and hence $v=0$ for $k+1\le i \le l$; this summand is thus always zero.
+% It holds $\deg w = l - 1$, and hence $w=0$ for $i\neq l-1$.
+% In this case, $c^\perp + w = \hat{e}-e = \hat{E}^{l-1}$ can pair non-trivially only with an element in degree $n - (l-1) \le n - k = k+1 \le l$.
+% However, since $\hat{V}^l = V^l \oplus \Lambda_1(z)$, $\hat{V}^{l-1} = V^{l-1}\oplus\Lambda_1(w)$ and $\hat{V}^i = V^i$ for $i<l-1$, we see that $(c^\perp + w)\perp \hat{C}$.
+% This implies $\hat{e} = e$.
+% In the case $i = l$, we have $w=0$ and $v=0$. 
+% Now, $\hat{e}-e = c^\perp \in \hat{E}^l$ can pair non-trivially only with an element in degree $n - l \le n - k - 1 = k \le l - 1$.
+% However, since $\hat{C}^{l-1} = C^{l-1}\oplus \Lambda_1(w)$, we see that $c^\perp \hat{C}$.
+% This implies again that $\hat{e} = e$.
+%
+% Let us check $(P_{l+1})$ for the decomposition consisting of $\Harm$, $\hat{C}$ and $\hat{E}$. Let $k+1 \le i \le l$, and let $e\in \hat{E}^i = E^i$ (the equality has been previously proven).
+%
+%
+% We also need that $\hat{E}^i = E^i$ for all $n-l+1 \le i\le k$. However, this is clear.
+\end{description}
+\end{proof}
 
 \begin{Questions}\label{Q:QuestOnPoinc}
 \begin{RemarkList}
 \item Given a cochain complex $(V,\Dd)$ with a symmetric pairing $\langle\cdot,\cdot\rangle$, which conditions have to be satisfied by the maps $\pi_\Harm$, $\StdHtp: V\rightarrow V$ so that $V=\Ker \pi_\Harm \oplus \Im \Dd \oplus \Im \StdHtp$ is a Hodge decomposition with Hodge pair $(\Ker \pi_\Harm, \StdHtp)$? This would characterize Hodge decompositions in terms of Hodge pairs.
-
-\item Give an example of two Hodge decompositions whose small subalgebras are not isomorphic.
-
-\item Is Conjecture~\ref{Conj:HodgeSullMin} true and can we drop the assumption $\Dd (\Lambda U)^n = 0$ in Conjecture~\ref{Conj:UnieqSmal} ?
- \qedhere
+\item It should be possible to prove Lemma~\ref{Lemma:Exte} also for $n\le 4$ by hand. Check that! 
+\qedhere
 \end{RemarkList}
 \end{Questions}
 \end{document}

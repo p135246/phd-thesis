@@ -5,9 +5,9 @@
 \begin{document}
 \section{Poincar\'e DGA's and Poincar\'e duality models}\label{SubSec:PoincModel}
 
-\Correct[noline,caption={Hom to weak Hom}]{Homotopy to weak homotopy}
-\Correct[noline,caption={Add orientation to the data of PDGA}]{Add orientation to the data of PDGA}
-\Correct[noline,caption={Change integral to or}]{Change integral to or}
+\Correct[noline,caption={DONE Hom to weak Hom}]{Homotopy to weak homotopy}
+\Correct[noline,caption={DONE Add orientation to the data of PDGA}]{Add orientation to the data of PDGA}
+\Correct[noline,caption={DONE Change integral to or}]{Change integral to or}
 
 
 In this section, we restrict to non-negatively graded unital commutative $\DGA$'s, which we denote by $\nnuCDGA$. In this case, the notions of orientation and of cyclic structure agree by Proposition~\ref{Prop:OrAndCyc}.
@@ -21,31 +21,40 @@ A \emph{Poincar\'e~$\DGA$ (shortly $\PDGA$) of degree $n$} is a $\nnuCDGA$ $(V,\
 
 A \emph{morphism of $\PDGA$'s} $(V_1,\Dd_1,\wedge_1,\Or^\H_1)$ and $(V_2,\Dd_2,\wedge_2,\Or^\H_2)$ is a $\DGA$-morphism $f: V_1 \rightarrow V_2$ such that the induced map $f_*: \H(V_1) \rightarrow \H(V_2)$ preserves orientation, i.e., it holds $\Or_2^\H \circ f_* = \Or_1^\H$.
 
-A \emph{quasi-isomorphism (or weak equivalence)}, of $\PDGA$'s is a morphism of $\PDGA$'s $f: V_1 \rightarrow V_2$ such that $f_*: \H(V_1) \rightarrow \H(V_2)$ is an isomorphism of oriented $\DGA$'s.
+A \emph{quasi-isomorphism (or weak equivalence)} of $\PDGA$'s is a morphism of $\PDGA$'s $f: V_1 \rightarrow V_2$ such that $f_*: \H(V_1) \rightarrow \H(V_2)$ is an isomorphism of oriented $\DGA$'s.
 
 Two $\PDGA$'s are \emph{weakly homotopy equivalent (or isomorphic in the homotopy category)} if they are connected by a zig-zag of $\PDGA$-quasi-isomorphisms.
 
-A $\PDGA$ is \emph{formal} if it is weakly homotopy equivalent as a $\PDGA$ to its homology.
+A $\PDGA$ is \emph{formal} if it is weakly homotopy equivalent (as a $\PDGA$) to its homology.
 \end{Definition}
 
 It follows from Proposition~\ref{Prop:OrAndCyc} that a differential Poincar\'e duality algebra according to Definition~\ref{Def:PDGA} is precisely a cyclic $\DGA$ from Part~I. In particular, it is finite dimensional. However, if we relax finite type, unitality or commutativity, we obtain a different notion.
 
 \begin{Remark}[Frobenius algebra]
-A differential Poincar\'e duality algebra, resp.~a cyclic $\DGA$, is precisely a finite-dimensional symmetric dg-Frobenius algebras from \cite[p.~13]{Vallette2012} or \cite[Theorem~1.1]{Cohen2006}. 
+A differential Poincar\'e duality algebra, resp.~a cyclic $\DGA$, is precisely a finite-dimensional symmetric dg-Frobenius algebra from \cite[p.~13]{Vallette2012} or \cite[Theorem~1.1]{Cohen2006}. 
 \end{Remark}
 %Notice that $\DGA$-morphisms of differential Poincar\'e duality algebras preserve $\Or^V$ if and only if they preserve $\Or^\H$, and in this case, they are injective by \eqref{Lem:AutomaticInjectivity}.
 
 \begin{Definition}[Poincar\'e duality model]\label{Def:PDModel}
 A \emph{Poincar\'e duality model} of a $\PDGA$ $(V,\Dd,\wedge,\Or^\H)$ is a differential Poincar\'e duality algebra $(\Model,\Dd^\Model,\wedge^\Model,\Or^\Model)$ which is weakly homotopy equivalent to $V$ as a $\PDGA$.
 
-A Poincar\'e duality model is \emph{small} if $\VansQuotient(\VansSmall(\Model)) \simeq \Model$ for every Hodge decomposition.
+We call a Poincar\'e duality model \emph{small} if $\VansQuotient(\VansSmall(\Model)) \simeq \Model$ for every Hodge decomposition.
 \end{Definition}
 
-The definition of a Poincar\'e duality model in~\cite{Lambrechts2007} requires only weak homotopy equivalence of $\DGA$'s.
+\begin{Remark}[On Poincar\'e duality models]
+\begin{RemarkList}
+\item The definition of a Poincar\'e duality model in~\cite{Lambrechts2007} requires only weak homotopy equivalence of $\DGA$'s, i.e., it does not require quasi-isomorphisms to preserve orientation on homology.
 
-Note that free algebras, e.g., the Sullivan minimal model $\Lambda U$, usually fail to be Poincar\'e duality models because they are non-zero in degrees $>n$ which prevents non-degeneracy in degree $n$.
+\item In general, a Sullivan minimal model $\Lambda U$ fails easily to be a Poincar\'e duality model because it often has non-zero elements in degree $>n$, e.g., powers of even generators; see Example~\ref{Ex:SphereModel} for $\Sph{2}$. 
 
-Consider the functor from $\PDGA$ to $\DGA$ which forgets the orientation on homology. We have the following trivial yet surprising observation.
+For a compact connected Lie group $G$, the subalgebra of harmonic forms $\Harm$ for any biinvariant Riemannian metric is isomorphic to a free algebra on odd generators, see \cite[Chapter~1]{Felix2008}. Therefore, $\Harm$ with zero differential and the induced cyclic structure is at the same time the Sullivan minimal model and a Poincar\'e duality model for $\DR(G)$.
+
+\item Poincar\'e duality models are not ``strongly unique'' in the sense that two Poincar\'e duality models of the same algebra must not be isomorphic; see Example~\ref{Ex:SUsix} for $\mathrm{SU}(6)$. However, there is a ``weak uniqueness'' statement in Proposition~\ref{Prop:LambrechtUnique} below. The situation is similar to the situation with Sullivan and minimal Sullivan models; see \cite{Felix2008}. We introduced ``smallness'' in Definition~\ref{Def:PDModel} as a candidate for a minimality condition on a Poincar\'e duality model which might imply its ``strong uniqueness''; see Question~\ref{Q:QuestionsPonc}.
+\qedhere
+\end{RemarkList}
+\end{Remark}
+
+Consider the functor from $\PDGA$'s to $\DGA$'s which forgets the orientation on homology. We have the following trivial yet somewhat surprising observation.
 
 \begin{Proposition}[$\PDGA$-formality is the same as $\DGA$-formality]\label{Prop:PoincModelOfFormal}
 A Poincar\'e $\DGA$ $(V,\Dd,\wedge,\Or^\H)$ is formal (as a $\PDGA$) if and only if it is formal as a $\DGA$.
@@ -65,10 +74,116 @@ V \longleftarrow \bullet \dotsb \bullet \longrightarrow \H(V) \xrightarrow{f^{-1
 whose induced map on homology from the left to the right is the identity. Therefore, we can orient homologies of the inner nodes of~\eqref{Eq:ZZII} so that all maps preserve orientation on homology.
 \end{proof}
 
-The following is mostly \cite[Theorem~1.1]{Lambrechts2007}. We just have to make sure that orientations are preserved.
+The next proposition will be used to show the existence of Poincar\'e duality models.
+
+\begin{Proposition}[Extension of Hodge type]\label{Prop:ExtensionOfHodgeType}
+Let $V$ be a $\PDGA$ of degree $n\ge 5$ which is of finite type and satisfies $V^0=\Span\{1\}$ and $V^1 = 0$. Then it is a retract of an oriented $\DGA$ $\LambrechtsExtension(V)$ of Hodge type in the category of $\PDGA$'s.
+\end{Proposition}
+
+\begin{proof}
+Pick an arbitrary harmonic subspace $\Harm$ and an arbitrary complement $C$ of $\ker \Dd$ in $V$.
+If $C$ is not perpendicular to $\Harm$, replace it with $\{c - \pi(c)\mid c\in C\}$, where $\pi: V \rightarrow \Harm$ is the orthogonal projection.
+We start with $l=\lceil \frac{n}{2} \rceil$ and apply Lemma~\ref{Lemma:Exte} inductively to get an extension $\hat{V} = V \otimes \Lambda$ which admits a decomposition 
+\begin{equation}\label{Eq:HatDecomp}
+\hat{V} = \hat{\Harm}\oplus\Dd\hat{V}\oplus\hat{C}
+\end{equation}
+of type \eqref{Eq:DecompOfV} such that there is a complement $\hat{E}$ of $\hat{C}^\perp$ in $\hat{C}$ and a linear map $\hat{\rho}: \hat{E}^{\lceil n/2\rceil}\oplus\dotsb\oplus\hat{E}^n\rightarrow\Dd\hat{V}$ such that \eqref{Eq:ConditionTemp} and \eqref{Eq:ConditionTempII} hold.
+We consider a linear map
+\[
+\kappa: \hat{C} \longrightarrow \Dd \hat{V}
+\]
+such that
+\[
+\kappa(e)=
+\begin{cases}
+	0 & \text{for }e\in \hat{E}^i\text{ with }i<\lceil\frac{n}{2}\rceil,\\
+	\hat{\rho}(e) & \text{for }e\in \hat{E}^i\text{ with } i>\lceil\frac{n}{2}\rceil, \\
+\end{cases}\quad\text{and}\quad \kappa(c^\perp) = 0\quad\text{for }c^\perp\in\hat{C}^\perp.
+\]
+The case $n = 2k$ and $e\in \hat{E}^k$ is specified as follows.
+If $k$ is even, then $\langle \cdot,\cdot \rangle: \hat{E}^{k}\otimes \hat{E}^{k} \rightarrow \R$ is an inner product, and there is an orthonormal basis $\eta_1$, $\dotsc$, $\eta_m$ for some $m\in\N$.
+We require
+\begin{equation}\label{Eq:InnerProdCase}
+ \kappa(\eta_i) = \frac{1}{2}\hat{\rho}(\eta_i)\quad\text{for all }i=1, \dotsc, m.
+\end{equation}
+If $k$ is odd, then $\langle \cdot,\cdot \rangle: \hat{E}^{k}\otimes \hat{E}^{k} \rightarrow \R$ is a symplectic form, and there is a symplectic basis $\eta_1$, $\theta_1$, $\dotsc$, $\eta_m$, $\theta_m$ for some $m\in\N$.
+We use the convention $\langle \theta_i,\eta_j\rangle = \delta_{ij}$ for $i$, $j=1$,~$\dotsc$, $m$.
+We require 
+\begin{equation}\label{Eq:SymplCase}
+ \kappa(\eta_i) = \hat{\rho}(\eta_i)\quad\text{and}\quad\kappa(\theta_i)= 0\quad\text{for }i=1,\dotsc,m.
+\end{equation}
+Let 
+\[
+\hat{C}' \coloneqq \{c - \kappa(c) \mid c\in \hat{C}\}.
+\]
+This is a complement of $\ker \Dd$ in $\hat{V}$ perpendicular to $\hat{\Harm}$ because $\hat{C}$ is and $\im \kappa \subset\Dd\hat{V}$.
+Given homogenous $c_1$, $c_2\in \hat{C}$ with $\deg c_1 + \deg c_2 = n$ and $\deg c_1 \le \deg c_2$, write $c_1 = c^\perp_1 + e_1$ and $c_2 = c^\perp_2 + e_2$ for $c_1^\perp$, $c_2^\perp \in \hat{C}^\perp$ and $e_1$, $e_2\in\hat{E}$, and compute
+\begin{align*}
+\langle c_1 - \kappa(c_1), c_2 - \kappa(c_2) \rangle &= \langle c_1, c_2 \rangle - \langle \kappa(c_1), c_2 \rangle - \langle c_1, \kappa(c_2) \rangle\\
+&=\begin{aligned}[t]
+&\underbrace{\langle e_1, e_2 \rangle - \langle \kappa(e_1), e_2 \rangle - \langle e_1, \kappa(e_2) \rangle}_{\eqqcolon(*)} \\ &{}-\underbrace{\langle\kappa(e_1),c_2^\perp\rangle - \langle c_1^\perp, \kappa(e_2)\rangle}_{\eqqcolon(**)}.
+\end{aligned}
+\end{align*}
+Now, $(**)=0$ because of \eqref{Eq:ConditionTempII}.
+As for $(*)$, if $\deg c_1 < \deg c_2$, then
+\begin{align*}
+(**) &= \langle e_1, e_2 \rangle - \langle e_1,\kappa(e_2)\rangle \\
+     &= \langle e_1, e_2 \rangle - \langle e_1,\hat{\rho}(e_2)\rangle \\ 
+     &= 0
+\end{align*}
+because of \eqref{Eq:ConditionTemp}.
+If $\deg c_1 = \deg c_2 = k$ and $k$ is even, we plug in the orthonormal basis and get using \eqref{Eq:InnerProdCase} that
+\begin{align*}
+e_1 = \eta_i,\ e_2 = \eta_j:  && (**) &= \langle \eta_i, \eta_j \rangle - \langle \kappa(\eta_i),\eta_j\rangle - \langle \eta_i,\kappa(\eta_j)\rangle \\
+&& & = \langle \eta_i, \eta_j\rangle - \langle \eta_j, \kappa(\eta_i)\rangle - \langle \eta_i, \kappa(\eta_j)\rangle \\
+&& & = \langle \eta_i, \eta_j \rangle - \frac{1}{2}\langle \eta_j, \hat{\rho}(\eta_i)\rangle - \frac{1}{2}\langle\eta_i,\hat{\rho}(\eta_j)\rangle\\
+&& & = \langle \eta_i, \eta_j \rangle - \frac{1}{2}\langle \eta_j, \eta_i \rangle - \frac{1}{2}\langle \eta_i, \eta_j \rangle \\
+&& & = 0.
+\end{align*}
+If $k$ is odd, we plug in the symplectic basis and get using \eqref{Eq:SymplCase} that
+\begin{align*}
+e_1 = \eta_i,\ e_2 = \eta_j: && (**) &= \langle \eta_j, \kappa(\eta_i) \rangle - \langle \eta_i, \kappa(\eta_j) \rangle \\
+&& &= \langle \eta_j, \hat{\rho}(\eta_j) \rangle - \langle \eta_i, \hat{\rho}(\eta_j) \rangle \\
+&& &= 0, \\
+e_1 = \theta_i,\ e_2 = \eta_j: && (**) &= \langle \theta_i, \eta_j\rangle - \langle \theta_i, \kappa(\eta_j) \rangle \\
+&& &= \langle \theta_i, \eta_j\rangle - \langle \theta_i, \hat{\rho}(\eta_j) \rangle \\
+&& &= 0, \\
+e_1 = \theta_i,\ e_2 = \theta_j: && (**) &= 0.
+\end{align*}
+This shows that $\hat{C}\perp\hat{C}$, and hence \eqref{Eq:HatDecomp} is a Hodge decomposition.
+
+Finally, because $\hat{V} = V \otimes \Lambda$ as a $\DGA$, both the inclusion $\iota: V \rightarrow \hat{V}$ of $V$ into $\hat{V}_0$ and the projection $\pi: \hat{V} \rightarrow V$ from $\hat{V}_0$ onto $V$ are $\DGA$ morphisms.
+Because $\pi \circ \iota = \Id$ and because $\iota_*$ is an orientation preserving isomorphism, $\pi_*$ is an orientation preserving isomorphism as well.
+Therefore, $V$ is a retract of $\LambrechtsExtension(V)\coloneqq\hat{V}$ in the category of $\PDGA$'s.
+\end{proof}
+
+The next example shows that the Sullivan minimal model is sometimes of Hodge type.
+
+\begin{Example}[Sullivan minimal model of $\Sph{2}$ is of Hodge type]\label{Ex:SphereModel}
+The Sullivan minimal model of $\Sph{2}$ is the free graded commutative algebra $\Model\coloneqq\Lambda(\eta_2,\eta_3)$ with $\Abs{\eta_2}=2$, $\Abs{\eta_3}=3$, $\Dd \eta_2 = 0$ and $\Dd\eta_3=\eta_2\wedge\eta_2$.
+From degree reasons, it holds $\Model = \Span\{\eta_2^k \eta_3^l \mid k\ge 0, l \in \{0,1\}\}$ as a graded vector space.
+We have a canonical decomposition $\Model = \Harm \oplus \Dd \Model \oplus C$, where $\Harm = \Span\{\eta_2\}$, $\Dd \Model = \Span\{\eta_2^k \mid k \ge 2 \}$ and $C = \Span\{\eta_2^{k}\eta_3 \mid k \ge 0\}$.
+We define an orientation $\Or : \Model \rightarrow \R$ in degree $2$ by $\Or(\eta_2) \coloneqq 1$ on $\Harm$ and by $0$ on $\Dd \Model$ and $C$.
+It is easy to see that $C\perp \Harm$ and $C\perp C$ with respect to the induced cyclic structure $\langle \cdot,\cdot\rangle$. 
+Consider the $\DGA$-quasi-isomorphism $f: \Model \rightarrow \DR(\Sph{2})$ defined by $f(\eta_2)\coloneqq \Vol$ and $f(\eta_3)\coloneqq 0$.
+Clearly, it is orientation preserving.
+We have $\Model/\Model^\perp\simeq \Lambda(\eta_2)$
+\end{Example}
+
+The following proposition about the existence of a Poincar\'e dualiy model of a Poincar\'e $\DGA$ $V$ with $\H^1(V)=0$ was originally proven in \cite[Theorem~1.1]{Lambrechts2007}.
+It was formulated in the category of $\DGA$'s, i.e., not checking whether the arrows are orientation preserving on homology.
+The idea was to construct an extension $\LambrechtsExtension(\Lambda U )$ of the Sullivan minimal model $\Lambda U$ of~$V$ and an orientation on it such that the degenerate subspace is acyclic; the Poincar\'e duality model is then obtained by taking the quotient.
+The extension is constructed by adding elements which kill the so called orphans.
+
+By Proposition~\ref{Prop:HodgeAcyc}, we know that $V^\perp$ is acyclic if and only if $V$ is of Hodge type ($V$ needs to be of finite type for the direct implication).
+Based on this, we give a new construction of $\LambrechtsExtension(\Lambda U)$ using Lemma~\ref{Lemma:Exte}, i.e., by adding exact partners to non-degenerates.
+Our construction works for $n\ge 5$, whereas the assumption of \cite{Lambrechts2007} is $n\ge 7$.
+We also do not need $\Dd (\Lambda U)^2 = 0$, although it follows from $\H^1(V) = 0$.
+It is also clear from our construction that the arrows preserve orientation on homology.
+However, this can be checked for the construction of \cite{Lambrechts2007} as well.
 
 \begin{Proposition}[Existence of Poincar\'e duality model for $\H^1 = 0$]\label{Prop:ExOfLambrStan}
-A~Poincar\'e $\DGA$ $(V,\Dd,\wedge,\Or^\H)$ with $\H^0 = \R$ and $\H^1=0$ admits a Poincar\'e duality model $(\Model,\Dd^\Model,\wedge^\Model,\Or^\Model)$.
+A~Poincar\'e $\DGA$ $V$ with $\H^0(V) = \Span\{1\}$ and $\H^1(V)=0$ admits a Poincar\'e duality model $\Model$.
 %If moreover $\H^2 = \H^3 = 0$, then for any two finite dimensional Poincar\'e duality models $M_1$ and $M_2$ there is another finite dimensional Poincar\'e duality model $M_3$ and the zig-zag of orientation preserving quasi-isomorphisms
 %$$\begin{tikzcd}
 %& M_3 & \\
@@ -83,14 +198,22 @@ If $\Or^\H$ comes from a pairing on $V$ which is of Hodge type, then we can take
  \VansQuotient(\VansSmall(V)) & & V.
 \end{tikzcd}
 \end{equation}
-If $V$ is not of Hodge type, we proceed as follows. Let $n$ be the degree of the orientation on $\H(V)$. If $n\le 6$, then $V$ is formal as a $\DGA$ by~\cite{Miller1979}, and we can take $\Model=\H(V)$ by Proposition~\ref{Prop:PoincModelOfFormal}. The weak homotopy equivalence of $\PDGA$'s looks like
+If $V$ is not of Hodge type, we proceed as follows. Let $n$ be the degree of the orientation on $\H(V)$.
+If $n\le 6$, then $V$ is formal as a $\DGA$ by~\cite{Miller1979}, and we can take $\Model=\H(V)$ by Proposition~\ref{Prop:PoincModelOfFormal}.
+The weak homotopy equivalence of $\PDGA$'s looks like
 \begin{equation}\label{Eq:ModTwo}
 \begin{tikzcd}
  & \Lambda U \arrow{dl}\arrow{dr} & \\
  \H(V) & & V,
 \end{tikzcd}
 \end{equation}
-where $\Lambda U$ is the Sullivan minimal model of $V$. The Sullivan minimal model $W\coloneqq \Lambda U$ is of finite type and satisfies $W^0 = \R$, $W^1 = 0$ and $\Dd W^2 = 0$. Suppose that $n\ge 7$. Under these assumptions on $W$ and $n$, a certain extension of $W$, which we denote by~$\LambrechtsExtension(W)$, together with an orientation, which we denote by $\Or^\LambrechtsExtension$, is constructed in \cite[Section~4]{Lambrechts2007} inductively by adding generators to $W$. This extension is of finite type, the inclusion $W\hookrightarrow\LambrechtsExtension(W)$ is a quasi-isomorphism of $\DGA$'s and $\LambrechtsExtension(W)_\perp$ is acyclic. Moreover, we checked that $W\hookrightarrow\LambrechtsExtension(W)$ preserves orientation on homology. By~(c) of Proposition~\ref{Prop:HodgeAcyc}, $\LambrechtsExtension(W)$ is of Hodge type, and hence we can take $\Model = \VansQuotient(\LambrechtsExtension(\Lambda U))$. The weak homotopy equivalence of $\PDGA$'s looks like
+where $\Lambda U$ is the Sullivan minimal model of $V$.
+The Sullivan minimal model $W\coloneqq \Lambda U$ is of finite type and satisfies $W^0 = \R$, $W^1 = 0$ and $\Dd W^2 = 0$.
+Suppose that $n\ge 7$.
+Let $\LambrechtsExtension(W)$ be the extension of $W$ of Hodge type either from Proposition~\ref{Prop:ExtensionOfHodgeType} or from \cite[Section~4]{Lambrechts2007}.
+This extension is of finite type, the inclusion $W\hookrightarrow\LambrechtsExtension(W)$ is a quasi-isomorphism of $\DGA$'s and $\LambrechtsExtension(W)^\perp$ is acyclic.
+Moreover, $W\hookrightarrow\LambrechtsExtension(W)$ preserves orientation on homology.
+We take $\Model = \VansQuotient(\LambrechtsExtension(\Lambda U))$ and obtain the following weak homotopy equivalence of $\PDGA$'s:
 \begin{equation}\label{Eq:ModThree}\begin{tikzcd}
  & \Lambda U \arrow{dl}\arrow{dr} & \\
 \VansQuotient(\LambrechtsExtension(\Lambda V))& & V.
@@ -98,10 +221,15 @@ where $\Lambda U$ is the Sullivan minimal model of $V$. The Sullivan minimal mod
 This proves the proposition.
 \end{proof}
 
-The following is mostly \cite[Theorem~7.1]{Lambrechts2007}. Again, we just have to make sure that the orientations match.
+The following is mostly \cite[Theorem~7.1]{Lambrechts2007}.
+In addition, we check that the orientation on homology is preserved.
+Also, by using our extension of Hodge type, we can improve from $n\ge 7$ to $n\ge 5$.
 
-\begin{Proposition}[``Uniqueness'' of Poincar\'e duality model]\label{Prop:LambrechtUnique}
-Let $(V_1,\Dd_1,\wedge_1,\Or_1)$ and $(V_2,\Dd_2,\wedge_2,\Or_2)$ be differential Poincar\'e duality algebras of degree $n$ which are weakly homotopy equivalent as $\PDGA$'s. Suppose that $\H^0(V_i)\simeq \R$, $\H^1(V_i) \simeq \H^2(V_i) \simeq \H^3(V_i) = 0$, $V_i^0 = \R$ and $V_i^1 \simeq V_i^2 = 0$ for $i=1$,~$2$. Suppose that $n\ge 7$. Then there is a differential Poincar\'e duality algebra $(V_3,\Dd_3,\wedge_3,\Or_3)$ and quasi-isomorphisms of $\PDGA$'s
+\begin{Proposition}[``Weak uniqueness'' of Poincar\'e duality model]\label{Prop:LambrechtUnique}
+Let $V_1$ and $V_2$ be differential Poincar\'e duality algebras of degree $n$ which are weakly homotopy equivalent as $\PDGA$'s.
+Suppose that $\H^0(V_1)=\H^0(V_2)=\Span\{1\}$ and $\H^1(V_1) = \H^1(V_2) = 0$.
+In addition, suppose that $\H^2(V_1) = \H^2(V_2) = 0$, $V_1^1 = V_2^1 = 0$ and $n\ge 5$.
+Then there is a differential Poincar\'e duality algebra $V_3$ and $\PDGA$-quasi-isomorphisms\footnote{These are automatically injective and orientation preserving.}
 \begin{equation}\label{Eq:LambrechtsZigZag}
 \begin{tikzcd}
 & V_3 & \\
@@ -145,8 +273,14 @@ M(\mu) \arrow{r}{g_1} & \tilde{V}_3 \coloneqq  M(\mu) \otimes_{\Lambda U \otimes
 \end{tikzcd}
 \end{equation}
 where $\iota_i^V : V_i \rightarrow V_1 \otimes V_2$ for $i=1$, $2$ are inclusions. The lower square, i.e., the maps $g_1$, $g_2$ and the $\DGA$ $\tilde{V}_3$, is a pushout diagram (see \cite[Example~1.4]{LoopSpaces}). According to~\cite{MO204414}, the model category of $\nnuCDGA$ is proper, and hence pushouts along cofibrations preserve quasi-isomorphisms. Therefore, $f_1\otimes f_2$ being a quasi-isomorphism implies that $g_1$ is a quasi-isomorphism. We push the orientation to~$\H(\tilde{V}_3)$ via $g_{1*}$. Since $i\circ \iota_i$, $g_1$ and $f_i$ are quasi-isomorphisms preserving orientation on homology, it follows that $h_i\coloneqq g_2\circ \iota_i^V:  V_i \rightarrow V_3$ are quasi-isomorphisms preserving orientation of homology as well. It holds
-$$ \tilde{V}_3 \simeq \Lambda U[1] \otimes V_1 \otimes V_2 $$
-as algebras. It follows that $\tilde{V}_3$ is of finite type and $\tilde{V}_3^0 = \R$, $\tilde{V}_3^1 = 0$ and $\tilde{V}_3^2 = \tilde{V}_1^0 \otimes \tilde{V}_2^0 \otimes U^{3} = 0$ hold due to the additional assumptions. Therefore, the conditions for an application of $\LambrechtsExtension$ are satisfied, and we can set
+\[
+\tilde{V}_3 \simeq \Lambda(U[1]) \otimes V_1 \otimes V_2.
+\]
+Clearly, $\tilde{V}_3$ is of finite type.
+Using $\H^1(V_i) = \H^2(V_i) = 0$, we have $U^1 = U^2 = 0$, and hence $(\Lambda(U[1]))^1 = 0$.
+This together with $V_i^1 = 0$ implies that $\tilde{V}_3^1 = 0$.
+%$\tilde{V}_3^1 = 0$ and $\tilde{V}_3^2 = \tilde{V}_1^0 \otimes \tilde{V}_2^0 \otimes U^{3} = 0$ hold due to the additional assumptions.
+Therefore, all conditions for an application of the Hodge extension $\LambrechtsExtension$ from Proposition~\ref{Prop:ExtensionOfHodgeType} are satisfied, and we can set
 $$ V_3\coloneqq \VansQuotient(\LambrechtsExtension(\tilde{V}_3)). $$
 This finishes the proof.
 %
@@ -155,16 +289,44 @@ This finishes the proof.
 %Suppose we have started with differential Poincar\'e duality algebras, then we obtain isomorphisms of small algebras. 
 \end{proof}
 
-\begin{Conjecture}[$\PDGA$-version of conjecture of {\cite{Lambrechts2007}}]\label{Conj:PDGALST}
-Proposition~\ref{Prop:LambrechtUnique} holds under the weaker assumptions that $\H^0(V_1)\simeq \H^0(V_2) = \R$ and $\H^0(V_1)\simeq\H^0(V_2) = 0$. Moreover, it holds for any $n$.
+\begin{Conjecture}\label{Conj:PDGALST}
+The additional assumptions of Proposition~\ref{Prop:LambrechtUnique} can be dropped.
 \end{Conjecture}
+
+\begin{Remark}[Weak uniqueness in the case of $\H^1(V)=0$ and $n\le 3$]
+ For $n=1$, there is no differential Poincar\'e duality algebra $V$ with $\H^1(V) = 0$.
+ 
+ For $n=2$, a general differential Poincar\'e duality algebra can be written in terms of its Hodge decomposition as
+ \begin{align*}
+ 	V^2 & = \Span\{\Vol\}\oplus \Dd C^1\\
+	V^1 & = \Dd C^0 \oplus C^1\\
+	V^0 & = \Span\{1\} \oplus C^0.
+ \end{align*}
+ Now, $\Harm = \Span\{1\}\oplus \Span\{\Vol\}$ is a dg-subalgebra which is itself a Poincar\'e duality algebra. Therefore, two differential Poincar\'e duality algebras with $\H(V_1)\simeq \H(V_2)$ and $\H^1(V_i) = 0$ are connected via the zig-zag
+\[
+\begin{tikzcd}
+& \Harm \arrow{dr}{} \arrow[swap]{dl}{} & \\
+V_1 & & V_2.
+\end{tikzcd}
+\]
+For $n=3$, we have 
+\begin{align*}
+	V^3 & = \Span\{\Vol\} \oplus \Dd C^2\\
+ 	V^2 & =\Dd C^1 \oplus C^2 \\
+	V^1 & = \Dd C^0 \oplus C^1\\
+	V^0 & = \Span\{1\} \oplus C^0,
+\end{align*}
+and the same situation as for $n=2$ occurs.
+
+For $n=4$ and $V^1 = 0$, we have $V \simeq \Harm$.
+\end{Remark}
 
 We would like to define a ``minimal Poincar\'e duality model''. We motivate this notion in the following remark.
 
 \begin{Remark}[Model and minimal model]\label{Rem:Models}
 We shall understand models and minimal models in terms of model categories and their homotopy categories.
 
-Let us illustrate this on Sullivan models. A Sullivan $\DGA$ is a free graded commutative algebra $\Lambda U$ over a positively graded vector space $U$ which admits a well-ordered homogenous basis $(v_\alpha)$ such that $\Dd v_\alpha \in \langle  v_\beta \mid \beta < \alpha \rangle^\wedge$ ($\coloneqq$\,the subalgebra of $\Lambda U$ generated by the $v_\beta$'s) for all $\alpha$. A Sullivan $\DGA$ is called minimal if $\im \Dd \subset \Lambda_{\ge 2} U$ ($\coloneqq$\,the set of decomposable elements).
+Let us illustrate this on Sullivan models. A Sullivan $\DGA$ is a free graded commutative algebra $\Lambda U$ over a positively graded vector space $U$ which admits a well-ordered homogenous basis $(v_\alpha)$ such that $\Dd v_\alpha \in \Lambda(v_\beta \mid \beta < \alpha)$ ($\coloneqq$\,the subalgebra of $\Lambda U$ generated by the $v_\beta$'s) for all $\alpha$. A Sullivan $\DGA$ is called minimal if $\im \Dd \subset \Lambda_{\ge 2} U$ ($\coloneqq$\,the set of decomposable elements).
 
 According to \cite[Theorem~4.3]{Bousfield1976}, the category $\nnuCDGA$ is a model category with weak equivalences being $\DGA$-quasi-isomorphisms, fibrations being degree-wise surjective $\DGA$-morphisms and cofibrations being retracts of relative Sullivan algebras (see \cite[Proposition~2.22 and Proposition~2.28]{Felix2008}). Cofibrant objects are then precisely Sullivan algebras. 
 
@@ -217,24 +379,65 @@ Finally, let us note that in \cite{Cirici2019}, they use the inductive method to
 %Any two minimal Poincar\'e duality models are isomorphic.
 %\end{Lemma}
 
-Consider small Poincar\'e duality models. Let $(V,\Dd,\wedge,\Or^\H)$ be a $\PDGA$ with $\H^0(V) = \R$ and $\H^1(V)=0$. Proposition~\ref{Prop:ExOfLambrStan} gives a Poincar\'e duality model $\Model$. Proposition~\ref{Prop:PropPropertiessd} asserts that $\VansQuotient(\VansSmall(\Model))$ is small and Proposition~\ref{Prop:HodgeAcyc} asserts that it is weakly homotopy equivalent to $\Model$ and hence to $V$ as a $\PDGA$. Therefore, small Poincar\'e duality models exist. Let $\Model_1$ and $\Model_2$ be two small Poincar\'e duality models of $V$. Pick any of their Hodge decompositions. Proposition~\ref{Prop:LambrechtUnique}, more generally Conjecture~\ref{Conj:PDGALST}, gives the diagram \eqref{Eq:LambrechtsZigZag}, where $V_1 = \Model_1$, $V_2 = \Model_2$ and $V_3$ are differential Poincar\'e duality algebras and the maps, which we denote by $f_1: V_1 \rightarrow V_3$ and $f_2: V_2\rightarrow V_3$, are $\PDGA$-quasi-isomorphisms. Lemma~\ref{Eq:LemSmallSub} asserts that there are Hodge decompositions of $V_3$ with small subalgebras $\VansSmall_1(V_3)$ and $\VansSmall_2(V_3)$ such that $f_1$ and $f_2$ induce pairing preserving isomorphisms $\VansSmall(V_1) \simeq \VansSmall_1(V_3)$ and $\VansSmall(V_2) \simeq \VansSmall_2(V_3)$, respectively. Conjecture~\ref{Conj:UnieqSmal} asserts that $\VansQuotient(\VansSmall_1(V_3)) \simeq \VansQuotient(\VansSmall_2(V_3))$. In total, we have
-$$ \Model_1 \simeq \VansQuotient(\VansSmall(\Model_1)) \simeq \VansQuotient(\VansSmall_1(V_3))\simeq \VansQuotient(\VansSmall_2(V_3)) \simeq \VansQuotient(\VansSmall(\Model_2)) \simeq \Model_2 $$
-as differential Poincar\'e duality algebras.
+%Consider small Poincar\'e duality models. Let $(V,\Dd,\wedge,\Or^\H)$ be a $\PDGA$ with $\H^0(V) = \R$ and $\H^1(V)=0$. Proposition~\ref{Prop:ExOfLambrStan} gives a Poincar\'e duality model $\Model$. Proposition~\ref{Prop:PropPropertiessd} asserts that $\VansQuotient(\VansSmall(\Model))$ is small and Proposition~\ref{Prop:HodgeAcyc} asserts that it is weakly homotopy equivalent to $\Model$ and hence to $V$ as a $\PDGA$. Therefore, small Poincar\'e duality models exist. Let $\Model_1$ and $\Model_2$ be two small Poincar\'e duality models of $V$. Pick any of their Hodge decompositions. Proposition~\ref{Prop:LambrechtUnique}, more generally Conjecture~\ref{Conj:PDGALST}, gives the diagram \eqref{Eq:LambrechtsZigZag}, where $V_1 = \Model_1$, $V_2 = \Model_2$ and $V_3$ are differential Poincar\'e duality algebras and the maps, which we denote by $f_1: V_1 \rightarrow V_3$ and $f_2: V_2\rightarrow V_3$, are $\PDGA$-quasi-isomorphisms. Lemma~\ref{Eq:LemSmallSub} asserts that there are Hodge decompositions of $V_3$ with small subalgebras $\VansSmall_1(V_3)$ and $\VansSmall_2(V_3)$ such that $f_1$ and $f_2$ induce pairing preserving isomorphisms $\VansSmall(V_1) \simeq \VansSmall_1(V_3)$ and $\VansSmall(V_2) \simeq \VansSmall_2(V_3)$, respectively. Conjecture~\ref{Conj:UnieqSmal} asserts that $\VansQuotient(\VansSmall_1(V_3)) \simeq \VansQuotient(\VansSmall_2(V_3))$. In total, we have
+%$$ \Model_1 \simeq \VansQuotient(\VansSmall(\Model_1)) \simeq \VansQuotient(\VansSmall_1(V_3))\simeq \VansQuotient(\VansSmall_2(V_3)) \simeq \VansQuotient(\VansSmall(\Model_2)) \simeq \Model_2 $$
+%as differential Poincar\'e duality algebras.
+%\begin{Corollary}[Small Poincar\'e duality models are minimal]\label{Cor:SmalPoinc}
+%Small Poincar\'e duality models exist when $\H^0 = \R$ and $\H^1 = 0$ and are unique up to an isomorphism provided that the conjectures from Sections~\ref{SubSec:CycStr} and~\ref{SubSec:PoincModel} are true.
+%\end{Corollary}
 
-\begin{Corollary}[Small Poincar\'e duality models are minimal]\label{Cor:SmalPoinc}
-Small Poincar\'e duality models exist when $\H^0 = \R$ and $\H^1 = 0$ and are unique up to an isomorphism provided that the conjectures from Sections~\ref{SubSec:CycStr} and~\ref{SubSec:PoincModel} are true.
-\end{Corollary}
+The following example shows that the zig-zag of a Poincar\'e duality model can not be shortened to one arrow.
+
+\begin{Example}[No Poincar\'e dualiy model with one arrow]\label{Ex:NoOneArrow}
+\begin{ExampleList}
+\item The closed genus $2$ surface $\Sigma_2$ does not admit a Poincar\'e duality model $A$ with just one arrow $A \rightarrow \DR(\Sigma_2)$. Suppose the contrary. We consider the quasi-isomorphism $f:A\rightarrow \DR(\Sigma_2)$ and compute for homogenous $v_1$, $v_2\in A$ the following:
+\begin{align*}
+\langle f(v_1),f(v_2)\rangle &= \pm \langle f(v_1)\wedge f(v_2),1 \rangle\\
+&= \pm \langle f(v_1\wedge v_2),1 \rangle\\
+&= \pm \langle [f(v_1\wedge v_2)],[1]\rangle\qquad\text{(*)}\\
+&= \pm \langle f_*[v_1\wedge v_2], f^*[1] \rangle\\
+&= \pm \langle [v_1\wedge v_2],[1]\rangle\\
+&= \pm \langle v_1\wedge v_2, 1 \rangle\qquad(*) \\
+&= \langle v_1, v_2 \rangle.
+\end{align*}
+Stars hold because the only non-zero case is when $\deg(v_1) + \deg(v_2) = \deg(\langle\cdot,\cdot\rangle)$, and hence $\Dd (v_1\wedge v_2) = 0$ because non-degeneracy implies vanishing of higher degrees. We see that $f$ preserves the pairing on the chain-level and is injective by non-degeneracy. We can thus assume that $A\subset\DR(\Sigma_2)$ is a dg-subalgebra equipped with the restriction of the intersection pairing. Since $\dim(A)<\infty$, there is a Hodge decomposition
+\begin{align*}
+	A^2 &= \Harm^2 \oplus \Dd C^1\\
+	A^1 &= \Harm^1 \oplus \Dd C^0 \oplus C^1\\
+	A^0 &= \Harm^0 \oplus C^0.
+\end{align*}
+If $1\neq f\in C^{\infty}(\Sigma_2)$, then $f^k$, $k\in \N_0$ are linearly independent over $\R$. Therefore, it must hold $\Harm^0 = \Span\{1\}$ and $C^0 = 0$. Duality implies $\Dd C^1 = 0$, and hence $\Harm^2$ is spanned by $\omega \in \DR^2(\Sigma_2)$ with $\int_{\Sigma_2}\omega = 1$. It holds even $C^1=0$ as $\ker \Dd \cap C = 0$ in a Hodge decomposition. Since $A\simeq \H(\Sigma_2)$ as a $\DGA$, there are closed $\alpha_1$, $\beta_1$, $\alpha_2$, $\beta_2\in\DR^1(\Sigma_2)$ such that $\Harm^1 = \Span\{\alpha_1, \beta_1, \alpha_2, \beta_2\}$ and such that for all $x\in\Sigma_2$ the following holds:
+\begin{align*}
+	\alpha_1(x) \wedge \alpha_2(x) &=  \alpha_1(x) \wedge \beta_2(x) = 0\\
+	\quad\alpha_1(x)\wedge\beta_1(x) &= \alpha_2(x)\wedge\beta_2(x) = \omega(x).
+\end{align*}
+Taking an $x\in \Sigma_2$ with $\omega(x) \neq 0$ gives a contradiction.
+
+\item  The simply-connected $4$-manifold $\CP^{2\# 7}$, where $\#$ denotes the connected sum, does not admit a Poincar\'e duality model $A$ with just one arrow $A \rightarrow \DR(M)$. Similarly as in the proof for $\Sigma_2$, we can restrict to the case $A\subset\DR(\CP^{2 \# 7})$. We obtain $A^4 = \Harm^4 = \langle \omega \rangle$ for a somewhere non-vanishing $4$-form $\omega$ and $\Harm^2 = \langle K_0, \dotsc, K_6 \rangle$ such that for all $x\in \CP^{2\#7}$ the following holds:
+\begin{align*}
+	K_i(x)\wedge K_i(x) &= \pm \omega(x) \\
+	K_i(x) \wedge K_j(x) &= 0.
+\end{align*}
+We now view $K_i(x)$ as vectors in $\R^6$ so that $K_0(x)\wedge K_j(x) = 0$ corresponds to taking the scalar product. If $\sum_{i=0}^6 \lambda_i K_i(x) = 0$ for some $\lambda_i\in \R$ with $\lambda_{i_0} \neq 0$, then
+\[
+0 = K_{i_0}(x) \wedge \Bigl(\sum_{i=0}^6 \lambda_i K_i(x)\Bigr) = \pm \lambda_{i_0} \omega(x).
+\]
+Therefore, $\omega(x) \neq 0$ implies that $K_i(x)$ are linearly independent. Hence, in this case, $K_0(x) \wedge K_i(x) = 0$ for all $i=1$, $\dotsc$, $6$ implies $K_0(x) = 0$, which is a contradiction with $K_0(x) \wedge K_0(x) = \omega(x)$.\qedhere
+\end{ExampleList}
+\end{Example}
+
 
 \begin{Questions}\label{Q:QuestionsPonc}
 \begin{RemarkList}
-
-\item Is it possible to prove Proposition~\ref{Prop:LambrechtUnique} for $n\le 6$ when formality holds in an easier way?
-
+%\item Is it possible to prove Proposition~\ref{Prop:LambrechtUnique} for $n\le 6$ when formality holds in an easier way?
+\item Give an example of a Sullivan minimal model $f: \Lambda U \rightarrow V$ of a $\PDGA$ $V$ which is not of Hodge type for any orientation such that $f_*: \H(\Lambda U) \rightarrow \H(V)$ is orientation preserving.
+\item Can some of the additional assumptions on $V$ in Lemma~\ref{Lemma:Exte} and Proposition~\ref{Prop:ExtensionOfHodgeType} be dropped?
 \item Can we describe a model category structure on Poincar\'e $\DGA$'s ?
-
-\item Sullivan's inductive construction gives a minimal model which resolves $V$. The construction of Proposition~\ref{Prop:ExOfLambrStan} does not resolve $V$ in any case \eqref{Eq:ModOne}, \eqref{Eq:ModTwo} and \eqref{Eq:ModThree}. Is it possible to resolve a $\PDGA$ by a Poincar\'e duality model? It is clearly possible in the geometrically formal case, i.e., when there is a $\DGA$-quasi-isomorphism $\H(V)\rightarrow V$.
+%\item Sullivan's inductive construction gives a minimal model which resolves $V$. The construction of Proposition~\ref{Prop:ExOfLambrStan} does not resolve $V$ in any case \eqref{Eq:ModOne}, \eqref{Eq:ModTwo} and \eqref{Eq:ModThree}. Is it possible to resolve a $\PDGA$ by a Poincar\'e duality model? It is clearly possible in the geometrically formal case, i.e., when there is a $\DGA$-quasi-isomorphism $\H(V)\rightarrow V$.
 %For the sake of comparison with Sullivan's inductive construction, it might be interesting to know whether $\VansQuotient(\VansSmall(\cdot))$ is free over $\DGA$'s of Hodge type and whether its differential has decomposable image.
-\qedhere
+\item Is smallness or minimal dimension the correct notion of minimality of a Poincar\'e duality model?  \qedhere
 \end{RemarkList}
 \end{Questions}
+
+
 \end{document}
