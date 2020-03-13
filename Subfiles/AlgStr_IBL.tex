@@ -7,6 +7,7 @@
 \section{Basics of IBL-infinity-algebras
 %for the \texorpdfstring{$\IBLInfty$-theory}{IBL-infinity-theory}
 }
+\allowdisplaybreaks
 \label{Sec:Alg1}
 
 %For the following definition, Definition~\ref{Def:Grading}, \ref{Def:SymAlgebra}, \ref{Def:Filtrations} and \ref{Def:Completion} are relevant.
@@ -14,18 +15,16 @@
 \Add[caption={DONE New algebraic setting in Appendix},noline]{There is a new algebraic description of the iterated compatibility condition in the appendix.}
 \begin{Definition}[Exterior algebra]\label{Def:ExtAlg}
 Given a graded vector space $C$ over $\R$, we define the \emph{exterior algebra} over $C$ by
-$$ \Ext C \coloneqq \Sym(C[1]). $$
+\[ \Ext C \coloneqq \Sym(C[1]). \]
 The weight-$k$ component is denoted by $\Ext_k C$ and the weight-reduced part by~$\RExt C$. If $C$ is in addition filtered, then $\Ext_k C$ is filtered by the induced filtration and its completion is denoted by $\hat{\Ext}_k C$.
 \end{Definition}
 
 
 We have the concatenation product $\Prod : \Ext C \otimes \Ext C \rightarrow \Ext C$ and the shuffle coproduct $\CoProd: \Ext C \rightarrow \Ext C\otimes \Ext C$ defined~by
-\begin{equation*}
-\begin{aligned}
+\begin{align*}
 &\Prod(c_{11}\dots c_{1k} \otimes c_{21} \dots c_{2k'}) \coloneqq c_{11} \dots c_{1k} c_{21} \dots c_{2k'}\quad\text{and}\\[\jot]
 &\CoProd(c_1 \dots c_k) \coloneqq \sum_{\substack{k_1,\,k_2 \ge 0\\ k_1 + k_2 = k}} \sum_{\sigma\in \Perm_{k_1, k_2}} \varepsilon(\sigma,c) c_{\sigma^{-1}_1} \dots c_{\sigma_{k_1}^{-1}}\otimes c_{\sigma_{k_1+1}^{-1}}\dots c_{\sigma_{k_1 + k_2}^{-1}}
-\end{aligned}
-\end{equation*}
+\end{align*}
 for all homogenous $c_{ij}$, $c_i \in C[1]$ and $k$, $k'\ge 0$, respectively, where $\Perm_{k_1, k_2}\subset \Perm_{k_1+k_2}$ denotes the set of shuffle permutations with blocks of lengths $k_1$ and $k_2$. These operations satisfy the relations of an \emph{associative bialgebra} (see \cite{Loday2012}):
 \begin{equation}\label{Eq:Bialgebra}
 \text{Assoc.~bialg.}\quad \left\{
@@ -45,19 +44,19 @@ We will use the bialgebra calculus ($\coloneqq$\,relations \eqref{Eq:Bialgebra})
 
 \begin{Definition}[Partial compositions] \label{Def:CircS}
 Let $C$ be a graded vector space. For $i$, $j\ge 0$, we denote by 
-$$ \begin{aligned} \pi_i : \Ext C \longrightarrow \Ext_i C,& \quad \iota_i : \Ext_i C \longrightarrow \Ext C, \\
+\begin{align*} \pi_i : \Ext C \longrightarrow \Ext_i C,& \quad \iota_i : \Ext_i C \longrightarrow \Ext C, \\
  \Id_i : \Ext_i C \longrightarrow \Ext_i C,& \quad \begin{aligned}[t]\tau_{i,j}: \Ext_i C\otimes \Ext_j C &\longrightarrow \Ext_j C \otimes \Ext_i C \end{aligned}
- \end{aligned} $$ 
+ \end{align*}
 the components of the canonical projection $\pi$, the canonical inclusion $\iota$, the identity $\Id$ and the twist map $\tau$, respectively. We also set 
-$$ \CoProd_{i,j} \coloneqq (\pi_i \otimes \pi_j)\circ \CoProd\circ \iota_{i+j} \quad\text{and}\quad \Prod_{i,j}\coloneqq \pi_{i+j}\circ \Prod\circ (\iota_i \otimes \iota_j). $$
+\[ \CoProd_{i,j} \coloneqq (\pi_i \otimes \pi_j)\circ \CoProd\circ \iota_{i+j} \quad\text{and}\quad \Prod_{i,j}\coloneqq \pi_{i+j}\circ \Prod\circ (\iota_i \otimes \iota_j). \]
 For $k'$, $k_1$, $l'$, $l_1\ge 0$, let $f: \Ext_{k'}C \rightarrow \Ext_{l'} C$ and $f_1: \Ext_{k_1} C \rightarrow \Ext_{l_1} C$ be linear maps, and let $0 \le h \le \min(k', l_1)$. We set  
-$$k \coloneqq k' + k_1 - h \quad\text{and}\quad l \coloneqq l' + l_1 - h $$
+\[k \coloneqq k' + k_1 - h \quad\text{and}\quad l \coloneqq l' + l_1 - h \]
 and define the \emph{composition of $f$ and $f_1$ at $h$ common outputs} to be the linear map $f \circ_h f_1: \Ext_k C \rightarrow \Ext_l C$ given by 
 \begin{equation}\label{Eq:CompositionSimple}
 f \circ_h f_1 \coloneqq \begin{multlined}[t]\Prod_{l', l_1 - h} \circ (f\otimes \Id_{l_1-h})\circ (\Prod_{h, k'-h}\otimes \Id_{l_1-h})\circ (\Id_{h} \otimes \tau_{\rule{0pt}{7pt}l_1-h,k'-h}) \\[\jot] \circ (\CoProd_{h,l_1-h}\otimes \Id_{k'-h}) \circ (f_1 \otimes \Id_{k'-h} ) \circ \CoProd_{k_1, k'-h}. \end{multlined}
 \end{equation}
 More generally, we define the composition of $f: E_{k'}\rightarrow E_{l'}$ with $r\ge 1$ linear maps $f_{i}: E_{k_i} \rightarrow E_{l_i}$ with $k_i$, $l_i \ge 0$ for $i=1$,~$\dotsc$, $r$ at $0 \le h_i \le l_i$ common outputs such that $h\coloneqq h_1 + \dotsb + h_r \le k'$ as follows. We set 
-$$ k\coloneqq k' + k_1 + \dotsb + k_r-h\quad\text{and}\quad l\coloneqq l' +  l_1 + \dotsb + l_r  - h $$
+\[ k\coloneqq k' + k_1 + \dotsb + k_r-h\quad\text{and}\quad l\coloneqq l' +  l_1 + \dotsb + l_r  - h \]
 and define $f\circ_{h_1, \dotsc, h_r}(f_1, \dotsc, f_r): \Ext_k C \rightarrow \Ext_l C$ by\ToDo[caption={DONE Add the other composition},noline]{Add the definition of $(f_1,\dotsc,f_r)\circ_{h_1,\dotsc,h_r} f$. IT IS DONE IN THE APPENDIX.}
 \begin{equation} \label{Eq:CompositionFormula}
 \begin{aligned}
@@ -69,14 +68,14 @@ and define $f\circ_{h_1, \dotsc, h_r}(f_1, \dotsc, f_r): \Ext_k C \rightarrow \E
 where we have:
 \begin{itemize}
 \item The operation $\Prod^{(r)}$ is the ``product with $r$ inputs'' and the operation $\CoProd^{(r)}$ the ``coproduct with $r$ outputs''; they are defined~by
-$$ \begin{aligned}
+\begin{align*}
 \Prod^{(r)} &\coloneqq \Prod(\Id \otimes \Prod)\dotsb(\Id^{\otimes r-2} \otimes \Prod), & \Prod^{(1)}&\coloneqq \Id,\\
 \CoProd^{(r)} &\coloneqq (\Id^{\otimes r-2} \otimes \CoProd)\dotsb(\Id \otimes \CoProd)\CoProd, &\CoProd^{(1)}&\coloneqq \Id.
-\end{aligned} $$
+\end{align*}
 
 \item $F_{h_1,\dotsc, h_r} \coloneqq (\iota_{h_1}\pi_{h_1}) \otimes \dotsb \otimes (\iota_{h_r}\pi_{h_r})$.%is the ``filter''.
 \item The permutation $\sigma_r \in \Perm_{2r}$ is given by  \Add[caption={DONE Better definition!!!}]{This needs a better definition of $\sigma_r$!!!}
-$$\sigma_r: (1,2,3,4\dotsc, 2r-1, 2r) \longmapsto (1,r+1,2,r+2, \dotsc, r, 2r).$$
+\[\sigma_r: (1,2,3,4\dotsc, 2r-1, 2r) \longmapsto (1,r+1,2,r+2, \dotsc, r, 2r).\]
 \item The symbols $f$ and $f_i$ inside the formula denote the \emph{trivial extensions} of $f$ and $f_i$, respectively; we extend a linear map $f: E_{k'} C \rightarrow E_{l'} C$ trivially to $f: \Ext C \rightarrow \Ext C$ by defining $f(\Ext_i C)=0$ for $i\neq k'$.
 \end{itemize}
 \end{Definition}
@@ -86,7 +85,7 @@ $$\sigma_r: (1,2,3,4\dotsc, 2r-1, 2r) \longmapsto (1,r+1,2,r+2, \dotsc, r, 2r).$
 \item Defining $f\circ_{h_1, \dotsc, h_r}(f_1, \dotsc, f_r): \Ext_k C \rightarrow \Ext_l C$ using~\eqref{Eq:CompositionFormula} makes sense because the right hand side is a trivial extension of its component $\Ext_k C \rightarrow \Ext_l C$. In fact, all $\Prod$, $\CoProd$, $\pi$, $\iota$ in \eqref{Eq:CompositionFormula} can be replaced with $\Prod_{i,j}$, $\CoProd_{i,j}$, $\pi_i$, $\iota_i$ for unique $i$, $j$, so that trivial extensions do not have to be used at all. In this way, it can be seen that \eqref{Eq:CompositionSimple} is indeed a special case of~\eqref{Eq:CompositionFormula}. 
 \item If $h = k' = l_1$, then $f \circ_{h} f_1 = f\circ f_1$.
 \item It holds $f \circ_0 f_1 = (-1)^{\Abs{f}\Abs{f_1}} f_1 \circ_0 f$ and 
-$$ f\circ_{h_1,\dotsc,h_r}(f_1,\dotsc,f_r) = \varepsilon(\sigma,f) f\circ_{h_{\sigma_1^{-1}},\dotsc,h_{\sigma_r^{-1}}}(f_{\sigma_1^{-1}},\dotsc,f_{\sigma_r^{-1}}). $$
+\[ f\circ_{h_1,\dotsc,h_r}(f_1,\dotsc,f_r) = \varepsilon(\sigma,f) f\circ_{h_{\sigma_1^{-1}},\dotsc,h_{\sigma_r^{-1}}}(f_{\sigma_1^{-1}},\dotsc,f_{\sigma_r^{-1}}). \]
 \item Consider the (``non-trivial'') extension $\hat{f}\coloneqq \Prod(f\otimes \Id)\CoProd: \Ext C \rightarrow \Ext C$ and the symmetric product $f_1 \odot \dotsb \odot f_r \coloneqq \Prod^{(r)}(f_1 \otimes \dotsb \otimes f_r)\CoProd^{(r)}: \Ext C \rightarrow \Ext C$. The following formulas from~\cite{Cieliebak2015} hold:
 \begin{equation} \label{Eq:Mix}
 \begin{aligned}
@@ -107,10 +106,10 @@ for every $0\le h \le \min(k_1 + k_2 + k_3, l_1 + l_2 + l_3)$, where $f^+$ denot
 \end{Remark}
 
 If $C$ is filtered by a decreasing filtration, then the bialgebra operations extend continuously to 
-$$\begin{aligned}
+\begin{align*}
 \Prod: \hat{\Ext}_{k_1} C \COtimes \hat{\Ext}_{k_2} C &\longrightarrow \hat{\Ext}_{k_1+k_2} C \quad \text{and}\\ 
 \CoProd: \hat{\Ext}_k C &\longrightarrow \bigoplus_{\substack{l_1, l_2 \ge 0 \\ l_1 + l_2 = k}} \hat{\Ext}_{l_1}C\COtimes\hat{\Ext}_{l_2}C
-\end{aligned}$$ 
+\end{align*}
 for all $k_1$, $k_2$, $k\in \N_0$ because they preserve the filtration degree (see~\cite{Fresse} for a similar construction). Next, if $f_1: \hat{\Ext}_{k_1}C \rightarrow \hat{\Ext}_{l_1}C$ and $f_2: \hat{\Ext}_{k_2}C\rightarrow \hat{\Ext}_{l_2}C$ have finite filtration degrees, then $f_1 \otimes f_2: \hat{\Ext}_{k_1} C \otimes \hat{\Ext}_{k_2} C \rightarrow \hat{\Ext}_{l_1}C\otimes\hat{\Ext}_{l_2}C$ has finite filtration degree too, and hence it extends continuously to $f_1 \otimes f_2: \hat{\Ext}_{k_1} C\COtimes \hat{\Ext}_{k_2} C \rightarrow \hat{\Ext}_{l_1}C\COtimes\hat{\Ext}_{l_2}C$.
 Using these facts, we can canonically extend Definition~\ref{Def:CircS} to maps $f: \hat{\Ext}_{k'} C \rightarrow \hat{\Ext}_{l'} C$ and $f_i: \hat{\Ext}_{k_i}C \rightarrow \hat{\Ext}_{l_i}C$ of finite filtration degrees. The resulting map $f\circ_{h_1,\dotsc,h_r}(f_1,\dotsc,f_r): \hat{\Ext}_k C \rightarrow \hat{\Ext}_l C$ will have finite filtration degree too. Moreover, the formulas in Remark~\ref{Rem:Compositions} will still hold.%The details will be given in~\cite{MyPhD}.
 
@@ -164,21 +163,19 @@ Let $(C,\OPQ_{210}, \OPQ_{120})$ be an $\IBL$-algebra of degree $d$ from Definit
 \end{aligned}
 \end{equation}
 for all $x_1$, $x_2$, $x\in C$, where $\iota: \Sym_2(C[1]) \rightarrow C[1]^{\otimes 2}$ is the section of $\pi: C[1]^{\otimes 2} \rightarrow \Sym_2(C[1])$ from Definition~\ref{Def:SymAlgebra} and~$\SuspU$ is a formal symbol of degree $\Abs{\SuspU} = -1$. Then the degrees satisfy
-$$ \Abs{\tilde{\OPQ}_{210}} = \Abs{\OPQ_{210}} - 1 = -2d - 2\quad\text{and}\quad\Abs{\tilde{\OPQ}_{120}} = \Abs{\OPQ_{120}} + 1 = 0, $$
+\[ \Abs{\tilde{\OPQ}_{210}} = \Abs{\OPQ_{210}} - 1 = -2d - 2\quad\text{and}\quad\Abs{\tilde{\OPQ}_{120}} = \Abs{\OPQ_{120}} + 1 = 0, \]
 the operations $\tilde{\OPQ}_{210}$ and $\tilde{\OPQ}_{120}$ are graded antisymmetric, i.e., we have
-$$ \tilde{\OPQ}_{210} \circ\tau = - \tilde{\OPQ}_{210}\quad\text{and}\quad\tau \circ \tilde{\OPQ}_{120} = - \tilde{\OPQ}_{120} $$
+\[ \tilde{\OPQ}_{210} \circ\tau = - \tilde{\OPQ}_{210}\quad\text{and}\quad\tau \circ \tilde{\OPQ}_{120} = - \tilde{\OPQ}_{120} \]
 for the twist map $\tau$, and the relations
-\begin{equation*}
+\begin{align*}
 %\label{Eq:ClassicIBL}
-\begin{aligned}
 0&=\tilde{\OPQ}_{210}\circ (\tilde{\OPQ}_{210}\otimes \Id)\circ (\Id^{\otimes 3}+ t_3 + t_3^2), \\
 0&=(\Id^{\otimes 3}+t_3 + t_3^2)\circ (\tilde{\OPQ}_{120}\otimes\Id)\circ \tilde{\OPQ}_{120}, \\
 0&= x_1 \cdot \tilde{\OPQ}_{120}(x_2) - (-1)^{ x_1 x_2} x_2 \cdot \tilde{\OPQ}_{120}(x_1) - \tilde{\OPQ}_{120}(\tilde{\OPQ}_{210}(x_1,x_2)), \\
 0& = \tilde{\OPQ}_{210} \circ \tilde{\OPQ}_{120},
-\end{aligned}
-\end{equation*}
+\end{align*}
 hold for all $x_1$, $x_2\in C$. Here, $t_3 \in \Perm_3$ denotes the cyclic permutation with $t_3(1) = 2$ acting on $C^{\otimes 3}$, and we define
-$$ x\cdot (y_1 \otimes y_2) \coloneqq \tilde{\OPQ}_{210}(x,y_1)\otimes y_2 + (-1)^{ x y_1} y_1 \otimes \tilde{\OPQ}_{210}(x,y_2) $$
+\[ x\cdot (y_1 \otimes y_2) \coloneqq \tilde{\OPQ}_{210}(x,y_1)\otimes y_2 + (-1)^{ x y_1} y_1 \otimes \tilde{\OPQ}_{210}(x,y_2) \]
 for all $x$, $y_1$, $y_2 \in C$.
 %On the other hand, starting with~$\tilde{\OPQ}_{210}$ and $\tilde{\OPQ}_{120}$ satisfying the conditions above and defining $\OPQ_{210}: \Ext_2 C \rightarrow \Ext_1 C$ and $\OPQ_{120}: \Ext_1 C \rightarrow \Ext_2 C$ by \eqref{Eq:ClasModIBL}, we get an $\IBL$-algebra $(C,\OPQ_{210},\OPQ_{120})$ according to Definition~\ref{Def:IBLInfty}.
 \end{Proposition}
@@ -188,14 +185,14 @@ The proof is a lengthy but straightforward computation.
 \end{proof}
 
 Consider the \emph{sign-action of $\Perm_k$} on $C^{\otimes k}$ given by $\sigma \mapsto \bar{\sigma}$, where 
-$$ \bar{\sigma}(c_1\otimes\dotsb\otimes c_k)\coloneqq(-1)^\sigma\varepsilon(\sigma,c)c_{\sigma_1^{-1}}\otimes\dotsb\otimes c_{\sigma_k^{-1}} $$
+\[ \bar{\sigma}(c_1\otimes\dotsb\otimes c_k)\coloneqq(-1)^\sigma\varepsilon(\sigma,c)c_{\sigma_1^{-1}}\otimes\dotsb\otimes c_{\sigma_k^{-1}} \]
 for all $c_1$, $\dotsc$, $c_k\in C$ and $\sigma\in \Perm_k$. We define 
-$$ \Lambda C \coloneqq \bigoplus_{k=0}^\infty \Lambda_k C\quad\text{with}\quad \Lambda_k C \coloneqq C^{\otimes k}/\sim, $$
+\[ \Lambda C \coloneqq \bigoplus_{k=0}^\infty \Lambda_k C\quad\text{with}\quad \Lambda_k C \coloneqq C^{\otimes k}/\sim, \]
 where $c\sim \bar{\sigma}(c)$ for all $c\in C^{\otimes k}$ and $\sigma\in \Perm_k$. It is easy to see that the degree-shift map $\theta^{\otimes k}: c_1\otimes \dotsb \otimes c_k \in C^{\otimes k} \mapsto \varepsilon(c,\theta)(\theta c_1)\otimes\dotsb\otimes(\theta c_k)\in C[1]^{\otimes k}$ is equivariant with respect to the sign-action of $\Perm_k$ on $C^{\otimes k}$ and the standard action of $\Perm_k$ on $C[1]^{\otimes k}$ for all $k$, and thus it induces an isomorphism of vector spaces $\Lambda C$ and $\Ext C$. We use the following notation:
-$$\begin{tikzcd}
+\[\begin{tikzcd}
  \OPQ_{klg}: \hat{\Ext}_k C \arrow{r} \arrow{d}{\theta^{\otimes k}} & \hat{\Ext}_l C \arrow{d}{\theta^{\otimes l}} \\
  \tilde{\OPQ}_{klg}: \hat{\Lambda}_k C \arrow{r} & \hat{\Lambda}_l C.
-\end{tikzcd}$$
+\end{tikzcd}\]
 In fact, $\OPQ_{klg}$ and $\tilde{\OPQ}_{klg}$ are related precisely by the degree shift \eqref{Eq:DegreeShiftConvII}. 
 
 \begin{figure}[t]
@@ -258,66 +255,71 @@ In \cite[Proposition~9.3]{Cieliebak2015}, they prove that $(\OPQ_{klg}^\PMC)_{k,
 Let $(\OPQ_{klg})$ be an $\IBLInfty$-algebra on $C$. The boundary operator $\OPQ_{110}: C[1] \rightarrow C[1]$ induces the boundary operator $\Bdd_k : \Ext_k C \rightarrow \Ext_k C$ for every $k\in \N$ (see \eqref{Eq:BddExt}). Because of the finite filtration degree, $\Bdd_k$ continuously extends to $\Bdd_k: \hat{\Ext}_k C \rightarrow \hat{\Ext}_k C$.
 %, where we used that $\hat{\Ext}_k \hat{C} \simeq \hat{\Ext}_k C$ (see Remark~\ref{Rem:ComplTens}).
 The following is easy to see using \eqref{Eq:CompositionSimple}:
-$$\begin{aligned}
+\[\begin{aligned}
  \OPQ_{klg} \circ_1 \OPQ_{110} &= \OPQ_{klg} \circ \Bdd_k, \\
  \OPQ_{110} \circ_1 \OPQ_{klg} &= \Bdd_l \circ \OPQ_{klg}.
-\end{aligned}$$
+\end{aligned}\]
 Because $\OPQ_{klg}$ are odd ($\coloneqq$\,have odd degree), we have
-$$ \begin{aligned}
+\[ \begin{aligned}
   [\Bdd,\OPQ_{klg}] &\coloneqq \Bdd_l \circ \OPQ_{klg} - (-1)^{\Abs{\Bdd}\Abs{\OPQ_{klg}}} \OPQ_{klg}\circ \Bdd_k \\
    &= \Bdd_l \circ \OPQ_{klg} + \OPQ_{klg}\circ \Bdd_k \\
    &= \OPQ_{110}\circ_1 \OPQ_{klg} + \OPQ_{klg}\circ_1 \OPQ_{110}.
-  \end{aligned}$$
+  \end{aligned}\]
 With this notation, the $\IBLInfty$-relations \eqref{Eq:IBLInfRel} for 
 $\OPQ_{210}: \hat{\Ext}_2 C \rightarrow \hat{\Ext}_1 C$ and $\OPQ_{120}: \hat{\Ext}_1 C \rightarrow \hat{\Ext}_2 C$ become $[\Bdd,\OPQ_{210}] = 0$ and $[\Bdd,\OPQ_{120}] = 0$, respectively. If moreover the canonical maps $\Ext_k \H(\hat{C},\tilde{\OPQ}_{110}) \rightarrow \H(\hat{\Ext}_k C, \Bdd_k)$ induce the isomorphisms $\hat{\Ext}_k \H(\hat{C},\tilde{\OPQ}_{110})  \simeq \H(\hat{\Ext}_k C, \Bdd_k)$ for $k=1$, $2$, e.g., when Proposition~\ref{Prop:Kuenneth} holds, then we obtain the maps
-$$ \OPQ_{210}: \hat{\Ext}_2\H(\hat{C},\tilde{\OPQ}_{110})  \rightarrow \hat{\Ext}_1\H(\hat{C},\tilde{\OPQ}_{110}) \quad \text{and}\quad \OPQ_{120}: \hat{\Ext}_1\H(\hat{C},\tilde{\OPQ}_{110})  \rightarrow \hat{\Ext}_2\H(\hat{C},\tilde{\OPQ}_{110}), $$
+\[ \OPQ_{210}: \hat{\Ext}_2\H(\hat{C},\tilde{\OPQ}_{110})  \rightarrow \hat{\Ext}_1\H(\hat{C},\tilde{\OPQ}_{110}) \quad \text{and}\quad \OPQ_{120}: \hat{\Ext}_1\H(\hat{C},\tilde{\OPQ}_{110})  \rightarrow \hat{\Ext}_2\H(\hat{C},\tilde{\OPQ}_{110}), \]
 and $(\H(\hat{C},\tilde{\OPQ}_{110}),\OPQ_{210},\OPQ_{120})$ becomes an $\IBL$-algebra according to Definition~\ref{Def:IBLInfty} --- the \emph{induced $\IBL$-algebra on homology}.
 
 \begin{Definition}[Homology]\label{Def:HomIBL}
 We define the homology of an $\IBLInfty$-algebra $\IBLInfty(C)$ by
-$$ \HIBL(C)[1] \coloneqq \H(\hat{C}[1], \OPQ_{110}). $$
+\[ \HIBL(C)[1] \coloneqq \H(\hat{C}[1], \OPQ_{110}). \]
 It is a graded vector space with the induced filtration. If $\PMC$ is a Maurer-Cartan element for $\IBLInfty(C)$, we denote by $\HIBL^\PMC(C)$ the homology of $\IBLInfty^\PMC(C)$.
 \end{Definition}
 
 %These relations should be understood like the claim that $\OPQ_{210}\circ_1 \OPQ_{210}: \hat{\Ext}_3 C \rightarrow \hat{\Ext}_1 C$ induces the zero map $\HIBL_3(C) \rightarrow \HIBL_1(C)$, for example.
 %It is an exercise to check that the first three relations of \eqref{Eq:IndIBL} are ``algebraically'' equivalent to \eqref{Eq:Bialgebra} (i.e., ignoring the completions and using just \eqref{Eq:CompositionSimple}) under the replacement $\Prod\mapsto \OPQ_{210}$, $\CoProd\mapsto \OPQ_{120}$ (notice that $\OPQ_{210}$, $\OPQ_{120}$ are odd whereas $\Prod$, $\CoProd$ even).
-\begin{Remark}[$\mathrm{BV}$-formalism]\label{Rem:BVForm}
-Consider the weight-reduced exterior algebra $\RExt C$. Let $\CRExt C[[\hbar]]$, resp.~$\CRExt C((\hbar))$ be the spaces of formal power, resp.~Laurent series in the variable~$\hbar$ of degree $\Abs{\hbar} = 2d$ with coefficients in $\RExt C$ completed with respect to a suitable completion.
+\begin{Remark}[Weak $\IBLInfty$-algebras and $\mathrm{BV}$-formalism]\label{Rem:BVForm}
+\begin{RemarkList}
+\item A possible generalization of the $\IBLInfty$-theory is to allow $k=0$ and $l=0$.
+Such structures would be called \emph{weak $\IBLInfty$-algebras} while the structures from this section \emph{strict $\IBLInfty$-algebras.}
+In fact, one does not need filtrations and completions to deal with the category of strict $\IBLInfty$-algebras unless deformations (twisting) are considered.
+On the other hand, one needs filtrations and completions for the definition of a morphism of weak $\IBLInfty$-algebras already.
+We refer to Appendix~\ref{App:IBLMV} for more details. 
+\item Let $\CExt C[[\hbar]]$, resp.~$\CExt C((\hbar))$ be the spaces of formal power, resp.~Laurent series in the variable~$\hbar$ of degree $\Abs{\hbar} = 2d$ with coefficients in $\Ext C$ completed with respect to a suitable completion.
 %\footnote{Note that $\Ext C$ has two filtrations $\F^1_\lambda C$ and $\F^2_\lambda C$: the filtration induced from $C$ and the filtration by weights, respectively. In \cite{Cieliebak2015}, they take the combined filtration $\F^1_\lambda C + \F^2_\lambda C$. We will discuss some variations in~\cite{MyPhD}.}
-Operations of an $\IBLInfty$-algebra on $C$ can be encoded in a degree~$-1$ operator $\BVOp: \CRExt C[[\hbar]] \rightarrow \CRExt C[[\hbar]]$ called the \emph{$\mathrm{BV}_\infty$-operator,} while the data of a Maurer-Cartan element~$(\PMC_{lg})$ give rise to an operator $e^{\PMC}\cdot: \CRExt C[[\hbar]] \rightarrow \CRExt C((\hbar))$ --- the multiplication with the exponential of $\PMC$ with respect to $\odot$. These operators are given by
-$$ \BVOp \coloneqq \sum_{i\ge 0}\BVOp_{i+1} \hbar^{i}\quad\text{and}\quad e^{\PMC} \coloneqq \sum_{j\in \Z} (e^{\PMC})_j \hbar^{j}, $$
-where the maps $\BVOp_i$, $(e^\PMC)_j: \CRExt C\rightarrow \CRExt C$ for $i\ge 1$, $j\in \Z$ are defined by 
-$$\begin{aligned}
+Operations of an $\IBLInfty$-algebra on $C$ can be encoded in a degree~$-1$ operator $\BVOp: \CExt C[[\hbar]] \rightarrow \CExt C[[\hbar]]$ called the \emph{$\mathrm{BV}$-operator,} while the data of a Maurer-Cartan element~$(\PMC_{lg})$ give rise to an element $e^{\PMC}\in \CExt C((\hbar))$. The prescriptions are
+\[ \BVOp \coloneqq \sum_{i\ge 0}\BVOp_{i+1} \hbar^{i}\quad\text{and}\quad e^{\PMC} \coloneqq \sum_{j\in \Z} (e^{\PMC})_j \hbar^{j}, \]
+where $\BVOp_i$ and $(e^\PMC)_j$ for $i\ge 1$, $j\in \Z$ are defined by 
+\begin{align*}
 \BVOp_i & \coloneqq \sum_{\substack{k\ge 1, g\ge 0 \\k+g=i}} \sum_{l\ge 1} \hat{\OPQ}_{klg}\quad\text{and} \\
 (e^{\PMC})_j &\coloneqq \sum_{r=0}^\infty \frac{1}{r!} \sum_{\substack{g_1, \dotsc, g_r \ge 0 \\ g_1 + \dotsb +g_r - r= j }} \sum_{l_1, \dotsc, l_r\ge 1} \PMC_{l_1 g_1} \odot \dotsb \odot \PMC_{l_r g_r}.
-\end{aligned}$$
+\end{align*}
 It can be shown that the $\IBLInfty$-relations~\eqref{Eq:IBLInfRel} and the Maurer-Cartan equation~\eqref{Eq:MaurerCartanEquation} are equivalent to  
 \begin{equation}\label{Eq:BVEquat}
- \BVOp\circ \BVOp = 0\quad\text{and}\quad \BVOp \circ e^\PMC = 0,
+ \BVOp\circ \BVOp = 0\quad\text{and}\quad \BVOp(e^\PMC) = 0,
 \end{equation}
 respectively, and that the $\BVInfty$-operator $\BVOp^\PMC$ for the twisted $\IBLInfty$-structure $(\OPQ_{klg}^\PMC)$ satisfies
 \begin{equation} \label{Eq:TwistBV}
-\BVOp^\PMC = e^{-\PMC}\BVOp(e^\PMC \cdot)
+\BVOp^\PMC(\bullet)= e^{-\PMC}\BVOp(e^\PMC\bullet),
 \end{equation}
- These facts were shown in~\cite{Cieliebak2015} using \eqref{Eq:Mix}.\footnote{One has to check that the compositions \eqref{Eq:BVEquat} and \eqref{Eq:TwistBV} are well-defined and pick a suitable completion $\CRExt C$ so that all the constructions work.}
- 
-There are some things which are unclear in the above. We do it properly in the Appendix about filtrations.
-%Some technical details, e.g., which completion $\CRExt C$ we take so that $\BVOp$, $e^\PMC$ and $\Prod$ are well-defined, and why the compositions in \eqref{Eq:BVEquat}, \eqref{Eq:TwistBV} make sense, will be discussed in~\cite{MyPhD}. %For more about $\IBLInfty$-algebras as $\BVInfty$-algebras see~\cite{Markl2015a}.
+where we multiply with $e^{-\PMC}$ and $e^{\PMC}$, respectively.
+These facts were shown in~\cite{Cieliebak2015} using~\eqref{Eq:Mix}.
+We refer to Appendix~\ref{App:IBLMV} to the precise formulation of the $\BV$-formalism using a filtered version of the $\MV$-formalism from \cite{Markl2015}.\qedhere
+%\footnote{One has to check that the compositions \eqref{Eq:BVEquat} and \eqref{Eq:TwistBV} are well-defined and pick a suitable completion $\CExt C$ so that all the constructions work.} 
+%Some technical details, e.g., which completion $\CExt C$ we take so that $\BVOp$, $e^\PMC$ and $\Prod$ are well-defined, and why the compositions in \eqref{Eq:BVEquat}, \eqref{Eq:TwistBV} make sense, will be discussed in~\cite{MyPhD}. %For more about $\IBLInfty$-algebras as $\BVInfty$-algebras see~\cite{Markl2015a}.
+\end{RemarkList}
 \end{Remark}
 
-\begin{Remark}[Weak $\IBLInfty$-algebras]\label{Rem:Weak}
-A possible generalization of the $\IBLInfty$-theory above is to allow $k=0$ and $l=0$, so that $\Ext C$ must be used instead of $\RExt C$ in Remark~\ref{Rem:BVForm}. Such structures would be called \emph{weak $\IBLInfty$-algebras}.
-\end{Remark}
-
-
-In our application in string topology, a canonical $\dIBL$-algebra $\dIBL(C)$ with a natural Maurer-Cartan element $\PMC$ are given, and we want to study $\dIBL^\PMC(C)$; in particular, we are interested in $\HIBL^\PMC(C)$, $\IBL(\HIBL^\PMC(C))$ and possible higher operations on $\HIBL^\PMC(C)$ induced by $\OPQ_{klg}^\PMC$ (these are not chain maps in general). The following proposition summarizes some observations in this situation:
+In our applications in string topology, a canonical $\dIBL$-algebra $\dIBL(C)$ with a natural Maurer-Cartan element $\PMC$ coming from the Chern-Simons theory is given, and we want to study $\dIBL^\PMC(C)$, which will be a chain model of string topology.
+We are also interested in the homology $\HIBL^\PMC(C)$, the $\IBL$-structure $\IBL(\HIBL^\PMC(C))$ and possible higher operations on $\HIBL^\PMC(C)$ induced by $\OPQ_{klg}^\PMC$; however, these higher maps are not chain maps in general.
+The following proposition summarizes some observations in this situation:
 
 \begin{Proposition}[Twist of a $\dIBL$-algebra]\label{Prop:dIBL}
 Let $\dIBL(C) = (C,\OPQ_{110},\OPQ_{210},\OPQ_{120})$ be a $\dIBL$-algebra, and let $\PMC = (\PMC_{lg})$ be a Maurer-Cartan element. The Maurer-Cartan equation~\eqref{Eq:MaurerCartanEquation} reduces to the following:
-$$ 
+\[ 
 %\raisebox{-3ex}{\parbox{2em}{\centering MC-eq.}\quad $\Biggl\{$ } 
 \begin{multlined}[b] 0 = \OPQ_{110}\circ_1 \PMC_{lg} + \OPQ_{120} \circ_1 \PMC_{l-1,g} +  \OPQ_{210}\circ_2 \PMC_{l+1,g-1} \\[\jot]+  \frac{1}{2}\sum_{\substack{l_1, l_2\ge 1 \\ g_1, g_2 \ge 0 \\ l_1 + l_2 = l + 1 \\ g_1 + g_2 = g}} \OPQ_{210}\circ_{1,1}(\PMC_{l_1 g_1}, \PMC_{l_2 g_2}) \end{multlined}\quad \forall l\ge1 , g\ge 0.
-$$
+\]
 In particular, the ``lowest'' equation is given by\footnote{In \cite[Definition 2.4.]{Cieliebak2015}, they define a partial ordering on the signatures $(k,l,g)$.}
 \begin{equation} \label{Eq:MCEq}
 (l,g) = (1,0): \qquad \OPQ_{110}(\PMC_{10}) + \frac{1}{2}\OPQ_{210}(\PMC_{10}, \PMC_{10}) = 0.
@@ -335,16 +337,16 @@ This can be visualized as
   \def\gencanc{0.05} % legth of extra line in genus
   \def\genecc{20} % eccentricity of genus
   \def\genrad{0.45} % radius of genus
-$$0 =\quad \vcenterline{\input{\GraphicsFolder/p110n10.tex}}\; + \frac{1}{2} \quad \vcenterline{\input{\GraphicsFolder/p210n10n10.tex}}. $$
+\[0 =\quad \vcenterline{\input{\GraphicsFolder/p110n10.tex}}\; + \frac{1}{2} \quad \vcenterline{\input{\GraphicsFolder/p210n10n10.tex}}. \]
 \endgroup}
 
 The twisted $\IBLInfty$-algebra $\dIBL^\PMC(C)$ consists of the operations $\OPQ_{110}^\PMC$, $\OPQ_{210}^\PMC$ and~$\OPQ_{120}^\PMC$, which we call the \emph{basic operations}, and of the operations $\OPQ_{1lg}^\PMC$ for the pairs $(l,g)\in \N \times \N_0 \backslash \{(1,0),(2,0)\}$, which we call the \emph{higher operations}. These operations are given by 
-$$ \begin{aligned}
+\[ \begin{aligned}
 \OPQ_{110}^\PMC &= \OPQ_{110} + \OPQ_{210}\circ_1 \PMC_{10},\\
 \OPQ_{210}^\PMC &= \OPQ_{210}, \\
 \OPQ_{120}^\PMC & = \OPQ_{120} + \OPQ_{210}\circ_1 \PMC_{20},\\
 \OPQ_{1lg}^\PMC & = \OPQ_{210}\circ_1 \PMC_{lg}.
-\end{aligned}$$
+\end{aligned}\]
 This can be visualized as
 { \begingroup \allowdisplaybreaks
 \def\dist{0.25} %distance between two surfaces
@@ -375,7 +377,7 @@ The $\IBLInfty$-relations satisfied by $(\OPQ_{klg}^\PMC)$ read for all $l\ge 1$
 \end{aligned}
 \end{equation}
 We call the relations for $(k,l,g) = (1,1,0)$, $(2,1,0)$, $(1,2,0)$, $(3,1,0)$, $(1,3,0)$, $(2,2,0)$, $(1,1,1)$ \emph{basic relations} because they contain all compositions of basic operations. In the order above, they read:
-$$\begin{aligned} 
+\[\begin{aligned} 
  0 & =\OPQ^\PMC_{110} \circ_1 \OPQ^\PMC_{110}, && \\
 0 &=\OPQ^\PMC_{110}\circ_1\OPQ^\PMC_{210} + \OPQ^\PMC_{210}\circ_1 \OPQ^\PMC_{110}, && \\
 0 &= \OPQ^\PMC_{110}\circ_1 \OPQ^\PMC_{120} + \OPQ^\PMC_{120}\circ_1 \OPQ^\PMC_{110}, && \\
@@ -383,7 +385,7 @@ $$\begin{aligned}
 0 &=\OPQ^\PMC_{120} \circ_1 \OPQ^\PMC_{120} + \OPQ^\PMC_{110}\circ_1 \OPQ^\PMC_{130} + \OPQ^\PMC_{130}\circ_1 \OPQ^\PMC_{110}, && \leftarrow\text{co-Jacobi id. up to htpy.} \\
 0 & = \OPQ^\PMC_{120}\circ_1 \OPQ^\PMC_{210} + \OPQ^\PMC_{210}\circ_1 \OPQ^\PMC_{120}, && \leftarrow\text{Drinfeld identity} \\
 0 & = \OPQ^\PMC_{210}\circ_2 \OPQ^\PMC_{120} + \OPQ^\PMC_{111}\circ_1 \OPQ^\PMC_{110} + \OPQ^\PMC_{110}\circ_1 \OPQ^\PMC_{111}. && \leftarrow\text{Involutivity up to htpy.}
-\end{aligned}$$
+\end{aligned}\]
 The last four equations can be visualized as
 { \begingroup \allowdisplaybreaks
 \def\dist{0.25} %distance between two surfaces
@@ -416,7 +418,7 @@ The proof is clear by specializing \eqref{Eq:IBLInfRel}, \eqref{Eq:MaurerCartanE
 \begin{Remark}[Higher operations]\label{Rem:Higher}
 \begin{RemarkList}
 \item We see from Proposition~\ref{Prop:dIBL} that if $\OPQ_{120}^\PMC \circ_1 \OPQ_{120}^\PMC = 0$ and $\OPQ_{210}^\PMC \circ_{2} \OPQ_{120}^\PMC = 0$, then $[\Bdd^\PMC, \OPQ_{130}^\PMC] = 0$ and $[\Bdd^\PMC, \OPQ_{111}^\PMC] = 0$, respectively, and hence the operations $\OPQ_{130}^\PMC: \hat{\Ext}_1\HIBL^\PMC\rightarrow \hat{\Ext}_3\HIBL^\PMC$ and $\OPQ_{111}^\PMC: \hat{\Ext}_1\HIBL^\PMC\rightarrow \hat{\Ext}_1\HIBL^\PMC$ are well-defined (provided that the assumption of Definition \ref{Def:HomIBL} holds). Likewise, the higher operation~$\OPQ_{1lg}^\PMC$ defines a map $\hat{\Ext}_1\HIBL^\PMC \rightarrow \hat{\Ext}_l\HIBL^\PMC$, provided that the following equation holds:
-$$ \OPQ^\PMC_{210}\circ_2 \OPQ_{1,l+1,g-1}^\PMC + \sum_{\substack{l_1, l_2 \ge 1 \\ g_1, g_2 \ge 0 \\ l_1 + l_2 = l+1 \\ g_1 + g_2 = g \\ (l_i,g_i)\neq (1,0)}} \OPQ^\PMC_{1l_1 g_1}\circ_1 \OPQ^\PMC_{1 l_2 g_2} = 0. $$
+\[ \OPQ^\PMC_{210}\circ_2 \OPQ_{1,l+1,g-1}^\PMC + \sum_{\substack{l_1, l_2 \ge 1 \\ g_1, g_2 \ge 0 \\ l_1 + l_2 = l+1 \\ g_1 + g_2 = g \\ (l_i,g_i)\neq (1,0)}} \OPQ^\PMC_{1l_1 g_1}\circ_1 \OPQ^\PMC_{1 l_2 g_2} = 0. \]
 This expression is just the left-over after subtracting the commutator $[\OPQ_{1lg}^\PMC,\OPQ_{110}^\PMC] = \OPQ_{110}^\PMC \circ_1 \OPQ_{1lg}^\PMC + \OPQ_{1lg}^\PMC \circ_1 \OPQ_{110}^\PMC$ from \eqref{Eq:IBLInftydIBL}.
 %Later, when the twist realizes a homotopy transfered $\IBLInfty$-algebra. Note that this is a similar situation as with higher $\AInfty$-Massey product. 
 \item In the genus-$0$ case, i.e., $\OPQ_{1lg}^\PMC = 0$ whenever $g\ge 1$, relations \eqref{Eq:IBLInftydIBL} reduce to
@@ -425,7 +427,8 @@ This expression is just the left-over after subtracting the commutator $[\OPQ_{1
  0 & = \OPQ_{1lg}^\PMC\circ_1\OPQ_{210} + \OPQ_{210}\circ_1\OPQ_{1lg}^\PMC, \\
  0 & = \sum_{\substack{l_1,l_2\ge 1\\ g_1, g_2 \ge 0 \\ l_1 + l_2 = l + 1 \\ g_1 + g_2 = g}} \OPQ_{1l_1 g_1}^\PMC \circ_1 \OPQ_{1l_2 g_2}^\PMC.
 \end{align*}
-The first relation is the Jacobi identity for $\OPQ_{210}$, the second relation is a generalization of the Drinfeld identity to higher coproducts $\OPQ_{1l0}^\PMC$, and the third relations are $\CoLInfty$-relations for $\OPQ_{1lg}^\PMC$. Therefore, allowing $g\ge 0$, we see that the twisted $\dIBL$-algebra $\OPQ_{110}^\PMC$, $\OPQ_{210}$, $(\OPQ_{1lg}^\PMC)$ is, in fact, a \emph{quantum $\CoLInfty$-algebra.}
+The first relation is the Jacobi identity for $\OPQ_{210}$, the second relation is a generalization of the Drinfeld identity to higher coproducts $\OPQ_{1l0}^\PMC$, and the third relations are \emph{$\CoLInfty$-relations} for $\OPQ_{1lg}^\PMC$.
+Therefore, allowing $g\ge 0$, we see that the twisted $\dIBL$-algebra $\OPQ_{110}^\PMC$, $\OPQ_{210}$, $(\OPQ_{1lg}^\PMC)$ is, in fact, a \emph{quantum $\CoLInfty$-algebra.}\qedhere
 \end{RemarkList}
 \end{Remark}
 

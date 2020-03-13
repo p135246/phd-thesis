@@ -4,6 +4,8 @@
 
 \begin{document}
 \section{Standard Hodge propagator for Euclidean space}\label{Sec:HeatRN}
+\allowdisplaybreaks
+
 We will use Propositions~\ref{Prop:StdCodifInt} and~\ref{Prop:HeatKerFormulas} to prove in two ways that $\StdPrpg$ for $\R^n$ extends smoothly to the blow-up. We will start with the following well known formulas.
 \begin{Proposition}[Green form and heat kernel for $\R^n$]\label{Prop:GreenKernelRn}
 The Green form for $\R^n$, which can be equivalently characterized as the unique solution $\GKer\in \DR^n(\R^n\times\R^n\backslash\Diag)$ of
@@ -21,7 +23,7 @@ The heat kernel for $\R^n$, i.e., the solution of $\Laplace_y \QKer_t(x,y) = -\f
 \end{equation}
 \end{Proposition}
 \begin{proof}
-See \cite{BGV}
+See \cite{BGV}.
 \end{proof}
 
 \begin{Proposition}[Standard Hodge propagator for $\R^n$]\label{Prop:StdHodgePropRn}
@@ -153,7 +155,7 @@ In order to integrate this according to \eqref{Eq:StdPrpgPol}, we will make use 
 &= \frac{\Gamma(\frac{n}{2})}{2\pi^{\frac{n}{2}}}\Vol(\omega) \\
 & = \frac{\Vol(\omega)}{\Vol(\Sph{n-1})},
 \end{align*}
-which recovers the formula in the proof of Proposition~\ref{Prop:StdHodgePropRn}.
+which recovers the formula in the other proof of Proposition~\ref{Prop:StdHodgePropRn}.
 \end{proof}
 
 \begin{Example}[The case $n=1$]\label{Ex:SDFSDF}
@@ -167,11 +169,21 @@ Indeed, using $\Sgn(x) = 2\theta(x) - 1$, we get
 $$ \frac{\partial^2}{\partial y^2} \frac{1}{2}\Abs{x-y} = \frac{\partial}{\partial y}\frac{1}{2}\Sgn(y-x) = \delta(y-x) = \delta(x-y), $$
 which shows \eqref{Eq:GrRn}. We carefully compute
 \begin{align*}
-(\Id\otimes \CoDd_y)\GKer(x,y) & = \CoDd_y \Bigl(\frac{1}{2}\Abs{x-y}\Diff{y}\Bigr) = -\frac{1}{2} \frac{\partial}{\partial y}\Abs{x-y} = -\frac{1}{2}(2\theta(y-x)-1) \\ &= - \theta(y-x) + \frac{1}{2} = \theta(x-y) - \frac{1}{2}
+(\Id\otimes \CoDd_y)\GKer(x,y) & = \CoDd_y \Bigl(\frac{1}{2}\Abs{x-y}\Diff{y}\Bigr) \\
+& = -\frac{1}{2} \frac{\partial}{\partial y}\Abs{x-y} \\
+& = -\frac{1}{2}(2\theta(y-x)-1) \\ 
+& = - \theta(y-x) + \frac{1}{2} \\
+& = \theta(x-y) - \frac{1}{2}
 \end{align*}
 and apply Proposition~\ref{Prop:StdCodifInt} to get
 $$ \StdPrpg(x,y) = \theta(x-y) - \frac{1}{2}. $$
 In particular, we see that the sign agrees with the direct computation of the Hodge propagator above. Smoothness on the blow-up is for $n=1$ equivalent to smoothness on the closures of connected components of $\R\times\R\backslash\Diag$; this is readily satisfied. 
 \end{Example}
+
+\begin{Question}
+	Is it possible to use the asymptotic heat kernel expansion and formula~\eqref{Eq:PrpgUsingHeatKernel} or the asymptotic Green kernel expansion and formula \eqref{Eq:FormForPUsingG} to infer from the case of $\R^n$ with the standard Euclidean metric $g_0$ that $\StdPrpg$ extends smoothly to the blow-up for flat manifolds, i.e., locally isometric to $(\R^n,g_0)$?  
+\end{Question}
+
+
 %NOTICE THAT ALREADY $\GKer$ EXTENDS SMOOTHLY TO THE BLOW-UP. BUT ACCORDING TO EXAMPLE BLAH BLAH WE CAN NOT USE IT TO PROVE IT BECAUSE OF THE POLARZIED OPERATORS. MAYBE YES BECAUSE OF ITS SIMPLE FORM?
 \end{document}

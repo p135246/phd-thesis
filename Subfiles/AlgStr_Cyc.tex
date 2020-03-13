@@ -7,6 +7,7 @@
 \section{Dual cyclic bar complex and cyclic cohomology
 %for the \texorpdfstring{$\IBLInfty$-theory}{IBL-infinity-theory}
 }
+\allowdisplaybreaks
 \label{Sec:Alg2}
 \Correct[caption={DONE Notation for cyclic Hochschild}]{Notation for cyclic Hochschild}
 \Correct[caption={DONE Reduced is defined wrt. normalized!},inline]{Reduced is defined as coker or ker in normalized and not in the full complex! It is OK because we have the cyclic symmetry!}
@@ -150,10 +151,10 @@ $$(\mu_{k_1} \circ_1^p \mu_{k_2})(v_1, \dotsc, v_{k}) \coloneqq \begin{multlined
  $$ \mu_k^+ \circ t_{k+1} = \mu_k^+. $$
 \end{PlainList}
 We denote by $\tilde{\Pair}: V\otimes V \rightarrow \R$ and $\tilde{\mu}_k: V^{\otimes k} \rightarrow \R$ the operations before the degree shift; i.e., for all $k\ge 1$ and $\tilde{v}_1$, $\dotsc$, $\tilde{v}_k \in V$ with $v_i = \SuspU \tilde{v}_i$, we have
-$$\begin{aligned}
+\begin{align*}
 \tilde{\Pair}(\tilde{v}_1, \tilde{v}_2) &\coloneqq (-1)^{\tilde{v}_1} \Pair(v_1, v_2)\quad\text{and} \\[\jot]
 \tilde{\mu}_k(\tilde{v}_1, \dotsc, \tilde{v}_k) &\coloneqq \varepsilon(\SuspU,\tilde{v}) \mu_k(v_1,\dotsc, v_k).
-\end{aligned} $$
+\end{align*}
 We define $\tilde{\mu}_k^+: V^{\otimes k+1}\rightarrow \R$ similarly.
 
 If $\mu_k \equiv 0$ for all $k\ge 2$, then $(V,\Pair, \mu_1)$ is called a \emph{cyclic cochain complex}. If $\mu_k \equiv 0$ for all $k\ge 3$, then $(V,\Pair,\mu_1,\mu_2)$ is called a \emph{cyclic dga}. We use the same terminology but omit ``cyclic'' if there is no pairing $\Pair$ and 1) and 4) are thus irrelevant.
@@ -163,7 +164,7 @@ If $\mu_k \equiv 0$ for all $k\ge 2$, then $(V,\Pair, \mu_1)$ is called a \emph{
 Our definition of $\mu_k^+$ differs from the definition of $\mathrm{m}_k^+$ in~\cite[Definition 12.1]{Cieliebak2015} by a sign. To compensate this, we have to add this artificial sign in the definitions of Maurer-Cartan elements later; e.g., in Definition~\ref{Def:CanonMC} or in the formula~\eqref{Eq:PushforwardMC}.
 \end{Remark}
 \Correct[caption={DONE Change sub to sup},noline]{Change $\Hd^k$ to $\Hd_k$ and so on. Why are the indices upstairs?}
-\begin{Definition}[(cyclic) (co)homology of an $\AInfty$-algebra]\label{Def:CycHom}
+\begin{Definition}[Cyclic (co)homology of an $\AInfty$-algebra]\label{Def:CycHom}
 Let $\mathcal{A}=(V,(\mu_k))$ be an $\AInfty$-algebra. For every $k\ge 1$, we consider the maps $\Hd'_k$, $R_k: V[1]^{\otimes k} \rightarrow \B V$ given by 
 \begin{equation}\label{Eq:bRH} \begin{aligned}\Hd'_k & \coloneqq \sum_{j=1}^k \sum_{i=0}^{k-j} t^i_{k-j+1}\circ(\mu_j \otimes \Id^{k-j})\circ t_k^{-i}\quad\text{and}\\
 R_k &\coloneqq \sum_{j=2}^k \sum_{i=1}^{j-1} (\mu_j\otimes \Id^{k-j})\circ t_k^{i}, \end{aligned}
@@ -173,7 +174,7 @@ respectively, and define the following maps $\B V \rightarrow \B V$:
 \Hd'\coloneqq \sum_{k=1}^{\infty} \Hd'_k, \quad R\coloneqq \sum_{k=2}^\infty R_k\quad\text{and}\quad \Hd\coloneqq \Hd' + R.
 %\label{Eq:b} 
 \end{equation*}
-We denote by $\Hd^*: \CDB V = (\B V)^{\GD} \rightarrow \CDB V$ the dual map to $\Hd: \B V \rightarrow \B V$.  The following holds:\footnote{The facts \eqref{Eq:HH} are generally known in some form (see \cite{Mescher2016} or \cite{Lazarev2003}).}
+We denote by $\Hd^*: \CDB V = (\B V)^{\GD} \rightarrow \CDB V$ the dual map to $\Hd: \B V \rightarrow \B V$.  The following holds:\footnote{The facts~\eqref{Eq:HH}, in some form, are generally known; see \cite{Mescher2016} or \cite{Lazarev2003}. We prove them in our setting in Appendix~\ref{App:AInfty}.}
 \begin{equation} \label{Eq:HH}
 \Abs{\Hd} = 1\ (\Abs{\Hd^*}=-1), \quad \Hd\circ \Hd = 0 \quad\text{and}\quad \Hd(1-t) = (1-t)\Hd'.
 \end{equation} 
@@ -185,15 +186,17 @@ From the last equation we see that $\Hd$ restricts to $\BCyc V = \B V / \Im(1-t)
 %\end{aligned} $$
 %and the corresponding graded vector spaces  
 We define the following graded vector spaces:
-$$\begin{aligned}
-D(V) &\coloneqq r(\B V)[1], & D^*(V) &\coloneqq r(\CDB V)[1], \\ D^\lambda(V) &\coloneqq r(\BCyc V)[1], & D_\lambda^*(V) &\coloneqq r(\CDBCyc V)[1]. \end{aligned}$$
+\begin{align*}
+D(V) &\coloneqq r(\B V)[1], & D^*(V) &\coloneqq r(\CDB V)[1], \\ D^\lambda(V) &\coloneqq r(\BCyc V)[1], & D_\lambda^*(V) &\coloneqq r(\CDBCyc V)[1], \end{align*}
+where $r$ denotes the grading reversal.
 For instance, we have
 $$ D_\lambda^q(V) = r(\CDBCyc V)^{q+1} = (\CDBCyc V)^{-q-1}\quad \text{for all } q\in \Z.$$
-Then $(D(V),\Hd)$ and $(D^\lambda(V),\Hd)$ are chain complexes and $(D^*(V),\Hd^*)$ and $(D_\lambda^*(V),\Hd^*)$ the dual cochain complexes, respectively. We define the following (co)homologies:
-$$ \begin{aligned}
+Then $(D(V),\Hd)$ and $(D^\lambda(V),\Hd)$ are chain complexes and $(D^*(V),\Hd^*)$ and $(D_\lambda^*(V),\Hd^*)$ the dual cochain complexes, respectively.
+We define the following (co)homologies:
+\begin{align*}
 \H\H(\mathcal{A};\R)& \coloneqq \H(D(V), \Hd), & \H\H^*(\mathcal{A};\R) &\coloneqq \H(D^*(V),\Hd^*),\\  
 \H^\lambda(\mathcal{A};\R)& \coloneqq \H(D^\lambda(V), \Hd), & \H^*_\lambda(\mathcal{A};\R), &\coloneqq \H(D^*_\lambda(V),\Hd^*).
-\end{aligned} $$
+\end{align*}
 We call $\H\H$ the \emph{Hochschild homology} and $\H^\lambda$ the \emph{cyclic homology} of the $\AInfty$-algebra $\mathcal{A}$. We call $\H\H^*$ the \emph{Hochschild cohomology} and $\H_\lambda^*$ the \emph{cyclic cohomology} of~$\mathcal{A}$.
 \end{Definition}
 
@@ -207,8 +210,8 @@ For a dga $\mathcal{A} = (V,\mu_1,\mu_2)$, we have for all $v_1$, $\dotsc$, $v_k
 
 \begin{Definition}[Strict units and strict augmentations]\label{Def:AugUnit}
 Let $\mathcal{A}= (V, (\mu_k))$ be an $\AInfty$-algebra. A non-zero homogenous element $\NOne \in V[1]$ with $\Abs{\NOne} = -1$ is called a \emph{strict unit} for $\mathcal{A}$ if the following holds:
-$$\begin{aligned} \mu_2(\NOne, v) = (-1)^{\Abs{v} + 1}\mu_2(v,\NOne) &= v\qquad\forall v\in V[1], \\[\jot]
-\mu_k(v_1, \dotsc, v_{i-1}, \NOne, v_{i+1}, \dotsc, v_k) &= 0\qquad\forall\ k\neq 2,\ 1\le i \le k,\ v_j \in V[1]. \end{aligned}$$
+\begin{align*} \mu_2(\NOne, v) = (-1)^{\Abs{v} + 1}\mu_2(v,\NOne) &= v\qquad\forall v\in V[1], \\[\jot]
+\mu_k(v_1, \dotsc, v_{i-1}, \NOne, v_{i+1}, \dotsc, v_k) &= 0\qquad\forall\ k\neq 2,\ 1\le i \le k,\ v_j \in V[1]. \end{align*}
 The pair $(\mathcal{A},\NOne)$ is called a \emph{strictly unital  $\AInfty$-algebra.}
 
 A strictly unital $\AInfty$-algebra $(\mathcal{A},\NOne)$ is called \emph{strictly augmented} if it is equipped with a linear map $\varepsilon: V[1] \rightarrow \R[1]$ which satisfies
@@ -241,12 +244,11 @@ and define the \emph{reduced cyclic cohomology of $\mathcal{A}$} by
 $$ \H_{\lambda, \RedMRM}^*(\mathcal{A};\R)\coloneqq \H(D_{\lambda, \RedMRM}^*(V), \Hd^*). $$ 
 \end{Definition}
 
-
 \begin{Proposition}[Reduction to the reduced cyclic cohomology]\label{Prop:Reduced}
 Let $\mathcal{A}= (V,(\mu_k))$ be an $\AInfty$-algebra with a strict unit $\NOne$ and a strict augmentation $\varepsilon$. Then the inclusions $\RedDBCyc V$, $\varepsilon^*(\DBCyc \R) \subset \DBCyc V$ induce the decomposition
-$$\begin{aligned}
+\begin{align*}
 \H_\lambda^*(\mathcal{A};\R) &\simeq \H_{\lambda, \RedMRM}^*(\mathcal{A};\R) \oplus \H_\lambda^*(\R;\R).
-\end{aligned} $$
+\end{align*}
 Here we have
 \begin{equation*}
 %\label{Eq:Field}
@@ -264,11 +266,14 @@ The maps $\varepsilon^*: D_\lambda(\R) \rightarrow D_\lambda(V)$ and $u^*: D_\la
 \end{tikzcd}
 \end{equation}
 which is exact everywhere except for the middle, and where $\varepsilon^*$ is a splitting map. The idea of \cite{LodayCyclic} is to replace these cochain complexes with quasi-isomorphic bicomplexes consisting of normalized Hochschild cochains $\bar{D}(V)$ such that the sequence becomes exact. The work then reduces to proving that $\bar{D}(V)$ computes $\H\H(\mathcal{A};\R)$; a variant of this result for $\AInfty$-algebras was proven in~\cite{Lazarev2003}.
+See Appendix~\ref{App:AInfty} for the full proof.
 %The version for a dga, which is in fact enough for the examples in this article, also follows directly from \cite{LodayCyclic} using Lemma \ref{Lem:DGA} below.
 \end{proof}
 
+We will now compare our version of the cyclic cohomology of a dga $(V,\mu_1, \mu_2)$ to the version from~\cite[Section 5]{LodayCyclic}.
+In order to do this, we have to undo the degree shift~$V[1]$ first since it is not considered in \cite{LodayCyclic}.
 
-We will now compare our version of the cyclic cohomology of a dga $(V,\mu_1, \mu_2)$ to a version based on~\cite[Section 5.3.2]{LodayCyclic}. Let $\tilde{\Hd}$, $\tilde{\delta}: \bar{T}V \rightarrow \bar{T}V$ be the linear maps defined for all $\tilde{v}_1$, $\dotsc$, $\tilde{v}_k \in V$ by
+Let $\tilde{\Hd}$, $\tilde{\delta}: \bar{T}V \rightarrow \bar{T}V$ be the linear maps defined for all $\tilde{v}_1$, $\dotsc$, $\tilde{v}_k \in V$ by
 \allowdisplaybreaks
 \begin{align*}
    \tilde{\Hd}(\tilde{v}_1\otimes \dotsb \otimes \tilde{v}_k) & \coloneqq \begin{multlined}[t] \sum_{i=1}^{k-1} (-1)^{i-1} \tilde{v}_1 \otimes \dotsb \otimes \tilde{\mu}_2(\tilde{v}_i, \tilde{v}_{i+1}) \otimes \dotsb \otimes \tilde{v}_k  \\ {}+ (-1)^{k-1+ \tilde{v}_k(\tilde{v}_1 + \dotsb + \tilde{v}_{k-1})}\tilde{\mu}_2(\tilde{v}_k, \tilde{v}_1)\otimes\tilde{v}_2\otimes\dotsb\otimes\tilde{v}_{k-1}, 
@@ -276,40 +281,57 @@ We will now compare our version of the cyclic cohomology of a dga $(V,\mu_1, \mu
 \tilde{\delta}(\tilde{v}_1\otimes \dotsb \otimes \tilde{v}_k) & \coloneqq  \sum_{i=1}^k (-1)^{\tilde{v}_1 + \dotsb + \tilde{v}_{i-1}} \tilde{v}_1\otimes\dotsb \otimes \tilde{\mu}_1(\tilde{v}_i)\otimes \dotsb \otimes \tilde{v}_k.
 \end{align*}
 For all $q\ge 0$, we define
-$$ \tilde{D}_q(V) \coloneqq \bigoplus_{\substack{k\ge 1 \\ d\in \Z \\k-d= q + 1}} (V^{\otimes k})^d $$
+\begin{equation}\label{Eq:NDSComplex}
+\tilde{D}_q(V) \coloneqq \bigoplus_{\substack{k\ge 1 \\ d\in \Z \\k-d= q + 1}} (V^{\otimes k})^d
+\end{equation}
 and $\tilde{\Bdd}: \tilde{D}_{q+1}(V) \rightarrow \tilde{D}_{q}(V)$ by   
-$$ \tilde{\Bdd}(\tilde{v}_1\dotsb \tilde{v}_k) = \tilde{b}(\tilde{v}_1\dotsb \tilde{v}_k) + (-1)^{k+1} \tilde{\delta}(\tilde{v}_1\dotsb \tilde{v}_k). $$
+$$ \tilde{\Bdd}(\tilde{v}_1\dotsb \tilde{v}_k) = \tilde{\Hd}(\tilde{v}_1\dotsb \tilde{v}_k) + (-1)^{k+1} \tilde{\delta}(\tilde{v}_1\dotsb \tilde{v}_k). $$
 It can be checked that $\tilde{\Bdd}\circ\tilde{\Bdd}=0$ and $\tilde{\Bdd}(\Im(1-\tilde{t}))\subset \Im(1-\tilde{t})$, so that $\tilde{\Bdd}$ induces a boundary operator on
 the chain complexes \Correct[caption={DONE Wrong cyclic permutation}]{Here the $t$ is modified i.e. $\tilde{t}(v_1\dotsc v_k) = (-1)^{k-1} t(v_1 \dotsc v_k)$}
 $$ \tilde{D}(V)\coloneqq \bigoplus_{q\in \Z} \tilde{D}_q(V)\quad\text{and}\quad\tilde{D}^\lambda(V) \coloneqq \tilde{D}(V)/\Im(1-\tilde{t}). $$
-Here, we have $\tilde{t}(\tilde{v}_1 \dotsb \tilde{v}_k) \coloneqq (-1)^{k + \Abs{\tilde{v}_k}(\Abs{\tilde{v}_1} + \dotsb + \Abs{\tilde{v}_{k-1}})} \tilde{v}_k \tilde{v}_1 \dotsb \tilde{v}_{k-1}$. We call $(\tilde{D}(V),\tilde{\Bdd})$ the \emph{classical Hochschild complex} and $(\tilde{D}^\lambda(V), \tilde{\Bdd})$ the \emph{classical cyclic complex} of the dga $(V,\mu_1,\mu_2)$. The chain complex $(\tilde{D}(V),\tilde{\Bdd})$ is the total complex of the bicomplex
-$$\begin{tikzcd}
-{} & \arrow{d} &\arrow{d} & \arrow{d} & {} & {} \\
-{} &\arrow{l} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^1 & \arrow{l}{\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^0 & \arrow{l}{\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^{-1} & \arrow{l} & {} \\
-{} &\arrow{l} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^1 & \arrow{l}{-\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^0 & \arrow{l}{-\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^{-1} & \arrow{l} & {} \\
-{} &\arrow{l} V^1 & \arrow{l}{\tilde{\delta}} V^0 & \arrow{l}{\tilde{\delta}} V^{-1} & \arrow{l}, & {} 
-\end{tikzcd}$$
-which differs from the bicomplex \cite[Equation (5.3.2.1)]{LodayCyclic} by the reversed grading and by the fact that it lies in the whole upper half-plane and not just in the first quadrant. Their convention for a dga is namely $\Abs{\tilde{\mu}_1} = -1$, whereas ours is $\Abs{\tilde{\mu}_1}=1$, and they consider $\N_0$-grading, whereas we have $\Z$-grading. 
+Here, we have $\tilde{t}(\tilde{v}_1 \dotsb \tilde{v}_k) \coloneqq (-1)^{k + \Abs{\tilde{v}_k}(\Abs{\tilde{v}_1} + \dotsb + \Abs{\tilde{v}_{k-1}})} \tilde{v}_k \tilde{v}_1 \dotsb \tilde{v}_{k-1}$.
 
-\begin{Proposition}[The classical case] \label{Prop:DGA}
+We call $(\tilde{D}(V),\tilde{\Bdd})$ the \emph{non-degree-shifted Hochschild complex} and $(\tilde{D}^\lambda(V), \tilde{\Bdd})$ the \emph{non-degree-shifted cyclic complex} of the dga $(V,\mu_1,\mu_2)$.
+We denote their homologies by $\ClasHH(V)$ and $\ClasCycH(V)$, respectively.
+
+Looking at \eqref{Eq:NDSComplex}, the chain complex $(\tilde{D}(V),\tilde{\Bdd})$ is the total complex of the bicomplex
+\begin{equation}\label{Eq:TotComplNDS}
+\begin{tikzcd}
+{} & \arrow{d} &\arrow{d} & \arrow{d} \\
+{} &\arrow{l} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^2 & \arrow{l}{\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^1 & \arrow{l}{\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 3})^{0}  \\
+{} &\arrow{l} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^2 & \arrow{l}{-\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^1 & \arrow{l}{-\tilde{\delta}} \arrow{d}{\tilde{\Hd}} (V^{\otimes 2})^{0} \\
+{} &\arrow{l} V^2 & \arrow{l}{\tilde{\delta}} V^1 & \arrow{l}{\tilde{\delta}} V^{0}
+\end{tikzcd}
+\end{equation}
+with chain groups being the direct sums of the top-left/right-bottom diagonals.
+This differs from the bicomplex \cite[Equation (5.3.2.1)]{LodayCyclic}, whose total complex is used to define the Hochschild homology of $V$ in \cite{LodayCyclic}, by the reversed grading in degree.
+The convention of \cite{LodayCyclic} is namely $\Abs{\tilde{\mu}_1} = -1$, whereas ours is $\Abs{\tilde{\mu}_1}=1$.
+The total complex of \cite{LodayCyclic} corresponds to the bottom-left/right-top diagonal in \eqref{Eq:TotComplNDS}.
+Therefore, the homologies might differ!
+
+We also warn the careful reader that the degree is called ``weight'' in \cite{LodayCyclic}.
+
+The next proposition shows that our $\CycH(V)$ indeed computes $\ClasCycH(V)$.
+
+\begin{Proposition}[Non-degree-shifted case] \label{Prop:DGA}
 Let $\mathcal{A} = (V,\mu_1,\mu_2)$ be a dga. Then the degree shift map
-$$ \begin{aligned} 
+\begin{align*} 
  U: \tilde{D}_q (V) & \longrightarrow D_q(V), \\
-        \tilde{v}_1 \otimes \dotsb \otimes \tilde{v}_k & \longmapsto \varepsilon(\SuspU, \tilde{v}) v_1 \otimes \dotsb \otimes v_k,  \end{aligned}$$
-where we denote $v_i = \SuspU \tilde{v}_i$, is an isomorphism of the chain complexes $(\tilde{D}(V),\tilde{\Bdd}) \simeq (D(V), \Hd)$ and $(\tilde{D}^\lambda(V),\tilde{\Bdd})\simeq (D^\lambda(V),\Hd)$, respectively.
+        \tilde{v}_1 \otimes \dotsb \otimes \tilde{v}_k & \longmapsto \varepsilon(\SuspU, \tilde{v}) v_1 \otimes \dotsb \otimes v_k,  \end{align*}
+where we denote $v_i = \SuspU \tilde{v}_i$ for a formal symbol $\theta$ with $\Abs{\theta}=-1$, is an isomorphism of the chain complexes $(\tilde{D}(V),\tilde{\Bdd})$ and $(D(V), \Hd)$, resp.~$(\tilde{D}^\lambda(V),\tilde{\Bdd})$ and $(D^\lambda(V),\Hd)$.
 \end{Proposition}
    
 \begin{proof} 
-First of all, for the degrees holds $\Abs{\tilde{\mu}_j} = 2 - j$ for every $j\ge 1$. For every $j$, $k$, $l\ge 1$ such that $j+l \le k+1$ and for every $\tilde{v}_1$, $\dotsc$, $\tilde{v}_k \in V$, we compute
-$$ \begin{aligned}
+First of all, it holds $\Abs{\tilde{\mu}_j} = 2 - j$ for every $j\ge 1$. For every $j$, $k$, $l\ge 1$ such that $j+l \le k+1$ and for every $\tilde{v}_1$, $\dotsc$, $\tilde{v}_k \in V$, we compute
+\begin{align*}
 &\bigl[U^{-1}(\Id^{l-1}\otimes \mu_j \otimes \Id^{k-j-l+1})U\bigr](\tilde{v}_1\dotsb \tilde{v}_k) \\[\jot] &\quad = (-1)^{l-1 + (j-2)(\tilde{v}_1 + \dotsb + \tilde{v}_{l-1} + k - l - j +1)} \tilde{v}_1\dotsb\tilde{v}_{l-1}\tilde{\mu}_j(\tilde{v}_l\dotsb \tilde{v}_{l+j-1})\tilde{v}_{l+j}\dotsb \tilde{v}_k, \\[\jot]
 & [U^{-1} t_k U](\tilde{v}_1\dotsb \tilde{v}_k) = (-1)^{k-1} \tilde{v}_1 \dotsb \tilde{v}_k,
-\end{aligned}$$
+\end{align*}
 where we use the Koszul convention $(f_1\otimes f_2)(v_1\otimes v_2) = (-1)^{\Abs{f_2}\Abs{v_1}} f_1(v_1)\otimes f_2(v_2)$. Using this, we obtain
-$$\begin{aligned}
+\begin{align*}
 U^{-1} \Hd'_k U &= \sum_{j=1}^k \sum_{i=0}^{k-1} (-1)^{i+j(i+k+1)} t^i_{k-j+1}(\tilde{\mu}_j \otimes \Id^{k-j})t_k^{-i}\quad\text{and} \\
 U^{-1} R_k U &= \sum_{j=1}^k \sum_{i=1}^{j-1} (-1)^{(i+j)(k+1)} (\tilde{\mu}_j\otimes \Id^{k-j})t_k^i.
-\end{aligned}$$
+\end{align*}
 It is now easy to check that $U^{-1}\circ \Hd\circ U = \tilde{\Bdd}$.
 
 If $k\in \N$ is a weight and $d\in\Z$ a degree such that $k-d-1 = q$ for some $q\in \Z$, we have schematically $U: (k,d)\mapsto (k, d - k) = (k,-q-1)$. Therefore, $U$ preserves the grading of chain complexes. This finishes the proof.

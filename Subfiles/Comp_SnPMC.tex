@@ -5,7 +5,9 @@
 \begin{document}
 
 \section{Computation of Chern-Simons Maurer-Cartan element for spheres}
+\allowdisplaybreaks
 \label{Section:MCSphere}
+
 We recall from Definition~\ref{Def:PushforwardMCdeRham} that the Chern-Simons Maurer-Cartan element~$\PMC$ is computed as a sum over trivalent ribbon graphs decorated with the admissible Hodge Propagator~$\Prpg$ at internal edges, integration variables $x_i$ at internal vertices and, in the case of $\Sph{n}$, with $\NOne$ or $\NVol$ at external vertices.
 \begin{figure}[t]
 \centering
@@ -19,52 +21,70 @@ The canonical Maurer-Cartan element $\MC$ is the contribution of the Y-graph (se
 \end{equation*}
 %We fix an input $\omega_1$, $\dotsc$, $\omega_l \in \BCyc\Harm(\Sph{n})$ of $\PMC_{lg}$ and let $\Gamma \in $ be an admissible trivalent ribbon graph with $e\ge 1$. We let $L$ be an admissible labeling of $\Gamma$.
 %$\Gamma \in \TRRG_{klg}$ with the input $\omega_1$, $\dotsc$, $\omega_l$
-Throughout this section, we will be in the setting of Definition~\ref{Def:PushforwardMCdeRham}. In particular, $\Gamma \in \TRG_{klg}$ is a ribbon graph, $L$ its compatible labeling admissible with respect to an input $\omega_1$, $\dotsc$, $\omega_l$ and $I(\sigma_L)$ the corresponding integral.
+Throughout this section, we will be in the setting of Definition~\ref{Def:PushforwardMCdeRham}.
+In particular, $\Gamma \in \TRG_{klg}$ is a ribbon graph, $L$ its compatible labeling admissible with respect to an input $\omega_1$, $\dotsc$, $\omega_l$ and $I(\sigma_L)$ the corresponding integral.
 \begin{Lemma}[Condition $(V_{\NOne})$ holds] \label{Lemma:ABVanishing}
-For the Hodge Propagator $\Prpg$ from~\eqref{Eq:GreenKernelMC1} for $\Sph{n}$, every graph $\Gamma \neq Y$ with~$\NOne$ at an external vertex vanishes.
+For the Hodge Propagator $\Prpg$ from~\eqref{Eq:GreenKernelMC1} for $\Sph{n}$ for $n\ge 1$, every graph $\Gamma \neq Y$ with~$\NOne$ at an external vertex vanishes.
 \end{Lemma}
 \begin{proof}
 %Before we begin appeal to~\cite{Cieliebak2018} for the fact that the integrand of $I(\sigma_L)$ is $L^1$-integrable, so that we can apply Fubini's theorem and integrate out a single vertex.
 The only contribution of an $A$-vertex which does not vanish for degree reasons is
-$$ A_{\NVol,\NOne}(y) = \int_x \Prpg(x,y) \Vol(x). $$
+\[ A_{\NVol,\NOne}(y) = \int_x \Prpg(x,y) \Vol(x). \]
 From the symmetry of $\Prpg$ and $\Vol$ under the action of $O(n+1)$, we get
-$$ R^* A_{\NVol, \NOne} = (-1)^R A_{\NVol, \NOne}\quad\text{for all }R\in O(n+1). $$
-Therefore, it suffices to check that $A_{\NVol, \NOne}(\StdBasis_1) = 0$, where $\StdBasis_1$, $\dotsc$, $\StdBasis_{n+1}$ denotes the standard basis of $\R^{n+1}$. Evaluation of~\eqref{Eq:FormOmega1} at $(x,\StdBasis_1)$ gives
-$$ \omega_0(x,\StdBasis_1) = \frac{1}{(n-1)!} \sum_{\substack{\sigma\in\Perm_{n+1}\\ \sigma_2 = 1}} (-1)^\sigma x^{\sigma_1} \Diff{y^{\sigma_3}} \dotsm \Diff{y^{\sigma_{n+1}}}. $$
+\[ R^* A_{\NVol, \NOne} = (-1)^R A_{\NVol, \NOne}\quad\text{for all }R\in O(n+1). \]
+Therefore, it suffices to check that $A_{\NVol, \NOne}(\StdBasis_1) = 0$, where $\StdBasis_1$, $\dotsc$, $\StdBasis_{n+1}$ denotes the standard basis of $\R^{n+1}$.
+Evaluation of~\eqref{Eq:FormOmega1} at $(x,\StdBasis_1)$ gives
+\[ \omega_0(x,\StdBasis_1) = \frac{1}{(n-1)!} \sum_{\substack{\sigma\in\Perm_{n+1}\\ \sigma_2 = 1}} (-1)^\sigma x^{\sigma_1} \Diff{y^{\sigma_3}} \dotsm \Diff{y^{\sigma_{n+1}}}. \]
 %\marginnote{Can I argue more geometrically without integrating out one variable?}
 Therefore, we get
-$$ \begin{aligned}
-A_{\NVol, \NOne}(\StdBasis_1) &= (-1)^n \int_x g_0(x\cdot \StdBasis_1) \omega_0(x,\StdBasis_1) \Vol(x)  \\ &= \sum_{j=2}^{n+1} (-1)^{n+j+1} \Bigl(\int_x g_0(x^1) x^j \Vol(x)\Bigr) \Diff{y^2} \dotsm  \widehat{\Diff{y^j}} \dotsm \Diff{y^{n+1}},
-\end{aligned}$$
-where we view $g_0$ as a function of $x\cdot y$. For every $j=2$, $\dotsc$, $n+1$, consider the orientation reversing diffeomorphism 
-$$ \begin{aligned} 
-I_j: \Sph{n} &\longrightarrow \Sph{n} \\
-   (x^1, \dotsc, x^{n+1}) &\longmapsto (x^1, \dotsc, -x^j, \dotsc, x^{n+1}). 
-\end{aligned} $$   
+\begin{align*}
+A_{\NVol, \NOne}(\StdBasis_1) &= (-1)^n \int_x g_0(x\cdot \StdBasis_1) \omega_0(x,\StdBasis_1) \Vol(x)  \\ 
+&= (-1)^{n+1} \int_x g_0(x^1) \Bigl( \sum_{j=2}^{n+1} (-1)^{j} x^j\Bigr) \Vol(x) \Diff{y^2} \dotsm  \widehat{\Diff{y^j}} \dotsm \Diff{y^{n+1}},
+\end{align*}
+where we view $g_0$ as a function of $x\cdot y$.
+Consider the cyclic permutation of $x^2$, $\dotsc$, $x^{n+1}$:
+\begin{align*} 
+I:\Sph{n} &\longrightarrow \Sph{n} \\
+   (x^1, x^2, \dotsc, x^n, x^{n+1}) &\longmapsto (x^1, x^{n+1}, x^2 \dotsc, x^{n}). 
+\end{align*}
 Then we have
-$$ \int_x g_0(x^1) x^j \Vol(x)  = - \int_x I_j^*\bigl( g_0(x^1) x^j \Vol(x) \bigr) = - \int_x g_0(x^1)(-x^j)(-\Vol(x)), $$
-and it follows that $A_{\NVol,\NOne}(\StdBasis_1)=0$.
+\begin{align*}
+\int_x g_0(x^1) \sum_{j=2}^{n+1} (-1)^{j} x^j \Vol(x)  &= (-1)^{n-1}\int_x I^*\Bigl(g_0(x^1) \sum_{j=2}^{n+1} (-1)^{j} x^j \Vol(x)\Bigr) \\
+& = (-1)^{n-1} \int_x g_0(x^1)\Bigl(-\sum_{j=2}^{n+1} (-1)^j x^j\Bigr)\bigl((-1)^{n-1}\Vol(x)\bigr) \\
+& = - \int_x g_0(x^1) \sum_{j=2}^{n+1} (-1)^{j} x^j \Vol(x).
+\end{align*}
+It follows that $A_{\NVol,\NOne}(\StdBasis_1)=0$.\footnote{Notice that we avoided using $\sum \int = \int \sum$ because the convergence of single summands is not guaranteed.}
 
 Let us now consider the contribution of a $B$-vertex with $\NOne$:
 %\marginnote{In order to prove rotational symmetry of $\eta_B^{\NOne}$ rigorously, I have to lift the action to the double blowup. Can it be argued without blowing up?}
-$$ B_{\NOne}(y,z) = \int_{x} \Prpg(y,x) \Prpg(x,z) = (-1)^n \int_x \Prpg(y,x) \Prpg(x,z). $$
-For $n=1$, the degree of $\Prpg(y,x)\Prpg(x,z)$ is $0$, and hence $B_{\NOne}= 0$ trivially. Suppose that $n\ge 2$. As in the case of $A_{\NVol,\NOne}$, we get that 
-$$ R^* B_{\NOne} = (-1)^R B_{\NOne} \quad\text{for all }R\in O(n+1). $$
-Therefore, it suffices to check that $B_{\NOne}(\StdBasis_1, c_1 \StdBasis_1 + c_2 \StdBasis_2) = 0$ for all $(c_1,c_2)\in \Sph{1}$. We have
-$$  B_{\NOne}(\StdBasis_1, c_1 \StdBasis_1 + c_2 \StdBasis_2) = \begin{multlined}[t] (-1)^n \sum_{a=1}^{n-1} \int_x g_a(x^1) g_{n-a}(c_1 x^1 + c_2 x^2)\omega_a(x,\StdBasis_1) \\ \omega_{n-a}(x,c_1 \StdBasis_1 + c_2 \StdBasis_2).\end{multlined}$$
+\[ B_{\NOne}(y,z) = \int_{x} \Prpg(y,x) \Prpg(x,z) = (-1)^n \int_x \Prpg(y,x) \Prpg(x,z). \]
+For $n=1$, the degree of $\Prpg(y,x)\Prpg(x,z)$ is $0$, and hence $B_{\NOne}= 0$ trivially.
+Suppose that $n\ge 2$.
+As in the case of $A_{\NVol,\NOne}$, we get that 
+\[ R^* B_{\NOne} = (-1)^R B_{\NOne} \quad\text{for all }R\in O(n+1). \]
+Therefore, it suffices to check that $B_{\NOne}(\StdBasis_1, c_1 \StdBasis_1 + c_2 \StdBasis_2) = 0$ for all $(c_1,c_2)\in \Sph{1}$.
+We have
+\[  B_{\NOne}(\StdBasis_1, c_1 \StdBasis_1 + c_2 \StdBasis_2) = \begin{multlined}[t] (-1)^n \int_x \sum_{a=1}^{n-1} g_a(x^1) g_{n-a}(c_1 x^1 + c_2 x^2)\omega_a(x,\StdBasis_1) \\ \omega_{n-a}(x,c_1 \StdBasis_1 + c_2 \StdBasis_2).\end{multlined}\]
 We will show that for every $a=1$,~$\dotsc$, $n-1$ we can write
 \begin{equation} \label{Eq:Mu}
 \mu_a(x) \coloneqq \omega_a(x,\StdBasis_1) \omega_{n-a}(x,c_1 \StdBasis_1 + c_1 \StdBasis_2) = \Bigl(\sum_{i=3}^{n+1} \pm  x^i \Vol(x)\Bigr) \eta_a(y,z)
 \end{equation}
-for some form $\eta_a(y,z)$. Then, using the same argument as for $A_{\NVol,\NOne}$, we will have
-$$\begin{aligned}
-& \int_x  g_a(x^1) g_{n-a}(c_1 x^1 + c_2 x^2) x^i \Vol(x) \\
-&\qquad = - \int_x I^*_i \bigl(g_a(x^1) g_{n-a}(c_1 x^1 + c_2 x^2) x^i \Vol(x)\bigr) \\
-&\qquad = - \int_x g_a(x^1) g_{n-a}(c_1 x^1 + c_2 x^2) (-x^i) (-\Vol(x))
-\end{aligned}$$
-for all $3 \le i \le n+ 1$, and hence $B_{\NOne}(\StdBasis_1, c_1 \StdBasis_1 + c_2 \StdBasis_2) = 0$.
+with alternating signs for some form $\eta_a(y,z)$.
+Then we can use the same argument as for~$A_{\NVol,\NOne}$ with the cyclic permutation of $x^3$, $\dotsc$, $x^{n+1}$ given by
+\begin{align*} 
+I':\Sph{n} &\longrightarrow \Sph{n} \\
+   (x^1, x^2, x^3,\dotsc, x^n, x^{n+1}) &\longmapsto (x^1, x^2, x^{n+1}, x^3 \dotsc, x^{n}) 
+\end{align*}
+%\begin{align*}
+%& \int_x  g_a(x^1) g_{n-a}(c_1 x^1 + c_2 x^2) x^i \Vol(x) \\
+%&\qquad = - \int_x I^*_i \bigl(g_a(x^1) g_{n-a}(c_1 x^1 + c_2 x^2) x^i \Vol(x)\bigr) \\
+%&\qquad = - \int_x g_a(x^1) g_{n-a}(c_1 x^1 + c_2 x^2) (-x^i) (-\Vol(x))
+%\end{align*}
+%for all $3 \le i \le n+ 1$, and hence
+to conclude that $B_{\NOne}(\StdBasis_1, c_1 \StdBasis_1 + c_2 \StdBasis_2) = 0$.
 
-In order to show \eqref{Eq:Mu}, we have to study the product of $\omega_i$'s. From~\eqref{Eq:FormOmega1} we get
+In order to show \eqref{Eq:Mu}, we have to study the product of $\omega_i$'s.
+From~\eqref{Eq:FormOmega1} we get
 \begin{equation}\label{Eq:GenProd}
 \begin{aligned}
 &\omega_a(x,y)\omega_{n-a}(x,z)\\
@@ -79,20 +99,26 @@ In order to simplify this expression, we decompose $\sigma\in \Perm_{n+1}$ as
  \end{equation}
 where $\sigma^1$, $\dotsc$, $\sigma^5\in \Perm_{n+1}$ are permutations defined as follows:
 \begin{itemize}
- \item The permutation $\sigma^1$ is a shuffle permutation $\sigma^1 \in \Perm_{2+a,n-a-1}$ such that its first block denoted by $\sigma^1(1) = (\sigma^1_1,\dotsc,\sigma^1_{2+a})$ is equal to the ordered set $\{\sigma_1, \dotsc, \sigma_{2+a}\}$. The second block $\sigma^1(2)$ is then the ordered set $\{\sigma_{3+a},\dotsc,\sigma_{n+1}\}$, which will be denoted by $J_\sigma$.
- \item The permutation $\sigma^2$ acts on the block $\sigma^1(1)$ by moving $\sigma_2$ in front. We denote the new block $\sigma^1(1)\backslash\{\sigma_2\}$ by $I_\sigma$, so that we can write $\sigma^2 : \sigma^1(1) \mapsto (\sigma_2, I_\sigma)$. 
- \item The permutation $\sigma^3$ acts on the block $I_\sigma$ by moving $\sigma_1$ in front. Together with the previous step we get $\sigma^1(1)\mapsto (\sigma_2, \sigma_1,I_\sigma\backslash\{\sigma_1\})$.
+ \item The permutation $\sigma^1$ is a shuffle permutation $\sigma^1 \in \Perm_{2+a,n-a-1}$ such that its first block denoted by $\sigma^1(1) = (\sigma^1_1,\dotsc,\sigma^1_{2+a})$ is equal to the ordered set $\{\sigma_1, \dotsc, \sigma_{2+a}\}$.
+ The second block $\sigma^1(2)$ is then the ordered set $\{\sigma_{3+a},\dotsc,\sigma_{n+1}\}$, which will be denoted by $J_\sigma$.
+ \item The permutation $\sigma^2$ acts on the block $\sigma^1(1)$ by moving $\sigma_2$ in front.
+ We denote the new block $\sigma^1(1)\backslash\{\sigma_2\}$ by $I_\sigma$, so that we can write $\sigma^2 : \sigma^1(1) \mapsto (\sigma_2, I_\sigma)$. 
+ \item The permutation $\sigma^3$ acts on the block $I_\sigma$ by moving $\sigma_1$ in front.
+ Together with the previous step we get $\sigma^1(1)\mapsto (\sigma_2, \sigma_1,I_\sigma\backslash\{\sigma_1\})$.
  \item The permutation $\sigma^4$ is a transposition of $\sigma_1$ and $\sigma_2$.
  \item The permutation $\sigma^5$ is determined by the pair $(\sigma^{51},\sigma^{52}) \in \Perm_{a} \times \Perm_{n-1-a}$ of permutations $\sigma^{51}$ and $\sigma^{52}$ acting on blocks $I_\sigma\backslash\{\sigma_1\}$ and $J_\sigma$ to get $(\sigma_3,\dotsc,\sigma_{2+a})$ and $(\sigma_{3+a},\dotsc,\sigma_{n+1})$, respectively.
 \end{itemize}
 
 
 
-We define the decomposition $\mu^1$,~$\dotsc$, $\mu^5$ for $\mu\in \Perm_{n+1}$ from \eqref{Eq:GenProd} analogously with $a$ replaced by $n-a$. Using~\eqref{Eq:Decomp}, the product~\eqref{Eq:GenProd} can be written as
+We define the decomposition $\mu^1$,~$\dotsc$, $\mu^5$ for $\mu\in \Perm_{n+1}$ from \eqref{Eq:GenProd} analogously with $a$ replaced by $n-a$.
+Using~\eqref{Eq:Decomp}, the product~\eqref{Eq:GenProd} can be written as
 \begin{align*}
   &\begin{multlined}\frac{1}{a! (n-1-a)! (n-a)! (a-1)!} \sum_{\substack{\sigma^1,  \dotsc,\, \sigma^5 \\ \mu^1, \dotsc,\, \mu^5}} (-1)^{\sigma^1 + \dotsb + \sigma^5 + \mu^1 + \dotsb + \mu^5} x^{\sigma_1} x^{\mu_1} y^{\sigma_2} z^{\mu_2} \\ \Diff{x}^{\sigma^{51}(I_\sigma\backslash \{\sigma_1\})} \Diff{x}^{\mu^{51}(I_\mu\backslash\{\mu_1\})} \Diff{y}^{\sigma^{52}(J_\sigma)} \Diff{z}^{\mu^{52}(J_\mu)} \end{multlined} \\[5pt]
  &\qquad =\begin{multlined}[t]- \sum_{\sigma^1,\, \mu^1} (-1)^{\sigma^1 + \mu^1} \Bigl(\sum_{\sigma^2,\, \mu^2} (-1)^{\sigma^2 + \mu^2} \sum_{\sigma^3,\, \mu^3} (-1)^{\sigma^3 + \mu^3} x^{\sigma_1} x^{\mu_1} y^{\sigma_2} z^{\mu_2} \\ \Diff{x}^{I_\sigma \backslash \{\sigma_1\}} \Diff{x}^{I_\mu\backslash \{\mu_1\}}\Bigr) \Diff{y}^{J_\sigma} \Diff{z}^{J_\mu},\end{multlined} \end{align*}
-where $-1$ comes from $(-1)^{\sigma^4}$ and $\sigma^5$ is compensated by permutations of forms. For fixed $\sigma^1$ and $\mu^1$, consider the coefficient at $\Diff{y}^{J_\sigma}\Diff{z}^{J_\mu}$ in the brackets. If we evaluate it at $y=\StdBasis_1$, $z=c_1 \StdBasis_1 + c_2 \StdBasis_2$, we get
+where $-1$ comes from $(-1)^{\sigma^4}$ and $\sigma^5$ is compensated by permutations of forms.
+For fixed $\sigma^1$ and $\mu^1$, consider the coefficient at $\Diff{y}^{J_\sigma}\Diff{z}^{J_\mu}$ in the brackets.
+If we evaluate it at $y=\StdBasis_1$, $z=c_1 \StdBasis_1 + c_2 \StdBasis_2$, we get
 \begin{align*}
 &  c_1 \overbrace{\sum_{\substack{\sigma^3,\, \mu^3 \\ \sigma_2 = 1 \\ \mu_2 = 1}} (-1)^{\sigma^3 + \mu^3} x^{\sigma_1} x^{\mu_1}  \Diff{x}^{I_\sigma\backslash\{\sigma_1\}} \Diff{x}^{I_\mu \backslash\{\mu_1\}}}^{=:\displaystyle\mathrm{I}} \\ 
 & {} + (-1)^{\mu^2} c_2  \overbrace{\sum_{\substack{\sigma^3,\, \mu^3 \\ \sigma_2 = 1 \\ \mu_2 = 2}} (-1)^{\sigma^3 + \mu^3} x^{\sigma_1} x^{\mu_1}  \Diff{x}^{I_\sigma\backslash\{\sigma_1\}} \Diff{x}^{I_\mu \backslash\{\mu_1\}}}^{=:\displaystyle\mathrm{II}},
@@ -103,34 +129,40 @@ More generally, for multiindices $I_1$, $I_2 \subset \{1,\dotsc, n+1\}$ of lengt
 \begin{equation} \label{Eq:Sum}
 S(I_1,I_2) \coloneqq \sum_{\substack{i_1 \in I_1 \\ i_2 \in I_2}} (-1)^{(i_1,I_1) + (i_2,I_2)} x^{i_1} x^{i_2} \Diff{x}^{I_1\backslash\{i_1\}} \Diff{x}^{I_2\backslash\{i_2\}},
 \end{equation}
-where $(i_j, I_j)$ is the number of transpositions required to move $i_j$ in front of $I_j$. The following implication holds: 
+where $(i_j, I_j)$ is the number of transpositions required to move $i_j$ in front of $I_j$.
+The following implication holds: 
 \begin{equation*}
  S(I_1, I_2)\neq 0\; \Implies \; 1 \le \Abs{I_1 \cap I_2} \le 2.
 \end{equation*}
 We distinguish the two cases left: 
 \begin{description}[font=\normalfont\itshape]
 \item[Case $I_1 \cap I_2 =\{i,j\}$ with $i < j$: ] We get
-\allowdisplaybreaks
 \begin{align*} 
 S(I_1, I_2) &= \begin{multlined}[t] (-1)^{(i,I_1) + (j,I_2)} x^{i} x^j \Diff{x}^{I_1 \backslash\{i\}} \Diff{x}^{I_2 \backslash \{j\}} \\ {}+ (-1)^{(j,I_1) + (i,I_2)} x^{j} x^i \Diff{x}^{I_1 \backslash\{j\}} \Diff{x}^{I_2 \backslash \{i\}} \end{multlined} \\
 &=\begin{multlined}[t] (-1)^{(i,I_1) + (j,I_2) + (j,I_1)+1 + (i,I_2)} x^i x^j \Diff{x}^j \Diff{x}^{I_1\backslash\{i,j\}}\\\Diff{x}^i \Diff{x}^{I_2\backslash\{i,j\}} + (-1)^{(j,I_1) + (i,I_2)+(i,I_1)+ (j,I_2)+1} x^i x^j \\ \Diff{x}^i \Diff{x}^{I_1\backslash\{i,j\}}\Diff{x}^j \Diff{x}^{I_2\backslash\{i,j\}} \end{multlined} \\
 &= \pm(-1 +  1) x^i x^j \Diff{x}^i \Diff{x}^{I_1\backslash\{i,j\}} \Diff{x}^j\Diff{x}^{I_2\backslash\{i,j\}},
 \end{align*}
-where in the last step we switched $\Diff{x}^i \leftrightarrow \Diff{x}^j$ in the first summand. Therefore, it holds $S(I_1, I_2) = 0$.
-\item[Case $I_1 \cap I_2 = \{i\}$:] We must have $I_1 \cup I_2 = \{1,\dotsc,n+1\}$. A non-zero summand in~\eqref{Eq:Sum} has either $i_1 = i$ and $i_2\in I_2$, in which case $$I_1\backslash \{i_1\} \cup I_2\backslash\{i_2\}= \{1, \dotsc, \widehat{i_2}, \dotsc, n+1\}, $$ or $i_2 = i$ and $i_1\in I_1$ with $i_1 \neq i$, in which case $$I_1\backslash \{i_1\} \cup I_2\backslash\{i_2\}= \{1, \dotsc, \widehat{i_1}, \dotsc, n+1\}.$$ Indices $i_2$ from the first case and $i_1$ from the second case constitute $\{1,\dotsc,n+1\}$. Therefore, for some signs $\pm$, we can write
+where in the last step we switched $\Diff{x}^i \leftrightarrow \Diff{x}^j$ in the first summand.
+Therefore, it holds $S(I_1, I_2) = 0$.
+\item[Case $I_1 \cap I_2 = \{i\}$:] We must have $I_1 \cup I_2 = \{1,\dotsc,n+1\}$.
+A non-zero summand in~\eqref{Eq:Sum} has either $i_1 = i$ and $i_2\in I_2$, in which case \[I_1\backslash \{i_1\} \cup I_2\backslash\{i_2\}= \{1, \dotsc, \widehat{i_2}, \dotsc, n+1\}, \] or $i_2 = i$ and $i_1\in I_1$ with $i_1 \neq i$, in which case \[I_1\backslash \{i_1\} \cup I_2\backslash\{i_2\}= \{1, \dotsc, \widehat{i_1}, \dotsc, n+1\}.\] Indices $i_2$ from the first case and $i_1$ from the second case constitute $\{1,\dotsc,n+1\}$.
+Therefore, for some signs $\pm$, we can write
 \begin{equation*} \label{Eq:AlternatingSum}
 S(I_1,I_2) = x^i \sum_{j=1}^{n+1}  \pm  x^j \Diff{x^1} \dotsm \widehat{\Diff{x^j}} \dotsm \Diff{x^{n+1}}.
 \end{equation*}
 %
-We will prove that the signs alternate, and hence $S(I_1,I_2)= \pm x^i \Vol(x)$. Suppose that $j$, $j+1 \in I_{1}$ for some $j\in \{1,\ldots,n\}$. The two summands in~\eqref{Eq:Sum} with $(i_1, i_2)=(j, i)$ and $(i_1, i_2)= (j+1,i)$, respectively, give
-\allowdisplaybreaks
+We will prove that the signs alternate, and hence $S(I_1,I_2)= \pm x^i \Vol(x)$.
+Suppose that $j$, $j+1 \in I_{1}$ for some $j\in \{1,\ldots,n\}$.
+The two summands in~\eqref{Eq:Sum} with $(i_1, i_2)=(j, i)$ and $(i_1, i_2)= (j+1,i)$, respectively, give
 \begin{align*}
 & \begin{multlined}[t](-1)^{(j,I_1) + (i,I_2)} x^{j} x^{i} \Diff{x}^{I_1\backslash\{j\}} \Diff{x}^{I_2\backslash\{i\}} + (-1)^{(j+1,I_1) + (i,I_2)} x^{j+1} x^{i} \\ \Diff{x}^{I_1\backslash\{j+1\}}\Diff{x}^{I_2\backslash\{i\}} \end{multlined}
 \\ &\quad= \begin{multlined}[t] (-1)^{(i,I_2)} x^{j} x^{i} \Diff{x}^{j+1}\Diff{x}^{I_1\backslash\{j, j+1\}} \Diff{x}^{I_2\backslash\{i\}}  \\ {}+ (-1)^{1 + (i,I_2)} x^{j+1} x^{i} \Diff{x}^j \Diff{x}^{I_1\backslash\{j, j+1\}} \Diff{x}^{I_2\backslash\{i\}} \end{multlined} \\
 &\quad = (-1)^{(i,I_2)}x^i (x^j \Diff{x}^{j+1} - x^{j+1} \Diff{x}^j) \Diff{x}^{I_1\backslash\{j, j+1\}} \Diff{x}^{I_2\backslash\{i\}}.
 \end{align*}
-The signs clearly alternate. A symmetric argument holds when $j$, $j+1\in I_2$. Now assume that $j \in I_1$ and $j+1\in I_2$. The two summands in~\eqref{Eq:Sum} which have $(i_1, i_2)=(j,i)$ and $(i_1, i_2) = (i,j+1)$, respectively, give
-\allowdisplaybreaks
+The signs clearly alternate.
+A symmetric argument holds when $j$, $j+1\in I_2$.
+Now assume that $j \in I_1$ and $j+1\in I_2$.
+The two summands in~\eqref{Eq:Sum} which have $(i_1, i_2)=(j,i)$ and $(i_1, i_2) = (i,j+1)$, respectively, give
 \begin{align*}
 & \begin{multlined}[t] (-1)^{(j,I_1)+(i,I_2)} x^j x^i \Diff{x}^{I_1\backslash\{j\}}\Diff{x}^{I_2\backslash\{i\}} + (-1)^{(i,I_1) + (j+1,I_2)} x^i x^{j+1} \\ \Diff{x}^{I_1\backslash\{i\}}\Diff{x}^{I_2\backslash\{j+1\}} \end{multlined}\\
 &\quad=\begin{multlined}[t]
@@ -141,21 +173,30 @@ The signs clearly alternate. A symmetric argument holds when $j$, $j+1\in I_2$. 
 \end{multlined}\\
 &\quad= \begin{multlined}[t] (-1)^{(j,I_1) + (i,I_1\backslash\{j\})+(j+1,I_2)} x^i (x^j \Diff{x}^{j+1} - x^{j+1} \Diff{x}^j) \\ \Diff{x}^{I_1\backslash\{i,j\}} \Diff{x}^{I_2\backslash\{j+1\}}. \end{multlined}
 \end{align*}
-The signs alternate again. A symmetric argument holds for $j\in I_2$ and $j+1\in I_1$.
+The signs alternate again.
+A symmetric argument holds for $j\in I_2$ and $j+1\in I_1$.
 \end{description}	 
 
- Back to the original problem, we have $\mathrm{I} = S(I_\sigma, I_\mu)$ with $I_\sigma, I_\mu \subset \{2,\dotsc, n+1\}$. It follows that the first case applies, and hence $\mathrm{I} = 0$.  We have $\mathrm{II} = S(I_\sigma, I_\mu)$ with $I_\sigma \subset \{2,\dotsc, n+1\}$ and $I_\mu \subset \{1, \widehat{2}, \dotsc, n+1\}$. It follows that either the first case or the second case with $i\ge 3$ applies. This proves~\eqref{Eq:Mu}. Consequently, we get $B_{\NOne} = 0$ also for $n\ge 2$.
- 
+ Back to the original problem, we have $\mathrm{I} = S(I_\sigma, I_\mu)$ with $I_\sigma, I_\mu \subset \{2,\dotsc, n+1\}$.
+ It follows that the first case applies, and hence $\mathrm{I} = 0$. 
+ We have $\mathrm{II} = S(I_\sigma, I_\mu)$ with $I_\sigma \subset \{2,\dotsc, n+1\}$ and $I_\mu \subset \{1, \widehat{2}, \dotsc, n+1\}$.
+ It follows that either the first case or the second case with $i\ge 3$ applies.
+ This proves~\eqref{Eq:Mu} up to signs.
+ Tracing back the signs, one can convince himself that the signs in \eqref{Eq:Mu} indeed alternate.
+
 The last paragraph of the proof of Proposition~\ref{Prop:COne} finishes the proof.
 \end{proof}
 
-We summarize the consequences in the following proposition. The main argument is the same as in the proof of Proposition~\eqref{Prop:GeomForm}.
+We summarize the consequences in the following proposition.
+The main argument is the same as in the proof of Proposition~\eqref{Prop:GeomForm}.
 
 \begin{Proposition}[Vanishing of graphs for $\Sph{n}$] \label{Prop:TotalVanishing}
-Consider $\Sph{n}$ with the Hodge Propagator~\eqref{Eq:GreenKernelMC1}. Only the following trivalent ribbon graphs $\Gamma \neq Y$ do not necessarily vanish:
+Consider $\Sph{n}$ with the Hodge Propagator~\eqref{Eq:GreenKernelMC1}.
+Only the following trivalent ribbon graphs $\Gamma \neq Y$ do not necessarily vanish:
 \begin{description}[font=\normalfont\itshape]
  \item[($n=1$):] The $O_{k}$-graph with $k\in 2\N$ internal vertices of type $B$ with $\NVol$ at the external vertex (see Figure~\ref{Fig:Gamma0}).
- \item[($n=2$):] It must hold $A=0$, $C=2B$ and all $B$ vertices must have $\NVol$ at the external vertex. Moreover, if $\Gamma$ is reduced, it must have $g\ge 1$.
+ \item[($n=2$):] It must hold $A=0$, $C=2B$ and all $B$ vertices must have $\NVol$ at the external vertex.
+ Moreover, if $\Gamma$ is reduced, it must have $g\ge 1$.
  \item[($n=3$):] There is no external vertex and $4 \mid C$ holds.
  \item[($n>3$):] All graphs vanish.
 \end{description}
@@ -163,18 +204,22 @@ Consider $\Sph{n}$ with the Hodge Propagator~\eqref{Eq:GreenKernelMC1}. Only the
 \end{Proposition}
 \begin{proof}
 %Thanks to Lemma~\ref{Lemma:ABVanishing}, we can apply  Proposition~\ref{Prop:PMCEqualsMC} to get $\PMC_{10} = \MC_{10}$, $\PMC_{20} = 0$ for $n \ge 2$ as $H_{\mathrm{dR}}^1(\Sph{n}) = 0$, and $\PMC_{lg} = 0$ for all $(l,g)\neq (1,0)$, $(2,0)$ for $n>3$.
-Lemma~\ref{Lemma:ABVanishing} implies that $A=0$ and that the total form-degree $D$ satisfies $D= n B$. Therefore, we get from \eqref{Eq:VerticesEq} the following: for $n>3$ there is neither a $B$-vertex nor a $C$-vertex; for $n=3$, there is no $B$-vertex; for $n=2$, we have $C=2B$; and for $n=1$, there is no $C$-vertex.
+Lemma~\ref{Lemma:ABVanishing} implies that $A=0$ and that the total form-degree $D$ satisfies $D= n B$.
+Therefore, we get from \eqref{Eq:VerticesEq} the following: for $n>3$ there is neither a $B$-vertex nor a $C$-vertex; for $n=3$, there is no $B$-vertex; for $n=2$, we have $C=2B$; and for $n=1$, there is no $C$-vertex.
 
-Consider the pullback of $I(\sigma_L)$ along the (multi)diagonal action of an $R\in O(n+1)$ with $\Det(R)=-1$ on $(\Sph{n})^{\times k}$. We get schematically
-$$ \int_{(\Sph{n})^{\times k}} \Prpg^{e}\Vol^{s} = (-1)^{k +e + s} \int_{(\Sph{n})^{\times k}} G^{e}\Vol^{s}. $$
-Therefore, $k+ e + s$ has to be even. If we plug-in from~\eqref{Eq:ChangeOfVariables}, we get
-$$ k+ e + s =  \begin{cases}
+Consider the pullback of $I(\sigma_L)$ along the (multi)diagonal action of an $R\in O(n+1)$ with $\Det(R)=-1$ on $(\Sph{n})^{\times k}$.
+We get schematically
+\[ \int_{(\Sph{n})^{\times k}} \Prpg^{e}\Vol^{s} = (-1)^{k +e + s} \int_{(\Sph{n})^{\times k}} G^{e}\Vol^{s}. \]
+Therefore, $k+ e + s$ has to be even.
+If we plug-in from~\eqref{Eq:ChangeOfVariables}, we get
+\[ k+ e + s =  \begin{cases}
 3 B & \text{for }n=1, \\
 8 B & \text{for }n=2, \\
 \frac{5}{2} C & \text{for }n=3.
-\end{cases} $$
+\end{cases} \]
 
-A non-vanishing reduced graph must have $B\ge l$. For $n=2$, so that $C=2B$, the formula~\eqref{Eq:GenusFormulaa} gives $g\ge 1$.
+A non-vanishing reduced graph must have $B\ge l$.
+For $n=2$, so that $C=2B$, the formula~\eqref{Eq:GenusFormulaa} gives $g\ge 1$.
 \end{proof}
 
 \begin{Remark}[Graphs for $\Sph{2}$]\phantomsection\label{Rem:GraphsTwoSphere}
@@ -196,7 +241,7 @@ A non-vanishing reduced graph must have $B\ge l$. For $n=2$, so that $C=2B$, the
 \end{figure}
 \endgroup }
 The simplest possibly non-vanishing graph for $\Sph{2}$ has $A= 0$, $B=1$, $C=2$. If it is reduced, we must have $l = g = 1$, and hence it will contribute to $\PMC_{11}$. Up to an isomorphism, there is only one such graph, which we denote by $P_1$ (see Figure~\ref{Fig:P1P2}). However, we see that the pair of internal vertices $x_1$ and $x_2$ is connected by two edges, which implies that $P_1 =0$. Indeed, $\Prpg(x,y)$ has odd degree, and hence we have\footnote{We recall from Section~\ref{Section:Proof2} that the notation $\Prpg(x_i,x_j)$ means $(\pi_{i} \times \pi_j)^* \Prpg$ and not just the evaluation at $(x_i,x_j)$.}
-$$ \Prpg(x,y)\Prpg(y,x) = \Prpg(x,y)^2 = 0 $$
+\[ \Prpg(x,y)\Prpg(y,x) = \Prpg(x,y)^2 = 0 \]
 by the symmetry on the pullback along the twist map. It follows that $\PMC_{11} = 0$.
 
 The second simplest possibly non-vanishing reduced graph is the graph~$P_2$ from Figure~\ref{Fig:P1P2}. Let 
@@ -218,7 +263,7 @@ We sum up some general observations about the integrals for $\Sph{2}$:
 \begin{itemize}
 \item We have $B_{\NOne} \neq 0$ and $C \neq 0$ for the corresponding forms.
 \item We have the multiplication formula (c.f., Example~\ref{Example:Circle})
-$$ \omega_1(x,y) \omega_1(x,z) = x\cdot(y\times z) \Vol(x). $$
+\[ \omega_1(x,y) \omega_1(x,z) = x\cdot(y\times z) \Vol(x). \]
 \item The number $(-1)^{\sigma_L} I(\sigma_L)$ does not depend on the choice of $L_1$ provided a compatible $L_2$ is chosen.
 \item It holds $\sum_{L_3^b} (-1)^{\sigma_L} I(\sigma_L) = 0$ whenever there is a boundary component with even number of $\NVol$'s.
 \item If there is a $B$-vertex $x$ such that the underlying graph (after forgetting the ribbon structure) is symmetric on the reflection along an axis going through $x$, then $I(\sigma_L) = 0$. \qedhere
@@ -254,9 +299,9 @@ $$ \omega_1(x,y) \omega_1(x,z) = x\cdot(y\times z) \Vol(x). $$
 \endgroup }
 
 For $\Sph{3}$, we consider the non-reduced graphs $K_1$ and $K_2$ and the tadpole graph from Figure~\ref{Fig:K1K2}. The graphs $K_1$ and $K_2$ appear in the definition of the Chern-Simons topological invariant in~\cite{Kohno2002} (with a gauge group). The corresponding integrals from our theory vanish ``algebraically'', i.e., at the level of wedge products of $\omega_i$. Indeed, every summand in $K_1$ contains 
-$$ \omega_a(x_1,x_1) = 0\quad \text{for some }a=0, 1, 2, $$
+\[ \omega_a(x_1,x_1) = 0\quad \text{for some }a=0, 1, 2, \]
 and, for degree reasons, the form part of $K_2$ can contain   only
-$$ \omega_1(x_1,x_2)^3=0\quad\text{or}\quad\omega_0(x_1,x_2)\omega_{1}(x_1,x_2)\omega_{2}(x_1,x_2)=0.$$ 
+\[ \omega_1(x_1,x_2)^3=0\quad\text{or}\quad\omega_0(x_1,x_2)\omega_{1}(x_1,x_2)\omega_{2}(x_1,x_2)=0.\] 
 The tadpole graph contains only
 \begin{equation*}
  \omega_2(x_1,x_3)\omega_1(x_1,x_2)\omega_2(x_2,x_3) = 0.\qedhere \end{equation*}
@@ -266,7 +311,9 @@ The tadpole graph contains only
 %It was checked numerically that there are graphs with $C=4$ which do not vanish algebraically.
 \end{Remark}
 
-Equations in Remarks~\ref{Rem:GraphsTwoSphere} and~\ref{Rem:GraphsThreeSphere} were checked by the computer. The program for Wolfram Mathematica~10.4 will be made available at \cite{sourcecode}. 
+Equations in Remark~\ref{Rem:GraphsThreeSphere} were checked by the computer---this is possible as the vanishing is purely algebraic.
+Any author's attempts to show numerically that some integrals are non-zero or get a hint for ``analytic vanishing'' failed so far.
+The program for Wolfram Mathematica~10.4 will be made available at \cite{sourcecode} and possibly updated. 
 
 
 We will now compute $\PMC_{20}$ for $\Sph{1}$, which according to Proposition~\ref{Prop:TotalVanishing} consists only of contributions from the $O_k$-graphs with $k$ even. 
@@ -293,20 +340,19 @@ For every even $k\ge 2$, the integral $I(k)$ is equal to
 \end{Lemma}
 
 \begin{proof}
-Denote $\bar{\Prpg}(x,y) \coloneqq -2\pi \Prpg$. For all $k$, $l \ge 1$, we consider the more general integral
-$$ I(k,l) \coloneqq \int_{x_1, \dotsc, x_k} \bar{\Prpg}(x_1,x_2) \dotsm \bar{\Prpg}(x_{k-1},x_k) \bar{\Prpg}(x_k,x_1)^l\Vol(x_1) \dotsm \Vol(x_k). $$
+Denote $\bar{\Prpg} \coloneqq -2\pi \Prpg$. For all $k$, $l \ge 1$, we consider the more general integral
+\[ I(k,l) \coloneqq \int_{x_1, \dotsc, x_k} \bar{\Prpg}(x_1,x_2) \dotsm \bar{\Prpg}(x_{k-1},x_k) \bar{\Prpg}(x_k,x_1)^l\Vol(x_1) \dotsm \Vol(x_k). \]
 Taking the pullback along $(x_1, x_2, \dotsc, x_{k-1}, x_k) \mapsto (x_k, x_{k-1}, \dotsc, x_2, x_1)$ and using the antisymmetry of $\bar{\Prpg}(x,y)$, we get $I(k,l) = 0$ whenever $k+l$ is even. We will compute $I(k,1)$ for $k\in 2\N$ from a recursive relation which arises from successive integration.
 
 For the recursion step, we need to evaluate the integral 
-$$\int_{y} \bar{\Prpg}(x,y)\bar{\Prpg}(y,z)^l \Vol(y)$$
+\[\int_{y} \bar{\Prpg}(x,y)\bar{\Prpg}(y,z)^l \Vol(y)\]
 for fixed $(x,z)\in (\Sph{1}\times \Sph{1})\backslash\Diag$. Pick the chart $g: \Sph{1}\backslash\{z\} \rightarrow (-\pi,\pi)$ defined by 
-$$ g(y)= \bar{\Prpg}(y,z) =  \pi - \alpha(y,z) \quad\text{for } y\in \Sph{1}\backslash\{z\}, $$
+\[ g(y)= \bar{\Prpg}(y,z) =  \pi - \alpha(y,z) \quad\text{for } y\in \Sph{1}\backslash\{z\}, \]
 where the angle $\alpha$ was defined in Example~\ref{Example:Circle}. It holds $\Diff{g}(y) = \Vol(y)$ and
-$$ \bar{\Prpg}(x,y) = \begin{cases} \bar{\Prpg}(x,z) - g(y) - \pi & \text{for }-\pi< g(y)< \bar{\Prpg}(x,z), \\
+\[ \bar{\Prpg}(x,y) = \begin{cases} \bar{\Prpg}(x,z) - g(y) - \pi & \text{for }-\pi< g(y)< \bar{\Prpg}(x,z), \\
 \bar{\Prpg}(x,z) - g(y) + \pi & \text{for }\bar{\Prpg}(x,z)<g(y)<\pi.
- \end{cases}$$
+ \end{cases}\]
 We compute
-\allowdisplaybreaks
 \begin{align*}
 \int_{y} \bar{\Prpg}(x,y)\bar{\Prpg}(y,z)^l \Vol(y) &= \begin{multlined}[t] \int_{-\pi}^{\pi} (\bar{\Prpg}(x,z) - g)g^l \Diff{g} - \pi \int_{-\pi}^{\bar{\Prpg}(x,z)} g^l \Diff{g} \\ {}+ \pi \int_{\bar{\Prpg}(x,z)}^\pi g^l \Diff{g} \end{multlined} \\
  &=  \frac{2\pi}{l+1} \begin{cases}
@@ -316,15 +362,16 @@ We compute
 \end{align*}
 
 
-From now on, $\int$ will stand for the Riemannian integral, i.e., $\int f \coloneqq \int f\Vol$ for a function $f$. We compute
+From now on, $\int$ will stand for the Riemannian integral, i.e., $\int f \coloneqq \int f\Vol$ for a function~$f$. We compute
 %
-\allowdisplaybreaks
 \begin{align*}
-I(2,l) &= \int_{x_1, x_2} \bar{\Prpg}(x_1,x_2)\bar{\Prpg}(x_2,x_1)^{l} = - \int_{y z} \bar{\Prpg}(y,z)^{l+1} =- 2\pi \int_{-\pi}^\pi g^{l+1} \Diff{g} \\ &= \begin{cases} 0 & \text{for }l \text{ even}, \\[2ex] 
+I(2,l) &= \int_{x_1, x_2} \bar{\Prpg}(x_1,x_2)\bar{\Prpg}(x_2,x_1)^{l} \\
+ &= - \int_{y z} \bar{\Prpg}(y,z)^{l+1} \\
+ &=- 2\pi \int_{-\pi}^\pi g^{l+1} \Diff{g} \\
+ &= \begin{cases} 0 & \text{for }l \text{ even}, \\[2ex] 
  - \dfrac{4 \pi^{l+3}}{l+2} &\text{for }l\text{ odd}. \end{cases}
 \end{align*}
 For $k\ge 4$ even and $l$ odd, we compute % 10.10.17
-\allowdisplaybreaks
 \begin{align*}
  I(k,l) &= \begin{multlined}[t]\frac{2\pi}{l+1}\int_{x_1, \dotsc, x_{k-1}}\bar{\Prpg}(x_1,x_2)\dotsm \bar{\Prpg}(x_{k-2},x_{k-1}) \\ \Bigl(\frac{\pi^{l+1}}{l+2} - \bar{\Prpg}(x_{k-1},x_1)^{l+1}\Bigr) \end{multlined} \\ 
 &\begin{multlined}
@@ -336,14 +383,13 @@ For $k\ge 4$ even and $l$ odd, we compute % 10.10.17
 %
 %where we used that $\int_{x_{k-1}} \bar{\Prpg}(x_{k-2},x_{k-1}) = 0$.
 For the second equality, we used $\int_{x_1} \bar{\Prpg}(x_1,x_2) = 0$ to show that the term multiplied by $\frac{\pi^{l+1}}{l+2}$ vanishes. It follows that
-%$$ I_{n,1} = -\frac{(2\pi^2)^n}{(n+1)(n-1)!}-\sum_{l=2,4,\ldots,n-2} \frac{(2\pi^2)^{n-l}}{(n-l+1)!} I_{l,1}\qquad\text{for all }n=2,4,\ldots$$
-\allowdisplaybreaks
+%\[ I_{n,1} = -\frac{(2\pi^2)^n}{(n+1)(n-1)!}-\sum_{l=2,4,\ldots,n-2} \frac{(2\pi^2)^{n-l}}{(n-l+1)!} I_{l,1}\qquad\text{for all }n=2,4,\ldots\]
 \begin{align*}
 I(k,1) &= \frac{(2\pi)^{k-2}}{(k-1)!} I(2,k-1) - \sum_{l=2, 4, \dotsc, k-2} \frac{(2\pi^2)^{k-l}}{(k-l+1)!} I(l,1) \\ 
 &=-\frac{k(2\pi^2)^k}{(k+1)!}-\sum_{l=2, 4, \dotsc, k-2} \frac{(2\pi^2)^{k-l}}{(k-l+1)!} I(l,1)\qquad\text{for all }k=2,\,4,\,\dotsc
 \end{align*}
 This is a recursive equation of the form $a_k = c_k + \sum_{l=1}^{k-1} d_{k-l} a_l$. Its solution is $a_k = \sum_{i=1}^k c_i D_{k-i}$ with $D_0\coloneqq 1$ and $D_i = \sum d_{i_1} \dotsm d_{i_r}$, where we sum over all $r=1$,~$\dotsc$, $i$ and $i_1$,~$\dotsc$, $i_r\in \N$ such that $i_1+ \dotsb + i_r = i$. Therefore, we get % Proved on 11.10.17, checked by Mathematica in CircularIntCircle.nb
-$$ I(k,1) = -(2\pi^2)^k \sum_{i=2, 4, \dotsc, k} \frac{i}{(i+1)!} \sum_{\substack{i_1 + \dotsb + i_r = k-i \\ i_1, \dotsc, i_r \in 2\N, r\in \N}} (-1)^r \frac{1}{(i_1+1)! \dotsm (i_r+1)!}.$$
+\[ I(k,1) = -(2\pi^2)^k \sum_{i=2, 4, \dotsc, k} \frac{i}{(i+1)!} \sum_{\substack{i_1 + \dotsb + i_r = k-i \\ i_1, \dotsc, i_r \in 2\N, r\in \N}} (-1)^r \frac{1}{(i_1+1)! \dotsm (i_r+1)!}.\]
 The result has to be multiplied by $(-1)^k(2\pi)^{-2k}$ in order to get $I(k)$. 
 \end{proof} % Checked on 24.3.18.
 
@@ -380,15 +426,15 @@ Next, we prove the independence of $\Gamma\in O(s_1,s_2)$. Let $L$ be an admissi
 The cyclic orderings at $\Vert_1$ and $\Vert_2$, respectively, have to be modified by a transposition in order to get compatibility with the new ribbon structure. All other labelings can be copied from $L$.
 %This does not produce a sign as the change is in pair.
 In total, we get
-$$ (-1)^{\sigma_L - \sigma_{L'}} = -1. $$
+\[ (-1)^{\sigma_L - \sigma_{L'}} = -1. \]
 This sign is compensated by swapping the one-forms in $I(\sigma_L)$:
-$$ \Vol (x_{\Vert_1}) \dots \Vol(x_{\Vert_2}) \;\longleftrightarrow\;\Vol(x_{\Vert_2}) \dots \Vol(x_{\Vert_1}). $$
+\[ \Vol (x_{\Vert_1}) \dots \Vol(x_{\Vert_2}) \;\longleftrightarrow\;\Vol(x_{\Vert_2}) \dots \Vol(x_{\Vert_1}). \]
 The independence of $\Gamma\in O(s_1,s_2)$ follows from the fact that we can span the entire $O(s_1,s_2)$ by repeating the swap-of-legs operation.
 \end{proof}
 
 \begin{Lemma}[Sign]\label{Lemma:SignForMCOnCircle}
 We have
-$$\varepsilon(s_1,s_2) = (-1)^{s_1+1}. $$
+\[\varepsilon(s_1,s_2) = (-1)^{s_1+1}. \]
 \end{Lemma}
 \begin{proof} 
 
@@ -401,30 +447,30 @@ $$\varepsilon(s_1,s_2) = (-1)^{s_1+1}. $$
 
 
 By Lemma~\ref{Lemma:Independence}, in order to compute $(-1)^{\sigma_L}I(\sigma_L)$, we can pick $\Gamma^*\in O(s_1,s_2)$ and its admissible and compatible labeling $L^*$ from Figure~\ref{Fig:Gamma0}. We abbreviate $\sigma_0 = \sigma_{L^*}$. The corresponding integral \eqref{Eq:ISigma} reads
-$$ I(\sigma_0) = \begin{multlined}[t] \frac{1}{V^k}\int_{x_1, \dotsc, x_k} G(x_{k-1},x_k) \dotsm G(x_{1},x_2)G(x_k,x_1) \Vol(x_{s_1}) \dotsm \Vol(x_1)\\ \Vol(x_{s_1+1}) \dotsm \Vol(x_k). \end{multlined} $$
+\[ I(\sigma_0) = \begin{multlined}[t] \frac{1}{V^k}\int_{x_1, \dotsc, x_k} G(x_{k-1},x_k) \dotsm G(x_{1},x_2)G(x_k,x_1) \Vol(x_{s_1}) \dotsm \Vol(x_1)\\ \Vol(x_{s_1+1}) \dotsm \Vol(x_k). \end{multlined} \]
 It differs from $I(k)$ from~\eqref{Eq:Ik} in the order of $\Prpg$'s and $\Vol$'s. A reordering produces the sign
-$$(-1)^{\frac{1}{2}s_1(s_1-1)}.$$ 
+\[(-1)^{\frac{1}{2}s_1(s_1-1)}.\] 
 We will compute $(-1)^{\sigma_0}$ by ordering half-edges from the edge order back to the vertex order while looking at Figure~\ref{Fig:Gamma0}. The steps are as follows: 
 \begin{itemize}
  \item Transpose half-edges at internal vertices so that the first half-edge goes inside the vertex and the third outside with respect to the counterclockwise orientation. This gives $(-1)^a$.
  \item Permute external legs so that $\NVol_i$ is at $x_i$ for all $i=1$, $\dotsc$, $k$. This gives 
- $$(-1)^{\frac{1}{2}s_1(s_1-1)}. $$
+ \[(-1)^{\frac{1}{2}s_1(s_1-1)}. \]
  \item Permute internal edges so that $\Prpg_i$ starts at the third half-edge of $x_i$ and ends at the first half-edge of $x_{i+1}$ for all $i=1$, $\dotsc$, $k-1$. This does not produce any sign as swapping of two $\Prpg$'s requires two transpositions.
  \item  At this point, we have the permutation
- $$\begingroup\setlength\arraycolsep{4pt}      \begin{pmatrix}
+ \[\begingroup\setlength\arraycolsep{4pt}      \begin{pmatrix}
  1 & 2 &\dots & 2(e-1)-1 & 2(e-1) & 2e-1 & 2e & 2e + 1 & \dots & 3k \\
  3 & 4 &\dots & 3k-3 & 3k-2 &  3k &  1 & 2 & \dots & 3k-1
- \end{pmatrix}.\endgroup$$
+ \end{pmatrix}.\endgroup\]
 We interpret the last line as $\Prpg_1\dots \Prpg_k \NVol_1\dots \NVol_k$ and permute it to the sequence $\NVol_1 \Prpg_1 \NVol_2 \Prpg_2\dots \NVol_k \Prpg_k$, which does not produce any sign. We end up with 
-$$ \sigma_0' = \begin{pmatrix}
+\[ \sigma_0' = \begin{pmatrix}
  1 & 2 & 3 & \dots & 3k-1 & 3k \\
  2 & 3 & 4 & \dots & 3k & 1
-\end{pmatrix}. $$
+\end{pmatrix}. \]
 It is now easy to see that
-$$ (-1)^{\sigma_0'} = (-1)^{3k-1}. $$
+\[ (-1)^{\sigma_0'} = (-1)^{3k-1}. \]
 \end{itemize}
 In total, we get
-$$ (-1)^{\sigma_0} = (-1)^{s_1 + \frac{1}{2}s_1(s_1-1) + k + 1}. $$
+\[ (-1)^{\sigma_0} = (-1)^{s_1 + \frac{1}{2}s_1(s_1-1) + k + 1}. \]
 As for the other signs in Definition~\ref{Def:PushforwardMCdeRham}, we have $s(k,l) = k + \frac{1}{2}k(k-1)$ and $P(\NVol^k) = \frac{1}{2}k(k-1)$. There is no sign from $\Susp^2 \NVol^{s_1}\otimes \NVol^{s_2} = \Susp \NVol^{s_1} \otimes \Susp \NVol^{s_2}$ since $\Abs{\Susp} = -2$. Multiplying everything together, we get $\varepsilon(s_1,s_2)$.
 \end{proof}
 \begin{figure}
@@ -434,28 +480,29 @@ As for the other signs in Definition~\ref{Def:PushforwardMCdeRham}, we have $s(k
 \end{figure}
 \begin{Lemma}[Combinatorial coefficient]
 \label{Lemma:CombinatorialCoefficientForMCOnCircle}
-It holds $$C(s_1,s_2) = \frac{1}{2} a k! \binom{k-1}{s_1}.$$
+It holds \[C(s_1,s_2) = \frac{1}{2} a k! \binom{k-1}{s_1}.\]
 \end{Lemma}
 \begin{proof}
 Every isomorphism of ribbon graphs $\Gamma$ and $\Gamma'$ from $O(s_1,s_2)$ is a composition of the clockwise rotation $(r)$ for $r\in \Z$ and the mirror operation $M$ defined as follows: If $1$,~$\dotsc$, $k$ label internal vertices in the clockwise direction starting from the north-pole, then the result of $M$ is $\bar{k}$,~$\dotsc$, $\bar{1}$, where $\bar{i}$ means that the external leg is reversed (see Figure~\ref{Fig:Mirror}). These operations satisfy
-$$ (r+k) = (r),\; (r)(-r)=\Id,\; M^2 = \Id,\; (r)M = M(-r), $$
+\[ (r+k) = (r),\; (r)(-r)=\Id,\; M^2 = \Id,\; (r)M = M(-r), \]
 and hence generate a group $\mathrm{G}$ which is isomorphic to the dihedral group $\Z_k \rtimes \Z_2$. The orbit space $O(s_1,s_2)/\mathrm{G}$ is in $1:1$ correspondence with isomorphism classes of admissible $O_k$-graphs and $\Aut(\Gamma)$ is in $1:1$ correspondence with $\Stab{\Gamma}$. From the orbit-stabilizer formula, we get
-\allowdisplaybreaks
 \begin{align*}
-\sum_{\substack{[\Gamma] \text{ admiss. }\\O_k-\text{graph}}} \frac{1}{\Abs{\Aut(\Gamma)}} &= \sum_{[\Gamma]\in O(s_1,s_2)/\mathrm{G}} \frac{1}{\Abs{\Stab{\Gamma}}} = \sum_{\Gamma\in O(s_1,s_2)} \frac{1}{\Abs{\Orb{\Gamma}}\Abs{\Stab{\Gamma}}} \\ &= \frac{\Abs{O(s_1,s_2)}}{\Abs{\mathrm{G}}} = \frac{1}{2k}{\binom{k}{s_1}}\times\begin{cases} 1 & \text{for }s_1=s_2, \\ 2 & \text{for }s_1\neq s_2.\end{cases}
+\sum_{\substack{[\Gamma] \text{ admiss. }\\O_k-\text{graph}}} \frac{1}{\Abs{\Aut(\Gamma)}} &= \sum_{[\Gamma]\in O(s_1,s_2)/\mathrm{G}} \frac{1}{\Abs{\Stab{\Gamma}}} \\
+& = \sum_{\Gamma\in O(s_1,s_2)} \frac{1}{\Abs{\Orb{\Gamma}}\Abs{\Stab{\Gamma}}} \\[2ex]
+&= \frac{\Abs{O(s_1,s_2)}}{\Abs{\mathrm{G}}}\\[1ex] 
+&= \frac{1}{2k}{\binom{k}{s_1}}\times\begin{cases} 1 & \text{for }s_1=s_2, \\ 2 & \text{for }s_1\neq s_2.\end{cases}
 \end{align*}
 The two cases are compensated in the sum over labelings: For $s_1=s_2$, both labelings $L_1^b$ are admissible, and hence we get the factor $2$.
 
 Next, we multiply by $k! s_1(k-s_1)$, which is the number of $L_1^v$ and $L_3^b$. There is also the factor $\frac{1}{l!} = \frac{1}{2}$. Multiplying everything together, we get $C(s_1,s_2)$.
 %In total we get
-%$$ \frac{1}{2} a(k-a) k! \frac{1}{k}{{k}\choose{a}} = \frac{1}{2} a k! \binom{k-1}{a}. $$
+%\[ \frac{1}{2} a(k-a) k! \frac{1}{k}{{k}\choose{a}} = \frac{1}{2} a k! \binom{k-1}{a}. \]
 \end{proof}
 
-Before we summarize the results of our computations (see Proposition~\ref{Proposition:MCSphere} below), we show directly that $\PMC$ is a Maurer-Cartan element.
-
+Before we summarize the results of our computations (see Proposition~\ref{Proposition:MCSphere} below), we show directly that $\PMC$ is a Maurer-Cartan element; i.e., in this special case, we do not need general results from \cite{Cieliebak2018} at all.
 
 \begin{Lemma}[Maurer-Cartan equation for $\Sph{n}$] \label{Lem:MCEquation}
-Consider $\Sph{n}$ with the Hodge Propagator from~\eqref{Eq:GreenKernelMC1}. The collection $(\PMC_{lg})$ satisfies the Maurer-Cartan equation~\eqref{Eq:MaurerCartanEquation} for $\dIBL(\CycC(\Harm(\Sph{n})))$.
+For $n\ge 1$, consider $\Sph{n}$ with the Hodge Propagator from~\eqref{Eq:GreenKernelMC1}. The collection $(\PMC_{lg})$ satisfies the Maurer-Cartan equation~\eqref{Eq:MaurerCartanEquation} for $\dIBL(\CycC(\Harm(\Sph{n})))$.
 \end{Lemma}
 
 \begin{proof}
@@ -470,7 +517,7 @@ is the canonical Maurer-Cartan element. For $(l,g)\neq (1,0)$, we have the follo
 %The idea is that $\OPQ_{210}$ from~\eqref{Eq:CanonicaldIBLSn} feeds $\NOne$ into one of its inputs, but all graphs with $\NOne$ at an exterior vertex are $0$ by Proposition~\ref{Prop:TotalVanishing}. The precise argument is as follows. 
 Let $\Psi = \Psi_1 \cdots \Psi_l\in \Ext_l \CycC$ be a summand of $\PMC_{lg}$. 
  From Proposition~\ref{Prop:TotalVanishing} it follows that the summands can be chosen such that $\Psi_1$,~$\dotsc$, $\Psi_l \in \DBCycRed\Harm(\Sph{n})[3-n]$, i.e., such that $\Psi_i$ evaluates to $0$ whenever $\NOne$ is a part of its argument. From Definition~\ref{Def:CircS}, we compute
-$$\OPQ_{210}\circ_2 (\Psi_1\cdots\Psi_l) = \sum_{\sigma\in \Perm_{2,l-2}} \varepsilon(\sigma,\Psi)\OPQ_{210}(\Psi_{\sigma_1^{-1}}\cdot\Psi_{\sigma_2^{-1}})\cdot\Psi_{\sigma_3^{-1}}\cdots \Psi_{\sigma_l^{-l}}. $$
+\[\OPQ_{210}\circ_2 (\Psi_1\cdots\Psi_l) = \sum_{\sigma\in \Perm_{2,l-2}} \varepsilon(\sigma,\Psi)\OPQ_{210}(\Psi_{\sigma_1^{-1}}\cdot\Psi_{\sigma_2^{-1}})\cdot\Psi_{\sigma_3^{-1}}\cdots \Psi_{\sigma_l^{-l}}. \]
 We clearly have $\OPQ_{210}(\Psi_{\sigma_1^{-1}}\cdot\Psi_{\sigma_2^{-1}})=0$ because $\OPQ_{210}$ feeds $\NOne$ into one of its inputs. It follows that $\OPQ_{210}\circ_2 \PMC_{lg} = 0$.
 
 \item[$\OPQ_{210}\circ_{1,1}(\PMC_{l_1 g_1} \odot \PMC_{l_2 g_2})$, $(l_i,g_i) \neq (1,0)$:] A similar argument as above.
@@ -478,33 +525,32 @@ We clearly have $\OPQ_{210}(\Psi_{\sigma_1^{-1}}\cdot\Psi_{\sigma_2^{-1}})=0$ be
 %also always feeds $\NOne$ into its input.
 \item[$\OPQ_{210}\circ_{1,1} (\PMC_{10}\odot \PMC_{lg})$, $(l,g)\neq (1,0)$:] 
 As in the case of $\OPQ_{210}\circ_2 \PMC_{lg}$, suppose that $\Psi_1$,~$\dotsc$, $\Psi_l \in \DBCycRed\Harm(\Sph{n})[3-n]$. Recall that we write $\Omega_i = \Susp \omega_i \in \BCyc \Harm(\Sph{n})[3-n]$ and $\Omega = \Omega_1\otimes \dotsb \otimes \Omega_l$. From Definition~\ref{Def:CircS}, we compute
-\allowdisplaybreaks
 \begin{align*}
 &[\OPQ_{210} \circ_{1,1}(\PMC_{10}\odot \Psi)](\Omega_1 \otimes \dotsb \otimes \Omega_l) 
 \\ &\quad = \begin{multlined}[t] \Bigl[ \sum_{i=1}^l (-1)^{\Abs{\Psi_i}(\Abs{\Psi_1} + \dotsb + \Abs{\Psi_{i-1}})} \OPQ_{210}(\PMC_{10}\Psi_i)\Psi_1\cdots \widehat{\Psi_i}\cdots \Psi_l\Bigr]\\ (\Omega_1 \otimes \dotsb \otimes \Omega_l) \end{multlined} \\ 
  &\quad = \begin{multlined}[t] \vphantom{\sum_{i}}\smash{\sum_{\substack{\mu \in \Perm_l \\ i=1, \dotsc, l}}} \frac{1}{l!} (-1)^{\Abs{\Psi_i}(\Abs{\Psi_1} + \dotsb + \Abs{\Psi_{i-1}})} \varepsilon(\mu,\Omega) (\OPQ_{210}(\PMC_{10}\cdot\Psi_i)\otimes \Psi_1\otimes \dotsb \\ \widehat{\Psi_i}\dotsb\otimes \Psi_l)(\Omega_{\mu_1^{-1}} \otimes \dotsb \otimes \Omega_{\mu_l^{-1}}). \end{multlined}
 \end{align*}
 For every $i=1$, $\dotsc$, $l$, we have
-\allowdisplaybreaks
  \begin{align*} 
  & \OPQ_{210}(\PMC_{10}\cdot \Psi_i)(\Omega) = \OPQ_{210}(\PMC_{10}\otimes \Psi_i)(\Omega) \\
  & \qquad = \begin{multlined}[t]- \sum \varepsilon(\omega\mapsto \omega^1 \omega^2)[(-1)^{(n-1)\Abs{\omega^1}} \PMC_{10}(\Susp \NOne \omega^1) \Psi_i(\Susp \NVol \omega^2) \\ {}+ (-1)^{\Abs{\omega^1}} \PMC_{10}(\Susp \NVol \omega^1) \Psi_i(\Susp \NOne \omega^2)] \end{multlined} \\ 
  & \qquad = - \sum \varepsilon(\omega\mapsto \omega^1 \omega^2)(-1)^{(n-1)\Abs{\omega^1}} \PMC_{10}(\Susp \NOne \omega^1) \Psi_i(\Susp \NVol \omega^2).
 \end{align*}
 This can be non-zero only if $\omega = \NOne \NVol^{s-1}$ for some $s\ge 2$ (up to a cyclic permutation). For this input, we get
-\allowdisplaybreaks
-\begin{align*} &\OPQ_{210}(\PMC_{10}\cdot \Psi_i)(\Susp \NOne \NVol^{s-1}) \\ &\quad = \begin{multlined}[t] -[\varepsilon(\NOne \NVol^{s-1} \mapsto \NOne\NVol^{s-1})\PMC_{10}(\Susp \NOne\NOne\NVol)\Psi_i(\Susp\NVol^{s-1}) \\ {}+ \varepsilon(\NOne \NVol^{s-1} \mapsto \NVol\NOne\NVol^{s-2})\PMC_{10}(\Susp \NOne\NVol\NOne)  \Psi_i(\Susp\NVol^{s-1})] \end{multlined} \\
+\begin{align*} &\OPQ_{210}(\PMC_{10}\cdot \Psi_i)(\Susp \NOne \NVol^{s-1}) \\ &\quad = \begin{aligned}[t]
+&-[\varepsilon(\NOne \NVol^{s-1} \mapsto \NOne\NVol^{s-1})\PMC_{10}(\Susp \NOne\NOne\NVol)\Psi_i(\Susp\NVol^{s-1}) \\
+&{}+ \varepsilon(\NOne \NVol^{s-1} \mapsto \NVol\NOne\NVol^{s-2})\PMC_{10}(\Susp \NOne\NVol\NOne)  \Psi_i(\Susp\NVol^{s-1})] \end{aligned} \\
  &\quad= (-1)^{n-3}[1+(-1)^{ns+s-1}] \Psi_i(\Susp\NVol^{s-1}).
 \end{align*}
-The prefactor in brackets is $0$ for $n$ odd or $s$ even, whereas $\NVol^{s-1} = 0$ for $n$ even and $s$ odd. Therefore,  we have $\OPQ_{210}\circ_{1,1} (\PMC_{10}\odot \PMC_{lg}) = 0$. \qedhere
+The prefactor in brackets is $0$ for $n$ odd or $s$ even, whereas $\NVol^{s-1} = 0$ for $n$ even and~$s$ odd. Therefore,  we have $\OPQ_{210}\circ_{1,1} (\PMC_{10}\odot \PMC_{lg}) = 0$. \qedhere
 \end{description}
 \end{proof}
 
 %We summarize our findings in the following proposition. Note that our result for $\Sph{n}$ is ``almost independent'' of the theory from \cite{Cieliebak2018}. We only needed $L^1$-integrability of the integrand of $I(\sigma_L)$ in the proof of Lemma~\ref{Lemma:ABVanishing} to justify application of the Fubini theorem. 
 
 \begin{Proposition}[Chern-Simons Maurer-Cartan element for $\Sph{n}$] \label{Proposition:MCSphere}
-Consider the round sphere $\Sph{n}$ with the Hodge Propagator~\eqref{Eq:GreenKernelMC1}. The Chern-Simons Maurer-Cartan element $\PMC$ is a strictly reduced Maurer-Cartan element for $\dIBL(\CycC(\Harm(\Sph{n})))$ which satisfies
-$$ \PMC_{10} = \MC_{10}\quad\text{for all }n\in \N$$
+For $n\ge 1$, consider the round sphere $\Sph{n}$ with the Hodge Propagator~\eqref{Eq:GreenKernelMC1}. The Chern-Simons Maurer-Cartan element $\PMC$ is a strictly reduced Maurer-Cartan element for $\dIBL(\CycC(\Harm(\Sph{n})))$ which satisfies
+\[ \PMC_{10} = \MC_{10}\quad\text{for all }n\in \N\]
 plus the following properties depending on the dimension:
 \begin{description}[font=\normalfont\itshape]
  \item[($n = 1$):] It holds $\PMC_{lg}=0$ for all $l\ge 1$, $g\ge 0$ such that $(l,g) \neq (1,0)$, $(2,0)$; the only non-trivial relation for $\PMC_{20}$ is
@@ -517,5 +563,5 @@ plus the following properties depending on the dimension:
 \end{description}
 \end{Proposition}
 
-Notice that $\PMC_{20}\not\in \Ext_2 \CycC(\Harm(\Sph{1}))$, i.e.~$\PMC_{20}$ is a long cochain, because it is non-zero in infinitely many weights.
+Notice that $\PMC_{20}\not\in \Ext_2 \CycC(\Harm(\Sph{1}))$, i.e.~$\PMC_{20}$ is a ``long cochain'' because it is non-zero in infinitely many weights.
 \end{document}

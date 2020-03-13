@@ -10,7 +10,7 @@
 
 \label{Sec:Alg3}
  
-In this section, we will consider a \underline{finite-dimensional} cyclic dga $(V,\Pair,m_1,m_2)$ of degree $2-n$ for some $n\in \N$.%(see Definition~\ref{Def:CyclicAinfty})
+In this section, we will consider a cyclic dga $(V,\Pair,m_1,m_2)$ of degree $2-n$ for some $n\in \N$ which is finite-dimensional. %(see Definition~\ref{Def:CyclicAinfty})
 % 
 %\begin{Remark} \label{Rem:SignConv}
 %Originally, the author used the following degree shift convention instead of~\eqref{Eq:DegreeShiftConv}:
@@ -20,7 +20,8 @@ In this section, we will consider a \underline{finite-dimensional} cyclic dga $(
 %
 %As we mentioned before Definition~\ref{Def:CircS}, we think of $f: \DBCyc V[3-n]^{\otimes k} \rightarrow \DBCyc V[3-n]^{\otimes l}$ as of a Riemannian surface with $k$ incoming ends at the top and $l$ outgoing ends at the bottom (c.f.\ the schematic formulas~\eqref{Eq:TwisteddIBL}). Inputs $\Psi_i$ are fed to the ends at the top and $f(\Psi_1\otimes \dotsb \otimes \Psi_k)$ is evaluated on $w_1\otimes \dotsb \otimes w_l$ by feeding $w_i$ to the ends at the bottom. A (partial) composition of two maps is then viewed as putting the corresponding Riemannian surfaces on top of each other, together with an appropriate number of trivial cylinders so that the number of incoming and outgoing ends in between is equal, and gluing them together at the opposing ends (see~\cite[Figure~2]{Cieliebak2015}). 
 %\end{Remark}
-This means that for all $v_1$, $v_2$, $v_3 \in V[1]$, the following relations holds:
+
+For all $v_1$, $v_2$, $v_3 \in V[1]$, the following relations holds:
 \begin{equation}\label{Eq:CycDGA}{\hbadness=10000 \text{cyc. dga}\left\{ \begin{aligned} \Pair(v_1,v_2) &= (-1)^{1+ \Abs{v_1} \Abs{v_2}} \Pair(v_2, v_1), &
 \mathclap{
 \smash{
@@ -44,7 +45,7 @@ The facts (A) and (C) from the Overview apply, and we get the canonical $\dIBL$-
 $$ \CycC(V)\coloneqq \DBCyc V[2-n] $$
 and call it the space of \emph{cyclic cochains on $V$}. If $V$ is fixed, we will write just $\CycC$.
 
-\begin{Def}[The canonical $\dIBL$-algebra] \label{Def:CanonicaldIBL}
+\begin{Def}[Canonical $\dIBL$-algebra] \label{Def:CanonicaldIBL}
 Let $(V,\Pair,m_1)$ be a cyclic cochain complex of degree $2-n$ which is finite-dimensional. Let $(e_0, \dotsc, e_m)\subset V[1]$ be a basis of $V[1]$, and let $(e^0,\dotsc, e^m)$ be the dual basis with respect to $\Pair$; this means that
 $$ \Pair(e_i,e^j) = \delta_{ij}\quad\text{for all }i, j =0, \dotsc,  m. $$
 We define the tensor $T = \sum_{i,j=0}^m T^{ij} e_i \otimes e_j \in V[1]^{\otimes 2}$ by\footnote{See Appendix~\ref{Section:Appendix} for the invariant meaning of $T$ as the Schwartz kernel of $\pm \Id$.}
@@ -97,7 +98,7 @@ on the weight-three component of $\BCyc V[3-n]$ and extended by $0$ to other wei
 \item Elements of the completion $\hat{\CycC}(V)$ which are not in $\CycC(V)$ will be called \emph{long cyclic cochains}. Because there are no infinite sums in Definition~\ref{Def:CanonicaldIBL}, $\dIBL(\CycC)$ is completion-free. Clearly, the twist $\dIBL^{\PMC}(\CycC)$ remains completion-free as long as $\PMC_{lg}\in \Ext_l \CycC$ for all $l$, $g$.
 \item The constructions of $\OPQ_{210}$ and $\OPQ_{120}$ do not depend on the choice of a basis and can be rephrased in terms of summation over ribbon graphs (see Example~\ref{Ex:Canon}).
 %The operations extend to $\hat{\Ext}_2 C \rightarrow C$ and $C\rightarrow \hat{\Ext}_2 C \rightarrow C$, as it is required by Definition~\ref{Def:IBLInfty}, due to their finite filtration degree.
-\item According to Proposition~\ref{Prop:Compl}, the filtration on $\CycC(V)$ satisfies (WG1) \& (WG2), and hence the $\IBL$-structures $\IBL(\HIBL(\CycC))$ and $\IBL(\HIBL^{\MC}(\CycC))$ are well-defined (see Definition~\ref{Def:HomIBL}).\qedhere
+\item According to Proposition~\ref{Prop:Compl}, the filtration on $\CycC(V)$ satisfies (WG1) \& (WG2). Thus, the $\IBL$-structures $\IBL(\HIBL(\CycC))$ and $\IBL(\HIBL^{\MC}(\CycC))$ are well-defined (see Definition~\ref{Def:HomIBL}).\qedhere
 \end{RemarkList}
 \end{Remark}
 
@@ -371,11 +372,11 @@ For all $\Psi \in \RedCycC(V)$ and $l\ge 1$, $g\ge 0$, we have
 where $\iota_\NVol$ is defined as follows:
 \begin{itemize}
 \item The element $\NVol \in V[1]$ is the unique vector such that $\Pair(\NOne,\NVol) = 1$ and $\NVol \perp \bar{V}[1]$ with respect to $\Pair$. Note that $\Abs{\NVol} = n-1$ and that such $\NVol$ always exists due to non-degeneracy.
-\item We start by defining $\iota_\NVol : \BCyc V \rightarrow \BCyc V$ by
-$$ \iota_\NVol(v_1\dots v_k) \coloneqq \sum_{i=1}^k (-1)^{\Abs{\NVol}(\Abs{v_1} + \dotsb + \Abs{v_{i-1}})} v_1 \dots v_{i-1} \NVol v_i \dots v_k $$
+\item We start by defining $\iota_\NVol^0 : \BCyc V \rightarrow \BCyc V$ by
+$$ \iota_\NVol^0(v_1\dots v_k) \coloneqq \sum_{i=1}^k (-1)^{\Abs{\NVol}(\Abs{v_1} + \dotsb + \Abs{v_{i-1}})} v_1 \dots v_{i-1} \NVol v_i \dots v_k $$
 for all generating words $v_1 \dots v_k \in \BCyc V$. Next, for all $k\ge 1$, we define $\iota_\NVol : (\BCyc V)^{\otimes k} \rightarrow (\BCyc V)^{\otimes k}$ by
-$$ \iota_\NVol(w_1 \otimes \dotsb \otimes w_k) \coloneqq  \begin{multlined}[t](-1)^{\Abs{\NVol}k}\sum_{j=1}^k (-1)^{\Abs{\NVol}(\Abs{w_1} + \dotsb + \Abs{w_{j-1}})} w_1 \otimes \dotsb \otimes w_{j-1} \\ \otimes  \iota_\NVol(w_j) \otimes w_{j+1} \otimes \dotsb \otimes w_k \end{multlined}$$
-for all generating words $w_1$, $\dotsc$, $w_k \in \BCyc V$. Finally, we take the degree shift $\iota_\NVol: (\BCyc V[3-n])^{\otimes k} \rightarrow (\BCyc V[3-n])^{\otimes k}$ according to the degree shift convention \eqref{Eq:DegreeShiftConv}. 
+$$ \iota_\NVol(w_1 \otimes \dotsb \otimes w_k) \coloneqq  \begin{multlined}[t](-1)^{\Abs{\NVol}k}\sum_{j=1}^k (-1)^{\Abs{\NVol}(\Abs{w_1} + \dotsb + \Abs{w_{j-1}})} w_1 \otimes \dotsb \otimes w_{j-1} \\ \otimes  \iota_\NVol^0(w_j) \otimes w_{j+1} \otimes \dotsb \otimes w_k \end{multlined}$$
+for all generating words $w_1$, $\dotsc$, $w_k \in \BCyc V$. Finally, we take the degree shift $\iota_\NVol: (\BCyc V[3-n])^{\otimes k} \rightarrow (\BCyc V[3-n])^{\otimes k}$ according to the degree shift convention~\eqref{Eq:DegreeShiftConv}. 
 \end{itemize}
 \end{Proposition}
 \begin{proof}
@@ -396,7 +397,8 @@ Now, in order to get $(*)\neq 0$, we need either $q=1$ and $w\in \BCyc \bar{V}$,
 \allowdisplaybreaks
 \begin{align*}
  (*)&=-\sum \varepsilon(w\mapsto \underbrace{w^1}_{=\emptyset} w^2)\psi(\NVol w^2) \\ &= -\sum_{j=1}^k (-1)^{\Abs{v}(\Abs{v_1} + \dotsb + \Abs{v_{j-1}})} \psi(v_1 \dotsc v_{j-1} \NVol v_{j+1}\dotsc v_k) \\[\jot]
- &=  - (\psi \circ \iota_\NVol)(w) = (-1)^{n-2} (\Psi \circ \iota_\NVol)(\W),
+ &=  - (\psi \circ \iota^0_\NVol)(w) \\
+ &= (-1)^{n-2} (\Psi \circ \iota_\NVol)(\W),
 \end{align*}
 or $q>1$ odd and $w = \NOne^{q-1}$, in which case
 \allowdisplaybreaks
@@ -418,7 +420,7 @@ on the chain level. Therefore, we have $\OPQ_{1lg}^\PMC = \OPQ_{210}\circ_1 \PMC
 In order to get $(**)\neq 0$, we need either $q=1$ and $w_j \in \BCyc \bar{V}$ for all $j$, in which case
 \allowdisplaybreaks
 \begin{align*}
-(**) &= \begin{multlined}[t]-\smash{\sum_{j=1}^l} \smash{\sum_{i=1}^{k_j}} (-1)^{\Abs{\NVol}(\Abs{\W_1}+ \dotsb + \Abs{\W_{j-1}} + \Abs{\Susp})}(-1)^{\Abs{\NVol}(\Abs{v_1} + \dotsb + \Abs{v_{j-1}})}\PMC_{lg}(\W_1 \otimes \dotsb \\[\jot] \otimes \W_{j-1} \otimes (\Susp v_1 \dots v_{i-1} \NVol v_{i} \dots v_{k_j}) \otimes \W_{j+1}\otimes \dotsb\otimes \W_l)\end{multlined} \\[\jot]
+(**) &= \begin{multlined}[t]-\smash{\sum_{j=1}^l} \smash{\sum_{i=1}^{k_j}} (-1)^{\Abs{\NVol}(\Abs{\W_1}+ \dotsb + \Abs{\W_{j-1}} + \Abs{\Susp})}(-1)^{\Abs{\NVol}(\Abs{v_1} + \dotsb + \Abs{v_{i-1}})}\PMC_{lg}(\W_1 \otimes \dotsb \\[\jot] \otimes \W_{j-1} \otimes (\Susp v_1 \dots v_{i-1} \NVol v_{i} \dots v_{k_j}) \otimes \W_{j+1}\otimes \dotsb\otimes \W_l)\end{multlined} \\[\jot]
  &= -(\PMC_{lg} \circ \iota_\NVol)(\W_1 \otimes \dotsb \otimes \W_l),
 \end{align*}
 or $q>1$ odd and $w_j = \NOne^{q-1}$ for some $j$, in which case
@@ -433,4 +435,10 @@ The only relation left to check is
 $$ \OPQ_{210}(\Susp \NOne^{q_1 *},\Susp \NOne^{q_1 *}) = 0 \quad\text{for all } q_1, q_2 \in \N.$$
 However, this is easy to see, and the proof is done. 
 \end{proof}
+
+\begin{Remark}[Finite type]
+Everything in this section works if $V$ is just of \emph{finite type}, i.e., if $\dim V^d < \infty$ for all $d\in \Z$. The only difference is that $T$ is not a tensor in $V[1]^{\otimes 2}$ anymore.
+\end{Remark}
+
+
 \end{document}

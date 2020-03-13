@@ -4,25 +4,30 @@
 
 \begin{document}
 
-An \emph{$\IBLInfty$-algebra} is essentially a collection of multilinear operations $\OPQ_{klg}$ with~$k$ inputs,~$l$ outputs and ``genus''~$g$ satisfying certain relations; in particular,~$\OPQ_{110}$ is a boundary operator, and the pair $\OPQ_{210}$, $\OPQ_{120}$ induces the structure of an involutive Lie bialgebra on the homology of $\OPQ_{110}$. It was introduced in \cite{Cieliebak2015} and applications to string topology, symplectic field theory and higher genus Lagrangian Floer theory were proposed.
+An \emph{$\IBLInfty$-algebra} is essentially a collection of multilinear operations $\OPQ_{klg}$ with~$k$ inputs,~$l$ outputs and ``genus''~$g$ satisfying certain relations; in particular,~$\OPQ_{110}$ is a boundary operator, and the pair $\OPQ_{210}$, $\OPQ_{120}$ induces the structure of an involutive Lie bialgebra on the homology of $\OPQ_{110}$.
+It was introduced in \cite{Cieliebak2015} and applications to string topology, symplectic field theory and higher genus Lagrangian Floer theory were proposed.
 
-This part of the thesis is an attempt to understand the application to \emph{string topology}. The idea was to carry out some explicit computations according to the plan sketched in~\cite[Section~13]{Cieliebak2015} and test the string topology conjecture (see below).
+This part of the thesis is an attempt to understand its application to \emph{string topology}.
+The idea was to carry out some explicit computations according to the plan sketched in~\cite[Section~13]{Cieliebak2015} and test the string topology conjecture (see below).
 %It turned out that the main degree argument used in the computation for $\Sph{n}$ extends to a more general case thanks to a tricky Hodge propagator modification from~\cite{Mnev2009}. 
 
 %The operation $\OPQ_{klg}$ can be thought of as being associated to a Riemannian surface with $k$ incoming boundary components,~$l$ outgoing boundary components and genus $g$. The partial composition then corresponds to gluing of surfaces, and the relations encode the boundary structure of a certain compactification of the moduli space of such surfaces. 
 
 
-The following results from~\cite[Corollary~11.9]{Cieliebak2015} are our starting point (precise definitions of all the notions will be given in the next chapters; $\IBLInfty$-algebras in Part~I will be strict and filtered in the terminology of \cite{Cieliebak2015}): 
+The following results from~\cite[Corollary~11.9]{Cieliebak2015} are our starting point.
+Precise definitions of all the notions will be given in the next chapters.
+$\IBLInfty$-algebras in Part~I will be strict and filtered in the terminology of \cite{Cieliebak2015}.
+We denote by $[d]$ the degree shift by $d$; we handle the additional signs in \cite{Cieliebak2015} by working with degree shifted objects.
 %
 \begin{enumerate}[listparindent=\parindent,label=\textbf{(\Alph*)}]
-\item For a finite-dimensional cyclic cochain complex $(V,\Pair,m_1)$ of degree $2-n$, 
+\item For a finite-dimensional cyclic cochain complex $(V,\Pair,m_1)$ of degree $2-n$, where~$\Pair: V[1]\otimes V[1]\rightarrow\R$ is a pairing of degree $2-n$ and $m_1: V[1] \rightarrow V[1]$ a differential,
 %with a non-degenerate graded antisymmetric pairing $\Pair:V[1]\otimes V[1] \rightarrow \R$ (the square bracket denotes the degree shift by $1$) of degree $2-n$ for some $n\in \N$ and a differential $m_1: V[1] \rightarrow V[1]$ satisfying 
-%$$ \Pair(m_1(v_1),v_2) = (-1)^{\Abs{v_1}\Abs{v_2}}\Pair(m_1(v_2),v_1)\quad \text{for all }v_1, v_2\in V[1], $$
+%\[ \Pair(m_1(v_1),v_2) = (-1)^{\Abs{v_1}\Abs{v_2}}\Pair(m_1(v_2),v_1)\quad \text{for all }v_1, v_2\in V[1], \]
 there is a canonical $\dIBL$-structure $\OPP_{110}$, $\OPP_{210}$, $\OPP_{120}$ of bidegree $(n-3,2)$ on the degree shifted dual cyclic bar complex
-$$ \CycC(V)\coloneqq \DBCyc V[2-n] \simeq \Bigl(\bigoplus_{k\ge 1} \bigl(V[1]^{\otimes k} / \text{cyc}\bigr)' \Bigr)[2-n], $$
-where $\mathrm{cyc}$ stands for cyclic permutations with the Koszul sign, $'$ denotes the graded dual and $[\cdot]$ the degree shift. This structure is denoted by $\dIBL(\CycC(V))$.
-
- \item Let $(\Harm,\Pair,m_1) \subset (V,\Pair,m_1)$ be a subcomplex such that the restriction of $\Pair$ to $\Harm[1]$ is non-degenerate. We apply (A) to $(\Harm,\Pair,m_1)$ to get the canonical $\dIBL$-algebra $\dIBL(\CycC(\Harm)) = (\CycC(\Harm),\OPQ_{110},\OPQ_{210},\OPQ_{120})$. 
+\[ \CycC(V)\coloneqq \DBCyc V[2-n] \simeq \Bigl(\bigoplus_{k\ge 1} \bigl(V[1]^{\otimes k} / \text{cyc}\bigr)^{\GD} \Bigr)[2-n], \]
+where $\mathrm{cyc}$ stands for cyclic permutations with the Koszul sign and $\GD$ denotes the graded dual.
+This structure is denoted by $\dIBL(\CycC(V))$.
+\item Let $(\Harm,\Pair,m_1) \subset (V,\Pair,m_1)$ be a subcomplex such that the restriction $\Pair: \Harm[1]\otimes\Harm[1]\rightarrow\R$ is non-degenerate. We apply (A) to $(\Harm,\Pair,m_1)$ to get the canonical $\dIBL$-algebra $\dIBL(\CycC(\Harm)) = (\CycC(\Harm),\OPQ_{110},\OPQ_{210},\OPQ_{120})$. 
 Suppose that $\pi: V[1] \rightarrow V[1]$ is a projection to $\Harm[1]$ which satisfies
 \begin{equation*}
  \begin{aligned}
@@ -36,90 +41,101 @@ m_1 \circ \Htp + \Htp \circ m_1 &= \iota\circ \pi - \Id_{V[1]}\quad\text{and} \\
 \Pair(\Htp(v_1),v_2) &= (-1)^{\Abs{v_1}}\Pair(v_1,\Htp(v_2)) 
 \end{aligned}
 \end{equation}
-for all $v_1$, $v_2 \in V[1]$ induces the $\IBLInfty$-homotopy equivalence 
-$$\HTP=(\HTP_{klg}): \dIBL(\CycC(V)) \longrightarrow \dIBL(\CycC(\Harm)) $$
-such that $\HTP_{110}: \CycC(V)[1] \rightarrow \CycC(\Harm)[1]$ is the map given by the precomposition with~$\iota$ in every component. We recall from \cite{Cieliebak2015} that $\HTP_{klg}: \Ext_k \CycC(V) \rightarrow \Ext_l \CycC(\Harm)$ is a linear map between exterior powers.
+for all $v_1$, $v_2 \in V[1]$ induces an $\IBLInfty$-homotopy equivalence 
+\[\HTP=(\HTP_{klg}): \dIBL(\CycC(V)) \longrightarrow \dIBL(\CycC(\Harm)) \]
+such that $\HTP_{110}: \CycC(V)[1] \rightarrow \CycC(\Harm)[1]$ is the map given by the precomposition with~$\iota$ in every component.
+We recall from \cite{Cieliebak2015} that $\HTP_{klg}: \Ext_k \CycC(V) \rightarrow \Ext_l \CycC(\Harm)$ is a linear map between exterior powers of $\CycC$ which are realized as symmetric powers of the degree shift $\CycC[1]$.
 %Recall from \cite{Cieliebak2015} that $\HTP_{klg}: \hat{\Ext}_k \CycC(V)\rightarrow \hat{\Ext}_l \CycC(\Harm)$ are linear maps between completed exterior powers.
 %(Theorem 11.3) 
 \end{enumerate}
 
-The map $\HTP_{klg}$ is constructed as a sum of contributions coming from isomorphism classes of \emph{ribbon graphs} (=:\,multigraphs with a cyclic ordering of half-edges at every internal vertex) with~$k$ internal vertices, $l$ boundary components and genus $g$. To compute the contribution of a labeled ribbon graph~$\Gamma$ to the value 
-$$ \HTP_{klg}(\Psi_1\otimes \dotsb \otimes \Psi_k)(\W_1 \otimes \dotsb\otimes \W_l)$$ 
-for $\Psi_1$, $\dotsc$, $\Psi_k \in \DBCyc V[3-n]$ and  $\W_1$, $\dotsc$, $\W_l\in \BCyc \Harm [3-n]$, we decorate the~$i$-th internal vertex of $\Gamma$ with $\Psi_i$, external vertices lying on the $i$-th boundary component with components $v_{i1}$, $\dotsc$, $v_{i s_i}\in V[1]$ of $\W_i = \Susp (v_{i 1} \otimes \dotsb \otimes v_{i s_i} / \text{cyc})$, where $\Susp$ is a formal symbol of degree $n-3$, and internal edges with the Schwartz kernel $\Prpg$ of $\Htp$ with respect to $\Pair$. Decorated ribbon graphs are then evaluated in a consistent way to obtain real numbers (see Appendix \ref{Section:Appendix} for an invariant formalism or \cite[Section 10]{Cieliebak2015} for a coordinate version of this construction).
+The map $\HTP_{klg}$ is constructed as a sum of contributions coming from isomorphism classes of \emph{ribbon graphs} (=:\,multigraphs with a cyclic ordering of half-edges at every internal vertex) with~$k$ internal vertices, $l$ boundary components and genus $g$.
+To compute the contribution of a labeled ribbon graph~$\Gamma$ to the value 
+\[ \HTP_{klg}(\Psi_1\otimes \dotsb \otimes \Psi_k)(\W_1 \otimes \dotsb\otimes \W_l)\] 
+for $\Psi_1$, $\dotsc$, $\Psi_k \in \DBCyc V[3-n]$ and  $\W_1$, $\dotsc$, $\W_l\in \BCyc \Harm [3-n]$, we decorate the~$i$-th internal vertex of $\Gamma$ with $\Psi_i$, external vertices lying on the $i$-th boundary component with components $v_{i1}$, $\dotsc$, $v_{i s_i}\in V[1]$ of $\W_i = \Susp (v_{i 1} \otimes \dotsb \otimes v_{i s_i} / \text{cyc})$, where $\Susp$ is a formal symbol of degree $n-3$, and internal edges with the Schwartz kernel $\Prpg$ of $\Htp$ with respect to $\Pair$.
+Decorated ribbon graphs are then evaluated in a consistent way to obtain real numbers (see Appendix \ref{Section:Appendix} for an invariant formalism or \cite[Section 10]{Cieliebak2015} for the original definition in coordinates).
 
 
 We will also use the following results from \cite[Proposition~12.5 and Theorem~12.9]{Cieliebak2015} about deformations of $\IBLInfty$-algebras:
 %(ignoring technical difficulties coming from algebraic completions):
 \begin{enumerate}[resume,listparindent=\parindent,label=\textbf{(\Alph*)}]
- \item If in addition to (A) there is the product $m_2 : V[1]\otimes V[1] \rightarrow V[1]$ making $(V,m_1,m_2)$ into a cyclic dga, then $(-1)^{n-2} m_2^+$ defines a canonical Maurer-Cartan element $\MC\coloneqq(\MC_{10})$ for $\dIBL(\CycC(V))$. The twisted $\IBLInfty$-algebra is again a $\dIBL$-algebra of bidegree $(n-3,2)$; it is denoted by $\dIBL^\MC(\CycC(V))$ and satisfies
+ \item If in addition to (A) there is a product $m_2 : V[1]\otimes V[1] \rightarrow V[1]$ making $(V,m_1,m_2)$ into a cyclic dga, then $(-1)^{n-2} m_2^+\in \CycC(V)$, where $m_2^+ = \Pair(m_2(\cdot,\cdot),\cdot)$, defines a canonical Maurer-Cartan element $\MC\coloneqq(\MC_{10})$ for $\dIBL(\CycC(V))$.
+The twisted $\IBLInfty$-algebra is again a $\dIBL$-algebra of bidegree $(n-3,2)$; it is denoted by $\dIBL^\MC(\CycC(V))$ and satisfies
 \begin{equation} \label{Eq:CanonMCTwist}
 \begin{aligned}
 &\dIBL^\MC(\CycC(V)) \\ 
 &\qquad = (\CycC(V),\OPP^\MC_{110}=\OPP_{110}+\OPP_{210}\circ_1\MC_{10},\ \OPP^\MC_{210}=\OPP_{210},\ \OPP^\MC_{120} = \OPP_{120}).
 \end{aligned}
 \end{equation}
-\item The $\IBLInfty$-morphism $\HTP$ from (B) can be used to pushforward $\MC$ and obtain the Maurer-Cartan element $\PMC = (\PMC_{lg})$ for $\dIBL(\CycC(\Harm))$. The twist by $\PMC$ is an $\IBLInfty$-algebra of bidegree $(n-3,2)$; it is denoted by $\dIBL^\PMC(\CycC(\Harm))$ and satisfies
-$$\begin{aligned}
+\item The $\IBLInfty$-morphism $\HTP$ from (B) can be used to pushforward $\MC$ and obtain a Maurer-Cartan element $\PMC = (\PMC_{lg})$ for $\dIBL(\CycC(\Harm))$.
+The twist by $\PMC$ is an $\IBLInfty$-algebra of bidegree $(n-3,2)$; it is denoted by $\dIBL^\PMC(\CycC(\Harm))$ and satisfies
+\[\begin{aligned}
 & \dIBL^\PMC(\CycC(\Harm)) \\
 & \quad = \begin{multlined}[t]
 \bigl(\CycC(\Harm), \OPQ_{110}^\PMC = \OPQ_{110} + \OPQ_{210}\circ_1 \PMC_{10},\ \OPQ_{210}^\PMC=\OPQ_{210},\ \OPQ_{120}^\PMC = \OPQ_{120} \\+ \OPQ_{210} \circ_1 \PMC_{20},
-\text{ plus the higher operations }\OPQ_{1lg}^\PMC = \OPQ_{210}\circ_1 \PMC_{lg} \bigr).
-\end{multlined} \end{aligned} $$
-This $\IBLInfty$-algebra is $\IBLInfty$-homotopy equivalent to $\dIBL^\MC(\CycC(V))$ via the twisted $\IBLInfty$-morphism 
-$$\HTP^\MC=(\HTP^\MC_{klg}): \dIBL^\MC(\CycC(V)) \longrightarrow \dIBL^\PMC(\CycC(\Harm)). $$
+\text{ plus higher operations }\OPQ_{1lg}^\PMC = \OPQ_{210}\circ_1 \PMC_{lg} \bigr).
+\end{multlined} \end{aligned} \]
+This $\IBLInfty$-algebra is $\IBLInfty$-homotopy equivalent to $\dIBL^\MC(\CycC(V))$ via a twisted $\IBLInfty$-morphism 
+\[\HTP^\MC=(\HTP^\MC_{klg}): \dIBL^\MC(\CycC(V)) \longrightarrow \dIBL^\PMC(\CycC(\Harm)). \]
 \end{enumerate}
 
-The pushforward Maurer-Cartan element $\PMC = \HTP_* \MC$ can be expressed as a sum of contributions of isomorphism classes of \emph{trivalent ribbon graphs} ($m_2^+$ has namely three inputs), where a labeled ribbon graph $\Gamma$ is decorated with $m_2^+$ at internal vertices, with the components of the $i$-th argument of $\PMC_{lg}$, i.e., elements of $\Harm(V)[1]$, at the $i$-th boundary component and with $\Prpg$ at internal edges.
-Note that whereas  (A) -- (C) can be formulated without completions, infinite sums appear in~$\PMC_{lg}$, and hence filtration and completions necessarily come into play.
+The pushforward Maurer-Cartan element $\PMC = \HTP_* \MC$ can be expressed as a sum of contributions of isomorphism classes of \emph{trivalent ribbon graphs} ($m_2^+$ has namely three inputs), where a labeled ribbon graph $\Gamma$ is decorated with $m_2^+$ at internal vertices, with the components of the $i$-th argument of $\PMC_{lg}$, i.e., elements of $\Harm[1]$, at the $i$-th boundary component and with $\Prpg$ at internal edges.
+%Whereas  (A) -- (C) can be formulated without completions, infinite sums appear in~$\PMC_{lg}$, and filtration and completions come into play.
 
-The application to string topology of an oriented closed manifold $M$ of dimension $n$ comes from studying generalizations of (A) -- (D) to the infinite-dimensional cyclic dga $(\DR^*(M),\allowbreak \Pair,\allowbreak m_1,\allowbreak m_2)$. Here $\DR^*(M)$ is the de Rham complex of $M$ and the maps $\Pair: \DR(M)[1]^{\otimes 2} \rightarrow \R$, $m_1: \DR(M)[1]\rightarrow \DR(M)[1]$ and $m_2: \DR(M)[1]^{\otimes 2} \rightarrow \DR(M)[1]$ are defined for all $\eta$, $\eta_1$, $\eta_2 \in \DR(M)$ as follows:
+The application to string topology of an oriented closed manifold $M$ of dimension~$n$ comes from studying generalizations of (A) -- (D) to the infinite-dimensional oriented dga $(\DR,\allowbreak \Pair,\allowbreak m_1,\allowbreak m_2)$. Here, $\DR = \DR(M)$ is the de Rham complex of $M$ and the maps $\Pair: \DR[1]^{\otimes 2} \rightarrow \R$, $m_1: \DR[1]\rightarrow \DR[1]$ and $m_2: \DR[1]^{\otimes 2} \rightarrow \DR[1]$ are defined for all $\eta$, $\eta_1$, $\eta_2 \in \DR$ as follows:
 \begin{equation} \label{Eq:DeRhamDGA}
- \qquad \mathllap{\text{de Rham cyc. dga}}\left\{ \begin{aligned}
- \Pair(\SuspU\eta_1,\SuspU\eta_2) &\coloneqq (-1)^{\eta_1} \int_M \eta_1\wedge \eta_2, \\ 
+ \qquad \mathllap{\text{de Rham cyc.~dga}}\left\{ \begin{aligned}
+ \Pair(\SuspU\eta_1,\SuspU\eta_2) &\coloneqq (-1)^{\deg \eta_1} \int_M \eta_1\wedge \eta_2, \\ 
  m_1(\SuspU\eta) &\coloneqq \SuspU \Dd \eta,\\[\jot] 
- \quad m_2(\SuspU\eta_1,\SuspU\eta_2) &\coloneqq (-1)^{\eta_1} \SuspU(\eta_1\wedge\eta_2), \end{aligned}\right.
+ \quad m_2(\SuspU\eta_1,\SuspU\eta_2) &\coloneqq (-1)^{\deg \eta_1} \SuspU(\eta_1\wedge\eta_2), \end{aligned}\right.
 \end{equation}
-where $\Dd$ is the de Rham differential, $\wedge$ the wedge product, $\SuspU$ a formal symbol of degree $-1$ and $\eta_1$ in the exponent denotes the form-degree of $\eta_1$. By picking a Riemannian metric on $M$, we obtain the subcomplex of harmonic forms 
-$$ (\Harm^*(M), \Pair, m_1 \equiv 0 )$$ 
-with the projection $\pi_{\Harm}: \DR(M) \rightarrow \Harm(M)$ coming from the Hodge decomposition. This cyclic cochain complex shall be taken as the subcomplex in (B).
+where $\Dd$ is the de Rham differential, $\wedge$ the wedge product, $\SuspU$ a formal symbol of degree $-1$ and $\deg \eta_1$ is the form-degree of $\eta_1$.
 
-From technical reasons stemming from the fact that the non-degenerate pairing $\Pair$ on $\DR(M)[1]$ is not perfect, one has to restrict the construction in (A) to the subspace $\DBCyc \DR(M)_\infty$ of elements with a smooth Schwartz kernel. Then (A) and (B) work in the setting of the so called Fr\'echet $\IBLInfty$-algebras introduced in \cite[Section 13]{Cieliebak2015}. However, the element $\MC_{10} \in \DBCyc \DR(M)[3-n]$, which translates into the \emph{Chern-Simons term}
+By picking a Riemannian metric on $M$, we obtain the subcomplex of harmonic forms $(\Harm, \Pair, m_1 \equiv 0)$ with the projection $\pi_{\Harm}: \DR \rightarrow \Harm$ coming from the Hodge decomposition.
+This cyclic cochain complex shall be taken as the subcomplex in (B).
+
+Because the intersection pairing on $\DR[1]$ is not perfect, one has to restrict the construction in (A) to the subspace $\DBCyc \DR_\infty$ of elements with smooth Schwartz kernel.
+Then (A) and (B) work in the setting of the so called Fr\'echet $\IBLInfty$-algebras introduced in \cite[Section 13]{Cieliebak2015}.
+However, the element $\MC_{10} \in \DBCyc \DR[3-n]$, which translates into the \emph{Chern-Simons term}
 \begin{equation*} \label{Eq:ChernSimons}
- m_2^+(\SuspU\eta_1,\SuspU\eta_2,\SuspU\eta_3) \coloneqq (-1)^{\eta_2}  \int_M \eta_1\wedge \eta_2\wedge\eta_3\quad\text{for all }\eta_1, \eta_2, \eta_3 \in \DR(M),
+ m_2^+(\SuspU\eta_1,\SuspU\eta_2,\SuspU\eta_3) \coloneqq (-1)^{\deg \eta_2}  \int_M \eta_1\wedge \eta_2\wedge\eta_3\quad\text{for all }\eta_1, \eta_2, \eta_3 \in \DR(M),
 \end{equation*}
-does not define the canonical Maurer-Cartan element $\MC$ in (C) directly because $m_2^+ \not\in \CDBCyc \DR(M)_\infty$. This also means that one cannot use (D) to conclude the existence of the pushforward Maurer-Cartan element $\PMC$.
+does not define the canonical Maurer-Cartan element $\MC$ in (C) directly because $m_2^+ \not\in \CDBCyc \DR_\infty$.
+This also means that one cannot use (D) to conclude the existence of the pushforward Maurer-Cartan element $\PMC$.
 
-Nevertheless, it was proposed to define $\PMC$ formally using the summation over trivalent ribbon graphs as in the finite-dimensional case. We call such $\PMC$ a \emph{Chern-Simons Maurer-Cartan element.} In order to compute the contribution of a labeled trivalent ribbon graph $\Gamma$ with $k$ internal vertices, $l$ boundary components and genus $g$ to the value
-$$ \PMC_{lg}(\Omega_1\otimes \dotsb \otimes \Omega_l), $$
-where $\Omega_i = \Susp \omega_i$ for $\omega_1$,~$\dotsc$, $\omega_l \in \BCyc\Harm(M)$, one starts by decorating internal vertices with integration variables $x_1$, $\dotsc$, $x_k$ on the $k$-fold product $M\times \dotsb \times M$, external vertices on the $i$-th boundary component with the components $\alpha_{i1}$,~$\dotsc$, $\alpha_{i s_i} \in\Harm(M)[1]$ of $\omega_i$ and internal edges with the Hodge propagator $\Prpg$. In this setting, $\Prpg$ becomes the Schwartz kernel of $\Htp$ in the sense of pseudo-differential operators; this $\Prpg$ is necessarily singular at the diagonal $\Diag$, so that we have only $\Prpg \in \DR^{n-1}(M\times M \backslash \Diag)$. One then takes the wedge product of all forms in the decorated graph in the order and with the sign deduced from the labeling of~$\Gamma$ and computes the integral over $x_1$, $\dotsc$, $x_k$. Similar integrals appear in \emph{perturbative Chern-Simons quantum field theory}.
+Nevertheless, it was proposed to define $\PMC$ formally using a summation over trivalent ribbon graphs as in the finite-dimensional case.
+We call such $\PMC$ the \emph{Chern-Simons} or \emph{formal pushforward Maurer-Cartan element.} In order to compute the contribution of a labeled trivalent ribbon graph $\Gamma$ with $k$ internal vertices, $l$ boundary components and genus $g$ to the value
+\[ \PMC_{lg}(\Omega_1\otimes \dotsb \otimes \Omega_l), \]
+where $\Omega_i = \Susp \omega_i$ for $\omega_1$,~$\dotsc$, $\omega_l \in \BCyc\Harm$, one starts by decorating internal vertices with integration variables $x_1$, $\dotsc$, $x_k$ on the $k$-fold product $M\times \dotsb \times M$, external vertices on the $i$-th boundary component with the components $\alpha_{i1}$,~$\dotsc$, $\alpha_{i s_i} \in\Harm[1]$ of $\omega_i$ and internal edges with the Hodge propagator $\Prpg$.
+In the setting of $\DR$ and $\Harm$, $\Prpg$ shall be the Schwartz kernel of a homotopy $\Htp$ in the sense of pseudo-differential operators (it is necessarily singular at the diagonal and smooth outside of it, i.e., $\Prpg \in \DR^{n-1}(M\times M \backslash \Diag)$).
+One then takes the wedge product of all forms in the decorated graph in the order and with the sign deduced from the labeling of~$\Gamma$ and computes the integral over $x_1$, $\dotsc$, $x_k$.
+Similar integrals appear in \emph{perturbative Chern-Simons quantum field theory}.
 
 
-Because of the singularity of $\Prpg$ at $\Diag$, the integrand described above is smooth only on the $k$-th configuration space of $M$. It is not clear that all the integrals converge and that the resulting $\PMC_{lg}$ are well-defined and satisfy the Maurer-Cartan equation. The idea of work in progress~\cite{Cieliebak2018} of K. Cieliebak and E. Volkov is to use iterated spherical blow-ups of the diagonals to resolve the singularities and obtain integrals of smooth forms on compact manifolds with corners; this guarantees integrability. The Maurer-Cartan equation for $\PMC = (\PMC_{lg})$ is then proven with the help of Stokes' formula and by showing that the contributions of hidden codimension-$1$ faces cancel. This method is similar to the method from~\cite{Axelrod1991} and~\cite{Axelrod1993}, where Feynman integrals of perturbative Chern-Simons theory were considered.
+Because of the singularity of $\Prpg$ at $\Diag$, the integrand described above is smooth only on the $k$-th configuration space of $M$.
+It is not clear that all the integrals converge and that the resulting $(\PMC_{lg})$ are well-defined and satisfy the Maurer-Cartan equation.
+The idea of work in progress~\cite{Cieliebak2018} of K.~Cieliebak and E.~Volkov is to use iterated spherical blow-ups of multiple diagonals to resolve the singularities and obtain integrals of smooth forms on compact manifolds with corners; this guarantees integrability. The Maurer-Cartan equation for $\PMC = (\PMC_{lg})$ is then proven with the help of a Stokes' formula on stratified spaces; the key part is to show that contributions of hidden codimension-$1$ faces cancel. This method is similar to the method from~\cite{Axelrod1991} and~\cite{Axelrod1993}, where Feynman integrals of perturbative Chern-Simons theory were considered.
 
-Having $\PMC$, the twisted $\IBLInfty$-algebra $\dIBL^\PMC(\CycC(\Harm(M)))$, which can be equivalently written as $\dIBL^\PMC(\CycC(\H_{\mathrm{dR}}(M)))$ using the Hodge isomorphism $\Harm(M)\simeq \H_{\mathrm{dR}}(M)$, should satisfy the following conjecture:
+Having $\PMC$, the twisted $\IBLInfty$-algebra $\dIBL^\PMC(\CycC(\Harm))$, which can be equivalently written as $\dIBL^\PMC(\CycC(\H_{\mathrm{dR}}))$ using the Hodge isomorphism $\Harm\simeq \H_{\mathrm{dR}}$, should satisfy the following conjecture:
 
 \newtheorem*{Conject}{String topology conjecture}
-\begin{Conject}[Conjecture~1.12 in~\cite{Cieliebak2015}]
-Let $M$ be a closed oriented manifold of dimension $n$ and $\H_{\mathrm{dR}}(M)$ its de Rham cohomology. Then there exists an $\IBLInfty$-structure on (a suitable version of) $\DBCyc \H_{\mathrm{dR}}[2-n]$ whose homology equals the cyclic cohomology of the de Rham complex of $M$.
+\begin{Conject}[{Quotation of \cite[Conjecture~1.12]{Cieliebak2015}}]
+Let $M$ be a closed oriented manifold of dimension $n$ and $\H_{\mathrm{dR}}$ its de Rham cohomology. Then there exists an $\IBLInfty$-structure on (a suitable version of) $\DBCyc \H_{\mathrm{dR}}[2-n]$ whose homology equals the cyclic cohomology of the de Rham complex of $M$.
 \end{Conject}
 
-The idea is that the \emph{$\Sph{1}$-equivariant homology of the free loop space} $\StringH_*(\Loop M)$ is isomorphic to a version of \emph{Connes' cyclic cohomology of the de Rham algebra} $\CycCoH^*(\DR^*(M))$, at least for simply-connected $M$. The precise relation will be established in yet another work in progress~\cite{Cieliebak2018} of K. Cieliebak and E. Volkov using a chain-map coming from a cyclic version of Chen's iterated integrals. Now, a suitable degree shift of $\CycCoH^*(\DR^*(M))$ is isomorphic to the homology of the boundary operator~$\OPQ_{110}^\MC$ of the only formally defined $\dIBL$-algebra $\dIBL^\MC(\CycC(\DR(M)))$, which is according to (D) (formally) quasi-isomorphic to $\dIBL^\PMC(\CycC(\Harm(M)))$ via the twisted $\IBLInfty$-morphism $\HTP^\MC$. 
+The idea is as follows. The \emph{$\Sph{1}$-equivariant homology of the free loop space} $\StringH(\Loop M)$ is for simply-connected $M$ isomorphic to a version of \emph{Connes' cyclic cohomology of the de Rham algebra} $\CycCoH^*(\DR)$. The precise relation will be established in yet another work in progress~\cite{Cieliebak2018} of K.~Cieliebak and E.~Volkov using a chain-map coming from a cyclic version of Chen's iterated integrals. Now, a suitable degree shift of $\CycCoH^*(\DR)$ is isomorphic to the homology of the boundary operator~$\OPQ_{110}^\MC$ of the hypothetical $\dIBL$-algebra $\dIBL^\MC(\CycC(\DR))$. This hypothetical $\dIBL$-algebra is then by (D) hypothetically quasi-isomorphic to the $\IBLInfty$-algebra $\dIBL^\PMC(\CycC(\Harm))$ via the twisted $\IBLInfty$-morphism $\HTP^\MC$.
 
+The space $\StringH(\Loop M, M)$ carries an $\IBL$-structure consisting of the Chas-Sullivan string bracket $\StringOp_2$ and string cobracket $\StringCoOp_2$; \Add[caption={DONE Reduced loop space}]{Write that they are actually defined on the homology relative to constant loops. Actually, write here modulo problems with modding out constant loops or one constant loop.} these operations were defined geometrically on suitably transverse smooth chains in \cite{Sullivan1999} and \cite{Sullivan2002}, respectively. A natural question is: How is the $\IBL$-structure $\StringOp_2$, $\StringCoOp_2$ related to the $\IBL$-structure $\OPQ_{210}^\PMC$, $\OPQ_{120}^\PMC$ induced on $\StringH(\Loop M)$ via the isomorphism from the string topology conjecture? An extended string topology conjecture asserts that these structures agree, and hence the operations $\OPQ_{210}^\PMC$, $\OPQ_{120}^\PMC$ defined on cyclic cochains provide a \emph{chain model} for~$\StringOp_2$, $\StringCoOp_2$. Based on our observations and explicit computations, we formulate an up-to-date version of the string topology conjecture for simply-connected manifolds (see Conjecture~\ref{Conj:StringTopology}).
 
-
-
-The space $\StringH_*(\Loop M)$ is equipped with an $\IBL$-structure coming from the Chas-Sullivan string bracket $\StringOp_2$ and string cobracket $\StringCoOp_2$; \Add[caption={DONE Reduced loop space}]{Write that they are actually defined on the homology relative to constant loops. Actually, write here modulo problems with moding out constant loops or one constant loop.} these operations were defined geometrically on suitably transverse smooth chains in \cite{Sullivan1999} and \cite{Sullivan2002}, respectively.\footnote{In fact, $\StringCoOp_2$ is geometrically defined only on the homology relative to constant loops and~$\StringOp_2$ does not always restrict to it.} The natural question is: How is the $\IBL$-structure $\StringOp_2$, $\StringCoOp_2$ related to the $\IBL$-structure $\OPQ_{210}^\PMC$, $\OPQ_{120}^\PMC$ induced on $\StringH_*(\Loop M)$ via the isomorphism from the string topology conjecture? The \emph{extended string topology conjecture} asserts that these structures agree, and hence the operations $\OPQ_{210}^\PMC$, $\OPQ_{120}^\PMC$ defined on cyclic cochains provide a \emph{chain model} for~$\StringOp_2$, $\StringCoOp_2$. Based on our observations and explicit computations, we formulate an up-to-date version of the string topology conjecture for simply-connected manifolds (see Conjecture~\ref{Conj:StringTopology}).
-
-
-A large part of this text consists of setting up the algebraic base for the work with $\dIBL^\PMC(\CycC(\Harm(M)))$. In addition to repeating the theory from~\cite{Cieliebak2015} in a slightly different formalism, we also include the following topics:
-
-\begin{itemize}
-\item A formula for the partial composition $\circ_s$ in terms of operations of the canonical associative bialgebra on the symmetric algebra (Definition~\ref{Def:CircS}); formulas for $\OPQ_{klg}^\PMC$ (Proposition~\ref{Prop:Formulafortwisted}).
-%Definition of the homology of an $\IBLInfty$-algebra and the induced $\IBL$-structure on it (Definition~\ref{Def:HomIBL});
-\item Definition of the cyclic cohomology of $\AInfty$-algebras (Definition~\ref{Def:CycHom}) and its relation to the homology of $\OPQ_{110}^\PMC$ (Proposition~\ref{Prop:CyclicHom}); definitions of the reduced versions (Definitions~\ref{Def:ReducedDual}, \ref{Def:ReduceddIBL} and \ref{Def:StrictlyReduced}) and their relation to the unreduced versions (Propositions~\ref{Prop:Ones} and \ref{Prop:Reduced}).
-\item A coordinate-free framework for the evaluation of labeled ribbon graphs (Definition~\ref{Def:EvalRibGraph} and Proposition~\ref{Prop:GraphPairing}); formal analogy of the finite-dimensional and the de Rham case which we use to obtain signs for the definition of~$\PMC$ (Proposition~\ref{Prop:FinDimAnalog}).
-\item Definition of the Hodge propagator (Definition~\ref{Def:GreenKernel}) and of the Chern-Simons Maurer-Cartan element $\PMC$ (Definition~\ref{Def:PushforwardMCdeRham}). 
-\end{itemize}
+%A large part of this text consists of setting up the algebraic base for the work with $\dIBL^\PMC(\CycC(\Harm))$. In addition to repeating the theory from~\cite{Cieliebak2015} in a slightly different formalism, we also include the following topics:
+%
+%\begin{itemize}
+%\item A formula for the partial composition $\circ_s$ in terms of operations of the canonical associative bialgebra on the symmetric algebra (Definition~\ref{Def:CircS}); formulas for $\OPQ_{klg}^\PMC$ (Proposition~\ref{Prop:Formulafortwisted}).
+%%Definition of the homology of an $\IBLInfty$-algebra and the induced $\IBL$-structure on it (Definition~\ref{Def:HomIBL});
+%\item Definition of the cyclic cohomology of $\AInfty$-algebras (Definition~\ref{Def:CycHom}) and its relation to the homology of $\OPQ_{110}^\PMC$ (Proposition~\ref{Prop:CyclicHom}); definitions of the reduced versions (Definitions~\ref{Def:ReducedDual}, \ref{Def:ReduceddIBL} and \ref{Def:StrictlyReduced}) and their relation to the unreduced versions (Propositions~\ref{Prop:Ones} and \ref{Prop:Reduced}).
+%\item A coordinate-free framework for the evaluation of labeled ribbon graphs (Definition~\ref{Def:EvalRibGraph} and Proposition~\ref{Prop:GraphPairing}); formal analogy of the finite-dimensional and the de Rham case which we use to obtain signs for the definition of~$\PMC$ (Proposition~\ref{Prop:FinDimAnalog}).
+%\item Definition of the Hodge propagator (Definition~\ref{Def:GreenKernel}) and of the Chern-Simons Maurer-Cartan element $\PMC$ (Definition~\ref{Def:PushforwardMCdeRham}). 
+%\end{itemize}
 
 Our first result is an explicit computation of $\dIBL^\PMC(\CycC(\HDR({\Sph{n}})))$ by finding a particular Hodge propagator and showing that all integrals which contribute to $\PMC$ vanish for $n\ge 3$; for $n=1$, there is a non-vanishing integral whose value we compute (see Section~\ref{Sec:GreenSphere}); for $n=2$, the existence of a non-vanishing integral remains open.
 
@@ -136,9 +152,9 @@ Consider the round sphere $\Sph{n}\subset \R^{n+1}$. Define $\NOne\coloneqq \Sus
 \end{aligned}
 \end{equation*}
 Here $\langle \cdot \rangle$ denotes the linear span over $\R$, $*$ the dual and $\Susp$ is a formal symbol of degree $n-3$. The product $\OPQ_{210}^\PMC$ vanishes on $\HIBL^\PMC$ except for the following relations for $n\ge 3$ odd
-$$ \OPQ_{210}^\PMC(\Susp \NOne^* \otimes \Susp \NVol^{k*}) = \OPQ_{210}^\PMC(\Susp \NVol^{k*} \otimes \Susp \NOne^*) = -(k-1) \NVol^{k-1*} $$
+\[ \OPQ_{210}^\PMC(\Susp \NOne^* \otimes \Susp \NVol^{k*}) = \OPQ_{210}^\PMC(\Susp \NVol^{k*} \otimes \Susp \NOne^*) = -(k-1) \NVol^{k-1*} \]
 and the following relations for $n=1$:
-$$ \OPQ_{210}^\PMC\Bigl(\Susp \NOne^* \otimes \Susp\sum_{k=1}^\infty c_k \NVol^{k*}\Bigr) = - \Susp \sum_{k=1}^\infty k c_{k+1} \NVol^{k*}.  $$
+\[ \OPQ_{210}^\PMC\Bigl(\Susp \NOne^* \otimes \Susp\sum_{k=1}^\infty c_k \NVol^{k*}\Bigr) = - \Susp \sum_{k=1}^\infty k c_{k+1} \NVol^{k*}.  \]
 The coproduct $\OPQ_{120}^\PMC$ as well as all higher operations $\OPQ_{1lg}^\PMC$ vanish on $\HIBL^\PMC$ in every  dimension $n$. For $\Sph{1}$, we have $\OPQ_{120}^\PMC \neq \OPQ_{120}$ on the chain level; i.e., the twisting is non-trivial. For $n\neq 2$, all higher operations vanish on the chain level.
 
 
@@ -149,7 +165,7 @@ The coproduct $\OPQ_{120}^\PMC$ as well as all higher operations $\OPQ_{1lg}^\PM
 %where $\Susp$ is a formal symbol of degree $2n-3$. All operations $\OPQ_{210}^\PMC$, $\OPQ_{120}^\PMC$ and $\OPQ_{1lg}^\PMC$ vanish on $\HIBL^\PMC$ in any dimension $2n$.
 \end{IntroThm}
 
-If we mod out $\Susp \NOne^{2j-1*}$, i.e., if we consider the point-reduced version\Modify[caption={DONE Point reduced}]{Write Point reduced version.}, then, after dropping $\Susp$, the results agree with the string topology of $M$ relative to one constant loop and with Chas-Sullivan operations. The only exception is $M=\Sph{1}$. This supports the string topology conjecture for simply-connected manifolds and provides a counterexample for non-simply connected manifolds.
+If we mod out $\Susp \NOne^{2j-1*}$, i.e., if we consider the point-reduced version\Modify[caption={DONE Point reduced}]{Write Point reduced version.}, then, after dropping~$\Susp$, the results agree with the string topology of $M$ relative to one constant loop and with Chas-Sullivan operations. The only exception is $M=\Sph{1}$. This supports the string topology conjecture for simply-connected manifolds and provides a counterexample for non-simply connected manifolds.
 
 \Correct[caption={DONE Degree shift}]{Write here that we have to drop $\Susp$!}
 
@@ -220,20 +236,20 @@ Let $M$ be a closed oriented $n$-manifold. There exists a Hodge propagator $\Prp
 \end{enumerate}
 \end{IntroThm}
 
-The following are some topics for future work:
+The following are some interesting directions to work on sorted from the most concrete to the most unclear:
 
 \begin{enumerate}[label=(\arabic*)]
-\item We would like to find out which field theory has $\Prpg$ as a propagator and the trivalent ribbon graphs with harmonic forms as Feynman graphs. Note that due to the polarization $\Prpg = \sum_{k=0}^{n-1}\Prpg^{(k)}(x,y)$, the theory has a field in every degree. This is in contrast to the Chern-Simons theory for $n=3$, whose field is a $1$-form. Some actions were suggested to the author by Dr.~Puzzio and Prof.~A.~Cattaneo.
-
-\item We would like to improve Theorem~\ref{IntroThm:B} by showing that the higher operations for $\Sph{2}$ vanish. If this is the case,  then the statement that all higher operations vanish for every manifold $M$ with $\HDR^1(M)=0$ is true.
-\item For a formal simply-connected manifold $M$, we would like to investigate whether $\dIBL^\PMC(\CycC(\HDR(M)))$ and $\dIBL^\MC(\CycC(\HDR(M)))$ are homotopy equivalent as $\IBLInfty$-algebras. If not, we would like to understand the obstruction. 
-\item We would like to compute $\dIBL^\PMC(\CycC(\HDR(M)))$ for surfaces $\Sigma_g$ with $g\ge 1$ and formulate a string topology conjecture for non-simply connected manifolds. 
-\item We would like to know whether the Schwartz kernel $\PrpgStd$ of $\HtpStd=-\CoDd \Delta^{-1}$ (the so called standard Hodge propagator), where $\CoDd$ is the codifferential and~$\Delta$ the Hodge-de~Rham Laplacian, extends smoothly to a blow-up. If yes, then it is a canonical special Hodge propagator, and hence the statement of Theorem~\ref{IntroThm:B} holds.
-\item We would like to define a generalization of an $\IBLInfty$-algebra --- a weak, non-reduced $\IBLInfty$-algebra with a gauge group --- and understand its precise relation to perturbative Chern-Simons theory within the $\BV$-formalism.
-\item Identify the theory from which the integrals come from, i.e., write down an action.
+\item Improve Theorem~\ref{IntroThm:B} by showing that the higher operations for $\Sph{2}$ vanish. If this is the case, then the statement that for every manifold~$M$ with $\HDR^1(M)=0$ there is a propagator such that all higher operations vanish is true.
+\item Let $M$ be a formal and simply-connected manifold. Are  $\dIBL^\PMC(\CycC(\HDR(M)))$ and $\dIBL^\MC(\CycC(\HDR(M)))$ homotopy equivalent as $\IBLInfty$-algebras? If not, we would like to understand the obstruction. 
+\item Does the Schwartz kernel $\PrpgStd$ of $\HtpStd=-\CoDd \Delta^{-1}$, the so called standard Hodge propagator, where $\CoDd$ is the codifferential and~$\Delta$ the Hodge-de~Rham Laplacian, extends smoothly to a blow-up? If yes, then it is a canonical special Hodge propagator for which the statement of Theorem~\ref{IntroThm:B} holds.
+\item Compute $\dIBL^\PMC(\CycC(\HDR(M)))$ for surfaces $\Sigma_g$ with $g\ge 1$ and formulate and proof a version of string topology conjecture for non-simply connected manifolds. One can consider differential forms with values in a Lie algebra and obtain an $\IBLInfty$-theory with gauge group. How is this structure related to \cite{Goldman1986} and \cite{Andersen1996}?
+\item The $\IBLInfty$-theory uses only graphs with at least one external vertex to construct~$\PMC_{lg}$. Let $W_{lg}$ be the real number obtained by summing over graphs with $l$ boundary components, genus $g$ and with no external vertex. How is this related to the partition function and Chern-Simons invariants and does it fit into a ``weak non-reduced $\IBLInfty$-formalism'' and possibly satisfy some relations?
+\item What physical field theory has $\Prpg$ as a propagator and trivalent ribbon graphs with harmonic forms as Feynman graphs?
+Due to the polarization $\Prpg = \sum_{k=0}^{n-1}\Prpg^{(k)}(x,y)$, such theory must have a field in every degree (the standard $3d$ Chern-Simons theory before gauge fixing has just one $1$-form).
+\item Can the $\IBLInfty$-theory be interpreted from the point of view of string field theory or topological strings? Together with symplectic field theory, what is the global picture?
 \end{enumerate}
 
-In the end, let us summarize some existing work on $\IBLInfty$-algebras which helped us to understand $\IBLInfty$-algebras in broader context: In \cite{Muenster2011}, they find an $\IBLInfty$-structure in open-closed string field theory. In~\cite{Doubek2017}, they view $\IBLInfty$-algebras as algebras over the cobar construction of the closed Frobenius properad.\Correct[caption={DONE cobar complex of properad}]{Algebra over the cobar complex of the closed Frobenius properad.}In~\cite{Markl2015}, they consider $\IBLInfty$-algebras as a particular case of $\BVInfty$- or,  more generally, $\mathrm{MV}$-algebras.
+%In the end, let us summarize some existing work on $\IBLInfty$-algebras which helped us to understand $\IBLInfty$-algebras in broader context: In \cite{Muenster2011}, they find an $\IBLInfty$-structure in open-closed string field theory. In~\cite{Doubek2017}, they view $\IBLInfty$-algebras as algebras over the cobar construction of the closed Frobenius properad.\Correct[caption={DONE cobar complex of properad}]{Algebra over the cobar complex of the closed Frobenius properad.}In~\cite{Markl2015}, they consider $\IBLInfty$-algebras as a particular case of $\BVInfty$- or,  more generally, $\mathrm{MV}$-algebras.
 
 %\vspace{2ex}
 %\textbf{Acknowledgements:} 

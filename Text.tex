@@ -11,8 +11,8 @@ openright, % Chapters begin on the right
 cleardoublepage=plain, % Add page number on empty pages when cleardoublepage is executed
 %numbers=noenddot, % No dot after the section number
 %listof=totoc % Insert list of figures to toc
-%final
-draft % draft version shows black boxes at hnox overflow
+final
+%draft % draft version shows black boxes at hnox overflow
 ]{scrbook}
 
 \renewcommand{\baselinestretch}{1.2} % IS IT OK?
@@ -355,7 +355,7 @@ backend=biber % Using newer biber instead of older bibtex
 \subfile{\SubfilesFolder/Form_Func.tex}
 %%
 \chapter{Standard Hodge propagator}
-
+\label{Chap:Prpg}
 \subfile{\SubfilesFolder/GrKer_Intro.tex}
 \subfile{\SubfilesFolder/GrKer_Def.tex}
 \subfile{\SubfilesFolder/GrKer_Gen.tex}

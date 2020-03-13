@@ -7,26 +7,26 @@
 %Computation of \texorpdfstring{$\OPQ_{210}$ and $\OPQ_{120}$}{q210 and q120}
 \label{Section:CPn1}
 Let $\Kaehler\in \DR^2(\CP^n)$ be the Fubini--Study K\"ahler form on $\CP^n$ (see \cite[Examples 3.1.9]{Huybrechts2004}). The powers of $\Kaehler$ are harmonic,\footnote{This follows by induction on the power of $\Kaehler$ using the fact that, on a general K\"ahler manifold $M$, the Lefschetz operator $\Lef: \DR(M)\rightarrow \DR(M)$ defined by $\Lef(\eta)\coloneqq \eta \wedge \Kaehler$ for all $\eta\in \DR(M)$ commutes with the Hodge--de Rham Laplacian~$\Delta$ (see \cite[Chapter 3]{Huybrechts2004}). } and we get easily
-$$ \Harm(\CP^n) = \langle 1,\Kaehler, \dotsc, \Kaehler^n \rangle. $$
+\[ \Harm(\CP^n) = \langle 1,\Kaehler, \dotsc, \Kaehler^n \rangle. \]
 We denote the Riemannian volume of $\CP^n$ by
-$$ V\coloneqq \int_{\CP^n} \frac{1}{n!}\Kaehler^n. $$
+\[ V\coloneqq \int_{\CP^n} \frac{1}{n!}\Kaehler^n. \]
 Consider the basis $e_0$, $\dotsc$, $e_n$ of $\Harm(\CP^n)[1]$ defined for all $i=0$, $\dotsc$, $n$ by
-$$ e_i\coloneqq \frac{\NK^i}{(n! V)^{\frac{i}{n}}}, \quad \text{where}\quad\NK^i\coloneqq \SuspU \Kaehler^i. $$
+\[ e_i\coloneqq \frac{\NK^i}{(n! V)^{\frac{i}{n}}}, \quad \text{where}\quad\NK^i\coloneqq \SuspU \Kaehler^i. \]
 The matrix of the pairing $\Pair$ from~\eqref{Eq:DeRhamDGA} with respect to the basis $e_0$,~$\dotsc$,~$e_{n}$ reads:
-$$ (\Pair^{ij}) = \begin{pmatrix}
+\[ (\Pair^{ij}) = \begin{pmatrix}
 0 & \dotsb & 1 \\
 \vdots & {\displaystyle\, .^{{\displaystyle \, .^{\displaystyle\,.}}}} & \vdots \\
 1 & \dotsb & 0
-\end{pmatrix}. $$
+\end{pmatrix}. \]
 The basis $e^0$, $\dotsc$, $e^n$ dual to $e_0$, $\dotsc$, $e_n$ with respect to $\Pair$ thus satisfies
-$$ e^i = e_{n-i}\quad\text{for all }i=0,\dotsc,n. $$
+\[ e^i = e_{n-i}\quad\text{for all }i=0,\dotsc,n. \]
 Therefore, the following holds for the matrix $(T^{ij})$ from~\eqref{Eq:PropagatorT}:
 \begin{equation*}
 (T^{ij}) = - (\Pair^{ij}).
 \end{equation*}
 For all $1\le i, j, k \le n$, we have
-$$ \mu_2(e_i, e_j) = e_{i+j}\quad \text{and}\quad
-\MC_{10}(\Susp e_{i}e_j e_k) = \delta_{i+j+k,n}. $$
+\[ \mu_2(e_i, e_j) = e_{i+j}\quad \text{and}\quad
+\MC_{10}(\Susp e_{i}e_j e_k) = \delta_{i+j+k,n}. \]
 For $\psi$, $\psi_1$, $\psi_2 \in \CDBCyc \Harm$ and generating words $\omega$, $\omega_1$, $\omega_2 \in \BCyc\Harm$, we chave
 \begin{equation*}
 \begin{aligned}
@@ -35,14 +35,84 @@ For $\psi$, $\psi_1$, $\psi_2 \in \CDBCyc \Harm$ and generating words $\omega$, 
 \end{aligned}
 \end{equation*}
 
-The cyclic homology of $\Harm(\CP^n)$ is that of the truncated polynomial algebra $$ A \coloneqq\R[x]/(x^{n+1})\quad\text{with }\Deg(x)=2. $$
-The computation of $\ClasCycH(A)$ for $\Abs{x}=0$ over a field is the goal of \cite[Exercise 4.1.8.]{LodayCyclic} or \cite[Exercise 9.1.1]{Weibel1994}. The case of $\Abs{x} = d$ can be solved by taking suitable degree shifts in the proposed projective resolution which is used to compute $\H\H(A)$. Unfortunately, using a non-canonical projective resolution, we lose the concrete form of the cyclic cycles and obtain just the following result:
+The cyclic homology of $\Harm(\CP^n)$ is that of the truncated polynomial algebra
+\[ A \coloneqq\R[x]/(x^{n+1})\quad\text{with }\Deg(x)=2. \]
+The following lemma computes its cyclic homology.
+\begin{Lemma}[Cyclic homology of truncated graded polynomial algebra]
+Consider $A\coloneqq\R[x]/(x^{n+1})$ with $\Deg(x)=d\in \Z$. For all $i=1$, $\dotsc$, $n$ and $k\in \N_0$, there are cycles $\tilde{t}_{2k+1,i}\in  \tilde{D}_q(A)$ of weights $w(\tilde{t}_{2k+1,i}) = 2k+1$ and degrees $\Abs{\tilde{t}_{2k+1,i}} = d(i+(n+1)k)$, where $q = w(\tilde{t}_{2k+1,i})-\Abs{\tilde{t}_{2k+1,i}}-1$, which form a basis of $\ClasCycH(A)$ (the non-degree shifted cyclic homology defined on page~\pageref{Eq:NDSComplex}).
+\end{Lemma}
+\begin{proof}
+A computation of the cyclic homology of $A$ for $\Abs{x}=0$ is the goal of \cite[Exercise 4.1.8.]{LodayCyclic} or \cite[Exercise 9.1.1]{Weibel1994}.
+The hint is to compute the Hochschild homology $\H\H_n(A) = \Tor_n^{A_e}(A,A)$, where $A_e$ is the enveloping algebra of $A$, using a non-canonical (i.e., not the bar complex) projective resolution of the $A_e$-module $A$ given by
+\begin{equation}\label{Eq:ProjRes}
+\begin{tikzcd}
+\dotsb \arrow[r] & A_e \arrow{r}{\cdot v} & A_e \arrow{r}{\cdot u} & A_e \arrow{r}{\mu} & A \arrow{r} & 0,
+\end{tikzcd}
+\end{equation}
+where $u = x \otimes 1 - 1 \otimes x$ and $v = \sum_{i=0}^{n} x^i \otimes x^{n-i}\in A_e$.
+The resolution continues to the left with $\cdot u$ und $\cdot v$ periodically.
+Clearly, $\mu$ composed with $\cdot u$ vanishes and $u\cdot v = v\cdot u = x^{n+1}\otimes 1 - 1 \otimes x^{n+1} = 0$; one can check that \eqref{Eq:ProjRes} is indeed a resolution.
+If $\Deg(x)=d$, then $\Deg(u) = d$ and $\Deg(v) = n d$.
 
-For all $i=1$, $\dotsc$, $n$ and $k\in \N_0$, there are cycles $\tilde{t}_{2k+1,i}\in  \tilde{D}_q(A)$ of weights $2k+1$ and degrees $d(i+(n+1)k)$ which form a basis of $\ClasCycH(A)$. We apply the degree shift $U: \tilde{D}(A) \rightarrow D(A)$ from Proposition~\ref{Prop:DGA} to get the generators
-$$ t_{w,i} \coloneqq U(\tilde{t}_{w,i}) \in D^\lambda( \Harm(\CP^n)) $$
+We lift the resolution \eqref{Eq:ProjRes} to the graded category (i.e., we require that the maps are homogenous) by taking the degree shifts
+\[
+\begin{tikzcd}
+\dotsb \arrow{r} &
+A_e[-(n+1)di] \arrow{r}{d_{2i}} \ar[draw=none]{d}[name=X, anchor=center]{}& 
+A_e[-(n+1)di + nd] \arrow{r}{d_{2i-1}} &
+A_e[-d(n+1)(i-1)]  \ar[rounded corners,
+            to path={ -- ([xshift=2ex]\tikztostart.east)
+                      |- (X.center) \tikztonodes
+                      -| ([xshift=-2ex]\tikztotarget.west)
+                      -- (\tikztotarget)}]{dlll}[at end]{}\\
+\dotsb\arrow{r} &
+A_e[-(n+1)d] \arrow{r}{d_{2}} &
+A_e[-d] \arrow{r}{d_1}\ar[draw=none]{d}[name=Y, anchor=center]{} &
+A_e  \ar[rounded corners,
+            to path={ -- ([xshift=2ex]\tikztostart.east)
+                      |- (Y.center) \tikztonodes
+                      -| ([xshift=-2ex]\tikztotarget.west)
+                      -- (\tikztotarget)}]{dl}{\mu} \\ 
+&  & A \arrow{r} & 0,
+\end{tikzcd}
+\]
+where we denoted by $d_i$ the maps from \eqref{Eq:ProjRes}.
+Tensoring with $A$, we get the graded vector spaces $A \otimes_{A_e} A_e[\cdot] \simeq A[\cdot]$, and the maps $d_j$ become multiplications with $u$, $v \in A_e$ in $A$ as a right $A_e$-module.
+For all polynomials $p\in A$, we have
+$$ \begin{aligned}
+    d_{2i-1}(p) = p\cdot (x\otimes 1 - 1 \otimes x) &= px - (-1)^{\Abs{x} \Abs{p}}xp = 0, \\
+    d_{2i}(p) = p\cdot (\sum_{i=0}^n x^i \otimes x^{n-i}) & = (-1)^{n \Abs{x}\Abs{p}}(n+1) x^n p.
+\end{aligned}$$
+The homology of this chain complex consists of graded vector spaces $\H\H_{(l)}$ for $l\ge 0$ which correspond to the homology of the bar complex graded by weights, i.e., $\H\H_{(l)}$ would be represented by cycles in $A^{\otimes l+1}$ if the bar resolution was taken. We compute
+\begin{equation}\label{Eq:HochCPn}
+\H\H_{(l)} = \begin{cases} 
+ (x A)[-(n+1)di] & \text{for }l=2i, \\
+ \R[x]/(x^n)[-(n+1)di + nd] & \text{for }l = 2i - 1, \\
+ A & \text{for }l = 0.
+\end{cases}
+\end{equation}
+Now, because the differential $\tilde{\delta}$ is zero and $\tilde{\Hd}$ is degree preserving, it holds (c.f., \eqref{Eq:TotComplNDS})
+\[\ClasHH(A) = \bigoplus_{l\in \N_0} \H\H_{(l)}.\] 
+Clearly, the same will hold for $\ClasCycH(A)$, and hence we can ignore the gradation by degree and just use the gradation by weights in the bar complex, i.e., the non-graded theory.
+
+In order to compute $\CycH_{(l)}(A)$, we consider the Connes' exact sequence in homology, or $\mathrm{ISB}$-sequence, see \cite[Theorem~2.2.1]{LodayCyclic}.
+It arises from the exact sequence of bicomplexes $0 \rightarrow \LodCycBi^{\{2\}} \hookrightarrow \LodCycBi \twoheadrightarrow \LodCycBi[2,0] \rightarrow 0$, where~$\LodCycBi$ is the Loday's cyclic bicomplex from~\cite[Paragraph~2.1.2]{LodayCyclic} (bar complexes in columns), $\LodCycBi^{\{2\}}$ is the sub-bicomplex consisting of the first two columns of $\LodCycBi$ and $\LodCycBi[2,0]$ is the part of $\LodCycBi$ starting with the third column. 
+Because $A$ is augmented and unital, \cite[Theorem~4.1.13]{LodayCyclic} guarantees a splitting of the ISB-sequence into
+\begin{equation}\label{Eq:ConnexIBS}
+0 \longrightarrow \widebar{\H}^\lambda_{(l-1)} \longrightarrow \widebar{\H\H}_{(l)} \longrightarrow \widebar{\H}^\lambda_{(l)} \longrightarrow 0\quad\text{for }l\ge 1,
+\end{equation}
+where the bar $\bar{\cdot}$ denotes the reduced homology. It holds $\CycH_{(0)}= \H\H_{(0)}= A$, and hence $\widebar{\H}^\lambda_{(0)} = \langle x, \dotsc, x^n \rangle$.
+Using \eqref{Eq:HochCPn}, the first map for $l=1$ in \eqref{Eq:ConnexIBS} reads $\langle x,\dotsc, x^n \rangle \hookrightarrow \langle 1, x, \dotsc, x^{n-1}\rangle[-d]$, and hence it is an isomorphism.
+It follows that $\widebar{\H}^\lambda_{(1)} = 0$.
+For $k\ge 1$, we obtain inductively $\widebar{\H}^\lambda_{(2k)} \simeq \widebar{\H\H}_{(2k)} = \langle x,\dotsc,x^n\rangle[-(n+1)dk] \hookrightarrow \widebar{\H\H}_{(2k+1)} = \langle 1, x, \dotsc, x^{n-1} \rangle[-(n+1)dk - d]$. This again has to be an isomorphism, and hence $\widebar{\H}^\lambda_{(2k+1)} = 0$.
+\end{proof}
+%The case of $\Abs{x} = d$ can be solved by taking suitable degree shifts in the proposed projective resolution which is used to compute $\H\H(A)$. Unfortunately, using a non-canonical projective resolution, we lose the concrete form of the cyclic cycles and obtain just the following result:
+%For all $i=1$, $\dotsc$, $n$ and $k\in \N_0$, there are cycles $\tilde{t}_{2k+1,i}\in  \tilde{D}_q(A)$ of weights $2k+1$ and degrees $d(i+(n+1)k)$ which form a basis of $\ClasCycH(A)$.
+We apply the degree shift $U: \tilde{D}(A) \rightarrow D(A)$ from Proposition~\ref{Prop:DGA} to get the generators
+\[ t_{w,i} \coloneqq U(\tilde{t}_{w,i}) \in D^\lambda( \Harm(\CP^n)) \]
 of weights $w$ and degrees $2i+ (w-1)n -1$, so that
-$$ \H^\lambda(\Harm(\CP^n)) = \langle t_{w,i}, \NOne^{w} \mid w\in \N \text{ odd}, i=1,\dotsc, n\rangle. $$
-By the universal coefficient theorem we have $\H_\lambda^* = (\H^\lambda)^{\GD}$ with respect to the grading by the degree. Given $d\in \Z$, the equation $d= 2i + (w-1)n - 1$ has only finitely many solution $(w,i) \in \N \times \{1,\dotsc,n\}$, and hence we get
+\[ \H^\lambda(\Harm(\CP^n)) = \langle t_{w,i}, \NOne^{w} \mid w\in \N \text{ odd}, i=1,\dotsc, n\rangle. \]
+By the universal coefficient theorem, we have $\H_\lambda^* = (\H^\lambda)^{\GD}$ with respect to the grading by the degree. Given $d\in \Z$, the equation $d= 2i + (w-1)n - 1$ has only finitely many solution $(w,i) \in \N \times \{1,\dotsc,n\}$, and hence we get
 \begin{equation}\label{Eq:CPnHom}
 \HIBL^\MC(\CycC(\Harm(\CP^n))) = \langle \Susp t_{w,i}^*, \Susp\NOne^{w*} \mid w\in \N \text{ odd}, i=1,\dotsc, n \rangle,
 \end{equation}
@@ -55,9 +125,9 @@ Because $\CP^n$ is geometrically formal, Proposition~\ref{Prop:GeomForm} implies
 where $\HIBL^\MC(\CycC)$ is given by \eqref{Eq:CPnHom}.
 
 According to \cite[Section 3.1.2]{Basu2011}, the minimal model for the Borel construction $\LoopBorel \CP^n$ is the cdga $\Lambda^{\mathrlap{\Sph{1}}\hphantom{S}}(n+1,1)$, which is freely generated (over $\R$) by the homogenous vectors $x_1$, $x_2$, $y_1$, $y_2$, $u$ of degrees
-$$ \Abs{x_1} = 2,\quad \Abs{x_2} = 2n+1,\quad \Abs{y_1} = 1,\quad \Abs{y_2} = 2n, \quad \Abs{u} = 2, $$
-and whose differential $\Dd$ satisfies
-$$ \Dd y_1 = 0,\quad \Dd x_1 = y_1 u,\quad \Dd y_2 = -(n+1) x_1^n y_1,\quad \Dd x_2 = x_1^{n+1} + y_2 u. $$
+\[ \Abs{x_1} = 2,\quad \Abs{x_2} = 2n+1,\quad \Abs{y_1} = 1,\quad \Abs{y_2} = 2n, \quad \Abs{u} = 2, \]
+whose differential $\Dd$ satisfies
+\[ \Dd y_1 = 0,\quad \Dd x_1 = y_1 u,\quad \Dd y_2 = -(n+1) x_1^n y_1,\quad \Dd x_2 = x_1^{n+1} + y_2 u. \]
 By \cite[Theorem 3.6]{Basu2011}, the string cohomology $\StringCoH^*(\Loop \CP^n; \R)\simeq \H(\Lambda^{\mathrlap{\Sph{1}}\hphantom{S}}(n+1,1),\Dd)$ satisfies for all $m\in \N_0$ the following:
 \begin{align*}
 \StringCoH^m(\Loop \CP^n; \R) = \begin{cases} 
@@ -66,10 +136,10 @@ By \cite[Theorem 3.6]{Basu2011}, the string cohomology $\StringCoH^*(\Loop \CP^n
 \end{cases}
 \end{align*}
 The right-hand side can be identified with $\StringH(\Loop \CP^n; \R)$ by the universal coefficient theorem. According to \cite[Proposition 3.7]{Basu2011}, we have $\StringOp_2 = 0$ and $\StringCoOp_2 = 0$. We conclude that the map
-$$\begin{aligned}
+\[\begin{aligned}
  \HIBL^\PMC(\RedCycC(\Harm(\CP^n)))[1] & \longrightarrow \RedStringH(\Loop \CP^n; \R)[3-n] \\
 \Susp t^*_{2k+1,l} & \longmapsto \Susp y_1 y_2^k x_1^{l-1}\qquad\text{for }k\ge 0\text{ and }l=1,\dotsc, n
-\end{aligned} $$
+\end{aligned} \]
 induces an isomorphism of $\IBL$-algebras
-$$ \IBL(\HIBL^\PMC(\RedCycC(\Harm(\CP^n)))) \simeq \IBL(\RedStringH(\Loop \CP^n; \R)[3-n]). $$
+\[ \IBL(\HIBL^\PMC(\RedCycC(\Harm(\CP^n)))) \simeq \IBL(\RedStringH(\Loop \CP^n; \R)[3-n]). \]
 \end{document}

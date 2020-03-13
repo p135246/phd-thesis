@@ -4,14 +4,15 @@
 
 \begin{document} 
 \section{Conjectured relation to string topology}\label{Sec:StringTopology}
-\Add[inline,caption={DONE Simplify string top. and cyc. hom. comparison}]{Add somewhere that the map from $(\CDBCyc \HDR(M),b^*)$ to $(C(\StringSpace M),\Bdd)$ with no degree shifts does the job (after removing all degree shifts from definitions).}
+\Add[inline,caption={DONE Simplify string top.
+and cyc. hom. comparison}]{Add somewhere that the map from $(\CDBCyc \HDR(M),b^*)$ to $(C(\StringSpace M),\Bdd)$ with no degree shifts does the job (after removing all degree shifts from definitions).}
 
 
 Given a smooth connected oriented $n$-dimensional manifold $M$, we consider the equivariant homology of the free loop space $\Loop M \coloneqq \{\gamma: \Sph{1} \rightarrow M \text{ continuous}\}$ with respect to the reparametrization action of $\Sph{1}$. It is defined as the singular homology of the Borel construction  
 $$ \LoopBorel M \coloneqq \EG\Sph{1} \times_{\Sph{1}} \Loop M \coloneqq (\EG\Sph{1}\times \Loop M)/\Sph{1}, $$
 where $\EG\Sph{1} = \Sph{\infty} \rightarrow \BG \Sph{1} = \CP^\infty$ is a model for the universal bundle for $\Sph{1}$, and we quotient out the diagonal action. We denote this homology by
 $$ \StringH(\Loop M) \coloneqq \H(\LoopBorel M). $$
-Recall that $(\EG\Sph{1}\times \Loop M)/\Sph{1}$ is the homotopically correct quotient replacing $\Loop M/\Sph{1}$, which we prefer to use because the diagonal action of $\Sph{1}$ on $\EG\Sph{1}$ is free, and hence $\EG\Sph{1}\times \Loop M \rightarrow (\EG\Sph{1}\times \Loop M)/\Sph{1}$ is a principal $\Sph{1}$-bundle (in contrast to the patological map $\Loop M \rightarrow \Loop M /\Sph{1}$). Recall also that $\EG \Sph{1}$ is contractible.
+Recall that $(\EG\Sph{1}\times \Loop M)/\Sph{1}$ is the homotopically correct quotient replacing $\Loop M/\Sph{1}$, which we prefer to use because the diagonal action of $\Sph{1}$ on $\EG\Sph{1}$ is free, and hence $\EG\Sph{1}\times \Loop M \rightarrow (\EG\Sph{1}\times \Loop M)/\Sph{1}$ is a principal $\Sph{1}$-bundle (in contrast to the pathological map $\Loop M \rightarrow \Loop M /\Sph{1}$). Recall also that $\EG \Sph{1}$ is contractible.
 
 
 The ``geometric versions'' of the homologies were defined in \cite{Sullivan1999} as the degree shifts
@@ -44,7 +45,7 @@ Because $\Abs{\Mark} = 1$ and $\Abs{\Erase} = 0$, we have for all $\xi \in \Cons
 \tilde{\StringCoOp}_2(\xi) & = \sum \Erase(\nu^{1}) \otimes \Erase(\nu^2),
 \end{aligned}
 \end{equation}
-where we write $\nu(\Mark(\xi)) = \sum \nu^1 \otimes \nu^2$. The operations $\tilde{\StringOp}_2$ and $\tilde{\StringCoOp}_2$ have degrees~$2$ and $2-2n$ with respect to the grading on $\GeomStringH(\Loop M)$, respectively. In fact, we will consider $\tilde{\StringOp}_2$ and $\tilde{\StringCoOp}_2$ given by \eqref{Eq:StringOpCoOp} as operations on the even degree shift $\StringH(\Loop M)[2-n] = \GeomStringH(\Loop M)[2-2n]$, which have degrees $2(2-n)$ and $0$, respectively. The symbols $\StringOp_2$ and $\StringCoOp_2$ will denote their degree shifts to $\StringH(\Loop M)[3-n]$, which have degrees of an $\IBL$-algebra from Definition \ref{Def:IBLInfty}.
+where we write $\nu(\Mark(\xi)) = \sum \nu^1 \otimes \nu^2$. The operations $\tilde{\StringOp}_2$ and $\tilde{\StringCoOp}_2$ have degrees~$2$ and $2-2n$ with respect to the grading on $\GeomStringH(\Loop M)$, respectively. In fact, we will consider $\tilde{\StringOp}_2$ and $\tilde{\StringCoOp}_2$ given by \eqref{Eq:StringOpCoOp} as operations on the even degree shift $\StringH(\Loop M)[2-n] = \GeomStringH(\Loop M)[2-2n]$, which have degrees $2(2-n)$ and $0$, respectively. The symbols $\StringOp_2$ and $\StringCoOp_2$ will denote their degree shifts to $\StringH(\Loop M)[3-n]$, which have degrees of an $\IBL$-algebra from Definition~\ref{Def:IBLInfty}.
 %We state the following well-known result (see~\cite{Sullivan2002}).
 %
 %\begin{Proposition}[$\IBL$-structure on string topology]\label{Prop:StringLieBiAlg}
@@ -55,7 +56,7 @@ where we write $\nu(\Mark(\xi)) = \sum \nu^1 \otimes \nu^2$. The operations $\ti
 
 In work in progress \cite{Cieliebak2018b}, they consider the map 
 $$I_{\lambda,*}: \CycH_{-\bullet- 1}(\DR(M)) \longrightarrow \StringCoH^\bullet(\Loop M; \R)$$ defined on the chain level as a cyclic version of Chen's iterated integrals $I_\lambda$. Recall that $\CycH_{-\bullet-1}(\DR) = \H_\bullet(\BCyc \DR, \Hd)$ \Correct[caption={DONE Homology exchangend with cohomology}]{DONE The homology of $\OPQ_{110}$ should be the cyclic cohomology},
-where $\Hd: \B \DR = \bigoplus_{k\ge 1} \DR[1]^{\otimes k} \rightarrow \B \DR $ is the Hochschild differential of the de Rham dga $(\DR,m_1,m_2)$, and the grading on $\CycH(\DR)$ was chosen such that $\CycH_\bullet(\DR) \simeq \ClasCycH_\bullet(\DR)$ for the classical cyclic homology of a dga (see Section~\ref{Sec:Alg2}). They prove in \cite{Cieliebak2018b} that if $M$ is simply-connected, then the map~$I_{\lambda,*}$ induces an isomorphism $\RedCycH_{-\bullet-1}(\DR(M))) \simeq \RedStringCoH^\bullet(\Loop M)$, where 
+where $\Hd: \B \DR = \bigoplus_{k\ge 1} \DR[1]^{\otimes k} \rightarrow \B \DR $ is the Hochschild differential of the de Rham dga $(\DR,m_1,m_2)$, see Section~\ref{Sec:Alg2}. They prove in \cite{Cieliebak2018b} that if $M$ is simply-connected, then the map~$I_{\lambda,*}$ induces an isomorphism $\RedCycH_{-\bullet-1}(\DR(M))) \simeq \RedStringCoH^\bullet(\Loop M)$, where 
 $$ \RedStringCoH(\Loop M) \coloneqq \StringCoH(\EG \Sph{1} \times_{\Sph{1}} \Loop M, \EG \Sph{1} \times_{\Sph{1}} \{x_0\}) $$
 is the \emph{reduced $\Sph{1}$-equivariant cohomology} with respect to a base point $x_0 \in M$ (the constant loop at $x_0$). Dualizing their map, we obtain the isomorphism 
 \begin{equation}\label{Eq:StringIsom}
@@ -70,8 +71,7 @@ Recall that $\HIBL^\PMC_\bullet(\CycC(\Harm)) = \CycH_{n-3-\bullet}(\Harm_\PMC)$
 \begin{equation}\label{Eq:IBLIsom}
 \CycCoH(\Harm(M)_\PMC) \simeq \CycCoH(\DR(M)).
 \end{equation}
-
-A combination of \eqref{Eq:StringIsom} and \eqref{Eq:IBLIsom} gives the following version of the string topology conjecture from the Overview. 
+Now, \eqref{Eq:StringIsom} and \eqref{Eq:IBLIsom} give the following version of the string topology conjecture.
 
 %\begin{Remark}[Intuition for \eqref{Eq:IBLIsom} from the $\IBLInfty$-viewpoint]\label{Rem:IBLViewpoint}
 %Suppose that $\DR$ is finite dimensional. Then we have the canonical $\dIBL$-structure $\dIBL(\CDBCyc \DR{} [2-n])$ equipped with the canonical Maurer-Cartan element $\MC$ given by \eqref{Eq:CanonMC}. The fact (B) in the Overview gives the $\IBLInfty$-quasi-isomorphism $\HTP: \dIBL(\CDBCyc \DR{}[2-n]) \rightarrow \dIBL(\CDBCyc \Harm{}[2-n])$ extending the dual to the inclusion $\iota_\Harm: \Harm{}\rightarrow \DR{}$, such that the formal pushforward Maurer-Cartan element~$\PMC$ becomes a genuine pushforward of $\MC$ along $\HTP$, i.e.~$\PMC = \HTP_* \MC$ (see Appendix~\ref{Sec:Appendix}). In this case, \cite[Proposition 9.6]{Cieliebak2015} asserts that we can twist $\HTP$ to obtain an $\IBLInfty$-quasi-isomorphism $\HTP^\MC: \dIBL^\MC(\CDBCyc \DR{}[2-n]) \rightarrow \dIBL^\PMC(\CDBCyc \Harm{}[2-n])$.
@@ -97,8 +97,8 @@ where $C^{\mathrm{sing}}$ denotes the (smooth) singular chain complex and $\Bdd$
 \begin{Remark}[On string topology conjecture]\phantomsection
 \begin{RemarkList}
 \item The conjecture can be interpreted as follows. There is an $\IBL$-structure on $\RedStringH(\Loop M;\R)$ compatible with Chas-Sullivan operations, and the $\IBLInfty$-algebra $\dIBL^\PMC(\RedCycC(\Harm(M)))$ is its chain model.
-\item The loop coproduct $\tau$ is geometrically defined only on $\ConstRedStringH(\Loop M)$; the conjecture thus provides an extension of $\StringCoOp_2$ to $\RedStringH(\Loop M)$. In~\cite{Basu2011}, it is shown that the geometric definition of $\tau$ can be extended to $\H(\Loop M)$ for manifolds with zero Euler characteristic, i.e., $\chi(M) = 0$. This extension depends on the choice of a non-vanishing vector field on $M$. By homotopy invariance (see (v) below), our extension of $\StringCoOp_2$ should not depend on the admissible Hodge propagator $\Prpg$.
-\item The loop product $\LoopPr$ is geometrically defined on $\H(\Loop M)$; however, it does not always induce an associative product on $\RedH(\Loop M) = \H(\Loop M, x_0)$. Indeed, the examples of $\T^2$ (see \cite{Basu2011}) and $\Sph{3}$ (see \cite{Sullivan1999}) show that $\H(x_0;\R) \subset \H(\Loop M;\R)$ is not an ideal with respect to $\LoopPr$. By \cite{Tamanoi2010}, this does not happen when $\chi(M) \neq 0$, and hence, in this case, $\LoopPr$ restricts to $\H(\Loop M, x_0; \R)$.
+\item The loop coproduct $\tau$ is geometrically defined only on $\ConstRedStringH(\Loop M)$; the conjecture thus provides an extension of $\StringCoOp_2$ to $\RedStringH(\Loop M)$. In~\cite{Basu2011}, it is shown that the geometric definition of $\tau$ can be extended to $\H(\Loop M)$ for manifolds with zero Euler characteristic, i.e., $\chi(M) = 0$. This extension depends on the choice of a non-vanishing vector field on~$M$. By homotopy invariance (see (v) below), our extension of $\StringCoOp_2$ should not depend on the admissible Hodge propagator $\Prpg$.
+\item The loop product $\LoopPr$ is geometrically defined on $\H(\Loop M)$; however, it does not always induce an associative product on $\RedH(\Loop M) = \H(\Loop M, x_0)$. Indeed, the examples of $\T^2$ (see \cite{Basu2011}) and $\Sph{3}$ (see \cite{Sullivan1999}) show that $\H(x_0;\R) \subset \H(\Loop M;\R)$ is not an ideal with respect to $\LoopPr$. By \cite{Tamanoi2010}, this does not happen when $\chi(M) \neq 0$, and hence, in this case,~$\LoopPr$ restricts to $\H(\Loop M, x_0; \R)$.
 \item The computation for $\Sph{n}$ with $n\ge 2$ and the computation for $\CP^n$ in Section~\ref{Section:Computation} support the conjecture. The computation for $\Sph{1}$ in Section~\ref{Section:HomSphere} provides a counterexample for non-simply-connected $M$. Surfaces of genus~$g\ge 1$ should be considered.
 
 \item  We expect that if $M_1$ and $M_2$ are homotopy equivalent, then the $\IBLInfty$-algebras $\dIBL^{\PMC_1}(\CycC(\HDR(M_1)))$ and $\dIBL^{\PMC_2}(\CycC(\HDR(M_2)))$ are $\IBLInfty$-homotopy equivalent.

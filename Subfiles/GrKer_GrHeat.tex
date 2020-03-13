@@ -1,22 +1,22 @@
 %auto-ignore
 \providecommand{\MainFolder}{..}
 \documentclass[\MainFolder/Text.tex]{subfiles}
-
 \begin{document}
 \section{Approximation using heat form}\label{Sec:Hwe}
+\allowdisplaybreaks
 
 Given an oriented Riemannian manifold $(M,g)$, consider the \emph{heat form}
 \begin{equation}\label{Eq:HK}
 \KKer_t(x,y) = \sum (-1)^{kn}e^{-\lambda_i t} (\star e_i)(x) \wedge e_i(y),
 \end{equation}
-where $(e_i)$ are eigenvectors of $\Delta$ and $\lambda_i$ the corresponding eigenvalues. It is equivalently a solution of the equation $\Laplace \KKer_t(x,y) = - \frac{\partial}{\partial t}\KKer_t(x,y)$ with certain boundary condition.
+where $(e_i)$ are eigenvectors of $\Delta$ and $\lambda_i$ the corresponding eigenvalues. It is equivalently the Schwartz form of the operator $\exp(-\Delta t)$ (see \cite[Chapter~3]{Harris2004}) or a unique solution of the equation $\Laplace \KKer_t(x,y) = - \frac{\partial}{\partial t}\KKer_t(x,y)$ with $\lim_{t\to 0} \KKer_t = \DR_\Id$, where $\DR_\Id$ is the Schwartz form of the identity (see \cite{Hein2006}).
 %
 \begin{Proposition}[Properties of the heat kernel]\label{Prop:Heasd}
 Let $M$ be an oriented Riemannian manifold. The heat form $\KKer_t(x,y)$ is smooth on $M\times M \times (0,\infty)$ and satisfies
 $$ \Dd \KKer_t = 0, \quad \tau^*\KKer_t = (-1)^n\KKer_t\quad\text{and}\quad \frac{1}{2}\Delta \KKer_t = \Diag_x \KKer_t = - \frac{\partial }{\partial t} \KKer_t. $$
 \end{Proposition}
 \begin{proof}
-Straightforward computation.
+Straightforward computation and a nice combinatorial argument.
 \end{proof}
 %
 %\begin{proof}
@@ -53,7 +53,8 @@ Straightforward computation.
 %$$ F'(a) = \int_J \frac{\partial }{\partial a} f(a,u) \Diff{u} $$
 %\end{Lemma}
 \begin{Proposition}[Approximation using heat form]\label{Prop:HeatKerFormulas}
-Let $M$ be an oriented Riemannian manifold and $\KKer_t(x,y)$ the heat form. For all $(t,x,y)\in \bigl([0,\infty)\times M \times M\bigr)\backslash \{0\}\times \Diag =: D(\KKer)$, we define
+Let $M$ be an oriented Riemannian manifold and $\KKer_t(x,y)$ the heat form.
+For all $(t,x,y)\in \bigl([0,\infty)\times M \times M\bigr)\backslash \{0\}\times \Diag =: D(\KKer)$, define
 \begin{equation}\label{Eq:HeatKerApprox}
 \begin{aligned} 
 \GKer_t(x,y) &\coloneqq \int_t^\infty \KKer_\tau(x,y)\Diff{\tau}\quad\text{and}\\
@@ -62,7 +63,7 @@ Let $M$ be an oriented Riemannian manifold and $\KKer_t(x,y)$ the heat form. For
 \end{equation}
 Then:
 \begin{ClaimList}
-\item The forms $\GKer_t$ and $\Prpg_t$ are smooth on $D(\KKer)$, the point-wise limits $\GKer'$ and $\Prpg'$ exist, and it holds $\GKer_t \darrow[t]\GKer'$ and $\Prpg_t\darrow[t]\Prpg'$ in $C^\infty_{\text{loc}}(M\times M\backslash\Diag)$.
+\item The forms $\GKer_t$ and $\Prpg_t$ are smooth on $D(\KKer)$, the point-wise limits $\GKer'$ and $\Prpg'$ as $t\to 0$ exist, and it holds $\GKer_t \darrow[t]\GKer'$ and $\Prpg_t\darrow[t]\Prpg'$ as $t\to 0$ (uniform convergence) in $C^\infty_{\text{loc}}(M\times M\backslash\Diag)$.
 \item On $D(\KKer)$, the following relations hold:
 \begin{align*}
 \Dd \GKer_t &= 0 & \Prpg_t &= (-1)^{n+1}\frac{1}{2} \CoDd\GKer_t \\
@@ -75,6 +76,7 @@ It follows that $\GKer' = \GKer$ is the (Laplace) Green form and $\Prpg' = \StdP
 
 \begin{proof}
 The formal computation is clear. An honest proof uses the standard heat kernel estimates.
+\ToDo[caption={Say more},noline]{Say more about the proofs!}
 %The relations follow from
 %$$ \Dd \KKer_t = 0\quad\text{and}\quad (\CoDd_x\COtimes\Id)\KKer_t = (\Id\COtimes\CoDd_y) = \frac{1}{2}\CoDd\KKer_t. $$
 %Use properties of the heat kernel,... Also see Harris, Heine,.. We have that $\CoDd = \CoDd_x \COtimes \Id + \Id \COtimes \CoDd_y$, it holds $(\CoDd_x \COtimes \Id)\tau^* = \Id \COtimes \CoDd_y$.
@@ -82,11 +84,16 @@ The formal computation is clear. An honest proof uses the standard heat kernel e
 
 \begin{Proposition}[$\StdPrpg$ is codifferential of $\GKer$]\label{Prop:StdCodifInt}
 Let $M$ be an oriented Riemannian manifold, and let $\GKer\in \DR^n(M\times M\backslash\Diag)$ be the Green form. Then the standard Hodge propagator $\StdPrpg$ satisfies
-$$ \StdPrpg(x,y)= (-1)^{n+1}(\Id\otimes \CoDd_y)\GKer(x,y), $$
+\begin{equation}\label{Eq:FormForPUsingG}
+\StdPrpg(x,y)= (-1)^{n+1}(\Id\otimes \CoDd_y)\GKer(x,y),
+\end{equation}
 where $\Id\otimes \CoDd_y: \DR^\bullet(M\times M) \rightarrow \DR^{\bullet-1}(M \times M)$ is the differential operator defined in local coordinates by commuting $\CoDd$ over the first factor with the Koszul sign and applying it to the second factor.
 \end{Proposition}
 \begin{proof}
-As for the signs, $(-1)^n$ comes from $\TOp \GOp \omega(y) = (-1)^{nT}\int_x(\Id \otimes \TOp_y)\GKer(x,y)\omega(x)$ with $T=\CoDd$ and $-1$ from $\StdHtp = - \CoDd\GOp$. The rest can be proven using the heat kernel approximation and standard heat kernel estimates. There is an other method using the asymptotic expansion of $\GKer$, which was shown to the author by Prof.~Christian~Bär.
+As for the signs, $(-1)^n$ comes from $\TOp \GOp \omega(y) = (-1)^{nT}\int_x(\Id \otimes \TOp_y)\GKer(x,y)\omega(x)$ with $T=\CoDd$ and $-1$ from $\StdHtp = - \CoDd\GOp$.
+The rest can be proven using the heat kernel approximation and standard heat kernel estimates.
+There is an other method using the asymptotic expansion of $\GKer$, which was shown to the author by Prof.~Dr.~Christian~Bär.
+\ToDo[caption={Say more},noline]{Say more about the proofs!}
 \end{proof}
 %We have the following.
 %

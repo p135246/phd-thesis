@@ -4,6 +4,7 @@
 \newcommand{\TestF}{\mathcal{D}}
 \begin{document}
 \section{Schwartz form and smooth extension to blow-up}\label{Sec:SchwFrom}
+\allowdisplaybreaks
 
 For a smooth vector bundle $\pi: E\rightarrow M$, let $\TestF(E)$ be the space of ``test sections of $E$'', and let $\TestF'(E^*)$ be the space of distributions.  Let $\langle\cdot,\cdot\rangle: \TestF'(E^*)\otimes\TestF(E)\rightarrow \R$ be the natural pairing. Proper definitions can be formulated easily based on \cite[Section~6]{HormanderI}.
 \begin{Proposition}[Schwartz kernel theorem, see {\cite[Theorem~5.2.1]{HormanderI}} for the local version]\label{Prop:SchwKer}
@@ -55,7 +56,7 @@ We will consider pseudo-differential operators $\TOp:\DR(M)\rightarrow\DR(M)$ on
 Let $\TOp: \DR(M) \rightarrow \DR(M)$ be a pseudo-differential operator on a smooth oriented Riemannian manifold $M$. Then the Schwartz form $\DR_{\TOp}$ restricts to a smooth form on $M\times M\backslash\Diag$.
 \end{Proposition}
 \begin{proof}
-Use methods of \cite{Hormander}.
+Well known fact, proof based on \cite{Hormander}.
 \end{proof}
  
 \begin{Example}[Schwartz form of $\Id$]\label{Ex:IdFE}The Schwartz form of the identity $\Id: \DR(\R^n)\rightarrow \DR(\R^n)$ reads
@@ -88,7 +89,7 @@ and thus the smooth part of $\DR_\Id$ does not recover the data of the operator 
 %It satisfies $\Dd\circ\StdHtp + \StdHtp\circ\Dd = - \Id$. We denote the Schwartz form of $\StdHtp$ by $\StdPrpg$ and call it the \emph{standard Hodge propagator.}
 %\end{Definition}
 
-We consider the Green operator $\GOp$ for the Laplacian $\Laplace$ (see \cite{Warner1983}) and the standard Hodge propagator $\HtpStd$. They are both pseudo-differential operators, and it holds $\HtpStd = \pm \CoDd \GOp$. We will study their Schwartz forms $\GKer$ and $\PrpgStd$, which are called the Green kernel and the standard Hodge propagator, respectively.
+We consider the Green operator $\GOp$ for the Laplacian $\Laplace$ (see \cite{Warner1983}) and the standard Hodge propagator $\HtpStd$. They are both pseudo-differential operators, and it holds $\HtpStd = - \CoDd \GOp$. We will study their Schwartz forms $\GKer$ and $\PrpgStd$, which are called the \emph{Green kernel} and the \emph{standard Hodge propagator,} respectively.
 
 \begin{Proposition}[Basic facts about $\GKer$ and $\StdPrpg$]\label{Prop:BasicFactsGP}
 The Green kernel $\GKer$ represents an $L^2$-integrable form.
@@ -101,11 +102,11 @@ The fact that $\GKer$ is $L^2$ is an exercise in \cite{Warner1983}. The fact tha
 A consequence of Proposition~\ref{Prop:BasicFactsGP} is that the Schwartz forms $\GKer$ and $\StdPrpg$ are determined by their smooth restrictions to $M\times M\backslash \Diag$. This follows from \eqref{Eq:SchwarzKerForm} because the integral does not depend on sets of zero measure. Therefore, we will write $\GKer$, $\StdPrpg \in \DR^{n-1}(M\times M\backslash\Diag)$.
 
 \begin{Definition}[Smooth extension to the blow-up]\label{Def:Esdas}
-Let $M$ be a smooth manifold, and let $\pi: \Bl_\Diag(M\times M)\rightarrow M\times M$ be the Melrose blow-up of $M\times M$ at the diagonal $\Diag$ (this is another name for the spherical blow-up). Consider the blow-up diagram
-$$\begin{tikzcd}
+Let $M$ be a smooth manifold, and let $\pi: \Bl_\Diag(M\times M)\rightarrow M\times M$ be the spherical blow-up of $M\times M$ at the diagonal $\Diag$.\footnote{Another name of this construction suggested to me by Dr.~Oliver Lindblad Petersen after explaining him our setting should be ``Melrose blow-up''.} Consider the blow-up diagram
+\[\begin{tikzcd}
  & \Bl_\Diag(M\times M)\arrow[two heads]{d}{\pi} \\
  M\times M\backslash \Diag \arrow[hook]{r}{\iota}\arrow[hook]{ru}{\tilde{\iota}} & M\times M,
-\end{tikzcd}$$
+\end{tikzcd}\]
 where $\iota$ is the inclusion and $\tilde{\iota}$ its unique smooth lift --- the embedding of the interior. We say that a smooth form $\omega\in\DR(M\times M\backslash\Diag)$ \emph{extends smoothly to the blow-up} if there is a smooth form $\tilde{\omega}\in \DR(\Bl_\Diag(M\times M))$ such that 
 $$ \tilde{\iota}^*\tilde{\omega}=\omega. $$
 \end{Definition}
@@ -114,5 +115,6 @@ Note that the extension, if it exists, is necessarily unique.
 
 \begin{Question}[Smooth extension of standard propagator]
 Do $\GKer$ and $\StdPrpg$ extend smoothly to the blow-up?
+We expect that $\GKer$ does not and $\StdPrpg$ does.
 \end{Question}
 \end{document}

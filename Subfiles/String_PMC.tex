@@ -49,7 +49,7 @@ The notation $\Gamma \in \RG_{klg}$ means that $\Gamma$ is a representative of a
 \begin{Remark}[On ribbon graphs]\phantomsection
 \begin{RemarkList}
 \item An $m$-valent ribbon graph with $m\ge 2$ has a unique decomposition $V = V_{\mathrm{int}}\sqcup V_{\mathrm{ext}}$, and hence we can omit writing IE.
-\item In this text, we will use only reduced ribbon graphs. Non-reduced ribbon graphs may play a role in the extension of the theory of $\dIBL^\PMC(\CycC(\Harm))$ to non-reduced cyclic cochains  or in the weak $\IBLInfty$-theory (see Remarks \ref{Rem:Weak} and~\ref{Rem:NWG}).\qedhere
+\item In this text, we will use only reduced ribbon graphs. Non-reduced ribbon graphs may play a role in the extension of the theory of $\dIBL^\PMC(\CycC(\Harm))$ to non-reduced cyclic cochains  or in the weak $\IBLInfty$-theory (see Remarks \ref{Rem:BVForm} and~\ref{Rem:NWG}).\qedhere
 \end{RemarkList}
 \end{Remark}
 
@@ -151,10 +151,19 @@ In order to show that $\PMC_{lg}$ is well-defined and that the collection $(\PMC
  \item The Maurer-Cartan equation \eqref{Eq:MaurerCartanEquation} holds.
 \end{PlainList}
 
-Conditions 1) and 9) will be proven in~\cite{Cieliebak2018} using the theory of iterated blow-ups. In this text, \underline{we will take 1) and 9) for granted.} 
+Condition 9) will be proven in~\cite{Cieliebak2018} using the theory of iterated blow-ups.
+
+Condition 1) follows from the property (P1) of a Hodge propagator~ $\Prpg$.
+The idea is to associate one integration variable to each internal half-edge, obtaining the space $\{x_i^{(1)},x_i^{(2)},x_i^{(3)}\mid i=1, \dotsc, k\}$, and blowing-up pairs of variables connected by internal edges.
+By (P1), the integrand of \eqref{Eq:ISigma} lifts to a smooth form on such a space.
+The integral $\int_{x_1 \dotsc x_k}$ is then realized as an integral over the closure of a lift of the subspace $\{x_i^{(1)} = x_i^{(2)} = x_i^{(3)}\}$.
+By compactness, the integral converges.
+A detailed proof is under preparation in~\cite{Cieliebak2018}.
+
+In this text, \underline{we will take 1) and 9) for granted.} 
 
 \begin{Lemma} \label{Lem:MCCond}
-Assuming 1), the conditions 2) -- 8) hold.
+Conditions 2) -- 8) hold.
 \end{Lemma}
 \begin{proof}
 
