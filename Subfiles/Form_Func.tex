@@ -10,7 +10,7 @@ Consider the construction $\dIBL^\MC(\CycC(\cdot))$ on cyclic $\DGA$'s ($=$\,dif
 
 \begin{Proposition}[Functoriality of $\dIBL^\MC$-construction up to homotopy]\label{Prop:Functorialityo}
 Suppose that $V_1$ and~$V_2$ are differential Poincar\'e duality algebras, and let $f: V_1 \rightarrow V_2$ be a $\PDGA$-quasi-isomorphism.
-Then there is an $\IBLInfty$-quasi-isomorphism $\HTP: \dIBL(\CycC(V_2)) \rightarrow \dIBL(\CycC(V_1))$ which is also an $\IBLInfty$-quasi-isomorphism $\HTP: \dIBL^\MC(\CycC(V_2)) \rightarrow \dIBL^\MC(\CycC(V_1))$, and it holds $\HTP_{110} = f^*$. 
+Then there is an $\IBLInfty$-quasi-isomorphism $\HTP: \dIBL(\CycC(V_2)) \rightarrow \dIBL(\CycC(V_1))$ which is also an $\IBLInfty$-quasi-isomorphism $\HTP: \dIBL^\MC(\CycC(V_2)) \rightarrow \dIBL^\MC(\CycC(V_1))$ and satisfies $\HTP_{110} = f^*$. 
 \end{Proposition}
 
 \begin{proof}
@@ -61,7 +61,7 @@ Proposition~\ref{Prop:Functorialityo} gives $\IBLInfty$-quasi-isomorphisms $\HTP
 \end{Conjecture}
 
 
-If we had the notion of a minimal Poincar\'e duality model $\Model_0(V)$ which is unique in every weak homotopy class of $\PDGA$'s (c.f., Question~\ref{Q:QuestionsPonc}), we could associate to a weak homotopy equivalence class of a $\PDGA$ $V$ a canonical $\dIBL$-algebra $\dIBL^\MC(\CycC(\Model_0(V)))$ up to an $\IBLInfty$-isomorphism.\footnote{In order to think about functors, we would first have to find a canonical construction of an $\IBLInfty$-morphism induced by a $\PDGA$-morphism of cyclic $\DGA$'s. The construction of \cite[Section~11]{Cieliebak2015} applies only to quasi-isomorphisms, and even if we pick the standard Hodge propagator $\StdPrpg$, it still depends on the choice of the Hodge decomposition. Therefore, the best we can hope for is an assignment of $\PDGA$-morphisms to $\IBLInfty$-homotopy classes of $\IBLInfty$-morphisms.}
+If we had the notion of a minimal Poincar\'e duality model $\Model_0(V)$ which is unique in every weak homotopy class of $\PDGA$'s (c.f., Questions~\ref{Q:QuestionsPonc}), we could associate to a weak homotopy equivalence class of a $\PDGA$ $V$ a canonical $\dIBL$-algebra $\dIBL^\MC(\CycC(\Model_0(V)))$ up to an $\IBLInfty$-isomorphism.\footnote{In order to think about functors, we would first have to find a canonical construction of an $\IBLInfty$-morphism induced by a $\PDGA$-morphism of cyclic $\DGA$'s. The construction of \cite[Section~11]{Cieliebak2015} applies only to quasi-isomorphisms, and even if we pick the standard Hodge propagator $\StdPrpg$, it still depends on the choice of the Hodge decomposition. Therefore, the best we can hope for is an assignment of $\PDGA$-morphisms to $\IBLInfty$-homotopy classes of $\IBLInfty$-morphisms.}
 
 \begin{Definition}[$\IBLInfty$-formality]\label{Def:IBLFormality}
 We say that a differential Poincar\'e duality algebra $V$ is \emph{$\IBLInfty$-formal} if $\dIBL^\MC(\CycC(V))$ and $\dIBL^\MC(\CycC(\H(V)))$ are weakly $\IBLInfty$-homotopy equivalent.
@@ -131,8 +131,8 @@ For this, it might be useful to describe a path object of the $\IBL$-algebra $\d
 The following is a consequence of Conjecture~\ref{Conj:SmallSimplCon}.
 However, we formulate it separately as it might be easier to prove.
 
-\begin{Conjecture}[Geometric formality conjecture]\label{Cor:FormCorollary}
-In the situation of Conjecture~\ref{Conj:SmallSimplCon}, suppose that $M$ is formal. Then $\dIBL^\PMC(\CycC(\HDR(M)))$ is $\IBLInfty$-homotopy equivalent to $\dIBL^\MC(\CycC(\HDR(M)))$.
+\begin{Conjecture}[Formality conjecture for geometric construction]\label{Cor:FormCorollary}
+In the situation of Conjecture~\ref{Conj:SmallSimplCon}, suppose that~$M$ is formal. Then $\dIBL^\PMC(\CycC(\HDR(M)))$ is $\IBLInfty$-homotopy equivalent to $\dIBL^\MC(\CycC(\HDR(M)))$.
 \end{Conjecture}
 \begin{proof}[Comment on proof]
 One has to prove the following. If there is an $\AInfty$-isomorphism $(f_i)$ of $(\HDR,\wedge)$ and $(\HDR,\wedge,m_3,\dotsc)$ with $f_1 = \Id$, then $\MC_{10}$ and $\PMC_{10} = \sum \pm \MC_k^+$ are gauge equivalent.

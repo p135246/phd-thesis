@@ -11,7 +11,7 @@ In Section~\ref{Sec:FF}, given a strictly unital $\AInfty$-algebra on a graded v
 
 In Section~\ref{Sec:HomBi}, we define Loday's and Connes' cyclic half-plane bicomplexes for $\AInfty$-algebras together with their normalized and reduced versions (Definition~\ref{Def:CycBico}). We then summarize some convergence results for spectral sequences associated to horizontal, vertical and diagonal filtrations (Proposition~\ref{Prop:ConvOfSpSeq}). In a series of lemmas (Lemmas~\ref{Lem:LodCycBiCycHom}, \ref{Lem:LodConCycBi}, \ref{Lem:ConNormVer} and~\ref{Lem:ReducedCyclic}), we prove that some of the (co)homologies are isomorphic. These lemmas copy results for $\DGA$'s from \cite{LodayCyclic}; we just do them carefully for half-plane bicomplexes and more explicitly. There is a new phenomenon of long chains coming from completing the direct sum total complex; these long chains seem to disappear in homology if the degrees of $V$ are bounded (Lemma~\ref{Lem:BddDegrees}). Additionally, we point out some differences between first-quadrant and half-plane bicomplexes (Remark~\ref{Rem:SpecSeq}) and mention the relation to mixed complexes (Remark~\ref{Rem:MixedCompl}).
 
-In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes' bicomplexes (Lemma~\ref{Lem:ConBiRed}), which replace, up to quasi-isomorphisms, the non-exact sequences for reduced cyclic Hochschild (co)chains. We summarize the isomorphisms of (co)homologies from Section~\ref{Sec:HomBi} (Figure~\ref{Fig:FinalPictureHom}), finish the proof of Proposition~\ref{Prop:Reduced} and formulate a few open question (Remark~\ref{Rem:OpenProbAInftx}).
+In Section~\ref{Sec:FinRem}, we obtain short exact sequences for reduced Connes' bicomplexes (Lemma~\ref{Lem:ConBiRed}), which replace, up to quasi-isomorphisms, the non-exact sequences for reduced cyclic Hochschild (co)chains. We summarize the isomorphisms of (co)homologies from Section~\ref{Sec:HomBi} (Figure~\ref{Fig:FinalPictureHom}), finish the proof of Proposition~\ref{Prop:Reduced} and formulate a few open question (Questions~\ref{Q:OpenProbAInftx}).
 %
 %We develop this theory for $\AInfty$-algebras following the theory for $\DGA$'s from \cite{LodayCyclic}.
 %
@@ -559,7 +559,7 @@ Therefore, the condition $\SSPage^s = \bar{\SSPage}^s = 0$ for all $s<0$ is sati
 \end{proof}
 
 
-\begin{Remark}[Differences to first-quadrant bicomplexes]\label{Rem:SpecSeq}
+\begin{Remark}[Differences to first-quadrant bicomplexes]\phantomsection\label{Rem:SpecSeq}
 \begin{RemarkList}
 \item Given a half-plane bicomplex $B$, we have
 \[ (\TotI B)^{\GD} \simeq \TotII B^*, \]
@@ -673,7 +673,7 @@ Altogether, there are seven versions $[\FormU]$, $[\FormU^{-1}]$, $[\FormU,\Form
 %\[ \ConCycBi^{\mathrm{red}}_{**}\coloneqq \CoKer(u) \quad\text{and}\quad \ConCycBi_{\mathrm{red}}^{**}\coloneqq \ker(u^*). \]
 %We denote the corresponding (co)homologies by $H\ConCycBi$ and $H\hat{\ConCycBi}$.
 %\end{Remark}
-In the following proofs, we might not need the full strength of Proposition~\ref{Prop:ConvOfSpSeq} since the spectral sequences for the bicomplexes from Definition~\ref{Def:CycBico} mostly collapse already on the second page (see question (iii) of Remark~\ref{Rem:OpenProbAInftx}).
+In the following proofs, we might not need the full strength of Proposition~\ref{Prop:ConvOfSpSeq} since the spectral sequences for the bicomplexes from Definition~\ref{Def:CycBico} mostly collapse already on the second page (see (iii) of Questions~\ref{Q:OpenProbAInftx}).
 %Suppose that $V = V^0$ is concentrated in degree $0$ and $\mu_k = 0$ for $k\neq 2$. Then, in contrast to the general case, all bicomplexes lie in the first-quadrant, and hence the spectral sequences for both the vertical and the horizontal filtration converge strongly to the (co)homology of $\Tot_I$. In the case of $\AInfty$-algebras, the following example from 
 %\begin{description}
 % \item[LA1] %(Suppose we do it over a ring which contains $\Q$)
@@ -1046,13 +1046,13 @@ the bicomplex $\NConCycBi(\R)$ is diagonal, and hence $\TotI$ and $\TotII$ are t
 
 We summarize our results in Figure~\ref{Fig:FinalPictureHom}. Having $\H^\lambda(\Alg) \simeq \H^{\lambda,\RedMRM}(\Alg) \oplus \H^{\lambda}(\R)$, Proposition~\ref{Prop:Reduced} in Section~\ref{Sec:Alg2} follows by dualization. 
 
-\begin{Remark}[Some questions]\label{Rem:OpenProbAInftx}
+\begin{Questions}\phantomsection\label{Q:OpenProbAInftx}
 \begin{RemarkList}
 \item Suppose that $V$ has bounded degrees and look at Figure~\ref{Fig:FinalPictureHom}. Does $\H(\widehat{\LodCycBi}^*)\simeq \H(\LodCycBi^*)$ hold? Does $\H(\ConCycBi^*)\simeq\H(\NConCycBi^*)$ hold?
 \item Does Proposition~\ref{Prop:Reduced} hold for homological unital and homological augmented $\AInfty$-algebras? A strategy would be to construct a quasi-isomorphic strictly unital and strictly augmented $\AInfty$-algebra. Does it exist?
 \item How is it with the conditional and strong convergence of spectral sequences associated to different filtrations of bicomplexes from Definition~\ref{Def:CycBico}? Because of the simple internal data, lots of them collapse.\qedhere
 \end{RemarkList}
-\end{Remark}
+\end{Questions}
 \begin{figure}[t]
 \centering
  \begin{tikzcd}  

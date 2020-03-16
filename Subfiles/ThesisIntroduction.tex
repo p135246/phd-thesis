@@ -7,8 +7,10 @@
 \section{String topology and Chen's iterated integrals}
 
 String topology of a manifold~$M$ is the study of the \emph{free loop space} 
-\[ \Loop M = \{\gamma: \Sph{1}\rightarrow M\text{ continuous}\} \]
-with the compact-open topology and natural structures on it. Each loop~$\gamma$ is parametrized, with base-point~$1$, and there is a natural $\Sph{1}$-action changing the base-point. Therefore, we distinguish two homology theories:
+\[ \Loop M = \{\gamma: \Sph{1}\rightarrow M\text{ continuous}\}, \]
+which is equipped with the compact-open topology, and of natural structures on it.
+Each loop~$\gamma$ is parametrized, with base-point~$1$, and there is a natural $\Sph{1}$-action changing the base-point.
+Therefore, we can distinguish the following two homology theories:
 \begin{center}
 \begin{tabular}{rl}
  $\H(\Loop M)\quad\dotsc$& the \emph{singular homology} and \\[1ex]
@@ -87,7 +89,7 @@ If $M=\Sigma$ is an oriented surface, we consider immersed loops with transverse
 \end{tikzpicture}}
 \end{aligned}
 \end{equation*}
-\caption[Bracket and cobracket in equivariant string topology.]{Bracket and cobracket in equivariant string topology. Imagine some genus so that the operations are homotopically non-trivial.}
+\caption[Bracket and cobracket in equivariant string topology.]{The bracket and cobracket in equivariant string topology. Imagine some genus so that the operations are homotopically non-trivial.}
 \label{Fig:ConstrLoop}
 \end{figure}
 In words:\ToDo[noline,caption={How is it with loop parametrization}]{How is it precisely with the speeds?}
@@ -97,64 +99,111 @@ In words:\ToDo[noline,caption={How is it with loop parametrization}]{How is it p
 \end{description}
 The operations $\StringOp_2$ and $\StringCoOp_2$ are known as the \emph{Goldman bracket} and the \emph{Turaev cobracket} and were defined and studied in \cite{Goldman1986} and \cite{Turaev1991}, respectively.
 
-In \cite{Sullivan1999}, it was demonstrated that the construction of~$\StringOp_2$ extends to families of loops and to an arbitrary dimension~$n$ of an oriented manifold~$M$; it produces a Lie bracket on the equivariant homology. The construction of $\StringCoOp_2$ generalizes too, which is explained for instance in \cite{Cieliebak2007}, and gives a Lie cobracket. The picture is always~\ref{Fig:ConstrLoop}, just the intersection points come from transverse intersections of smooth parameter spaces of points on loops in $M$; thus, both $\StringOp_2$ and $\StringCoOp_2$ have degrees $2-n$. Another definition of the coproduct is in \cite{Basu2011}, where loops in $M$ are viewed as open strings in $M\times M$ with endpoints at the diagonal. In order to make these geometric constructions rigorous, the most straightforward way is to use a \emph{geometric homology theory} of $M$ based on smooth chains, so that the transverse intersection of two smooth chains is again a smooth chain. Such theory for smooth manifolds was constructed in \cite{Lipyanskiy2014}. A~version for general topological spaces is proposed in \cite{Cieliebak2013}, and some details regarding triangulations are addressed in~\cite{Hajek2014} (see also the discussion at \cite{MO157762}). Note that $\StringOp_2$ and $\StringCoOp_2$ are only ``transversally defined'' on the chain level and for the definition on homology it is important that we can homotop to a generic situation within the homology class.
+In \cite{Sullivan1999}, it was demonstrated that the construction of~$\StringOp_2$ extends to families of loops and to an arbitrary dimension~$n$ of an oriented manifold~$M$; it produces a Lie bracket on the equivariant homology.
+The construction of $\StringCoOp_2$ generalizes too and gives a Lie cobracket; this is explained for instance in~\cite{Cieliebak2007}. 
+The picture is always Figure~\ref{Fig:ConstrLoop}, just the intersection points come from transverse intersections of smooth parameter spaces of points on loops in $M$; consequently, both~$\StringOp_2$ and~$\StringCoOp_2$ have degrees $2-n$.
+Another definition of the coproduct is used in \cite{Basu2011}, where loops in~$M$ are viewed as open strings in $M\times M$ with endpoints at the diagonal.
 
-The main theorem of \cite{Sullivan2002} asserts that $\StringOp_2$ and $\StringCoOp_2$ induce the structure of an \emph{involutive bi-Lie algebra} (abbreviated $\IBL$) of degree $2-n$ on the equivariant homology $H^{\Sph{1}}\!(\Loop M,M)$ relative to constant loops $M\xhookrightarrow{}\Loop M$. Modding out constant loops is necessary for $\StringCoOp_2$ to be well defined because of the phenomenon of \emph{``vanishing of small loops''} illustrated in~\cite{Cieliebak2007}:  Let $\sigma\in C_1(\Loop M)$ be a $1$-chain supported at $[0,1]$ which for $t=0$ agrees with the loop in the argument of $\StringCoOp_2$ in \ref{Fig:ConstrLoop}, for $t\in (0,1)$ the left knot $L$ contracts to the mid-point $p$ (thus the name) and for $t=1$ only the right knot $R$ remains. It is then easy to see that 
+In order to make these geometric constructions rigorous, the most straightforward way (which would work over $\Z$) is to use a \emph{geometric homology theory} of $M$ based on smooth chains such that the transverse intersection of two smooth chains is again a smooth chain.
+Such theory for smooth manifolds was constructed in \cite{Lipyanskiy2014}.
+A~version for general topological spaces is proposed in \cite{Cieliebak2013}, and some details regarding triangulations are addressed in~\cite{Hajek2014} (see also the discussion at \cite{MO157762}).
+Note that $\StringOp_2$ and $\StringCoOp_2$ are only ``transversally defined'' on the chain level, and in order to define them on homology, it is important that we can homotop to a generic situation within the homology class.
+
+The main theorem of \cite{Sullivan2002} asserts that $\StringOp_2$ and $\StringCoOp_2$ induce the structure of an \emph{involutive bi-Lie algebra}, abbreviated $\IBL$, of degree $2-n$ on the equivariant homology $H^{\Sph{1}}\!(\Loop M,M)$ relative to constant loops $M\xhookrightarrow{}\Loop M$.
+Modding out constant loops is necessary for $\StringCoOp_2$ to be well defined because of the phenomenon of \emph{``vanishing of small loops''} illustrated for instance in~\cite{Cieliebak2007}:  Let $\sigma\in C_1(\Loop M)$ be a $1$-chain supported on $[0,1]$ which for $t=0$ agrees with the loop in the argument of $\StringCoOp_2$ in Figure~\ref{Fig:ConstrLoop}, next, for $t\in (0,1)$, the left knot~$L$ contracts to the mid-point $p$, and for $t=1$, only the right knot $R$ remains (thus the name ``vanishing of small loops'').
+It is then easy to see that 
 \[ 0 \neq \Bdd \StringCoOp_2(\sigma) - \StringCoOp_2(\Bdd \sigma) = p\otimes R - L \otimes p \in C(M)\otimes C(\Loop M) + C(\Loop M)\otimes C(M). \]
 %In fact, there might be another problem with the restriction of $\StringOp_2$ to $H^{\Sph{1}}\!(\Loop M,M)$ as constant loops might not form an ideal (this is easy to see for $M=\T^2$).
-The string bracket $\StringOp_2$ restricts to a Lie bracket on the relative homology because applied to a chain of constant loops it gives a degenerate chain.\footnote{This is in contrast to the situation on the non-equivariant homology $\H(\Loop M)$, where constant loops do not always form an ideal for the associative loop product; this is easy to see in the case of the torus $\T^2$. They do, however, provided that the Euler characteristics $\chi(M)$ is non-zero (see \cite{Tamanoi2010}). On the other hand, if $\chi(M)=0$, then the loop coproduct admits an extension to $\H(\Loop M)$, which is possibly dependent on the choice of a non-vanishing vector field (see \cite{Basu2011}).}
+Since the string bracket $\StringOp_2$ applied to a chain of constant loops gives a degenerate chain, it restricts to a Lie bracket on the relative homology.\footnote{This contrasts with the situation on the non-equivariant homology $\H(\Loop M)$, where constant loops do not always form an ideal for the associative loop product; this is easy to see in the case of torus~$\T^2$. They do form an ideal, however, provided that the Euler characteristics $\chi(M)$ is non-zero, see \cite{Tamanoi2010}.
+On the other hand, if $\chi(M)=0$, then the loop coproduct admits an extension to $\H(\Loop M)$; this is possibly dependent on the choice of a non-vanishing vector field, see \cite{Basu2011}.}
 %Our current understanding of this issue is that there should be an $\IBL$-structure either on $\H^{\Sph{1}}\!(\Loop M)$, if the Euler characteristics $\chi(M)$ vanishes, or on the homology $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$ relative to one point, if $\chi(M) \neq 0$. However, the extension of $\StringCoOp_2$ requires choices (of a nowhere vanishing vector field, see \cite{Basu2011}), and it is not clear to which extent the $\IBL$-structure depends on it.
-In the work in progress~\cite{CieliebakHingston2018}, Poincar\'e duality on the Rabinowitz-Floer homology of the unit cotangent bundle of $M$ is introduced and related to the (non-equivariant) string topology via a long exact sequence. This shall give a canonical extension of $\StringCoOp_2$ to $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$, the relative homology modulo one point, which together with $\StringOp_2$ makes $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$ into a bi-Lie algebra (in fact, this is what our chain model computes). We will use $\RedEquivHom(\Loop M)$ as an avatar for either $\H^{\Sph{1}}\!(\Loop M,M)$ or $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$.
+In work in progress~\cite{CieliebakHingston2018}, Poincar\'e duality on the Rabinowitz-Floer homology of the unit cotangent bundle of $M$ is introduced and related to the non-equivariant string topology via a long exact sequence.
+This shall give a canonical extension of $\StringCoOp_2$ to $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$, the relative homology modulo one point, which together with $\StringOp_2$ would make $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$ into a bi-Lie algebra.
+In fact, this is what our chain model is supposed to compute.
+Being aware of this context, we will use the symbol $\RedEquivHom(\Loop M)$ as an avatar for either $\H^{\Sph{1}}\!(\Loop M,M)$ or $\H^{\Sph{1}}\!(\Loop M,\mathrm{pt})$.
 
-It is expected that the $\IBL$-structure on $\RedEquivHom(\Loop M)$ is induced from a much richer (and in some context natural) algebraic structure on the chain level whose homotopy type is an invariant of $M$. In fact, there is the notion of a \emph{strong homotopy involutive bi-Lie algebra} (abbreviated $\IBLInfty$) which was developed in~\cite{Cieliebak2015}. It consists of operations $(\OPQ_{klg})$ for $k$, $l \ge 1$ and $g\ge 0$, where $\OPQ_{110}$ is a boundary operator, $\OPQ_{210}$ a bracket and $\OPQ_{120}$ a cobracket, which satisfy the $\IBL$-relations up to a coherent system of higher homotopies~$(\OPQ_{klg})$. Consider the string space 
-\[ \StringSpace M \coloneqq (\EG\Sph{1}\times \Loop M)/\Sph{1} \]
-(the homotopically correct version of the quotient $\Loop M/\Sph{1}$), and let $(C(\StringSpace M),\Bdd)$ be the singular chain complex of $\StringSpace M$ where~$\StringOp_2$ and $\StringCoOp_2$ are partially defined on transverse smooth chains. An \emph{$\IBLInfty$-chain model for equivariant string topology} is an $\IBLInfty$-algebra $(\Model(\StringSpace M),(\OPQ_{klg}))$ ($\Model$ stands for ``model'') together with a weak homotopy equivalence  ($\coloneqq$~zig-zag of quasi-isomorphisms) of $(C(\StringSpace M),\Bdd)$ and $(\Model(\StringSpace M),\OPQ_{110})$ which induces an isomorphism of $\IBL$-algebras
-\[ (\RedEquivHom(\Loop M),\StringOp_2,\StringCoOp_2) \simeq (\H(\Model(\StringSpace M),\OPQ_{110}), \OPQ_{210}, \OPQ_{120}). \]
-Note that there can be various non-homotopically equivalent $\IBLInfty$-chain models. On the other hand, the properad $\IBLInfty$ is a quasi-free resolution of the properad $\IBL$ and as such has convenient homotopy theoretical properties, e.g., homotopy inverses of quasi-isomorphisms exist. These properties imply that any two weakly homotopy equivalent $\IBLInfty$-algebras are (strongly) homotopy equivalent.
+It is expected that the $\IBL$-structure on $\RedEquivHom(\Loop M)$ is induced from a much richer and in some sense natural algebraic structure on the chain level, whose homotopy type is an invariant of $M$.
+In fact, there is a notion of \emph{strong homotopy involutive bi-Lie algebra}, abbreviated $\IBLInfty$, which was developed in~\cite{Cieliebak2015}.
+An $\IBLInfty$-algebra consists of operations $(\OPQ_{klg})$ for $k$, $l \ge 1$ and $g\ge 0$, where $\OPQ_{110}$ is a boundary operator, $\OPQ_{210}$ a bracket and $\OPQ_{120}$ a cobracket which satisfy the $\IBL$-relations up to a coherent system of higher homotopies~$(\OPQ_{klg})$.
+
+Consider the string space 
+\[ \StringSpace M \coloneqq (\EG\Sph{1}\times \Loop M)/\Sph{1}, \]
+i.e., the homotopically correct version of the quotient $\Loop M/\Sph{1}$, and let $(C(\StringSpace M),\Bdd)$ be the singular chain complex of $\StringSpace M$.
+Recall that~$\StringOp_2$ and~$\StringCoOp_2$ are partially defined on transverse smooth chains therein.
+An \emph{$\IBLInfty$-chain model for equivariant string topology} is an $\IBLInfty$-algebra $(\Model,(\OPQ_{klg}))$ ($\Model$ stands for ``model'') together with a weak homotopy equivalence  ($\coloneqq$~zig-zag of quasi-isomorphisms) of $(C(\StringSpace M),\Bdd)$ and $(\Model,\OPQ_{110})$ which induces an isomorphism of $\IBL$-algebras
+\[ (\RedEquivHom(\Loop M),\StringOp_2,\StringCoOp_2) \simeq (\H(\Model,\OPQ_{110}), \OPQ_{210}, \OPQ_{120}). \]
+Note that there can be various non-homotopically equivalent $\IBLInfty$-chain models.
+On the other hand, the properad $\IBLInfty$ is a quasi-free resolution of the properad $\IBL$ and as such has convenient homotopy theoretical properties; for example, homotopy inverses of quasi-isomorphisms exist.
+These properties imply that any two weakly homotopy equivalent $\IBLInfty$-algebras are homotopy equivalent.
 
 
-In this thesis, we use a version of \emph{perturbative Chern-Simons theory} to construct an $\IBLInfty$-chain model for the equivariant string topology starting with an oriented compact Riemannian manifold~$M$. Chains are cyclic Hochschild cochains of the de Rham cohomology $\HDR$ of $M$, and the homotopy type of the model is supposed to be an invariant of~$M$ (perhaps topological). As the construction involves a version of Feynman integrals, the proof of well-definedness relies on Stokes' theorem on compactifications of configuration spaces, which is currently being developped in \cite{Cieliebak2018} and~\cite{Cieliebak2018b}. The concrete form of this chain model was sketched in \cite{Cieliebak2015}. It is expected that the evaluation at boundaries of pseudo-holomorphic curves in the compactification induces an $\IBLInfty$-quasi-isomorphism of the SFT of the unit cotangent bundle of $M$ and the $\IBLInfty$-chain model of string topology, see~\cite{Cieliebak2007}.
+In this thesis, we use a version of \emph{perturbative Chern-Simons theory} for an oriented compact Riemannian manifold~$M$ to construct an $\IBLInfty$-chain model for the equivariant string topology of $M$.
+The chains are cyclic Hochschild cochains of the de Rham cohomology $\HDR\coloneqq\HDR(M)$, and the homotopy type of the model is supposed to be an invariant of~$M$ (perhaps topological).
+The construction involves a version of Feynman integrals, and the proof that it is well-defined relies on the theory of integration on certain compactifications of configuration spaces, which is currently being developed in~\cite{Cieliebak2018}.
+The concrete form of this chain model was sketched in \cite{Cieliebak2015}.
+For the sake of the big picture we remark that it is expected that evaluations at boundaries of pseudo-holomorphic curves in the symplectization of the unit cotangent bundle of $M$ induce an $\IBLInfty$-quasi-isomorphism of the corresponding symplectic field theory and the $\IBLInfty$-chain model of string topology; see~\cite{Cieliebak2007}. 
 
-We now describe the underlying chain complex and the quasi-isomorphism to string topology in more details. Let $\BCyc \DR$, where $\DR$ is the space of de Rham forms on $M$, be the graded vector space generated by cyclic words 
+We now describe the underlying chain complex of our $\IBLInfty$-chain model and the quasi-isomorphism to string topology in more details.
+Let $\DR\coloneqq\DR(M)$ be the space of smooth de Rham forms on $M$, and let $\BCyc \DR$ be the graded vector space generated by cyclic words 
 \[ \omega_1\dotsb\omega_k = (-1)^{\Abs{\omega_k}(\Abs{\omega_1}+\dotsb+\Abs{\omega_k})} \omega_k\omega_1 \dotsb \omega_{k-1} \]
-with homogenous $\omega_1$, $\dotsc$, $\omega_k \in \DR$ for $k\ge 1$. The grading satisfies $\Abs{\omega_i} = \Deg(\omega_i) - 1$, where $\Deg(\omega_i)$ denotes the form-degree of $\omega_i$. This $\BCyc \DR$ is called the \emph{(reduced) cyclic bar complex of $\DR$} (reduced because we omit $k=0$). On $\BCyc \DR$, we consider the \emph{cyclic Hochschild differential}
+with homogenous components $\omega_1$, $\dotsc$, $\omega_k \in \DR$ for $k\ge 1$.
+The grading satisfies $\Abs{\omega_i} = \Deg(\omega_i) - 1$, where $\Deg(\omega_i)$ denotes the form-degree of $\omega_i$. 
+We call $\BCyc \DR$ the \emph{cyclic bar complex of $\DR$} (it might be described as ``reduced'' because we omit $k=0$).
+On $\BCyc \DR$, we consider the \emph{Hochschild differential}
 \[ \Hd(\omega_1 \dotsb \omega_k) = \begin{aligned}[t]
 &\sum_{i=1}^k (-1)^{\Abs{\omega_1} + \dotsb + \Abs{\omega_{i-1}}}\omega_1 \dotsb\Dd\omega_i\dotsb \omega_k \\
 +&\sum_{i=1}^{k-1} (-1)^{\Abs{\omega_1}+\dotsb + \Abs{\omega_{i-1}} + \Abs{\omega_i} + 1}\omega_1 \dotsb \omega_i \wedge \omega_{i+1} \dotsb \omega_k\\
 +&(-1)^{\Abs{\omega_k}(\Abs{\omega_1} + \dotsb + \Abs{\omega_{k-1}}) + \Abs{\omega_k} + 1}\omega_k \wedge \omega_1 \dotsb \omega_{k-1}.
 \end{aligned}\]
-It descends from the Hochschild differential on the bar construction $\B \DR$, which is standardly defined as the sum of the unique extensions of degree shifts of $\Dd$ and $\wedge$ to coderivatives of $\B \DR$. The \emph{Chen's iterated integrals map} is the map
+It descends from the Hochschild differential on the bar construction $\B \DR$, which is defined as the sum of the unique extensions of degree shifts of $\Dd$ and $\wedge$ to coderivatives of $\B \DR$ plus the wrap-around term.
+
+\emph{Chen's iterated integral} is the map
 \[ I: \begin{aligned}[t]
     \BCyc \DR& \longrightarrow C^*(\StringSpace M)\\    
     \omega_1 \dotsb \omega_k & \longmapsto  \Bigl(\sigma \mapsto \varepsilon(\omega) \int_{K_\sigma \times \Delta^k} \omega_1(\tilde{\sigma}(x,t_1)) \dotsb \omega_k(\tilde{\sigma}(x,t_k))\Bigr),
    \end{aligned}\]
 where $\varepsilon(\omega)$ is the sign
 \[ \varepsilon(\omega) = (-1)^{(k-1)(\Abs{\omega_1} + 1) + (k-2)(\Abs{\omega_2} + 1) + \dotsb + \Abs{\omega_{k-1}} + 1}, \]
-the map $\tilde{\sigma}: K_\sigma\times\Sph{1} \rightarrow M$, where $K_\sigma$ is a smooth chain in $M$ (a manifold with corners), is the projection of a lift $K_\sigma \xrightarrow{\hspace{.2em}\sigma\hspace{.2em}}\StringSpace M \dasharrow \EG \Sph{1} \times \Loop M$ to the second factor, and we identify $\Sph{1} = \R/\Z$. The map $I$ is a chain map (of degree $0$ with respect to the cohomological grading of $\BCyc\DR$ by $\Abs{\omega_1 \dotsc \omega_k} = \Abs{\omega_1} + \dotsb + \Abs{\omega_k}$), and if $\pi_1(M) = \{1\}$, it induces an isomorphism 
+$K_\sigma$ is a smooth chain in $M$, i.e., a manifold with corners, and $\tilde{\sigma}: K_\sigma\times\Sph{1} \rightarrow M$ is the projection of a lift $K_\sigma \xrightarrow{\hspace{.2em}\sigma\hspace{.2em}}\StringSpace M \dasharrow \EG \Sph{1} \times \Loop M$ to the second factor.
+We also identify $\Sph{1} = \R/\Z$.
+The map $I$ is a chain map with respect to the grading of $\BCyc\DR$ by $\Abs{\omega_1 \dotsc \omega_k} = \Abs{\omega_1} + \dotsb + \Abs{\omega_k}$.
+
+If $\pi_1(M) = \{1\}$, then $I$ induces an isomorphism 
 \begin{equation}\label{Eq:IsomKai}
-\H(\BCyc \DR,\Hd)/\Span\{[1^{2k-1}]\mid k\in\N\} \simeq \H^*(\StringSpace M)/\R[[u]],
+\H(\BCyc \DR,\Hd)/\Span\{[1^{2k-1}]\mid k\in\N\} \simeq \H^*(\StringSpace M)/\R[u],
 \end{equation}
-where $\Span\{[1^{2k-1}]\mid k\in\N\} = \H(\BCyc \R,\Hd)$ (we prove later that this agrees with the homology of $\coker(\BCyc \R \xhookrightarrow{} \BCyc \DR)$) and the polynomial ring $\R[u]$ with $\Abs{u} = 2$ comes from the module structure on $\H^*(\StringSpace M)$ induced from $\StringSpace M = (\EG \Sph{1} \times \Loop M)/\Sph{1} \rightarrow \EG\Sph{1}/\Sph{1} = \CP^{\infty}$. The proof of this isomorphism is the goal of \cite{Cieliebak2018b}, which is again under development; it is based on \cite{Getzler} after identifying $(\BCyc \DR,\Hd)$ with the correct totalization of the Connes' cyclic bicomplex of $\DR$ up to weak equivalence.
+where $\Span\{[1^{2k-1}]\mid k\in\N\} = \H(\BCyc \R,\Hd)$ and the polynomial ring $\R[u]$ with $\Abs{u} = 2$ comes from the module structure on $\H^*(\StringSpace M)$ induced from $\StringSpace M = (\EG \Sph{1} \times \Loop M)/\Sph{1} \rightarrow \EG\Sph{1}/\Sph{1} = \CP^{\infty}$.
+Note that the quotient on the left hand side agrees with the homology of $\coker(\BCyc \R \xhookrightarrow{} \BCyc \DR)$.
+
+Proving \eqref{Eq:IsomKai} is the goal of \cite{Cieliebak2018b}.
+They study different totalizations of the Connes' cyclic bicomplex of $\DR$ and identify the one which $(\BCyc \DR,\Hd)$ is weakly equivalent to.
+Then they use the isomorphism from \cite{Getzler}.
 
 \section{IBL-infinity chain model and Chern-Simons theory}
 
 We consider the \emph{dual cyclic bar complex}
 \[ \CDBCyc \DR = \bigoplus_{d\in\Z} \prod_{k=1}^\infty (\BCyc_k \DR)^{d*}, \]
-where $(\BCyc_k \DR)^{d*}$ denotes the linear dual to the degree $d$ component of the weight $k$ component $\BCyc_k \DR$ of $\BCyc \DR$, equipped with the dual Hochschild differential~$\Hd^*$. By taking~$\prod$, we allow bubbling of degree~$1$ forms and constants~$1$; namely, if $\omega\in \DR^1$, then $\Abs{\omega} = 0$, and $\Abs{1} = -1$. Notice that if we take $\HDR$ instead of $\DR$, then the completion is relevant only if $\HDR^1 \neq 0$. The dual of the Chen's iterated integral map provides a chain map 
+where $(\BCyc_k \DR)^{d*}$ denotes the linear dual to the degree $d$ component of the weight $k$ component $\BCyc_k \DR$ of $\BCyc \DR$ ($k$ is the number of letters in the generating word).
+We equip $\CDBCyc \DR$ with the dual Hochschild differential~$\Hd^*$.
+By taking~$\prod_k$, i.e., the completion of~$\bigoplus_k$ with respect to the filtration by weights, we allow ``bubbling off'' of forms $\omega_i$ of form-degree~$1$ with $\Abs{\omega_i}=0$ and constants $1$ with $\Abs{1} = -1$.
+Notice that if we take $\HDR$ instead of $\DR$, then the completion is relevant only if $\HDR^1 \neq 0$.
+The dual of Chen's iterated integral map provides a quasi-isomorphism
 \[I^*: (C(\StringSpace M),\Bdd) \rightarrow (\CDBCyc\DR,\Hd^*) \]
-(in fact, $ \CDBCyc \DR$ is the graded dual of $\BCyc \DR$).
+for simply-connected $M$.
+%(in fact, $ \CDBCyc \DR$ is the graded dual of $\BCyc \DR$).
 
-We introduce the following \emph{physical interpretation.} Beware, the discussion is imprecise!
+In the following discussion, which does not aim to be rigorous at all, we introduce a \emph{physical interpretation.}
 %and reflects the author's wild imagination in the night before submitting the thesis. For more serious mathematics, please, see the rest 250+ pages.
 We think of
 \begin{itemize}
 \item elements of $\DR$ as \emph{fields,}
-\item elements of $\BCyc \DR$ as \emph{field strings} (not to confuse with string-fields) and
+\item elements of $\BCyc \DR$ as \emph{field strings} (not to confuse with string fields :-)) and
 \item elements of the space
-\[ \Fun(\BCyc \DR[1]) \coloneqq \hat{\Sym}(\DBCyc\DR[1])\COtimes \R((\hbar)), \]
-where $\R((\hbar))$ is the ring of Laurent series in Planck's constant $\hbar$, $\hat{\Sym}$ denotes the completed symmetric algebra and $\hat{\otimes}$ the completed tensor product, as \emph{observables on field strings.}
+\[ \Fun(\BCyc \DR[1]) \coloneqq \hat{\Sym}(\DBCyc\DR[1])\COtimes \R((\hbar)) \]
+as \emph{observables on field strings.}
+Here, $\R((\hbar))$ is the ring of Laurent series in Planck's constant $\hbar$, $\hat{\Sym}$ the completed symmetric algebra and $\hat{\otimes}$ the completed tensor product.
 \end{itemize}
-If $\sigma:\Sph{1}\rightarrow M$ is a string, the observable $I^*(\sigma)$ ``localizes'' on field strings which approximate $\sigma$; for instance, it holds $I^*(\omega) = \int_{\sigma} \omega$, and so $I^*(\omega)$ ``localizes'' at fundamental forms of $\sigma(\Sph{1})$. We imagine that we decorate $\sigma$ with a field string $\omega_1 \dotsc \omega_k$ as in Figure~\ref{Fig:GeomStr} and get a number $I(\sigma)(\omega_1\dotsc\omega_k)$. The isomorphism \eqref{Eq:IsomKai} guarantees that the observable~$I(\sigma)$ determines $\sigma$ up to a boundary.
+If $\sigma:\Sph{1}\rightarrow M$ is a string, the observable $I^*(\sigma)$ ``localizes'' on field strings which approximate $\sigma$; for instance, it holds $I^*(\omega) = \int_{\sigma} \omega$, and thus $I^*(\omega)$ ``localizes'' at fundamental forms of $\sigma(\Sph{1})$. We imagine that we decorate $\sigma$ with a field string $\omega_1 \dotsc \omega_k$ as in Figure~\ref{Fig:GeomStr} and get a number $I(\sigma)(\omega_1\dotsc\omega_k)$. The isomorphism \eqref{Eq:IsomKai} guarantees that the observable~$I(\sigma)$ determines $\sigma$ up to a boundary term.
 \begin{figure}[t]
  \centering
  \def\rad{2}
@@ -175,37 +224,68 @@ If $\sigma:\Sph{1}\rightarrow M$ is a string, the observable $I^*(\sigma)$ ``loc
  \caption{Inserting fields on strings.}
  \label{Fig:GeomStr}
 \end{figure}
+
 We will be dealing with \emph{two ``dynamical'' theories:} one is the theory of fields $\omega\in \DR$ and one of field strings $\omega_1 \dotsb \omega_k \in \BCyc \DR$.
 
-The field theory is at hand. We know that $(\DR,\Dd,\wedge,\langle\cdot,\cdot\rangle)$, where $\langle\omega_1,\omega_2\rangle = \int_M \omega_1 \wedge \omega_2$ for $\omega_1$, $\omega_2\in \DR$, is a \emph{symmetric dg-Frobenius algebra}. It is well-known that finite-dimensional Frobenius algebras $V$ are equivalent to $2$-dimensional topological quantum field theories (TQFT). Finite-dimensionality is a sufficient (and necessary) condition so that the trivial cylinder corresponding to the identity satisfies $\Id = \sum \langle \cdot,e^i\rangle e_i$. For now, we will ignore this issue and imagine $V=\DR$, although we will soon transfer to $\HDR$, where everything works just fine.
+The field theory is at hand.
+We know that $(\DR,\Dd,\wedge,\langle\cdot,\cdot\rangle)$, where $\langle\omega_1,\omega_2\rangle = \int_M \omega_1 \wedge \omega_2$ for $\omega_1$, $\omega_2\in \DR$, is a \emph{symmetric dg-Frobenius algebra}.
+It is well-known that finite-dimensional symmetric Frobenius algebras $V$ are equivalent to $2d$ topological quantum field theories (TQFT).
+%One needs finitely many dimensions so that one can write the identity as $T = \sum \pm e^i \otimes e_i$ is well-defined.
+A finite dimension is necessary so that one can write the identity as $\Id = \sum \langle \cdot,e^i\rangle e_i$, or, in other words, that the identity propagator 
+\[
+T = \sum \pm e^i\otimes e_i
+\]
+is well defined.
+We will ignore this issue and substitute $V=\DR$ for now, although we will soon transfer to $\HDR$, where everything works just fine.
 %One can also take the non-degenerate quotient of the small subalgebra of $\DR$ with respect to the canonical Hodge decomposition associated to a Riemannian metric on $M$. We denote it by $\VansQuotient(\VansSmall(\DR))$ and define in Chapter~\ref{Chap:5}. If our conjectures are correct, the results of our construction should be homotopy equivalent.
-We will represent interactions of fields via Feynman graphs drawn on surfaces --- the trivial cylinder for fields, i.e., the free propagation, will be a line and the pair of pants, i.e., the interaction via the intersection $\wedge$, will be a point with $3$ segments emanating from it (we do not distinguish input and outputs by cyclic symmetry).
+We will represent interactions of fields via Feynman graphs drawn on surfaces --- the trivial cylinder for fields, i.e., the free propagation, will be a line, and the pair of pants, i.e., the interaction via the intersection~$\wedge$, will be a point with $3$ segments emanating from it (we do not have to distinguish inputs and outputs by cyclic symmetry).
 
 Let us now consider field strings. Figure \ref{Fig:OpCoOpDiag} defines the operations
-\[ \OPQ_{210}: \hat{\Ext}_2 \DBCyc V \rightarrow \hat{\Ext}_1\DBCyc V \quad\text{and}\quad \OPQ_{120}: \hat{\Ext}_1\DBCyc V \rightarrow \hat{\Ext}_2\DBCyc V, \]
-where $\Ext(\DBCyc V)$ is the exterior algebra canonically isomorphic to $\Sym(\DBCyc V [1])$. We read the diagram from the top to the bottom but imagine fields $\omega$ being fed into $\psi$'s from the bottom to the top. We think of these digrams as of \emph{string interaction diagrams} for strings freely moving in a topological space $M$, connecting and disconnecting.
+
+\[ \OPQ_{210}: \Ext_2 \DBCyc V \longrightarrow \DBCyc V \quad\text{and}\quad \OPQ_{120}: \DBCyc V \longrightarrow \Ext_2\DBCyc V,
+\]
+where $\Ext_k \DBCyc V$ denotes the $k$-th exterior power of $\DBCyc V$ seen as the $k$-th symmetric power of the degree shift $(\DBCyc V)[1]$.
+We read the diagram from the top to the bottom but imagine fields $\omega\in \BCyc V$ being fed into $\psi\in \DBCyc V$ from the bottom to the top.
+We might think of these digrams as of \emph{string interaction diagrams} for strings freely moving in a topological space $M$, connecting and disconnecting.
 \begin{figure}[t]
 \centering
  %\includegraphics[trim=2cm 24cm 10cm .3cm]{\GraphicsFolder/op.pdf}
  \input{\GraphicsFolder/pair_of_pants.tex}
- \caption[Operations $\OPQ_{210}$ and $\OPQ_{120}$.]{Operations $\OPQ_{210}$ and $\OPQ_{120}$. Fields propagate from the bottom to the top and an additional dualization, equivalently contraction with the identity propagator, is required when two outputs are connected; hence the red color.}
+ \caption[Operations $\OPQ_{210}$ and $\OPQ_{120}$.]{Operations $\OPQ_{210}$ and $\OPQ_{120}$. Fields propagate from the bottom to the top. An additional dualization is required when two outputs/inputs are connected; hence the emergence of the identity propagator.}
  \label{Fig:OpCoOpDiag}
 \end{figure}
 %$I^*(\sigma)$ localizes which 
 %The output string will be localized at any field string which arose by propagating the focalized string fields along the diagram. I.e. on those which are obtained by propagating those on which the input strings are non-zero along the diagram.
 %
 %From the point of view of the TQFT, these propagators are trivial cylinders, and hence nothing is happening. 
-This suggests that $\OPQ_{210}$ and $\OPQ_{120}$ are related to $\StringOp_2$ and $\StringCoOp_2$, respectively. Formulas for~$\OPQ_{210}$ and~$\OPQ_{120}$ for a finite dimensional symmetric dg-Frobenius algebra $V$ were written down in \cite{Cieliebak2015} and it was proven that they indeed constitute an $\IBL$-algebra on~$\DBCyc V$ (note that this is not a TQFT!). \ToDo[noline,caption={Which degree shift}]{Need to sort out which degree shift for bislgebra one needs! How is it with $2-n$.}As for the formulas, one simply decorates the world-lines of fields with the identity propagator $T = \sum_i e^i \otimes e_i$ and evaluates. As a mathematical remark, we will show that $\OPQ_{210}$ is obtained from the Gerstenhaber bracket on Hochschild cochains via cyclization by $\langle\cdot,\cdot\rangle$ and that $\OPQ_{120}$  is a factorization of an extension of the canonical Schwarz's $\BV$-operator on $\Fun(V[1])$ (odd degree shift of a finite-dimensional symmetric dg-Frobenius algebra is an odd symplectic vector space) to cyclic invariants with respect to the cyclic shuffle product.
+This suggests that $\OPQ_{210}$ and $\OPQ_{120}$ are related to $\StringOp_2$ and $\StringCoOp_2$.
+Formulas for~$\OPQ_{210}$ and~$\OPQ_{120}$ were written down in \cite{Cieliebak2015}; they are also clear from the figure by decorating the world-lines with the identity (or $T$) and evaluating in a straightforward way.
+It was proven that $\OPQ_{210}$ and $\OPQ_{120}$ indeed constitute an $\IBL$-algebra on~$\DBCyc V$ (note that this is not a TQFT for strings!). 
+\ToDo[noline,caption={Which degree shift}]{Need to sort out which degree shift for bislgebra one needs!
+How is it with $2-n$.}
+
+As a mathematical remark, we will show that $\OPQ_{210}$ is obtained from the Gerstenhaber bracket on Hochschild cochains via cyclization by $\langle\cdot,\cdot\rangle$ and that $\OPQ_{120}$ is a factorization of an extension of the canonical Schwarz's $\BV$-operator on $\Fun(V[1])$ to cyclic invariants with respect to the cyclic shuffle product.
+This makes sense because odd degree shift of a finite-dimensional symmetric dg-Frobenius algebra is an odd symplectic vector space. 
 
 Since $\DBCyc V [1]$ is not naturally an odd symplectic vector space, there is no Schwarz's $\BV$-operator on $\Fun(\DBCyc V [1])$. However, the following canonical operator
 \[ \BVOp_{\mathrm{s}} \coloneqq  \hat{\OPQ}_{120} + \hbar \hat{\OPQ}_{210}: \Fun(\DBCyc V [1]) \rightarrow \Fun(\DBCyc V [1]), \]
-where $\hat{\cdot}$ denote canonical extension to (co)derivatives, is a $\BV$-operator with respect to the function multiplication; we call it the \emph{string $\BV$-operator.} Recall that in physics, a $\BV$-operator $\BVOp$ on $\Fun(U)$, where $U$ is the space of fields,  is related to the measure in the path integral $\int_U \mu$. An action $S\in \Fun(U)$ satisfying the \emph{quantum master equation} (QME)
+where $\hat{\cdot}$ denotes the canonical extension to (co)derivatives, is a $\BV$-operator with respect to the function multiplication; we call it the \emph{string $\BV$-operator.}
+
+In physics, a $\BV$-operator $\BVOp$ on $\Fun(U)$, where $U$ is the space of fields (typically an odd cotangent bundle with classical fields in the base and ghost fields in the fibers), is related to the measure in the path integral $\int \mu$.
+An action $S\in \Fun(U)$ satisfying the \emph{quantum master equation} (QME)
 \[ \BVOp S + \frac{1}{2}\{S,S\} = 0 \]
-defines a new measure $e^{-S} \mu$, and the corresponding twisted $\BV$-operator (or rather $\BVInfty$-operator) satisfies $\BVOp^S = e^{-S} \BVOp e^{S}$. For field strings, we define the following \emph{actions} $S_{\mathrm{free}}$, $S_{\mathrm{int}}\in \Fun(\BCyc V[1])$, which remind us of the \emph{Chern-Simons functional:}
-\[S_{\mathrm{free}}(\omega_1 \omega_2) \coloneqq \pm \hbar^{-1}\int_M \omega_1 \wedge \Dd \omega_2 \quad\text{and}\quad S_{\mathrm{int}}(\omega_1 \omega_2 \omega_3) \coloneqq \pm \hbar^{-1}\int_M \omega_1 \wedge \omega_2 \wedge \omega_3.
+defines a new measure $e^{-S} \mu$, and the corresponding twisted $\BV$-operator (or rather $\BVInfty$-operator) satisfies $\BVOp^S = e^{-S} \BVOp e^{S}$.
+
+For field strings, we define the following \emph{actions} $S_{\mathrm{free}}$, $S_{\mathrm{int}}\in \Fun(\BCyc V[1])$, which remind us of the \emph{Chern-Simons functional:}
+\[
+S_{\mathrm{free}}(\omega_1 \omega_2) \coloneqq \pm \hbar^{-1}\int_M \omega_1 \wedge \Dd \omega_2 \quad\text{and}\quad S_{\mathrm{int}}(\omega_1 \omega_2 \omega_3) \coloneqq \pm \hbar^{-1}\int_M \omega_1 \wedge \omega_2 \wedge \omega_3.
 \]
-Note that $S_{\mathrm{free}}$ and $S_{\mathrm{int}}$ are linear functions on $\BCyc V[1]$ which vanish everywhere but field strings of lengths $2$ and $3$, respectively. It turns out that $S_{\mathrm{free}}$ and $S\coloneqq S_{\mathrm{free}} + S_{\mathrm{int}}$ satisfy the QME for $\BVOp_{s}$. The twisted $\BV$-operators look like
-\[ \BVOp^{S_{\mathrm{free}}}_{s} = \hat{\OPQ}_{110} + \BVOp_{\mathrm{s}} \quad \text{and}\quad \BVOp^{S}_{s} = \hat{\OPQ}_{110} + \reallywidehat{\OPQ_{210}(S_{\mathrm{int}},\cdot)} + \BVOp_{\mathrm{s}}. \]
+More precisely, $S_{\mathrm{free}}$ and $S_{\mathrm{int}}$ are linear functions on $\BCyc V[1]$ which vanish everywhere but on field strings of lengths $2$ and $3$, respectively.
+It turns out that $S_{\mathrm{free}}$ and $S\coloneqq S_{\mathrm{free}} + S_{\mathrm{int}}$ satisfy the QME for $\BVOp_{s}$.
+The twisted $\BV$-operators look like
+\[
+\BVOp^{S_{\mathrm{free}}}_{s} = \hat{\OPQ}_{110} + \BVOp_{\mathrm{s}} \quad \text{and}\quad \BVOp^{S}_{s} = \hat{\OPQ}_{110} + \reallywidehat{\OPQ_{210}(S_{\mathrm{int}},\cdot)} + \BVOp_{\mathrm{s}}.
+\]
 Figure~\ref{Fig:NewTerm} depicts the new terms $\OPQ_{110}$ and $\OPQ_{210}(S_{\mathrm{int}},\cdot)$ in $\BVOp^\Action_s$.
 \begin{figure}[t]
  \centering
@@ -312,20 +392,45 @@ Figure~\ref{Fig:NewTerm} depicts the new terms $\OPQ_{110}$ and $\OPQ_{210}(S_{\
  \label{Fig:NewTerm}
 \end{figure}
 The corresponding $\dIBL$-algebra reads
-\[ \Bigl(\DBCyc V,\OPQ_{110}^\MC\coloneqq \OPQ_{110} + \OPQ_{210}(S_{\mathrm{int}},\cdot),\OPQ_{210},\OPQ_{120}\Bigr), \]
-where we recognize the Hochschild differential $\OPQ_{110}^\MC$. If this was well-defined for $V = \DR$, then it would give the $\IBLInfty$-chain model of string topology.
+\[ \Bigl(\DBCyc V,\OPQ_{110}^\MC\coloneqq \OPQ_{110} + \OPQ_{210}(S_{\mathrm{int}},\cdot),\OPQ_{210},\OPQ_{120}\Bigr). \]
+One can show that $\OPQ_{110}^\MC$ is the Hochschild differential.
+If this was well-defined for $V = \DR$, then it would surely be a model of string topology.
 
 %They are all define $\dIBL$-structures on $\DR$ then 
 %$\Model \coloneqq \CycC(\DR)$ with the $\dIBL$-structure $(\OPQ_{110} + \OPQ_{210}(S_{\text{free}},\cdot), \OPQ_{210}, \OPQ_{120})$ would be the correct $\IBLInfty$-chain model for string topology.  
 %Making from operations $V^{\otimes k} \rightarrow V$ is called cyclization and we normaly non-degenerate pairing for that.
 
-As in quantum field theories, we are going to ``formally'' \emph{integrate out redundant degrees of freedom in the path integral} of our ill-defined theory and obtain a well-defined theory on $\DBCyc\HDR$, which is ``formally'' homotopy equivalent to the original one. We pick a Riemannian metric on $M$ and consider the Hodge decomposition $\DR = \Harm \oplus \Im\Dd \oplus \Im\CoDd$, where $\Harm \simeq \HDR$ are the harmonic forms $\Dd \omega = \CoDd \omega = 0$. For Chern-Simons fields $\omega\in \DR$, one thinks of $\Dd \omega = 0$ as of the Euler-Lagrange equation and of $\CoDd \omega = 0$ as of the Lorentz gauge. The ``inverse'' of $\Dd$ as a map $\Im\Dd \rightarrow \Im \CoDd$ is the standard Hodge homotopy $\HtpStd$, i.e., the unique coexact solution of $\Dd \Htp + \Htp \Dd = \Id - \pi_\Harm$, were $\pi_\Harm: \DR \rightarrow \Harm$ is the orthogonal projection. The Schwartz kernel of $\HtpStd$ is the \emph{standard Hodge propagator} $\PrpgStd$. A formula for the \emph{effective action} $W\in\Fun(\BCyc\HDR[1])$ was given in \cite{Cieliebak2015}; in their terminology, it would be called the \emph{(formal) pushforward Maurer-Cartan element}. We have
+As in quantum field theories, we are going to ``formally'' \emph{integrate out redundant degrees of freedom in the path integral} of our ill-defined theory and obtain a well-defined theory on $\DBCyc\HDR$, which is ``formally'' homotopy equivalent to the original one.
+We pick a Riemannian metric on $M$ and consider the Hodge decomposition
+\[
+\DR = \Harm \oplus \Dd\DR \oplus \CoDd\DR,
+\]
+where $\Harm \simeq \HDR$ is the space of harmonic forms defined by $\Dd \omega = \CoDd \omega = 0$.
+One may interpret $\Dd \omega = 0$ as the Euler-Lagrange equation and $\CoDd \omega = 0$ as the Lorentz gauge.
+The inverse of $\Dd: \CoDd\DR \rightarrow \Dd\DR$ extended by $0$ to $\Harm$ and $\CoDd\DR$ is called the \emph{standard Hodge homotopy $\HtpStd$;} equivalently, it is the unique coexact solution of
+\[
+\Dd \Htp + \Htp \Dd = \pi_\Harm - \Id,
+\]
+where $\pi_\Harm: \DR \rightarrow \Harm$ is the orthogonal projection.
+The Schwartz kernel of $\HtpStd$ is the \emph{standard Hodge propagator} $\PrpgStd$.
+
+A formula for the \emph{effective action} $W\in\Fun(\BCyc\HDR[1])$ was given in \cite{Cieliebak2015}; in their terminology, $W$ is equivalent to the \emph{(formal) pushforward Maurer-Cartan element}.
+We have
 \[ W = \hbar^{-1}\sum_{l\ge 1, g\ge 0} \PMC_{lg} \hbar^{g}, \]
-where $\PMC_{lg} \in \hat{\Ext}_l \DBCyc\HDR$ is computed from $(l+g-1)$-loop Feynman diagrams with interaction vertices $\wedge$ and propagator $\StdPrpg$. One can think of trying to push the field strings to their representatives consisting of harmonic forms. The twisted string $\BV$-operator on $\Fun(\BCyc\HDR[1])$ reads
+where $\PMC_{lg} \in \hat{\Ext}_l \DBCyc\HDR$ is computed by summing over $(l+g-1)$-loop Feynman diagrams with interaction vertices $\wedge$ and propagator $\StdPrpg$.
+We remark that the Feynman diagrams in~$W$ have at least one external vertex.
+One might try to construct a refinement $(W^0_{lg})_{l\ge 1, g\ge 0}$ of the Chern-Simons invariant by summing over diagrams with no external vertex, but it seems to be unrelated to the $\IBLInfty$-theory so far.
+%One can think of trying to push the field strings to their representatives consisting of harmonic forms.
+
+The twisted string $\BV$-operator on $\Fun(\BCyc\HDR[1])$ reads
 \[ \BVOp^W_s = \hat{\OPQ}^{\PMC}_{110}  +  \hbar{\OPQ}_{210} + \sum_{l\ge 2, g\ge 0} \hat{\OPQ}^{\PMC}_{1lg} \hbar^{g}, \]
-where $\OPQ_{110}^\PMC = \OPQ_{210}(\PMC_{10},\cdot) = \OPQ_{210}\circ_1 \PMC_{10}$ and $\OPQ_{1lg}^\PMC = \OPQ_{210}\circ \PMC_{lg}$. The resulting $\IBLInfty$-structure on $\CDBCyc\HDR$, i.e., our chain model of equivariant string topology, is, in fact, a \emph{quantum $\CoLInfty$-algebra $(\OPQ_{1lg}^\PMC)$ with Drinfeld-compatible Lie bracket $\OPQ_{210}$.} The weak homotopy equivalence of $(\CDBCyc\HDR,\OPQ_{110}^\PMC)$ and $(C(\StringSpace M),\Bdd)$ inducing an isomorphism of the $\IBL$-structure on homology is given by the composition $F\circ I^*: C(\StringSpace M) \rightarrow \CDBCyc \HDR$, where 
-\[ F = \HTP_{110} + \HTP_{210}\circ_1 \MC_{10} + \frac{1}{2!} \HTP_{310}\circ_{1,1}(\MC_{10},\MC_{10}) + \dotsb \]
-with $\HTP_{110} = \iota^*$ for $\iota: \HDR\simeq \Harm \xhookrightarrow{} \DR$, and where $\HTP_{k10}\circ_{1,\dotsc,1}(\MC_{10},\dotsc,\MC_{10})$ contributes by trivalent trees as in Figure~\ref{Fig:KSTree}.
+where $\OPQ_{110}^\PMC = \OPQ_{210}(\PMC_{10},\cdot) = \OPQ_{210} \circ_1 \PMC_{10}$ and $\OPQ_{1lg}^\PMC = \OPQ_{210}\circ_1 \PMC_{lg}$, where $\circ_1$ means that precisely one output of the first operation is connected to precisely one input of the following operation.
+The resulting $\IBLInfty$-structure on $\CDBCyc\HDR$ has lots of vanishing operations.
+It is in fact a \emph{quantum $\CoLInfty$-algebra $(\OPQ_{1lg}^\PMC)$ with Drinfeld-compatible Lie bracket $\OPQ_{210}$.}
+The boundary operator $\OPQ_{110}^\PMC$ is precisely the Hochschild differential of the homotopy transfered $\AInfty$-structure $(m_k)$ on $\Harm$.
+The quasi-isomorphism of $(\CDBCyc\HDR,\OPQ_{110}^\PMC)$ and $(C(\StringSpace M),\Bdd)$ inducing an isomorphism of the $\IBL$-structure on homology is given by the composition $F\circ I^*: C(\StringSpace M) \rightarrow \CDBCyc \HDR$ for
+\[ F = \HTP_{110} + \HTP_{210}\circ_1 \MC_{10} + \frac{1}{2!} \HTP_{310}\circ_{1,1}(\MC_{10},\MC_{10}) + \dotsb, \]
+where $\HTP_{110} = \iota^*$ for $\iota: \HDR\simeq \Harm \xhookrightarrow{} \DR$ and $\HTP_{k10}\circ_{1,\dotsc,1}(\MC_{10},\dotsc,\MC_{10})$ is obtained by summing over trivalent trees as in Figure~\ref{Fig:KSTree}.
 \begin{figure}[t]
 \centering
 \[\underbrace{\vcenterline{\begin{tikzpicture}[scale=1,
@@ -336,10 +441,10 @@ leaf/.style = {draw, circle, fill=white, minimum size=2pt,inner sep=0pt},
 \def\vertdist{.8}
 \def\hordist{.6}
 \node[leaf] (R) at (0,0) {};
-\node[point, label={[right,yshift=-1mm] $\color{green}\wedge$}] (RU) at ($(R) + (0,\vertdist)$) {};
-\node[point, label={[right] $\color{green}\wedge$}] (RUL) at ($(RU) + (-2*\hordist,\vertdist)$) {};
-\node[point, label={[right] $\color{green}\wedge$}] (RUR) at ($(RU) + (2*\hordist,\vertdist)$) {};
-\node[point, label={[right] $\color{green}\wedge$}] (RULL) at ($(RUL) + (-1*\hordist,1*\vertdist)$) {};
+\node[point, label={[right,yshift=-1mm] $\color{olive}\wedge$}] (RU) at ($(R) + (0,\vertdist)$) {};
+\node[point, label={[right] $\color{olive}\wedge$}] (RUL) at ($(RU) + (-2*\hordist,\vertdist)$) {};
+\node[point, label={[right] $\color{olive}\wedge$}] (RUR) at ($(RU) + (2*\hordist,\vertdist)$) {};
+\node[point, label={[right] $\color{olive}\wedge$}] (RULL) at ($(RUL) + (-1*\hordist,1*\vertdist)$) {};
 \coordinate (RULR) at ($(RUL) + (\hordist,\vertdist)$);
 \coordinate (RURR) at ($(RUR) + (\hordist,\vertdist)$);
 \node[leaf, label={[right] $h_1$}] (RULLL) at ($(RULL) + (-1*\hordist,1*\vertdist)$){};
@@ -363,7 +468,16 @@ leaf/.style = {draw, circle, fill=white, minimum size=2pt,inner sep=0pt},
 \caption{Kontsevich-Soibelman evaluation of a decorated tree.}
 \label{Fig:KSTree}
 \end{figure}
-Note that in order to evaluate trees, we do not need the Schwartz kernel $\Prpg$ and hence any pairing. The homotopy $\Htp$ is enough because the graph is directed and we can distinguish inputs and outputs. On the other hand, evaluation of the $1$-loop Feynman graph in Figure~\ref{Fig:OneLoopDiag} contributing to $\OPQ_{120}^\PMC$, for instance, requires $\Prpg$, and hence $\langle\cdot,\cdot\rangle$. From Sullivan's minimal model theory it is well-known that the homotopy type of the homotopy transfered $\AInfty$-structure $(\HDR,(m_k))$ is a topological invariant which encodes the rational homotopy theory of a simply-connected manifold $M$. Our construction can be seen as being associated to the Poincar\'e $\DGA$ $(\DR,\Dd,\wedge, \langle\cdot,\cdot\rangle)$, i.e, a $\DGA$ whose homology is a Poincar\'e duality algebra. It is not clear to the author what kind of invariant is the weak homotopy type of the Poincar\'e $\DGA$ and what kind of invariant is the homotopy type of the twisted $\IBLInfty$-algebra on $\CDBCyc \HDR$. However, if $M$ is formal in the sense of $\DGA$'s, then $M$ is formal in the sense of Poincar\'e $\DGA$'s, and we conjecture that it is formal also in the sense of $\IBLInfty$-algebras; i.e., the twisted $\IBLInfty$-algebra on $\CDBCyc \HDR$ is homotopy equivalent to the canonical $\IBL$-algebra.
+
+Note that in order to evaluate trees, we do not need the Schwartz kernel $\Prpg$ and hence any pairing $\langle\cdot,\cdot\rangle$.
+The homotopy $\Htp$ is enough because the graph is directed and we can distinguish inputs and outputs.
+On the other hand, an evaluation of the $1$-loop Feynman graph in Figure~\ref{Fig:OneLoopDiag} contributing to $\OPQ_{120}^\PMC$ requires $\Prpg$, and hence also $\langle\cdot,\cdot\rangle$.
+
+It is well-known from Sullivan's minimal model theory of a simply-connected manifold~$M$ that the homotopy type of the homotopy transferred $\AInfty$-structure $(m_k)$ on $\Harm$ is a topological invariant which encodes the rational homotopy theory of $M$.
+The $\IBLInfty$-construction is associated to the Poincar\'e $\DGA$ $(\DR,\Dd,\wedge, \langle\cdot,\cdot\rangle)$, i.e, a $\DGA$ whose homology is a Poincar\'e duality algebra.
+It is not clear yet to which extent it depends on the pairing and what kind of invariant of $M$ it is. 
+%the weak homotopy type of the Poincar\'e $\DGA$ and what kind of invariant is the homotopy type of the twisted $\IBLInfty$-algebra on $\CDBCyc \HDR$.
+However, if $M$ is formal in the sense of $\DGA$'s, then $M$ is formal in the sense of Poincar\'e $\DGA$'s, and we conjecture that it is formal also in the sense of $\IBLInfty$-algebras; by this we mean that the twisted $\IBLInfty$-algebra on $\CDBCyc \HDR$ is homotopy equivalent to the canonical $\IBL$-algebra on $\CDBCyc \HDR$.
 \begin{figure}[t]
 \centering
 \def\BddMin{.2}
@@ -482,23 +596,47 @@ h_{13}(x_4)\bigr)\bigl(e_b(x_2)  h_{2,c}(x_6)  h_{2,c+1}(x_5)\bigr)\Bigr)
 \label{Fig:OneLoopDiag}
 \end{figure}
 
-Finally, note that from the theory of Koszul (pr)operads it is well-known that $\IBL$ is Koszul dual to $\Frob$, i.e., $\IBL^! = \Frob$ and $\Frob^! = \IBL$, where $\Frob$ is the properad of Frobenius bialgebras.
+As a final remark, it is well-known from the theory of Koszul (pr)operads that $\IBL$ is Koszul dual to $\Frob$, i.e., $\IBL^! = \Frob$ and $\Frob^! = \IBL$. 
+Here, $\Frob$ is the properad of Frobenius bialgebras.
 %(the coproduct is obtained from the product by dualization).
-Therefore, it holds $\IBLInfty = \Omega(\Frob^*)$, where $\Omega$ denotes the cobar construction and ${}^*$ the linear dual coproperad; this precisely reflects our situation of having a Frobenius structure on $\HDR$ (the coproduct is obtained from the product via dualization) and $\IBLInfty$-structure on $\CDBCyc \HDR = \reallywidehat{\BCyc\HDR^*}$, where $\hat{\cdot}$ denotes a suitable completion, since $\BCyc$ is a cyclic version of the cobar construction.
+It follows that $\IBLInfty = \Omega(\Frob^*)$, where $\Omega$ denotes the cobar construction and ${}^*$ the linear dual coproperad.
+This precisely reflects our situation of having a Frobenius bialgebra structure on $\HDR$, where the coproduct is obtained from $\wedge$ via dualization, and an $\IBLInfty$-structure on $\DBCyc \HDR$ if $\BCyc$ is understood as a cyclic version of the cobar construction.
 
-\section{Relevant work of others}
+\section{Other relevant work}
 
-In \cite{Cohen2001}, there is a homotopy theoretical realization of string topology operations $\StringOp_2$ and $\StringCoOp_2$. This is another approach to their rigorous definition.
+In \cite{Cohen2001}, a homotopy theoretical realization of the Chas-Sullivan loop product on $\H(\Loop M)$ by constructing the ``wrong way map'' using the Thom-Pontryagin construction was described.
+Note that having the loop product, one constructs $\StringOp_2$ on $\H^{\Sph{1}}(\Loop M)$ via the Gysin sequence for the Borel construction.
 
-In \cite{Cieliebak2007}, they sketch a proof that symplectic field theory of the unit cotangent bundle of $M$ and equivariant string topology of $M$ are $\IBLInfty$-quasi-isomorphic via a map induced from evaluations at boundaries of holomorphic curves. String topology operations then arise naturally from the structure of codimension $1$ boundary stratas of the moduli space of holomorphic curves with certain boundary conditions. In fact, a precise formulation of this correspondence was perhaps the main reason for Cieliebak \& Latschev to think about the $\IBLInfty$-chain model of string topology.\ToDo[caption={Precise formulation of SFT},noline]{How is it precisely, what kind of boundary conditions and punctures?}
+In \cite{Chen2012}, the Chas-Sullivan $\BV$-algebra on $\H(\Loop M)$ and the gravity algebra on $\H^{\Sph{1}}(\Loop M)$ were constructed using an algebraic model based on Whitney polynomial forms with coefficients in $\Q$.
+The advantage of Whitney forms $A$ over de Rham forms $\DR$ is that the dualization of the product gives a complete coproduct with values in the currents $C = A^*$, which together with the product on $A$ constitutes a dg Frobenius-like algebra.
+It is shown that $A\hat{\otimes}\hat{\Omega}(C)$, where $\hat{\Omega}$ denotes the complete cobar construction, carries a natural dg-algebra structure which corresponds to the loop product on $\H(\Loop M)$ under the Jones, et al., quasi-isomorphism from the singular chain complex of $\Loop M$.
+The equivariant case is handled with methods of Connes' cyclic homology.
 
-An $\IBLInfty$-structure on the singular equivariant chain complex was proposed by \cite{Sullivan2005}. It is constructed using ``diffusion intersection product'' which realizes the intersection on the chain level. In fact, there is much more string operations coming from stacks of Sullivan diagrams than just the bracket and cobracket.
+In \cite{Irie2014}, de Rham chains of marked Moore loops and their fiber products and concatenations are used to construct a non-symmetric dg operad $\mathcal{O}$ with a cyclic structure, multiplication and unit together with a morphism $\mathcal{O}\to \End_\DR$. The cyclic Deligne conjecture is applied to obtain an algebra $\widetilde{\mathcal{O}}$ over a chain model of the framed little disk operad (whose homology is the $\BV$-operad) such that the induced quasi-isomorphism from $\widetilde{\mathcal{O}}$ to Hochschild cochains induces an isomorphism of the $\BV$-structures on homology. The latter is known to be isomorphic to the $\BV$-structure on $\H(\Loop M)$ via iterated integrals.
+In addition, they use the homotopy transfer from $\widetilde{\mathcal{O}}$ to obtain $\AInfty$- and $\LInfty$-structures on $\H(LM)$ whose operations with $2$ inputs are the loop product and the Gerstenhaber bracket, respectively.
+Interestingly, their chain model works for non-simply connected $M$.
 
-There is a recent construction of chain level non-equivariant string topology on the singular chain complex of $\Loop M$ using fat graphs \cite{DrummondCole2015} and the diffusion intersection. It was shown in \cite{Cohen2006} that there is a TQFT of string operations on the non-equivariant homology. The aforementioned reference constructs a chain model for this entire gadget. 
+%In \cite{Cohen2006}, a TQFT on the non-equivariant loop space homology was constructed.
 
-There is an algebraic chain model for non-equivariant string topology in \cite{Chen2012}. An algebraic chain model is also constructed in \cite{Irie2014}. 
+In~\cite{DrummondCole2015}, they use diffuse intersection and short geodesic segments to associate to metric chord diagrams operations on the singular chain complex of $\Loop M$.
+They should recover the full positive boundary TQFT on $\H(\Loop M)$ described in \cite{Cohen2009}.
 
-Chain level string topology is required, e.g., in Fukaya's work on Lagrangian submanifolds.\ToDo[caption={What paper?},noline]{In what paper is this?}
+In \cite{Sullivan2005}, a rich structure of operations on equivariant chains of $\Loop M$ parametrized by chains in a certain compactification of the moduli space of Riemann surfaces is discussed. 
+A part of this structure is an $\IBLInfty$-chain model on the reduced chains.
+%In fact, it is just the genus $0$ part of its quantum version  there is more string operations coming from stacks of Sullivan diagrams than just the bracket and cobracket.
+
+In \cite{ViterboThm}, it is proven that the $\BV$-algebra of symplectic homology of the cotangent bundle of an oriented manifold $M$ is isomorphic to the $\BV$-algebra~$\H(\Loop M)$.
+
+In \cite{Cieliebak2007}, they sketch a proof that symplectic field theory of the unit cotangent bundle of $M$ and chain level equivariant string topology of $M$ are $\IBLInfty$-quasi-isomorphic via a map induced from evaluations at boundaries of holomorphic curves in symplectizations.
+From this point of view, string topology operations arise naturally from the structure of codimension $1$ boundary stratas of the moduli space of holomorphic curves.
+In fact, a precise formulation of this correspondence was perhaps the main reason for Cieliebak \& Latschev to think about an $\IBLInfty$-chain model of string topology.\ToDo[caption={Precise formulation of SFT},noline]{How is it precisely, what kind of boundary conditions and punctures?}
+
+In \cite{Fukaya2006}, it is argued that the compactified moduli space $\widehat{\Model}$ of holomorphic discs with boundaries on a Lagrangian submanifold $L$ of a symplectic manifold $M$ gives rise to a filtered $\AInfty$-structure on $\H^*(L)$.
+Evaluation at the boundary allows to interpret~$\widehat{\Model}$ as a chain in the free loop space.
+The structure of codimension 1 boundary strata of~$\widehat{\Model}$ implies the relation $\Bdd \widehat{\Model} + \frac{1}{2}\{\widehat{\Model},\widehat{\Model}\} = 0$, where~$\{\cdot,\cdot\}$ is the chain level string bracket.
+Under iterated integrals, this translates to the Maurer-Cartan equation on the cyclic bar construction of~$\DR(L)$ with the Gerstenhaber bracket.
+The twisted coderivation gives the $\AInfty$-structure on $\DR(L)$ which is then homotopy transferred to $\H^*(L)$. 
+\ToDo[caption={DONE What paper?},noline]{In what paper is this? Application of Floer homology of Langrangian submanifolds to symplectic topology}
 
 %(modulo problems with modding out constant loops and with degree shifts) In fact, there is a richer structure 
 %They defined the loop product $\LoopPr$ and the unary operator $\BVOp$ on~$\H(\Loop M)$.  In fact, $\StringOp_2$ and $\StringCoOp_2$ descend from $\LoopPr$ and $\LoopCoPr$, respectively, using the maps $\Mark$, $\Erase$ maps. The following phenomenons occur for a general $n$ and families of loops:
@@ -514,33 +652,47 @@ Chain level string topology is required, e.g., in Fukaya's work on Lagrangian su
 %
 %\end{Proposition}
 
-\section{Summary of my results}
+\section{Summary of results}
 
 \begin{enumerate}[label=\arabic*)]
+\item The starting point was setting up a formalism and deducing signs for a definition of the formal-pushforward Maurer-Cartan element, aka Chern-Simons Maurer-Cartan element, and the $\IBLInfty$-chain model in the de Rham setting.
+A big part of the work was about trying to understand what is happening and discovering and formulating the structure and possible claims.
 
-\item The biggest part of the work was about setting up a formalism and deducing signs for a definition of the formal-pushforward Maurer-Cartan element, aka Chern-Simons Maurer-Cartan element, and the $\IBLInfty$-chain model in de Rham setting. Another big part was about understanding what is happening and discovering and formulating the structure and possible claims.
-
-\item We compute the $\IBLInfty$-chain model for $\Sph{n}$ with $n\neq 2$ by finding an explicit Hodge propagator and computing Feynman integrals. In fact, for $n\ge 3$, all integrals which are relevant for the $\IBLInfty$-theory vanish.
+\item We compute the $\IBLInfty$-chain model for $\Sph{n}$ with $n\neq 2$ by finding an explicit Hodge propagator and computing Feynman integrals.
+In fact, for $n\ge 3$, all integrals which are relevant for the $\IBLInfty$-theory vanish.
  
-A trick from \cite{Mnev2009} is based on modifying an abstract Hodge propagator to obtain special properties implying vanishing of the integrals. The author of this thesis was not aware of this trick and tried to compute integrals with an explicit propagator in spherical coordinates for around 3 years until he rediscovered a part of this trick himself. The interesting thing is that the discovery was made via explicit computations, and it was a coincidence that the constructed Hodge propagator satisfied the special properties.
+A trick from \cite{Mnev2009} is based on modifying an abstract Hodge propagator to obtain special properties implying vanishing of the integrals.
+The author of this thesis was not aware of this trick and tried to compute integrals with an explicit propagator in spherical coordinates for around 3 years until he rediscovered a part of this trick himself. 
+The interesting thing is that the discovery was made via explicit computations, and it was a coincidence that the constructed Hodge propagator satisfied the special properties.
  
-\item Using the trick from \cite{Mnev2009}, we generalize the previous computation to geometrically formal manifolds and show that the Feynman integrals vanish provided that $\HDR^1(M) = 0$. For a general manifold, all higher coproducts vanish unless $M$ is a surface or a $3$-manifold with $\HDR^1(M) \neq 0$. In fact, the homotopy type of the $\IBLInfty$-chain model for a manifold with $\HDR^1(M) = 0$ is determined by the tree-level perturbative Chern-Simons theory for a special Hodge propagator.
+\item Using the trick from \cite{Mnev2009}, we generalize the previous computation to geometrically formal manifolds and show that the Feynman integrals vanish provided that $\HDR^1(M) = 0$.
+For a general manifold, all higher coproducts vanish unless $M$ is a surface or a $3$-manifold with $\HDR^1(M) \neq 0$.
+In fact, the homotopy type of the $\IBLInfty$-chain model for a manifold with $\HDR^1(M) = 0$ is determined by the tree-level perturbative Chern-Simons theory for a special Hodge propagator.
 
-\item We formulate a conjecture that the $\IBLInfty$-chain model for formal manifolds with $\HDR^1(M) = 0$ is homotopy equivalent to the canonical $\dIBL$-structure. We propose a strategy of proof based on Poincar\'e duality models.
+\item We conjecture that the $\IBLInfty$-chain model for formal manifolds with $\HDR^1(M) = 0$ is homotopy equivalent to the canonical $\dIBL$-structure.
 
-\item We study $\DGA$'s of Hodge type and give an alternative proof of the existence of a Poincar\'e duality model in the category of $\PDGA$'s; in the $\DGA$ category, this is originally due to Lambrechts \& Stanley. The new method is based on adding exact partners to non-degenerates rather than adding killers of orphans.
+\item There are two approaches of associating an $\IBLInfty$-homotopy type to a Poincar\'e $\DGA$ like $\DR(M)$.
+One is using the homotopy transfer and integrals as explained in the previous section (geometric approach) and one is by taking a Poincar\'e duality model $\Model$ and constructing the canonical $\dIBL$ structure on cyclic cochains of $\Model$ (algebraic approach).
+We study both and conjecture that they are equivalent. 
+
+\item We study $\DGA$'s of Hodge type and give an alternative proof of the existence of a Poincar\'e duality model in the category of $\PDGA$'s.
+In the $\DGA$ category, this is originally due to Lambrechts \& Stanley.
+The new method is based on adding exact partners to non-degenerates rather than adding killers of orphans.
  
-\item We prove a proposition that the cyclic homology of a strictly unital $\AInfty$-algebra can be computed from its reduced version. We do it by rewriting the Loday's cyclic homology theory for $\DGA$'s.
+\item We prove a proposition that the cyclic homology of a strictly unital $\AInfty$-algebra can be computed from its reduced version.
+We do it by extending Loday's cyclic homology theory for $\DGA$'s to $\AInfty$-algebras.
 
-\item We relate $\OPQ_{210}$ to Gerstenhaber bracket and cyclization and $\OPQ_{120}$ to the Schwarz's $\BV$-operator and cyclic shuffle product.
+\item We relate $\OPQ_{210}$ to Gerstenhaber bracket and its cyclization and $\OPQ_{120}$ to the Schwarz's $\BV$-operator and cyclic shuffle product.
 
-\item We extend the $\MV$-formalism to filtered $\MV$-formalism and use it to construct a $\BV$-formulation of the weak $\IBLInfty$-theory. This has the advantage that the exponentials are honest exponentials and honest maps. This will be useful for studying $\BV$-chain complexes.
+\item We extend the $\MV$-formalism to filtered $\MV$-formalism and use it to construct a $\BV$-formulation of the weak $\IBLInfty$-theory.
+This has the advantage that the exponentials are honest exponentials and honest maps.
+This will be useful for studying $\BV$-chain complexes.
 
 \item We formulate the composition at $k$-common channels $\circ_k$ using ``heart with veins'' which appears in the iterated bialgebra compatibility condition.
 
-\item We understood the $\BV$-formulation of $\IBLInfty$-theory with actions, effective action and quantum master equation.
+\item We propose a $\BV$-formulation of the $\IBLInfty$-theory with an action, effective action and quantum master equation.
 
-\item We find the standard Hodge propagator for $\Sph{2}$ up to constants and prove that it smoothly extends to blow-up.
+\item We find the standard Hodge propagator for $\Sph{2}$ up to a constant and prove that it smoothly extends to spherical blow-up.
 \end{enumerate}
 
 %\section{Author's commentary}

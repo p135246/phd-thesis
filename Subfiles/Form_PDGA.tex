@@ -4,7 +4,7 @@
 
 \begin{document}
 \section{Poincar\'e DGA's and Poincar\'e duality models}\label{SubSec:PoincModel}
-
+\allowdisplaybreaks
 \Correct[noline,caption={DONE Hom to weak Hom}]{Homotopy to weak homotopy}
 \Correct[noline,caption={DONE Add orientation to the data of PDGA}]{Add orientation to the data of PDGA}
 \Correct[noline,caption={DONE Change integral to or}]{Change integral to or}
@@ -386,9 +386,9 @@ Finally, let us note that in \cite{Cirici2019}, they use the inductive method to
 %Small Poincar\'e duality models exist when $\H^0 = \R$ and $\H^1 = 0$ and are unique up to an isomorphism provided that the conjectures from Sections~\ref{SubSec:CycStr} and~\ref{SubSec:PoincModel} are true.
 %\end{Corollary}
 
-The following example shows that the zig-zag of a Poincar\'e duality model can not be shortened to one arrow.
+The following example shows that the zig-zag of a Poincar\'e duality model can not always be shortened to one arrow.
 
-\begin{Example}[No Poincar\'e dualiy model with one arrow]\label{Ex:NoOneArrow}
+\begin{Example}[No Poincar\'e dualiy model with one arrow]\phantomsection\label{Ex:NoOneArrow}
 \begin{ExampleList}
 \item The closed genus $2$ surface $\Sigma_2$ does not admit a Poincar\'e duality model $A$ with just one arrow $A \rightarrow \DR(\Sigma_2)$. Suppose the contrary. We consider the quasi-isomorphism $f:A\rightarrow \DR(\Sigma_2)$ and compute for homogenous $v_1$, $v_2\in A$ the following:
 \begin{align*}
@@ -427,15 +427,15 @@ Therefore, $\omega(x) \neq 0$ implies that $K_i(x)$ are linearly independent. He
 \end{Example}
 
 
-\begin{Questions}\label{Q:QuestionsPonc}
+\begin{Questions}\phantomsection\label{Q:QuestionsPonc}
 \begin{RemarkList}
 %\item Is it possible to prove Proposition~\ref{Prop:LambrechtUnique} for $n\le 6$ when formality holds in an easier way?
 \item Give an example of a Sullivan minimal model $f: \Lambda U \rightarrow V$ of a $\PDGA$ $V$ which is not of Hodge type for any orientation such that $f_*: \H(\Lambda U) \rightarrow \H(V)$ is orientation preserving.
-\item Can some of the additional assumptions on $V$ in Lemma~\ref{Lemma:Exte} and Proposition~\ref{Prop:ExtensionOfHodgeType} be dropped?
-\item Can we describe a model category structure on Poincar\'e $\DGA$'s ?
+\item Can the additional assumptions in Lemma~\ref{Lemma:Exte} and Proposition~\ref{Prop:ExtensionOfHodgeType} be dropped?
+%\item Is t a model category structure on Poincar\'e $\DGA$'s ?
 %\item Sullivan's inductive construction gives a minimal model which resolves $V$. The construction of Proposition~\ref{Prop:ExOfLambrStan} does not resolve $V$ in any case \eqref{Eq:ModOne}, \eqref{Eq:ModTwo} and \eqref{Eq:ModThree}. Is it possible to resolve a $\PDGA$ by a Poincar\'e duality model? It is clearly possible in the geometrically formal case, i.e., when there is a $\DGA$-quasi-isomorphism $\H(V)\rightarrow V$.
 %For the sake of comparison with Sullivan's inductive construction, it might be interesting to know whether $\VansQuotient(\VansSmall(\cdot))$ is free over $\DGA$'s of Hodge type and whether its differential has decomposable image.
-\item Is smallness or minimal dimension the correct notion of minimality of a Poincar\'e duality model?  \qedhere
+\item Is smallness or minimal dimension the correct notion of ``minimality'' of a Poincar\'e duality model?  \qedhere
 \end{RemarkList}
 \end{Questions}
 

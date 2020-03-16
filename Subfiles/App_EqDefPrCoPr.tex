@@ -14,7 +14,7 @@ Do $\OPQ_{210}$ and $\OPQ_{120}$ arise as a combination of some natural operatio
 \Add[caption={DONE Gerstenhaber bracket},noline]{Mention that it is, in fact, the Gerstenhaber bracket!}
 In Section~\ref{Sec:LieBrHoch}, we define a canonical Lie bracket $[\cdot,\cdot]$ on Hochschild cochains on~$V$ with values in~$V$ (Definition~\ref{Def:CanonLA} and Proposition~\ref{Prop:CanonLA}), which comes from a natural pre-Lie algebra structure which is visualized as grafting of trees (Equation~\eqref{Eq:PreLie}, Figure~\ref{Fig:GraftTrees} and Lemma~\ref{Lem:PreLie}). This is, in fact, the Gerstenhaber bracket from \cite{Gerstenhaber1963}. Next, we use the symplectic form to define the operator~${}^+$ which ``lowers indices'' (Equation~\ref{Eq:ff}) and show that it takes $[\cdot,\cdot]$ to a Lie bracket on cyclic cochains on~$V$ with values in~$\R$ (Definition~\ref{Def:NewProduct} and Proposition~\ref{Prop:NewLieBr}). By writing down everything in coordinates, we show that this Lie bracket is a degree shift of $\OPQ_{210}$ (Proposition~\ref{Prop:EqOfDefCool}). This answers Question~\ref{Q:CanOp} for $\OPQ_{210}$.
 
-In Section~\ref{Sec:CoprNic}, we relate the cobracket $\OPQ_{120}$ to the canonical $\BV$-operator $\BVOpSym$ on ``functions'' on an odd symplectic vector space (Proposition~\ref{Prop:HochCycSym}). We do it by rewriting~$\OPQ_{120}$ in terms of certain double derivative operators on the tensor algebra, which are associated to a given basis (Definition~\ref{Def:DefOfHochOp}). We prove that both definitions are equivalent (Proposition~\ref{Prop:EqCoprod}). The $\BV$-operator $\BVOpSym$ can be defined geometrically (see~\cite{Doubek2018}), and the cobracket $\OPQ_{120}$ is a factorization of an extension of~$\BVOpSym$ to cyclic invariants with respect to the cyclic shuffle product. We do not know whether this characterization determines $\OPQ_{120}$ uniquely, and hence Question~\ref{Q:CanOp} for~$\OPQ_{120}$ remains open (see Remark~\ref{Rem:OpenProbBrCo} for a list of related questions). This section was stimulated by a discussion with J.~Pullman and L.~Peksov\'a at a winter school in Srn\'i, 2019.%\Reminder[noline,caption={Non-reduced operations}]{Check that the constructions here defined the non-reduced $\dIBL$-algebra!!}
+In Section~\ref{Sec:CoprNic}, we relate the cobracket $\OPQ_{120}$ to the canonical $\BV$-operator $\BVOpSym$ on ``functions'' on an odd symplectic vector space (Proposition~\ref{Prop:HochCycSym}). We do it by rewriting~$\OPQ_{120}$ in terms of certain double derivative operators on the tensor algebra, which are associated to a given basis (Definition~\ref{Def:DefOfHochOp}). We prove that both definitions are equivalent (Proposition~\ref{Prop:EqCoprod}). The $\BV$-operator $\BVOpSym$ can be defined geometrically (see~\cite{Doubek2018}), and the cobracket $\OPQ_{120}$ is a factorization of an extension of~$\BVOpSym$ to cyclic invariants with respect to the cyclic shuffle product. We do not know whether this characterization determines $\OPQ_{120}$ uniquely, and hence Question~\ref{Q:CanOp} for~$\OPQ_{120}$ remains open (see Questions~\ref{Q:OpenProbBrCo} for a list of related questions). This section was stimulated by a discussion with J.~Pullman and L.~Peksov\'a at a winter school in Srn\'i, 2019.%\Reminder[noline,caption={Non-reduced operations}]{Check that the constructions here defined the non-reduced $\dIBL$-algebra!!}
 
 \section{Bracket and grafting of trees}\label{Sec:LieBrHoch}
 
@@ -287,7 +287,7 @@ If we ignore the fact that the dualization of spaces like~$\DSp V$ is problemati
 where the map ${}^+: \DSp V\rightarrow\DSpPlus V$ of weight $+1$ was defined in \eqref{Eq:CycDiag}. It might be interesting to write down the coordinate expression for such $\bar{\delta}$ which comes from~$\OPQ_{120}$ and study its origin and properties on~$\DSp V$.
 \end{Remark}
 
-In the following definition, we will use the terms ``cobracket'' and ``$\BV$-operator'' to denote some operations without actually knowing that they satisfy the corresponding relations (see Remark~\ref{Rem:OpenProbBrCo} at the end of this section).
+In the following definition, we will use the terms ``cobracket'' and ``$\BV$-operator'' to denote some operations without actually knowing that they satisfy the corresponding relations (see Questions~\ref{Q:OpenProbBrCo} at the end of this section).
  
 \begin{Definition}[Hochschild cobracket and $\BV$-operator]\label{Def:DefOfHochOp}
 Let $V$ be a graded vector space, let $(e_i)\in V$ be its homogenous basis, and let $(\eta^i)\subset V^{\GD}$ be the dual basis, i.e., it holds $\eta^i(e_j) = \delta^i_j$. We denote by~$\Ten(V^{\GD})$ the tensor algebra over~$V^{\GD}$ and consider its basis $\eta^{\otimes I} \coloneqq \eta^{i_1} \otimes \dotsb \otimes \eta^{i_k}$ for all multiindices $I = (i_1,\dotsc,i_k)$.
@@ -599,7 +599,7 @@ This shows the proposition.
 %(\Ten V')_{\CycMRM}
 %\end{tikzcd}
 %\end{Remark}
-\begin{Remark}[Some questions]\label{Rem:OpenProbBrCo}
+\begin{Questions}\phantomsection\label{Q:OpenProbBrCo}
 \begin{RemarkList}
 \item Are $(\DSpPlusCyc V, \BVOpCyc, \ProdCyc)$ and $(\DSpPlus V, \BVOpHoch, \ProdSh)$ also $\BV$-algebras like $(\DSpPlusSym V, \BVOpSym, \ProdSym)$? Recall the 2nd-derivative identity (or the ''seven term identity'') which is used to define a $\BV$-algebra:
 \begin{equation}\label{Eq:secondderivative}\begin{aligned}
@@ -608,11 +608,12 @@ This shows the proposition.
 \end{aligned}\end{equation}
 It clearly uses associativity (and in this form also commutativity). It is a known fact that~$\ProdSh$ is both associative and commutative (see~\cite{LodayCyclic}). Therefore, the question for~$\BVOpHoch$ makes sense. However,~$\ProdCyc$ might not be associative (is it?), and hence~$\BVOp_{\text{cyc}}$ might not be a $\BV$-operator in the classical sense. Is it possible to define a second order derivative, and hence the notion of a $\BV$-operator, on a non-associative algebra?
 \item Do the factorizations $\BVOpCyc = \ProdCyc \circ \CoProdCyc$, resp.~$\BVOpSym= \ProdSym \circ \CoProdSym$ define $\CoProdCyc$, resp.~$\CoProdSym$ uniquely? Do other $\BV$-operators factorize like this? Is $\CoProdSym$ a cobracket and is there a bracket on ``symmetric Hochschild cochains'' inducing a bialgebra structure on~$\DSpPlusSym V$? 
-\item Are the new operations chain maps with respect to $\Hd$ (Hochschild differential) and~$\Hd + \Dd$? How are our constructions related to the work of other authors, e.g.,~\cite{Irie2014}? \Add[caption={DONE Kei Irie},noline]{Add Kei Irie reference to $\BV$-structure on Hochschild.}
+\item Are the new operations chain maps with respect to $\Hd$ and~$\Hd + \Dd$? 
+%How are our constructions related to the work of other authors, e.g.,~\cite{Irie2014}? \Add[caption={DONE Kei Irie},noline]{Add Kei Irie reference to $\BV$-structure on Hochschild.}
 %\item Our constructions produce $\OPQ_{120}^*$, $\OPQ_{210}^*$ on the non-reduced space $\DSpPlusCyc V$ (in contrast to $\OPQ_{210}$, $\OPQ_{120}$ on $\DSpPlusCycRed V$). Do these still satisfy the $\dIBL$-relations?
 \qedhere
 \end{RemarkList}
-\end{Remark}
+\end{Questions}
 %
 %\subsection{Comparison of products and explanation of }
 %We consider the identification $R: \Sym V' \rightarrow \DSpPlusSym V$ mapping $\pi(\eta^{\otimes I})$ to $\alpha^I$ and compute

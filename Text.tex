@@ -310,7 +310,7 @@ backend=biber % Using newer biber instead of older bibtex
 }
 \Correct[inline,caption={Questions}]{Make questions with ending QED Sign}
 
-%
+
 \chapter{Introduction}
 
 \subfile{\SubfilesFolder/ThesisIntroduction.tex}
@@ -390,6 +390,8 @@ backend=biber % Using newer biber instead of older bibtex
 \addtocontents{toc}{\protect\vspace{12pt}}%
 \addcontentsline{toc}{part}{Bibliography}
 
+\emergencystretch=1em
+% To allow more stretch and remove hbox overflow.
 \printbibliography
 
 \end{document}

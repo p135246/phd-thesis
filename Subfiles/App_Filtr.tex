@@ -113,7 +113,7 @@ In Section~\ref{Sec:DetailsOnFiltr}, we start by dealing with filtrations and co
 In Section~\ref{Sec:FilteredMV}, we recall $\MV$-algebras from \cite{Markl2015} and introduce their complete filtered version (Definition~\ref{Def:FilteredMV}). Based on this, in analogy to \cite{Markl2015}, we define the notion of a complete filtered $\IBLInfty$-algebra in $\MV$-formalism and its morphisms (Definition~\ref{Def:ComplFiltrIBL}). We study the equivalent formulation in components via the surface calculus (Proposition~\ref{Prop:EqCharOfMVIBL}). We show that the notion of a filtered $\IBLInfty$-algebra in $\MV$-formalism is equivalent to the notion of a filtered $\IBLInfty$-algebra from \cite{Cieliebak2015} in some cases, e.g., for the dual cyclic bar complex from Part~I (Proposition~\ref{Prop:BVforIBL}). The formalism of \cite{Cieliebak2015} is symmetric on exchanging inputs and outputs whereas the $\MV$-formalism is not; we illustrate how bubblings at inputs and outputs are handled differently (Example~\ref{Ex:AsymOfMV}). Finally, we consider twisting with a Maurer-Cartan element (Proposition~\ref{Eq:TwistingProp}).
 %Finally, we formulate some open questions (Remark~\ref{Rem:OpQueMV}).
 
-In Section~\ref{Sec:BVCompl}, we define the $\BV$-chain complexes associated to a complete filtered $\IBLInfty$-algebra in $\MV$-formalism (Definition~\ref{Def:BVCompl}) and observe that morphisms and the twisting with the Maurer-Cartan element induce chain maps of these chain complexes (Proposition~\ref{Prop:ObservationsMor}). We formulate some open questions (Remark~\ref{Rem:SomeQuestionsFilter}).
+In Section~\ref{Sec:BVCompl}, we define the $\BV$-chain complexes associated to a complete filtered $\IBLInfty$-algebra in $\MV$-formalism (Definition~\ref{Def:BVCompl}) and observe that morphisms and the twisting with the Maurer-Cartan element induce chain maps of these chain complexes (Proposition~\ref{Prop:ObservationsMor}). We formulate some open questions (Questions~\ref{Q:SomeQuestionsFilter}).
 
 In Section~\ref{Sec:CompConvA}, we study the composition of maps which are convolutions of other maps (Lemma~\ref{Lem:ItCompCond}). This leads to the definition of compositions controlling the number of ``veins'' between the individual maps (Definition~\ref{Def:ConComp}). This can be used to formulate the surface calculus algebraically (Proposition~\ref{Prop:PartCompAComp}). We give proofs of some formulas for partial compositions from Section~\ref{Sec:Alg1} (Proposition~\ref{Prop:PartCompositions}).
 
@@ -460,7 +460,7 @@ for all $n\ge n_0$. This shows the limit conilpotency property.
 \end{proof}
 
 
-\begin{Remark}[Exponential and logarithm in $\Star$]\label{Rem:ExpLogStar}
+\begin{Remark}[Exponential and logarithm in $\Star$]\phantomsection\label{Rem:ExpLogStar}
 \begin{RemarkList}
 \item It is obvious that Lemma~\ref{Lem:Exponential} holds for~$\Star$ with the weakened conditions~\eqref{Eq:ConditionsPowerSeries}. To sum up, the conditions for the existence of $\exp(\MVMorF)$ are $\Norm{\MVMorF}\ge 0$ and $\Norm{\MVMorF(1)}>0$, and the conditions for the existence of $\log(\MVMorF)$ are $\Norm{\MVMorF}\ge 0$ and $\Norm{\MVMorF(1) - 1}>0$.
 
@@ -578,7 +578,7 @@ The \emph{composition} $\DiamComp$ of two composable morphisms $\MVMorF_1$ and $
 
 Inspired by \eqref{Eq:InclOfCat}, we define the following version of weak $\IBLInfty$-algebras.
 
-\begin{Definition}[Complete filtered $\IBLInfty$-algebra in $\MV$-formalism]\label{Def:ComplFiltrIBL}
+\begin{Definition}[Complete filtered $\IBLInfty$-algebra in $\MV$-formalism]\phantomsection\label{Def:ComplFiltrIBL}
 Let $d\in\Z$ and $\gamma>0$. A \emph{complete filtered $\IBLInfty$-algebra of bidegree $(d,\gamma)$ in $\MV$-formalism} is a complete filtered $\MV$-algebra $(V,\BVOp, R, \MVProd, \MVCoProd, \MVAug, \MVUnit)$ satisfying the following conditions:
 \begin{enumerate}[label=(\arabic*)]
 \item $R=\K((\hbar))$ is the ring of Laurent series\footnote{Another notation for $\K((\hbar))$ is $\K[[\hbar]][\hbar^{-1}]$ to emphasize that it is the localization of the ring of power series $\K[[\hbar]]$ at the powers of $\hbar$. An element of $\K((\hbar))$ is a formal power series $\sum_{i=-\infty}^\infty a_i \hbar^i$ with only finitely many non-zero $a_i\in \K$ for $i\le 0$.} in a formal variable~$\hbar$ of degree $\Abs{\hbar} = 2 d$ equipped with the complete, Hausdorff and exhaustive filtration\Correct[noline,caption={DONE It is The multiplication is not continuous}]{The multiplication is not continuous}
@@ -1327,7 +1327,7 @@ Notice that whereas $L_{e^{\PMC(1)}}: \hat{\Sym}U \rightarrow\hat{\Sym}U$ is an 
 
 As an example, suppose that $\PMC(1) = \hbar^{-1}\PMC_{10}(1) \in \hat{\Sym}U$ (recall that we interpret $\PMC_{10}$ as a map $\K \rightarrow \hat{\Sym}U$) and assume that $L_{e^{\PMC(1)}} = e^\HTP$ for $\HTP = \HTP_0\hbar^{-1} + \HTP_1 + \HTP_2\hbar + \dotsb$ with $\hat{\Sym}_i U \subset \ker(\HTP_k)$ for all $i>k$. In particular, for $u\in U$, there is no negative power of $\hbar$ in $\HTP(u)$. On the other hand, there is precisely one negative power of $\hbar$ in $\sum_{k=1}^\infty \frac{(-1)^k}{k}(L_{e^{\PMC(1)}} - \StarProdOne)^{\Star k}u$, namely $\PMC_{10}(1)\hbar^{-1}$ for $k=1$. Therefore, $L_{e^{\PMC(1)}}$ does not come from a weak $\IBLInfty$-morphism as long as $\PMC_{10}(1)\neq 0$. This sheds light on the matter of the author's confusion from the preamble about twisting with a Maurer-Cartan element.
 
-\begin{Remark}[Some questions]\label{Rem:SomeQuestionsFilter}\begin{RemarkList}
+\begin{Questions}\phantomsection\label{Q:SomeQuestionsFilter}\begin{RemarkList}
 \item What is the geometric meaning of 
 \begin{equation}\label{Eq:HomGeom}
 \H(\hat{\Sym}U((\hbar)),\BVOp) \simeq \H(\hat{\Sym}U((\hbar)),\BVOp^\PMC), \quad\H(\hat{\Sym}U[[\hbar]],\BVOp)\quad\text{and}\quad\H(\hat{\Sym}U[[\hbar]],\BVOp^\PMC),
@@ -1341,10 +1341,10 @@ where $U=\DBCyc\HDR(M)[3-n]$ is the (reduced) dual cyclic bar complex of the de 
 \end{enumerate}
 \item For a Maurer-Cartan element $\PMC$, is there a formula for
 \[ \log L_{e^{\PMC(1)}}:\ \hat{\Sym}U((\hbar)) \longrightarrow \hat{\Sym}U((\hbar))? \]
-Notice that $\Norm{L_{e^{\PMC(1)}}}\ge 0$ and ${}$
+%Notice that $\Norm{L_{e^{\PMC(1)}}}\ge 0$ and ${}$
 \qedhere
 \end{RemarkList}
-\end{Remark}
+\end{Questions}
 
 \Add[caption={Add formulas},noline]{Add here formulas for $\PMC = \HTP_* \MC$. It should be the composition $\HTP \DiamComp \MC$ but $\MC$ is weak morphism! But very simple weak morphism. Maybe the induction will work. Add the formula for $\HTP^\MC = \log(L_{e^{-\MC(1)}}\circ e^\HTP \circ L_{e^{\MC(1)}})$. See Page 99 in Diary I.}
 
