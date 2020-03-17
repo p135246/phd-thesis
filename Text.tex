@@ -6,14 +6,21 @@
 
 \documentclass[11pt,
 a4paper,
-oneside, % One sided document. Change to twoside for print version
+twoside,%=semi, % Use just twoside if two sided print!
 openright, % Chapters begin on the right
-cleardoublepage=plain, % Add page number on empty pages when cleardoublepage is executed
+%cleardoublepage=plain, % Add page number on empty pages when cleardoublepage is executed
 %numbers=noenddot, % No dot after the section number
 %listof=totoc % Insert list of figures to toc
 final
 %draft % draft version shows black boxes at hnox overflow
 ]{scrbook}
+
+% Uncomment the following to compile with onesided headers and footers!
+% The following changes the header and footer to the onesided layout in twosided document
+%\usepackage[automark]{scrlayer-scrpage}
+%\clearpairofpagestyles
+%\chead{\leftmark}
+%\cfoot*{\pagemark}
 
 \renewcommand{\baselinestretch}{1.2} % IS IT OK?
 
@@ -386,7 +393,7 @@ backend=biber % Using newer biber instead of older bibtex
 
 
 \backmatter
-
+\phantomsection
 \addtocontents{toc}{\protect\vspace{12pt}}%
 \addcontentsline{toc}{part}{Bibliography}
 
